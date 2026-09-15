@@ -1,0 +1,1084 @@
+{
+  "synthetic": true,
+  "real_game_verified": false,
+  "trace": [
+    {
+      "version": "arena-content-flow/1",
+      "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+      "rules_version": "arena-content-rules/4",
+      "revision": 0,
+      "node": "opening",
+      "complete": false,
+      "state": {
+        "dance": 0.0,
+        "dance_growth": 0.0,
+        "max_stamina": 30.0,
+        "produce_points": 100.0,
+        "stamina": 30.0,
+        "visual": 0.0,
+        "visual_growth": 0.0,
+        "vocal": 0.0,
+        "vocal_growth": 0.0
+      },
+      "deck": [
+        {
+          "id": "entity:1",
+          "card_id": "starter/focus",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:2",
+          "card_id": "starter/good",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:3",
+          "card_id": "starter/score",
+          "upgrade": 0
+        }
+      ],
+      "drinks": [],
+      "pending": {
+        "kind": "event",
+        "count": 1,
+        "optional": false,
+        "candidates": [
+          {
+            "id": "practice",
+            "label": "练习",
+            "enabled": true
+          },
+          {
+            "id": "rest",
+            "label": "休息后去领奖",
+            "enabled": true
+          }
+        ]
+      },
+      "exam": null
+    },
+    {
+      "version": "arena-content-flow/1",
+      "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+      "rules_version": "arena-content-rules/4",
+      "revision": 1,
+      "node": "lesson",
+      "complete": false,
+      "state": {
+        "dance": 0.0,
+        "dance_growth": 0.0,
+        "max_stamina": 30.0,
+        "produce_points": 100.0,
+        "stamina": 30.0,
+        "visual": 0.0,
+        "visual_growth": 0.0,
+        "vocal": 0.0,
+        "vocal_growth": 0.0
+      },
+      "deck": [
+        {
+          "id": "entity:1",
+          "card_id": "starter/focus",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:2",
+          "card_id": "starter/good",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:3",
+          "card_id": "starter/score",
+          "upgrade": 0
+        }
+      ],
+      "drinks": [],
+      "pending": {
+        "kind": "training",
+        "count": 1,
+        "optional": false,
+        "candidates": [
+          {
+            "id": "starter/vocal_training",
+            "label": "合成：歌唱训练",
+            "enabled": true
+          }
+        ]
+      },
+      "exam": null
+    },
+    {
+      "version": "arena-content-flow/1",
+      "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+      "rules_version": "arena-content-rules/4",
+      "revision": 2,
+      "node": "reward",
+      "complete": false,
+      "state": {
+        "dance": 0.0,
+        "dance_growth": 0.0,
+        "max_stamina": 30.0,
+        "produce_points": 100.0,
+        "stamina": 25.0,
+        "visual": 0.0,
+        "visual_growth": 0.0,
+        "vocal": 40.0,
+        "vocal_growth": 0.0
+      },
+      "deck": [
+        {
+          "id": "entity:1",
+          "card_id": "starter/focus",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:2",
+          "card_id": "starter/good",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:3",
+          "card_id": "starter/score",
+          "upgrade": 0
+        }
+      ],
+      "drinks": [],
+      "pending": {
+        "kind": "event",
+        "count": 1,
+        "optional": false,
+        "candidates": [
+          {
+            "id": "claim",
+            "label": "领取饮料并强化卡牌",
+            "enabled": true
+          }
+        ]
+      },
+      "exam": null
+    },
+    {
+      "version": "arena-content-flow/1",
+      "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+      "rules_version": "arena-content-rules/4",
+      "revision": 3,
+      "node": "reward",
+      "complete": false,
+      "state": {
+        "dance": 0.0,
+        "dance_growth": 0.0,
+        "max_stamina": 30.0,
+        "produce_points": 100.0,
+        "stamina": 25.0,
+        "visual": 0.0,
+        "visual_growth": 0.0,
+        "vocal": 40.0,
+        "vocal_growth": 0.0
+      },
+      "deck": [
+        {
+          "id": "entity:1",
+          "card_id": "starter/focus",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:2",
+          "card_id": "starter/good",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:3",
+          "card_id": "starter/score",
+          "upgrade": 0
+        }
+      ],
+      "drinks": [
+        {
+          "id": "entity:4",
+          "drink_id": "starter/draw_drink"
+        }
+      ],
+      "pending": {
+        "kind": "deck_choice",
+        "action": "upgrade",
+        "count": 1,
+        "optional": false,
+        "candidates": [
+          {
+            "id": "entity:3",
+            "card_id": "starter/score",
+            "enabled": true
+          }
+        ]
+      },
+      "exam": null
+    },
+    {
+      "version": "arena-content-flow/1",
+      "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+      "rules_version": "arena-content-rules/4",
+      "revision": 4,
+      "node": "exam",
+      "complete": false,
+      "state": {
+        "dance": 0.0,
+        "dance_growth": 0.0,
+        "max_stamina": 30.0,
+        "produce_points": 100.0,
+        "stamina": 25.0,
+        "visual": 0.0,
+        "visual_growth": 0.0,
+        "vocal": 40.0,
+        "vocal_growth": 0.0
+      },
+      "deck": [
+        {
+          "id": "entity:1",
+          "card_id": "starter/focus",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:2",
+          "card_id": "starter/good",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:3",
+          "card_id": "starter/score",
+          "upgrade": 1
+        }
+      ],
+      "drinks": [
+        {
+          "id": "entity:4",
+          "drink_id": "starter/draw_drink"
+        }
+      ],
+      "pending": null,
+      "exam": {
+        "version": "arena-content-exam/1",
+        "visibility": "simulation_full",
+        "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+        "rules_version": "arena-content-rules/4",
+        "revision": 0,
+        "turn": 1,
+        "max_turns": 3,
+        "extra_turns": 0,
+        "counter_semantics": "arena-exam-counters/1",
+        "plays_used": 0,
+        "plays_remaining": 1,
+        "score": 0.0,
+        "stamina": 25.0,
+        "max_stamina": 30.0,
+        "resources": {
+          "block": 0.0,
+          "full_power_point": 0.0,
+          "stamina_consumption_down": 0.0,
+          "parameter_buff_multiple_per_turn": 0.0,
+          "panic": 0.0,
+          "slump": 0.0,
+          "enthusiastic": 0.0,
+          "concentration": 0.0,
+          "preservation": 0.0,
+          "over_preservation": 0.0,
+          "stance_lock": 0.0,
+          "active_skill_forbidden": 0.0,
+          "mental_skill_forbidden": 0.0,
+          "review": 0.0,
+          "parameter_buff": 0.0,
+          "lesson_buff": 2.0,
+          "aggressive": 0.0,
+          "sleepy": 0.0
+        },
+        "zones": {
+          "hand": [
+            {
+              "id": "2",
+              "card_id": "starter/good",
+              "upgrade": 0,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            },
+            {
+              "id": "3",
+              "card_id": "starter/score",
+              "upgrade": 1,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            },
+            {
+              "id": "1",
+              "card_id": "starter/focus",
+              "upgrade": 0,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            }
+          ],
+          "deck": [],
+          "grave": [],
+          "lost": [],
+          "hold": [],
+          "playing": []
+        },
+        "drinks": [
+          {
+            "id": "drink:0",
+            "definition_id": "starter/draw_drink",
+            "consumed": false
+          }
+        ],
+        "enchants": [
+          {
+            "uid": 4,
+            "enchant_id": "starter/turn_focus",
+            "trigger_id": "starter/turn_start",
+            "effect_ids": [
+              "starter/focus2"
+            ],
+            "remaining_turns": null,
+            "remaining_count": 1,
+            "source": "produce_item",
+            "applied_turn": 0,
+            "source_identity": "item:0:0",
+            "bound_card_uid": null,
+            "once_per_turn": false,
+            "last_fired_turn": 1
+          }
+        ],
+        "timed_effects": [],
+        "scheduled_effects": [],
+        "complete": false,
+        "passed": false,
+        "pending": null,
+        "actions": [
+          {
+            "id": "card:2",
+            "label": "合成：好调三回合[0]"
+          },
+          {
+            "id": "card:3",
+            "label": "合成：表现+[1]"
+          },
+          {
+            "id": "card:1",
+            "label": "合成：集中[0]"
+          },
+          {
+            "id": "drink:0",
+            "label": "合成：抽牌饮料"
+          },
+          {
+            "id": "end_turn",
+            "label": "结束回合"
+          }
+        ]
+      }
+    },
+    {
+      "version": "arena-content-flow/1",
+      "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+      "rules_version": "arena-content-rules/4",
+      "revision": 5,
+      "node": "exam",
+      "complete": false,
+      "state": {
+        "dance": 0.0,
+        "dance_growth": 0.0,
+        "max_stamina": 30.0,
+        "produce_points": 100.0,
+        "stamina": 25.0,
+        "visual": 0.0,
+        "visual_growth": 0.0,
+        "vocal": 40.0,
+        "vocal_growth": 0.0
+      },
+      "deck": [
+        {
+          "id": "entity:1",
+          "card_id": "starter/focus",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:2",
+          "card_id": "starter/good",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:3",
+          "card_id": "starter/score",
+          "upgrade": 1
+        }
+      ],
+      "drinks": [
+        {
+          "id": "entity:4",
+          "drink_id": "starter/draw_drink"
+        }
+      ],
+      "pending": null,
+      "exam": {
+        "version": "arena-content-exam/1",
+        "visibility": "simulation_full",
+        "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+        "rules_version": "arena-content-rules/4",
+        "revision": 1,
+        "turn": 1,
+        "max_turns": 3,
+        "extra_turns": 0,
+        "counter_semantics": "arena-exam-counters/1",
+        "plays_used": 1,
+        "plays_remaining": 1,
+        "score": 0.0,
+        "stamina": 22.0,
+        "max_stamina": 30.0,
+        "resources": {
+          "block": 0.0,
+          "full_power_point": 0.0,
+          "stamina_consumption_down": 0.0,
+          "parameter_buff_multiple_per_turn": 0.0,
+          "panic": 0.0,
+          "slump": 0.0,
+          "enthusiastic": 0.0,
+          "concentration": 0.0,
+          "preservation": 0.0,
+          "over_preservation": 0.0,
+          "stance_lock": 0.0,
+          "active_skill_forbidden": 0.0,
+          "mental_skill_forbidden": 0.0,
+          "review": 0.0,
+          "parameter_buff": 3.0,
+          "lesson_buff": 2.0,
+          "aggressive": 0.0,
+          "sleepy": 0.0
+        },
+        "zones": {
+          "hand": [
+            {
+              "id": "3",
+              "card_id": "starter/score",
+              "upgrade": 1,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            },
+            {
+              "id": "1",
+              "card_id": "starter/focus",
+              "upgrade": 0,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            }
+          ],
+          "deck": [],
+          "grave": [],
+          "lost": [
+            {
+              "id": "2",
+              "card_id": "starter/good",
+              "upgrade": 0,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            }
+          ],
+          "hold": [],
+          "playing": []
+        },
+        "drinks": [
+          {
+            "id": "drink:0",
+            "definition_id": "starter/draw_drink",
+            "consumed": false
+          }
+        ],
+        "enchants": [
+          {
+            "uid": 4,
+            "enchant_id": "starter/turn_focus",
+            "trigger_id": "starter/turn_start",
+            "effect_ids": [
+              "starter/focus2"
+            ],
+            "remaining_turns": null,
+            "remaining_count": 1,
+            "source": "produce_item",
+            "applied_turn": 0,
+            "source_identity": "item:0:0",
+            "bound_card_uid": null,
+            "once_per_turn": false,
+            "last_fired_turn": 1
+          }
+        ],
+        "timed_effects": [],
+        "scheduled_effects": [],
+        "complete": false,
+        "passed": false,
+        "pending": null,
+        "actions": [
+          {
+            "id": "card:3",
+            "label": "合成：表现+[1]"
+          },
+          {
+            "id": "card:1",
+            "label": "合成：集中[0]"
+          },
+          {
+            "id": "drink:0",
+            "label": "合成：抽牌饮料"
+          },
+          {
+            "id": "end_turn",
+            "label": "结束回合"
+          }
+        ]
+      }
+    },
+    {
+      "version": "arena-content-flow/1",
+      "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+      "rules_version": "arena-content-rules/4",
+      "revision": 6,
+      "node": "exam",
+      "complete": false,
+      "state": {
+        "dance": 0.0,
+        "dance_growth": 0.0,
+        "max_stamina": 30.0,
+        "produce_points": 100.0,
+        "stamina": 25.0,
+        "visual": 0.0,
+        "visual_growth": 0.0,
+        "vocal": 40.0,
+        "vocal_growth": 0.0
+      },
+      "deck": [
+        {
+          "id": "entity:1",
+          "card_id": "starter/focus",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:2",
+          "card_id": "starter/good",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:3",
+          "card_id": "starter/score",
+          "upgrade": 1
+        }
+      ],
+      "drinks": [
+        {
+          "id": "entity:4",
+          "drink_id": "starter/draw_drink"
+        }
+      ],
+      "pending": null,
+      "exam": {
+        "version": "arena-content-exam/1",
+        "visibility": "simulation_full",
+        "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+        "rules_version": "arena-content-rules/4",
+        "revision": 2,
+        "turn": 2,
+        "max_turns": 3,
+        "extra_turns": 0,
+        "counter_semantics": "arena-exam-counters/1",
+        "plays_used": 0,
+        "plays_remaining": 1,
+        "score": 21.0,
+        "stamina": 20.0,
+        "max_stamina": 30.0,
+        "resources": {
+          "block": 0.0,
+          "full_power_point": 0.0,
+          "stamina_consumption_down": 0.0,
+          "parameter_buff_multiple_per_turn": 0.0,
+          "panic": 0.0,
+          "slump": 0.0,
+          "enthusiastic": 0.0,
+          "concentration": 0.0,
+          "preservation": 0.0,
+          "over_preservation": 0.0,
+          "stance_lock": 0.0,
+          "active_skill_forbidden": 0.0,
+          "mental_skill_forbidden": 0.0,
+          "review": 0.0,
+          "parameter_buff": 3.0,
+          "lesson_buff": 4.0,
+          "aggressive": 0.0,
+          "sleepy": 0.0
+        },
+        "zones": {
+          "hand": [
+            {
+              "id": "1",
+              "card_id": "starter/focus",
+              "upgrade": 0,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            },
+            {
+              "id": "3",
+              "card_id": "starter/score",
+              "upgrade": 1,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            }
+          ],
+          "deck": [],
+          "grave": [],
+          "lost": [
+            {
+              "id": "2",
+              "card_id": "starter/good",
+              "upgrade": 0,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            }
+          ],
+          "hold": [],
+          "playing": []
+        },
+        "drinks": [
+          {
+            "id": "drink:0",
+            "definition_id": "starter/draw_drink",
+            "consumed": false
+          }
+        ],
+        "enchants": [],
+        "timed_effects": [],
+        "scheduled_effects": [],
+        "complete": false,
+        "passed": false,
+        "pending": null,
+        "actions": [
+          {
+            "id": "card:1",
+            "label": "合成：集中[0]"
+          },
+          {
+            "id": "card:3",
+            "label": "合成：表现+[1]"
+          },
+          {
+            "id": "drink:0",
+            "label": "合成：抽牌饮料"
+          },
+          {
+            "id": "end_turn",
+            "label": "结束回合"
+          }
+        ]
+      }
+    },
+    {
+      "version": "arena-content-flow/1",
+      "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+      "rules_version": "arena-content-rules/4",
+      "revision": 7,
+      "node": "exam",
+      "complete": false,
+      "state": {
+        "dance": 0.0,
+        "dance_growth": 0.0,
+        "max_stamina": 30.0,
+        "produce_points": 100.0,
+        "stamina": 25.0,
+        "visual": 0.0,
+        "visual_growth": 0.0,
+        "vocal": 40.0,
+        "vocal_growth": 0.0
+      },
+      "deck": [
+        {
+          "id": "entity:1",
+          "card_id": "starter/focus",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:2",
+          "card_id": "starter/good",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:3",
+          "card_id": "starter/score",
+          "upgrade": 1
+        }
+      ],
+      "drinks": [
+        {
+          "id": "entity:4",
+          "drink_id": "starter/draw_drink"
+        }
+      ],
+      "pending": null,
+      "exam": {
+        "version": "arena-content-exam/1",
+        "visibility": "simulation_full",
+        "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+        "rules_version": "arena-content-rules/4",
+        "revision": 3,
+        "turn": 2,
+        "max_turns": 3,
+        "extra_turns": 0,
+        "counter_semantics": "arena-exam-counters/1",
+        "plays_used": 1,
+        "plays_remaining": 1,
+        "score": 21.0,
+        "stamina": 20.0,
+        "max_stamina": 30.0,
+        "resources": {
+          "block": 0.0,
+          "full_power_point": 0.0,
+          "stamina_consumption_down": 0.0,
+          "parameter_buff_multiple_per_turn": 0.0,
+          "panic": 0.0,
+          "slump": 0.0,
+          "enthusiastic": 0.0,
+          "concentration": 0.0,
+          "preservation": 0.0,
+          "over_preservation": 0.0,
+          "stance_lock": 0.0,
+          "active_skill_forbidden": 0.0,
+          "mental_skill_forbidden": 0.0,
+          "review": 0.0,
+          "parameter_buff": 3.0,
+          "lesson_buff": 6.0,
+          "aggressive": 0.0,
+          "sleepy": 0.0
+        },
+        "zones": {
+          "hand": [
+            {
+              "id": "3",
+              "card_id": "starter/score",
+              "upgrade": 1,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            }
+          ],
+          "deck": [],
+          "grave": [],
+          "lost": [
+            {
+              "id": "2",
+              "card_id": "starter/good",
+              "upgrade": 0,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            },
+            {
+              "id": "1",
+              "card_id": "starter/focus",
+              "upgrade": 0,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            }
+          ],
+          "hold": [],
+          "playing": []
+        },
+        "drinks": [
+          {
+            "id": "drink:0",
+            "definition_id": "starter/draw_drink",
+            "consumed": false
+          }
+        ],
+        "enchants": [],
+        "timed_effects": [],
+        "scheduled_effects": [],
+        "complete": false,
+        "passed": false,
+        "pending": null,
+        "actions": [
+          {
+            "id": "card:3",
+            "label": "合成：表现+[1]"
+          },
+          {
+            "id": "drink:0",
+            "label": "合成：抽牌饮料"
+          },
+          {
+            "id": "end_turn",
+            "label": "结束回合"
+          }
+        ]
+      }
+    },
+    {
+      "version": "arena-content-flow/1",
+      "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+      "rules_version": "arena-content-rules/4",
+      "revision": 8,
+      "node": "exam",
+      "complete": false,
+      "state": {
+        "dance": 0.0,
+        "dance_growth": 0.0,
+        "max_stamina": 30.0,
+        "produce_points": 100.0,
+        "stamina": 25.0,
+        "visual": 0.0,
+        "visual_growth": 0.0,
+        "vocal": 40.0,
+        "vocal_growth": 0.0
+      },
+      "deck": [
+        {
+          "id": "entity:1",
+          "card_id": "starter/focus",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:2",
+          "card_id": "starter/good",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:3",
+          "card_id": "starter/score",
+          "upgrade": 1
+        }
+      ],
+      "drinks": [
+        {
+          "id": "entity:4",
+          "drink_id": "starter/draw_drink"
+        }
+      ],
+      "pending": null,
+      "exam": {
+        "version": "arena-content-exam/1",
+        "visibility": "simulation_full",
+        "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+        "rules_version": "arena-content-rules/4",
+        "revision": 4,
+        "turn": 3,
+        "max_turns": 3,
+        "extra_turns": 0,
+        "counter_semantics": "arena-exam-counters/1",
+        "plays_used": 0,
+        "plays_remaining": 1,
+        "score": 48.0,
+        "stamina": 18.0,
+        "max_stamina": 30.0,
+        "resources": {
+          "block": 0.0,
+          "full_power_point": 0.0,
+          "stamina_consumption_down": 0.0,
+          "parameter_buff_multiple_per_turn": 0.0,
+          "panic": 0.0,
+          "slump": 0.0,
+          "enthusiastic": 0.0,
+          "concentration": 0.0,
+          "preservation": 0.0,
+          "over_preservation": 0.0,
+          "stance_lock": 0.0,
+          "active_skill_forbidden": 0.0,
+          "mental_skill_forbidden": 0.0,
+          "review": 0.0,
+          "parameter_buff": 2.0,
+          "lesson_buff": 6.0,
+          "aggressive": 0.0,
+          "sleepy": 0.0
+        },
+        "zones": {
+          "hand": [
+            {
+              "id": "3",
+              "card_id": "starter/score",
+              "upgrade": 1,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            }
+          ],
+          "deck": [],
+          "grave": [],
+          "lost": [
+            {
+              "id": "2",
+              "card_id": "starter/good",
+              "upgrade": 0,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            },
+            {
+              "id": "1",
+              "card_id": "starter/focus",
+              "upgrade": 0,
+              "growth": [],
+              "status_enchant": "",
+              "transient_effects": [],
+              "transient_triggers": [],
+              "play_count_bonus": 0
+            }
+          ],
+          "hold": [],
+          "playing": []
+        },
+        "drinks": [
+          {
+            "id": "drink:0",
+            "definition_id": "starter/draw_drink",
+            "consumed": false
+          }
+        ],
+        "enchants": [],
+        "timed_effects": [],
+        "scheduled_effects": [],
+        "complete": false,
+        "passed": false,
+        "pending": null,
+        "actions": [
+          {
+            "id": "card:3",
+            "label": "合成：表现+[1]"
+          },
+          {
+            "id": "drink:0",
+            "label": "合成：抽牌饮料"
+          },
+          {
+            "id": "end_turn",
+            "label": "结束回合"
+          }
+        ]
+      }
+    },
+    {
+      "version": "arena-content-flow/1",
+      "content_digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+      "rules_version": "arena-content-rules/4",
+      "revision": 9,
+      "node": "success",
+      "complete": true,
+      "state": {
+        "dance": 0.0,
+        "dance_growth": 0.0,
+        "max_stamina": 30.0,
+        "produce_points": 150.0,
+        "stamina": 16.0,
+        "visual": 0.0,
+        "visual_growth": 0.0,
+        "vocal": 40.0,
+        "vocal_growth": 0.0
+      },
+      "deck": [
+        {
+          "id": "entity:1",
+          "card_id": "starter/focus",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:2",
+          "card_id": "starter/good",
+          "upgrade": 0
+        },
+        {
+          "id": "entity:3",
+          "card_id": "starter/score",
+          "upgrade": 1
+        }
+      ],
+      "drinks": [
+        {
+          "id": "entity:4",
+          "drink_id": "starter/draw_drink"
+        }
+      ],
+      "pending": null,
+      "exam": null
+    }
+  ],
+  "snapshot": {
+    "version": "arena-content-session/1",
+    "digest": "131bf05473f03cf71caad741b890d8a6ec36a8df2c7aa32abb30ec743e268184",
+    "scenario": "starter/scenario",
+    "seed": 0,
+    "journal": [
+      {
+        "choice": [
+          "practice"
+        ]
+      },
+      {
+        "choice": [
+          "starter/vocal_training"
+        ]
+      },
+      {
+        "choice": [
+          "claim"
+        ]
+      },
+      {
+        "choice": [
+          "entity:3"
+        ]
+      },
+      {
+        "exam_action": "card:2"
+      },
+      {
+        "exam_action": "card:3"
+      },
+      {
+        "exam_action": "card:1"
+      },
+      {
+        "exam_action": "card:3"
+      },
+      {
+        "exam_action": "card:3"
+      }
+    ],
+    "integrity": "0c9620a44de6a45bcb53a430b7beba45fcd161ab8b880b1117a2ce57cb78e2e2"
+  }
+}

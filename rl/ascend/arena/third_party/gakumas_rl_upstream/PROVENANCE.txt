@@ -1,0 +1,25 @@
+upstream: https://github.com/skyfsj/gakumas-rl @ 40b8d8b19da8480ce8ffe393067442afd872e398 (2026-05-17 21:29:46 +0800)
+
+Local changes on codex/arena-live-bridge (base ef2402958547b2050e873841b9ff5066a895b1a9), 2026-09-07:
+- loadout.py / idol_config.py / interfaces/service.py: 逐卡支援等级，回忆来源与使用限制分离，自定义共用解析器。
+- simulation/exam/runtime.py: 絶好調合并/消耗剩余回合；保留原分数公式的存在性判断。
+- simulation/produce/runtime.py / choices.py / hif.py: 延迟回忆与连锁保护，奖励/咨询暂停选择，HIF 变体/来源继承。
+- repository/master_data.py: 动作 taxonomy v2、缓存版本2、可配置的 HIF 回忆中期边界。
+- simulation/encoding.py: 共用原环境编码的可观测掩码与训练 wrapper、版本 manifest。
+- interfaces/inference_service.py: 拒绝旧假特征，新增带 manifest/掩码校验的编码输入推理。
+- 规则证据、数据版本、实况已支持/未实现范围见 docs/ARENA_ENGINE_UPDATE.md 与 docs/rules/scoring_fidelity.md。
+- 多级自定义按当前等级总效果替换上一级，保留其他成长；依据 gakumasu-diff 571dbb6 及 gakumas-tools 6c3d006 的等级 patch，见 docs/research/live_reference_sources.md。
+- 考试实况阶段：simulation/exam/runtime.py 增加 observation_only 构造，跳过随机初始化且拒绝 reset/step。
+- simulation/envs.py 可注入观察 runtime；卡静态编码缓存区分强化及实际卡面，避免同 ID 不同变体冲突。
+- simulation/exam/observed_encoding.py 共用考试可观察编码、known masks、选择页 kind 和版本 manifest。
+- simulation/exam/choice_boundary.py 增加显式单卡检索/弃牌边界；尚未替换 seeded 宏动作的自动补选流程。
+- 范围、合成验收与实机待采集字段见 docs/ARENA_EXAM_UPDATE.md；本阶段不训练 RL、不操作游戏。
+- 2026-09-08：simulation/exam/passive_catalog.py 固定六个有证据指向的实况被动定义；observed_encoding.py 升级 arena-exam-observed/2，增加被动身份/次数/时间特征及掩码。无 seeded 效果分发或规则公式改动。
+- 来源证据、连续计数定义和支持边界见 docs/LIVE_PASSIVE_CONTRACT.md；root/Maa/runs 未修改，不执行游戏输入。
+- 2026-09-08 内容基础设施：simulation/exam/runtime.py 接受显式最大体力、保留空牌组/空饮料、向非卡绑定触发传递事件卡、保留自动使用的玩家窗口补偿。
+- effects/simple.py 的追加回合读取配置数量；effects/context.py 的嵌套强制使用恢复外层当前卡、playing 和临时效果水位。
+- simulation/exam/structural_encoding.py 新增按机制结构的被动/效果张量；observed_encoding.py 以显式 opt-in 提供 observed/3，原 observed/2 不变。
+- 新内容编译器与流程在 gakumas_arena/content，复用上述原生结算；没有复制外部 gakumas-tools 的引擎实现。
+- 详细合成验收、旧固定 seed 测试变更原因及未迁移官方内容见 docs/ARENA_CONTENT_UPDATE.md。
+- 2026-09-08 真实内容目录：runtime._schedule_effect 同时读取 chainProduceExamEffectId 与 chainProduceExamEffectIds，按原始顺序调度多效果；此前列表字段会被忽略。真实数据采用固定主数据库，没有导入外部模拟器实现。
+- 2026-09-08 卡牌移区：runtime 消费 moveEffectTriggerType 与 moveProduceExamEffectIds，抽牌/生成/保留/返回复用自身移区效果入口；不增加出牌次数。相同区域与未实际入手不触发。依据固定主数据的 Hand/Hold 定义；条件列表及完整环境触发排序尚未认证，见 docs/CARD_MOVEMENT_CONTRACT.md。未复制外部实现，实况绝对观察与原命令恢复协议不变。

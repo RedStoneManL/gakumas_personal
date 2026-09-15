@@ -1,0 +1,62 @@
+{
+  "schema_version": "arena-content/1",
+  "namespace": "starter",
+  "revision": "1",
+  "synthetic": true,
+  "effects": [
+    {"id": "starter/focus2", "operation": "concentration", "arguments": {"amount": 2}},
+    {"id": "starter/good3", "operation": "good_condition", "arguments": {"turns": 3}},
+    {"id": "starter/score8", "operation": "score", "arguments": {"amount": 8}},
+    {"id": "starter/score12", "operation": "score", "arguments": {"amount": 12}},
+    {"id": "starter/action1", "operation": "extra_action", "arguments": {"amount": 1}},
+    {"id": "starter/draw1", "operation": "draw", "arguments": {"amount": 1}},
+    {"id": "starter/install", "operation": "passive", "arguments": {"id": "starter/turn_focus"}},
+    {"id": "starter/search1", "operation": "move_card", "arguments": {
+      "search": "starter/deck_and_discard", "destination": "hand", "mode": "select", "count": 1}}
+  ],
+  "searches": [{"id": "starter/deck_and_discard", "zone": "deck_grave"}],
+  "triggers": [{"id": "starter/turn_start", "phase": "turn_start"}],
+  "passives": [{"id": "starter/turn_focus", "trigger": "starter/turn_start",
+    "effects": ["starter/focus2"], "uses": 2}],
+  "cards": [
+    {"id": "starter/focus", "name": "合成：集中", "effects": ["starter/focus2", "starter/action1"], "after_play": "exhaust"},
+    {"id": "starter/good", "name": "合成：好调三回合", "cost": {"amount": 3},
+      "effects": ["starter/good3", "starter/action1"], "after_play": "exhaust"},
+    {"id": "starter/score", "name": "合成：表现", "kind": "active", "cost": {"amount": 2}, "effects": ["starter/score8"]},
+    {"id": "starter/score", "name": "合成：表现+", "upgrade": 1, "kind": "active", "cost": {"amount": 2}, "effects": ["starter/score12"]},
+    {"id": "starter/search", "name": "合成：选择一张", "effects": ["starter/search1", "starter/action1"], "after_play": "exhaust"},
+    {"id": "starter/passive_card", "name": "合成：设置被动", "effects": ["starter/install"], "after_play": "exhaust"}
+  ],
+  "drinks": [{"id": "starter/draw_drink", "name": "合成：抽牌饮料", "effects": ["starter/draw1"]}],
+  "items": [{"id": "starter/focus_item", "name": "合成：集中道具", "passives": ["starter/turn_focus"]}],
+  "events": [
+    {"id": "starter/opening", "name": "合成：准备", "options": [
+      {"id": "practice", "label": "练习", "next_node": "lesson"},
+      {"id": "rest", "label": "休息后去领奖", "effects": [{"operation": "gain", "arguments": {"field": "stamina", "amount": 5}}], "next_node": "reward"}
+    ]},
+    {"id": "starter/reward", "name": "合成：奖励与强化", "options": [
+      {"id": "claim", "label": "领取饮料并强化卡牌", "effects": [
+        {"operation": "grant_drink", "arguments": {"id": "starter/draw_drink"}},
+        {"operation": "choose_card", "arguments": {"action": "upgrade", "count": 1}}
+      ]}
+    ]}
+  ],
+  "training": [{"id": "starter/vocal_training", "name": "合成：歌唱训练",
+    "costs": [{"field": "stamina", "amount": 5}],
+    "effects": [{"operation": "gain", "arguments": {"field": "vocal", "amount": 40}}]}],
+  "auditions": [{"id": "starter/audition", "name": "合成：自由试镜", "turns": 3,
+    "clear_score": 10, "weights": [1, 1, 1], "colors": ["vocal", "dance", "visual"],
+    "deck": [{"card": "starter/focus"}, {"card": "starter/good"}, {"card": "starter/score"}],
+    "items": ["starter/focus_item"], "starting_stamina": 30, "max_stamina": 30,
+    "success_effects": [{"operation": "gain", "arguments": {"field": "produce_points", "amount": 50}}]}],
+  "scenarios": [{"id": "starter/scenario", "name": "合成：完整示例剧本", "start": "opening",
+    "initial": {"stamina": 30, "max_stamina": 30, "produce_points": 100},
+    "deck": [{"card": "starter/focus"}, {"card": "starter/good"}, {"card": "starter/score"}],
+    "nodes": [
+      {"id": "opening", "kind": "event", "content": "starter/opening", "next_node": "lesson"},
+      {"id": "lesson", "kind": "training", "content": "starter/vocal_training", "next_node": "reward"},
+      {"id": "reward", "kind": "event", "content": "starter/reward", "next_node": "exam"},
+      {"id": "exam", "kind": "audition", "content": "starter/audition", "next_node": "success", "failure_node": "failure"},
+      {"id": "success", "kind": "end"}, {"id": "failure", "kind": "end"}
+    ]}]
+}

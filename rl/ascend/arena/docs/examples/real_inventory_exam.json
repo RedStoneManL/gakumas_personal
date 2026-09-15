@@ -1,0 +1,17 @@
+{
+  "schema_version": "arena-content/1",
+  "namespace": "real_inventory_demo",
+  "revision": "1",
+  "synthetic": true,
+  "auditions": [{
+    "id": "real_inventory_demo/exam",
+    "name": "真实定义与隐藏红徽章 · 合成离线试镜",
+    "turns": 10,
+    "clear_score": 100,
+    "weights": [1, 0, 0],
+    "colors": ["vocal", "vocal", "vocal", "vocal", "vocal", "vocal", "vocal", "vocal", "vocal", "vocal"],
+    "deck": [{"card": "p_card-01-act-1_002", "upgrade": 0}],
+    "drinks": ["pdrink_00-1-001"],
+    "items": ["pitem_00-0-004-0-000"]
+  }]
+}

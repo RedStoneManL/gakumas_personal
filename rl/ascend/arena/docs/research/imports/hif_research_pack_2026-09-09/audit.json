@@ -1,0 +1,289 @@
+{
+  "sample_count": 14,
+  "matching_complete_triples": 13,
+  "matching_final_percent_fields": 41,
+  "total_final_percent_fields": 42,
+  "note": "Descriptive reconstruction of the assembled corpus; not a blind validation set.",
+  "rows": [
+    {
+      "id": "U-R1",
+      "observed": [
+        4397,
+        2997,
+        2223
+      ],
+      "predicted": [
+        4397,
+        2997,
+        2223
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "supplied_table_transcription"
+    },
+    {
+      "id": "U-R2",
+      "observed": [
+        4208,
+        2886,
+        2128
+      ],
+      "predicted": [
+        4208,
+        2886,
+        2128
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "supplied_table_transcription"
+    },
+    {
+      "id": "AZ-R1",
+      "observed": [
+        4218,
+        2806,
+        2533
+      ],
+      "predicted": [
+        4218,
+        2806,
+        2533
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "direct_visual_transcription_of_public_image"
+    },
+    {
+      "id": "AZ-R2",
+      "observed": [
+        3826,
+        2554,
+        2310
+      ],
+      "predicted": [
+        3826,
+        2554,
+        2310
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "direct_visual_transcription_of_public_image"
+    },
+    {
+      "id": "SM-S1",
+      "observed": [
+        896,
+        1580,
+        1368
+      ],
+      "predicted": [
+        896,
+        1580,
+        1368
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "direct_visual_transcription_of_public_image"
+    },
+    {
+      "id": "SM-S2",
+      "observed": [
+        1251,
+        2322,
+        1638
+      ],
+      "predicted": [
+        1251,
+        2322,
+        1638
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "direct_visual_transcription_of_public_image"
+    },
+    {
+      "id": "SM-S3",
+      "observed": [
+        1548,
+        3501,
+        2187
+      ],
+      "predicted": [
+        1548,
+        3501,
+        2187
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "direct_visual_transcription_of_public_image"
+    },
+    {
+      "id": "SM-R1",
+      "observed": [
+        2304,
+        4887,
+        2817
+      ],
+      "predicted": [
+        2304,
+        4887,
+        2817
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "direct_visual_transcription_of_public_image"
+    },
+    {
+      "id": "SM-R2",
+      "observed": [
+        2296,
+        4813,
+        2681
+      ],
+      "predicted": [
+        2296,
+        4813,
+        2757
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        76
+      ],
+      "all_three_match": false,
+      "source_quality": "CONTRADICTION_PRESERVED"
+    },
+    {
+      "id": "SH-S1",
+      "observed": [
+        1548,
+        1071,
+        1080
+      ],
+      "predicted": [
+        1548,
+        1071,
+        1080
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "direct_visual_transcription_of_public_image"
+    },
+    {
+      "id": "SH-S2",
+      "observed": [
+        2286,
+        1260,
+        1503
+      ],
+      "predicted": [
+        2286,
+        1260,
+        1503
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "direct_visual_transcription_of_public_image"
+    },
+    {
+      "id": "SH-S3",
+      "observed": [
+        3150,
+        1805,
+        2160
+      ],
+      "predicted": [
+        3150,
+        1805,
+        2160
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "direct_visual_transcription_of_public_image"
+    },
+    {
+      "id": "SH-R1",
+      "observed": [
+        4739,
+        2264,
+        2921
+      ],
+      "predicted": [
+        4739,
+        2264,
+        2921
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "direct_visual_transcription_of_public_image"
+    },
+    {
+      "id": "AZ-S1",
+      "observed": [
+        1575,
+        1058,
+        1265
+      ],
+      "predicted": [
+        1575,
+        1058,
+        1265
+      ],
+      "errors_percentage_points": [
+        0,
+        0,
+        0
+      ],
+      "all_three_match": true,
+      "source_quality": "direct_visual_transcription_of_public_image"
+    }
+  ]
+}

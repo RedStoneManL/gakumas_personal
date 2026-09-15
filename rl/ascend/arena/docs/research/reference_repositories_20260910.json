@@ -1,0 +1,436 @@
+{
+  "schema": "arena-reference-source-review/1",
+  "reviewed_at": "2026-09-10T14:36:18.375928+00:00",
+  "scope": "Repository reference and read-only version review; production data and engine unchanged",
+  "master_data": {
+    "repository": "https://github.com/vertesan/gakumasu-diff",
+    "local_commit": "571dbb62601e78998cddeacdbce3ea1bc672d7fc",
+    "remote_head_observed": "8f3f325edfc18a9db53587f94ae9edea7ad66f86",
+    "comparison_url": "https://github.com/vertesan/gakumasu-diff/compare/571dbb62601e78998cddeacdbce3ea1bc672d7fc...8f3f325edfc18a9db53587f94ae9edea7ad66f86",
+    "status": "ahead",
+    "ahead_by": 1,
+    "commits": [
+      {
+        "sha": "8f3f325edfc18a9db53587f94ae9edea7ad66f86",
+        "date": "2026-09-10T02:03:24Z"
+      }
+    ],
+    "changed_file_count": 87,
+    "changed_files": [
+      {
+        "filename": "Achievement.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "AchievementProgress.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "AssetDownload.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "Badge.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "Character.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "CharacterDearnessLevel.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "CharacterProduceStory.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "CharacterTrueEndAchievement.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "CharacterTrueEndBonus.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "CoinGashaButton.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ConditionSet.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ConsumptionSet.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "Costume.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "CostumeColorGroup.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "CostumeHead.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "DearnessMotion.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ExamMotion.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "HomeMotion.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "IdolCard.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "IdolCardPiece.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "IdolCardPotential.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "IdolCardPotentialProduceSkill.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "IdolCardPrimaStellaProduceSkill.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "IdolCardSkin.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "Item.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "Localization.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "Media.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "MediaExternalLink.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "MeishiIllustrationAsset.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "Mission.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "MissionGroup.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "MissionProgress.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "Music.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "MusicHot.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "MusicSinger.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceCard.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceCharacter.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceEffect.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceEventSupportCard.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceExamAutoPlayCardEvaluation.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceExamAutoPlayProduceCardEvaluation.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceExamAutoTriggerEvaluation.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceExamBattleConfig.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceExamBattleNpcGroup.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceExamBattleScoreConfig.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceExamEffect.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceExamGimmickEffectGroup.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceExamStatusEnchant.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceExamTrigger.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceGroupLiveCommon.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceGuide.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceItem.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceItemEffect.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceLive.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceLiveEvaluation.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceResultMotion.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceScheduleMotion.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceSkill.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceSplitAdv.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceStepAuditionCharacterBgm.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceStepAuditionDifficulty.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceStepAuditionMotion.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceStepAuditionRivalActor.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceStepAuditionRivalActorMotion.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceStepEventDetail.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceStepOpenLessonMotion.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceStepTransition.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceStory.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceStoryGroup.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceTrigger.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProduceWeekMotion.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProducerRanking.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProducerRankingProduce.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProducerRankingRankGrade.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "ProducerRankingTower.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "PvpRateConfig.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "Story.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "StoryGroup.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "SupportCard.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "SupportCardFlavor.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "SupportCardProduceSkillFilter.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "SupportCardProduceSkillLevelVisual.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "TitleAsset.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "TowerTotalClearRankReward.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "Tutorial.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "VoiceGroup.yaml",
+        "status": "modified"
+      },
+      {
+        "filename": "VoiceRoster.yaml",
+        "status": "modified"
+      }
+    ],
+    "local_table_row_counts": {
+      "Produce": 8,
+      "ProduceCard": 1714,
+      "ProduceCardCustomize": 343,
+      "ProduceCardGrowEffect": 453,
+      "ProduceExamEffect": 2070,
+      "ProduceExamTrigger": 676,
+      "ProduceExamStatusEnchant": 2003,
+      "ProduceEffect": 2114,
+      "ProduceSkill": 1488,
+      "ProduceTrigger": 176,
+      "ProduceStepEventDetail": 6888,
+      "ProduceStepEventSuggestion": 3066,
+      "ProduceEventSupportCard": 511,
+      "SupportCard": 201,
+      "ProduceItem": 1038,
+      "ProduceItemEffect": 931,
+      "MemoryAbility": 575,
+      "ProduceStepAuditionDifficulty": 4259,
+      "ProduceStepOpenLesson": 48
+    },
+    "reviewed_table_file_changed": {
+      "Produce": false,
+      "ProduceCard": true,
+      "ProduceCardCustomize": false,
+      "ProduceCardGrowEffect": false,
+      "ProduceExamEffect": true,
+      "ProduceExamTrigger": true,
+      "ProduceExamStatusEnchant": true,
+      "ProduceEffect": true,
+      "ProduceSkill": true,
+      "ProduceTrigger": true,
+      "ProduceStepEventDetail": true,
+      "ProduceStepEventSuggestion": false,
+      "ProduceEventSupportCard": true,
+      "SupportCard": true,
+      "ProduceItem": true,
+      "ProduceItemEffect": true,
+      "MemoryAbility": false,
+      "ProduceStepAuditionDifficulty": true,
+      "ProduceStepOpenLesson": false
+    },
+    "not_automatically_updated": true
+  },
+  "source_policy": {
+    "decision_date": "2026-09-10",
+    "authority": "User instruction: use gakumasu-diff for factual data and resolve conflicts in its favor",
+    "master_data_wins_factual_conflicts": true,
+    "requires_additional_live_game_confirmation": false,
+    "unencoded_algorithms": "Existing accepted engine semantics or documented research models",
+    "ocr_reference_excluded": true,
+    "production_data_updated": false
+  },
+  "lts129_reference": {
+    "repository": "https://github.com/lts129/Gakumas-RL",
+    "observed_main_commit": "fe57c6235bda44393de998f1b43ed08477ede525",
+    "commit_date": "2026-04-26",
+    "current_role": "Historical non-OCR training/representation reference only; not a rules or data authority",
+    "ocr_excluded_by_user": true,
+    "copied_code": false,
+    "replaced_runtime": false
+  },
+  "local_python_runtime_origin": {
+    "repository": "https://github.com/skyfsj/gakumas-rl",
+    "commit": "40b8d8b19da8480ce8ffe393067442afd872e398",
+    "provenance_file": "third_party/gakumas_rl_upstream/PROVENANCE.txt"
+  }
+}

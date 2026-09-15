@@ -1,0 +1,718 @@
+{
+  "version": "arena-mechanisms/1",
+  "exam": {
+    "block": {
+      "description": "Add amount using native rules.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "minimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount"
+        ],
+        "title": "Amount",
+        "type": "object"
+      },
+      "references": []
+    },
+    "block_fixed": {
+      "description": "Add amount using native rules.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "minimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount"
+        ],
+        "title": "Amount",
+        "type": "object"
+      },
+      "references": []
+    },
+    "concentration": {
+      "description": "Add amount using native rules.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "minimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount"
+        ],
+        "title": "Amount",
+        "type": "object"
+      },
+      "references": []
+    },
+    "damage_stamina": {
+      "description": "Add amount using native rules.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "minimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount"
+        ],
+        "title": "Amount",
+        "type": "object"
+      },
+      "references": []
+    },
+    "delay": {
+      "description": "Schedule an effect after N turns.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "turns": {
+            "exclusiveMinimum": 0,
+            "title": "Turns",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "turns"
+        ],
+        "title": "Delay",
+        "type": "object"
+      },
+      "references": [
+        [
+          "id",
+          "effects"
+        ]
+      ]
+    },
+    "draw": {
+      "description": "Add amount using native rules.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "exclusiveMinimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount"
+        ],
+        "title": "Count",
+        "type": "object"
+      },
+      "references": []
+    },
+    "excellent_condition": {
+      "description": "Add duration in turns.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "turns": {
+            "exclusiveMinimum": 0,
+            "title": "Turns",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "turns"
+        ],
+        "title": "Turns",
+        "type": "object"
+      },
+      "references": []
+    },
+    "extra_action": {
+      "description": "Additional player action windows in this turn.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "exclusiveMinimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount"
+        ],
+        "title": "Count",
+        "type": "object"
+      },
+      "references": []
+    },
+    "extra_turn": {
+      "description": "Add amount using native rules.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "exclusiveMinimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount"
+        ],
+        "title": "Count",
+        "type": "object"
+      },
+      "references": []
+    },
+    "force_play": {
+      "description": "Explicit extra full card use; optionally pay cost, never consume a player action window.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "search": {
+            "minLength": 1,
+            "title": "Search",
+            "type": "string"
+          },
+          "count": {
+            "default": 1,
+            "exclusiveMinimum": 0,
+            "title": "Count",
+            "type": "integer"
+          },
+          "mode": {
+            "default": "select",
+            "enum": [
+              "select",
+              "random",
+              "all"
+            ],
+            "title": "Mode",
+            "type": "string"
+          },
+          "pay_cost": {
+            "default": false,
+            "title": "Pay Cost",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "search"
+        ],
+        "title": "ForcePlay",
+        "type": "object"
+      },
+      "references": [
+        [
+          "search",
+          "searches"
+        ]
+      ]
+    },
+    "full_power": {
+      "description": "Add amount using native rules.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "minimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount"
+        ],
+        "title": "Amount",
+        "type": "object"
+      },
+      "references": []
+    },
+    "good_condition": {
+      "description": "Add duration in turns.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "turns": {
+            "exclusiveMinimum": 0,
+            "title": "Turns",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "turns"
+        ],
+        "title": "Turns",
+        "type": "object"
+      },
+      "references": []
+    },
+    "good_impression": {
+      "description": "Add amount using native rules.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "minimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount"
+        ],
+        "title": "Amount",
+        "type": "object"
+      },
+      "references": []
+    },
+    "grow_card": {
+      "description": "Apply growth to all matching cards.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "search": {
+            "minLength": 1,
+            "title": "Search",
+            "type": "string"
+          },
+          "growth": {
+            "minLength": 1,
+            "title": "Growth",
+            "type": "string"
+          }
+        },
+        "required": [
+          "search",
+          "growth"
+        ],
+        "title": "Grow",
+        "type": "object"
+      },
+      "references": [
+        [
+          "search",
+          "searches"
+        ],
+        [
+          "growth",
+          "growth"
+        ]
+      ]
+    },
+    "half_cost": {
+      "description": "Add duration in turns.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "turns": {
+            "exclusiveMinimum": 0,
+            "title": "Turns",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "turns"
+        ],
+        "title": "Turns",
+        "type": "object"
+      },
+      "references": []
+    },
+    "motivation": {
+      "description": "Add amount using native rules.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "minimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount"
+        ],
+        "title": "Amount",
+        "type": "object"
+      },
+      "references": []
+    },
+    "move_card": {
+      "description": "Select/all/random card movement; selection pauses authored exams.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "search": {
+            "minLength": 1,
+            "title": "Search",
+            "type": "string"
+          },
+          "destination": {
+            "enum": [
+              "hand",
+              "discard",
+              "hold",
+              "exhaust",
+              "deck_top",
+              "deck_bottom"
+            ],
+            "title": "Destination",
+            "type": "string"
+          },
+          "mode": {
+            "default": "select",
+            "enum": [
+              "select",
+              "all",
+              "random"
+            ],
+            "title": "Mode",
+            "type": "string"
+          },
+          "count": {
+            "default": 1,
+            "exclusiveMinimum": 0,
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "search",
+          "destination"
+        ],
+        "title": "Move",
+        "type": "object"
+      },
+      "references": [
+        [
+          "search",
+          "searches"
+        ]
+      ]
+    },
+    "native_scalar": {
+      "description": "Advanced scalar native effect. Type and required shape are checked at compile time.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "effect_type": {
+            "title": "Effect Type",
+            "type": "string"
+          },
+          "value1": {
+            "default": 0,
+            "title": "Value1",
+            "type": "integer"
+          },
+          "value2": {
+            "default": 0,
+            "title": "Value2",
+            "type": "integer"
+          },
+          "count": {
+            "default": 0,
+            "title": "Count",
+            "type": "integer"
+          },
+          "turns": {
+            "default": 0,
+            "title": "Turns",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "effect_type"
+        ],
+        "title": "Native",
+        "type": "object"
+      },
+      "references": []
+    },
+    "passive": {
+      "description": "Install a reusable passive with its declared duration/count.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "title": "Reference",
+        "type": "object"
+      },
+      "references": [
+        [
+          "id",
+          "passives"
+        ]
+      ]
+    },
+    "recover_stamina": {
+      "description": "Add amount using native rules.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "minimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount"
+        ],
+        "title": "Amount",
+        "type": "object"
+      },
+      "references": []
+    },
+    "score": {
+      "description": "Native score pipeline; concentration/good condition, hits and rounding are shared.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "minimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          },
+          "hits": {
+            "default": 1,
+            "exclusiveMinimum": 0,
+            "title": "Hits",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount"
+        ],
+        "title": "Score",
+        "type": "object"
+      },
+      "references": []
+    },
+    "score_multiplier": {
+      "description": "Additive bonus, 1000 = +100%.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "permille": {
+            "minimum": 0,
+            "title": "Permille",
+            "type": "integer"
+          },
+          "turns": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Turns"
+          }
+        },
+        "required": [
+          "permille"
+        ],
+        "title": "Modifier",
+        "type": "object"
+      },
+      "references": []
+    }
+  },
+  "flow": {
+    "card_reward": {
+      "description": "Pause for a configured card reward.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "cards": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Cards",
+            "type": "array"
+          },
+          "optional": {
+            "default": true,
+            "title": "Optional",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "cards"
+        ],
+        "title": "RewardChoice",
+        "type": "object"
+      }
+    },
+    "choose_card": {
+      "description": "Pause for deck removal/upgrade/duplication.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "enum": [
+              "remove",
+              "upgrade",
+              "duplicate"
+            ],
+            "title": "Action",
+            "type": "string"
+          },
+          "count": {
+            "default": 1,
+            "exclusiveMinimum": 0,
+            "title": "Count",
+            "type": "integer"
+          },
+          "optional": {
+            "default": false,
+            "title": "Optional",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "title": "CardChoice",
+        "type": "object"
+      }
+    },
+    "gain": {
+      "description": "Shared ProduceEffect gain; growth amounts use permille.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "enum": [
+              "vocal",
+              "dance",
+              "visual",
+              "stamina",
+              "max_stamina",
+              "produce_points",
+              "vocal_growth",
+              "dance_growth",
+              "visual_growth"
+            ],
+            "title": "Field",
+            "type": "string"
+          },
+          "amount": {
+            "minimum": 0,
+            "title": "Amount",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "field",
+          "amount"
+        ],
+        "title": "ProduceGain",
+        "type": "object"
+      }
+    },
+    "grant_card": {
+      "description": "Add exact card variants to the produce deck.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "upgrade": {
+            "default": 0,
+            "minimum": 0,
+            "title": "Upgrade",
+            "type": "integer"
+          },
+          "copies": {
+            "default": 1,
+            "exclusiveMinimum": 0,
+            "title": "Copies",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "title": "CardGrant",
+        "type": "object"
+      }
+    },
+    "grant_drink": {
+      "description": "Add a drink; overflow pauses for an explicit discard.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "title": "Reference",
+        "type": "object"
+      }
+    },
+    "resource": {
+      "description": "Adjust a declared scenario resource, clamped to its bounds.",
+      "arguments": {
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "pattern": "^scenario\\.[a-z][a-z0-9_]*$",
+            "title": "Field",
+            "type": "string"
+          },
+          "delta": {
+            "title": "Delta",
+            "type": "number"
+          }
+        },
+        "required": [
+          "field",
+          "delta"
+        ],
+        "title": "ResourceDelta",
+        "type": "object"
+      }
+    }
+  }
+}

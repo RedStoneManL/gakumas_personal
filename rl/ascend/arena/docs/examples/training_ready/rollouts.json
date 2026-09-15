@@ -1,0 +1,341 @@
+{
+  "episodes": [
+    {
+      "seed": 0,
+      "entry_sha256": "1aaa476b9c871f13768227d1c6ffc3a926d40426e287f70c2938c0d10b325d2a",
+      "decisions": 28,
+      "public_final_sha256": "f13e06b1788a8c0ef3f54430238232e83ba57e33548b91d08d10cd04e0aaf870",
+      "score": 59035,
+      "native_work_including_replays": {
+        "native_actions": 2159,
+        "rule_operations": 3364,
+        "replay_entries": 408,
+        "rng_calls": 1346,
+        "milliseconds": 26.778699999999503
+      }
+    },
+    {
+      "seed": 1,
+      "entry_sha256": "153c0f2cc844c6eb3b0c3f3c7046aca22b78360f344659989b90f53e96a3f214",
+      "decisions": 19,
+      "public_final_sha256": "7aad0042bbbcff8aaf660298e1c31547b38ad523880c8651a3093311160a8abb",
+      "score": 5419,
+      "native_work_including_replays": {
+        "native_actions": 913,
+        "rule_operations": 2039,
+        "replay_entries": 210,
+        "rng_calls": 950,
+        "milliseconds": 19.209699999999998
+      }
+    },
+    {
+      "seed": 2,
+      "entry_sha256": "da12db5b3cbfd6e8dbcc160ebfdc449e249584b19ffe67c4edc003298986ad2c",
+      "decisions": 21,
+      "public_final_sha256": "01497dcaa3dae1539695d322c667846487d32b71573682feae7bc9304d6a4807",
+      "score": 3979,
+      "native_work_including_replays": {
+        "native_actions": 1123,
+        "rule_operations": 2138,
+        "replay_entries": 236,
+        "rng_calls": 1020,
+        "milliseconds": 18.316100000000006
+      }
+    },
+    {
+      "seed": 3,
+      "entry_sha256": "227574a272b3bee42528b8e040dbfcfaeb70b5b29d3b6305efe9261350808c8d",
+      "decisions": 23,
+      "public_final_sha256": "d3f140bdaad898424a7545916f311eba435441145da158c8afff9636c1a12a97",
+      "score": 20951,
+      "native_work_including_replays": {
+        "native_actions": 1523,
+        "rule_operations": 2881,
+        "replay_entries": 300,
+        "rng_calls": 1101,
+        "milliseconds": 19.592800000000807
+      }
+    },
+    {
+      "seed": 4,
+      "entry_sha256": "6cb064d5b06f5800d9fce9ee3cd69ac787944cefa58f93562d6fce963028da7a",
+      "decisions": 20,
+      "public_final_sha256": "174c741ecb0c7e7f1c46f71f8d50dd2cc029c37bf5d7f8ac49124989482f2c4a",
+      "score": 898,
+      "native_work_including_replays": {
+        "native_actions": 502,
+        "rule_operations": 1900,
+        "replay_entries": 220,
+        "rng_calls": 895,
+        "milliseconds": 14.111100000000306
+      }
+    },
+    {
+      "seed": 5,
+      "entry_sha256": "fb41b8577ba66b546a4f5eba9c54750394a81839e0565c074ff5f61299abb2a0",
+      "decisions": 26,
+      "public_final_sha256": "21498814cac53930cb76abfe7b222c0048a5820d159f629c0c902059dc35ae36",
+      "score": 19357,
+      "native_work_including_replays": {
+        "native_actions": 1517,
+        "rule_operations": 3364,
+        "replay_entries": 355,
+        "rng_calls": 1218,
+        "milliseconds": 20.66499999999951
+      }
+    },
+    {
+      "seed": 6,
+      "entry_sha256": "13da07e0cf22852bbd768bc97bebefc1e11f8492e4f9f259c90ca855ff4cf417",
+      "decisions": 22,
+      "public_final_sha256": "a9a67d89fece22c963d2a49026cceed45825c8a5faa9f490ee5c6b1c045dc0ab",
+      "score": 3994,
+      "native_work_including_replays": {
+        "native_actions": 1228,
+        "rule_operations": 2509,
+        "replay_entries": 276,
+        "rng_calls": 1048,
+        "milliseconds": 16.514400000000023
+      }
+    },
+    {
+      "seed": 7,
+      "entry_sha256": "262a4ef2e958eccb4c0ff3b6dfe829db732728e42f3d388b4442856a922581c5",
+      "decisions": 26,
+      "public_final_sha256": "4bc6e647fc2c147df046df994c14040fd6fd22d52b74e93e56fc1574814f725d",
+      "score": 32634,
+      "native_work_including_replays": {
+        "native_actions": 1665,
+        "rule_operations": 2957,
+        "replay_entries": 353,
+        "rng_calls": 1245,
+        "milliseconds": 19.993300000001227
+      }
+    },
+    {
+      "seed": 8,
+      "entry_sha256": "137463c831ba47bc73111995b0e853714b6a39eb4ef43c1601966a8ecddc9405",
+      "decisions": 21,
+      "public_final_sha256": "d38aa872fa181687f02dcb47b066a08ec2954f4c1c753c0d781cbd3945b1b153",
+      "score": 1030,
+      "native_work_including_replays": {
+        "native_actions": 900,
+        "rule_operations": 2069,
+        "replay_entries": 234,
+        "rng_calls": 1035,
+        "milliseconds": 16.745100000000548
+      }
+    },
+    {
+      "seed": 9,
+      "entry_sha256": "43fcce58baee44b473403137cc2520d5e6bae20a3857332460c882638db15e0d",
+      "decisions": 21,
+      "public_final_sha256": "ea57758aca85128d369be66e59f47bea38b0f3dcfdb4e79e6280d7e383a7e006",
+      "score": 2820,
+      "native_work_including_replays": {
+        "native_actions": 1076,
+        "rule_operations": 2815,
+        "replay_entries": 244,
+        "rng_calls": 1133,
+        "milliseconds": 16.159100000001217
+      }
+    },
+    {
+      "seed": 10,
+      "entry_sha256": "a8c99baba712a62043315a22d747d597ed13c6ccb64b76cfa02b34baa4a676a0",
+      "decisions": 27,
+      "public_final_sha256": "a6aa602104b4f722c62b0935d61a73128a4c2d821f4086ce86aaefe72d9468c7",
+      "score": 26725,
+      "native_work_including_replays": {
+        "native_actions": 1861,
+        "rule_operations": 2780,
+        "replay_entries": 380,
+        "rng_calls": 1242,
+        "milliseconds": 21.053399999999783
+      }
+    },
+    {
+      "seed": 11,
+      "entry_sha256": "e25d822c4bf6ec838eb22f3d9dd25291d5096daf6cb9f3107a40e546ad37e125",
+      "decisions": 24,
+      "public_final_sha256": "ee235590bf4feacd6904b1b255010f3668e9546e01a984d8f00f4cc411a5bd32",
+      "score": 10850,
+      "native_work_including_replays": {
+        "native_actions": 1000,
+        "rule_operations": 2614,
+        "replay_entries": 304,
+        "rng_calls": 1205,
+        "milliseconds": 18.858299999999872
+      }
+    },
+    {
+      "seed": 12,
+      "entry_sha256": "49f1216a6f9e04fd60cc847641f1564113c07afbd8f84fbc422949a53f7cbfaa",
+      "decisions": 27,
+      "public_final_sha256": "28ec5fb8220ca23aa84059d47e1386912268500bfdaf43e3cb64dbbb5ccdb4a2",
+      "score": 22948,
+      "native_work_including_replays": {
+        "native_actions": 1653,
+        "rule_operations": 3396,
+        "replay_entries": 384,
+        "rng_calls": 1255,
+        "milliseconds": 22.914899999998852
+      }
+    },
+    {
+      "seed": 13,
+      "entry_sha256": "e4b009341bf4b5468880efadc78b1879d7ba50f4e41295efca27b8a757401996",
+      "decisions": 23,
+      "public_final_sha256": "0163680b1cf37fcc562cd86a2e5d4031d048375e43fdc6f251d179a89689f9d2",
+      "score": 4938,
+      "native_work_including_replays": {
+        "native_actions": 1260,
+        "rule_operations": 2409,
+        "replay_entries": 281,
+        "rng_calls": 1030,
+        "milliseconds": 22.149499999997715
+      }
+    },
+    {
+      "seed": 14,
+      "entry_sha256": "b22b2041bde8ef4d4df502b6e0f4cc8d4e866bd4739112238c634c6630f706f3",
+      "decisions": 25,
+      "public_final_sha256": "0bc9517bc9ba0a31d20b0f090b34a5233151991a588bae2c4d36f0916b664105",
+      "score": 7541,
+      "native_work_including_replays": {
+        "native_actions": 1221,
+        "rule_operations": 2553,
+        "replay_entries": 330,
+        "rng_calls": 1119,
+        "milliseconds": 20.0965999999994
+      }
+    },
+    {
+      "seed": 15,
+      "entry_sha256": "cad3448f3c5084c4c7cbbf2fac61b309f55ad366dafa28fa6b3b1e6327eb7274",
+      "decisions": 23,
+      "public_final_sha256": "908862f8d6c2c56fb4b3b01259496759d179770869d48a5fdf7fbd239ec911b2",
+      "score": 4615,
+      "native_work_including_replays": {
+        "native_actions": 903,
+        "rule_operations": 2597,
+        "replay_entries": 280,
+        "rng_calls": 1082,
+        "milliseconds": 18.495599999998376
+      }
+    },
+    {
+      "seed": 16,
+      "entry_sha256": "90e800381715d26d9e802ffc2a04df43fe33443c17d578bcaeca3bd6dca295d0",
+      "decisions": 20,
+      "public_final_sha256": "3293a1a76dd92e9583793665c1f174f913fefea558aa78c608508ba43e30bdef",
+      "score": 2422,
+      "native_work_including_replays": {
+        "native_actions": 531,
+        "rule_operations": 1926,
+        "replay_entries": 213,
+        "rng_calls": 870,
+        "milliseconds": 16.226300000000265
+      }
+    },
+    {
+      "seed": 17,
+      "entry_sha256": "914f81d21a5169d970c7d6d2984f2dcadeb8c585bb09b925c2f4723e1b795ce4",
+      "decisions": 21,
+      "public_final_sha256": "058048bb52d57d7947c51cb054543979a34bd9530738008bc18da243fd7f4ed3",
+      "score": 1692,
+      "native_work_including_replays": {
+        "native_actions": 892,
+        "rule_operations": 2225,
+        "replay_entries": 248,
+        "rng_calls": 1074,
+        "milliseconds": 16.696100000001024
+      }
+    },
+    {
+      "seed": 18,
+      "entry_sha256": "68ccaaaeb1f1ad69e35f4389ad9435a79e9cdebd0a17eb5d70855660be8654ef",
+      "decisions": 22,
+      "public_final_sha256": "b210a5c5a0eee7f72c048ef59e3a195fde631e6034a4630965abdd3c67caf587",
+      "score": 14839,
+      "native_work_including_replays": {
+        "native_actions": 976,
+        "rule_operations": 2349,
+        "replay_entries": 257,
+        "rng_calls": 1131,
+        "milliseconds": 15.835800000001655
+      }
+    },
+    {
+      "seed": 19,
+      "entry_sha256": "f02edf7675e7cd766bdd7fbd6d309a0a3a4e253c03295cf7a65444f5f6f2edfe",
+      "decisions": 21,
+      "public_final_sha256": "abdbc233583e60f3b8df3625105146266ebde3f68fc55abc10e4083d432e0ff3",
+      "score": 11197,
+      "native_work_including_replays": {
+        "native_actions": 829,
+        "rule_operations": 1910,
+        "replay_entries": 236,
+        "rng_calls": 1005,
+        "milliseconds": 16.726699999999255
+      }
+    },
+    {
+      "seed": 20,
+      "entry_sha256": "b3f9bce4081c2e244711e882c28d6d27bab7b1373182dede317b2d83423f5b4f",
+      "decisions": 28,
+      "public_final_sha256": "18ab3e3201ada5c36cf81cec45563b155c76e6842f9c33e0ba5042eaf5838f21",
+      "score": 26827,
+      "native_work_including_replays": {
+        "native_actions": 2359,
+        "rule_operations": 3586,
+        "replay_entries": 410,
+        "rng_calls": 1364,
+        "milliseconds": 23.819000000001324
+      }
+    },
+    {
+      "seed": 21,
+      "entry_sha256": "7e0a7baa50105922b58e8a9209507a52b8ec346ef55845d26a74494433fee57b",
+      "decisions": 25,
+      "public_final_sha256": "c9601d3fe508adda888ad06b877ff6d25ac939eb8a3ee85cc7613809fe300318",
+      "score": 7071,
+      "native_work_including_replays": {
+        "native_actions": 1176,
+        "rule_operations": 3021,
+        "replay_entries": 338,
+        "rng_calls": 1180,
+        "milliseconds": 20.46729999999934
+      }
+    },
+    {
+      "seed": 22,
+      "entry_sha256": "124b36e8295fe72a8069b11b261f40dd8b4f1f9f837e32166d1f0f310e9faacd",
+      "decisions": 21,
+      "public_final_sha256": "b93cf3a21b019b7b047c6564db837e339c5ca77344d747d053f0e15a8ae587d9",
+      "score": 2985,
+      "native_work_including_replays": {
+        "native_actions": 673,
+        "rule_operations": 2039,
+        "replay_entries": 237,
+        "rng_calls": 946,
+        "milliseconds": 16.8688000000011
+      }
+    },
+    {
+      "seed": 23,
+      "entry_sha256": "9b201af7fce7d6ea1dd006c5902c97e6983deeecce84ff3880596fa9d54b8289",
+      "decisions": 25,
+      "public_final_sha256": "56bd97a41e5a6f91aedb95f7174dc97cb8c737d1a9a8023e6205021eaf310914",
+      "score": 22625,
+      "native_work_including_replays": {
+        "native_actions": 1367,
+        "rule_operations": 2788,
+        "replay_entries": 331,
+        "rng_calls": 1117,
+        "milliseconds": 20.69470000000001
+      }
+    }
+  ],
+  "spawn_parallel_matches_serial": true
+}

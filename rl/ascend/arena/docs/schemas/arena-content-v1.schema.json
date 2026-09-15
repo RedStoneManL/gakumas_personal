@@ -1,0 +1,1284 @@
+{
+  "$defs": {
+    "Audition": {
+      "additionalProperties": false,
+      "description": "Exact user-authored score-threshold stage, independent of official NPC estimates.",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_.-]*/[a-zA-Z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "turns": {
+          "exclusiveMinimum": 0,
+          "title": "Turns",
+          "type": "integer"
+        },
+        "clear_score": {
+          "minimum": 0,
+          "title": "Clear Score",
+          "type": "number"
+        },
+        "perfect_score": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Perfect Score"
+        },
+        "weights": {
+          "default": [
+            1,
+            1,
+            1
+          ],
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Weights",
+          "type": "array"
+        },
+        "colors": {
+          "default": [],
+          "items": {
+            "enum": [
+              "vocal",
+              "dance",
+              "visual"
+            ],
+            "type": "string"
+          },
+          "title": "Colors",
+          "type": "array"
+        },
+        "deck": {
+          "items": {
+            "$ref": "#/$defs/CardCopy"
+          },
+          "minItems": 1,
+          "title": "Deck",
+          "type": "array"
+        },
+        "drinks": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Drinks",
+          "type": "array"
+        },
+        "items": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "passives": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Passives",
+          "type": "array"
+        },
+        "starting_stamina": {
+          "default": 30,
+          "exclusiveMinimum": 0,
+          "title": "Starting Stamina",
+          "type": "integer"
+        },
+        "max_stamina": {
+          "default": 30,
+          "exclusiveMinimum": 0,
+          "title": "Max Stamina",
+          "type": "integer"
+        },
+        "score_bonus": {
+          "default": 1,
+          "minimum": 0,
+          "title": "Score Bonus",
+          "type": "number"
+        },
+        "hand_limit": {
+          "default": 5,
+          "exclusiveMinimum": 0,
+          "title": "Hand Limit",
+          "type": "integer"
+        },
+        "turn_draw": {
+          "default": 3,
+          "exclusiveMinimum": 0,
+          "title": "Turn Draw",
+          "type": "integer"
+        },
+        "plays_per_turn": {
+          "default": 1,
+          "exclusiveMinimum": 0,
+          "title": "Plays Per Turn",
+          "type": "integer"
+        },
+        "hold_limit": {
+          "default": 2,
+          "exclusiveMinimum": 0,
+          "title": "Hold Limit",
+          "type": "integer"
+        },
+        "hold_overflow": {
+          "default": "oldest",
+          "enum": [
+            "oldest",
+            "choose"
+          ],
+          "title": "Hold Overflow",
+          "type": "string"
+        },
+        "success_effects": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/FlowEffect"
+          },
+          "title": "Success Effects",
+          "type": "array"
+        },
+        "failure_effects": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/FlowEffect"
+          },
+          "title": "Failure Effects",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "turns",
+        "clear_score",
+        "deck"
+      ],
+      "title": "Audition",
+      "type": "object"
+    },
+    "Branch": {
+      "additionalProperties": false,
+      "properties": {
+        "conditions": {
+          "items": {
+            "$ref": "#/$defs/Condition"
+          },
+          "minItems": 1,
+          "title": "Conditions",
+          "type": "array"
+        },
+        "next_node": {
+          "title": "Next Node",
+          "type": "string"
+        }
+      },
+      "required": [
+        "conditions",
+        "next_node"
+      ],
+      "title": "Branch",
+      "type": "object"
+    },
+    "Card": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_.-]*/[a-zA-Z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "kind": {
+          "default": "mental",
+          "enum": [
+            "active",
+            "mental",
+            "trouble"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "plan": {
+          "default": "common",
+          "enum": [
+            "common",
+            "sense",
+            "logic",
+            "anomaly"
+          ],
+          "title": "Plan",
+          "type": "string"
+        },
+        "rarity": {
+          "default": "R",
+          "enum": [
+            "N",
+            "R",
+            "SR",
+            "SSR"
+          ],
+          "title": "Rarity",
+          "type": "string"
+        },
+        "upgrade": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Upgrade",
+          "type": "integer"
+        },
+        "cost": {
+          "$ref": "#/$defs/Cost"
+        },
+        "condition": {
+          "default": "",
+          "title": "Condition",
+          "type": "string"
+        },
+        "effects": {
+          "default": [],
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/EffectUse"
+              }
+            ]
+          },
+          "title": "Effects",
+          "type": "array"
+        },
+        "on_move": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MovementEffect"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "after_play": {
+          "default": "discard",
+          "enum": [
+            "discard",
+            "exhaust",
+            "hold",
+            "deck_bottom"
+          ],
+          "title": "After Play",
+          "type": "string"
+        },
+        "opening": {
+          "default": false,
+          "title": "Opening",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "Card",
+      "type": "object"
+    },
+    "CardCopy": {
+      "additionalProperties": false,
+      "properties": {
+        "card": {
+          "title": "Card",
+          "type": "string"
+        },
+        "upgrade": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Upgrade",
+          "type": "integer"
+        },
+        "copies": {
+          "default": 1,
+          "exclusiveMinimum": 0,
+          "title": "Copies",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "card"
+      ],
+      "title": "CardCopy",
+      "type": "object"
+    },
+    "Condition": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "title": "Field",
+          "type": "string"
+        },
+        "comparison": {
+          "default": "ge",
+          "enum": [
+            "ge",
+            "gt",
+            "le",
+            "lt",
+            "eq",
+            "ne"
+          ],
+          "title": "Comparison",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "field",
+        "value"
+      ],
+      "title": "Condition",
+      "type": "object"
+    },
+    "Cost": {
+      "additionalProperties": false,
+      "properties": {
+        "resource": {
+          "default": "stamina",
+          "enum": [
+            "stamina",
+            "penetrate",
+            "concentration",
+            "good_condition",
+            "excellent_condition",
+            "good_impression",
+            "motivation",
+            "full_power"
+          ],
+          "title": "Resource",
+          "type": "string"
+        },
+        "amount": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Amount",
+          "type": "integer"
+        }
+      },
+      "title": "Cost",
+      "type": "object"
+    },
+    "Drink": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_.-]*/[a-zA-Z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "effects": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Effects",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "effects"
+      ],
+      "title": "Drink",
+      "type": "object"
+    },
+    "Effect": {
+      "additionalProperties": false,
+      "description": "An operation and validated arguments; reusable by any effect source.",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_.-]*/[a-zA-Z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "operation": {
+          "title": "Operation",
+          "type": "string"
+        },
+        "arguments": {
+          "additionalProperties": true,
+          "title": "Arguments",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "operation"
+      ],
+      "title": "Effect",
+      "type": "object"
+    },
+    "EffectUse": {
+      "additionalProperties": false,
+      "properties": {
+        "effect": {
+          "title": "Effect",
+          "type": "string"
+        },
+        "condition": {
+          "title": "Condition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "effect",
+        "condition"
+      ],
+      "title": "EffectUse",
+      "type": "object"
+    },
+    "Event": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_.-]*/[a-zA-Z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "options": {
+          "items": {
+            "$ref": "#/$defs/Option"
+          },
+          "minItems": 1,
+          "title": "Options",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "options"
+      ],
+      "title": "Event",
+      "type": "object"
+    },
+    "FlowEffect": {
+      "additionalProperties": false,
+      "description": "Produce effects are shared by events, training, hooks and exam rewards.",
+      "properties": {
+        "operation": {
+          "title": "Operation",
+          "type": "string"
+        },
+        "arguments": {
+          "additionalProperties": true,
+          "title": "Arguments",
+          "type": "object"
+        }
+      },
+      "required": [
+        "operation"
+      ],
+      "title": "FlowEffect",
+      "type": "object"
+    },
+    "Growth": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_.-]*/[a-zA-Z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "effect_type": {
+          "title": "Effect Type",
+          "type": "string"
+        },
+        "value": {
+          "minimum": 0,
+          "title": "Value",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "effect_type",
+        "value"
+      ],
+      "title": "Growth",
+      "type": "object"
+    },
+    "Item": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_.-]*/[a-zA-Z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "passives": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Passives",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "passives"
+      ],
+      "title": "Item",
+      "type": "object"
+    },
+    "MovementEffect": {
+      "additionalProperties": false,
+      "properties": {
+        "destination": {
+          "enum": [
+            "hand",
+            "hold"
+          ],
+          "title": "Destination",
+          "type": "string"
+        },
+        "effects": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Effects",
+          "type": "array"
+        }
+      },
+      "required": [
+        "destination",
+        "effects"
+      ],
+      "title": "MovementEffect",
+      "type": "object"
+    },
+    "Node": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "event",
+            "training",
+            "audition",
+            "effects",
+            "branch",
+            "end"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "content": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Content"
+        },
+        "effects": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/FlowEffect"
+          },
+          "title": "Effects",
+          "type": "array"
+        },
+        "next_node": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Next Node"
+        },
+        "failure_node": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Failure Node"
+        },
+        "branches": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Branch"
+          },
+          "title": "Branches",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "kind"
+      ],
+      "title": "Node",
+      "type": "object"
+    },
+    "Option": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "conditions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Condition"
+          },
+          "title": "Conditions",
+          "type": "array"
+        },
+        "costs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ResourceCost"
+          },
+          "title": "Costs",
+          "type": "array"
+        },
+        "effects": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/FlowEffect"
+          },
+          "title": "Effects",
+          "type": "array"
+        },
+        "next_node": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Next Node"
+        }
+      },
+      "required": [
+        "id",
+        "label"
+      ],
+      "title": "Option",
+      "type": "object"
+    },
+    "Passive": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_.-]*/[a-zA-Z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "trigger": {
+          "title": "Trigger",
+          "type": "string"
+        },
+        "effects": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Effects",
+          "type": "array"
+        },
+        "turns": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Turns"
+        },
+        "uses": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Uses"
+        }
+      },
+      "required": [
+        "id",
+        "trigger",
+        "effects"
+      ],
+      "title": "Passive",
+      "type": "object"
+    },
+    "ResourceCost": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "enum": [
+            "stamina",
+            "produce_points"
+          ],
+          "title": "Field",
+          "type": "string"
+        },
+        "amount": {
+          "minimum": 0,
+          "title": "Amount",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "field",
+        "amount"
+      ],
+      "title": "ResourceCost",
+      "type": "object"
+    },
+    "Scenario": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_.-]*/[a-zA-Z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "base": {
+          "default": "produce-001",
+          "title": "Base",
+          "type": "string"
+        },
+        "parameter_limit": {
+          "default": 2000,
+          "exclusiveMinimum": 0,
+          "title": "Parameter Limit",
+          "type": "integer"
+        },
+        "drink_limit": {
+          "default": 3,
+          "exclusiveMinimum": 0,
+          "title": "Drink Limit",
+          "type": "integer"
+        },
+        "start": {
+          "title": "Start",
+          "type": "string"
+        },
+        "nodes": {
+          "items": {
+            "$ref": "#/$defs/Node"
+          },
+          "minItems": 1,
+          "title": "Nodes",
+          "type": "array"
+        },
+        "initial": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Initial",
+          "type": "object"
+        },
+        "resources": {
+          "additionalProperties": {
+            "$ref": "#/$defs/ScenarioResource"
+          },
+          "title": "Resources",
+          "type": "object"
+        },
+        "inventory_mode": {
+          "anyOf": [
+            {
+              "enum": [
+                "scenario",
+                "audition"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Inventory Mode"
+        },
+        "deck": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/CardCopy"
+          },
+          "title": "Deck",
+          "type": "array"
+        },
+        "drinks": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Drinks",
+          "type": "array"
+        },
+        "hooks": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/FlowEffect"
+            },
+            "type": "array"
+          },
+          "propertyNames": {
+            "enum": [
+              "start",
+              "before_node",
+              "after_node",
+              "finish"
+            ]
+          },
+          "title": "Hooks",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "start",
+        "nodes"
+      ],
+      "title": "Scenario",
+      "type": "object"
+    },
+    "ScenarioResource": {
+      "additionalProperties": false,
+      "properties": {
+        "initial": {
+          "default": 0,
+          "title": "Initial",
+          "type": "number"
+        },
+        "minimum": {
+          "default": 0,
+          "title": "Minimum",
+          "type": "number"
+        },
+        "maximum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum"
+        }
+      },
+      "title": "ScenarioResource",
+      "type": "object"
+    },
+    "Search": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_.-]*/[a-zA-Z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "zone": {
+          "enum": [
+            "hand",
+            "deck",
+            "deck_grave",
+            "hold",
+            "lost",
+            "not_lost",
+            "playing",
+            "target"
+          ],
+          "title": "Zone",
+          "type": "string"
+        },
+        "card_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Card Ids",
+          "type": "array"
+        },
+        "card_kind": {
+          "default": "any",
+          "enum": [
+            "any",
+            "active",
+            "mental",
+            "trouble"
+          ],
+          "title": "Card Kind",
+          "type": "string"
+        },
+        "self_only": {
+          "default": false,
+          "title": "Self Only",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "zone"
+      ],
+      "title": "Search",
+      "type": "object"
+    },
+    "Training": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_.-]*/[a-zA-Z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "costs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ResourceCost"
+          },
+          "title": "Costs",
+          "type": "array"
+        },
+        "effects": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/FlowEffect"
+          },
+          "title": "Effects",
+          "type": "array"
+        },
+        "conditions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Condition"
+          },
+          "title": "Conditions",
+          "type": "array"
+        },
+        "audition": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Audition"
+        },
+        "failure_effects": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/FlowEffect"
+          },
+          "title": "Failure Effects",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "Training",
+      "type": "object"
+    },
+    "Trigger": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_.-]*/[a-zA-Z0-9_.-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "phase": {
+          "title": "Phase",
+          "type": "string"
+        },
+        "field": {
+          "default": "ProduceExamFieldStatusType_Unknown",
+          "title": "Field",
+          "type": "string"
+        },
+        "value": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Value",
+          "type": "integer"
+        },
+        "search": {
+          "default": "",
+          "title": "Search",
+          "type": "string"
+        },
+        "every": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Every"
+        }
+      },
+      "required": [
+        "id",
+        "phase"
+      ],
+      "title": "Trigger",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "arena-content/1",
+      "default": "arena-content/1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "namespace": {
+      "pattern": "^[a-z][a-z0-9_.-]*$",
+      "title": "Namespace",
+      "type": "string"
+    },
+    "revision": {
+      "minLength": 1,
+      "title": "Revision",
+      "type": "string"
+    },
+    "synthetic": {
+      "default": true,
+      "title": "Synthetic",
+      "type": "boolean"
+    },
+    "effects": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Effect"
+      },
+      "title": "Effects",
+      "type": "array"
+    },
+    "growth": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Growth"
+      },
+      "title": "Growth",
+      "type": "array"
+    },
+    "searches": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Search"
+      },
+      "title": "Searches",
+      "type": "array"
+    },
+    "triggers": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Trigger"
+      },
+      "title": "Triggers",
+      "type": "array"
+    },
+    "passives": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Passive"
+      },
+      "title": "Passives",
+      "type": "array"
+    },
+    "cards": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Card"
+      },
+      "title": "Cards",
+      "type": "array"
+    },
+    "drinks": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Drink"
+      },
+      "title": "Drinks",
+      "type": "array"
+    },
+    "items": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Item"
+      },
+      "title": "Items",
+      "type": "array"
+    },
+    "events": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Event"
+      },
+      "title": "Events",
+      "type": "array"
+    },
+    "training": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Training"
+      },
+      "title": "Training",
+      "type": "array"
+    },
+    "auditions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Audition"
+      },
+      "title": "Auditions",
+      "type": "array"
+    },
+    "scenarios": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Scenario"
+      },
+      "title": "Scenarios",
+      "type": "array"
+    }
+  },
+  "required": [
+    "namespace",
+    "revision"
+  ],
+  "title": "ContentPack",
+  "type": "object"
+}

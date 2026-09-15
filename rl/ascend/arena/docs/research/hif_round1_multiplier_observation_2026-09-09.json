@@ -1,0 +1,106 @@
+{
+  "schema_version": "arena-hif-multiplier-observation/1",
+  "sample_id": "hif-main-round1-20260909-vo2759-da1727-vi1209-star915",
+  "received_date": "2026-09-09",
+  "recording_date": null,
+  "synthetic": false,
+  "source": "user-provided game screenshots and accompanying explanation",
+  "manifest": "evidence/2026-09-09-hif-round1-multipliers/manifest.json",
+  "attribute_order": ["vocal", "dance", "visual"],
+  "exam": {
+    "mode": "HIF main competition",
+    "round": 1,
+    "round_evidence_images": [3, 4],
+    "round_confirmed_by_user": true,
+    "engine_p_idol_id": null,
+    "masterdata_profile_id": null,
+    "game_build": null,
+    "final_exam_score": null,
+    "record_as_round2": false
+  },
+  "user_explanation": {
+    "pipeline_as_described": "基础倍率 × 属性达标倍率 × スター性因子",
+    "final_star_bonus_animation_not_captured": true,
+    "final_percentages_observed_in_later_exam_menu": true,
+    "scope": "User explicitly requested recording this sample as the first main-competition round; Round 1 and Round 2 must have separate configurations."
+  },
+  "observed": {
+    "raw_parameters": {
+      "vocal": 2759,
+      "dance": 1727,
+      "visual": 1209,
+      "images": [1, 2, 3]
+    },
+    "star_before_exam": {
+      "value": 915,
+      "displayed_rank": 8,
+      "images": [1, 2, 3]
+    },
+    "review_ui": {
+      "star_reference_value_displayed": 600,
+      "star_reference_rank_displayed": 7,
+      "parameter_reference_marker_displayed": 950,
+      "star_qualification_text": "スター性：達成",
+      "parameter_qualification_texts": ["すばらしい！", "すばらしい！", "すばらしい！"],
+      "images": [1, 2],
+      "note": "The single displayed parameter marker 950 is not transcribed as three identical raw-stat thresholds. Rank badges 7/8 are ranks, not multipliers."
+    },
+    "schedule_menu_resources": {
+      "stamina": 33,
+      "max_stamina": 33,
+      "p_points": 380,
+      "image": 3
+    },
+    "opening_display_frames": [
+      {
+        "id": "opening_a",
+        "image": 1,
+        "score_percents_displayed": [977, 666, 494]
+      },
+      {
+        "id": "opening_b",
+        "image": 2,
+        "score_percents_displayed": [1466, 999, 741],
+        "overlay_text": "スター性ボーナス",
+        "note": "An animation frame is visible. Retain its numbers without assuming they are unrounded internal values or a verified stable calculation boundary."
+      }
+    ],
+    "final_exam_menu": {
+      "image": 4,
+      "current_turn": 1,
+      "remaining_turns_displayed": 9,
+      "round_clear_condition_text": "3位以上でラウンド1突破",
+      "score_percents": [4397, 2997, 2223],
+      "turn_types": ["vocal", "vocal", "visual", "vocal", "dance", "dance", "visual", "dance", "vocal"]
+    }
+  },
+  "derived": {
+    "turn_counts": {"vocal": 4, "dance": 3, "visual": 2},
+    "last_three_turn_types": ["visual", "dance", "vocal"],
+    "percent_to_multiplier": [43.97, 29.97, 22.23],
+    "arithmetic_comparisons": {
+      "opening_a_times_1_5": [1465.5, 999, 741],
+      "opening_a_times_1_5_rounded_half_up": [1466, 999, 741],
+      "opening_b_times_3": [4398, 2997, 2223],
+      "final_minus_opening_b_times_3_percentage_points": [-1, 0, 0],
+      "opening_a_times_4_5_rounded_half_up": [4397, 2997, 2223],
+      "interpretation": "Factors 1.5 and 3 are consistent arithmetic candidates when display rounding is considered. Multiplying rounded intermediate UI percentages by 3 does not exactly reproduce the final vocal percentage. This observation alone does not establish the factor sources, internal precision, star curve, or a general HIF formula."
+    }
+  },
+  "arena_input_fragment": {
+    "function": "make_training_entry",
+    "kwargs": {
+      "score_percents": [4397, 2997, 2223],
+      "turn_types": ["vocal", "vocal", "visual", "vocal", "dance", "dance", "visual", "dance", "vocal"]
+    },
+    "scope": "Observed Round 1 scoring and turn-sequence fragment only. Supply the actual deck and other entry resources separately. These percentages already include the final bonuses; do not apply star or the opening multipliers a second time."
+  },
+  "limitations": [
+    "A raw-stat/star-to-HIF-percent resolver is not implemented in the current golden-backed Arena. This sample is an observation target, not a successful resolver regression test.",
+    "Dearness score effects and complete P-idol/profile identifiers are not visible in these screenshots.",
+    "The exact internal values and timing of the opening bonus animation are not captured.",
+    "Only this sample's nine-turn order is observed; it does not establish first-turn probabilities or all possible Round 1 turn orders.",
+    "No Round 2 percentages are provided by this sample. Round 2 appearing on the schedule is not evidence that this battle is Round 2.",
+    "Do not merge this sample with the older 508647-point Round 1 trace: their observed raw parameters and final percentages differ, despite both having star 915."
+  ]
+}

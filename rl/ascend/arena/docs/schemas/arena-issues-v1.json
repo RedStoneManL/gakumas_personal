@@ -1,0 +1,44 @@
+{
+  "additionalProperties": false,
+  "description": "adapter 可按类别分流，unsupported 不应循环重新截图。",
+  "properties": {
+    "version": {
+      "const": "arena-issues/1",
+      "default": "arena-issues/1",
+      "title": "Version",
+      "type": "string"
+    },
+    "category": {
+      "enum": [
+        "observation",
+        "unsupported",
+        "resolution",
+        "contract"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "path": {
+      "title": "Path",
+      "type": "string"
+    },
+    "next_action": {
+      "enum": [
+        "collect_evidence",
+        "wait_engine_update",
+        "resolve_original_command",
+        "fix_contract"
+      ],
+      "title": "Next Action",
+      "type": "string"
+    }
+  },
+  "required": [
+    "category",
+    "path",
+    "next_action"
+  ],
+  "title": "LiveIssue",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

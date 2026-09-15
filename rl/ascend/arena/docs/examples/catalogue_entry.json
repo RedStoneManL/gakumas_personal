@@ -1,0 +1,182 @@
+{
+  "entry": {
+    "key": "cards/p_card-01-act-1_002@0",
+    "kind": "cards",
+    "table": "ProduceCard",
+    "id": "p_card-01-act-1_002",
+    "variant": 0,
+    "variant_field": "upgradeCount",
+    "name": "軽い足取り",
+    "name_ja": "軽い足取り",
+    "plan": "ProducePlanType_Plan1",
+    "rarity": "ProduceCardRarity_R",
+    "category": "ProduceCardCategory_ActiveSkill",
+    "hidden": false,
+    "limited": false,
+    "view_start_time": "0",
+    "offline_exam": "eligible",
+    "issues": [],
+    "validation": "definition_inspected",
+    "real_game_verified": false,
+    "references": [
+      {
+        "table": "ProduceExamEffect",
+        "id": "e_effect-exam_lesson-0006-01",
+        "path": "playEffects.0.produceExamEffectId"
+      },
+      {
+        "table": "ProduceExamEffect",
+        "id": "e_effect-exam_parameter_buff-02",
+        "path": "playEffects.1.produceExamEffectId"
+      },
+      {
+        "table": "EffectGroup",
+        "id": "effect_group-visible-exam_lesson-000",
+        "path": "effectGroupIds"
+      },
+      {
+        "table": "EffectGroup",
+        "id": "effect_group-visible-exam_parameter_buff-000",
+        "path": "effectGroupIds"
+      }
+    ]
+  },
+  "definition": {
+    "id": "p_card-01-act-1_002",
+    "upgradeCount": 0,
+    "name": "軽い足取り",
+    "assetId": "img_general_skillcard_act-1_002",
+    "isCharacterAsset": false,
+    "voiceAssetId": "",
+    "rarity": "ProduceCardRarity_R",
+    "planType": "ProducePlanType_Plan1",
+    "category": "ProduceCardCategory_ActiveSkill",
+    "stamina": 4,
+    "forceStamina": 0,
+    "costType": "ExamCostType_Unknown",
+    "costValue": 0,
+    "playProduceExamTriggerId": "",
+    "playEffects": [
+      {
+        "produceExamTriggerId": "",
+        "produceExamEffectId": "e_effect-exam_lesson-0006-01",
+        "hideIcon": false,
+        "isOncePlayEffect": false
+      },
+      {
+        "produceExamTriggerId": "",
+        "produceExamEffectId": "e_effect-exam_parameter_buff-02",
+        "hideIcon": false,
+        "isOncePlayEffect": false
+      }
+    ],
+    "playMovePositionType": "ProduceCardMovePositionType_Grave",
+    "moveEffectTriggerType": "ProduceCardMoveEffectTriggerType_Unknown",
+    "moveProduceExamEffectIds": [],
+    "isEndTurnLost": false,
+    "isInitial": false,
+    "isRestrict": false,
+    "produceCardStatusEnchantId": "",
+    "searchTag": "",
+    "libraryHidden": false,
+    "noDeckDuplication": false,
+    "isReward": false,
+    "unlockProducerLevel": 0,
+    "rentalUnlockProducerLevel": 0,
+    "evaluation": 10,
+    "originIdolCardId": "",
+    "originSupportCardId": "",
+    "isInitialDeckProduceCard": false,
+    "effectGroupIds": [
+      "effect_group-visible-exam_lesson-000",
+      "effect_group-visible-exam_parameter_buff-000"
+    ],
+    "produceCardCustomizeIds": [],
+    "maxCustomizeCount": 0,
+    "isConversion": false,
+    "moveProduceExamTriggerIds": [],
+    "originCharacterId": "",
+    "originPrimaStellaIdolCardId": "",
+    "viewStartTime": "0",
+    "isLimited": false,
+    "order": "21010010000002"
+  },
+  "referenced_by": [
+    "memory_gifts/memory_gift-20260516-beginner-plan1-1",
+    "memory_gifts/memory_gift-20260516-hif-plan1-2"
+  ],
+  "mechanism_definitions": [
+    {
+      "table": "ProduceExamEffect",
+      "row": {
+        "id": "e_effect-exam_lesson-0006-01",
+        "effectType": "ProduceExamEffectType_ExamLesson",
+        "effectValue1": 6,
+        "effectValue2": 0,
+        "effectCount": 1,
+        "effectTurn": 0,
+        "targetProduceCardId": "",
+        "targetUpgradeCount": 0,
+        "targetExamEffectType": "ProduceExamEffectType_Unknown",
+        "produceCardSearchId": "",
+        "movePositionType": "ProduceCardMovePositionType_Unknown",
+        "pickRangeType": "ProducePickRangeType_Unknown",
+        "pickCountReferenceProduceCardSearchId": "",
+        "pickCountType": "ProducePickCountType_Unknown",
+        "pickCountMin": 0,
+        "pickCountMax": 0,
+        "produceCardSearchId2": "",
+        "pickRangeType2": "ProducePickRangeType_Unknown",
+        "pickCountReferenceProduceCardSearchId2": "",
+        "pickCountType2": "ProducePickCountType_Unknown",
+        "pickCountMin2": 0,
+        "pickCountMax2": 0,
+        "chainProduceExamEffectId": "",
+        "chainProduceExamEffectIds": [],
+        "produceExamStatusEnchantId": "",
+        "produceCardStatusEnchantId": "",
+        "produceCardGrowEffectIds": [],
+        "effectGroupIds": [
+          "effect_group-visible-exam_lesson-000"
+        ]
+      }
+    },
+    {
+      "table": "ProduceExamEffect",
+      "row": {
+        "id": "e_effect-exam_parameter_buff-02",
+        "effectType": "ProduceExamEffectType_ExamParameterBuff",
+        "effectValue1": 0,
+        "effectValue2": 0,
+        "effectCount": 0,
+        "effectTurn": 2,
+        "targetProduceCardId": "",
+        "targetUpgradeCount": 0,
+        "targetExamEffectType": "ProduceExamEffectType_Unknown",
+        "produceCardSearchId": "",
+        "movePositionType": "ProduceCardMovePositionType_Unknown",
+        "pickRangeType": "ProducePickRangeType_Unknown",
+        "pickCountReferenceProduceCardSearchId": "",
+        "pickCountType": "ProducePickCountType_Unknown",
+        "pickCountMin": 0,
+        "pickCountMax": 0,
+        "produceCardSearchId2": "",
+        "pickRangeType2": "ProducePickRangeType_Unknown",
+        "pickCountReferenceProduceCardSearchId2": "",
+        "pickCountType2": "ProducePickCountType_Unknown",
+        "pickCountMin2": 0,
+        "pickCountMax2": 0,
+        "chainProduceExamEffectId": "",
+        "chainProduceExamEffectIds": [],
+        "produceExamStatusEnchantId": "",
+        "produceCardStatusEnchantId": "",
+        "produceCardGrowEffectIds": [],
+        "effectGroupIds": [
+          "effect_group-visible-exam_parameter_buff-000"
+        ]
+      }
+    }
+  ],
+  "missing_references": [],
+  "live_definition_issues": []
+}

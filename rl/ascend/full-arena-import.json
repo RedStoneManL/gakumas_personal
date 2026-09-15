@@ -1,0 +1,4205 @@
+{
+  "source": "third_party/gakumas_arena",
+  "files": [
+    {
+      "path": "arena/AGENT_ENTRY.md",
+      "source": "third_party/gakumas_arena/AGENT_ENTRY.md",
+      "size": 13284,
+      "sha256": "d9ad6c4678765a2f2d1418f90be4327ce1241de33534496accda76ab6bda3ccc"
+    },
+    {
+      "path": "arena/README.md",
+      "source": "third_party/gakumas_arena/README.md",
+      "size": 6056,
+      "sha256": "6474f72789913d1520897b87f48dbe0f0f8e135c5f3d7fe4dabfe584414e8e49"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Achievement.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Achievement.yaml",
+      "size": 693474,
+      "sha256": "e61dd2bcb123a1d920cc90a038bd79265dbd98cb9274a6b4d1cecca227f81a8a"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/AchievementProgress.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/AchievementProgress.yaml",
+      "size": 716884,
+      "sha256": "7b0fbb657e266b5ba7d18c52f5fc754d222686d83ff83b4354af728324c04223"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/AppReview.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/AppReview.yaml",
+      "size": 445,
+      "sha256": "f9572a2020c1cdd0e69423443d300edd3d553c59bdc4d13a58b275e7537b9106"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/AssetDownload.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/AssetDownload.yaml",
+      "size": 316159,
+      "sha256": "3bda882f218103e488d8dd7dffdd51cb1c60abe501f804b1d945901c76ce8bb8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Badge.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Badge.yaml",
+      "size": 128941,
+      "sha256": "8b15a291d2c4cff86486a9698034fde190fca14d0e307bfe98d8ad392a4649b9"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Bgm.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Bgm.yaml",
+      "size": 291,
+      "sha256": "3c47c05f604f10e79d106d245f7983b4f035281ef0063f8fb5c50c9918ade15d"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Character.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Character.yaml",
+      "size": 55814,
+      "sha256": "2245fb3e1d0378f61c519c2a35e698929fbbb27a85e281b861772850356e4c84"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CharacterActorLookEffector.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CharacterActorLookEffector.yaml",
+      "size": 61,
+      "sha256": "22f29bf3edfb55ee0f075ffef8d8fc3f9d3aea9d4c5ab91bc48b0e4c231c1885"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CharacterAdv.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CharacterAdv.yaml",
+      "size": 2122,
+      "sha256": "2b4dbcd8642d118e4d548bcfe06ab913f014b71497f3e3e3c4022d408844c4dd"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CharacterColor.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CharacterColor.yaml",
+      "size": 7816,
+      "sha256": "76f06dd1f5d513747b9c04238dcbe008ef77bebdb1cea75ba3283a4126514810"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CharacterDearnessLevel.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CharacterDearnessLevel.yaml",
+      "size": 522046,
+      "sha256": "cf9c6cf7a510789e309d2a5a70cbf8de99fcec757d8c3bd5423b412d6cc74f9b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CharacterDearnessStoryGashaCampaign.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CharacterDearnessStoryGashaCampaign.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CharacterDetail.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CharacterDetail.yaml",
+      "size": 20093,
+      "sha256": "2cb24aa6c0ee27de654e41baeb3d45b64cb0874915910237eb8f97113fce4603"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CharacterProduceStory.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CharacterProduceStory.yaml",
+      "size": 105862,
+      "sha256": "75169fc724ae6d1a523bda7874d4969a88c41a16abe5dd0b5763883c8b9f3893"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CharacterPushMessage.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CharacterPushMessage.yaml",
+      "size": 37432,
+      "sha256": "074ccfc58df1dcb63e580247e5154e131e98e58ede05f177d7240e6f5ccdc2d5"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CharacterTrueEndAchievement.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CharacterTrueEndAchievement.yaml",
+      "size": 7960,
+      "sha256": "8c6075785e8b1be5b22f8cada8bd7db4d6d80c02190e0d38b0bf2428d4194ad1"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CharacterTrueEndBonus.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CharacterTrueEndBonus.yaml",
+      "size": 9686,
+      "sha256": "9b47933c66c186bb00cf9ba7b4aaf12b82265b66fb19232f5badd2d21eead93d"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CoinGashaButton.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CoinGashaButton.yaml",
+      "size": 7186,
+      "sha256": "11a537a4f4b7bad514b7e8cffafecbf8381876b78f7509829bc1e030682cdde8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CompetitionExamStatusEffectIcon.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CompetitionExamStatusEffectIcon.yaml",
+      "size": 643,
+      "sha256": "689bb4a51196f4c831ac3f5aaf625204bbab878517a6ca4286c4ad30641dc1e7"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CompetitionSeason.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CompetitionSeason.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CompetitionStageSectionLock.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CompetitionStageSectionLock.yaml",
+      "size": 2518,
+      "sha256": "43d1667747371d214af82544905ff9019f3d831c20222478b05a4f264b0fb1f4"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ConditionSet.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ConditionSet.yaml",
+      "size": 1716170,
+      "sha256": "2aad8ea754126c39683c500eac9cdd4d8efc326ab7e6993e0bd3f1d1887e22eb"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ConsumptionSet.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ConsumptionSet.yaml",
+      "size": 124055,
+      "sha256": "0a0bfc836b7878bc467fe0b5549f5e497243cfda4fa3f742a1f54120237a6964"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Costume.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Costume.yaml",
+      "size": 330998,
+      "sha256": "828271fa969eac8ca2fa4def6f6a46aca64d7c1ac40587c94affa2f60c76ea70"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CostumeColorGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CostumeColorGroup.yaml",
+      "size": 30550,
+      "sha256": "55f3997e82efef94c824d4990787a107c213c2a42b0df756ed84f78e45c7c5bf"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CostumeHead.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CostumeHead.yaml",
+      "size": 175255,
+      "sha256": "d2ee18a56c503f91443a62483e31f429f40e3791bfc9617f3e56e0656f966bf0"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CostumeMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CostumeMotion.yaml",
+      "size": 19116,
+      "sha256": "6c6eae5c95408db7bc3896d6b24355f2b5fa4bb57d62f73df9b3e2c9b157785c"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CostumePhotoGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CostumePhotoGroup.yaml",
+      "size": 1633,
+      "sha256": "1906af4c88e561a047bc84e1c83b3295f605e4cda4a9bddf40474ab1429d0777"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/CostumeWaitMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/CostumeWaitMotion.yaml",
+      "size": 5723,
+      "sha256": "b662cc41e827529cf900959fb8ad0e9a3610c691f4bbaaf9b650e1a15e2dfb12"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/DearnessBackground.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/DearnessBackground.yaml",
+      "size": 61670,
+      "sha256": "f2a4e7c67d6a761446ad5325088391909a359a67b88b4da223c052aaf309f218"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/DearnessBgm.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/DearnessBgm.yaml",
+      "size": 804,
+      "sha256": "b8b97c5283e6b36736baee12db8bf5579eeed5ac5d97ceba416ad80a25a3fb9b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/DearnessBoostBgm.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/DearnessBoostBgm.yaml",
+      "size": 804,
+      "sha256": "95262ffe2a39ff694b909bc2c3b1e53358119a544752b8c043028fa674cdc877"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/DearnessMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/DearnessMotion.yaml",
+      "size": 1500600,
+      "sha256": "c43288ad925240213c53a819c9065ac3d4568c7d12e08e060639f18ff01cf354"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/DearnessStoryCampaign.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/DearnessStoryCampaign.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/DeepLinkTransition.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/DeepLinkTransition.yaml",
+      "size": 272,
+      "sha256": "2f58445ea5941fae5bb14916136187634e4b6e49c1b411f352a016b05778aeb8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/EffectGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/EffectGroup.yaml",
+      "size": 28834,
+      "sha256": "6c0ffe5608b80743802567beaacc659109924eeced48c4b5fdb08c79bcee2567"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/EventLabel.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/EventLabel.yaml",
+      "size": 1118,
+      "sha256": "40278f39d2f804e2fd600350aab0c2f1866d0f80b461de0d4372e17c3385f0e8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/EventStoryCampaign.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/EventStoryCampaign.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ExamContestEmbedProduceCard.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ExamContestEmbedProduceCard.yaml",
+      "size": 10840,
+      "sha256": "9b864a5b543b63cde740f549297091ff9cfd7a42038ce2c19dbce1d5a99ad1a0"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ExamInitialDeck.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ExamInitialDeck.yaml",
+      "size": 10536,
+      "sha256": "769f0a04052597b897001c512b526d280d1919f7f337407117737332af0252fa"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ExamMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ExamMotion.yaml",
+      "size": 816592,
+      "sha256": "d8955f2ad08f5e88f3d542feb6b5e398a3370d35a8888611c9afca6aeb86da3b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ExamOutGameMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ExamOutGameMotion.yaml",
+      "size": 293181,
+      "sha256": "1d0b809e5dba79a3ff4c6053d0b7392d018bccd81a8a748958b0d605e2234694"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ExamSetting.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ExamSetting.yaml",
+      "size": 2162,
+      "sha256": "6ed35d9f3ed9be6eb08b2f24272a3b9d77ca7ee68e9af0177c3083d3c540e176"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ExamSimulation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ExamSimulation.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ExamUnitMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ExamUnitMotion.yaml",
+      "size": 1830,
+      "sha256": "477fd04b47de20bee186004d333aa7edb871205d896bda6ef58b66757983d2a6"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ExchangeItemCategory.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ExchangeItemCategory.yaml",
+      "size": 1124,
+      "sha256": "100eca39b64ba804aa936a0ec68bf8c9a37772aa885e0621ee52ef20d4da3978"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/FeatureLock.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/FeatureLock.yaml",
+      "size": 3908,
+      "sha256": "904ca73d6ff954ca2be0f72a5c797aa41061a53b741b8fe74f0f73200644dda9"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ForceAppVersion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ForceAppVersion.yaml",
+      "size": 369,
+      "sha256": "c77b622eb800b19498828e21788ed6482822d7b6e8c149c8d4ff01853519e93e"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/GashaAnimationStep.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/GashaAnimationStep.yaml",
+      "size": 27472,
+      "sha256": "c0c510b23d341a5ce59cccaac03aa14adc36a3e544db6b98e607afa9b8f8e4e3"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/GashaButton.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/GashaButton.yaml",
+      "size": 80618,
+      "sha256": "bc637ffce2afe2a1d24bae7720cd4237e7a4eae5d2b75b866fcce3a19d04b024"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/GuildDonationItem.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/GuildDonationItem.yaml",
+      "size": 466,
+      "sha256": "0cb98780c4fe574c2bfc5ff46d9b5cf7d6b4093da783e12474d9ae8965dea6e8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/GuildReaction.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/GuildReaction.yaml",
+      "size": 3571,
+      "sha256": "51318c3361481ced28fd915c6caf696ac5b8f53c6b52e4383ba6d9381ac26e32"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/GvgRaid.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/GvgRaid.yaml",
+      "size": 332,
+      "sha256": "76eced6ecbb96f536f9199b9838073a3dd3f5d2d272e1fca06efc9f21b4ec088"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/GvgRaidStageLoop.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/GvgRaidStageLoop.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/HelpCategory.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/HelpCategory.yaml",
+      "size": 7250,
+      "sha256": "5479efdb9a505951fd059cddff1214c0c62baeddd56523c6bdafa210dd81e68b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/HelpContent.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/HelpContent.yaml",
+      "size": 85026,
+      "sha256": "eafdd1ada5fab5c2a0f9d7ffea9d7634e69a342869ff668039570de6193374a5"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/HelpInfo.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/HelpInfo.yaml",
+      "size": 40487,
+      "sha256": "05cab041e1fc2d143f2810c5a173e3c3f0af74a534619b1bdf46a71a30702fd5"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/HomeBackground.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/HomeBackground.yaml",
+      "size": 5436,
+      "sha256": "57880a801407b1c8c4575f7b1692d3ab341a0dbe37668eacb4070c9318cb63de"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/HomeBackgroundPrefabGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/HomeBackgroundPrefabGroup.yaml",
+      "size": 21570,
+      "sha256": "8938c190a840ddd2c30de750818c7502679f27d27033ad3b17b3ef15f8931b4a"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/HomeBoard.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/HomeBoard.yaml",
+      "size": 3245,
+      "sha256": "3bcc97ef22224e396c673b7a7503c0f63af363bed0ad65838a75cb458748f311"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/HomeMonitor.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/HomeMonitor.yaml",
+      "size": 457,
+      "sha256": "252ff2bf60c08e819126e8a24f7efd71c0cd9623b462cb445de98bc5752fd097"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/HomeMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/HomeMotion.yaml",
+      "size": 556410,
+      "sha256": "0e8f161ef47be4bccfad55c13cd39a526b1cf88d6c0b36e80f982189d6d312cb"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/HomeTime.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/HomeTime.yaml",
+      "size": 255,
+      "sha256": "136666f7d6b72664b7a297d51506e177eb48061ca345bf25a602591a925abc56"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCard.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCard.yaml",
+      "size": 367000,
+      "sha256": "404444a55a35b9b0160f743c9bffd856da1733fa2ca86a2c9de647f0f0aaf38a"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCardLevelLimit.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCardLevelLimit.yaml",
+      "size": 24298,
+      "sha256": "1f6e25989039b53625834ed1bdf7a3706e59d35389dcc159df4e6d60bf667b0b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCardLevelLimitProduceSkill.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCardLevelLimitProduceSkill.yaml",
+      "size": 11071,
+      "sha256": "c7f198e927f8903b72de937851df7fb3b8b568f1eaae63f11a4a23a9c137ac57"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCardLevelLimitStatusUp.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCardLevelLimitStatusUp.yaml",
+      "size": 9338,
+      "sha256": "e984a0a1a1f26ba70f860ba8bbd3327cc88c4a4388e21d1cac47b18eb5cfbe6f"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCardPiece.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCardPiece.yaml",
+      "size": 34086,
+      "sha256": "0e56aff9080484a163577208d4a0ad24b5ed536759c42f7276a6f2cdad2b0ea4"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCardPieceQuantity.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCardPieceQuantity.yaml",
+      "size": 132,
+      "sha256": "63fd9b0b48e69b1f284d0e7757757a403109343149a1aa5cb23210434381e7e3"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCardPotential.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCardPotential.yaml",
+      "size": 205341,
+      "sha256": "15eb534df3a6175061fb2d1e33d8e0d695d9263893be7ee0a7ec8b79a428efdc"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCardPotentialProduceSkill.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCardPotentialProduceSkill.yaml",
+      "size": 61788,
+      "sha256": "d6e60c04a711abe1bd7b59e5d89f3d5643d099c022502e4388621b73639aee13"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCardPrimaStellaProduceSkill.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCardPrimaStellaProduceSkill.yaml",
+      "size": 2328,
+      "sha256": "9c3fae160667684687b36c40455c9fef111e9662b763c93db0e92237ec880a33"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCardSimulation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCardSimulation.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCardSkin.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCardSkin.yaml",
+      "size": 476239,
+      "sha256": "1b3c2bde13d12458c9eee6ad0a0e5767b08c2238bcca8baea8fcdc74d5b52985"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCardSkinSelectReward.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCardSkinSelectReward.yaml",
+      "size": 2622,
+      "sha256": "635c1782658a8e7f6882d2ded2ed0b6a85b8b5b4534b3a9c7c248c711cb1d538"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/IdolCardSkinUnit.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/IdolCardSkinUnit.yaml",
+      "size": 977,
+      "sha256": "f028d6895f517b0f4e3950e6b9c551dc09b249bddf745fc97145c64a5a2ea09c"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/InvitationMission.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/InvitationMission.yaml",
+      "size": 169,
+      "sha256": "4f4a8effe1a44814820009b2cf96eaa360999d61cbcc273054fb0286a2ab5c15"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/InvitationPointReward.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/InvitationPointReward.yaml",
+      "size": 1226,
+      "sha256": "2b065e5ea1215266a9dca70e68bcd6310b211b17107c8017a3418e4bd3229b1e"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Item.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Item.yaml",
+      "size": 343302,
+      "sha256": "8c9c19342e510a15eea3b6e4a980c38fb219d60a4c9b09a33ac8281eb2bce849"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/JewelConsumptionCount.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/JewelConsumptionCount.yaml",
+      "size": 274,
+      "sha256": "ce9afa0d2c382e43d118cec4d1852ae056f890218070c83ee83545f96b4b0fd0"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/LimitItem.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/LimitItem.yaml",
+      "size": 1260,
+      "sha256": "8fc20af4d59422bec45e3951f8aed047b3aacf7ebf2b78800e6e3d05efae0e7b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Localization.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Localization.yaml",
+      "size": 11869,
+      "sha256": "e9b16aad9c206d1784e62f7f505a19d0ca4c8649299a34d20494a09e1dd7fd05"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/LoginBonusMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/LoginBonusMotion.yaml",
+      "size": 6773,
+      "sha256": "2218cbe9f859dc5ffc94259afc9a87bb11cb29d962aa8bed767c1d88d98ded77"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MainStoryChapter.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MainStoryChapter.yaml",
+      "size": 786,
+      "sha256": "7ba3df48e8d5a95bd161edaa3371e1bf7e75888fae29be3c6a90620eeb3d01f7"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MainStoryPart.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MainStoryPart.yaml",
+      "size": 91,
+      "sha256": "e0af9f3562ec64e8f83ebd7654ed5a1d5a1488b66de854cd36e24c1ecf775272"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MainTask.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MainTask.yaml",
+      "size": 241259,
+      "sha256": "29dad1abcac6d95169c4eb96101c4febc793480d581b4ab3dbbeb13f8b32bce9"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MainTaskGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MainTaskGroup.yaml",
+      "size": 700,
+      "sha256": "f076d68b28ddbb06b16799bf759b5440b8e672cdb0cba95a9f81101a235fe91b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MainTaskIcon.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MainTaskIcon.yaml",
+      "size": 12869,
+      "sha256": "f9d905877badd2fce976787097c6af7502c011cbfb516786201cd5a87593a6b7"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Media.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Media.yaml",
+      "size": 104924,
+      "sha256": "7d94fb15e82578801b5396baa078353723e7ceecf7a4ee1907a53dc830b64528"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MediaExternalLink.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MediaExternalLink.yaml",
+      "size": 1114,
+      "sha256": "34c34cf27aacd5651a10e41def7494ea995a7b07c9cd8a93d77bd1b4c95d3f64"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MeishiBaseAsset.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MeishiBaseAsset.yaml",
+      "size": 50271,
+      "sha256": "fe0cf15731344fad7b4333807562765e9bd5f7c6b4f7537b332fb8dbfdd43a2a"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MeishiBaseColor.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MeishiBaseColor.yaml",
+      "size": 396,
+      "sha256": "319b14e5d7b235fda84fc7e097d97cd5ea86cdc42f46784dfb1f0cd40d5e77dd"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MeishiIllustrationAsset.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MeishiIllustrationAsset.yaml",
+      "size": 198702,
+      "sha256": "d42eb43a50e660bf0d4d7c8ca0855b1f3fc340775fdf5ff1bae06ecd8517cabf"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MeishiTextColor.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MeishiTextColor.yaml",
+      "size": 992,
+      "sha256": "6b6e10dd54c7b471928ad90c04c3d9d11c6bea9cb7448c1d8a66677177fb1bbe"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MemoryAbility.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MemoryAbility.yaml",
+      "size": 237818,
+      "sha256": "2ef52c80802ce1b49b239da6af9ec801e4c6d34c37cdd77dee215e1259d9c32a"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MemoryExchangeItem.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MemoryExchangeItem.yaml",
+      "size": 220,
+      "sha256": "72da87cc2d8c53cb77bfd75b615b69c6298410f04b5215e17a7caa0d01c7ffe1"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MemoryExchangeItemQuantity.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MemoryExchangeItemQuantity.yaml",
+      "size": 744,
+      "sha256": "c0d1ebc3f79cda5629062d296c26785d0e6133f6f5fad57f787ba93c9ce24ab0"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MemoryGift.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MemoryGift.yaml",
+      "size": 26244,
+      "sha256": "8970a568c04525cb8c7b34c34e7c1f5e716df7428ea50015905f9ede73de6f32"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MemoryTag.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MemoryTag.yaml",
+      "size": 2432,
+      "sha256": "985b768c28045f1032ce63d55a6a0ec4fe7989a9a2326b1efb609ed1cd0045e6"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Mission.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Mission.yaml",
+      "size": 1816110,
+      "sha256": "ef0cbf67208c142754d240ae0f542dded7c6af45d26c43e9dc2aa1e20c56ad85"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MissionDailyRelease.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MissionDailyRelease.yaml",
+      "size": 23747,
+      "sha256": "1585ee0c4c9c20d2ee59c89f86a9eec8d8b781d5f6744678e6d2e6edc20f4d13"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MissionDailyReleaseGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MissionDailyReleaseGroup.yaml",
+      "size": 12645,
+      "sha256": "ac7350a11ada124b651699d8940573b41a35781585c5c077443134f340f22bc8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MissionGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MissionGroup.yaml",
+      "size": 159844,
+      "sha256": "32d241f77ab09ba041815be8b01267e86a15fdd4cf08661c09f3106cafdb9a0d"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MissionPanelSheet.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MissionPanelSheet.yaml",
+      "size": 26022,
+      "sha256": "efb61e8482e37eac7d1840ff85c55c342b22158cce17d155b3e4ab0f32444853"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MissionPanelSheetGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MissionPanelSheetGroup.yaml",
+      "size": 8240,
+      "sha256": "b4510dd8768acd17eecfc4c40867fa5a0ed0116ce8d6c5eedc87176c8bc5f4ac"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MissionPass.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MissionPass.yaml",
+      "size": 55766,
+      "sha256": "afcd78068af9fb2682f763c6438c6a83d378cff4bf752925d5f2359fd57af0bc"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MissionPassPoint.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MissionPassPoint.yaml",
+      "size": 107,
+      "sha256": "ba808740721ce5ee9c2f65d291123b2a98871802db466aac8bd1f68911ab3b22"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MissionPassProgress.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MissionPassProgress.yaml",
+      "size": 203622,
+      "sha256": "623161c3a5ca009aff108097fb0baf907910d210321558302d479d0dc93013e8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MissionPoint.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MissionPoint.yaml",
+      "size": 5923,
+      "sha256": "5cba0f2724df7d773d400fc08355796915b2ac4ccbb286454bff81b33d79cfed"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MissionPointRewardSet.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MissionPointRewardSet.yaml",
+      "size": 23741,
+      "sha256": "f8085ead10eaab1126c9bffc3a73aedba2016649c56390334f57948ded6b19b9"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MissionProgress.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MissionProgress.yaml",
+      "size": 683506,
+      "sha256": "df15dac39402e75a6b7fad2aa2784558b2f68269bc418fd641194d5fb1f62d50"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Money.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Money.yaml",
+      "size": 6334,
+      "sha256": "e69ab5f5f273707e754e791827d28c7ad5a2b1bf36396fa92ad12d8bdd918e4b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Music.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Music.yaml",
+      "size": 261731,
+      "sha256": "503e0ec25d77db1d02090c47a24a296f6f68e00e7127233143cc92a93d4b0728"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MusicHot.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MusicHot.yaml",
+      "size": 254255,
+      "sha256": "3087c7052624418aa3c52cf7bd5bfe7b84441cf56b6ed14290c52148f36a1e94"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/MusicSinger.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/MusicSinger.yaml",
+      "size": 51491,
+      "sha256": "36269c285edc7f5ffbb10bf64486f05564993089b46c2d7aa0edae565eac0bc3"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/PhotoBackground.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/PhotoBackground.yaml",
+      "size": 4786,
+      "sha256": "d6e72d99eaa051c0ffe913f24e150cde982995497d7ebf6be215490e5067ac5b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/PhotoFacialLookTarget.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/PhotoFacialLookTarget.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/PhotoFacialMotionGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/PhotoFacialMotionGroup.yaml",
+      "size": 658,
+      "sha256": "d7ad944c39747c6cf2e5867dc472d5b30cfedf6b612b53fcbd3fda923453c41b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/PhotoLookTargetVoiceCharacter.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/PhotoLookTargetVoiceCharacter.yaml",
+      "size": 1181,
+      "sha256": "093d797a3072361d618dbdb39ace61b2374f8ba089397ceafb47bb0cf8c384e6"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/PhotoPose.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/PhotoPose.yaml",
+      "size": 681992,
+      "sha256": "96465827407747faa70eb4b84bb05849394cb0f81f2ccb7abb4c3bdcbb26fb46"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/PhotoReactionVoiceGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/PhotoReactionVoiceGroup.yaml",
+      "size": 103946,
+      "sha256": "f670cefead62c55b2db15a05c94de92ae29f407ab5c9ecd0f67db77de687e200"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/PhotoWaitVoiceCharacter.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/PhotoWaitVoiceCharacter.yaml",
+      "size": 6043,
+      "sha256": "0d1077c6a0411c671daf5e38feb1099e93f591ba4531d5ab33a3c43d895e6cfe"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/PhotoWaitVoiceGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/PhotoWaitVoiceGroup.yaml",
+      "size": 14740,
+      "sha256": "67d7f35c3c62a4d850d3b3c31d7ae6f8f6ceb00ca6a69857a4fff2c793725277"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Produce.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Produce.yaml",
+      "size": 7683,
+      "sha256": "8fcff9e5a3f74f39ded20653edfa617f075fa0c117ba3477ba14c97dd38f3851"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceAdv.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceAdv.yaml",
+      "size": 5545,
+      "sha256": "6858778395ea69c7f7b6980309990c386ab4645d8d3e41b202570b2c037d6038"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCard.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCard.yaml",
+      "size": 39471216,
+      "sha256": "35bbfd3a746973f5b3a5d90688f001bfaf14262b97ecfda7f483cccf3ed8b667"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCardConversion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCardConversion.yaml",
+      "size": 3505,
+      "sha256": "13bb7c4af7e325a150634797bbf23b7d5bcdc45fda2ceee4415a16bf588287b5"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCardCustomize.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCardCustomize.yaml",
+      "size": 108457,
+      "sha256": "215662cb67392244158d79dfeac86debbd7af75453728524b032a3f411aa77b7"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCardCustomizeRarityEvaluation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCardCustomizeRarityEvaluation.yaml",
+      "size": 197,
+      "sha256": "c113c07abab77b6ce4548b18668c1a5e90d4633607095542940cd1c3ac78d1c5"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCardGrowEffect.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCardGrowEffect.yaml",
+      "size": 220723,
+      "sha256": "897acdd5eabf583272872a4c5ada02d4569681ba390850a053c058ad76c6757f"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCardPool.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCardPool.yaml",
+      "size": 18407,
+      "sha256": "a76efe7dde5683df52678a35d685be0ea10ceb3fc587101a488ef90d991b14ff"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCardRandomPool.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCardRandomPool.yaml",
+      "size": 34737,
+      "sha256": "d411fd5a892bbccaf89b164e54b1e56de14a3b98520eaf9f535051595cf83bbf"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCardSearch.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCardSearch.yaml",
+      "size": 522763,
+      "sha256": "e21627f7b5ea91ca77b4932e16ea358b76cb53a492716ce23cef2fbd65ee41a1"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCardSimulation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCardSimulation.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCardSimulationGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCardSimulationGroup.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCardStatusEffect.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCardStatusEffect.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCardStatusEnchant.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCardStatusEnchant.yaml",
+      "size": 747004,
+      "sha256": "7819b93b52e79ca0f7c0af8d1b61ba601126e3599e1ca6a582b328e88b7d2645"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCardTag.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCardTag.yaml",
+      "size": 169,
+      "sha256": "2d65851783651fc88629a6f53c8a961e9f84777ecd46a8ef7a957281e7d2f196"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceChallengeCharacter.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceChallengeCharacter.yaml",
+      "size": 3963,
+      "sha256": "03b5c64dccf6b803205435fec7a95d543662e113455cf8114045aa286a119ce8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceChallengeSlot.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceChallengeSlot.yaml",
+      "size": 11056,
+      "sha256": "ef20c43c94827af1ac0fdb1dc34b9d02b3ae3a95a160b6e16cc86171d71fa69a"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCharacter.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCharacter.yaml",
+      "size": 14431,
+      "sha256": "35a544ae308fb32415008868a9e83abe83da0fec6e398b3178491d9125a5fef1"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCharacterAdv.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCharacterAdv.yaml",
+      "size": 1538,
+      "sha256": "fe88dfb5c39f482f339797cc5d1f7f445c6bf76d54670fb098435d0976a46ff4"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCharacterUnit.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCharacterUnit.yaml",
+      "size": 332,
+      "sha256": "38da0ad6c96342a69d1d54ea92d108a42b3323eeb4bb1c6c421bd8aa032014f6"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCustomizeItem.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCustomizeItem.yaml",
+      "size": 3453454,
+      "sha256": "dd3bd7c998284769f9bfb306f720b216952146049c30314e8f67fc079bc81630"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceCustomizeItemRelationship.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceCustomizeItemRelationship.yaml",
+      "size": 29653,
+      "sha256": "0f88fd066e4eaf0e3ebd1461d092d7c8bdfa84becc9487b03ac6eb306e943020"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceDescriptionExamEffect.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceDescriptionExamEffect.yaml",
+      "size": 27088,
+      "sha256": "119deaf04e335d6cb97ee6f3f2126445b220b58f046f980f91d1dfa1115d39d6"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceDescriptionLabel.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceDescriptionLabel.yaml",
+      "size": 637247,
+      "sha256": "1e3fb55e8127936e1d7edf8d87027702aaf6f99a24f781297f30fe0bb07c4321"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceDescriptionProduceCardGrowEffect.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceDescriptionProduceCardGrowEffect.yaml",
+      "size": 12546,
+      "sha256": "5f4108b5a666966d74f0d2b6c1b23828021594701c182f031a91e9d8fd11e3a8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceDescriptionProduceCardMovePosition.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceDescriptionProduceCardMovePosition.yaml",
+      "size": 1123,
+      "sha256": "ec8fbbc445964e050f7b56a336e81555274078550f0152b8ee8f1ba62312d4ff"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceDescriptionProduceEffect.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceDescriptionProduceEffect.yaml",
+      "size": 11711,
+      "sha256": "0fee9535d439e90e926ce47b05653e842170fe2ff579cb8745ff01fdf56f2286"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceDescriptionProducePlan.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceDescriptionProducePlan.yaml",
+      "size": 720,
+      "sha256": "64b0098169a93bacbe3e52676c3e725083ce90548390ec6df504b06330419d07"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceDescriptionProduceStep.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceDescriptionProduceStep.yaml",
+      "size": 239,
+      "sha256": "b6f7787a93197ea5310ee1ceffa11fcdf2bff7e3e65b1fefe3a9f89f8c9631af"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceDescriptionProduceType.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceDescriptionProduceType.yaml",
+      "size": 887,
+      "sha256": "e99dd74d6a3405e98bcd9b4a6120330407eac10dbb7c544cae071cc35805207b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceDescriptionSwap.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceDescriptionSwap.yaml",
+      "size": 9471,
+      "sha256": "eb579f5c0e72e4dddc4a8884c8e23a2610b3cf2bf1936e0b6ff4c082e0753e12"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceDrink.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceDrink.yaml",
+      "size": 221215,
+      "sha256": "417d0f98a2a07917892dfa5a5c9fd5931f903ef6738bc7c7aeb860a469236374"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceDrinkEffect.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceDrinkEffect.yaml",
+      "size": 7793,
+      "sha256": "b6aede6937a0445bb473197c2934ab94b2a4d067cf7cb80317135d583dccb321"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceEffect.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceEffect.yaml",
+      "size": 980589,
+      "sha256": "37bc2f0b09251598098b6eae65efec6ff57cc94d672fe665e3357fc2e69234d9"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceEffectIcon.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceEffectIcon.yaml",
+      "size": 24689,
+      "sha256": "1d0beb6ba18d1c11cb109a57431261477831dfbb4b4fcc1794c7ebffb88ece6c"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceEventCharacterGrowth.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceEventCharacterGrowth.yaml",
+      "size": 8124,
+      "sha256": "7b8742e7f52bba203e63328470ddfe265d46db304c4f35c22ce55f9631b8676b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceEventSupportCard.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceEventSupportCard.yaml",
+      "size": 65205,
+      "sha256": "bcf754b9bb3c666ad519fc26d7692a718dd071f84e70dba9c2c7a4d541e72641"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamAutoCardSelectEvaluation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamAutoCardSelectEvaluation.yaml",
+      "size": 46092,
+      "sha256": "f790c76ff41fc31b06db91c957d4ae3790e0acc97db66408b5775078c9ea1c59"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamAutoEvaluation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamAutoEvaluation.yaml",
+      "size": 2753346,
+      "sha256": "c302452100807f5bcdadf6dd4be04e5e2b3fa64a1dfde9509b19a59f4893e35b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamAutoGrowEffectEvaluation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamAutoGrowEffectEvaluation.yaml",
+      "size": 888752,
+      "sha256": "4dc40a0e66acf6ece8317ba1b716c88e4619808e5f7aa538c1d23e20eec7223d"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamAutoPlayCardEvaluation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamAutoPlayCardEvaluation.yaml",
+      "size": 233832,
+      "sha256": "f2e99638ea8dae256133edf9d4403b4ebe766dc7f11d79ac339410054991d14b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamAutoPlayProduceCardEvaluation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamAutoPlayProduceCardEvaluation.yaml",
+      "size": 97019,
+      "sha256": "dccef8d045529ddf2f49a38b8d00711d833e036e5f8b6fd32a73a811d9822a88"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamAutoResourceEvaluation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamAutoResourceEvaluation.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamAutoTriggerEvaluation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamAutoTriggerEvaluation.yaml",
+      "size": 55431,
+      "sha256": "ab1125bbe830fab2660843fe344cc010682d367e0476346bb07f2978cb36fea3"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamBattleConfig.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamBattleConfig.yaml",
+      "size": 214146,
+      "sha256": "1d762ea8f2e434c2d15923ac5716038a0eecaa7cb653f60a1139c5e94440d510"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamBattleNpcGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamBattleNpcGroup.yaml",
+      "size": 3562227,
+      "sha256": "06abc3099aeb8ed40780c741b6cda68301be151dc2e40aa80182752bbe7cd59b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamBattleNpcMob.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamBattleNpcMob.yaml",
+      "size": 6027,
+      "sha256": "71b860dcaf3ecaa46d74090cb3f6b2639e29d532d716b956ed41e5537dde1ac4"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamBattleScoreConfig.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamBattleScoreConfig.yaml",
+      "size": 608257,
+      "sha256": "3406ab940474c35806fa79e4e07264fb3ac5851914bed3f6e8abd52b174ab8a7"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamEffect.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamEffect.yaml",
+      "size": 28632847,
+      "sha256": "b37bccad855e64f54e25f28add7749c109de83eb6a3d50fdfb64933896c44aad"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamGimmickEffectGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamGimmickEffectGroup.yaml",
+      "size": 21504052,
+      "sha256": "af9b36abf96d3369e56b5cbe3e371f78f1560d6f2f1293c969bdd52b91dfb4ff"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamStatusEnchant.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamStatusEnchant.yaml",
+      "size": 25311781,
+      "sha256": "ac88b5e1cd9f2f8733403e6cfc6cba96b42df1cd8a3dd51f6895139c5115d1d9"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceExamTrigger.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceExamTrigger.yaml",
+      "size": 4045808,
+      "sha256": "43429547a824fab0b4ce0dac8446dc50a172579b002fb5385d24467225d31ed3"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceGrade.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceGrade.yaml",
+      "size": 4044,
+      "sha256": "e4f3b6d3c9b57565dab72b3dab54d6add9c88c3b5999aa74070c3a244cedfede"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceGroup.yaml",
+      "size": 2019,
+      "sha256": "dcd06e7763cf0bc915a2ead0ef7f87114d04d3c2ea98ece39768e956f1bd6b01"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceGroupLiveCommon.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceGroupLiveCommon.yaml",
+      "size": 57942,
+      "sha256": "76e55cab2f7d588062dc086d783eba836310215283c8f19bd51f0ca8e1a9c271"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceGrowthPanel.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceGrowthPanel.yaml",
+      "size": 164031,
+      "sha256": "d8d86272e3721be4e9f281ba21aae79ff485dd85f092ac3513af2c4fb57419f8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceGrowthPanelSheet.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceGrowthPanelSheet.yaml",
+      "size": 239,
+      "sha256": "9318234066aae8c64e4361c3c109455c275ca8e2a9cba1941e35ee6819b1ee93"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceGuide.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceGuide.yaml",
+      "size": 58986,
+      "sha256": "ab642391fd2e9ddd4c0d5ef4e1a7f36948d4c69005c737a42bb4a6adc6671991"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceGuideProduceCardCategory.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceGuideProduceCardCategory.yaml",
+      "size": 18676,
+      "sha256": "c1106e1c1d1b4c09f2ec6c040456e2282d8b89518cdc6a5585588e50f2d62f6d"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceGuideProduceCardCategoryGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceGuideProduceCardCategoryGroup.yaml",
+      "size": 6207,
+      "sha256": "a857fa914936bb9a7b0a439966d9869dc3ca4300e8e7553102f4f0fbc8770972"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceGuideProduceCardSampleDeckCategory.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceGuideProduceCardSampleDeckCategory.yaml",
+      "size": 16401,
+      "sha256": "5a77450f139e82ad6aa9f1dca07e3fa840836b39449b371c74596ad5760df850"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceGuideProduceCardSampleDeckCategoryGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceGuideProduceCardSampleDeckCategoryGroup.yaml",
+      "size": 5509,
+      "sha256": "af8ee9b412f9bd6b2afbcad25d862a25098eb52797fc1083d893c23862444115"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceHighScore.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceHighScore.yaml",
+      "size": 4776,
+      "sha256": "d26707281ba0d46f71603b0f9a47690e95a5e4ea5f98756b39933b2227155842"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceInitialDeck.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceInitialDeck.yaml",
+      "size": 6972,
+      "sha256": "9ebd90dbb86cfbb618c648e729905b6dbb74f33e8645efaea0f1a155915db724"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceItem.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceItem.yaml",
+      "size": 16919108,
+      "sha256": "bbe3b3edbf61ed11e1fb54b983dbe276fd0aa9162c4fed740078ef7325c7cb08"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceItemChallengeGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceItemChallengeGroup.yaml",
+      "size": 68252,
+      "sha256": "569d7648b39465448934840ff969b9f65b3ad4bfa73b4352e006c4d59fa14d32"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceItemEffect.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceItemEffect.yaml",
+      "size": 265465,
+      "sha256": "6241a848e52a5be47deacfbf2c0974ad7fd0f7fccd28ed4a01eeb0f29be6469a"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceItemSimulation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceItemSimulation.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceItemSimulationGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceItemSimulationGroup.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceLegendProduceCard.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceLegendProduceCard.yaml",
+      "size": 1423,
+      "sha256": "60948814d7e40d8cc0c0bcbb11df0136d3890c4f9125fc866790e14d965d5fe1"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceLive.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceLive.yaml",
+      "size": 193464,
+      "sha256": "90638a4a5cd8ea5047ab80b1dafe7e13e7dc1e57b23c1c0cd59f03b3a1eb0ff9"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceLiveEvaluation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceLiveEvaluation.yaml",
+      "size": 32506,
+      "sha256": "9881b6011929239cc7f9baed0b17b738f816b00175c47a6b70bc228b3aa53e73"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceNavigation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceNavigation.yaml",
+      "size": 69322,
+      "sha256": "f222e5e5043f5896bb8f98157882023078d042c9bcf561a0ecec3e2b4935f2d6"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceNextIdolAuditionMasterRankingSeason.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceNextIdolAuditionMasterRankingSeason.yaml",
+      "size": 487,
+      "sha256": "f11a9923a2a2fb68568cea7e313746ca67e8593eb99056ae2eed95fd913865e4"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceResultMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceResultMotion.yaml",
+      "size": 81573,
+      "sha256": "fc52d1afc6badcb033ff7af245436364e76d4c545b77d64122585d5f83cc295f"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceScheduleBackground.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceScheduleBackground.yaml",
+      "size": 3218,
+      "sha256": "28073763e5dc15625b80d7e92e025342cc86532ad1783ae04daa66030722b2f8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceScheduleMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceScheduleMotion.yaml",
+      "size": 356618,
+      "sha256": "75e7437e1d66af0e02b2551cd57b901162a55da1b70addb027669ac8a87eb129"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceSeason.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceSeason.yaml",
+      "size": 250,
+      "sha256": "79494ef0f4ee3d2e956d534649fd3b54190b10d922bcfba02d0d41906b7439ef"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceSeasonZeroGrade.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceSeasonZeroGrade.yaml",
+      "size": 2468,
+      "sha256": "09c7e94f303d988adde477e5281c9dc11f2c13eb68ab9c711ee5b052b6733e52"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceSetting.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceSetting.yaml",
+      "size": 5102,
+      "sha256": "8fd58fec061c8450713b680b648051d6e9ba8c3a5a72750554862085926418c5"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceSkill.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceSkill.yaml",
+      "size": 6806217,
+      "sha256": "87935b36de7f4e4cc12189314b9dce7246a0c5e3b865b3e79d465ca2c33150e5"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceSplitAdv.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceSplitAdv.yaml",
+      "size": 6069,
+      "sha256": "a16f5219726462304d16855271e96540242463bf66278826d6b97a5094a13706"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStartMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStartMotion.yaml",
+      "size": 7909,
+      "sha256": "9942deab23089097a4d0ce89642e25ed69a086d6ce252a61163b4eb6d1d36107"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepAuditionCharacter.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepAuditionCharacter.yaml",
+      "size": 24870,
+      "sha256": "879dc9285cdad7d6725cdecc237f2b7ddf550e1dcab3af0c750a6ae69e05bd13"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepAuditionCharacterBgm.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepAuditionCharacterBgm.yaml",
+      "size": 6360,
+      "sha256": "a2582c8e111b756ef5278baa316c815d47142550ff83fce6519bcac45d556e79"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepAuditionCharacterUnitMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepAuditionCharacterUnitMotion.yaml",
+      "size": 27184,
+      "sha256": "3eb68777ae60e6f750c172977e921bfd4261549c3b098f733b6e612cf7a9b356"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepAuditionDifficulty.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepAuditionDifficulty.yaml",
+      "size": 2730253,
+      "sha256": "f0df00dbb9bbb115f39edf176e8c1224a02cff10d005d7c33cad3e2d45ae3c21"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepAuditionMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepAuditionMotion.yaml",
+      "size": 459831,
+      "sha256": "52cd7d06859212a47d0e42af54c0f9fdd7188bab0e730258ca9bb5ba63d16fdb"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepAuditionRivalActor.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepAuditionRivalActor.yaml",
+      "size": 2448,
+      "sha256": "406a88f10a33e6a416ef4f0f07894b357f0508422e8efd986c03f07cf3769100"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepAuditionRivalActorMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepAuditionRivalActorMotion.yaml",
+      "size": 372,
+      "sha256": "f7720844e4b140a95ef908228cc5104498c3127d79ae7928511db3dc0debf5f8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepEventDetail.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepEventDetail.yaml",
+      "size": 12879806,
+      "sha256": "0acbe940965b8b3b497d16e066cb591f4654d35993c1e3d0040ffaf6c6c82fc7"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepEventSuggestion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepEventSuggestion.yaml",
+      "size": 10405735,
+      "sha256": "afce297b0ee59bddc4886d369ae78c9a9b29b61abcc239f19208a947ad606f70"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepFanPresentMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepFanPresentMotion.yaml",
+      "size": 8393,
+      "sha256": "69764460be9db2ae05ab516fdfdd2bb8406bdc749dedd01159dbf9f763dd494d"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepLesson.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepLesson.yaml",
+      "size": 145942,
+      "sha256": "1410a467d48f1be4b408da8c19e8bd2ee1cd93d5893ea1a63dc6ccc0e97839da"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepLessonLevel.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepLessonLevel.yaml",
+      "size": 24891,
+      "sha256": "173f2c84f8f078617a2c51eed27d7b2f0a5147a468c529926fad16574a094f0c"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepOpenLesson.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepOpenLesson.yaml",
+      "size": 8282,
+      "sha256": "3d01453d5f57152580517a1be59ca8c7444318a7e92bce58f9606247be9fed93"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepOpenLessonMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepOpenLessonMotion.yaml",
+      "size": 132900,
+      "sha256": "dbc99ca62bfa46e88845f73e54cbf581573c11269987b5ea82e45421de649047"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepSelfLesson.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepSelfLesson.yaml",
+      "size": 543,
+      "sha256": "5215c12a367e539a66a113dd3606c2c85342d32885c7f557c4a1536d6a35220c"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepSelfLessonMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepSelfLessonMotion.yaml",
+      "size": 186006,
+      "sha256": "c045e8903b3e11d047cf0566cec47e41318beb0066af9f87027a5b9866cda8c0"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStepTransition.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStepTransition.yaml",
+      "size": 1419038,
+      "sha256": "c48c90d8b85190bd6eba2951f12c052d839044facd6235336be978d2b4fb23dc"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStory.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStory.yaml",
+      "size": 1054851,
+      "sha256": "4c814940f45b432f899201429e42cdb5d6cf177e57cf6b8afc105e100743420d"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceStoryGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceStoryGroup.yaml",
+      "size": 221878,
+      "sha256": "c5862653fcde4d5033a1a82d2c726032477ecb2e431e9ced12e74887c7468876"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceTrigger.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceTrigger.yaml",
+      "size": 20511,
+      "sha256": "b2b951afcf1546c377a849b3deb2f1170f5f9d4db996c92b220fe2a5c3181048"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProduceWeekMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProduceWeekMotion.yaml",
+      "size": 62505,
+      "sha256": "1c8554931c3f34ce1652177db0d6d463028195dd6bbcad030703ec5e24bf8d85"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProducerLevel.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProducerLevel.yaml",
+      "size": 28764,
+      "sha256": "275064791b27fe4ccc4a0789ca47bc7005c4a194abdbfb15fe42953a6e3ba7ca"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProducerRanking.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProducerRanking.yaml",
+      "size": 2172,
+      "sha256": "82c8e781957b14c4ef04b07cca23edebfdca2b08c2a9a652bd6e15ef37eb42af"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProducerRankingCharacter.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProducerRankingCharacter.yaml",
+      "size": 999,
+      "sha256": "ac5f889e998f1277fe4358c3441974ce4fbbb31b0f4ed9b7f66d6efec789937b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProducerRankingProduce.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProducerRankingProduce.yaml",
+      "size": 742,
+      "sha256": "6f31a237d5df2b7fa1818bb1ade5c5b9d2d8876a31c3039e621593df8f3ad6d1"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProducerRankingRankGrade.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProducerRankingRankGrade.yaml",
+      "size": 2600,
+      "sha256": "7fd3f5a5fb290a77e6d55211bba78469e087f0cbbf5060741ff473827cc560ea"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ProducerRankingTower.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ProducerRankingTower.yaml",
+      "size": 4384,
+      "sha256": "0657408143e071c64334516e337751cef3736eeb2e492b8bc978dccc76ef31e7"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/PvpRateCommonProduceCard.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/PvpRateCommonProduceCard.yaml",
+      "size": 1909,
+      "sha256": "77a4f0d014c3c2ac5e45de9fd942cff6307335e03ea212d07555ce122af4378f"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/PvpRateConfig.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/PvpRateConfig.yaml",
+      "size": 101024,
+      "sha256": "bc5133bada0bf1ba24ed0a5f05264a6f10389c83dc8122c92f43bab9133be9a3"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/PvpRateMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/PvpRateMotion.yaml",
+      "size": 15414,
+      "sha256": "f84101b368d0a5166a03ef0524be4e88e9376e6cfdfa0b606cce0c515ba9f0c8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/PvpRateUnitSlotUnlock.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/PvpRateUnitSlotUnlock.yaml",
+      "size": 550,
+      "sha256": "d09787131ef9151a27b92a3b1fce741608d4ae8144f4ea2d0ec241d4b2a01eea"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ResearchMemoryRerollCost.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ResearchMemoryRerollCost.yaml",
+      "size": 2806,
+      "sha256": "a0ef8fc5a5f164dadf125359a6fe93707497adba02d1ce9893079c7472244158"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ResultGradePattern.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ResultGradePattern.yaml",
+      "size": 5215,
+      "sha256": "bd9f2eee738ee60dad40e025c60b841fd8f0305e8415ab464420d67c45361efc"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Rule.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Rule.yaml",
+      "size": 664384,
+      "sha256": "3390db91098b898cd17fa8e495fc3fb4284d23c1cb594019cb24ebdd8ec55245"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SeminarExamTransition.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SeminarExamTransition.yaml",
+      "size": 7254,
+      "sha256": "94d209a654e172e5d77577d9edc47e4a438d17faec873ca0361874209301ded8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Setting.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Setting.yaml",
+      "size": 11319,
+      "sha256": "da3b2cbb5d4dc09a6494d2a3126d172114cc07e9a2e147c3722b5603f0292d6e"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Shop.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Shop.yaml",
+      "size": 1159,
+      "sha256": "515c87b0ff37b6fff83392ca509c1601374665c168d75f75790ae8d47a16edc7"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ShopItem.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ShopItem.yaml",
+      "size": 226619,
+      "sha256": "f1ab8f966b14a6f5d120f64ef5476eef055809c17ad0d511639b7673859330e3"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/ShopProduct.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/ShopProduct.yaml",
+      "size": 3440,
+      "sha256": "88d08da6bd6475037f68ec5ae39c831b6243e8c1321ef2e537c5efae5ff2dedf"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Story.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Story.yaml",
+      "size": 123831,
+      "sha256": "ca708b42a7b7f0977025aef410e336fcafd91443c13dad78146f97cd266e81d9"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/StoryEvent.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/StoryEvent.yaml",
+      "size": 12914,
+      "sha256": "1bafbc90525608cae63c8b0be4d2199b694cab08c380c2d430717d2a0ca3b6bb"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/StoryGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/StoryGroup.yaml",
+      "size": 51994,
+      "sha256": "85af11855e25ca40fa910d5b65309219778bc0063a932e979266dbb8f7ded21f"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SupportCard.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SupportCard.yaml",
+      "size": 350476,
+      "sha256": "b418cdacd59d74de005918aab893f9c5f86677863fafd092693a19ce53c82280"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SupportCardBonus.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SupportCardBonus.yaml",
+      "size": 991,
+      "sha256": "012e61cadece2df069663ff178a0779954dcb577563948c90810287e0a080bf8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SupportCardFlavor.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SupportCardFlavor.yaml",
+      "size": 103046,
+      "sha256": "b472c08b4c8c436be12860f181de4c0ef92157aed7e1dfacc614683edfc43c2a"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SupportCardLevel.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SupportCardLevel.yaml",
+      "size": 9497,
+      "sha256": "f9129ad1d5d955266e4505ef675c96247465a807929e080f59b1004148e8055f"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SupportCardLevelLimit.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SupportCardLevelLimit.yaml",
+      "size": 1423,
+      "sha256": "e8fdf6d891bb24a70e4f0cbde8481b7641f7994a362259c32cc175e5700b8321"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SupportCardProduceSkillFilter.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SupportCardProduceSkillFilter.yaml",
+      "size": 17625,
+      "sha256": "c8e5f5ebf7c3a545c0d7bd7984e73f7cd1f349efdec0dd769f856b36bb5697ff"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SupportCardProduceSkillLevelAssist.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SupportCardProduceSkillLevelAssist.yaml",
+      "size": 68845,
+      "sha256": "8f0ab7e4ef67279b7f7713c49e4c87a82d282dda5f85c2382e891c1c209782e1"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SupportCardProduceSkillLevelDance.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SupportCardProduceSkillLevelDance.yaml",
+      "size": 1056819,
+      "sha256": "3dbc2c41cab7f3eb040beb0e20a6e60a955fe9e50ddf83752bd1d8f4371931cb"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SupportCardProduceSkillLevelVisual.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SupportCardProduceSkillLevelVisual.yaml",
+      "size": 1131560,
+      "sha256": "5b611dab738d5f7e438ced7035349ef98d0c83dfe66d9b5e33c9e6e36b55261e"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SupportCardProduceSkillLevelVocal.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SupportCardProduceSkillLevelVocal.yaml",
+      "size": 1133826,
+      "sha256": "417d2da4700eb4726de7edcd1254f9ab86ccee6aaf7ad65e7ba2bfe0d3c0a171"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SupportCardSimulation.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SupportCardSimulation.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/SupportCardSimulationGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/SupportCardSimulationGroup.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Terms.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Terms.yaml",
+      "size": 378,
+      "sha256": "7c448f5e27e753c3811b300590dc5b54f3a8cade6c1d6336556db8a13084ed5a"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Tips.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Tips.yaml",
+      "size": 7811,
+      "sha256": "dc30e1812d0a195c2bce5d70954c172159a2f5c4ac1858b059e5ea9ba0fea4d3"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/TitleAsset.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/TitleAsset.yaml",
+      "size": 1586,
+      "sha256": "76a11b8b1e471d842ba96d27c82ac0842ec23c98290ef6139ba9f7f04a55775d"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/TitleVoice.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/TitleVoice.yaml",
+      "size": 1669,
+      "sha256": "0d4b39bc073bb8cb096ada45d249255b02e86e94ad5234abd6aa3ae1a9bc3ebf"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Tour.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Tour.yaml",
+      "size": 1634,
+      "sha256": "026252d02cce7cdab5a69f302f0e69a5c2cb2b77438b78befd1a3d325f510389"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/TourMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/TourMotion.yaml",
+      "size": 7985,
+      "sha256": "739e8785c86f2c9b3a0edd8f4f7a4730743969b672bb2cfa9fd4c932a055ac34"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/TourStageTimeline.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/TourStageTimeline.yaml",
+      "size": 4744,
+      "sha256": "e9e849fb2f007c938e3e207367890515321da534bd3dddd903dc91320969777b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Tower.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Tower.yaml",
+      "size": 2925,
+      "sha256": "2bb18ad9b88b33307984c472eb1458d30346d7c34ceb6a29d883d74f21945ab2"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/TowerLayer.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/TowerLayer.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/TowerLayerExam.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/TowerLayerExam.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/TowerLayerRank.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/TowerLayerRank.yaml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/TowerReset.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/TowerReset.yaml",
+      "size": 99686,
+      "sha256": "47fca64be3435f5918d733d4df40fe0765e311893833da121d24ced30b0227d8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/TowerTotalClearRankReward.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/TowerTotalClearRankReward.yaml",
+      "size": 12172,
+      "sha256": "fcbfd9066fda4d41bbc5414656fb21e464ab1e3da4b5a4c42f410c8328ad9f6d"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Tutorial.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Tutorial.yaml",
+      "size": 108111,
+      "sha256": "d7490749a6910d8201c9d58979ff7b3e426ccbe40532937d164b75e4fede911d"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/TutorialCharacterVoice.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/TutorialCharacterVoice.yaml",
+      "size": 2619,
+      "sha256": "8e44750383ded2a155c985be79a66fe12e827b301cf3645a0ae804647c254384"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/TutorialProduce.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/TutorialProduce.yaml",
+      "size": 2215,
+      "sha256": "5ec3479273acd048ad618fd6a84269310c2fae2c08e4ccda19e8d4675a5060aa"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/TutorialProduceStep.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/TutorialProduceStep.yaml",
+      "size": 6077,
+      "sha256": "86e14e66f12e0c0a1ed8545dce3ffc02bbee90bbefc4c3d50ef10f89489ad789"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Voice.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Voice.yaml",
+      "size": 9872,
+      "sha256": "b9834d20844681783f6bed70b64355034e7bca2cee2ccdd99306a9a47e555270"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/VoiceGroup.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/VoiceGroup.yaml",
+      "size": 697244,
+      "sha256": "4017bff74b4414e1ffb0ed47f29a17050d0067d65024e83ac1ad6898b82c2e56"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/VoiceRoster.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/VoiceRoster.yaml",
+      "size": 420029,
+      "sha256": "e2ca3c3fbf26a0719c4bea9926eb67f06a62687b97026580c19996d7493055f2"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/Work.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/Work.yaml",
+      "size": 344,
+      "sha256": "22163fe8557aa0c2445d23ca2656641578d5ec92e780c68b57bfe8b70f282183"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/WorkLevel.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/WorkLevel.yaml",
+      "size": 2110,
+      "sha256": "6491f53bf1192ed1fe20a8c296ffb4e7f43349efc805c5c29e37b863076e5672"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/WorkLevelReward.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/WorkLevelReward.yaml",
+      "size": 451596,
+      "sha256": "d2a624c56abc1cb5ada97e0961ac826361acb4b929b291ca9eded0ca0034cbf8"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/WorkMotion.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/WorkMotion.yaml",
+      "size": 15424,
+      "sha256": "ee4a0042e7238dba4612b59cc28622d745320bc109a737e7ffeadd8279b6646d"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/WorkSkip.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/WorkSkip.yaml",
+      "size": 213,
+      "sha256": "2de31845450526808adbdc6d124ee2b668aaded75d27cf500d505e5a15e7d34b"
+    },
+    {
+      "path": "arena/data/raw/gakumasu-diff/WorkTime.yaml",
+      "source": "third_party/gakumas_arena/data/raw/gakumasu-diff/WorkTime.yaml",
+      "size": 643,
+      "sha256": "65fa6e4f776e06589993507131e91c715e2fb6e213d2b60985cdd0c80074a38c"
+    },
+    {
+      "path": "arena/docs/ARCHITECTURE.md",
+      "source": "third_party/gakumas_arena/docs/ARCHITECTURE.md",
+      "size": 12718,
+      "sha256": "0f761c3b1fb8697929b6c44d7629c57a26a63a46cb1e54f977c0b7d98f64d3a0"
+    },
+    {
+      "path": "arena/docs/ARENA_CATALOGUE_UPDATE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_CATALOGUE_UPDATE.md",
+      "size": 3583,
+      "sha256": "4358d73abf2dd0985c3cfbc6334da66e8d4d87054437e0c739fdba86fad28a01"
+    },
+    {
+      "path": "arena/docs/ARENA_COMPLETION_ROADMAP.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_COMPLETION_ROADMAP.md",
+      "size": 7637,
+      "sha256": "64d2fddf7eee6803f53706eb00a5c2837ce6bcb4678ce4f392ae20df482e009a"
+    },
+    {
+      "path": "arena/docs/ARENA_CONTENT_UPDATE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_CONTENT_UPDATE.md",
+      "size": 7395,
+      "sha256": "f99b5a96bad562a559efee52d8ca39b59d9281fcd7c201068d83d9fcbd3d343c"
+    },
+    {
+      "path": "arena/docs/ARENA_DEBUG_USAGE_GUIDE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_DEBUG_USAGE_GUIDE.md",
+      "size": 14270,
+      "sha256": "1bab7fa47cc17dd7566cccc332516b3d86c12a8f1e7ff95465bc99be17d8c4d1"
+    },
+    {
+      "path": "arena/docs/ARENA_ENGINE_UPDATE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_ENGINE_UPDATE.md",
+      "size": 9570,
+      "sha256": "63b3af0e6ec3ef530ca23a32f96c75bec90a12186643f9f865362ad4d1fad010"
+    },
+    {
+      "path": "arena/docs/ARENA_EXAM_UPDATE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_EXAM_UPDATE.md",
+      "size": 6819,
+      "sha256": "f68b38e83e5c38a380b2580332beab10819c8b087a3d2343fbf4f545ee1edb0b"
+    },
+    {
+      "path": "arena/docs/ARENA_GOLDEN_ENGINE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_GOLDEN_ENGINE.md",
+      "size": 9489,
+      "sha256": "e31d8ef01abc30cf48fa74f7cdedb4a215545edabe34469c7f7af344ce6a44cc"
+    },
+    {
+      "path": "arena/docs/ARENA_MOVEMENT_UPDATE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_MOVEMENT_UPDATE.md",
+      "size": 4325,
+      "sha256": "324d65982f16a1991b5f1e234475eb1e2695027553291138e0ec94faa97d9ae9"
+    },
+    {
+      "path": "arena/docs/ARENA_PASSIVE_UPDATE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_PASSIVE_UPDATE.md",
+      "size": 8075,
+      "sha256": "1084b567a56ec5fabd0e14a3afa98f9cd0e1fa9e77ea9a065bf0bc9eaed337a8"
+    },
+    {
+      "path": "arena/docs/ARENA_REPORT_UPDATE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_REPORT_UPDATE.md",
+      "size": 3235,
+      "sha256": "b23f48ef1d30eed77f23f256e48ffaf83f4fc9ebb57f6ce2a404983633885085"
+    },
+    {
+      "path": "arena/docs/ARENA_ROUND2_READINESS.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_ROUND2_READINESS.md",
+      "size": 11425,
+      "sha256": "97d6f0dc910ffa5b6255b559401b8e6fce34b564da7914a884fd1235c8071124"
+    },
+    {
+      "path": "arena/docs/ARENA_ROUND2_READINESS_V1_AUDIT.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_ROUND2_READINESS_V1_AUDIT.md",
+      "size": 22425,
+      "sha256": "93c64975e2d9ed03834f1cd18066f33fdb1eeb15212121dd5dbe1f2ee678d13d"
+    },
+    {
+      "path": "arena/docs/ARENA_RULE_ALIGNMENT_UPDATE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_RULE_ALIGNMENT_UPDATE.md",
+      "size": 6855,
+      "sha256": "6110d2fd03010a43d71f45a01cdac32ffd423d5fe411e05a38bf0e3b12d05d5e"
+    },
+    {
+      "path": "arena/docs/ARENA_SEARCH_ACCEPTANCE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_SEARCH_ACCEPTANCE.md",
+      "size": 7656,
+      "sha256": "b3f72013d53fb9bed5c552260f17c1a3aebfe92f2c1d677cb84cb32ed7fb4cb9"
+    },
+    {
+      "path": "arena/docs/ARENA_SEARCH_API.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_SEARCH_API.md",
+      "size": 13570,
+      "sha256": "27157d1ac06df037ad2cf146530b5d69417b96002818ec32afc8aea131ff9056"
+    },
+    {
+      "path": "arena/docs/ARENA_TRIGGER_ORDER_UPDATE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_TRIGGER_ORDER_UPDATE.md",
+      "size": 3792,
+      "sha256": "e13becf46e679b45140eeda8381422efb79a66b985ef2cd3aa62245e7443370a"
+    },
+    {
+      "path": "arena/docs/ARENA_USAGE_GUIDE.md",
+      "source": "third_party/gakumas_arena/docs/ARENA_USAGE_GUIDE.md",
+      "size": 15091,
+      "sha256": "787817d964b2b774b1fee2ebe99086ceffbd02c534241be8f92b8d2f6aac67f2"
+    },
+    {
+      "path": "arena/docs/CARD_MOVEMENT_CONTRACT.md",
+      "source": "third_party/gakumas_arena/docs/CARD_MOVEMENT_CONTRACT.md",
+      "size": 4184,
+      "sha256": "fef71b577a2a7b980af27d5a82b64f5cbcf4748fb97c1953d322d545f5fd6bd8"
+    },
+    {
+      "path": "arena/docs/CONTENT_ARCHITECTURE.md",
+      "source": "third_party/gakumas_arena/docs/CONTENT_ARCHITECTURE.md",
+      "size": 4968,
+      "sha256": "6b2e8bd3431f259ab2a8a5451a36afd561693183d3b4e0bc762ffc4133935646"
+    },
+    {
+      "path": "arena/docs/CONTENT_AUTHORING.md",
+      "source": "third_party/gakumas_arena/docs/CONTENT_AUTHORING.md",
+      "size": 20476,
+      "sha256": "26764c820e0a3b136399e49c464d6452df3d63da373125a65378218e702f8824"
+    },
+    {
+      "path": "arena/docs/DATA_AUTHORITY.md",
+      "source": "third_party/gakumas_arena/docs/DATA_AUTHORITY.md",
+      "size": 2666,
+      "sha256": "b385d516024412a92c708da60068d8ea773592dc704e937001792dc5862f882b"
+    },
+    {
+      "path": "arena/docs/DECK_PREVIEW.md",
+      "source": "third_party/gakumas_arena/docs/DECK_PREVIEW.md",
+      "size": 6588,
+      "sha256": "a3ffb9f5759feaa6c1b94f63a8f96bb32226e7da9554754f3d6a16ca559bd10c"
+    },
+    {
+      "path": "arena/docs/ENGINE_RULE_CONTRACT.md",
+      "source": "third_party/gakumas_arena/docs/ENGINE_RULE_CONTRACT.md",
+      "size": 10987,
+      "sha256": "107d209cff17a3099236d97183401c5b2b83329c1ac0404af54a95c9ac903632"
+    },
+    {
+      "path": "arena/docs/GOLDEN_DIFFERENCES_TO_VERIFY.md",
+      "source": "third_party/gakumas_arena/docs/GOLDEN_DIFFERENCES_TO_VERIFY.md",
+      "size": 4998,
+      "sha256": "9308dc24b84daff21bfcda3c8a1810708a355ac52d5125117ca7a22d5b014672"
+    },
+    {
+      "path": "arena/docs/HANDOFF.md",
+      "source": "third_party/gakumas_arena/docs/HANDOFF.md",
+      "size": 8011,
+      "sha256": "ca514f40fc3c48b921e34b0649f83174a3a9d5fd2a5e692597219c39bd4c465e"
+    },
+    {
+      "path": "arena/docs/HIF_BATON_WEIGHTS.md",
+      "source": "third_party/gakumas_arena/docs/HIF_BATON_WEIGHTS.md",
+      "size": 4245,
+      "sha256": "957c60ae5bbbc9f7e4bd2fd337fd28fa4ae308c5d9e7b754b27ac958de4d11cf"
+    },
+    {
+      "path": "arena/docs/HIF_COURSE_REVIEW.md",
+      "source": "third_party/gakumas_arena/docs/HIF_COURSE_REVIEW.md",
+      "size": 2010,
+      "sha256": "78cecfc6ad43d7e549d99dc383771adc4628b1658df0cde0045a93dfa5d0cfc7"
+    },
+    {
+      "path": "arena/docs/HIF_CUSTOMIZATION_BRIDGE.md",
+      "source": "third_party/gakumas_arena/docs/HIF_CUSTOMIZATION_BRIDGE.md",
+      "size": 7449,
+      "sha256": "f469d04fa171a0d2feb2ed46e50695e59ff65324e100bf6605c4c96289d07119"
+    },
+    {
+      "path": "arena/docs/HIF_EVENT_ABSTRACTION.md",
+      "source": "third_party/gakumas_arena/docs/HIF_EVENT_ABSTRACTION.md",
+      "size": 4051,
+      "sha256": "0e57127db1d069e0ff25f4196bba0ee5d6824f171e3b7bc991c3f88d43c3a8c1"
+    },
+    {
+      "path": "arena/docs/HIF_EVENT_CLOSURE.md",
+      "source": "third_party/gakumas_arena/docs/HIF_EVENT_CLOSURE.md",
+      "size": 8306,
+      "sha256": "4e7d30d84bb107677d72d71dfcf89ae435703fc1e27bf4409f43faa6811458e7"
+    },
+    {
+      "path": "arena/docs/HIF_FIVE_EXAM_COURSES.md",
+      "source": "third_party/gakumas_arena/docs/HIF_FIVE_EXAM_COURSES.md",
+      "size": 5309,
+      "sha256": "2945860279e9eb66fc2faf9e06d04a5287a765a26c50268ef47361a64218713d"
+    },
+    {
+      "path": "arena/docs/HIF_FULL_PRODUCE_GAPS.md",
+      "source": "third_party/gakumas_arena/docs/HIF_FULL_PRODUCE_GAPS.md",
+      "size": 6129,
+      "sha256": "20766e95eea4e830d30b82678daefae3219af1d65977e77214cf4b9346af6791"
+    },
+    {
+      "path": "arena/docs/HIF_INITIAL_DECK_HANDOFF_FIX.md",
+      "source": "third_party/gakumas_arena/docs/HIF_INITIAL_DECK_HANDOFF_FIX.md",
+      "size": 3134,
+      "sha256": "210a75be328d0265d0837a7a0d5f6dc84b33b6ec8f3d3d25aa3d2644cfc8c882"
+    },
+    {
+      "path": "arena/docs/HIF_LIFECYCLE.md",
+      "source": "third_party/gakumas_arena/docs/HIF_LIFECYCLE.md",
+      "size": 5157,
+      "sha256": "f302ad1652f4410b81ecc715288f2200dbfe8be13434936d493527a7d6fed829"
+    },
+    {
+      "path": "arena/docs/HIF_MEMORY_ABILITIES.md",
+      "source": "third_party/gakumas_arena/docs/HIF_MEMORY_ABILITIES.md",
+      "size": 10031,
+      "sha256": "20b8bdb180b0bc2720a284088436be676f10043a34a0af249d8a0f813a0bb064"
+    },
+    {
+      "path": "arena/docs/HIF_MEMORY_GENERATION.md",
+      "source": "third_party/gakumas_arena/docs/HIF_MEMORY_GENERATION.md",
+      "size": 8348,
+      "sha256": "2a2c90b9492d526c79b9f28d94ace3e9df21ad8f31620a190eb2ca369c3c90f3"
+    },
+    {
+      "path": "arena/docs/HIF_MULTIPLIER_SAMPLES_FOR_RL.md",
+      "source": "third_party/gakumas_arena/docs/HIF_MULTIPLIER_SAMPLES_FOR_RL.md",
+      "size": 2305,
+      "sha256": "9a07d9d7bdaa68b3f8d2694e92ff5dfc5340f16e299488926cbe0da4b222a778"
+    },
+    {
+      "path": "arena/docs/HIF_PLV76_CUSTOMIZATION_AUDIT.md",
+      "source": "third_party/gakumas_arena/docs/HIF_PLV76_CUSTOMIZATION_AUDIT.md",
+      "size": 5200,
+      "sha256": "1dd2e2d10477d5e490a710507b558254ec5d2cd4832a0319d0cbc327add58fd4"
+    },
+    {
+      "path": "arena/docs/HIF_PRODUCE_CHECKPOINTS.md",
+      "source": "third_party/gakumas_arena/docs/HIF_PRODUCE_CHECKPOINTS.md",
+      "size": 2399,
+      "sha256": "90d74dcb88d7892d0203677b522058a5e65bd21fc750f7075e9bab5c718882f6"
+    },
+    {
+      "path": "arena/docs/HIF_REPORT3_EVENTS.md",
+      "source": "third_party/gakumas_arena/docs/HIF_REPORT3_EVENTS.md",
+      "size": 7579,
+      "sha256": "d005096b0dff0ba84a45ebf9b5cb7ed41fe13b032f5dd9554b29b8acee27e090"
+    },
+    {
+      "path": "arena/docs/HIF_REPORT3_PITEMS.md",
+      "source": "third_party/gakumas_arena/docs/HIF_REPORT3_PITEMS.md",
+      "size": 4826,
+      "sha256": "e6400f79dd0c35d4c21a83909e9c21c36bcfe04236858aca069fcb0d25fca115"
+    },
+    {
+      "path": "arena/docs/HIF_REPORT3_RL_READY.md",
+      "source": "third_party/gakumas_arena/docs/HIF_REPORT3_RL_READY.md",
+      "size": 16146,
+      "sha256": "930bc28b70e476f0e4dc9b1101fd68b297670e2523991a3cf5016eaf2d02def4"
+    },
+    {
+      "path": "arena/docs/HIF_REPORT3_SHOP.md",
+      "source": "third_party/gakumas_arena/docs/HIF_REPORT3_SHOP.md",
+      "size": 2949,
+      "sha256": "b1e11636255ab4ec280820f3322aeedf458d4226ed1ebb26ac81d9450b07f234"
+    },
+    {
+      "path": "arena/docs/HIF_SCORING_MODEL.md",
+      "source": "third_party/gakumas_arena/docs/HIF_SCORING_MODEL.md",
+      "size": 6962,
+      "sha256": "0f01af912d389095a311b84c0faa3ca7843e425955731db3db0a3f007382e46a"
+    },
+    {
+      "path": "arena/docs/HIF_SKILL_CARD_SUPPORT.md",
+      "source": "third_party/gakumas_arena/docs/HIF_SKILL_CARD_SUPPORT.md",
+      "size": 5247,
+      "sha256": "a6686038bca9aebf0b65576be0059dd5bc2f8f9a57b65edfccfc6e7058f58ade"
+    },
+    {
+      "path": "arena/docs/LIVE_CONTRACT.md",
+      "source": "third_party/gakumas_arena/docs/LIVE_CONTRACT.md",
+      "size": 10884,
+      "sha256": "e07172198fe28131b54c1e5d22121b9df9474c263f6e68a611a7a49be4741067"
+    },
+    {
+      "path": "arena/docs/LIVE_EXAM_CONTRACT.md",
+      "source": "third_party/gakumas_arena/docs/LIVE_EXAM_CONTRACT.md",
+      "size": 12918,
+      "sha256": "27be377a0a3bd3a44c1214694ac8b1bcd2b2f53844fa1854116dc4df7bfae0f5"
+    },
+    {
+      "path": "arena/docs/LIVE_PASSIVE_CONTRACT.md",
+      "source": "third_party/gakumas_arena/docs/LIVE_PASSIVE_CONTRACT.md",
+      "size": 14921,
+      "sha256": "36afe072d9e31b51eb1509a615947e5c028a0d610f6af36c6fd810df961adfbe"
+    },
+    {
+      "path": "arena/docs/LIVE_PASSIVE_GENERIC.md",
+      "source": "third_party/gakumas_arena/docs/LIVE_PASSIVE_GENERIC.md",
+      "size": 4158,
+      "sha256": "e92cc8a7b39903a8a7a5ecaf3257a368dde88551a4c79147a9d02a2fd66bc031"
+    },
+    {
+      "path": "arena/docs/OPEN_ITEMS.md",
+      "source": "third_party/gakumas_arena/docs/OPEN_ITEMS.md",
+      "size": 12874,
+      "sha256": "1c17b807bec8652102ca9aaacd9708d4a16f7502250c09399abd225f054cce92"
+    },
+    {
+      "path": "arena/docs/PLAN.md",
+      "source": "third_party/gakumas_arena/docs/PLAN.md",
+      "size": 3527,
+      "sha256": "9b39d9275b1c291c308361f95e4133c5c003127c6f82467b911fcbe32cb73185"
+    },
+    {
+      "path": "arena/docs/PRODUCE_CAPABILITY_AUDIT.md",
+      "source": "third_party/gakumas_arena/docs/PRODUCE_CAPABILITY_AUDIT.md",
+      "size": 3727,
+      "sha256": "d6cab9c9cfa16816b1454d535763262b6de4ebe021a0c43ae515c8d1bc6d4aa6"
+    },
+    {
+      "path": "arena/docs/PRODUCE_EVENT_LIBRARY.md",
+      "source": "third_party/gakumas_arena/docs/PRODUCE_EVENT_LIBRARY.md",
+      "size": 4283,
+      "sha256": "0a883c410842bd9c2cce7ada902bc6d2e60e98e68f65cc1a385d681a0af8c22a"
+    },
+    {
+      "path": "arena/docs/PRODUCE_USAGE_GUIDE.md",
+      "source": "third_party/gakumas_arena/docs/PRODUCE_USAGE_GUIDE.md",
+      "size": 9139,
+      "sha256": "07567ea1f8db39a7a0fd486ab0ca23eed5d73bbb498f6a18dc326c9af437d824"
+    },
+    {
+      "path": "arena/docs/README.md",
+      "source": "third_party/gakumas_arena/docs/README.md",
+      "size": 8769,
+      "sha256": "2833d1ad673fad3264860ade1de836b30209bc26a32c1b8f6aafd0607cb2bb47"
+    },
+    {
+      "path": "arena/docs/REAL_CONTENT_CATALOGUE.md",
+      "source": "third_party/gakumas_arena/docs/REAL_CONTENT_CATALOGUE.md",
+      "size": 9855,
+      "sha256": "6953e17a26c911d77e5a6a8d4987c6b48698bd6898ae8ea85a1b3b308e819592"
+    },
+    {
+      "path": "arena/docs/RL_DESIGN_HANDOFF.md",
+      "source": "third_party/gakumas_arena/docs/RL_DESIGN_HANDOFF.md",
+      "size": 13792,
+      "sha256": "7ed2110fb6e591017df2d8ddb5fc4890b2aa08cb8c93ad11df458665d6182b2d"
+    },
+    {
+      "path": "arena/docs/RULE_ALIGNMENT_LOG_REQUESTS.md",
+      "source": "third_party/gakumas_arena/docs/RULE_ALIGNMENT_LOG_REQUESTS.md",
+      "size": 5506,
+      "sha256": "4e51d4cb005b996563cf6ee3167de2164f37e93cc88e8ac4d9a3ff387c3128fb"
+    },
+    {
+      "path": "arena/docs/RULE_ALIGNMENT_REAL_CARD_RECIPES.md",
+      "source": "third_party/gakumas_arena/docs/RULE_ALIGNMENT_REAL_CARD_RECIPES.md",
+      "size": 22655,
+      "sha256": "1bf65eab7cbf195d71a3e75145290c6073a22298b66c36c74afb03ce4a122c40"
+    },
+    {
+      "path": "arena/docs/evaluation.md",
+      "source": "third_party/gakumas_arena/docs/evaluation.md",
+      "size": 10956,
+      "sha256": "2edc57c10c78191cec80091bd135c788f6623eda478dae88851c89160a01d515"
+    },
+    {
+      "path": "arena/docs/examples/catalogue_entry.json",
+      "source": "third_party/gakumas_arena/docs/examples/catalogue_entry.json",
+      "size": 6060,
+      "sha256": "2f0e235182cc28079a1310a409090ffec7ae7e4483d4fd9bcb80d6753719733e"
+    },
+    {
+      "path": "arena/docs/examples/content_card_movement.json",
+      "source": "third_party/gakumas_arena/docs/examples/content_card_movement.json",
+      "size": 559,
+      "sha256": "2957fd1ba49a2462bd60ab951fc90a4ca6998c59ba8c09b91914f79c8dfcf412"
+    },
+    {
+      "path": "arena/docs/examples/content_demo_trace.json",
+      "source": "third_party/gakumas_arena/docs/examples/content_demo_trace.json",
+      "size": 28977,
+      "sha256": "164899af67e6f749daa76c763796a3fdf0c2d2e23af0b43d2c7ddfbc6ad04d1e"
+    },
+    {
+      "path": "arena/docs/examples/content_mechanisms.json",
+      "source": "third_party/gakumas_arena/docs/examples/content_mechanisms.json",
+      "size": 17398,
+      "sha256": "4e3a039ea27f1c77d1440c32ae26da0c1d23b847c4c73ed373971ee03fa0975b"
+    },
+    {
+      "path": "arena/docs/examples/content_starter.json",
+      "source": "third_party/gakumas_arena/docs/examples/content_starter.json",
+      "size": 4350,
+      "sha256": "c9180307dc9b57ffff44f99e51745a205ab57d9880767936306309bc4644fe97"
+    },
+    {
+      "path": "arena/docs/examples/golden_exam.json",
+      "source": "third_party/gakumas_arena/docs/examples/golden_exam.json",
+      "size": 776,
+      "sha256": "a580a323d1c6d19ee689be76ed17b77ae9cf337a1532ca29de24aabd8afac300"
+    },
+    {
+      "path": "arena/docs/examples/golden_exam_result.json",
+      "source": "third_party/gakumas_arena/docs/examples/golden_exam_result.json",
+      "size": 32380,
+      "sha256": "457d663b8d1618cd5f74ac7711f3f2e010a66dec3e09158a98b034744ea1bb26"
+    },
+    {
+      "path": "arena/docs/examples/golden_summer_effects.json",
+      "source": "third_party/gakumas_arena/docs/examples/golden_summer_effects.json",
+      "size": 7079,
+      "sha256": "b730f0f552005fa21ea8e861880bfae38350125c8d826633686e6227b877c549"
+    },
+    {
+      "path": "arena/docs/examples/hif_multiplier_samples_2026-09-09.json",
+      "source": "third_party/gakumas_arena/docs/examples/hif_multiplier_samples_2026-09-09.json",
+      "size": 4387,
+      "sha256": "28b4f6629ec40b014d1ec70264f5626370bd4f682f61cbe2b11b63e783e54738"
+    },
+    {
+      "path": "arena/docs/examples/live_card_reference.json",
+      "source": "third_party/gakumas_arena/docs/examples/live_card_reference.json",
+      "size": 23000,
+      "sha256": "b1e67b55b0f5bea41e2cefc5146fcfde0682c893ffaf0020a0d2461ed721097e"
+    },
+    {
+      "path": "arena/docs/examples/live_exam_choices.json",
+      "source": "third_party/gakumas_arena/docs/examples/live_exam_choices.json",
+      "size": 47500,
+      "sha256": "c0b631b68e8b0621c30f5bb1d36b6a5eb545bf78cc9fabf6c171c4a1a5fa17e8"
+    },
+    {
+      "path": "arena/docs/examples/live_exam_encoder_manifest.json",
+      "source": "third_party/gakumas_arena/docs/examples/live_exam_encoder_manifest.json",
+      "size": 18036,
+      "sha256": "31665769f50f37555075bbf82acc5951457c88d7133aa06c3085778c6bd00400"
+    },
+    {
+      "path": "arena/docs/examples/live_exam_minimal.json",
+      "source": "third_party/gakumas_arena/docs/examples/live_exam_minimal.json",
+      "size": 5766,
+      "sha256": "eea26c04ec23dc7fc437ecf9d04240cd23e1617bfdb569a3dccdd3e4138e6782"
+    },
+    {
+      "path": "arena/docs/examples/live_exam_recovery.json",
+      "source": "third_party/gakumas_arena/docs/examples/live_exam_recovery.json",
+      "size": 76956,
+      "sha256": "ac2aa11804384b846c9f5df91164a1e8e370d22bad58225660399059172dcdfd"
+    },
+    {
+      "path": "arena/docs/examples/live_passive_evidence.json",
+      "source": "third_party/gakumas_arena/docs/examples/live_passive_evidence.json",
+      "size": 16616,
+      "sha256": "e53058031a04b1fceb432af884a6b1b7d707186cc6f2cf3f7d276f5a06aa4e8c"
+    },
+    {
+      "path": "arena/docs/examples/live_passive_generic.json",
+      "source": "third_party/gakumas_arena/docs/examples/live_passive_generic.json",
+      "size": 7804,
+      "sha256": "275ac7e3fb1269a8ac2be3c325323ab400bd20a55b927e235d70bf1eb80f33cd"
+    },
+    {
+      "path": "arena/docs/examples/live_passive_minimal.json",
+      "source": "third_party/gakumas_arena/docs/examples/live_passive_minimal.json",
+      "size": 7772,
+      "sha256": "536dcbf4b90addea5fe65863ef2286419acef06ee4d92fd1c9cb494290a8e0ac"
+    },
+    {
+      "path": "arena/docs/examples/live_passive_recovery.json",
+      "source": "third_party/gakumas_arena/docs/examples/live_passive_recovery.json",
+      "size": 40430,
+      "sha256": "39d396c84ae6a196f82d21405a40df8ed89c2be60f1ce0e8c8eeead5db410925"
+    },
+    {
+      "path": "arena/docs/examples/live_reward_consult.json",
+      "source": "third_party/gakumas_arena/docs/examples/live_reward_consult.json",
+      "size": 12261,
+      "sha256": "b6808a4f40c2532acb4f54d9b64083a6ca56df83b6badf4b5a2d2f97100a6b2d"
+    },
+    {
+      "path": "arena/docs/examples/real_inventory_exam.json",
+      "source": "third_party/gakumas_arena/docs/examples/real_inventory_exam.json",
+      "size": 557,
+      "sha256": "1729516c4faa6535978eff5c2b389abedd742167e9c795aa376e85f7d58aa6f9"
+    },
+    {
+      "path": "arena/docs/examples/rl_observation_gap.json",
+      "source": "third_party/gakumas_arena/docs/examples/rl_observation_gap.json",
+      "size": 2510,
+      "sha256": "763db770c43b7f2f6de17697e27f21d931dbd683a990a359f1205f2fdae8eac4"
+    },
+    {
+      "path": "arena/docs/examples/round2_readiness/checks.json",
+      "source": "third_party/gakumas_arena/docs/examples/round2_readiness/checks.json",
+      "size": 2907,
+      "sha256": "cbcd330ffc92d4cba352e568c4c3de8f5d663b1bd75931e676100ecc21e74651"
+    },
+    {
+      "path": "arena/docs/examples/round2_readiness/engineering_config.json",
+      "source": "third_party/gakumas_arena/docs/examples/round2_readiness/engineering_config.json",
+      "size": 962,
+      "sha256": "43403a42e6e1bbc7fe9c5175c184aa408cc0c45ef05ced28a32048529a273207"
+    },
+    {
+      "path": "arena/docs/examples/round2_readiness/manifest.json",
+      "source": "third_party/gakumas_arena/docs/examples/round2_readiness/manifest.json",
+      "size": 2499,
+      "sha256": "6ba061df07068505ca47482aacc4643c20ce7ca4bcd3e0189f1017ba83b3651a"
+    },
+    {
+      "path": "arena/docs/examples/round2_readiness/measurements.json",
+      "source": "third_party/gakumas_arena/docs/examples/round2_readiness/measurements.json",
+      "size": 7798,
+      "sha256": "4c0ad549b77117c0076cb07b60b3fccf485578f084cf3bec19bbddbf89bf8f20"
+    },
+    {
+      "path": "arena/docs/examples/round2_readiness/private_checkpoints.json",
+      "source": "third_party/gakumas_arena/docs/examples/round2_readiness/private_checkpoints.json",
+      "size": 13766,
+      "sha256": "127e9698c55285e1b11ac9babe90fc86c355cc6b94e4b2f0eed823d95fa43217"
+    },
+    {
+      "path": "arena/docs/examples/round2_readiness/private_decision_trace.json",
+      "source": "third_party/gakumas_arena/docs/examples/round2_readiness/private_decision_trace.json",
+      "size": 244673,
+      "sha256": "7951b8ab84357abb72c09abd3ef4eb0c0b0af6ebb4dbae079eb6ab8f8449d632"
+    },
+    {
+      "path": "arena/docs/examples/round2_readiness/result.json",
+      "source": "third_party/gakumas_arena/docs/examples/round2_readiness/result.json",
+      "size": 439,
+      "sha256": "c7964a455ea035c1b42504f370292724bb8628f7fca1c39ee9e0594622cd5112"
+    },
+    {
+      "path": "arena/docs/examples/rule_alignment_minimal.expected.json",
+      "source": "third_party/gakumas_arena/docs/examples/rule_alignment_minimal.expected.json",
+      "size": 490,
+      "sha256": "316712102e9acfa9bcf9432315d33c14fc8845e515ab465d05c5feb4ec38dfa6"
+    },
+    {
+      "path": "arena/docs/examples/rule_alignment_minimal.json",
+      "source": "third_party/gakumas_arena/docs/examples/rule_alignment_minimal.json",
+      "size": 1432,
+      "sha256": "46acfb7c430b2138c30332ab7bdad67b2f389a7ef4fbcccaed0d52c3bf5e756f"
+    },
+    {
+      "path": "arena/docs/examples/training_ready/entry.json",
+      "source": "third_party/gakumas_arena/docs/examples/training_ready/entry.json",
+      "size": 4372,
+      "sha256": "a90d8d200e80a8fd17ee2afb5ce6ca9b31eabb7b318cf03a150a30e81f5f3387"
+    },
+    {
+      "path": "arena/docs/examples/training_ready/independent_checks.json",
+      "source": "third_party/gakumas_arena/docs/examples/training_ready/independent_checks.json",
+      "size": 644,
+      "sha256": "4544079862d430157c756ab586b8eac406ed18978a83025147e3beaa8896d601"
+    },
+    {
+      "path": "arena/docs/examples/training_ready/manifest.json",
+      "source": "third_party/gakumas_arena/docs/examples/training_ready/manifest.json",
+      "size": 11070,
+      "sha256": "a943954e92b37ea013f31f3f551bf7e052741452db2484d5269f9f76c1d3d3a4"
+    },
+    {
+      "path": "arena/docs/examples/training_ready/measurements.json",
+      "source": "third_party/gakumas_arena/docs/examples/training_ready/measurements.json",
+      "size": 15001,
+      "sha256": "4a5c81599571c4a08de809a8bfb86da72e8ae2445065f8c0ee85450b5a6179c0"
+    },
+    {
+      "path": "arena/docs/examples/training_ready/private_checkpoints.json",
+      "source": "third_party/gakumas_arena/docs/examples/training_ready/private_checkpoints.json",
+      "size": 84427,
+      "sha256": "77c57e5134eb5ecc66c759537440dec00be3ebca2a9530e04b303b0243f5458c"
+    },
+    {
+      "path": "arena/docs/examples/training_ready/private_opening_debug.json",
+      "source": "third_party/gakumas_arena/docs/examples/training_ready/private_opening_debug.json",
+      "size": 14605,
+      "sha256": "d4b09b6ded55fb1c87baa6ee37ed10e2aa71f65cc34a1468b471f23a0aafac57"
+    },
+    {
+      "path": "arena/docs/examples/training_ready/public_decision_trace.json",
+      "source": "third_party/gakumas_arena/docs/examples/training_ready/public_decision_trace.json",
+      "size": 4476802,
+      "sha256": "98b48f1e36fb0a192d2d344179fd79a31acd611709b722ab24755db4f4a5f207"
+    },
+    {
+      "path": "arena/docs/examples/training_ready/result.json",
+      "source": "third_party/gakumas_arena/docs/examples/training_ready/result.json",
+      "size": 394,
+      "sha256": "513ca100a585d7e947aa774ada8d613f627d6aadc54b0a308abd6c6833cbb033"
+    },
+    {
+      "path": "arena/docs/examples/training_ready/rollouts.json",
+      "source": "third_party/gakumas_arena/docs/examples/training_ready/rollouts.json",
+      "size": 11833,
+      "sha256": "62eabb67ef21b4ed102bbd1e30945126e536f01af03f40b55f7adc4a2eb756ae"
+    },
+    {
+      "path": "arena/docs/examples/training_ready/test_results.json",
+      "source": "third_party/gakumas_arena/docs/examples/training_ready/test_results.json",
+      "size": 1216,
+      "sha256": "4287d4f4bca7953fa050bd36e0b257f5b4a055cc87119238bd4980636bdf72df"
+    },
+    {
+      "path": "arena/docs/loadouts.md",
+      "source": "third_party/gakumas_arena/docs/loadouts.md",
+      "size": 23218,
+      "sha256": "f5a928ce4f3ccee11cbc42de6ab2c2acb593d4d196bfca11f60d7d390faa2f54"
+    },
+    {
+      "path": "arena/docs/research/data_sources.md",
+      "source": "third_party/gakumas_arena/docs/research/data_sources.md",
+      "size": 34390,
+      "sha256": "760250047dea4f06b361931b3a4f47ce9e2abbb45c4df0e32928fa2faf37fecd"
+    },
+    {
+      "path": "arena/docs/research/effect_order_alignment_2026-09-08.json",
+      "source": "third_party/gakumas_arena/docs/research/effect_order_alignment_2026-09-08.json",
+      "size": 96058,
+      "sha256": "4cc77c5ca51467311793df7124c5ea7b0ee4fc9a2c780d25d6f433e559169b22"
+    },
+    {
+      "path": "arena/docs/research/effect_order_audit_2026-09-08.json",
+      "source": "third_party/gakumas_arena/docs/research/effect_order_audit_2026-09-08.json",
+      "size": 94982,
+      "sha256": "1b8e470029bcd77a8b16c8e3265e06053e7a12e291e6bc5e05ad4f22b06b7e23"
+    },
+    {
+      "path": "arena/docs/research/effect_order_comparison_2026-09-08.md",
+      "source": "third_party/gakumas_arena/docs/research/effect_order_comparison_2026-09-08.md",
+      "size": 16216,
+      "sha256": "69c5350af68a58bd7f003379bcc742a8ac572770b91deeda89db99bbf2d68095"
+    },
+    {
+      "path": "arena/docs/research/engine_coverage.md",
+      "source": "third_party/gakumas_arena/docs/research/engine_coverage.md",
+      "size": 16209,
+      "sha256": "43973730a3dd98e3540e1f4bab7b26ad2c15675a0f970ea497984cf6aeca3f5e"
+    },
+    {
+      "path": "arena/docs/research/evidence/2026-09-08-produce-score/manifest.json",
+      "source": "third_party/gakumas_arena/docs/research/evidence/2026-09-08-produce-score/manifest.json",
+      "size": 11215,
+      "sha256": "dbafe10142f96cc187001da0cc4a72c33c80da9c131987ed78afe00d40be618f"
+    },
+    {
+      "path": "arena/docs/research/evidence/2026-09-09-hif-round1-multipliers/manifest.json",
+      "source": "third_party/gakumas_arena/docs/research/evidence/2026-09-09-hif-round1-multipliers/manifest.json",
+      "size": 1805,
+      "sha256": "1c4adeff2819871004cf3d7d5ca2d3056fab55b423ed3471b2fbcf68c9a75694"
+    },
+    {
+      "path": "arena/docs/research/evidence/2026-09-09-hif-round2-multipliers/manifest.json",
+      "source": "third_party/gakumas_arena/docs/research/evidence/2026-09-09-hif-round2-multipliers/manifest.json",
+      "size": 1405,
+      "sha256": "4623ddfb792572d7127d08d633c65b7dab78c23da7029f34ff5f1d0dc5b084be"
+    },
+    {
+      "path": "arena/docs/research/evidence/customization_confirmations_20260910.json",
+      "source": "third_party/gakumas_arena/docs/research/evidence/customization_confirmations_20260910.json",
+      "size": 2040,
+      "sha256": "737cf1a897de9fe2d049f253db1e22708cf2eaf582dbba18900e08fdbd1c82f2"
+    },
+    {
+      "path": "arena/docs/research/existing_engines.md",
+      "source": "third_party/gakumas_arena/docs/research/existing_engines.md",
+      "size": 51539,
+      "sha256": "f3b169b1492a51880ef435dba5b10abc2be9628a455db15ceabc1ad37c10b4a8"
+    },
+    {
+      "path": "arena/docs/research/gakumas_tools_reuse_audit_2026-09-09.json",
+      "source": "third_party/gakumas_arena/docs/research/gakumas_tools_reuse_audit_2026-09-09.json",
+      "size": 5175,
+      "sha256": "e07bc0974a1d0a2616a0c8055f6bb94b60af24ca4b22280759a3011bbcdff8fb"
+    },
+    {
+      "path": "arena/docs/research/gakumas_tools_reuse_review_2026-09-09.md",
+      "source": "third_party/gakumas_arena/docs/research/gakumas_tools_reuse_review_2026-09-09.md",
+      "size": 5236,
+      "sha256": "22edc626d48544e30de741735009804a250f727808898c05aca706b4bda2bfa9"
+    },
+    {
+      "path": "arena/docs/research/hif_exam_multiplier_sources_2026-09-09.md",
+      "source": "third_party/gakumas_arena/docs/research/hif_exam_multiplier_sources_2026-09-09.md",
+      "size": 4996,
+      "sha256": "7267561a0109ea11042535f376f582d7b664134ab98a9f36717eaa6f85a09834"
+    },
+    {
+      "path": "arena/docs/research/hif_round1_multiplier_observation_2026-09-09.json",
+      "source": "third_party/gakumas_arena/docs/research/hif_round1_multiplier_observation_2026-09-09.json",
+      "size": 5003,
+      "sha256": "c22e4497d8e43d2489c95dbf4101e1158248027efa554f2636b8d74c88f5a3d7"
+    },
+    {
+      "path": "arena/docs/research/hif_round1_multiplier_observation_2026-09-09.md",
+      "source": "third_party/gakumas_arena/docs/research/hif_round1_multiplier_observation_2026-09-09.md",
+      "size": 3923,
+      "sha256": "bd478cefc63ca9b6db239c98bcb0b9b461a86964239882ed10beb53d45dec023"
+    },
+    {
+      "path": "arena/docs/research/hif_round2_multiplier_observation_2026-09-09.json",
+      "source": "third_party/gakumas_arena/docs/research/hif_round2_multiplier_observation_2026-09-09.json",
+      "size": 4919,
+      "sha256": "9ebba67b38c666cb4c6e51dd99163336cf755c44dbb42447dc73b68bc9b984e8"
+    },
+    {
+      "path": "arena/docs/research/hif_round2_multiplier_observation_2026-09-09.md",
+      "source": "third_party/gakumas_arena/docs/research/hif_round2_multiplier_observation_2026-09-09.md",
+      "size": 2759,
+      "sha256": "ed33ca1d11b2fbf6801d76b32f2761c36f87d6ce6fcbe5ca12ec434f020b8633"
+    },
+    {
+      "path": "arena/docs/research/hif_skill_card_support_audit_20260910.json",
+      "source": "third_party/gakumas_arena/docs/research/hif_skill_card_support_audit_20260910.json",
+      "size": 228533,
+      "sha256": "9951e0f8443dfd297400bd956c4d7707a09903e06e12419781bed5a8fba66ece"
+    },
+    {
+      "path": "arena/docs/research/historical_hoshikuzu_2024.json",
+      "source": "third_party/gakumas_arena/docs/research/historical_hoshikuzu_2024.json",
+      "size": 1555,
+      "sha256": "c7a7683d1ae47462333aaeda4798cbb6b687b75046dc7704e364f51df989aae5"
+    },
+    {
+      "path": "arena/docs/research/imports/hif_events_rl_report3_2026-09-09/README.md",
+      "source": "third_party/gakumas_arena/docs/research/imports/hif_events_rl_report3_2026-09-09/README.md",
+      "size": 3193,
+      "sha256": "97f69a281575226e74b40e18794678d98357201e376cd08f7d834ddc82af39e7"
+    },
+    {
+      "path": "arena/docs/research/imports/hif_events_rl_report3_2026-09-09/hif_event_catalog.json",
+      "source": "third_party/gakumas_arena/docs/research/imports/hif_events_rl_report3_2026-09-09/hif_event_catalog.json",
+      "size": 5194814,
+      "sha256": "de3f1727cf75a14d50b0d6656bbf4da0fe5dacbc4591942143c2be94651e1b2c"
+    },
+    {
+      "path": "arena/docs/research/imports/hif_events_rl_report3_2026-09-09/hif_events_rl_report3_2026-09-09.md",
+      "source": "third_party/gakumas_arena/docs/research/imports/hif_events_rl_report3_2026-09-09/hif_events_rl_report3_2026-09-09.md",
+      "size": 61722,
+      "sha256": "5749a6e7d839cf0c71435f48c262c94c703875ee07eb82fb317b6b8d553b70eb"
+    },
+    {
+      "path": "arena/docs/research/imports/hif_events_rl_report3_2026-09-09/package_checksums.json",
+      "source": "third_party/gakumas_arena/docs/research/imports/hif_events_rl_report3_2026-09-09/package_checksums.json",
+      "size": 481,
+      "sha256": "d22c04feea05370a5b509dd528f459269d9bf2c147eba9c57f1b51a6cabb9501"
+    },
+    {
+      "path": "arena/docs/research/imports/hif_events_rl_report3_2026-09-09/sampling_template.json",
+      "source": "third_party/gakumas_arena/docs/research/imports/hif_events_rl_report3_2026-09-09/sampling_template.json",
+      "size": 1430,
+      "sha256": "3c0e5eddf7364b034fae4f3341892b316e4eccf7e61b089372506722acabca09"
+    },
+    {
+      "path": "arena/docs/research/imports/hif_events_rl_report3_2026-09-09/source_manifest.json",
+      "source": "third_party/gakumas_arena/docs/research/imports/hif_events_rl_report3_2026-09-09/source_manifest.json",
+      "size": 9850,
+      "sha256": "eb3451509fa59aaaf28b4a0944ba8f567efab663a6a113adb1a175ded8439f5c"
+    },
+    {
+      "path": "arena/docs/research/imports/hif_research_pack_2026-09-09/HIF_考试倍率公式核对_2026-09-09.md",
+      "source": "third_party/gakumas_arena/docs/research/imports/hif_research_pack_2026-09-09/HIF_考试倍率公式核对_2026-09-09.md",
+      "size": 38168,
+      "sha256": "b4651ffee8610abf680dabcee4c8d55919890374b229afa0e2082e7193661fc9"
+    },
+    {
+      "path": "arena/docs/research/imports/hif_research_pack_2026-09-09/README.md",
+      "source": "third_party/gakumas_arena/docs/research/imports/hif_research_pack_2026-09-09/README.md",
+      "size": 3489,
+      "sha256": "b256859cdb5f8279922609d031caf40450a16cce1c4d460aa0c0492bf726bd54"
+    },
+    {
+      "path": "arena/docs/research/imports/hif_research_pack_2026-09-09/audit.json",
+      "source": "third_party/gakumas_arena/docs/research/imports/hif_research_pack_2026-09-09/audit.json",
+      "size": 5134,
+      "sha256": "47dff515f6a1415a5c4d4ea0cd65d2ffbaf49fdad46fbbb48e0396c40c94d963"
+    },
+    {
+      "path": "arena/docs/research/imports/hif_research_pack_2026-09-09/hif_multiplier_research_2026-09-09.json",
+      "source": "third_party/gakumas_arena/docs/research/imports/hif_research_pack_2026-09-09/hif_multiplier_research_2026-09-09.json",
+      "size": 44791,
+      "sha256": "c476cb66adf95651fa9246f5ce701c8503ff2f85d0e3ebf7d38437e34d5ac55d"
+    },
+    {
+      "path": "arena/docs/research/imports/hif_research_pack_2026-09-09/sample_template.json",
+      "source": "third_party/gakumas_arena/docs/research/imports/hif_research_pack_2026-09-09/sample_template.json",
+      "size": 623,
+      "sha256": "812dad8f550affe33e12b3c4764d602960104002c44b3140e11c0e00a4a0810d"
+    },
+    {
+      "path": "arena/docs/research/live_reference_sources.md",
+      "source": "third_party/gakumas_arena/docs/research/live_reference_sources.md",
+      "size": 8578,
+      "sha256": "431a16989de0c20b0499aa7b199c2c810d07d496fe8cfeb2935e685b1b19b603"
+    },
+    {
+      "path": "arena/docs/research/master_data_atlas.md",
+      "source": "third_party/gakumas_arena/docs/research/master_data_atlas.md",
+      "size": 321152,
+      "sha256": "b249c5727804a3c7665bce8a349564c8473da1017b6c8426d1d3324c7cc61ec7"
+    },
+    {
+      "path": "arena/docs/research/master_data_enums.md",
+      "source": "third_party/gakumas_arena/docs/research/master_data_enums.md",
+      "size": 556316,
+      "sha256": "2cae3110460f63abf9017aeffa8d0d20c85d2b18e766f20255068c052183e078"
+    },
+    {
+      "path": "arena/docs/research/mechanics_timeline.md",
+      "source": "third_party/gakumas_arena/docs/research/mechanics_timeline.md",
+      "size": 92544,
+      "sha256": "531a0ce32ba2e22b00e97c7a8234d5496c8b61156ffdfc9db13f82f7a14f53cc"
+    },
+    {
+      "path": "arena/docs/research/produce_score_photo_audit_2026-09-08.json",
+      "source": "third_party/gakumas_arena/docs/research/produce_score_photo_audit_2026-09-08.json",
+      "size": 3685,
+      "sha256": "59430272d61cf2958c376339dbdaa2441f3edfa9fb5738c8d94f1582c37e471a"
+    },
+    {
+      "path": "arena/docs/research/produce_score_photo_evidence_2026-09-08.json",
+      "source": "third_party/gakumas_arena/docs/research/produce_score_photo_evidence_2026-09-08.json",
+      "size": 19353,
+      "sha256": "b3a8d19a66e78af13da21fba5638d6c6c711419909f2c245c646893b4c7a6818"
+    },
+    {
+      "path": "arena/docs/research/produce_score_photo_review_2026-09-08.md",
+      "source": "third_party/gakumas_arena/docs/research/produce_score_photo_review_2026-09-08.md",
+      "size": 3048,
+      "sha256": "6203c84b5bc8a5a258eeb35ba18fdea7f134665fc0efba777d46cb14cdfae441"
+    },
+    {
+      "path": "arena/docs/research/real_card_sampling_sources_2026-09-08.json",
+      "source": "third_party/gakumas_arena/docs/research/real_card_sampling_sources_2026-09-08.json",
+      "size": 258801,
+      "sha256": "1bf339d6ad418cebc5f329a45e9963f5903344bb6737dd3cfbcf2d64e659d986"
+    },
+    {
+      "path": "arena/docs/research/reference_repositories_20260910.json",
+      "source": "third_party/gakumas_arena/docs/research/reference_repositories_20260910.json",
+      "size": 11755,
+      "sha256": "9c06824c012047cf602d8a869c0a86d6b6c93e513b3f373ae4a56fd674fc8bf4"
+    },
+    {
+      "path": "arena/docs/research/reference_repositories_review_20260910.md",
+      "source": "third_party/gakumas_arena/docs/research/reference_repositories_review_20260910.md",
+      "size": 7976,
+      "sha256": "e0e6327506567474bc7bfb94f55892e157d88ab1cae3988860b37da96675d467"
+    },
+    {
+      "path": "arena/docs/research/riceball_photo_evidence_2026-09-08.json",
+      "source": "third_party/gakumas_arena/docs/research/riceball_photo_evidence_2026-09-08.json",
+      "size": 8337,
+      "sha256": "a53a35b224f8ca4e9577176d573a3d8af3ca64108614b63779b324c95c7fcf5d"
+    },
+    {
+      "path": "arena/docs/research/riceball_photo_review_2026-09-08.md",
+      "source": "third_party/gakumas_arena/docs/research/riceball_photo_review_2026-09-08.md",
+      "size": 6338,
+      "sha256": "10bfbc5ff66508d184cb936c86d67fe98b24c552947f118a38234a109d246ccc"
+    },
+    {
+      "path": "arena/docs/research/user_report_01_simulator_landscape.md",
+      "source": "third_party/gakumas_arena/docs/research/user_report_01_simulator_landscape.md",
+      "size": 13948,
+      "sha256": "0d0594066a395069c2ca72417cdf222a79bdd2831bad83137ce1b0a717f07a5a"
+    },
+    {
+      "path": "arena/docs/research/user_report_02_data_and_formulas.md",
+      "source": "third_party/gakumas_arena/docs/research/user_report_02_data_and_formulas.md",
+      "size": 15535,
+      "sha256": "79469fdffc371cdfb100528f6805edc65f365cb4c69d4e817b17f80ecd9adf41"
+    },
+    {
+      "path": "arena/docs/rules/glossary.md",
+      "source": "third_party/gakumas_arena/docs/rules/glossary.md",
+      "size": 17405,
+      "sha256": "cd720b15b69a0a3357a0da3ea0f0f7b2ad0c7d40579c24097b09818c2d3925c6"
+    },
+    {
+      "path": "arena/docs/rules/hif_exam_effects.md",
+      "source": "third_party/gakumas_arena/docs/rules/hif_exam_effects.md",
+      "size": 15056,
+      "sha256": "8ba7913b52fccb1323354f3cbd27cfd703e88ed6162cab601c390d3d955b8286"
+    },
+    {
+      "path": "arena/docs/rules/lesson_exam_engine.md",
+      "source": "third_party/gakumas_arena/docs/rules/lesson_exam_engine.md",
+      "size": 54108,
+      "sha256": "430b9b945932c0fab9cca271b37168f2e939926b1b7e2391cdc860703ebe7f96"
+    },
+    {
+      "path": "arena/docs/rules/produce_loop.md",
+      "source": "third_party/gakumas_arena/docs/rules/produce_loop.md",
+      "size": 26783,
+      "sha256": "c3bef7507b92a9d9042bf4a08dd111e63a2320ee41e9039938f85c509ef85c02"
+    },
+    {
+      "path": "arena/docs/rules/scoring_fidelity.md",
+      "source": "third_party/gakumas_arena/docs/rules/scoring_fidelity.md",
+      "size": 3919,
+      "sha256": "babea05221b9101d451f49a4657b3d323f5ac66666a27d662ebc66d0919e8d68"
+    },
+    {
+      "path": "arena/docs/scenarios/hif.md",
+      "source": "third_party/gakumas_arena/docs/scenarios/hif.md",
+      "size": 48121,
+      "sha256": "f0f817080a500e5d1954c6f222448a2fcf0440854abb5e7131fab3e5585d6bdc"
+    },
+    {
+      "path": "arena/docs/schemas/arena-content-v1.schema.json",
+      "source": "third_party/gakumas_arena/docs/schemas/arena-content-v1.schema.json",
+      "size": 29248,
+      "sha256": "2ba904fd801e07c929c9e9084407d88b983869551ed9d1db3976004c65cba340"
+    },
+    {
+      "path": "arena/docs/schemas/arena-exam-card-state-v1.json",
+      "source": "third_party/gakumas_arena/docs/schemas/arena-exam-card-state-v1.json",
+      "size": 1114,
+      "sha256": "12382c8226856c605aa1a77ede112d183ff0dd86bfe604f93d978622d3be4e83"
+    },
+    {
+      "path": "arena/docs/schemas/arena-exam-enchant-state-v1.json",
+      "source": "third_party/gakumas_arena/docs/schemas/arena-exam-enchant-state-v1.json",
+      "size": 4634,
+      "sha256": "251fe92e7402bd10a94fbc92689dfba2a7e3a007c6f11abbb9f5a3466679b035"
+    },
+    {
+      "path": "arena/docs/schemas/arena-exam-selection-v1.json",
+      "source": "third_party/gakumas_arena/docs/schemas/arena-exam-selection-v1.json",
+      "size": 392,
+      "sha256": "14fa8a0c52c53b7f416160d400503b90c0dd2d43f3065c7b5fc72aa7265841ad"
+    },
+    {
+      "path": "arena/docs/schemas/arena-exam-timed-effect-v1.json",
+      "source": "third_party/gakumas_arena/docs/schemas/arena-exam-timed-effect-v1.json",
+      "size": 1003,
+      "sha256": "3705fa36e0a81c5a474f3c965b27510a3ed421168f17a92cd3b196a7668d2716"
+    },
+    {
+      "path": "arena/docs/schemas/arena-issues-v1.json",
+      "source": "third_party/gakumas_arena/docs/schemas/arena-issues-v1.json",
+      "size": 981,
+      "sha256": "120021b19b5b06ab39c3b9641a52618ea91cd55c03e54b5d20a9e71b2e2e986b"
+    },
+    {
+      "path": "arena/docs/schemas/arena-live-v1.json",
+      "source": "third_party/gakumas_arena/docs/schemas/arena-live-v1.json",
+      "size": 24769,
+      "sha256": "607553f8b9ea38b28831fc9bdfdd4b9c110a6e0884e554c6ccd2537199a81c04"
+    },
+    {
+      "path": "arena/docs/schemas/arena-session-v1.json",
+      "source": "third_party/gakumas_arena/docs/schemas/arena-session-v1.json",
+      "size": 25180,
+      "sha256": "8f2a9a2dfc01e807945dcaca97896595c86b37014de2ca45f4f755b890f81034"
+    },
+    {
+      "path": "arena/gakumas_arena/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/__init__.py",
+      "size": 1313,
+      "sha256": "6d4832f8b1d1bbb013b816380c8bd8ae674819ec44cdcf330d7f6b23b514d346"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/LICENSE",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/LICENSE",
+      "size": 1529,
+      "sha256": "6d2df9f3c7dae76229b9f3aba6906bf382606eb0b0e7bfeef9d0c96db33473b3"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/PROVENANCE.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/PROVENANCE.json",
+      "size": 8996,
+      "sha256": "1b278b8abfd2e907a4f5d29c1ac544e4f5f946aadd09f2bd7e4fd80dc377376a"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/Effects.md",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/Effects.md",
+      "size": 24341,
+      "sha256": "52777cda7369aabc2145526773faaa2d49ad144bccce0cb26c461d0bb3539ee8"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/README.md",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/README.md",
+      "size": 2150,
+      "sha256": "8195c7ba824623cbf186ef7ad44f1c50fdef950f40553177b28eaa82dba7a6e5"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/customizations.csv",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/customizations.csv",
+      "size": 14729,
+      "sha256": "99091bc9fe0261bddd0cfbf26e631852411ec11706293caa23bcb4f1fdd46ea4"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/idols.csv",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/idols.csv",
+      "size": 256,
+      "sha256": "de8110c78676d50813bc733783639d64adb618b2f2982cc3dc6e7cefd1091354"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/p_drinks.csv",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/p_drinks.csv",
+      "size": 2262,
+      "sha256": "0dabeca5360d959d5a028f14f8868b34c70f4121f358456b70fe50e999af9a38"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/p_idols.csv",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/p_idols.csv",
+      "size": 7562,
+      "sha256": "dc2bc91d99b113dd3042622cb1b177369b12e711e5b5e7281ecb56c1bac77259"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/p_items.csv",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/p_items.csv",
+      "size": 71169,
+      "sha256": "a2811c8a3da0c11a71da7c2a7ecca04e30bc0967ecd3e8525e9a22e0e608de83"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/skill_cards.csv",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/skill_cards.csv",
+      "size": 139011,
+      "sha256": "e2fd662e340e7e1fc8fed762ffc6a8d260940895c3c93d9bfdb3a188cd76f7ca"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/stages.csv",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/csv/stages.csv",
+      "size": 37869,
+      "sha256": "e14687ca1b0555f59b2e46615db75c1f009e312916c6afedcb0fd904701cf5e9"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/customizations.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/customizations.js",
+      "size": 779,
+      "sha256": "d115d9ca818b39e90627d5e7eb8aeb5f0d17ac420eca620e5302728b2b6779f4"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/idols.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/idols.js",
+      "size": 347,
+      "sha256": "fa309d2bce312f4065b2e4bcb9c8e0dfa2ab6331afa909673c978ae25cfa8542"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/index.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/index.js",
+      "size": 469,
+      "sha256": "a09a727f3c405a74f0f1631b597e879494aa6d02593d777962af4151f439299d"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/pDrinks.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/pDrinks.js",
+      "size": 763,
+      "sha256": "064cb5c328b6040990b055f7d8b3b1054a8ec4415ebf9587cb52e1fec4d87e36"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/pIdols.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/pIdols.js",
+      "size": 857,
+      "sha256": "ebe39e305ae9c651bf13c9af2f76a297f70d1aace1bb210f71123dd7e8c52119"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/pItems.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/pItems.js",
+      "size": 1149,
+      "sha256": "b2969076d09bb6e9822e2df88b096bdf392de9f42ee60e1f4dc66575781201d5"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/skillCards.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/skillCards.js",
+      "size": 1761,
+      "sha256": "35d06b5e218fe5ab8acba51feafd7ffcc23398b4008d9926bd6d6f864fdc6ead"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/stages.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/stages.js",
+      "size": 1013,
+      "sha256": "00ec516f0b81720b23b21c71215a7b20ed05476373edb5d74096981da1623dbc"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/index.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/index.js",
+      "size": 950,
+      "sha256": "9081ae97374785e1bb48bf2f4e5699e306832313c76ea0f317bdb38f23646826"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/customizations.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/customizations.json",
+      "size": 28738,
+      "sha256": "54deb7d19eb305b18d5e7e7f359afa922aa8ecc8b2e595e280f43dffb381ee60"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/idols.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/idols.json",
+      "size": 460,
+      "sha256": "c14ce8e4310e366a3bf751a4f11b857ad4be775c689fd40db3deb3a77285b26e"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_drinks.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_drinks.json",
+      "size": 3874,
+      "sha256": "2cf514aee1d5bf563c4536f631d41d3b657215aea3290ade26b5832664490410"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_idols.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_idols.json",
+      "size": 17836,
+      "sha256": "a2985e47c76cf2f7094a0805ea8d65eba5e3fd068e0289466328becf469ed60f"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_items.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_items.json",
+      "size": 120758,
+      "sha256": "61c4fb67eddbbadf4d4c839535a356edc2b7693532529d02587fec5e3b2b3be1"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/skill_cards.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/skill_cards.json",
+      "size": 317188,
+      "sha256": "17b334a11c52aae1c6f14fea9a83a08279727973f9c2647066c4f3e3bac4ab54"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/stages.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/stages.json",
+      "size": 62542,
+      "sha256": "4e38f475ffcc33693fa341e73950898546383192c2d4ce90c28120491150ca5a"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/package.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/package.json",
+      "size": 172,
+      "sha256": "3e855763dee9bbf2da3c7f9dd53f5234d6419cf69d3d38c2d89f99b1af79f4ee"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/scripts/csv_to_json.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/scripts/csv_to_json.py",
+      "size": 729,
+      "sha256": "eb422a11514101d6449e6fb5e714d178159848fa7f40907a935d7c97d9bfddd5"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/contestPower.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/contestPower.js",
+      "size": 1393,
+      "sha256": "aac16976f1ccc2dfec605cf0b6b1115450b393d730d94a3cf2a96e8b7e513c39"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/effects.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/effects.js",
+      "size": 1431,
+      "sha256": "79a79ad319d3ef143b24bcc969c62502915375b18048bef8425fba24a821da3d"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/index.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/index.js",
+      "size": 1261,
+      "sha256": "51e354de77eed3287a5efba7155e2226db6697c91a729ba6e3f80bac027c9a31"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/parser.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/parser.js",
+      "size": 21993,
+      "sha256": "0f6552a5858d9d1574e4ac6f732cd9f66c98fd8de151efb305d98a862d5e40b6"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokenizer.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokenizer.js",
+      "size": 4482,
+      "sha256": "45e6333e04eb4724aa2fe0091110b141e811157e56891e35f7c5fc2d85098baf"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokens.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokens.js",
+      "size": 1469,
+      "sha256": "aac316b2b08c0d5a0d321b0bfc9bbfc50be6e8657ace52040555f36936caf810"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/stamina.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/stamina.js",
+      "size": 5423,
+      "sha256": "50ac351d524ed5bd22bce12f73883896e869581a3dcd6c2e80a66da42fe8690b"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/index.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/index.js",
+      "size": 250,
+      "sha256": "293557fe442a7b077c912727c5b5bb1532faaebf4cc2d43eabec77f98636d974"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/serialize.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/serialize.js",
+      "size": 7508,
+      "sha256": "7cadeac21de2e544896e13cfc8ad016f0121560fe7e578231a8ea2be6cc4e75b"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/transform.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/transform.js",
+      "size": 14504,
+      "sha256": "1ae5ad1e64c072379f535029c7b0bdece7140a77f1d20d8e45ea76f9abe01bd5"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/validator/index.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/validator/index.js",
+      "size": 7309,
+      "sha256": "dfa165a3c6527e0150f9245b863a935e9b4c694a897bb8f7b84ebfae62b71760"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/validator/schema.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/validator/schema.js",
+      "size": 4880,
+      "sha256": "d74eec0970423b80a2980f2e94a1a8824a633b001e360da02380f5dcef3b3fa2"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/README.md",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/README.md",
+      "size": 2385,
+      "sha256": "41f7016b2d986ebfb751c3992ca025af97678196bb83ca413f2435805b5ad64a"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/IdolConfig.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/IdolConfig.js",
+      "size": 3886,
+      "sha256": "d5c5cd37e65c11797f47247a875bace44bd6d3281111d22651fa2b19e5c45a43"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/IdolStageConfig.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/IdolStageConfig.js",
+      "size": 1952,
+      "sha256": "df2c80eb0dc0b1aee539f09f56b05d6631c9e6d6f8403ea3994a53ee65abd7d5"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/StageConfig.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/StageConfig.js",
+      "size": 898,
+      "sha256": "451f17f52b1463efa4cadc2e8b852f7aaf2c335441288f931e2b94e8cf0bb3a0"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/index.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/index.js",
+      "size": 177,
+      "sha256": "e05f239e877f89d9659f4e0e2e7090e0403a4fc2438e7c2ff5d74471baf8e671"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/constants.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/constants.js",
+      "size": 9370,
+      "sha256": "a1d7ab266912f736e8119ebf0bef902db205e19c5c48a4c597ba429dae0741e5"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/BuffManager.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/BuffManager.js",
+      "size": 10153,
+      "sha256": "ecbc37d65d9af340c8205314396ab51a35e5bd629a01986542cc0767828447c7"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/index.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/index.js",
+      "size": 43372,
+      "sha256": "b26446071e0479dc94044321a7f6a21977f38af78e4fe8a977e0f46e0dd384cd"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/targeting.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/targeting.js",
+      "size": 6985,
+      "sha256": "7966126b53fdd5818577b81b74ee61e2bc019d0c5ef5822777f709dfc86eda79"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/EffectManager.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/EffectManager.js",
+      "size": 13438,
+      "sha256": "9afebd49a5a0c0b9a73385e9ef2ec733815a437a770c4f9d235d3744bd03a5b0"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/EngineComponent.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/EngineComponent.js",
+      "size": 205,
+      "sha256": "838783b0401f35b8d5f38e16cf149aacf8d7397d89b5382a14b37a2a227f71a6"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/Evaluator.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/Evaluator.js",
+      "size": 6221,
+      "sha256": "4c76b83dc8e4617be8d2ecd581c252e2ff6684ef32c0ae4f54840ac8ea20f7f1"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/index.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/index.js",
+      "size": 18328,
+      "sha256": "7feb2e1d52cab213ba2d6fa91f0f96d72c8b1c522f7ec0597924ac5a715e2154"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/resolvers.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/resolvers.js",
+      "size": 8574,
+      "sha256": "8ef7b15de7b791e9bd90d0f8b767ceb15d6cbc9e6804ee60332e2d2fa7f964cf"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/StageEngine.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/StageEngine.js",
+      "size": 3466,
+      "sha256": "a6fc6dff4a2b6b644931a0d537a1d0136141c1a715e4dd306d39db7dda770e93"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/StageLogger.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/StageLogger.js",
+      "size": 3005,
+      "sha256": "1555d56ee386386ea5c0c5bf421d94fec9ec682aa6b2c2c7bda05ff2ed7ec839"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/StagePlayer.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/StagePlayer.js",
+      "size": 1035,
+      "sha256": "e591e1c7f763174e34d41583ab3978ee289262671e1ebd8a0ac92060f370ac2c"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/TurnManager.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/TurnManager.js",
+      "size": 5691,
+      "sha256": "ad4accefb14e57938ea4f59764aa3e6dd59ee64fe0aac84113323c516de9ca5a"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/index.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/index.js",
+      "size": 114,
+      "sha256": "c754e977d45a627986edc35a8e4dd042ffd9cf0ae923b302b842a3823ba76648"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/index.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/index.js",
+      "size": 271,
+      "sha256": "c4f52ac2ca574268d702b1b8cd9b96a0b02439fb3cd0e362acf67c78017d6f00"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/package.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/package.json",
+      "size": 165,
+      "sha256": "b817509081232d30fbe5ab599507fea69e92539113f2200bdb1e3bdce49a3bef"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/BaseStrategy.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/BaseStrategy.js",
+      "size": 1633,
+      "sha256": "cdb0ad4dbc786afad30bc865a9c45db06d0330a31d1f26dbf085cc666980f86f"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/HeuristicStrategy.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/HeuristicStrategy.js",
+      "size": 13900,
+      "sha256": "730597b140722b6d4e7e0f01d09356f57ae57eb728b805bb559d1dfbc13ead35"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/ManualStrategy.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/ManualStrategy.js",
+      "size": 3869,
+      "sha256": "225f97c2c267bff265fe186ea88a2dbde2605db029a95bc25152bc04c5be60d7"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/PlayerStrategy.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/PlayerStrategy.js",
+      "size": 1499,
+      "sha256": "08cbe58ff1c757481b8baa93bf6b5baa7a54de9eb0bdafb6f27620d0d88018c7"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/index.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/index.js",
+      "size": 229,
+      "sha256": "960bb4a0cfaa7f8d3238c3044f3f31b09fc9c59204dbf497d3c33ebd6b4b5ccc"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/typeMultipliers.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/typeMultipliers.js",
+      "size": 2880,
+      "sha256": "3e6f9b56d78c4f9a9563731047e02adceb12f825d71760fbb7d4fca8b6d59ade"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/utils.js",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/utils.js",
+      "size": 5562,
+      "sha256": "ab6649ce7d9278e2ae0563710e0160883048d5352196cfc8a7253c01af1b9505"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/scripts/extensionless-loader.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/scripts/extensionless-loader.mjs",
+      "size": 2721,
+      "sha256": "368e9c2ad66aa2ccb1150520e5a3c48193b0095d38f09b37433a2b1cc7b46584"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/scripts/validate-data.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/scripts/validate-data.mjs",
+      "size": 5453,
+      "sha256": "eea708f000226030da20fa8438ccf2c6b103c85999289c67336d44bb891794fd"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/tests/coverage.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/tests/coverage.mjs",
+      "size": 3929,
+      "sha256": "80d7f0bf0dcbd714e804800943816e62b39118db3b1c080977ef6ef100ccff82"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/tests/lib.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/tests/lib.mjs",
+      "size": 4281,
+      "sha256": "fa98d65967f2546cbfdbe031e101ab14c8d215b055c30e32c1863333a978a1ef"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/tests/run.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/tests/run.mjs",
+      "size": 1955,
+      "sha256": "38cd54486ca6df8d222e3d49e46f8fe6b442074fa02538e713d1661957b1c873"
+    },
+    {
+      "path": "arena/gakumas_arena/_vendor/gakumas_tools/tests/suite.jsonl",
+      "source": "third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/tests/suite.jsonl",
+      "size": 116140,
+      "sha256": "14be6aff9da4f8e088a016eb7c61c48a8b76f6deb464d841870a249ca00b8be4"
+    },
+    {
+      "path": "arena/gakumas_arena/agents/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/agents/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/gakumas_arena/agents/random_agent.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/agents/random_agent.py",
+      "size": 324,
+      "sha256": "3f6b5f7fc7bb05cc52464c7c0bd3a4dde759c1db9d124b53e0cbdc927a67f50c"
+    },
+    {
+      "path": "arena/gakumas_arena/catalogue.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/catalogue.py",
+      "size": 20794,
+      "sha256": "2fa80d33a05c1b815eb034f8a0d88720ecc2177161eac39debdd0a5e00d9bcb1"
+    },
+    {
+      "path": "arena/gakumas_arena/content/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/content/__init__.py",
+      "size": 523,
+      "sha256": "55c85364a758d17b089dd566d7bddd49bbcd46a83f008ecc9a8b0c1b28423b30"
+    },
+    {
+      "path": "arena/gakumas_arena/content/__main__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/content/__main__.py",
+      "size": 6783,
+      "sha256": "46c10a6eb496905808d177c474b1bb4d10ed542af801189319178c3cd9d5b190"
+    },
+    {
+      "path": "arena/gakumas_arena/content/capabilities.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/content/capabilities.py",
+      "size": 7431,
+      "sha256": "6e63bd12448c2b00af35622af182dcfbace1499247b2f08a8c5a732213f02696"
+    },
+    {
+      "path": "arena/gakumas_arena/content/compiler.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/content/compiler.py",
+      "size": 28837,
+      "sha256": "60ebf6ad62eab9700cfa23bdaabb9a8d69757e5cf94c98ed157f5a0932abd21b"
+    },
+    {
+      "path": "arena/gakumas_arena/content/exam.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/content/exam.py",
+      "size": 21621,
+      "sha256": "87d8229f3f393ca09eea947fb9a9be706d808965e30d223a1921ca77204717af"
+    },
+    {
+      "path": "arena/gakumas_arena/content/flow.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/content/flow.py",
+      "size": 19905,
+      "sha256": "c5b8afdbf2676963c81f10285c3cd7e0fe8c5b5dcf94eab30fd0c7d57a41405e"
+    },
+    {
+      "path": "arena/gakumas_arena/content/models.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/content/models.py",
+      "size": 9218,
+      "sha256": "8470e675765f2a292402628d5d4bda2beeba38f160d35eca7d99d49c400536eb"
+    },
+    {
+      "path": "arena/gakumas_arena/content/native.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/content/native.py",
+      "size": 4420,
+      "sha256": "6ffd37cdb14cd36133241fa00fea08f1f932dcd0d143ab59cb73982758057bd3"
+    },
+    {
+      "path": "arena/gakumas_arena/content/native_catalogue_overrides.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/content/native_catalogue_overrides.json",
+      "size": 2097,
+      "sha256": "4f342e717242503eb1247922c0d03e8866359753444313f8726aaf029e20f907"
+    },
+    {
+      "path": "arena/gakumas_arena/content/operations.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/content/operations.py",
+      "size": 11174,
+      "sha256": "ff794b32874fbdd72b42e29c6233f2c5176b3c1e4b66d992dc1d84571d3c25c6"
+    },
+    {
+      "path": "arena/gakumas_arena/content/starter.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/content/starter.json",
+      "size": 4350,
+      "sha256": "c9180307dc9b57ffff44f99e51745a205ab57d9880767936306309bc4644fe97"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/__init__.py",
+      "size": 6196,
+      "sha256": "1b4a4beaffb1defb9e03ba9fed400d340e8bca4188b739fc8d1f205d39fa6bea"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/__main__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/__main__.py",
+      "size": 1731,
+      "sha256": "c902f2f7ca5f63d3792d2d6db094573e466acb959b18048d4dd1505810796e45"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/catalogue_overrides.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/catalogue_overrides.py",
+      "size": 2878,
+      "sha256": "ea074214e3df37cecb7c069356582f3fb969c8e513b4bcff0da866f589792023"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/search.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/search.py",
+      "size": 17312,
+      "sha256": "5a68c44b04554e2e9d320010203481c4ac66d477ba67db302931281f1e6325a6"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/search_loader.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/search_loader.mjs",
+      "size": 2064,
+      "sha256": "6a1141418dfad7e838e513a899c1cf7acab5682a0244ada2ecba3aa63835fd0a"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/search_worker.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/search_worker.mjs",
+      "size": 21516,
+      "sha256": "91b41aca7b1f9c81727874f01411ec5ce09eb02bff9d69f0e5c01e8f8045d8da"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/training.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/training.py",
+      "size": 20326,
+      "sha256": "8abd6cfc4a9a9c1912cbc96faf71d0cf0e793f2ada94b28213d813eb3b4be573"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/training_basic_pool.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/training_basic_pool.mjs",
+      "size": 1052,
+      "sha256": "a3adf49d611ffe077def3e4c849c6f66bd0597b663f7a0f458396dd0bf64a4b6"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/training_catalogue.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/training_catalogue.mjs",
+      "size": 2485,
+      "sha256": "f49ee2c448fb510703bfe9b12cbc7f5f5a72611c3221e7480ac13629bd1dd499"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/training_config.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/training_config.mjs",
+      "size": 11841,
+      "sha256": "9f2089a6aba21bafd761c418249dd316bb329451872f5a7b3cd5e4f26b21740f"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/training_support.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/training_support.mjs",
+      "size": 10464,
+      "sha256": "26957c250937a5e3e8545b6ce32b56175416c68729dbad711fa271bf12595ffe"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/training_worker.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/training_worker.mjs",
+      "size": 22035,
+      "sha256": "bae9ff10b7eeb2fce4fd453c43288c74bc1bcc9f9aa0856d08b36af8cfd02bd4"
+    },
+    {
+      "path": "arena/gakumas_arena/engine/worker.mjs",
+      "source": "third_party/gakumas_arena/gakumas_arena/engine/worker.mjs",
+      "size": 8893,
+      "sha256": "640dbd798744e67cf944eda5042ad8acaae48fd216cde290df417ca3db7cc78a"
+    },
+    {
+      "path": "arena/gakumas_arena/env/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/env/__init__.py",
+      "size": 12116,
+      "sha256": "4bd740bf47653d1c546747d9cf31d7f57ade56d035790338c473969728d20936"
+    },
+    {
+      "path": "arena/gakumas_arena/loadouts.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/loadouts.py",
+      "size": 14896,
+      "sha256": "3ed5b38e971ff126764937abdc52af42d84168a3b5288d174be538123f582a71"
+    },
+    {
+      "path": "arena/gakumas_arena/masterdata/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/masterdata/__init__.py",
+      "size": 49,
+      "sha256": "5c642199f8615d08451b4a4bc9b187648f5fdfdcfdb333b2b858a77e9765f5ae"
+    },
+    {
+      "path": "arena/gakumas_arena/masterdata/store.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/masterdata/store.py",
+      "size": 4383,
+      "sha256": "89c59ef39366baab4d20d2e2add683044a27a0e055cdc96ba8d100607d4cb76c"
+    },
+    {
+      "path": "arena/gakumas_arena/policies/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/policies/__init__.py",
+      "size": 1053,
+      "sha256": "7c07c0f193e4376e0ec36afc4510c6a41e73ae3db396635f732bfaa6bb1d24cc"
+    },
+    {
+      "path": "arena/gakumas_arena/policies/base.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/policies/base.py",
+      "size": 1565,
+      "sha256": "2faab32d92bcc63da26336da83c3d6c678916e6625229ab2bfca41fcfc56f873"
+    },
+    {
+      "path": "arena/gakumas_arena/policies/basic.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/policies/basic.py",
+      "size": 2059,
+      "sha256": "378e9c0b6ff1bb9e047fe08cda64eb7ecd95f0549f420316bd187ffd69ab5585"
+    },
+    {
+      "path": "arena/gakumas_arena/policies/evaluation.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/policies/evaluation.py",
+      "size": 13506,
+      "sha256": "b37b90a42b683a7c7f9fd5f14cc0f1d24562f305d2dcc0820aa10ad764dd8e40"
+    },
+    {
+      "path": "arena/gakumas_arena/policies/search.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/policies/search.py",
+      "size": 15522,
+      "sha256": "0029ec6f8de5cf0242a4f97bdf8f5360d00fe4b761e4fd4fd26002ad87d3fbd8"
+    },
+    {
+      "path": "arena/gakumas_arena/preview.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/preview.py",
+      "size": 12708,
+      "sha256": "0c5ef5931e96a61977403f3070e5e53df69c617a90881fd66e77f923113d1781"
+    },
+    {
+      "path": "arena/gakumas_arena/preview_assets/PROVENANCE.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/preview_assets/PROVENANCE.json",
+      "size": 1251,
+      "sha256": "13341ba6f8671bc2649ccb217257c8480d87f9dda5411b57a128a0c2bf0b74f4"
+    },
+    {
+      "path": "arena/gakumas_arena/preview_assets/deck.html",
+      "source": "third_party/gakumas_arena/gakumas_arena/preview_assets/deck.html",
+      "size": 16444,
+      "sha256": "039c9ba4639a8ad77a77cbecf3a34a670c25bd4503b693f0abbea6da175ccfc2"
+    },
+    {
+      "path": "arena/gakumas_arena/preview_assets/p_drink_icon_keys.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/preview_assets/p_drink_icon_keys.json",
+      "size": 159,
+      "sha256": "c089885115e9968ac3f009371ea1a1291a628c0599843d136169c034bf464135"
+    },
+    {
+      "path": "arena/gakumas_arena/preview_assets/p_item_icon_keys.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/preview_assets/p_item_icon_keys.json",
+      "size": 3231,
+      "sha256": "f65ca6e15e1a7474d047f90b0c1ab059fe7ab880bc8ff14ca0cdc38f384b2086"
+    },
+    {
+      "path": "arena/gakumas_arena/preview_assets/skill_card_icon_keys.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/preview_assets/skill_card_icon_keys.json",
+      "size": 29556,
+      "sha256": "daf5bc7df018ec0699eb36deca6249f65e1dce33f0dbfbddeb02d5b98f487006"
+    },
+    {
+      "path": "arena/gakumas_arena/preview_images.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/preview_images.py",
+      "size": 7371,
+      "sha256": "51c0857de981f5f94361d4e8e92c9cef66a754a96b31107412c1857fe8f6739f"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/__init__.py",
+      "size": 335,
+      "sha256": "04c604055fb1916c4231bac8572bac970bccb009f01347aa74da27de3b6ac8db"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/card_switches.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/card_switches.py",
+      "size": 3558,
+      "sha256": "a0f65072b3b3f1caa0a336b89cc73b76383aced04bf5f03a101a4953a471f2db"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/checkpoint.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/checkpoint.py",
+      "size": 14014,
+      "sha256": "2033160bcd59150b03b16e9d77bb7a906d03aa97dd918db73b93393effbf1695"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/courses.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/courses.py",
+      "size": 8811,
+      "sha256": "987c8bac4d235c88b88433ef3285434e1dc244f5c1c122e161143441bdff96ca"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/customization_bridge.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/customization_bridge.py",
+      "size": 17821,
+      "sha256": "db3cb3d8013b56620dd5b58a24ff9074c7ada22a17a1d3060cdcd3fb3abf6131"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/data/customization_registry.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/data/customization_registry.json",
+      "size": 279741,
+      "sha256": "21ab33dca444149eead00aadc59b599e6ee8742a2a4edf203abc243a495477c1"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/data/hif_exam_profiles.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/data/hif_exam_profiles.json",
+      "size": 405139,
+      "sha256": "651ce9f8c0357b483acb81e8466260f253f9e83234ad55573fb55c37d5ae21f2"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/golden.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/golden.py",
+      "size": 36523,
+      "sha256": "0f81b51b9686f27899786ca58623c8c7de6a8ef41d349cbf3777557548bbec97"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/initial_deck.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/initial_deck.py",
+      "size": 3348,
+      "sha256": "1a88f71620a174bd791a2508ab8fd46f07c4533506ced03361aef303f2ec7e7b"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/lifecycle.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/lifecycle.py",
+      "size": 17707,
+      "sha256": "04b611a41a3c14b4da8cfd72a0434713f37c3f3a68d84bc80c5a53627591a401"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/loadout_handoff.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/loadout_handoff.py",
+      "size": 5337,
+      "sha256": "36ce4217d3664bdbfb015e5f3f789264bf7efbdfdd4be7b28e3bf1c3e87cdf14"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/memory_bridge.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/memory_bridge.py",
+      "size": 8091,
+      "sha256": "2680bb8486ed39ffbf1f6526b084b8a32f425ca71bd553d18ddf4e4a26343216"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/memory_generation.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/memory_generation.py",
+      "size": 27099,
+      "sha256": "610768879c820a4d571f59f38812f1489c34780b085019e41d25ebb8ea50d324"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/plugins/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/plugins/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/public_state.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/public_state.py",
+      "size": 2043,
+      "sha256": "581ab03817ec5a0402b840d95df19b81dae76b53b4fe1b4e948d7b7caf7f53a5"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/research.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/research.py",
+      "size": 5233,
+      "sha256": "775526f61de6f91530180a39e3f30ca73d1e0b407510332423db55b2b461ca3e"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/sampling.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/sampling.py",
+      "size": 11436,
+      "sha256": "94af9d0fa166aa03e4f5a5fabc5f031b5d923ac35d145ce4ed7eb7cb4ff1b63b"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/scenario.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/scenario.py",
+      "size": 1212,
+      "sha256": "2098a732687f1534c31ace5f21f3613ad53d5981ce0bc88fcbe0d35575866992"
+    },
+    {
+      "path": "arena/gakumas_arena/produce/support_bridge.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/produce/support_bridge.py",
+      "size": 15097,
+      "sha256": "1709495a719f64a23c5f59c92d912ab461ea1c205e0da68a1c37b62cd554edd2"
+    },
+    {
+      "path": "arena/gakumas_arena/scenarios/hif.yaml",
+      "source": "third_party/gakumas_arena/gakumas_arena/scenarios/hif.yaml",
+      "size": 297,
+      "sha256": "65ce909d7ad6391a34e4f0f1d337e4005036516f9fa18ed33cdf1a97373c02d1"
+    },
+    {
+      "path": "arena/gakumas_arena/scoring/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/scoring/__init__.py",
+      "size": 230,
+      "sha256": "4d1f6d0773436312c237f3f8f64857f40c7b1de0fb47d741db6292d3c27fc4af"
+    },
+    {
+      "path": "arena/gakumas_arena/scoring/_hif_reference.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/scoring/_hif_reference.py",
+      "size": 14851,
+      "sha256": "9a3fa2021cd27fcafc6a5ce1600f6079c596276aad8902f53731bf56f80506c0"
+    },
+    {
+      "path": "arena/gakumas_arena/scoring/hif.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/scoring/hif.py",
+      "size": 4700,
+      "sha256": "16c9d21ffa4b6af8206dce30ae1d3729cad0dcd793bec650d33ff4bf9ac8f9d5"
+    },
+    {
+      "path": "arena/gakumas_arena/scoring/hif_multiplier_research_2026-09-09.json",
+      "source": "third_party/gakumas_arena/gakumas_arena/scoring/hif_multiplier_research_2026-09-09.json",
+      "size": 44791,
+      "sha256": "c476cb66adf95651fa9246f5ce701c8503ff2f85d0e3ebf7d38437e34d5ac55d"
+    },
+    {
+      "path": "arena/gakumas_arena/sim/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_arena/sim/__init__.py",
+      "size": 11837,
+      "sha256": "36e2e402a3ec68e589287f36f6bfde8867eb356fb729494d9cbf8b946e491cbd"
+    },
+    {
+      "path": "arena/gakumas_rl/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/__init__.py",
+      "size": 1522,
+      "sha256": "b6b8ac8da22ff5131e89d2e42a5f178847b79b1dfea3c57116574b35ff74f9ac"
+    },
+    {
+      "path": "arena/gakumas_rl/_scripts/collect_exam_audit_texts.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/_scripts/collect_exam_audit_texts.py",
+      "size": 20917,
+      "sha256": "2981c4fccb029e518dd4457db7339a55d5030bd992749bc611a4f1058b750bdf"
+    },
+    {
+      "path": "arena/gakumas_rl/_scripts/fetch_help_content_pages.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/_scripts/fetch_help_content_pages.py",
+      "size": 16628,
+      "sha256": "6eca323a142e812078eef5f32ec686ae32638395fad7bec0e097c8bd3211021a"
+    },
+    {
+      "path": "arena/gakumas_rl/_scripts/generate_effect_coverage_matrix.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/_scripts/generate_effect_coverage_matrix.py",
+      "size": 18302,
+      "sha256": "1c2718fae1f7d75dfbdeec5ddc37ab9b4903bddb9abece64add01a148e15b6cd"
+    },
+    {
+      "path": "arena/gakumas_rl/_scripts/generate_manual_loadout_catalog.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/_scripts/generate_manual_loadout_catalog.py",
+      "size": 7723,
+      "sha256": "0fb7328d3cd60691768d39c44bdc2cc6383000c9c576ff5cc13f098528005ed3"
+    },
+    {
+      "path": "arena/gakumas_rl/bc_pretrain.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/bc_pretrain.py",
+      "size": 201,
+      "sha256": "6e2c979ef820838c5808ef13ec62d2580d37aaec88c2890d8638c846aa16208f"
+    },
+    {
+      "path": "arena/gakumas_rl/configs/produce_reward_first_star_competitive_v1.json",
+      "source": "third_party/gakumas_arena/gakumas_rl/configs/produce_reward_first_star_competitive_v1.json",
+      "size": 1614,
+      "sha256": "594e1f71191f0210baa43aab19d7821ec4cb983b856ec9fc920c791066cae4b6"
+    },
+    {
+      "path": "arena/gakumas_rl/configs/produce_reward_nia_competitive_v2.json",
+      "source": "third_party/gakumas_arena/gakumas_rl/configs/produce_reward_nia_competitive_v2.json",
+      "size": 1616,
+      "sha256": "faed1396ee52785b34abe60e7a7b43b284d7e5417088da50664d39b2a2065303"
+    },
+    {
+      "path": "arena/gakumas_rl/configs/produce_reward_nia_planning_v1.json",
+      "source": "third_party/gakumas_arena/gakumas_rl/configs/produce_reward_nia_planning_v1.json",
+      "size": 1616,
+      "sha256": "ecf8456538b197a8880cf67bc23ddf329705efaa0e131fc8dda6e12680ab78ab"
+    },
+    {
+      "path": "arena/gakumas_rl/constants/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/constants/__init__.py",
+      "size": 43,
+      "sha256": "f9760c633bd93c4deb50d2a5547de4ef6d9a999e3ea9b1ad9f5643884a02c6ac"
+    },
+    {
+      "path": "arena/gakumas_rl/constants/game/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/constants/game/__init__.py",
+      "size": 58,
+      "sha256": "5e873d93a6a59bf4a6497d57bbf6238c19741e553c3f27e458a121dc9c6539a6"
+    },
+    {
+      "path": "arena/gakumas_rl/constants/game/action_types.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/constants/game/action_types.py",
+      "size": 873,
+      "sha256": "c376978246e12cfe430f97f9c2a567c380f0408a25325679546d243bc82f77b4"
+    },
+    {
+      "path": "arena/gakumas_rl/constants/game/resource_keys.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/constants/game/resource_keys.py",
+      "size": 635,
+      "sha256": "6ea3cc46b14e7237608cc87e6dc5dd4fa29333178f980b41ac052bc1d9ab556b"
+    },
+    {
+      "path": "arena/gakumas_rl/constants/game/scenario_ids.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/constants/game/scenario_ids.py",
+      "size": 278,
+      "sha256": "e07c94a9dcd9c801ed10e5d5f36a528e4afc8377c5f17f435e8bda075563442b"
+    },
+    {
+      "path": "arena/gakumas_rl/constants/game/support_types.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/constants/game/support_types.py",
+      "size": 327,
+      "sha256": "96fd5a13e84ff78c20e88560c68713a496ccd641749ea18782d0e70a667d095c"
+    },
+    {
+      "path": "arena/gakumas_rl/deck_constraints.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/deck_constraints.py",
+      "size": 15101,
+      "sha256": "d312c0a4717b3d03484a9bfc9a34df69347ab985ecd1cb9f95c689bf26ae98eb"
+    },
+    {
+      "path": "arena/gakumas_rl/demo_exam.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/demo_exam.py",
+      "size": 35584,
+      "sha256": "28020c273e2ecdeedf19f90492d5f58138546ad13f8b0200cc2894cd75da8d8f"
+    },
+    {
+      "path": "arena/gakumas_rl/idol_config.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/idol_config.py",
+      "size": 70857,
+      "sha256": "54945e8a0fc20c236df1e90084d6e14c36fae896dba65ceb94920156b9f58b81"
+    },
+    {
+      "path": "arena/gakumas_rl/interfaces/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/interfaces/__init__.py",
+      "size": 47,
+      "sha256": "d16fdc12ea277c8346b27735c3155414c569f096fe8b358ea9bd9e295353c26d"
+    },
+    {
+      "path": "arena/gakumas_rl/interfaces/api.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/interfaces/api.py",
+      "size": 5289,
+      "sha256": "fae1a75c4f45555c0b258b74e419cc462fea7b5050fa16f0017d4bf5627ca7b8"
+    },
+    {
+      "path": "arena/gakumas_rl/interfaces/inference_api.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/interfaces/inference_api.py",
+      "size": 8095,
+      "sha256": "927d44284fc74ded95401fb7375c9dc6444e2fa86149424aaea1ba2c7505fb89"
+    },
+    {
+      "path": "arena/gakumas_rl/interfaces/inference_service.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/interfaces/inference_service.py",
+      "size": 11266,
+      "sha256": "1eba26a98b0b061decf4ab0beec50c217a41a81a459ae964c4c29021cbad0340"
+    },
+    {
+      "path": "arena/gakumas_rl/interfaces/service.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/interfaces/service.py",
+      "size": 40835,
+      "sha256": "1a87d32d088b879f64b92cd9e4b3ce870cddf1396b94b44379c64feec771233a"
+    },
+    {
+      "path": "arena/gakumas_rl/loadout.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/loadout.py",
+      "size": 5932,
+      "sha256": "1d8bc8f838e7e0ebdd6bc68b2c3445d45817d6cec325bc446dff32aa4c047ebc"
+    },
+    {
+      "path": "arena/gakumas_rl/manual_exam_setups.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/manual_exam_setups.py",
+      "size": 9324,
+      "sha256": "829fcfec8a04eaed2377fcbf67d00baaba652548a88655d5910e3a135f2e0a6e"
+    },
+    {
+      "path": "arena/gakumas_rl/produce_score.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/produce_score.py",
+      "size": 37394,
+      "sha256": "9a4fef783d95e36726a76b08643dde4b4a0c80c14a42744b80056fecffdbfb3c"
+    },
+    {
+      "path": "arena/gakumas_rl/repository/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/repository/__init__.py",
+      "size": 702,
+      "sha256": "862452c52537f105067c9251941ccac781bfdfae34f39caf8057c855c469f428"
+    },
+    {
+      "path": "arena/gakumas_rl/repository/master_data.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/repository/master_data.py",
+      "size": 82126,
+      "sha256": "1ef3d5d8dc9186f280be83b80f3df54e2ca8f3178325d8e1861b2df03be46334"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/__init__.py",
+      "size": 40,
+      "sha256": "27ce4216079c1dc4e7a13333be29d673c528f2026fa16cb872ddc17ca74d1326"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/encoding.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/encoding.py",
+      "size": 5055,
+      "sha256": "acb73615eb2157c61e3dc8c0da6e31af0cc6a1922efdb5fbf53a15312e5cc806"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/envs.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/envs.py",
+      "size": 101102,
+      "sha256": "838b8e137234d6b8c3bbdf72b7181c288584f086d3d27487d88ef2f0bc464f18"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/__init__.py",
+      "size": 40,
+      "sha256": "3de1fdc1ae1e3a9dd0f83a4cc58aac9f3fe397aaf87cafc580bf13160c76d6ee"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/choice_boundary.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/choice_boundary.py",
+      "size": 2795,
+      "sha256": "bc9deff9f262005a6e7f5658821010ceff17002582e85e77b8b778d242275cfb"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/constants.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/constants.py",
+      "size": 4482,
+      "sha256": "321c09177de46f449824f290f3ff45cdb6267daad389648e08ef77994602081e"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/__init__.py",
+      "size": 426,
+      "sha256": "cf85e4a5442823182ee0bfe0a2cd9c84db03c1383ef30448fe06355773cf2715"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/aggressive.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/aggressive.py",
+      "size": 482,
+      "sha256": "369e64ce26736db9509d497a41777ef9083493fac2b4bc8c1354a610bf3ee7f2"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/block.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/block.py",
+      "size": 2255,
+      "sha256": "9368aa4dd41e77d4458424917b9b40e5b7b0ac1097355267c1349d242a1bf38a"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/card_operation.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/card_operation.py",
+      "size": 2534,
+      "sha256": "46cda14f8405da53069d174d051284ed2f57c507c0ca3988002d022f2ba081e7"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/context.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/context.py",
+      "size": 14124,
+      "sha256": "e65fe8d4d93511e333c1bf8d7c007081aed2fd5358ca0c086ff41fbe05f2358b"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/delayed_effect.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/delayed_effect.py",
+      "size": 316,
+      "sha256": "b5c94d7ed87fc203a63f0a28ba2015d10050151ea1c5500b559c9c1f09884f01"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/duration_resource.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/duration_resource.py",
+      "size": 782,
+      "sha256": "6eefdf68e215631d2c190ad16a7156fff34dad4947346222b46aab7f60431bff"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/encore.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/encore.py",
+      "size": 2339,
+      "sha256": "f2eb2babd66c706b0e0d9c5e2a15019dbb06b98bde7f4fd075f3c1ed40ded382"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/enthusiastic.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/enthusiastic.py",
+      "size": 998,
+      "sha256": "b759bd0d79c89091ef5596f5e03f3e7af06c61a415ca3d0015c34fcd497c8cea"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/fallback.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/fallback.py",
+      "size": 1023,
+      "sha256": "0851efb73076e42d4b77fdc3b0a224c5efbaec527d473f0e37fbc83058592cdf"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/gimmick.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/gimmick.py",
+      "size": 1680,
+      "sha256": "26c9ea567aa67e21505ac0b4867d9596abd0a833f46b0a0eeb47e09f3979ddc1"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/grow_effect.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/grow_effect.py",
+      "size": 321,
+      "sha256": "eb81629cd8f059232e7ecf37321cc40cc673aef759bf90bc2fca5a0f37ed9e29"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/item_fire_limit.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/item_fire_limit.py",
+      "size": 647,
+      "sha256": "9a72dbbfcce97e46692ebcc605c1e09b91421bc1b97e358726cc0c72e81f3986"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/lesson_buff.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/lesson_buff.py",
+      "size": 1467,
+      "sha256": "0cf16e5e1f6336380fa39115a67418d5b8530e6cf104e2caded9adfd2a604458"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/lesson_score.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/lesson_score.py",
+      "size": 2482,
+      "sha256": "d6904629d871fcd7d5a48dbf20ff3f10e3ba7ed812ea8239711d370507115b2f"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/lesson_value.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/lesson_value.py",
+      "size": 5405,
+      "sha256": "1a64a3019a459f0c7b5cb43516a9bc8c2a62a2c7e304c42b6ed9dd4b757f7914"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/parameter_buff.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/parameter_buff.py",
+      "size": 1368,
+      "sha256": "1f71eaea855e2b50140166edecf9bd1f30ca0250bcdcad50bceb51aed459329f"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/registry.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/registry.py",
+      "size": 6763,
+      "sha256": "49f7b4c621fc067bc86e686ac2ed55e4ebe4e658381c804d0f8c082634e964b3"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/review.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/review.py",
+      "size": 2165,
+      "sha256": "223495850c69ac87c5820f31e46757dabb6f434a6df610d27b4fd6196a1e4c6c"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/scalar_resource.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/scalar_resource.py",
+      "size": 2176,
+      "sha256": "1310396514783b14e75d953687e705c04d20a4bfa17b3526005a98ed5ec4b2ca"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/simple.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/simple.py",
+      "size": 2523,
+      "sha256": "f9d7471b2c598346a6335eb6aaef0abac7d7c6aaefbaa6cf861b61e588c16399"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/stamina.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/stamina.py",
+      "size": 2421,
+      "sha256": "6315b48e230434d4f24fcd22f151a49cbc63ff6878e9e06e12174b71b7467362"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/stance_multiple.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/stance_multiple.py",
+      "size": 2558,
+      "sha256": "ef47eaf3cb59e20ea09889dc4a35c4333ae2a91da38d3daf553b6584e072ebd5"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/status_enchant.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/status_enchant.py",
+      "size": 337,
+      "sha256": "a90436e400c6b04883e5468a861dbd0d89ed083c28c9224e4a6e840f331262b9"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/effects/timed.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/effects/timed.py",
+      "size": 2723,
+      "sha256": "66be5f89964870c3d267436ee57196c0c3e9ffe1b0e33d28b2ab13a42ac92901"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/ids.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/ids.py",
+      "size": 16462,
+      "sha256": "2171dd6a9270a88e796defb59255e690916aa929171f611c05c65e59a83450c8"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/observed_encoding.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/observed_encoding.py",
+      "size": 9739,
+      "sha256": "34a96267cbed491c76290c089932a45e77c2d7aa9f1076c34784071584549b86"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/passive_catalog.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/passive_catalog.py",
+      "size": 2290,
+      "sha256": "b8f54ecee4e4b4dc716ca98f7b7ab364b9e6554719db738809d901dc64d134f9"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/replay.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/replay.py",
+      "size": 3586,
+      "sha256": "8fadef6dc9ab13d90452abefda033c6fb0d8fda8a154f77dd6b066c32c19126a"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/resolution.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/resolution.py",
+      "size": 11856,
+      "sha256": "e77798559dc8f10f09416377d743a220641f6ed912ce25153de3aa24005485bc"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/runtime.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/runtime.py",
+      "size": 222519,
+      "sha256": "d08e8e5cce78c194f91b198bc59c7c1f1e479c361c83fa0ab9b7c880a503d47e"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/scoring.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/scoring.py",
+      "size": 8081,
+      "sha256": "29d6e8fd7678b51fa2075a1a18933898d452f182cf64b812327d52ec70801296"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/structural_encoding.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/structural_encoding.py",
+      "size": 6583,
+      "sha256": "fcb84326630654b7b421448c053045916fed477319ff41561b6c651646dcc06c"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/triggers/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/triggers/__init__.py",
+      "size": 354,
+      "sha256": "034c040b9cb5bd8c26fe0d13e85fd5c96c17aa78c1528056fafd4c78fd7eb1a3"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/triggers/card_search.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/triggers/card_search.py",
+      "size": 902,
+      "sha256": "54d22ee5b17e011d2e46965688a902cff3f72a315d2dbe97d1c190854829e666"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/triggers/context.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/triggers/context.py",
+      "size": 2153,
+      "sha256": "6b6ee3181dcedf250f8ff216a9135ec6e1919bed38383a6aad19978e804880da"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/triggers/effect_types.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/triggers/effect_types.py",
+      "size": 512,
+      "sha256": "24f213cdd2b105635cb04aaa1437fcb34bb4f2ab2edf14f076e48f3caacb5ec4"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/triggers/evaluator.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/triggers/evaluator.py",
+      "size": 1211,
+      "sha256": "24084eb449639de086fb7bb3c7f88791e8b96915d8ed2398dd3722c21144e539"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/triggers/field_status.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/triggers/field_status.py",
+      "size": 4787,
+      "sha256": "aa957e40bee27b6f8638aefef0c202bf44c5ae284e77b5f47e8728d565261e67"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/triggers/lesson_type.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/triggers/lesson_type.py",
+      "size": 521,
+      "sha256": "848f7ccf3ddfd187bfb0f4355d6cf31ab2dd044222fe2bb0691a1b09d39cc2e3"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/triggers/phase.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/triggers/phase.py",
+      "size": 400,
+      "sha256": "d5bfe14211f041c78fde841e7351a34bb0f74c6a0d2425a94eb5bb3621e032fb"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/triggers/phase_value.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/triggers/phase_value.py",
+      "size": 692,
+      "sha256": "972b54ca266f24b21234f7017a6bc5c84ae99490b8b88ecbd32cdd83b4adc9c2"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/exam/triggers/status_change_origin.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/exam/triggers/status_change_origin.py",
+      "size": 518,
+      "sha256": "ae7d795fdcbbad6a6c0603963dc184636f7d999c225a3a67e65a114b5747adcd"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/produce/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/produce/__init__.py",
+      "size": 40,
+      "sha256": "0f664def09262b419cb38b17593105aca3429ba10ef491f1fec3c4a40ac6e33c"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/produce/choices.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/produce/choices.py",
+      "size": 25471,
+      "sha256": "7d681fefb6c56b2039f6a8edfb005a7b01ccc079ff48784a6806b5e8dda62c47"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/produce/customize_item_rewards.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/produce/customize_item_rewards.py",
+      "size": 8551,
+      "sha256": "0ed7ccc75fba7799dc5bd30ba3a3c4603ec5869042c0a1f2219ae5d3bffdb36b"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/produce/customize_items.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/produce/customize_items.py",
+      "size": 9535,
+      "sha256": "220b2e22549261007f909dfd1fc26f1ce127f8388f9c2d84317c15e83e523afb"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/produce/event_rules.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/produce/event_rules.py",
+      "size": 5983,
+      "sha256": "af647df6239e45239d57ae434a2fb9374b033ca741912d6d3a3dc2b455efaa52"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/produce/event_templates.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/produce/event_templates.py",
+      "size": 7941,
+      "sha256": "a8195807edb96cd2abc9d9d77f709ac0bdc52e9559cc6bceae84788792f93fea"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/produce/events.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/produce/events.py",
+      "size": 17896,
+      "sha256": "f81ff51cc4319085b8b7b0b10269754a9410baf154eafd1ec757d663f4b0c7e1"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/produce/hif.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/produce/hif.py",
+      "size": 50714,
+      "sha256": "7d1f88121b5fcee2f8831b13b16a8f376e92c65f6f91751b45658542698f937d"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/produce/hif_interval.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/produce/hif_interval.py",
+      "size": 13992,
+      "sha256": "25ea9132213274149c2fc6ab55e4e587dad73fc33a0e51c3d34573aa70e8f3da"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/produce/items.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/produce/items.py",
+      "size": 18272,
+      "sha256": "6a6e75c7c950e14432a8882eb016399215c7eecd340f00e237434dbcae4a150f"
+    },
+    {
+      "path": "arena/gakumas_rl/simulation/produce/runtime.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/simulation/produce/runtime.py",
+      "size": 295288,
+      "sha256": "dfc8230d10c830c94cd6ce6fd699aa233cbb7456a062d447e4e0ba1e0fa65dc8"
+    },
+    {
+      "path": "arena/gakumas_rl/state_snapshot.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/state_snapshot.py",
+      "size": 17855,
+      "sha256": "5fee8b3fe5fb8f2136164717703d4d09e9e5eb16367af24e52e4d43193437356"
+    },
+    {
+      "path": "arena/gakumas_rl/support_card_selector.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/support_card_selector.py",
+      "size": 17710,
+      "sha256": "aa6d2b6b25bb9c1d57e12317526dedc29b454515c20384483b0bb9ad18984985"
+    },
+    {
+      "path": "arena/gakumas_rl/train.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/train.py",
+      "size": 189,
+      "sha256": "d02a26bb6b694c560dfd7a960865662334bc82f17cb8fe0ae5f8bb0ea9980a53"
+    },
+    {
+      "path": "arena/gakumas_rl/training/__init__.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/__init__.py",
+      "size": 64,
+      "sha256": "badd2c45da5d33ef4147e8ea20dcd40a9918800c4a279996825f7d5a5424db11"
+    },
+    {
+      "path": "arena/gakumas_rl/training/auto.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/auto.py",
+      "size": 17287,
+      "sha256": "ddd689c8fb6d877465ba0aa5ae5a126cb8ee3435335345370c2d53c028b90db2"
+    },
+    {
+      "path": "arena/gakumas_rl/training/autonomous.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/autonomous.py",
+      "size": 17137,
+      "sha256": "93f6d2fadad89281d9ee4413dd3d5b800bde1893ffa2ff92550b13073a1ec6a8"
+    },
+    {
+      "path": "arena/gakumas_rl/training/autopilot.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/autopilot.py",
+      "size": 15401,
+      "sha256": "bd03b7248b8e650e2fc8200ffa801066d523c62ec10ae3c73f4dfc493f5b535a"
+    },
+    {
+      "path": "arena/gakumas_rl/training/backends.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/backends.py",
+      "size": 66687,
+      "sha256": "294bd755870da48c8959dea60f00bbfb626d395d0c62fd826805361d64afb092"
+    },
+    {
+      "path": "arena/gakumas_rl/training/bc_pretrain.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/bc_pretrain.py",
+      "size": 14090,
+      "sha256": "886e6f236811fe053a9aacc1bf8eba95063579a892c9bf4c531ca074cbbcaaa1"
+    },
+    {
+      "path": "arena/gakumas_rl/training/cli.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/cli.py",
+      "size": 25954,
+      "sha256": "043a91b31d0f8b88a64fde6c70156f933193fcf25017b5ca2b493386b7aa7e10"
+    },
+    {
+      "path": "arena/gakumas_rl/training/competitive_metrics.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/competitive_metrics.py",
+      "size": 3893,
+      "sha256": "529a56b7474646dc3f91cbf24e31ff7c3fa86df8bf5ccd4e17df4f069e741e6b"
+    },
+    {
+      "path": "arena/gakumas_rl/training/device.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/device.py",
+      "size": 1812,
+      "sha256": "990b0e62f8f0c02969ad459a1b581a80e17c26c27098f005a4b0bd490a9b5744"
+    },
+    {
+      "path": "arena/gakumas_rl/training/model.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/model.py",
+      "size": 5907,
+      "sha256": "3795ad546681b7160e4ce6c789ab56f292578f6b1b3294cba0fad23485f3a70c"
+    },
+    {
+      "path": "arena/gakumas_rl/training/reward_config.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/reward_config.py",
+      "size": 18263,
+      "sha256": "95726419c6c6b1b8ac025526a3a40265ebb9c9a5b230db3ef90d8e1d634527c3"
+    },
+    {
+      "path": "arena/gakumas_rl/training/rllib_model.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/rllib_model.py",
+      "size": 8620,
+      "sha256": "c83bcbd001b24726bb62b0138f8cb6d81d257a6fdebf5665560f1ee72e58a04d"
+    },
+    {
+      "path": "arena/gakumas_rl/training/self_bootstrap.py",
+      "source": "third_party/gakumas_arena/gakumas_rl/training/self_bootstrap.py",
+      "size": 46637,
+      "sha256": "ddfa163715a2b737e690e5f15696527875d500606511238b02a4806e7c5357e8"
+    },
+    {
+      "path": "arena/pyproject.toml",
+      "source": "third_party/gakumas_arena/pyproject.toml",
+      "size": 1453,
+      "sha256": "207c02d53ff205f1132a5e9a631eb419daa815d842bf1a6568921a8356c6fffb"
+    },
+    {
+      "path": "arena/third_party/gakumas_rl_upstream/LICENSE",
+      "source": "third_party/gakumas_arena/third_party/gakumas_rl_upstream/LICENSE",
+      "size": 35823,
+      "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809"
+    },
+    {
+      "path": "arena/third_party/gakumas_rl_upstream/PROVENANCE.txt",
+      "source": "third_party/gakumas_arena/third_party/gakumas_rl_upstream/PROVENANCE.txt",
+      "size": 3773,
+      "sha256": "d0990a7b60186b04776f5201ce3a90a0d68ab1761645588ffd115b0f5ac72a9d"
+    },
+    {
+      "path": "arena/third_party/gakumas_rl_upstream/README.upstream.md",
+      "source": "third_party/gakumas_arena/third_party/gakumas_rl_upstream/README.upstream.md",
+      "size": 3947,
+      "sha256": "37d6289a5762ee70b6a7510056a3678ec9e6d236700f388e1ffa60d9fb649b57"
+    }
+  ]
+}

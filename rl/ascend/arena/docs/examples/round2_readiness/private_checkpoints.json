@@ -1,0 +1,649 @@
+{
+  "before_start_private": {
+    "schema_version": "arena-golden-snapshot/1",
+    "rules_version": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+    "config": {
+      "loadout": {
+        "params": [
+          100,
+          100,
+          100,
+          40
+        ],
+        "supportBonus": 0,
+        "pItemIds": [],
+        "skillCardIdGroups": [
+          [
+            1,
+            5,
+            7,
+            17
+          ]
+        ],
+        "customizationGroups": [
+          [
+            {},
+            {},
+            {},
+            {}
+          ]
+        ]
+      },
+      "stage": {
+        "type": "contest",
+        "plan": "sense",
+        "season": 51,
+        "turnCounts": {
+          "vocal": 4,
+          "dance": 3,
+          "visual": 2
+        },
+        "firstTurns": {
+          "vocal": 1,
+          "dance": 0,
+          "visual": 0
+        },
+        "criteria": {
+          "vocal": 0.4,
+          "dance": 0.35,
+          "visual": 0.25
+        },
+        "effects": "at:startOfTurn { moveSelectedToHand[deck]; moveSelectedToHand[deck]; limit:1 } at:afterCardUsed { moveSelectedToHand[deck]; limit:1 }",
+        "linkTurnCounts": []
+      },
+      "enter_percents": true,
+      "starting_stamina": 30,
+      "drinks": [
+        18
+      ]
+    },
+    "seed": 7,
+    "history": [],
+    "pending": {
+      "action": {
+        "type": "start"
+      },
+      "choices": []
+    }
+  },
+  "opening_choice_private": {
+    "schema_version": "arena-golden-snapshot/1",
+    "rules_version": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+    "config": {
+      "loadout": {
+        "params": [
+          100,
+          100,
+          100,
+          40
+        ],
+        "supportBonus": 0,
+        "pItemIds": [],
+        "skillCardIdGroups": [
+          [
+            1,
+            5,
+            7,
+            17
+          ]
+        ],
+        "customizationGroups": [
+          [
+            {},
+            {},
+            {},
+            {}
+          ]
+        ]
+      },
+      "stage": {
+        "type": "contest",
+        "plan": "sense",
+        "season": 51,
+        "turnCounts": {
+          "vocal": 4,
+          "dance": 3,
+          "visual": 2
+        },
+        "firstTurns": {
+          "vocal": 1,
+          "dance": 0,
+          "visual": 0
+        },
+        "criteria": {
+          "vocal": 0.4,
+          "dance": 0.35,
+          "visual": 0.25
+        },
+        "effects": "at:startOfTurn { moveSelectedToHand[deck]; moveSelectedToHand[deck]; limit:1 } at:afterCardUsed { moveSelectedToHand[deck]; limit:1 }",
+        "linkTurnCounts": []
+      },
+      "enter_percents": true,
+      "starting_stamina": 30,
+      "drinks": [
+        18
+      ]
+    },
+    "seed": 7,
+    "history": [],
+    "pending": {
+      "action": {
+        "type": "start"
+      },
+      "choices": []
+    }
+  },
+  "second_opening_choice_private": {
+    "schema_version": "arena-golden-snapshot/1",
+    "rules_version": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+    "config": {
+      "loadout": {
+        "params": [
+          100,
+          100,
+          100,
+          40
+        ],
+        "supportBonus": 0,
+        "pItemIds": [],
+        "skillCardIdGroups": [
+          [
+            1,
+            5,
+            7,
+            17
+          ]
+        ],
+        "customizationGroups": [
+          [
+            {},
+            {},
+            {},
+            {}
+          ]
+        ]
+      },
+      "stage": {
+        "type": "contest",
+        "plan": "sense",
+        "season": 51,
+        "turnCounts": {
+          "vocal": 4,
+          "dance": 3,
+          "visual": 2
+        },
+        "firstTurns": {
+          "vocal": 1,
+          "dance": 0,
+          "visual": 0
+        },
+        "criteria": {
+          "vocal": 0.4,
+          "dance": 0.35,
+          "visual": 0.25
+        },
+        "effects": "at:startOfTurn { moveSelectedToHand[deck]; moveSelectedToHand[deck]; limit:1 } at:afterCardUsed { moveSelectedToHand[deck]; limit:1 }",
+        "linkTurnCounts": []
+      },
+      "enter_percents": true,
+      "starting_stamina": 30,
+      "drinks": [
+        18
+      ]
+    },
+    "seed": 7,
+    "history": [],
+    "pending": {
+      "action": {
+        "type": "start"
+      },
+      "choices": [
+        [
+          0
+        ]
+      ]
+    }
+  },
+  "in_card_choice_private": {
+    "schema_version": "arena-golden-snapshot/1",
+    "rules_version": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+    "config": {
+      "loadout": {
+        "params": [
+          100,
+          100,
+          100,
+          40
+        ],
+        "supportBonus": 0,
+        "pItemIds": [],
+        "skillCardIdGroups": [
+          [
+            1,
+            5,
+            7,
+            17
+          ]
+        ],
+        "customizationGroups": [
+          [
+            {},
+            {},
+            {},
+            {}
+          ]
+        ]
+      },
+      "stage": {
+        "type": "contest",
+        "plan": "sense",
+        "season": 51,
+        "turnCounts": {
+          "vocal": 4,
+          "dance": 3,
+          "visual": 2
+        },
+        "firstTurns": {
+          "vocal": 1,
+          "dance": 0,
+          "visual": 0
+        },
+        "criteria": {
+          "vocal": 0.4,
+          "dance": 0.35,
+          "visual": 0.25
+        },
+        "effects": "at:startOfTurn { moveSelectedToHand[deck]; moveSelectedToHand[deck]; limit:1 } at:afterCardUsed { moveSelectedToHand[deck]; limit:1 }",
+        "linkTurnCounts": []
+      },
+      "enter_percents": true,
+      "starting_stamina": 30,
+      "drinks": [
+        18
+      ]
+    },
+    "seed": 7,
+    "history": [
+      {
+        "action": {
+          "type": "start"
+        },
+        "choices": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "action": {
+          "type": "drink",
+          "slot": 0,
+          "id": 18,
+          "name": "初星ホエイプロテイン"
+        },
+        "choices": []
+      }
+    ],
+    "pending": {
+      "action": {
+        "type": "play",
+        "card": 9,
+        "id": 15,
+        "name": "振る舞いの基本"
+      },
+      "choices": []
+    }
+  },
+  "before_terminal_private": {
+    "schema_version": "arena-golden-snapshot/1",
+    "rules_version": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+    "config": {
+      "loadout": {
+        "params": [
+          100,
+          100,
+          100,
+          40
+        ],
+        "supportBonus": 0,
+        "pItemIds": [],
+        "skillCardIdGroups": [
+          [
+            1,
+            5,
+            7,
+            17
+          ]
+        ],
+        "customizationGroups": [
+          [
+            {},
+            {},
+            {},
+            {}
+          ]
+        ]
+      },
+      "stage": {
+        "type": "contest",
+        "plan": "sense",
+        "season": 51,
+        "turnCounts": {
+          "vocal": 4,
+          "dance": 3,
+          "visual": 2
+        },
+        "firstTurns": {
+          "vocal": 1,
+          "dance": 0,
+          "visual": 0
+        },
+        "criteria": {
+          "vocal": 0.4,
+          "dance": 0.35,
+          "visual": 0.25
+        },
+        "effects": "at:startOfTurn { moveSelectedToHand[deck]; moveSelectedToHand[deck]; limit:1 } at:afterCardUsed { moveSelectedToHand[deck]; limit:1 }",
+        "linkTurnCounts": []
+      },
+      "enter_percents": true,
+      "starting_stamina": 30,
+      "drinks": [
+        18
+      ]
+    },
+    "seed": 7,
+    "history": [
+      {
+        "action": {
+          "type": "start"
+        },
+        "choices": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "action": {
+          "type": "drink",
+          "slot": 0,
+          "id": 18,
+          "name": "初星ホエイプロテイン"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 9,
+          "id": 15,
+          "name": "振る舞いの基本"
+        },
+        "choices": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 3,
+          "id": 1,
+          "name": "アピールの基本"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 6,
+          "id": 1,
+          "name": "アピールの基本"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 4,
+          "id": 5,
+          "name": "挑戦"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 11,
+          "id": 17,
+          "name": "表情の基本"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 1,
+          "id": 7,
+          "name": "試行錯誤"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 5,
+          "id": 7,
+          "name": "試行錯誤"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 10,
+          "id": 17,
+          "name": "表情の基本"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 9,
+          "id": 15,
+          "name": "振る舞いの基本"
+        },
+        "choices": []
+      }
+    ],
+    "pending": null
+  },
+  "terminal_private": {
+    "schema_version": "arena-golden-snapshot/1",
+    "rules_version": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+    "config": {
+      "loadout": {
+        "params": [
+          100,
+          100,
+          100,
+          40
+        ],
+        "supportBonus": 0,
+        "pItemIds": [],
+        "skillCardIdGroups": [
+          [
+            1,
+            5,
+            7,
+            17
+          ]
+        ],
+        "customizationGroups": [
+          [
+            {},
+            {},
+            {},
+            {}
+          ]
+        ]
+      },
+      "stage": {
+        "type": "contest",
+        "plan": "sense",
+        "season": 51,
+        "turnCounts": {
+          "vocal": 4,
+          "dance": 3,
+          "visual": 2
+        },
+        "firstTurns": {
+          "vocal": 1,
+          "dance": 0,
+          "visual": 0
+        },
+        "criteria": {
+          "vocal": 0.4,
+          "dance": 0.35,
+          "visual": 0.25
+        },
+        "effects": "at:startOfTurn { moveSelectedToHand[deck]; moveSelectedToHand[deck]; limit:1 } at:afterCardUsed { moveSelectedToHand[deck]; limit:1 }",
+        "linkTurnCounts": []
+      },
+      "enter_percents": true,
+      "starting_stamina": 30,
+      "drinks": [
+        18
+      ]
+    },
+    "seed": 7,
+    "history": [
+      {
+        "action": {
+          "type": "start"
+        },
+        "choices": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "action": {
+          "type": "drink",
+          "slot": 0,
+          "id": 18,
+          "name": "初星ホエイプロテイン"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 9,
+          "id": 15,
+          "name": "振る舞いの基本"
+        },
+        "choices": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 3,
+          "id": 1,
+          "name": "アピールの基本"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 6,
+          "id": 1,
+          "name": "アピールの基本"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 4,
+          "id": 5,
+          "name": "挑戦"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 11,
+          "id": 17,
+          "name": "表情の基本"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 1,
+          "id": 7,
+          "name": "試行錯誤"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 5,
+          "id": 7,
+          "name": "試行錯誤"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 10,
+          "id": 17,
+          "name": "表情の基本"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 9,
+          "id": 15,
+          "name": "振る舞いの基本"
+        },
+        "choices": []
+      },
+      {
+        "action": {
+          "type": "play",
+          "card": 8,
+          "id": 15,
+          "name": "振る舞いの基本"
+        },
+        "choices": []
+      }
+    ],
+    "pending": null
+  }
+}

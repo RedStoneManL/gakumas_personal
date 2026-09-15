@@ -1,0 +1,12 @@
+{
+  "passed": 7,
+  "cases": [
+    "T03 numeric operands and ordered effects: independent integer/ceil arithmetic",
+    "T05 spirit 15/16; footlight after-cost 20/21; golden checks the pre-event counter (third event fires)",
+    "R07 same public state and candidates under hidden deck permutation and RNG replacement",
+    "R07 known top and relative order preserved with correct knowledge loss",
+    "T08 last end-of-turn delayed score: independent expected 7",
+    "T10 footlight -> calm -> reaction (two hits, one use), hand-derived 42+63=105",
+    "T02 post-opening native removal leaves 21 available instances; no refill"
+  ]
+}

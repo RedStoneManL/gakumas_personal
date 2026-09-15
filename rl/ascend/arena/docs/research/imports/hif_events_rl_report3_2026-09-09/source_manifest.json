@@ -1,0 +1,180 @@
+{
+  "retrieved_on": "2026-09-09",
+  "master": {
+    "repository": "vertesan/gakumasu-diff",
+    "commit": "571dbb62601e78998cddeacdbce3ea1bc672d7fc",
+    "commit_time": "2026-09-07T08:03:22Z"
+  },
+  "protocol": {
+    "repository": "vertesan/campus",
+    "commit": "a7f5b047b47594761c9623117f4f8aa159ba38c6"
+  },
+  "note": "Local master copies omit presentation description segments; local SHA256 checks compact copies, not upstream bytes. These are public extracted data, not a complete official server implementation.",
+  "files": [
+    {
+      "name": "CharacterDearnessLevel.yaml",
+      "sha256_compact_local": "3f7207d8529dc83cab0a48047ce5e992362056d61cbf90332c51f5d8a07874bc",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/CharacterDearnessLevel.yaml"
+    },
+    {
+      "name": "HelpContent.yaml",
+      "sha256_compact_local": "97db3b2dde83def1e621a4a06df174cbb0496f178bbeb09c89524fce7ce2b00c",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/HelpContent.yaml"
+    },
+    {
+      "name": "Produce.yaml",
+      "sha256_compact_local": "06f03c61809402d743096bf624e1628f05e578012132b0df911632ac845128e8",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/Produce.yaml"
+    },
+    {
+      "name": "ProduceCard.yaml",
+      "sha256_compact_local": "9d753e3d403cc7b01b41b4db26a09821b4b17db8437b90868e06a57b43ff2d53",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceCard.yaml"
+    },
+    {
+      "name": "ProduceCardCustomize.yaml",
+      "sha256_compact_local": "edf2d48fdb61ca85c6c7bbb44b0a2d5ca0a1fb0488e90323d0e2a6ff46f2432b",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceCardCustomize.yaml"
+    },
+    {
+      "name": "ProduceCardGrowEffect.yaml",
+      "sha256_compact_local": "f54a9d0fc1dcfb4b46a293636c91367609071337a5cd5e69d7e05edf21e991e0",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceCardGrowEffect.yaml"
+    },
+    {
+      "name": "ProduceCardPool.yaml",
+      "sha256_compact_local": "df2a42b74c076f1574dc6da949ac548b55ed2cfc85b71a40378f69daf2655e16",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceCardPool.yaml"
+    },
+    {
+      "name": "ProduceCardRandomPool.yaml",
+      "sha256_compact_local": "65e8692cd81e1d137ce86c8978204c340463849a8a7f59142030afb1337e0274",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceCardRandomPool.yaml"
+    },
+    {
+      "name": "ProduceCardSearch.yaml",
+      "sha256_compact_local": "9a8d4bf2533ff81444f501396de2cd93806b7ec6daa98610cbe113b8e5741069",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceCardSearch.yaml"
+    },
+    {
+      "name": "ProduceCustomizeItem.yaml",
+      "sha256_compact_local": "a740fde987553e0f5c205729cf710e3873e3ca9d570539c3318b418d4617af91",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceCustomizeItem.yaml"
+    },
+    {
+      "name": "ProduceCustomizeItemRelationship.yaml",
+      "sha256_compact_local": "1efd0edcb32bafb8de2063b960cae7142d5787981997029a524a903177d7207d",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceCustomizeItemRelationship.yaml"
+    },
+    {
+      "name": "ProduceDrink.yaml",
+      "sha256_compact_local": "0c0defc3cdacaa73297a8a850be7f4e58704f1f7c923ab4140127842b2d5f617",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceDrink.yaml"
+    },
+    {
+      "name": "ProduceEffect.yaml",
+      "sha256_compact_local": "1927f35df19b534a903f0027a128479b78ade5303df5f2a7662290b34c1b8596",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceEffect.yaml"
+    },
+    {
+      "name": "ProduceEventSupportCard.yaml",
+      "sha256_compact_local": "915d1259214d495bb1232d3bb40dc902efdfed29c6c35deae730725daceb81d5",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceEventSupportCard.yaml"
+    },
+    {
+      "name": "ProduceExamEffect.yaml",
+      "sha256_compact_local": "d67a32f8624338e1bc01426f8e98cade8a4534427911c815d034f250985a113a",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceExamEffect.yaml"
+    },
+    {
+      "name": "ProduceExamStatusEnchant.yaml",
+      "sha256_compact_local": "b4b1b8a8507638e794e4b11fef13ba54e666472e061b94d1724f58ee653b5ed2",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceExamStatusEnchant.yaml"
+    },
+    {
+      "name": "ProduceExamTrigger.yaml",
+      "sha256_compact_local": "657c0185c2ea0ee6e66f35f4ead2ae4b9dc342bddbf5ff41f709364c8e8e4b6d",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceExamTrigger.yaml"
+    },
+    {
+      "name": "ProduceGrowthPanel.yaml",
+      "sha256_compact_local": "2408f7c0a628c0b161ff9980ee7e9208b4ec71879a1b12bd5fe223dc90e93309",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceGrowthPanel.yaml"
+    },
+    {
+      "name": "ProduceItem.yaml",
+      "sha256_compact_local": "4b137fbc17b7fb50211223feb7e32a119a9520fdba19f5130eb78e155c842918",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceItem.yaml"
+    },
+    {
+      "name": "ProduceItemEffect.yaml",
+      "sha256_compact_local": "fda931fe4281ba6c5945ce2e3912c989b7022933ca6e4d3d30b5e3accb114464",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceItemEffect.yaml"
+    },
+    {
+      "name": "ProduceSetting.yaml",
+      "sha256_compact_local": "cf82979e40f8ee0bf1712e2a8a34a5bf57a685c219ceb64a2d345a30892db99a",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceSetting.yaml"
+    },
+    {
+      "name": "ProduceSkill.yaml",
+      "sha256_compact_local": "26cb2830f2f6a8bf7ceb27939a7ac7c3d4c18f1363deeac1d50bc78f37e4f260",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceSkill.yaml"
+    },
+    {
+      "name": "ProduceStepEventDetail.yaml",
+      "sha256_compact_local": "bdf0f9c98c1c24927474e8001d7bd757f246a56e469b063e80bb32af81e0b790",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceStepEventDetail.yaml"
+    },
+    {
+      "name": "ProduceStepEventSuggestion.yaml",
+      "sha256_compact_local": "d49b35a43eb400483f34433f85f1ca1e3baa11908021c61ef6d465969b5fc19e",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceStepEventSuggestion.yaml"
+    },
+    {
+      "name": "ProduceStepOpenLesson.yaml",
+      "sha256_compact_local": "17150dd3230ded98375df10238598833a90448e79a2d465d7a2c60f7edd105a5",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceStepOpenLesson.yaml"
+    },
+    {
+      "name": "ProduceTrigger.yaml",
+      "sha256_compact_local": "c392a2793639afde219ddf48c7396a104c63928f55fc7a999db3eb89c89a904e",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceTrigger.yaml"
+    },
+    {
+      "name": "ProducerLevel.yaml",
+      "sha256_compact_local": "1b89bcf8fd0b3631303bc92b6e8fbbbd87470f9fa312947c7eaf533aec37b8c7",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProducerLevel.yaml"
+    },
+    {
+      "name": "Setting.yaml",
+      "sha256_compact_local": "800231ed69aa9c09645017b99b741a40e67c51e65438fd378357f46593833ebe",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/Setting.yaml"
+    },
+    {
+      "name": "SupportCard.yaml",
+      "sha256_compact_local": "9c23ce4b34ab8c0d592e38d8fa74626a4b9666bd590aab1c3dfd18ee2ecd13c2",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/SupportCard.yaml"
+    },
+    {
+      "name": "SupportCardLevel.yaml",
+      "sha256_compact_local": "b0a7c28e56112e08571c6ff093de0026b2a9b5082e6ff806e346edbb0163fbbb",
+      "source_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/SupportCardLevel.yaml"
+    },
+    {
+      "name": "papi.proto",
+      "sha256_compact_local": "aed358ac8bc14dd2b8a10f965535c7d58f47f1f55bc88095f3b848f248412950",
+      "source_url": "https://github.com/vertesan/campus/blob/a7f5b047b47594761c9623117f4f8aa159ba38c6/proto/papi.proto"
+    },
+    {
+      "name": "pcommon.proto",
+      "sha256_compact_local": "0dbb91080b16332602639c89084954e3236a2f082acfff72f9db875efccd3a35",
+      "source_url": "https://github.com/vertesan/campus/blob/a7f5b047b47594761c9623117f4f8aa159ba38c6/proto/pcommon.proto"
+    },
+    {
+      "name": "ptransaction.proto",
+      "sha256_compact_local": "3fcf6b3ff47d3325ba28ad0f90fff100a4a10813215578f3a1b19ec40636f6dc",
+      "source_url": "https://github.com/vertesan/campus/blob/a7f5b047b47594761c9623117f4f8aa159ba38c6/proto/ptransaction.proto"
+    }
+  ]
+}

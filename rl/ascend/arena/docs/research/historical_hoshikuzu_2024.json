@@ -1,0 +1,52 @@
+{
+  "repository": "https://github.com/vertesan/gakumasu-diff",
+  "commit": "4202981ce2e36107e30ef22393e14ee7427c4f91",
+  "date": "2024-07-22T02:02:26Z",
+  "file": "ProduceCard.yaml",
+  "sha256": "d0b5db3a2ee3141ccaccb6e313e3c7fc0558c9059ddb32820e6a1385ac710b24",
+  "rows": [
+    {
+      "id": "p_card-02-men-3_004",
+      "upgradeCount": 0,
+      "name": "星屑センセーション",
+      "costType": "ExamCostType_ExamCardPlayAggressive",
+      "costValue": 3,
+      "playEffects": [
+        {
+          "produceExamTriggerId": "",
+          "produceExamEffectId": "e_effect-exam_review-0005",
+          "hideIcon": false
+        },
+        {
+          "produceExamTriggerId": "",
+          "produceExamEffectId": "e_effect-exam_playable_value_add-01",
+          "hideIcon": false
+        }
+      ]
+    },
+    {
+      "id": "p_card-02-men-3_004",
+      "upgradeCount": 1,
+      "name": "星屑センセーション+",
+      "costType": "ExamCostType_ExamCardPlayAggressive",
+      "costValue": 3,
+      "playEffects": [
+        {
+          "produceExamTriggerId": "",
+          "produceExamEffectId": "e_effect-exam_review-0007",
+          "hideIcon": false
+        },
+        {
+          "produceExamTriggerId": "",
+          "produceExamEffectId": "e_effect-exam_playable_value_add-01",
+          "hideIcon": false
+        },
+        {
+          "produceExamTriggerId": "",
+          "produceExamEffectId": "e_effect-exam_card_draw-0001",
+          "hideIcon": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "arena-readiness-evidence/1",
+  "created_at": "2026-09-08T16:52:58.559964+00:00",
+  "purpose": "Round2 capability audit, not formal Round2 acceptance",
+  "readiness": {
+    "round2_pure_policy": "NO_GO",
+    "fair_search": "NO_GO"
+  },
+  "rules_version": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+  "snapshot_schema": "arena-golden-snapshot/1",
+  "public_observation_schema": null,
+  "entry_source": "synthetic mechanism fixture",
+  "boundary": "before golden StageEngine initialization/start; no HIF baton semantics",
+  "seed": 7,
+  "config_sha256": "9b25c00892ecf0eaa42bfbab7525a8164a0cf05f078e2b0564f845af9887d029",
+  "golden_revision": "6c3d00648c32ea72a05086a18c63ab62e0d0c7e5",
+  "vendor_files_verified": 74,
+  "vendor_content_sha256": "5c1d0fe1d7ebc6f030df811124181681b8e43b0767202305b76862d3927873cb",
+  "implementation_files_sha256": {
+    "gakumas_arena/__init__.py": "8ea5429accb51680dbe1b2bfbccb1be09f29d4e12cec853e99c8c3ef818cf410",
+    "gakumas_arena/engine/__init__.py": "1b4a4beaffb1defb9e03ba9fed400d340e8bca4188b739fc8d1f205d39fa6bea",
+    "gakumas_arena/engine/__main__.py": "c902f2f7ca5f63d3792d2d6db094573e466acb959b18048d4dd1505810796e45",
+    "gakumas_arena/engine/worker.mjs": "640dbd798744e67cf944eda5042ad8acaae48fd216cde290df417ca3db7cc78a",
+    "scripts/audit_round2_readiness.py": "c1937ded1504e3d06d4b424974782742b71e2e922f394288896f3226edd7830f"
+  },
+  "runtime": {
+    "python": "3.12.7",
+    "node": "v26.6.0",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "artifacts_sha256": {
+    "engineering_config.json": "43403a42e6e1bbc7fe9c5175c184aa408cc0c45ef05ced28a32048529a273207",
+    "private_decision_trace.json": "7951b8ab84357abb72c09abd3ef4eb0c0b0af6ebb4dbae079eb6ab8f8449d632",
+    "private_checkpoints.json": "127e9698c55285e1b11ac9babe90fc86c355cc6b94e4b2f0eed823d95fa43217",
+    "result.json": "c7964a455ea035c1b42504f370292724bb8628f7fca1c39ee9e0594622cd5112",
+    "checks.json": "cbcd330ffc92d4cba352e568c4c3de8f5d663b1bd75931e676100ecc21e74651",
+    "measurements.json": "4c0ad549b77117c0076cb07b60b3fccf485578f084cf3bec19bbddbf89bf8f20"
+  },
+  "missing_formal_artifacts": [
+    "legal HIF Round2 pre-opening entry",
+    "public decision trace",
+    "mechanism closure allowlist",
+    "independent Round2 expected result"
+  ],
+  "independent_rule_evidence": "Run vendored tests/run.mjs against its stored suite; this demo tests transport, not scoring truth"
+}

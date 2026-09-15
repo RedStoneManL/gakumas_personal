@@ -1,0 +1,44 @@
+{
+  "schema_version": "arena-native-catalogue-overrides/1",
+  "rules_version": "live-game-corrections/20260910-1",
+  "scope": "Effective TrainingExam and whole-produce bridge only; original vendor and baseline run_exam are unchanged.",
+  "cards": [
+    {
+      "native_card_id": 35,
+      "master_card_id": "p_card-01-act-1_020",
+      "master_customization_id": "p_card_custom-070-g_effect-effect_add-e_effect-exam_block-0009",
+      "field": "availableCustomizations",
+      "before": "65,29,27",
+      "after": "65,29,28",
+      "raw_card_sha256": "3657cf4a900e64b5993120fe8f37e8b6ad83747804f326988d9aab80fb3e96a3",
+      "effective_card_sha256": "aa05c4e4e5735f76d986fd3f1db21465daedb335a3d0aee6e5ded11a04902c47",
+      "raw_customization_id": 27,
+      "effective_customization_id": 28,
+      "effective_customization_sha256": "d9c123c4a4d6e5f2ba8cd8b6f32589cbf7e7901d919af48ba482d67459cf7d00",
+      "reason": "High Five+ added genki is +9.",
+      "evidence": [
+        "docs/research/evidence/customization_confirmations_20260910.json"
+      ],
+      "evidence_authority": "user-confirmed-live-game-2026-09-10"
+    },
+    {
+      "native_card_id": 47,
+      "master_card_id": "p_card-02-act-1_004",
+      "master_customization_id": "p_card_custom-020-g_effect-cost_penetrate_reduce-1",
+      "field": "availableCustomizations",
+      "before": "67,9,29",
+      "after": "67,9,30",
+      "raw_card_sha256": "54a4d799dda2612d6153e5f76af3caabcee599c6710fb657960601c772526df5",
+      "effective_card_sha256": "1607746ebaaf75db3045cf7622321ff4a4a6d9a7e91d8a838d0690cd2e263ee2",
+      "raw_customization_id": 29,
+      "effective_customization_id": 30,
+      "effective_customization_sha256": "f953cf03524d8fc61d1921af29ae100731a6e1524d61a46e4fb892ae45f35829",
+      "reason": "Genki Greeting+ typed stamina cost is reduced from 3 to 2.",
+      "evidence": [
+        "docs/research/evidence/customization_confirmations_20260910.json",
+        "docs/research/evidence/genki_greeting_custom_cost_20260910.png"
+      ],
+      "evidence_authority": "user-confirmed-live-game-2026-09-10"
+    }
+  ]
+}

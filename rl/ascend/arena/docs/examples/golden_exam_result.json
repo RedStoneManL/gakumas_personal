@@ -1,0 +1,1870 @@
+{
+  "rules_version": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+  "score": 13257,
+  "logs": [
+    {
+      "logType": "startTurn",
+      "data": {
+        "num": 1,
+        "type": "vocal",
+        "multiplier": 18.68
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "pItem",
+        "id": 82,
+        "primary": true
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 2,
+        "prev": 1,
+        "next": 2
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "pItem",
+        "id": 82,
+        "primary": true
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 265
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 784
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 253
+      }
+    },
+    {
+      "logType": "hand",
+      "data": {
+        "handCards": [
+          {
+            "id": 265
+          },
+          {
+            "id": 784
+          },
+          {
+            "id": 253,
+            "c": {
+              "27": 1,
+              "36": 1
+            }
+          }
+        ],
+        "scores": [
+          36289,
+          36281,
+          36281
+        ],
+        "selectedIndex": 0,
+        "state": {
+          "3": 36,
+          "45": "none",
+          "turn": {
+            "types": [
+              "vocal",
+              "visual",
+              "vocal",
+              "vocal",
+              "dance",
+              "dance",
+              "vocal",
+              "visual",
+              "dance",
+              "vocal"
+            ],
+            "remaining": 10,
+            "multiplier": 18.68
+          }
+        }
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCard",
+        "id": 265
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 3,
+        "prev": 36,
+        "next": 28
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 39,
+        "prev": 0,
+        "next": 10
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCard",
+        "id": 265
+      }
+    },
+    {
+      "logType": "hand",
+      "data": {
+        "handCards": [
+          {
+            "id": 784
+          },
+          {
+            "id": 253,
+            "c": {
+              "27": 1,
+              "36": 1
+            }
+          }
+        ],
+        "scores": [
+          35935,
+          36289
+        ],
+        "selectedIndex": 1,
+        "state": {
+          "3": 28,
+          "39": 10,
+          "45": "none",
+          "turn": {
+            "types": [
+              "vocal",
+              "visual",
+              "vocal",
+              "vocal",
+              "dance",
+              "dance",
+              "vocal",
+              "visual",
+              "dance",
+              "vocal"
+            ],
+            "remaining": 10,
+            "multiplier": 18.68
+          }
+        }
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCard",
+        "id": 253
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 3,
+        "prev": 28,
+        "next": 27
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 2,
+        "prev": 0,
+        "next": 1
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 11
+      }
+    },
+    {
+      "logType": "upgradeHand"
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 0,
+        "next": 4
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCard",
+        "id": 253
+      }
+    },
+    {
+      "logType": "hand",
+      "data": {
+        "handCards": [
+          {
+            "id": 784
+          },
+          {
+            "id": 12
+          }
+        ],
+        "scores": [
+          36289,
+          6947
+        ],
+        "selectedIndex": 0,
+        "state": {
+          "3": 27,
+          "5": 4,
+          "39": 10,
+          "45": "none",
+          "turn": {
+            "types": [
+              "vocal",
+              "visual",
+              "vocal",
+              "vocal",
+              "dance",
+              "dance",
+              "vocal",
+              "visual",
+              "dance",
+              "vocal"
+            ],
+            "remaining": 10,
+            "multiplier": 18.68
+          }
+        }
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCard",
+        "id": 784
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 4,
+        "next": 2
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "pItem",
+        "id": 132,
+        "primary": true
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 2,
+        "next": 3
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 40,
+        "prev": 0,
+        "next": 3
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "pItem",
+        "id": 132,
+        "primary": true
+      }
+    },
+    {
+      "logType": "setEffect"
+    },
+    {
+      "logType": "setEffect"
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCard",
+        "id": 784
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 0,
+        "next": 187
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "startTurn",
+      "data": {
+        "num": 2,
+        "type": "visual",
+        "multiplier": 7.01
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 398
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 1
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 21
+      }
+    },
+    {
+      "logType": "hand",
+      "data": {
+        "handCards": [
+          {
+            "id": 398
+          },
+          {
+            "id": 1
+          },
+          {
+            "id": 21
+          }
+        ],
+        "scores": [
+          5911,
+          6313,
+          6977
+        ],
+        "selectedIndex": 2,
+        "state": {
+          "3": 27,
+          "5": 3,
+          "7": 187,
+          "39": 10,
+          "40": 3,
+          "45": "none",
+          "turn": {
+            "types": [
+              "vocal",
+              "visual",
+              "vocal",
+              "vocal",
+              "dance",
+              "dance",
+              "vocal",
+              "visual",
+              "dance",
+              "vocal"
+            ],
+            "remaining": 9,
+            "multiplier": 7.01
+          }
+        }
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCard",
+        "id": 21
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 3,
+        "next": 1
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 1,
+        "next": 5
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 40,
+        "prev": 3,
+        "next": 5
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "pItem",
+        "id": 53,
+        "primary": true
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 40,
+        "prev": 5,
+        "next": 8
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "pItem",
+        "id": 53,
+        "primary": true
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCard",
+        "id": 21
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 187,
+        "next": 258
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "startTurn",
+      "data": {
+        "num": 3,
+        "type": "vocal",
+        "multiplier": 18.68
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "stage",
+        "primary": true
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 40,
+        "prev": 8,
+        "next": 20
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "stage",
+        "primary": true
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 19
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 19
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 281
+      }
+    },
+    {
+      "logType": "hand",
+      "data": {
+        "handCards": [
+          {
+            "id": 19
+          },
+          {
+            "id": 19
+          },
+          {
+            "id": 281
+          }
+        ],
+        "scores": [
+          7260,
+          7260,
+          6730
+        ],
+        "selectedIndex": 0,
+        "state": {
+          "3": 27,
+          "5": 5,
+          "7": 258,
+          "39": 9,
+          "40": 20,
+          "45": "none",
+          "turn": {
+            "types": [
+              "vocal",
+              "visual",
+              "vocal",
+              "vocal",
+              "dance",
+              "dance",
+              "vocal",
+              "visual",
+              "dance",
+              "vocal"
+            ],
+            "remaining": 8,
+            "multiplier": 18.68
+          }
+        }
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCard",
+        "id": 19
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 5,
+        "next": 3
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCardEffect",
+        "id": 784,
+        "idx": 1
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCardEffect",
+        "id": 784,
+        "idx": 1
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 3,
+        "next": 24
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 39,
+        "prev": 9,
+        "next": 11
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCard",
+        "id": 19
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 258,
+        "next": 464
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "startTurn",
+      "data": {
+        "num": 4,
+        "type": "vocal",
+        "multiplier": 18.68
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 307
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 535
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 175
+      }
+    },
+    {
+      "logType": "hand",
+      "data": {
+        "handCards": [
+          {
+            "id": 307,
+            "c": {
+              "33": 1
+            }
+          },
+          {
+            "id": 535
+          },
+          {
+            "id": 175,
+            "c": {
+              "7": 1
+            }
+          }
+        ],
+        "scores": [
+          11057,
+          7993,
+          9316
+        ],
+        "selectedIndex": 0,
+        "state": {
+          "3": 27,
+          "5": 24,
+          "7": 464,
+          "39": 10,
+          "40": 20,
+          "45": "none",
+          "turn": {
+            "types": [
+              "vocal",
+              "visual",
+              "vocal",
+              "vocal",
+              "dance",
+              "dance",
+              "vocal",
+              "visual",
+              "dance",
+              "vocal"
+            ],
+            "remaining": 7,
+            "multiplier": 18.68
+          }
+        }
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCard",
+        "id": 307
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 39,
+        "prev": 10,
+        "next": 8
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "pItem",
+        "id": 132,
+        "primary": true
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 24,
+        "next": 45
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 40,
+        "prev": 20,
+        "next": 23
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "pItem",
+        "id": 132,
+        "primary": true
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 45,
+        "next": 100
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 464,
+        "next": 3266
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 3266,
+        "next": 4350
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCard",
+        "id": 307
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 4350,
+        "next": 4500
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "startTurn",
+      "data": {
+        "num": 5,
+        "type": "dance",
+        "multiplier": 16.16
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 777
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 21
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 91
+      }
+    },
+    {
+      "logType": "hand",
+      "data": {
+        "handCards": [
+          {
+            "id": 777
+          },
+          {
+            "id": 21
+          },
+          {
+            "id": 91
+          }
+        ],
+        "scores": [
+          null,
+          10832,
+          12439
+        ],
+        "selectedIndex": 2,
+        "state": {
+          "3": 27,
+          "5": 100,
+          "7": 4500,
+          "39": 7,
+          "40": 23,
+          "45": "none",
+          "turn": {
+            "types": [
+              "vocal",
+              "visual",
+              "vocal",
+              "vocal",
+              "dance",
+              "dance",
+              "vocal",
+              "visual",
+              "dance",
+              "vocal"
+            ],
+            "remaining": 6,
+            "multiplier": 16.16
+          }
+        }
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCard",
+        "id": 91
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 3,
+        "prev": 27,
+        "next": 24
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 100,
+        "next": 134
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 4500,
+        "next": 6020
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCard",
+        "id": 91
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 6020,
+        "next": 6134
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "startTurn",
+      "data": {
+        "num": 6,
+        "type": "dance",
+        "multiplier": 16.16
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 13
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 801
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 13
+      }
+    },
+    {
+      "logType": "hand",
+      "data": {
+        "handCards": [
+          {
+            "id": 13
+          },
+          {
+            "id": 801
+          },
+          {
+            "id": 13
+          }
+        ],
+        "scores": [
+          12112,
+          12041,
+          12112
+        ],
+        "selectedIndex": 0,
+        "state": {
+          "3": 24,
+          "5": 134,
+          "7": 6134,
+          "39": 6,
+          "40": 23,
+          "45": "none",
+          "turn": {
+            "types": [
+              "vocal",
+              "visual",
+              "vocal",
+              "vocal",
+              "dance",
+              "dance",
+              "vocal",
+              "visual",
+              "dance",
+              "vocal"
+            ],
+            "remaining": 5,
+            "multiplier": 16.16
+          }
+        }
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCard",
+        "id": 13
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 134,
+        "next": 161
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCard",
+        "id": 13
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 6134,
+        "next": 6231
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "startTurn",
+      "data": {
+        "num": 7,
+        "type": "vocal",
+        "multiplier": 18.68
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 9
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 535
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 398
+      }
+    },
+    {
+      "logType": "hand",
+      "data": {
+        "handCards": [
+          {
+            "id": 9
+          },
+          {
+            "id": 535
+          },
+          {
+            "id": 398
+          }
+        ],
+        "scores": [
+          12004,
+          12215,
+          15176
+        ],
+        "selectedIndex": 2,
+        "state": {
+          "3": 24,
+          "5": 161,
+          "7": 6231,
+          "39": 5,
+          "40": 23,
+          "45": "none",
+          "turn": {
+            "types": [
+              "vocal",
+              "visual",
+              "vocal",
+              "vocal",
+              "dance",
+              "dance",
+              "vocal",
+              "visual",
+              "dance",
+              "vocal"
+            ],
+            "remaining": 4,
+            "multiplier": 18.68
+          }
+        }
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCard",
+        "id": 398
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 40,
+        "prev": 23,
+        "next": 20
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 6231,
+        "next": 9557
+      }
+    },
+    {
+      "logType": "setEffect"
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCard",
+        "id": 398
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 9557,
+        "next": 9651
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "startTurn",
+      "data": {
+        "num": 8,
+        "type": "visual",
+        "multiplier": 7.01
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 21
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 281
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 19
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCardEffect",
+        "id": 398,
+        "idx": 4
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 777
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCardEffect",
+        "id": 398,
+        "idx": 4
+      }
+    },
+    {
+      "logType": "hand",
+      "data": {
+        "handCards": [
+          {
+            "id": 21
+          },
+          {
+            "id": 281
+          },
+          {
+            "id": 19
+          },
+          {
+            "id": 777
+          }
+        ],
+        "scores": [
+          14676,
+          14566,
+          14839,
+          null
+        ],
+        "selectedIndex": 2,
+        "state": {
+          "3": 24,
+          "5": 161,
+          "7": 9651,
+          "39": 4,
+          "40": 20,
+          "45": "none",
+          "turn": {
+            "types": [
+              "vocal",
+              "visual",
+              "vocal",
+              "vocal",
+              "dance",
+              "dance",
+              "vocal",
+              "visual",
+              "dance",
+              "vocal"
+            ],
+            "remaining": 3,
+            "multiplier": 7.01
+          }
+        }
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCard",
+        "id": 19
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 161,
+        "next": 159
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 159,
+        "next": 180
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 39,
+        "prev": 4,
+        "next": 6
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCard",
+        "id": 19
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 9651,
+        "next": 9694
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "startTurn",
+      "data": {
+        "num": 9,
+        "type": "dance",
+        "multiplier": 16.16
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 12
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 13
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 1
+      }
+    },
+    {
+      "logType": "hand",
+      "data": {
+        "handCards": [
+          {
+            "id": 12
+          },
+          {
+            "id": 13
+          },
+          {
+            "id": 1
+          }
+        ],
+        "scores": [
+          17572,
+          14138,
+          14200
+        ],
+        "selectedIndex": 0,
+        "state": {
+          "3": 24,
+          "5": 180,
+          "7": 9694,
+          "39": 5,
+          "40": 20,
+          "45": "none",
+          "turn": {
+            "types": [
+              "vocal",
+              "visual",
+              "vocal",
+              "vocal",
+              "dance",
+              "dance",
+              "vocal",
+              "visual",
+              "dance",
+              "vocal"
+            ],
+            "remaining": 2,
+            "multiplier": 16.16
+          }
+        }
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCard",
+        "id": 12
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 3,
+        "prev": 24,
+        "next": 21
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 9694,
+        "next": 12894
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCard",
+        "id": 12
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 12894,
+        "next": 12975
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "startTurn",
+      "data": {
+        "num": 10,
+        "type": "vocal",
+        "multiplier": 18.68
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 21
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 19
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 175
+      }
+    },
+    {
+      "logType": "hand",
+      "data": {
+        "handCards": [
+          {
+            "id": 21
+          },
+          {
+            "id": 19
+          },
+          {
+            "id": 175,
+            "c": {
+              "7": 1
+            }
+          }
+        ],
+        "scores": [
+          15852,
+          15894,
+          16080
+        ],
+        "selectedIndex": 2,
+        "state": {
+          "3": 21,
+          "5": 180,
+          "7": 12975,
+          "39": 4,
+          "40": 20,
+          "45": "none",
+          "turn": {
+            "types": [
+              "vocal",
+              "visual",
+              "vocal",
+              "vocal",
+              "dance",
+              "dance",
+              "vocal",
+              "visual",
+              "dance",
+              "vocal"
+            ],
+            "remaining": 1,
+            "multiplier": 18.68
+          }
+        }
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "skillCard",
+        "id": 175
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 5,
+        "prev": 180,
+        "next": 176
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 39,
+        "prev": 4,
+        "next": 9
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 40,
+        "prev": 20,
+        "next": 23
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "pItem",
+        "id": 53,
+        "primary": true
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 40,
+        "prev": 23,
+        "next": 26
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "pItem",
+        "id": 53,
+        "primary": true
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 12,
+        "prev": 0,
+        "next": 3
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 12975,
+        "next": 13088
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "skillCard",
+        "id": 175
+      }
+    },
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    },
+    {
+      "logType": "diff",
+      "data": {
+        "field": 7,
+        "prev": 13088,
+        "next": 13257
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "default",
+        "id": "好印象"
+      }
+    }
+  ],
+  "graphData": {
+    "3": [
+      36,
+      27,
+      27,
+      27,
+      27,
+      24,
+      24,
+      24,
+      24,
+      21,
+      21
+    ],
+    "5": [
+      0,
+      3,
+      5,
+      24,
+      100,
+      134,
+      161,
+      161,
+      180,
+      180,
+      176
+    ],
+    "7": [
+      0,
+      187,
+      258,
+      464,
+      4500,
+      6134,
+      6231,
+      9651,
+      9694,
+      12975,
+      13257
+    ],
+    "33": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "37": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "39": [
+      0,
+      10,
+      9,
+      10,
+      7,
+      6,
+      5,
+      4,
+      5,
+      4,
+      8
+    ],
+    "40": [
+      0,
+      3,
+      8,
+      20,
+      23,
+      23,
+      23,
+      20,
+      20,
+      20,
+      26
+    ],
+    "44": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "52": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "57": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "58": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "60": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

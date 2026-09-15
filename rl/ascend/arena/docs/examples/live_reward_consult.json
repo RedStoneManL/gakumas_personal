@@ -1,0 +1,432 @@
+{
+  "synthetic": true,
+  "setup": {
+    "contract_version": "arena-live/1",
+    "run_id": "synthetic-offline-demo",
+    "scenario_id": "produce-007",
+    "adapter_version": "fixture/1",
+    "game_version": null,
+    "masterdata_revision": "571dbb62601e78998cddeacdbce3ea1bc672d7fc",
+    "rules_revision": "arena-rules/2",
+    "checkpoint_mode": "after_initial_effects",
+    "loadout": {
+      "idol_card_id": "i_card-ttmr-3-000",
+      "producer_level": null,
+      "idol_rank": null,
+      "dearness_level": null,
+      "potential_level": null,
+      "prima_stella_level": null,
+      "use_after_item": null,
+      "supports": [],
+      "supports_complete": false,
+      "memories": [],
+      "memories_complete": false
+    },
+    "execution_constraints": {}
+  },
+  "initial_observation": {
+    "contract_version": "arena-live/1",
+    "run_id": "synthetic-offline-demo",
+    "observation_id": "obs-0",
+    "revision": 0,
+    "captured_at": "2026-09-07T20:00:00+08:00",
+    "page": "card_reward",
+    "stability": "stable",
+    "terminal": false,
+    "event_watermark": 0,
+    "facts": {
+      "produce_points": {
+        "value": 100,
+        "status": "observed",
+        "evidence": [
+          "synthetic:points"
+        ]
+      }
+    },
+    "inventories": {
+      "deck": {
+        "coverage": "complete",
+        "entities": []
+      }
+    },
+    "pending_decision": {
+      "decision_id": "decision-0",
+      "kind": "card_reward",
+      "coverage": "complete",
+      "choices": [
+        {
+          "choice_id": "reward-a",
+          "action_type": "card_reward_pick_1",
+          "targets": [
+            {
+              "instance_id": "card-0",
+              "kind": "card",
+              "definition_id": "p_card-00-men-1_007",
+              "upgrade_count": 0,
+              "customize_ids": [],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:catalog"
+              ]
+            }
+          ],
+          "parameters": {},
+          "ui_enabled": true,
+          "label": "",
+          "evidence": []
+        },
+        {
+          "choice_id": "reward-b",
+          "action_type": "card_reward_pick_2",
+          "targets": [
+            {
+              "instance_id": "card-1",
+              "kind": "card",
+              "definition_id": "p_card-00-men-1_005",
+              "upgrade_count": 0,
+              "customize_ids": [],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:catalog"
+              ]
+            }
+          ],
+          "parameters": {},
+          "ui_enabled": true,
+          "label": "",
+          "evidence": []
+        },
+        {
+          "choice_id": "reward-c",
+          "action_type": "card_reward_pick_3",
+          "targets": [
+            {
+              "instance_id": "card-2",
+              "kind": "card",
+              "definition_id": "p_card-00-act-2_009",
+              "upgrade_count": 0,
+              "customize_ids": [],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:catalog"
+              ]
+            }
+          ],
+          "parameters": {},
+          "ui_enabled": true,
+          "label": "",
+          "evidence": []
+        }
+      ]
+    },
+    "conflicts": []
+  },
+  "trace": [
+    {
+      "command": {
+        "contract_version": "arena-live/1",
+        "command_id": "command-1",
+        "run_id": "synthetic-offline-demo",
+        "observation_id": "obs-0",
+        "revision": 0,
+        "decision_id": "decision-0",
+        "choice": {
+          "choice_id": "reward-b",
+          "action_type": "card_reward_pick_2",
+          "targets": [
+            {
+              "instance_id": "card-1",
+              "kind": "card",
+              "definition_id": "p_card-00-men-1_005",
+              "upgrade_count": 0,
+              "customize_ids": [],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:catalog"
+              ]
+            }
+          ],
+          "parameters": {},
+          "ui_enabled": true,
+          "label": "",
+          "evidence": []
+        }
+      },
+      "result": {
+        "contract_version": "arena-live/1",
+        "result_id": "result-1",
+        "run_id": "synthetic-offline-demo",
+        "command_id": "command-1",
+        "observation_id": "obs-0",
+        "revision": 0,
+        "outcome": "confirmed",
+        "evidence": [
+          "synthetic:receipt"
+        ]
+      },
+      "events": [
+        {
+          "event_id": "event-1",
+          "sequence": 1,
+          "command_id": "command-1",
+          "kind": "card_acquired",
+          "payload": {
+            "produce_points_delta": 0
+          },
+          "evidence": [
+            "synthetic:receipt"
+          ]
+        }
+      ],
+      "next_observation": {
+        "contract_version": "arena-live/1",
+        "run_id": "synthetic-offline-demo",
+        "observation_id": "obs-1",
+        "revision": 1,
+        "captured_at": "2026-09-07T20:00:00+08:00",
+        "page": "consult",
+        "stability": "stable",
+        "terminal": false,
+        "event_watermark": 1,
+        "facts": {
+          "produce_points": {
+            "value": 100,
+            "status": "observed",
+            "evidence": [
+              "synthetic:points"
+            ]
+          }
+        },
+        "inventories": {
+          "deck": {
+            "coverage": "complete",
+            "entities": [
+              {
+                "instance_id": "card-1",
+                "kind": "card",
+                "definition_id": "p_card-00-men-1_005",
+                "upgrade_count": 0,
+                "customize_ids": [],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:catalog"
+                ]
+              }
+            ]
+          }
+        },
+        "pending_decision": {
+          "decision_id": "decision-1",
+          "kind": "consult",
+          "coverage": "complete",
+          "choices": [
+            {
+              "choice_id": "buy-card",
+              "action_type": "shop_buy_card_1",
+              "targets": [
+                {
+                  "instance_id": "card-0",
+                  "kind": "card",
+                  "definition_id": "p_card-00-men-1_007",
+                  "upgrade_count": 0,
+                  "customize_ids": [],
+                  "variant_fingerprint": null,
+                  "label": "",
+                  "evidence": [
+                    "synthetic:catalog"
+                  ]
+                }
+              ],
+              "parameters": {
+                "price": 20
+              },
+              "ui_enabled": true,
+              "label": "",
+              "evidence": []
+            },
+            {
+              "choice_id": "finish",
+              "action_type": "consult_finish",
+              "targets": [],
+              "parameters": {},
+              "ui_enabled": true,
+              "label": "",
+              "evidence": []
+            }
+          ]
+        },
+        "conflicts": []
+      }
+    },
+    {
+      "command": {
+        "contract_version": "arena-live/1",
+        "command_id": "command-2",
+        "run_id": "synthetic-offline-demo",
+        "observation_id": "obs-1",
+        "revision": 1,
+        "decision_id": "decision-1",
+        "choice": {
+          "choice_id": "buy-card",
+          "action_type": "shop_buy_card_1",
+          "targets": [
+            {
+              "instance_id": "card-0",
+              "kind": "card",
+              "definition_id": "p_card-00-men-1_007",
+              "upgrade_count": 0,
+              "customize_ids": [],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:catalog"
+              ]
+            }
+          ],
+          "parameters": {
+            "price": 20
+          },
+          "ui_enabled": true,
+          "label": "",
+          "evidence": []
+        }
+      },
+      "result": {
+        "contract_version": "arena-live/1",
+        "result_id": "result-2",
+        "run_id": "synthetic-offline-demo",
+        "command_id": "command-2",
+        "observation_id": "obs-1",
+        "revision": 1,
+        "outcome": "confirmed",
+        "evidence": [
+          "synthetic:receipt"
+        ]
+      },
+      "events": [
+        {
+          "event_id": "event-2",
+          "sequence": 2,
+          "command_id": "command-2",
+          "kind": "shop_purchase",
+          "payload": {
+            "produce_points_delta": -20
+          },
+          "evidence": [
+            "synthetic:receipt"
+          ]
+        }
+      ],
+      "next_observation": {
+        "contract_version": "arena-live/1",
+        "run_id": "synthetic-offline-demo",
+        "observation_id": "obs-2",
+        "revision": 2,
+        "captured_at": "2026-09-07T20:00:00+08:00",
+        "page": "consult",
+        "stability": "stable",
+        "terminal": false,
+        "event_watermark": 2,
+        "facts": {
+          "produce_points": {
+            "value": 80,
+            "status": "observed",
+            "evidence": [
+              "synthetic:points"
+            ]
+          }
+        },
+        "inventories": {
+          "deck": {
+            "coverage": "complete",
+            "entities": [
+              {
+                "instance_id": "card-1",
+                "kind": "card",
+                "definition_id": "p_card-00-men-1_005",
+                "upgrade_count": 0,
+                "customize_ids": [],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:catalog"
+                ]
+              },
+              {
+                "instance_id": "card-0",
+                "kind": "card",
+                "definition_id": "p_card-00-men-1_007",
+                "upgrade_count": 0,
+                "customize_ids": [],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:catalog"
+                ]
+              }
+            ]
+          }
+        },
+        "pending_decision": {
+          "decision_id": "decision-2",
+          "kind": "consult",
+          "coverage": "complete",
+          "choices": [
+            {
+              "choice_id": "buy-card",
+              "action_type": "shop_buy_card_1",
+              "targets": [
+                {
+                  "instance_id": "card-0",
+                  "kind": "card",
+                  "definition_id": "p_card-00-men-1_007",
+                  "upgrade_count": 0,
+                  "customize_ids": [],
+                  "variant_fingerprint": null,
+                  "label": "",
+                  "evidence": [
+                    "synthetic:catalog"
+                  ]
+                }
+              ],
+              "parameters": {
+                "price": 20
+              },
+              "ui_enabled": false,
+              "label": "",
+              "evidence": []
+            },
+            {
+              "choice_id": "finish",
+              "action_type": "consult_finish",
+              "targets": [],
+              "parameters": {},
+              "ui_enabled": true,
+              "label": "",
+              "evidence": []
+            }
+          ]
+        },
+        "conflicts": []
+      }
+    }
+  ],
+  "final_report": {
+    "status": "ready",
+    "observation_id": "obs-2",
+    "revision": 2,
+    "missing": [],
+    "conflicts": []
+  },
+  "encoder": {
+    "version": "arena-planning-observed/2",
+    "sha256": "f5bd97059027579ca856af27429f253c115655a3a143a33abc1516d1ad55a0d7",
+    "action_feature_dim": 320,
+    "max_actions": 40
+  }
+}

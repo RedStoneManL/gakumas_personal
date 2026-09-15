@@ -1,0 +1,55 @@
+{
+  "loadout": {
+    "params": [
+      100,
+      100,
+      100,
+      40
+    ],
+    "supportBonus": 0,
+    "pItemIds": [],
+    "skillCardIdGroups": [
+      [
+        1,
+        5,
+        7,
+        17
+      ]
+    ],
+    "customizationGroups": [
+      [
+        {},
+        {},
+        {},
+        {}
+      ]
+    ]
+  },
+  "stage": {
+    "type": "contest",
+    "plan": "sense",
+    "season": 51,
+    "turnCounts": {
+      "vocal": 4,
+      "dance": 3,
+      "visual": 2
+    },
+    "firstTurns": {
+      "vocal": 1,
+      "dance": 0,
+      "visual": 0
+    },
+    "criteria": {
+      "vocal": 0.4,
+      "dance": 0.35,
+      "visual": 0.25
+    },
+    "effects": "at:startOfTurn { moveSelectedToHand[deck]; moveSelectedToHand[deck]; limit:1 } at:afterCardUsed { moveSelectedToHand[deck]; limit:1 }",
+    "linkTurnCounts": []
+  },
+  "enter_percents": true,
+  "starting_stamina": 30,
+  "drinks": [
+    18
+  ]
+}

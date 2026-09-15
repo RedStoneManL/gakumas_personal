@@ -1,0 +1,309 @@
+{
+  "schema_version": "arena-user-photo-evidence/1",
+  "date": "2026-09-08",
+  "observed_mode": "Idol Road (user stated)",
+  "target": "shared rules used by HIF; not HIF-specific stage certification",
+  "game_version": null,
+  "complete_replay": false,
+  "images": [
+    {
+      "image": 1,
+      "path": "evidence/2026-09-08-riceball/01.png",
+      "sha256": "f783d2b8a88accb332d5b43846bbb7e22917628aa452a878a9220a92cd5ad978"
+    },
+    {
+      "image": 2,
+      "path": "evidence/2026-09-08-riceball/02.png",
+      "sha256": "f5b0f3bd79fb5088e390ec43146449aa496687dd3489a7fc5deae326a78dca59"
+    },
+    {
+      "image": 3,
+      "path": "evidence/2026-09-08-riceball/03.png",
+      "sha256": "c2efa6cec7cdb318892801bf7471a266b49ce425e7d20915cd133dec641ecfb5"
+    },
+    {
+      "image": 4,
+      "path": "evidence/2026-09-08-riceball/04.png",
+      "sha256": "4f7bbabee360958e08f11fb074d2a1813a87a1e5888ef8635f99f8ba9a193a45"
+    },
+    {
+      "image": 5,
+      "path": "evidence/2026-09-08-riceball/05.png",
+      "sha256": "9e9fc5a691d481908c80edc52e58744df0089d6326291574b3407cdb4bab1106"
+    },
+    {
+      "image": 6,
+      "path": "evidence/2026-09-08-riceball/06.png",
+      "sha256": "27b629d407c0602a29c5a5df7bb738dd4750cf004d48f054f34e5efb9d99c389"
+    },
+    {
+      "image": 7,
+      "path": "evidence/2026-09-08-riceball/07.png",
+      "sha256": "264c86a419b17e88359396366620098d18944ab84fea8df1b61c0b3720578d9c"
+    }
+  ],
+  "user_confirmations": [
+    {
+      "fact": "The turn-5 riceball was the first card used in the exam; turns 1-4 were skipped",
+      "source": "user reply to first-card question"
+    }
+  ],
+  "observations": [
+    {
+      "images": [
+        1
+      ],
+      "turn": 5,
+      "source": "おっきなおにぎり+",
+      "resource": "genki",
+      "before": 0,
+      "after": 2,
+      "meaning": "card body only"
+    },
+    {
+      "images": [
+        1
+      ],
+      "turn": 5,
+      "source": "初星ライト（紫）",
+      "resource": "genki",
+      "before": 2,
+      "after": 3
+    },
+    {
+      "images": [
+        1
+      ],
+      "turn": 6,
+      "source": "意識の基本",
+      "resource": "motivation",
+      "before": 0,
+      "after": 2
+    },
+    {
+      "images": [
+        3
+      ],
+      "turn": 7,
+      "source": "本番前夜+",
+      "resource": "motivation",
+      "before": 2,
+      "after": 6
+    },
+    {
+      "images": [
+        3
+      ],
+      "turn": 7,
+      "source": "初星ライト（紫）",
+      "resource": "genki",
+      "before": 10,
+      "after": 17,
+      "order": 1
+    },
+    {
+      "images": [
+        3
+      ],
+      "turn": 7,
+      "source": "転がり続ける元気の源",
+      "resource": "motivation",
+      "before": 6,
+      "after": 9,
+      "order": 2
+    },
+    {
+      "images": [
+        4
+      ],
+      "turn": 7,
+      "source": "手書きのメッセージ",
+      "resource": "genki",
+      "transitions": [
+        [
+          17,
+          35
+        ],
+        [
+          35,
+          53
+        ]
+      ],
+      "motivation_from_prior_visible_event": 9
+    },
+    {
+      "images": [
+        4
+      ],
+      "turn": 7,
+      "source": "初星ライト（紫）",
+      "resource": "genki",
+      "before": 53,
+      "after": 63
+    },
+    {
+      "images": [
+        6
+      ],
+      "turn": 9,
+      "source": "あのときの約束+",
+      "resource": "genki",
+      "before": 96,
+      "after": 143,
+      "motivation_from_prior_visible_event": 18
+    },
+    {
+      "images": [
+        6
+      ],
+      "turn": 9,
+      "source": "あのときの約束+",
+      "resource": "score",
+      "transitions": [
+        [
+          474,
+          2317
+        ],
+        [
+          2317,
+          2703
+        ]
+      ],
+      "displayed_attribute_percent": 857
+    },
+    {
+      "images": [
+        6
+      ],
+      "turn": 9,
+      "source": "初星ライト（紫）",
+      "resource": "genki",
+      "before": 143,
+      "after": 162
+    },
+    {
+      "images": [
+        7
+      ],
+      "source": "初星ライト（紫） tooltip",
+      "condition": "card moves to excluded zone",
+      "effects": [
+        {
+          "stamina_recover": 4
+        },
+        {
+          "genki": 1
+        }
+      ]
+    }
+  ],
+  "conclusions": [
+    {
+      "id": "Q09-riceball-manual",
+      "status": "supported_by_game_screenshot_and_user_history",
+      "statement": "Current manually used riceball is excluded from its completed-card-count resource reference",
+      "limit": "Does not independently certify all score references, automatic uses or repeated-body counters"
+    },
+    {
+      "id": "R05-motivation-per-line",
+      "status": "supported_by_visible_transitions",
+      "statement": "Two 9-genki lines each receive motivation9, producing18 then18"
+    },
+    {
+      "id": "R13-move-versus-after-use",
+      "status": "engine_divergence_reproduced",
+      "statement": "Exclusion item computes1+6=7 before Ume after-use item changes motivation6 to9; current engine reverses these phases"
+    },
+    {
+      "id": "referenced-score-rounding",
+      "status": "supports_current_two_stage_rounding",
+      "statement": "ceil(143*1.5)=215; ceil(215*8.57)=1843; ceil(18*2.5*8.57)=386",
+      "limit": "Based on shown card/attribute and visible transitions; full customizations and all state not supplied"
+    }
+  ],
+  "controlled_engine_probe": {
+    "synthetic": true,
+    "complete_game_replay": false,
+    "rules_version": "arena-content-rules/3",
+    "pack": {
+      "namespace": "photo_probe",
+      "revision": "1",
+      "synthetic": true,
+      "auditions": [
+        {
+          "id": "photo_probe/exam",
+          "turns": 10,
+          "clear_score": 100000,
+          "weights": [
+            1,
+            0,
+            0
+          ],
+          "colors": [
+            "vocal",
+            "vocal",
+            "vocal",
+            "vocal",
+            "vocal",
+            "vocal",
+            "vocal",
+            "vocal",
+            "vocal",
+            "vocal"
+          ],
+          "deck": [
+            {
+              "card": "p_card-02-men-2_054",
+              "upgrade": 1
+            }
+          ],
+          "starting_stamina": 36,
+          "max_stamina": 42,
+          "items": [
+            "pitem_tower_001-exam_card_play_aggressive-2-stage_010",
+            "pitem_02-3-031-0"
+          ]
+        }
+      ]
+    },
+    "initial_post_cost_resources": {
+      "block": 10,
+      "aggressive": 2,
+      "review": 0
+    },
+    "call": "detach card, then _play_card(card, pay_cost=False); isolates body/movement/after-use only",
+    "observed_game_final_genki": 17,
+    "engine_final_genki": 20.0,
+    "engine_final_motivation": 9.0,
+    "engine_trigger_order": [
+      {
+        "batch_id": 14,
+        "enchant_id": "enchant-p_item_effect_02-3-031-0-enc01",
+        "trigger_phase": "ProduceExamPhaseType_ExamCardPlayAfter",
+        "effect_ids": [
+          "e_effect-exam_card_play_aggressive-0003",
+          "e_effect-exam_playable_value_add-01"
+        ],
+        "source": "item",
+        "source_identity": "item:1:0:pitem_02-3-031-0"
+      },
+      {
+        "batch_id": 17,
+        "enchant_id": "enchant-p_item_effect_tower_001-exam_card_play_aggressive-2-stage_010-enc01",
+        "trigger_phase": "ProduceExamPhaseType_ExamCardMoveLost",
+        "effect_ids": [
+          "e_effect-exam_stamina_recover_fix-0004",
+          "e_effect-exam_block-0001"
+        ],
+        "source": "item",
+        "source_identity": "item:0:0:pitem_tower_001-exam_card_play_aggressive-2-stage_010"
+      }
+    ],
+    "runtime_sha256": "d08e8e5cce78c194f91b198bc59c7c1f1e479c361c83fa0ab9b7c880a503d47e"
+  },
+  "not_proven": [
+    "Q10 skip/carry: screenshots show grants but not a controlled unspent-action skip comparison",
+    "All turn-8/9 score deltas: visible nonstandard card effects/customizations require card details",
+    "All trigger eligibility freezing rules: item invocation order and live numeric read versus snapshots need separate consideration"
+  ]
+}

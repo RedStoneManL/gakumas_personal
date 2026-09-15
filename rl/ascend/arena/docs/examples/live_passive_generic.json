@@ -1,0 +1,289 @@
+{
+  "synthetic": true,
+  "setup": {
+    "contract_version": "arena-live/1",
+    "run_id": "synthetic-run",
+    "scenario_id": "produce-007",
+    "adapter_version": "synthetic/1",
+    "game_version": null,
+    "masterdata_revision": "571dbb62601e78998cddeacdbce3ea1bc672d7fc",
+    "rules_revision": "arena-rules/2",
+    "checkpoint_mode": "after_initial_effects",
+    "loadout": {
+      "idol_card_id": "i_card-ttmr-3-000",
+      "producer_level": null,
+      "idol_rank": null,
+      "dearness_level": null,
+      "potential_level": null,
+      "prima_stella_level": null,
+      "use_after_item": null,
+      "supports": [],
+      "supports_complete": false,
+      "memories": [
+        {
+          "instance_id": "synthetic-memory-069",
+          "ability_ids": [
+            "memory_ability-p_memory_skill-common-hatsuboshi_idol_festival-p_trigger-start_audition-for_hif_memory-exam_status_enchant-exam_turn_timer-exam_status_enchant-01-069-001"
+          ],
+          "ability_levels": [
+            1
+          ],
+          "evidence": [
+            "synthetic:equipped-memory-detail"
+          ]
+        }
+      ],
+      "memories_complete": false
+    },
+    "execution_constraints": {}
+  },
+  "observation": {
+    "contract_version": "arena-live/1",
+    "run_id": "synthetic-run",
+    "observation_id": "synthetic-obs-0",
+    "revision": 0,
+    "captured_at": "synthetic:0",
+    "page": "exam",
+    "stability": "stable",
+    "terminal": false,
+    "event_watermark": 0,
+    "facts": {
+      "exam_id": {
+        "value": "synthetic-exam-1",
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_stage_type": {
+        "value": "ProduceStepType_AuditionMid1",
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "turn": {
+        "value": 1,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "max_turns": {
+        "value": 8,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "extra_turns": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "plays_used": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "plays_remaining": {
+        "value": 1,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "stamina": {
+        "value": 20,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "max_stamina": {
+        "value": 30,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "block": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "lesson_buff": {
+        "value": 2,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "parameter_buff": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "parameter_buff_multiple_per_turn": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "current_turn_color": {
+        "value": "vocal",
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_effects": {
+        "value": [],
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_enchants": {
+        "value": [
+          {
+            "state_id": "synthetic-passive-1",
+            "exam_id": "synthetic-exam-1",
+            "enchant_id": "enchant-p_ef-hif_memory-p_card-01-men-2_041-enc01",
+            "source": {
+              "kind": "memory",
+              "instance_id": "synthetic-memory-069",
+              "definition_id": "memory_ability-p_memory_skill-common-hatsuboshi_idol_festival-p_trigger-start_audition-for_hif_memory-exam_status_enchant-exam_turn_timer-exam_status_enchant-01-069-001",
+              "evidence": [
+                "synthetic:equipped-memory-detail"
+              ]
+            },
+            "source_level": 1,
+            "remaining_turns": null,
+            "remaining_count": 1,
+            "applied_turn": 1,
+            "applied_phase": "turn_start",
+            "last_fired_turn": null,
+            "bound_card_instance_id": null,
+            "once_per_turn": false
+          }
+        ],
+        "status": "observed",
+        "evidence": [
+          "synthetic:complete-current-status-panel-and-history"
+        ]
+      },
+      "forbidden_card_search_ids": {
+        "value": [],
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_card_state": {
+        "value": {
+          "synthetic-card-a": {
+            "grow_effect_ids": [],
+            "transient_effect_ids": [],
+            "transient_trigger_ids": [],
+            "card_status_enchant_id": "",
+            "play_count_bonus": 0
+          }
+        },
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_passive_version": {
+        "status": "observed",
+        "value": "arena-passive/2",
+        "evidence": [
+          "synthetic:versioned-observation"
+        ]
+      },
+      "exam_counter_semantics": {
+        "status": "observed",
+        "value": "arena-exam-counters/1",
+        "evidence": [
+          "synthetic:versioned-observation"
+        ]
+      },
+      "exam_scheduled_effects": {
+        "status": "observed",
+        "value": [],
+        "evidence": [
+          "synthetic:complete-current-status-panel-and-history"
+        ]
+      }
+    },
+    "inventories": {
+      "hand": {
+        "coverage": "complete",
+        "entities": [
+          {
+            "instance_id": "synthetic-card-a",
+            "kind": "card",
+            "definition_id": "p_card-01-act-2_001",
+            "upgrade_count": 1,
+            "customize_ids": [],
+            "variant_fingerprint": null,
+            "label": "",
+            "evidence": [
+              "synthetic:card-detail"
+            ]
+          }
+        ]
+      }
+    },
+    "pending_decision": {
+      "decision_id": "synthetic-decision-0",
+      "kind": "exam",
+      "coverage": "complete",
+      "choices": [
+        {
+          "choice_id": "play-a",
+          "action_type": "card",
+          "targets": [
+            {
+              "instance_id": "synthetic-card-a",
+              "kind": "card",
+              "definition_id": "p_card-01-act-2_001",
+              "upgrade_count": 1,
+              "customize_ids": [],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:card-detail"
+              ]
+            }
+          ],
+          "parameters": {},
+          "ui_enabled": true,
+          "label": "",
+          "evidence": []
+        },
+        {
+          "choice_id": "end",
+          "action_type": "end_turn",
+          "targets": [],
+          "parameters": {},
+          "ui_enabled": true,
+          "label": "",
+          "evidence": []
+        }
+      ]
+    },
+    "conflicts": []
+  },
+  "real_game_verified": false
+}

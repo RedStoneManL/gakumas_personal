@@ -1,0 +1,48 @@
+{
+  "additionalProperties": false,
+  "description": "已发生的持续效果；不限持续/次数用明确 null。",
+  "properties": {
+    "effect_id": {
+      "title": "Effect Id",
+      "type": "string"
+    },
+    "remaining_turns": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Remaining Turns"
+    },
+    "remaining_count": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Remaining Count"
+    },
+    "applied_turn": {
+      "minimum": 0,
+      "title": "Applied Turn",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "effect_id",
+    "remaining_turns",
+    "remaining_count",
+    "applied_turn"
+  ],
+  "title": "ExamTimedEffect",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

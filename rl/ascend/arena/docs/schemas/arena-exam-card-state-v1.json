@@ -1,0 +1,46 @@
+{
+  "additionalProperties": false,
+  "description": "局内变化单独声明；成长列表不重复包含永久自定义。",
+  "properties": {
+    "grow_effect_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Grow Effect Ids",
+      "type": "array"
+    },
+    "transient_effect_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Transient Effect Ids",
+      "type": "array"
+    },
+    "transient_trigger_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Transient Trigger Ids",
+      "type": "array"
+    },
+    "card_status_enchant_id": {
+      "title": "Card Status Enchant Id",
+      "type": "string"
+    },
+    "play_count_bonus": {
+      "minimum": 0,
+      "title": "Play Count Bonus",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "grow_effect_ids",
+    "transient_effect_ids",
+    "transient_trigger_ids",
+    "card_status_enchant_id",
+    "play_count_bonus"
+  ],
+  "title": "ExamCardState",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

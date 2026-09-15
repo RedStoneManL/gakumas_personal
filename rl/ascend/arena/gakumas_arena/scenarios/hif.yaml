@@ -1,0 +1,9 @@
+# H.I.F編 (Hatsuboshi IDOL FESTIVAL) — PLACEHOLDER. Numbers to be filled from docs/scenarios/hif.md
+id: hif
+name: H.I.F編
+plugin: gakumas_arena.produce.plugins.hif
+weeks:
+  - {week: 1, kind: free, actions: [lesson, sp_lesson, rest, outing, consult]}
+lesson: {}
+exams: {}
+evaluate: {}

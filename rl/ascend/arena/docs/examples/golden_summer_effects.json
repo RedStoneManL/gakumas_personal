@@ -1,0 +1,266 @@
+{
+  "rules_version": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+  "matches": [
+    {
+      "kind": "skill_cards",
+      "id": 584,
+      "name": "夏夜に咲く思い出",
+      "definition": {
+        "id": 584,
+        "name": "夏夜に咲く思い出",
+        "availableCustomizations": [],
+        "rarity": "SSR",
+        "type": "active",
+        "plan": "free",
+        "unlockPlv": 1,
+        "upgraded": false,
+        "unique": true,
+        "sourceType": "support",
+        "pIdolId": null,
+        "forceInitialHand": false,
+        "conditions": [],
+        "cost": [
+          {
+            "actions": [
+              {
+                "type": "assignment",
+                "lhs": "cost",
+                "op": "-=",
+                "rhs": {
+                  "type": "number",
+                  "value": 7
+                }
+              }
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "actions": [
+              {
+                "type": "call",
+                "name": "removeRandom",
+                "target": {
+                  "type": "binary",
+                  "op": "&",
+                  "left": {
+                    "type": "identifier",
+                    "name": "trouble"
+                  },
+                  "right": {
+                    "type": "binary",
+                    "op": "|",
+                    "left": {
+                      "type": "identifier",
+                      "name": "deck"
+                    },
+                    "right": {
+                      "type": "identifier",
+                      "name": "discarded"
+                    }
+                  }
+                },
+                "args": []
+              },
+              {
+                "type": "assignment",
+                "lhs": "cardUsesRemaining",
+                "op": "+=",
+                "rhs": {
+                  "type": "number",
+                  "value": 1
+                }
+              }
+            ]
+          },
+          {
+            "phase": "cardUsed",
+            "actions": [
+              {
+                "type": "assignment",
+                "lhs": "effectCounter",
+                "op": "+=",
+                "rhs": {
+                  "type": "number",
+                  "value": 1
+                }
+              }
+            ]
+          },
+          {
+            "phase": "cardUsed",
+            "conditions": [
+              {
+                "type": "comparison",
+                "op": "==",
+                "left": {
+                  "type": "binary",
+                  "op": "%",
+                  "left": {
+                    "type": "identifier",
+                    "name": "effectCounter"
+                  },
+                  "right": {
+                    "type": "number",
+                    "value": 5
+                  }
+                },
+                "right": {
+                  "type": "number",
+                  "value": 4
+                }
+              }
+            ],
+            "actions": [
+              {
+                "type": "assignment",
+                "lhs": "score",
+                "op": "+=",
+                "rhs": {
+                  "type": "number",
+                  "value": 4
+                }
+              }
+            ]
+          }
+        ],
+        "limit": 1,
+        "effects": [],
+        "_type": "skillCard",
+        "contestPower": 96
+      }
+    },
+    {
+      "kind": "skill_cards",
+      "id": 585,
+      "name": "夏夜に咲く思い出+",
+      "definition": {
+        "id": 585,
+        "name": "夏夜に咲く思い出+",
+        "availableCustomizations": [
+          "29",
+          "83"
+        ],
+        "rarity": "SSR",
+        "type": "active",
+        "plan": "free",
+        "unlockPlv": 1,
+        "upgraded": true,
+        "unique": true,
+        "sourceType": "support",
+        "pIdolId": null,
+        "forceInitialHand": false,
+        "conditions": [],
+        "cost": [
+          {
+            "actions": [
+              {
+                "type": "assignment",
+                "lhs": "cost",
+                "op": "-=",
+                "rhs": {
+                  "type": "number",
+                  "value": 4
+                }
+              }
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "actions": [
+              {
+                "type": "call",
+                "name": "removeRandom",
+                "target": {
+                  "type": "binary",
+                  "op": "&",
+                  "left": {
+                    "type": "identifier",
+                    "name": "trouble"
+                  },
+                  "right": {
+                    "type": "binary",
+                    "op": "|",
+                    "left": {
+                      "type": "identifier",
+                      "name": "deck"
+                    },
+                    "right": {
+                      "type": "identifier",
+                      "name": "discarded"
+                    }
+                  }
+                },
+                "args": []
+              },
+              {
+                "type": "assignment",
+                "lhs": "cardUsesRemaining",
+                "op": "+=",
+                "rhs": {
+                  "type": "number",
+                  "value": 1
+                }
+              }
+            ]
+          },
+          {
+            "phase": "cardUsed",
+            "actions": [
+              {
+                "type": "assignment",
+                "lhs": "effectCounter",
+                "op": "+=",
+                "rhs": {
+                  "type": "number",
+                  "value": 1
+                }
+              }
+            ]
+          },
+          {
+            "phase": "cardUsed",
+            "conditions": [
+              {
+                "type": "comparison",
+                "op": "==",
+                "left": {
+                  "type": "binary",
+                  "op": "%",
+                  "left": {
+                    "type": "identifier",
+                    "name": "effectCounter"
+                  },
+                  "right": {
+                    "type": "number",
+                    "value": 5
+                  }
+                },
+                "right": {
+                  "type": "number",
+                  "value": 4
+                }
+              }
+            ],
+            "actions": [
+              {
+                "type": "assignment",
+                "lhs": "score",
+                "op": "+=",
+                "rhs": {
+                  "type": "number",
+                  "value": 4
+                }
+              }
+            ]
+          }
+        ],
+        "limit": 1,
+        "effects": [],
+        "_type": "skillCard",
+        "contestPower": 126
+      }
+    }
+  ]
+}

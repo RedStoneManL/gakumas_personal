@@ -1,0 +1,28 @@
+{
+  "adapter": {
+    "command": [
+      "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\third_party\\gakumas_arena\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_training_engine.py",
+      "tests/test_golden_engine.py",
+      "tests/test_training_custom.py",
+      "-q"
+    ],
+    "stdout": "........................................................................ [ 85%]\n............                                                             [100%]\n84 passed in 14.56s\n",
+    "stderr": "",
+    "exit_code": 0
+  },
+  "upstream": {
+    "command": [
+      "node",
+      "--no-warnings",
+      "--loader",
+      "file:///C:/Users/Liu/Documents/ChatGPT/gakumas/third_party/gakumas_arena/gakumas_arena/_vendor/gakumas_tools/scripts/extensionless-loader.mjs",
+      "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\third_party\\gakumas_arena\\gakumas_arena\\_vendor\\gakumas_tools\\tests\\run.mjs"
+    ],
+    "stdout": "Checking 524 loadouts against structured engine...\n  50/524\n  100/524\n  150/524\n  200/524\n  250/524\n  300/524\n  350/524\n  400/524\n  450/524\n  500/524\n  524/524\n524/524 match, 0 mismatch\n",
+    "stderr": "",
+    "exit_code": 0
+  }
+}

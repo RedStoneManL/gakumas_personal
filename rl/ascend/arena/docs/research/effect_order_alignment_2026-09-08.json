@@ -1,0 +1,2377 @@
+{
+  "synthetic": true,
+  "date": "2026-09-08",
+  "rules_version": "arena-content-rules/3",
+  "purpose": "Comparison only; divergences are observations, not golden tests or game verification.",
+  "reference_file": "C:\\Users\\Liu\\.codex\\codex-remote-attachments\\01a07bfd-5638-7a21-8993-8797c7dc3a23\\671FFEB3-8F50-43DC-B4D8-365F74EA31B6\\1-学园偶像大师_效果与结算顺序_2026-09-08.md",
+  "reference_sha256": "6e2b12dd29f0b48b14a13db22924a806903769e3fc98d4e14b0665ef775a163a",
+  "git_head": "ef2402958547b2050e873841b9ff5066a895b1a9",
+  "working_tree_has_preexisting_changes": true,
+  "source_sha256": {
+    "gakumas_rl/simulation/exam/runtime.py": "d08e8e5cce78c194f91b198bc59c7c1f1e479c361c83fa0ab9b7c880a503d47e",
+    "gakumas_rl/simulation/exam/resolution.py": "581b5eaf177cacffdec085d0d00105f0c130a2095f7386a1c72a0c22ef5e853e",
+    "gakumas_rl/simulation/exam/scoring.py": "29d6e8fd7678b51fa2075a1a18933898d452f182cf64b812327d52ec70801296",
+    "gakumas_rl/simulation/exam/effects/context.py": "e65fe8d4d93511e333c1bf8d7c007081aed2fd5358ca0c086ff41fbe05f2358b",
+    "gakumas_rl/simulation/exam/effects/encore.py": "f2eb2babd66c706b0e0d9c5e2a15019dbb06b98bde7f4fd075f3c1ed40ded382",
+    "gakumas_rl/simulation/exam/effects/simple.py": "f9d7471b2c598346a6335eb6aaef0abac7d7c6aaefbaa6cf861b61e588c16399",
+    "gakumas_rl/simulation/exam/effects/scalar_resource.py": "1310396514783b14e75d953687e705c04d20a4bfa17b3526005a98ed5ec4b2ca",
+    "gakumas_rl/simulation/exam/effects/duration_resource.py": "6eefdf68e215631d2c190ad16a7156fff34dad4947346222b46aab7f60431bff",
+    "gakumas_rl/simulation/exam/effects/delayed_effect.py": "b5c94d7ed87fc203a63f0a28ba2015d10050151ea1c5500b559c9c1f09884f01",
+    "gakumas_rl/simulation/exam/effects/parameter_buff.py": "1f71eaea855e2b50140166edecf9bd1f30ca0250bcdcad50bceb51aed459329f",
+    "gakumas_rl/simulation/exam/effects/review.py": "223495850c69ac87c5820f31e46757dabb6f434a6df610d27b4fd6196a1e4c6c",
+    "gakumas_rl/simulation/exam/effects/lesson_value.py": "1a64a3019a459f0c7b5cb43516a9bc8c2a62a2c7e304c42b6ed9dd4b757f7914",
+    "gakumas_rl/simulation/exam/triggers/context.py": "6b6ee3181dcedf250f8ff216a9135ec6e1919bed38383a6aad19978e804880da",
+    "gakumas_rl/simulation/exam/triggers/field_status.py": "aa957e40bee27b6f8638aefef0c202bf44c5ae284e77b5f47e8728d565261e67",
+    "gakumas_arena/content/exam.py": "87d8229f3f393ca09eea947fb9a9be706d808965e30d223a1921ca77204717af"
+  },
+  "synthetic_content_pack": {
+    "namespace": "audit",
+    "revision": "2026-09-08-reference-comparison-1",
+    "synthetic": true,
+    "effects": [
+      {
+        "id": "audit/score8",
+        "operation": "score",
+        "arguments": {
+          "amount": 8
+        }
+      },
+      {
+        "id": "audit/focus3",
+        "operation": "concentration",
+        "arguments": {
+          "amount": 3
+        }
+      },
+      {
+        "id": "audit/focus10",
+        "operation": "concentration",
+        "arguments": {
+          "amount": 10
+        }
+      },
+      {
+        "id": "audit/review1",
+        "operation": "good_impression",
+        "arguments": {
+          "amount": 1
+        }
+      },
+      {
+        "id": "audit/review3",
+        "operation": "good_impression",
+        "arguments": {
+          "amount": 3
+        }
+      },
+      {
+        "id": "audit/force",
+        "operation": "force_play",
+        "arguments": {
+          "search": "audit/score_search"
+        }
+      },
+      {
+        "id": "audit/force_gated",
+        "operation": "force_play",
+        "arguments": {
+          "search": "audit/gated_search"
+        }
+      },
+      {
+        "id": "audit/action1",
+        "operation": "extra_action",
+        "arguments": {
+          "amount": 1
+        }
+      }
+    ],
+    "searches": [
+      {
+        "id": "audit/score_search",
+        "zone": "hand",
+        "card_ids": [
+          "audit/score"
+        ]
+      },
+      {
+        "id": "audit/gated_search",
+        "zone": "hand",
+        "card_ids": [
+          "audit/conditional_target"
+        ]
+      },
+      {
+        "id": "audit/all_cards",
+        "zone": "target"
+      }
+    ],
+    "triggers": [
+      {
+        "id": "audit/start",
+        "phase": "turn_start"
+      },
+      {
+        "id": "audit/end",
+        "phase": "turn_end"
+      },
+      {
+        "id": "audit/review3_needed",
+        "phase": "turn_start",
+        "field": "ProduceExamFieldStatusType_ReviewUp",
+        "value": 3
+      },
+      {
+        "id": "audit/need6",
+        "phase": "condition",
+        "field": "ProduceExamFieldStatusType_CardPlayAggressiveUp",
+        "value": 6
+      },
+      {
+        "id": "audit/body_need6",
+        "phase": "card_used",
+        "field": "ProduceExamFieldStatusType_CardPlayAggressiveUp",
+        "value": 6
+      }
+    ],
+    "passives": [
+      {
+        "id": "audit/batch_a",
+        "trigger": "audit/start",
+        "effects": [
+          "audit/review1"
+        ]
+      },
+      {
+        "id": "audit/batch_b",
+        "trigger": "audit/review3_needed",
+        "effects": [
+          "audit/focus3"
+        ]
+      },
+      {
+        "id": "audit/end_review",
+        "trigger": "audit/end",
+        "effects": [
+          "audit/review3"
+        ]
+      },
+      {
+        "id": "audit/encore_stub",
+        "trigger": "audit/end",
+        "effects": [
+          "audit/score8"
+        ]
+      }
+    ],
+    "cards": [
+      {
+        "id": "audit/idle"
+      },
+      {
+        "id": "audit/score",
+        "effects": [
+          "audit/score8"
+        ]
+      },
+      {
+        "id": "audit/force_then_focus",
+        "effects": [
+          "audit/force",
+          "audit/focus10"
+        ]
+      },
+      {
+        "id": "audit/conditional_cost",
+        "cost": {
+          "resource": "motivation",
+          "amount": 3
+        },
+        "effects": [
+          {
+            "effect": "audit/score8",
+            "condition": "audit/body_need6"
+          }
+        ]
+      },
+      {
+        "id": "audit/conditional_target",
+        "condition": "audit/need6",
+        "effects": [
+          "audit/score8"
+        ]
+      },
+      {
+        "id": "audit/force_conditional",
+        "effects": [
+          "audit/force_gated"
+        ]
+      },
+      {
+        "id": "audit/sequence",
+        "effects": [
+          "audit/focus3",
+          "audit/score8"
+        ]
+      },
+      {
+        "id": "audit/actions",
+        "effects": [
+          "audit/action1"
+        ]
+      }
+    ],
+    "auditions": [
+      {
+        "id": "audit/exam",
+        "turns": 4,
+        "clear_score": 100000,
+        "colors": [
+          "vocal",
+          "vocal",
+          "vocal",
+          "vocal"
+        ],
+        "plays_per_turn": 8,
+        "turn_draw": 8,
+        "hand_limit": 20,
+        "deck": [
+          {
+            "card": "audit/idle"
+          },
+          {
+            "card": "audit/score"
+          },
+          {
+            "card": "audit/force_then_focus"
+          },
+          {
+            "card": "audit/conditional_cost"
+          },
+          {
+            "card": "audit/conditional_target"
+          },
+          {
+            "card": "audit/force_conditional"
+          },
+          {
+            "card": "audit/sequence"
+          },
+          {
+            "card": "audit/actions"
+          }
+        ]
+      },
+      {
+        "id": "audit/single_window",
+        "turns": 4,
+        "clear_score": 100000,
+        "colors": [
+          "vocal",
+          "vocal",
+          "vocal",
+          "vocal"
+        ],
+        "plays_per_turn": 1,
+        "turn_draw": 8,
+        "hand_limit": 20,
+        "deck": [
+          {
+            "card": "audit/idle"
+          },
+          {
+            "card": "audit/score"
+          },
+          {
+            "card": "audit/force_then_focus"
+          },
+          {
+            "card": "audit/conditional_cost"
+          },
+          {
+            "card": "audit/conditional_target"
+          },
+          {
+            "card": "audit/force_conditional"
+          },
+          {
+            "card": "audit/sequence"
+          },
+          {
+            "card": "audit/actions"
+          }
+        ]
+      }
+    ]
+  },
+  "native_effect_examples": {
+    "ProduceExamEffectType_ExamDebuffRecover": {
+      "id": "e_effect-exam_debuff_recover",
+      "effectType": "ProduceExamEffectType_ExamDebuffRecover",
+      "effectValue1": 0,
+      "effectValue2": 0,
+      "effectCount": 0,
+      "effectTurn": 0,
+      "targetProduceCardId": "",
+      "targetUpgradeCount": 0,
+      "targetExamEffectType": "ProduceExamEffectType_Unknown",
+      "produceCardSearchId": "",
+      "movePositionType": "ProduceCardMovePositionType_Unknown",
+      "pickRangeType": "ProducePickRangeType_Unknown",
+      "pickCountReferenceProduceCardSearchId": "",
+      "pickCountType": "ProducePickCountType_Unknown",
+      "pickCountMin": 0,
+      "pickCountMax": 0,
+      "produceCardSearchId2": "",
+      "pickRangeType2": "ProducePickRangeType_Unknown",
+      "pickCountReferenceProduceCardSearchId2": "",
+      "pickCountType2": "ProducePickCountType_Unknown",
+      "pickCountMin2": 0,
+      "pickCountMax2": 0,
+      "chainProduceExamEffectId": "",
+      "chainProduceExamEffectIds": [],
+      "produceExamStatusEnchantId": "",
+      "produceCardStatusEnchantId": "",
+      "produceCardGrowEffectIds": [],
+      "effectGroupIds": [],
+      "produceDescriptions": [
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "すべての",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_debuff_recover",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceExamEffectType",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_ExamDebuffRecover",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "低下状態回復",
+          "targetId": "Label_ExamDebuffRecover",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_debuff_recover",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        }
+      ],
+      "customizeProduceDescriptions": [
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceDescriptionName",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "",
+          "targetId": "Label_StyleDot",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_debuff_recover",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "すべての",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_debuff_recover",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceExamEffectType",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_ExamDebuffRecover",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "低下状態回復",
+          "targetId": "Label_ExamDebuffRecover",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_debuff_recover",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        }
+      ]
+    },
+    "ProduceExamEffectType_ExamLessonBuffAdditiveFix": {
+      "id": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+      "effectType": "ProduceExamEffectType_ExamLessonBuffAdditiveFix",
+      "effectValue1": 1,
+      "effectValue2": 0,
+      "effectCount": 0,
+      "effectTurn": 4,
+      "targetProduceCardId": "",
+      "targetUpgradeCount": 0,
+      "targetExamEffectType": "ProduceExamEffectType_Unknown",
+      "produceCardSearchId": "",
+      "movePositionType": "ProduceCardMovePositionType_Unknown",
+      "pickRangeType": "ProducePickRangeType_Unknown",
+      "pickCountReferenceProduceCardSearchId": "",
+      "pickCountType": "ProducePickCountType_Unknown",
+      "pickCountMin": 0,
+      "pickCountMax": 0,
+      "produceCardSearchId2": "",
+      "pickRangeType2": "ProducePickRangeType_Unknown",
+      "pickCountReferenceProduceCardSearchId2": "",
+      "pickCountType2": "ProducePickCountType_Unknown",
+      "pickCountMin2": 0,
+      "pickCountMax2": 0,
+      "chainProduceExamEffectId": "",
+      "chainProduceExamEffectIds": [],
+      "produceExamStatusEnchantId": "",
+      "produceCardStatusEnchantId": "",
+      "produceCardGrowEffectIds": [],
+      "effectGroupIds": [
+        "effect_group-visible-exam_lesson_buff-000"
+      ],
+      "produceDescriptions": [
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceExamEffectType",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_ExamLessonBuffAdditiveFix",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "集中増加量追加",
+          "targetId": "Label_ExamLessonBuffAdditiveFix",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "<nobr>+",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeEffectValue1",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "1",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 1,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "</nobr>（<nobr>",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeTurn",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "4",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 4,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "ターン</nobr>）",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        }
+      ],
+      "customizeProduceDescriptions": [
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceDescriptionName",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "",
+          "targetId": "Label_StyleDot",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceExamEffectType",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_ExamLessonBuffAdditiveFix",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "集中増加量追加",
+          "targetId": "Label_ExamLessonBuffAdditiveFix",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "<nobr>+",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeEffectValue1",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "1",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 1,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "</nobr>（<nobr>",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeTurn",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "4",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 4,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "ターン</nobr>）",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive_fix-0001-04",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        }
+      ]
+    },
+    "ProduceExamEffectType_ExamLessonBuffAdditive": {
+      "id": "e_effect-exam_lesson_buff_additive-0100-inf",
+      "effectType": "ProduceExamEffectType_ExamLessonBuffAdditive",
+      "effectValue1": 100,
+      "effectValue2": 0,
+      "effectCount": 0,
+      "effectTurn": -1,
+      "targetProduceCardId": "",
+      "targetUpgradeCount": 0,
+      "targetExamEffectType": "ProduceExamEffectType_Unknown",
+      "produceCardSearchId": "",
+      "movePositionType": "ProduceCardMovePositionType_Unknown",
+      "pickRangeType": "ProducePickRangeType_Unknown",
+      "pickCountReferenceProduceCardSearchId": "",
+      "pickCountType": "ProducePickCountType_Unknown",
+      "pickCountMin": 0,
+      "pickCountMax": 0,
+      "produceCardSearchId2": "",
+      "pickRangeType2": "ProducePickRangeType_Unknown",
+      "pickCountReferenceProduceCardSearchId2": "",
+      "pickCountType2": "ProducePickCountType_Unknown",
+      "pickCountMin2": 0,
+      "pickCountMax2": 0,
+      "chainProduceExamEffectId": "",
+      "chainProduceExamEffectIds": [],
+      "produceExamStatusEnchantId": "",
+      "produceCardStatusEnchantId": "",
+      "produceCardGrowEffectIds": [],
+      "effectGroupIds": [
+        "effect_group-visible-exam_lesson_buff-000"
+      ],
+      "produceDescriptions": [
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceExamEffectType",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_ExamLessonBuffAdditive",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "集中増加量増加",
+          "targetId": "Label_ExamLessonBuffAdditive",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "<nobr>+",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeEffectValuePercent1",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "10",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 100,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "%</nobr>",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        }
+      ],
+      "customizeProduceDescriptions": [
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceDescriptionName",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "",
+          "targetId": "Label_StyleDot",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceExamEffectType",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_ExamLessonBuffAdditive",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "集中増加量増加",
+          "targetId": "Label_ExamLessonBuffAdditive",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "<nobr>+",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeEffectValuePercent1",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "10",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 100,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "%</nobr>",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_additive-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        }
+      ]
+    },
+    "ProduceExamEffectType_ExamLessonBuffMultiple": {
+      "id": "e_effect-exam_lesson_buff_multiple-0050-01",
+      "effectType": "ProduceExamEffectType_ExamLessonBuffMultiple",
+      "effectValue1": 50,
+      "effectValue2": 0,
+      "effectCount": 0,
+      "effectTurn": 1,
+      "targetProduceCardId": "",
+      "targetUpgradeCount": 0,
+      "targetExamEffectType": "ProduceExamEffectType_Unknown",
+      "produceCardSearchId": "",
+      "movePositionType": "ProduceCardMovePositionType_Unknown",
+      "pickRangeType": "ProducePickRangeType_Unknown",
+      "pickCountReferenceProduceCardSearchId": "",
+      "pickCountType": "ProducePickCountType_Unknown",
+      "pickCountMin": 0,
+      "pickCountMax": 0,
+      "produceCardSearchId2": "",
+      "pickRangeType2": "ProducePickRangeType_Unknown",
+      "pickCountReferenceProduceCardSearchId2": "",
+      "pickCountType2": "ProducePickCountType_Unknown",
+      "pickCountMin2": 0,
+      "pickCountMax2": 0,
+      "chainProduceExamEffectId": "",
+      "chainProduceExamEffectIds": [],
+      "produceExamStatusEnchantId": "",
+      "produceCardStatusEnchantId": "",
+      "produceCardGrowEffectIds": [],
+      "effectGroupIds": [],
+      "produceDescriptions": [
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceExamEffectType",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_ExamLessonBuffMultiple",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "集中強化",
+          "targetId": "Label_ExamLessonBuffMultiple",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "<nobr>",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeEffectValuePercent1",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "5",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 50,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "%</nobr>（<nobr>",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeTurn",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "1",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 1,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "ターン</nobr>）",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        }
+      ],
+      "customizeProduceDescriptions": [
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceDescriptionName",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "",
+          "targetId": "Label_StyleDot",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceExamEffectType",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_ExamLessonBuffMultiple",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "集中強化",
+          "targetId": "Label_ExamLessonBuffMultiple",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "<nobr>",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeEffectValuePercent1",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "5",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 50,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "%</nobr>（<nobr>",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeTurn",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "1",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 1,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "ターン</nobr>）",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_lesson_buff_multiple-0050-01",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        }
+      ]
+    },
+    "ProduceExamEffectType_ExamReviewAdditive": {
+      "id": "e_effect-exam_review_additive-0250-03",
+      "effectType": "ProduceExamEffectType_ExamReviewAdditive",
+      "effectValue1": 250,
+      "effectValue2": 0,
+      "effectCount": 0,
+      "effectTurn": 3,
+      "targetProduceCardId": "",
+      "targetUpgradeCount": 0,
+      "targetExamEffectType": "ProduceExamEffectType_Unknown",
+      "produceCardSearchId": "",
+      "movePositionType": "ProduceCardMovePositionType_Unknown",
+      "pickRangeType": "ProducePickRangeType_Unknown",
+      "pickCountReferenceProduceCardSearchId": "",
+      "pickCountType": "ProducePickCountType_Unknown",
+      "pickCountMin": 0,
+      "pickCountMax": 0,
+      "produceCardSearchId2": "",
+      "pickRangeType2": "ProducePickRangeType_Unknown",
+      "pickCountReferenceProduceCardSearchId2": "",
+      "pickCountType2": "ProducePickCountType_Unknown",
+      "pickCountMin2": 0,
+      "pickCountMax2": 0,
+      "chainProduceExamEffectId": "",
+      "chainProduceExamEffectIds": [],
+      "produceExamStatusEnchantId": "",
+      "produceCardStatusEnchantId": "",
+      "produceCardGrowEffectIds": [],
+      "effectGroupIds": [
+        "effect_group-visible-exam_review-000"
+      ],
+      "produceDescriptions": [
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceExamEffectType",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_ExamReviewAdditive",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "好印象増加量増加",
+          "targetId": "Label_ExamReviewAdditive",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "<nobr>+",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeEffectValuePercent1",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "25",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 250,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "%</nobr>（<nobr>",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeTurn",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "3",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 3,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "ターン</nobr>）",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        }
+      ],
+      "customizeProduceDescriptions": [
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceDescriptionName",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "",
+          "targetId": "Label_StyleDot",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceExamEffectType",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_ExamReviewAdditive",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "好印象増加量増加",
+          "targetId": "Label_ExamReviewAdditive",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "<nobr>+",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeEffectValuePercent1",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "25",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 250,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "%</nobr>（<nobr>",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeTurn",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "3",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 3,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "ターン</nobr>）",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_additive-0250-03",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        }
+      ]
+    },
+    "ProduceExamEffectType_ExamReviewMultiple": {
+      "id": "e_effect-exam_review_multiple-0100-inf",
+      "effectType": "ProduceExamEffectType_ExamReviewMultiple",
+      "effectValue1": 100,
+      "effectValue2": 0,
+      "effectCount": 0,
+      "effectTurn": -1,
+      "targetProduceCardId": "",
+      "targetUpgradeCount": 0,
+      "targetExamEffectType": "ProduceExamEffectType_Unknown",
+      "produceCardSearchId": "",
+      "movePositionType": "ProduceCardMovePositionType_Unknown",
+      "pickRangeType": "ProducePickRangeType_Unknown",
+      "pickCountReferenceProduceCardSearchId": "",
+      "pickCountType": "ProducePickCountType_Unknown",
+      "pickCountMin": 0,
+      "pickCountMax": 0,
+      "produceCardSearchId2": "",
+      "pickRangeType2": "ProducePickRangeType_Unknown",
+      "pickCountReferenceProduceCardSearchId2": "",
+      "pickCountType2": "ProducePickCountType_Unknown",
+      "pickCountMin2": 0,
+      "pickCountMax2": 0,
+      "chainProduceExamEffectId": "",
+      "chainProduceExamEffectIds": [],
+      "produceExamStatusEnchantId": "",
+      "produceCardStatusEnchantId": "",
+      "produceCardGrowEffectIds": [],
+      "effectGroupIds": [
+        "effect_group-visible-exam_review-000"
+      ],
+      "produceDescriptions": [
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceExamEffectType",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_ExamReviewMultiple",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "好印象強化",
+          "targetId": "Label_ExamReviewMultiple",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_multiple-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "<nobr>+",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_multiple-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeEffectValuePercent1",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "10",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 100,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_multiple-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "%</nobr>",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_multiple-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        }
+      ],
+      "customizeProduceDescriptions": [
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceDescriptionName",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "",
+          "targetId": "Label_StyleDot",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_multiple-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_ProduceExamEffectType",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_ExamReviewMultiple",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "好印象強化",
+          "targetId": "Label_ExamReviewMultiple",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_multiple-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "<nobr>+",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_multiple-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_Exam",
+          "examDescriptionType": "ExamDescriptionType_CustomizeEffectValuePercent1",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "10",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 100,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_multiple-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        },
+        {
+          "produceDescriptionType": "ProduceDescriptionType_PlainText",
+          "examDescriptionType": "ExamDescriptionType_Unknown",
+          "examEffectType": "ProduceExamEffectType_Unknown",
+          "produceCardGrowEffectType": "ProduceCardGrowEffectType_Unknown",
+          "produceCardCategory": "ProduceCardCategory_Unknown",
+          "produceCardMovePositionType": "ProduceCardMovePositionType_Unknown",
+          "produceStepType": "ProduceStepType_Unknown",
+          "produceStepBusinessType": "ProduceStepBusinessType_Unknown",
+          "text": "%</nobr>",
+          "targetId": "",
+          "targetLevel": 0,
+          "effectValue1": 0,
+          "effectValue2": 0,
+          "effectCount": 0,
+          "turn": 0,
+          "costValue": 0,
+          "produceDescriptionSwapId": "",
+          "originProduceExamTriggerId": "",
+          "originProduceExamEffectId": "e_effect-exam_review_multiple-0100-inf",
+          "originProduceCardStatusEnchantId": "",
+          "isCost": false,
+          "isOnlyOutGame": false,
+          "changeColor": false
+        }
+      ]
+    }
+  },
+  "probes": [
+    {
+      "id": "batch_eligibility",
+      "rules": [
+        "R01"
+      ],
+      "reference_evidence": "E1",
+      "synthetic_setup": "好印象2；同批A先+1好印象，B要求好印象>=3才+3集中。",
+      "boundary": "synthetic_phase_dispatch",
+      "expected_from_reference": {
+        "focus": 0,
+        "review": 3
+      },
+      "observed": {
+        "focus": 0.0,
+        "review": 3.0
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "body_condition_before_cost",
+      "rules": [
+        "R04"
+      ],
+      "reference_evidence": "E2",
+      "synthetic_setup": "やる気6；卡费3やる気；卡内条件やる気>=6时得分8。",
+      "boundary": "public_content_action",
+      "expected_from_reference": {
+        "score": 8,
+        "motivation": 3
+      },
+      "observed": {
+        "score": 8.0,
+        "motivation": 3.0
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "deferred_automatic_play",
+      "rules": [
+        "R09"
+      ],
+      "reference_evidence": "E2",
+      "synthetic_setup": "外层卡先准备自动使用得分8的卡，再+10集中；选择目标后完成外层组。",
+      "boundary": "public_content_action_and_choice",
+      "expected_from_reference": {
+        "score": 18,
+        "focus": 10,
+        "play_count": 2
+      },
+      "observed": {
+        "score": 18.0,
+        "focus": 10.0,
+        "play_count": 2
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "automatic_play_failed_card_condition",
+      "rules": [
+        "R10"
+      ],
+      "reference_evidence": "E2",
+      "synthetic_setup": "やる気0；自动使用要求やる気>=6的得分8卡；次数应计入但卡身失效。",
+      "boundary": "public_content_action_and_choice",
+      "expected_from_reference": {
+        "score": 0,
+        "play_count": 2
+      },
+      "observed": {
+        "score": 0.0,
+        "play_count": 2
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "focus_strength_score",
+      "rules": [
+        "R18"
+      ],
+      "reference_evidence": "E1_semantic_distinction; mixed_rounding_U",
+      "synthetic_setup": "集中10、集中强化20%、基础得分6，其余倍率1，无热意。",
+      "boundary": "runtime_handler",
+      "expected_from_reference": {
+        "score": 18
+      },
+      "observed": {
+        "score": 18.0
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "focus_strength_not_gain_boost",
+      "rules": [
+        "R18"
+      ],
+      "reference_evidence": "E1_semantic_distinction; mixed_rounding_U",
+      "synthetic_setup": "集中强化20%后，直接获得集中10。",
+      "boundary": "runtime_handler",
+      "expected_from_reference": {
+        "focus": 10
+      },
+      "observed": {
+        "focus": 10.0
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "review_strength_payout",
+      "rules": [
+        "R19"
+      ],
+      "reference_evidence": "E1",
+      "synthetic_setup": "好印象10、好印象强化10%、其余倍率1、集中和热意0；只求自然结算值。",
+      "boundary": "runtime_handler",
+      "expected_from_reference": {
+        "payout": 11
+      },
+      "observed": {
+        "payout": 11.0
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "review_strength_not_gain_boost",
+      "rules": [
+        "R19"
+      ],
+      "reference_evidence": "E1",
+      "synthetic_setup": "好印象强化10%后，直接获得好印象10。",
+      "boundary": "runtime_handler",
+      "expected_from_reference": {
+        "review": 10
+      },
+      "observed": {
+        "review": 10.0
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "end_effect_before_review_payout",
+      "rules": [
+        "R02",
+        "R19"
+      ],
+      "reference_evidence": "E2",
+      "synthetic_setup": "好印象2，回合结束被动+3好印象，然后自然结算；只记录本次得分。",
+      "boundary": "synthetic_turn_end",
+      "expected_from_reference": {
+        "score": 5
+      },
+      "observed": {
+        "score": 5.0
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "skip_recovery_restriction",
+      "rules": [
+        "section_2.5"
+      ],
+      "reference_evidence": "E2",
+      "synthetic_setup": "体力20/30、回复无效；跳过回合，当前配置跳过回复量=2。",
+      "boundary": "synthetic_turn_end",
+      "expected_from_reference": {
+        "stamina": 20
+      },
+      "observed": {
+        "stamina": 20
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "debuff_recover_one_kind",
+      "rules": [
+        "section_2.5"
+      ],
+      "reference_evidence": "E2",
+      "synthetic_setup": "先元気无效，后体力回复无效；应用主数据1种解除 e_effect-exam_debuff_recover-0001。",
+      "boundary": "runtime_handler",
+      "expected_from_reference": {
+        "block_restriction": true,
+        "recovery_restriction": false
+      },
+      "observed": {
+        "block_restriction": true,
+        "recovery_restriction": false
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "encore_after_exhaustion",
+      "rules": [
+        "R08"
+      ],
+      "reference_evidence": "registration_principle_official; instance_details_E2",
+      "synthetic_setup": "同一卡UID注册1次再演，实际触发消耗完，随后同一UID再次执行再演注册效果。",
+      "boundary": "synthetic_encore_handler_lifecycle",
+      "expected_from_reference": {
+        "after_consumption": 0,
+        "after_second_registration": 0
+      },
+      "observed": {
+        "after_consumption": 0,
+        "after_second_registration": 0
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "fresh_extra_action_carry",
+      "rules": [
+        "R15"
+      ],
+      "reference_evidence": "E1",
+      "synthetic_setup": "单次基础出牌窗口；+1出牌数卡追加发动1次，使用后剩2窗口，立即skip；参考玩家相同拓扑实测应有1追加窗口带入下回合。",
+      "boundary": "public_content_actions_with_synthetic_repeat",
+      "expected_from_reference": {
+        "remaining_before_skip": 2,
+        "next_turn_remaining": 2
+      },
+      "observed": {
+        "remaining_before_skip": 2,
+        "next_turn_remaining": 2
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "ordered_multiple_block_gains",
+      "rules": [
+        "R05"
+      ],
+      "reference_evidence": "E2; motivation_example_cross_supported",
+      "synthetic_setup": "やる気10；元気3两次 vs 元気6一次。",
+      "boundary": "runtime_handler",
+      "expected_from_reference": {
+        "split": 26,
+        "merged": 16
+      },
+      "observed": {
+        "split": 26.0,
+        "merged": 16.0
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "fixed_block_bypasses_motivation_and_restriction",
+      "rules": [
+        "R12"
+      ],
+      "reference_evidence": "E1",
+      "synthetic_setup": "やる気10、元気无效；先普通元気3，再固定元気3。",
+      "boundary": "runtime_handler",
+      "expected_from_reference": {
+        "normal": 0,
+        "after_fixed": 3
+      },
+      "observed": {
+        "normal": 0.0,
+        "after_fixed": 3.0
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "repeat_whole_sequence_one_play",
+      "rules": [
+        "R07"
+      ],
+      "reference_evidence": "E1",
+      "synthetic_setup": "卡效果依次+3集中、得分8；追加发动1次，应A,B,A,B，得分11+14，只计1次使用。",
+      "boundary": "public_content_action_with_synthetic_repeat",
+      "expected_from_reference": {
+        "score": 25,
+        "focus": 6,
+        "play_count": 1
+      },
+      "observed": {
+        "score": 25.0,
+        "focus": 6.0,
+        "play_count": 1
+      },
+      "result": "matches_reference"
+    },
+    {
+      "id": "stance_strength_additive",
+      "rules": [
+        "R17"
+      ],
+      "reference_evidence": "E2",
+      "synthetic_setup": "使用当前主数据：強気2基础2.5+强化1.2；全力基础3+强化1。",
+      "boundary": "scoring_function",
+      "expected_from_reference": {
+        "concentration_permil": 3700,
+        "full_power_permil": 4000
+      },
+      "observed": {
+        "concentration_permil": 3700,
+        "full_power_permil": 4000
+      },
+      "result": "matches_reference"
+    }
+  ],
+  "counts": {
+    "matches_reference": 17,
+    "diverges_from_reference": 0
+  },
+  "scope_note": "Purposive diagnostic cases, not a representative sample or percentage of fidelity. Compare with the preserved pre-alignment audit JSON."
+}

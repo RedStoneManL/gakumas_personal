@@ -1,0 +1,79 @@
+{
+  "namespace": "rule_demo",
+  "revision": "2026-09-08-1",
+  "synthetic": true,
+  "effects": [
+    {
+      "id": "rule_demo/focus3",
+      "operation": "concentration",
+      "arguments": {
+        "amount": 3
+      }
+    },
+    {
+      "id": "rule_demo/score8",
+      "operation": "score",
+      "arguments": {
+        "amount": 8
+      }
+    }
+  ],
+  "triggers": [
+    {
+      "id": "rule_demo/after_start",
+      "phase": "turn_start_after"
+    },
+    {
+      "id": "rule_demo/gated",
+      "phase": "turn_start_after",
+      "field": "ProduceExamFieldStatusType_LessonBuffUp",
+      "value": 3
+    }
+  ],
+  "passives": [
+    {
+      "id": "rule_demo/first",
+      "trigger": "rule_demo/after_start",
+      "effects": [
+        "rule_demo/focus3"
+      ]
+    },
+    {
+      "id": "rule_demo/second",
+      "trigger": "rule_demo/gated",
+      "effects": [
+        "rule_demo/score8"
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "id": "rule_demo/idle"
+    }
+  ],
+  "auditions": [
+    {
+      "id": "rule_demo/exam",
+      "turns": 2,
+      "clear_score": 1000,
+      "weights": [
+        1,
+        0,
+        0
+      ],
+      "colors": [
+        "vocal",
+        "vocal"
+      ],
+      "deck": [
+        {
+          "card": "rule_demo/idle"
+        }
+      ],
+      "passives": [
+        "rule_demo/second",
+        "rule_demo/first"
+      ]
+    }
+  ]
+}

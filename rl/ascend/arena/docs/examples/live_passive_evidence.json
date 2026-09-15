@@ -1,0 +1,561 @@
+{
+  "artifact_type": "historical_passive_fragments",
+  "synthetic": false,
+  "ready_for_engine_initialization": false,
+  "current_equipment_verified": false,
+  "masterdata_revision": "571dbb62601e78998cddeacdbce3ea1bc672d7fc",
+  "sources": [
+    {
+      "path": "third_party/MaaGakumasu-hif-dev/tests/fixtures/hif/fresh_first_exam_initial_status.json",
+      "sha256": "089e2c6980d3bcab34336909a2c2a9ccde11cb2d10066acdcaddb2e228b63e20",
+      "snippets": [
+        {
+          "pointer": "/pages/0/words/0/text",
+          "text": "成功への道筋使用後、"
+        },
+        {
+          "pointer": "/pages/0/words/1/text",
+          "text": "集中が1増加するごとに、スコア上昇量を1増加"
+        },
+        {
+          "pointer": "/pages/0/words/2/text",
+          "text": "気を除外に移動1回"
+        },
+        {
+          "pointer": "/pages/0/words/3/text",
+          "text": "+1・スキルカードを引く1回"
+        },
+        {
+          "pointer": "/pages/0/words/4/text",
+          "text": "シュプレヒコール使用後、ランダムな山札か捨札の眠"
+        },
+        {
+          "pointer": "/pages/0/words/5/text",
+          "text": "静かな意志+"
+        },
+        {
+          "pointer": "/pages/0/words/6/text",
+          "text": "集中"
+        },
+        {
+          "pointer": "/pages/0/words/7/text",
+          "text": "1回"
+        },
+        {
+          "pointer": "/pages/0/words/8/text",
+          "text": "1回"
+        },
+        {
+          "pointer": "/pages/0/words/9/text",
+          "text": "0"
+        },
+        {
+          "pointer": "/pages/0/words/10/text",
+          "text": "1回"
+        },
+        {
+          "pointer": "/pages/0/words/11/text",
+          "text": "メモリーアビリティ"
+        },
+        {
+          "pointer": "/pages/0/words/12/text",
+          "text": "メモリーアビリティ"
+        },
+        {
+          "pointer": "/pages/0/words/13/text",
+          "text": "メモリーアビリティ"
+        },
+        {
+          "pointer": "/pages/0/words/14/text",
+          "text": "おすすめ効果"
+        },
+        {
+          "pointer": "/pages/0/words/15/text",
+          "text": "シュプレヒコール+"
+        },
+        {
+          "pointer": "/pages/0/words/16/text",
+          "text": "X"
+        },
+        {
+          "pointer": "/pages/0/words/17/text",
+          "text": "スキルカード使用数追加"
+        },
+        {
+          "pointer": "/pages/0/words/18/text",
+          "text": "パフォーマンスの基本"
+        },
+        {
+          "pointer": "/pages/1/words/0/text",
+          "text": "成功への道筋使用後、"
+        },
+        {
+          "pointer": "/pages/1/words/1/text",
+          "text": "精神統一使用後、ランダムな山札か捨札の眠気を除外"
+        },
+        {
+          "pointer": "/pages/1/words/2/text",
+          "text": "集中が1増加するごとに、スコア上昇量を1増加"
+        },
+        {
+          "pointer": "/pages/1/words/3/text",
+          "text": "に移動1回"
+        },
+        {
+          "pointer": "/pages/1/words/4/text",
+          "text": "シュプレヒコール使用後、ランダムな山札か捨札の眠"
+        },
+        {
+          "pointer": "/pages/1/words/5/text",
+          "text": "気を除外に移動1回"
+        },
+        {
+          "pointer": "/pages/1/words/6/text",
+          "text": "+1・スキルカードを引く1回"
+        },
+        {
+          "pointer": "/pages/1/words/7/text",
+          "text": "静かな意志+"
+        },
+        {
+          "pointer": "/pages/1/words/8/text",
+          "text": "1回"
+        },
+        {
+          "pointer": "/pages/1/words/9/text",
+          "text": "1回"
+        },
+        {
+          "pointer": "/pages/1/words/10/text",
+          "text": "1回"
+        },
+        {
+          "pointer": "/pages/1/words/11/text",
+          "text": "メモリーアビリティ"
+        },
+        {
+          "pointer": "/pages/1/words/12/text",
+          "text": "メモリーアビリティ"
+        },
+        {
+          "pointer": "/pages/1/words/13/text",
+          "text": "メモリーアビリティ"
+        },
+        {
+          "pointer": "/pages/1/words/14/text",
+          "text": "シュプレヒコール+"
+        },
+        {
+          "pointer": "/pages/1/words/15/text",
+          "text": "X"
+        },
+        {
+          "pointer": "/pages/1/words/16/text",
+          "text": "スキルカード使用数追加"
+        },
+        {
+          "pointer": "/pages/1/words/17/text",
+          "text": "自"
+        },
+        {
+          "pointer": "/pages/1/words/18/text",
+          "text": "パフォーマンスの基本"
+        }
+      ]
+    },
+    {
+      "path": "third_party/MaaGakumasu-hif-dev/tests/fixtures/hif/selection1_full_status.json",
+      "sha256": "08a88a84de492c479cf7cc3368208abebf3c1a6d477cf9ace41cb66dc3fad137",
+      "snippets": [
+        {
+          "pointer": "/pages/0/words/0/text",
+          "text": "M"
+        },
+        {
+          "pointer": "/pages/0/words/1/text",
+          "text": "気を除外に移動1回"
+        },
+        {
+          "pointer": "/pages/0/words/2/text",
+          "text": "成功への道筋使用後、"
+        },
+        {
+          "pointer": "/pages/0/words/3/text",
+          "text": "+1・スキルカードを引く1回"
+        },
+        {
+          "pointer": "/pages/0/words/4/text",
+          "text": "スコア上昇量を31増加"
+        },
+        {
+          "pointer": "/pages/0/words/5/text",
+          "text": "シュプレヒコール使用後、ランダムな山札か捨札の眠"
+        },
+        {
+          "pointer": "/pages/0/words/6/text",
+          "text": "深呼吸++"
+        },
+        {
+          "pointer": "/pages/0/words/7/text",
+          "text": "31"
+        },
+        {
+          "pointer": "/pages/0/words/8/text",
+          "text": "集中"
+        },
+        {
+          "pointer": "/pages/0/words/9/text",
+          "text": "1回"
+        },
+        {
+          "pointer": "/pages/0/words/10/text",
+          "text": "1回"
+        },
+        {
+          "pointer": "/pages/0/words/11/text",
+          "text": "1回"
+        },
+        {
+          "pointer": "/pages/0/words/12/text",
+          "text": "メモリーアビリティ"
+        },
+        {
+          "pointer": "/pages/0/words/13/text",
+          "text": "メモリーアビリティ"
+        },
+        {
+          "pointer": "/pages/0/words/14/text",
+          "text": "メモリーアビリティ"
+        },
+        {
+          "pointer": "/pages/0/words/15/text",
+          "text": "タイミングの基本奥義、受け流し！"
+        },
+        {
+          "pointer": "/pages/0/words/16/text",
+          "text": "おすすめ効果"
+        },
+        {
+          "pointer": "/pages/0/words/17/text",
+          "text": "1-1J"
+        },
+        {
+          "pointer": "/pages/0/words/18/text",
+          "text": "スキルカード使用数追加"
+        },
+        {
+          "pointer": "/pages/0/words/19/text",
+          "text": "0671"
+        },
+        {
+          "pointer": "/pages/0/words/20/text",
+          "text": "思考の基本"
+        },
+        {
+          "pointer": "/pages/1/words/0/text",
+          "text": "含む)"
+        },
+        {
+          "pointer": "/pages/1/words/1/text",
+          "text": "加+1・スキルカードを引く1回"
+        },
+        {
+          "pointer": "/pages/1/words/2/text",
+          "text": "精神統一使用後、ランダムな山札か捨札の眠気を除外"
+        },
+        {
+          "pointer": "/pages/1/words/3/text",
+          "text": "立ち位置チェック使用後、"
+        },
+        {
+          "pointer": "/pages/1/words/4/text",
+          "text": "に移動1回"
+        },
+        {
+          "pointer": "/pages/1/words/5/text",
+          "text": "スコア上昇量を10％増加（"
+        },
+        {
+          "pointer": "/pages/1/words/6/text",
+          "text": "r"
+        },
+        {
+          "pointer": "/pages/1/words/7/text",
+          "text": "深呼吸++"
+        },
+        {
+          "pointer": "/pages/1/words/8/text",
+          "text": "M"
+        },
+        {
+          "pointer": "/pages/1/words/9/text",
+          "text": "1回"
+        },
+        {
+          "pointer": "/pages/1/words/10/text",
+          "text": "10%1ターン"
+        },
+        {
+          "pointer": "/pages/1/words/11/text",
+          "text": "パラメータ上昇量増加"
+        },
+        {
+          "pointer": "/pages/1/words/12/text",
+          "text": "1ターン"
+        },
+        {
+          "pointer": "/pages/1/words/13/text",
+          "text": "1回"
+        },
+        {
+          "pointer": "/pages/1/words/14/text",
+          "text": "メモリーアビリティ"
+        },
+        {
+          "pointer": "/pages/1/words/15/text",
+          "text": "センブリソーダ"
+        },
+        {
+          "pointer": "/pages/1/words/16/text",
+          "text": "タイミングの基本奥義、受け流し！"
+        },
+        {
+          "pointer": "/pages/1/words/17/text",
+          "text": "1-1J"
+        },
+        {
+          "pointer": "/pages/1/words/18/text",
+          "text": "X"
+        },
+        {
+          "pointer": "/pages/1/words/19/text",
+          "text": "0671"
+        },
+        {
+          "pointer": "/pages/1/words/20/text",
+          "text": "スキルカード使用数追"
+        },
+        {
+          "pointer": "/pages/1/words/21/text",
+          "text": "好印象による上昇も"
+        },
+        {
+          "pointer": "/pages/1/words/22/text",
+          "text": "V"
+        },
+        {
+          "pointer": "/pages/1/words/23/text",
+          "text": "思考の基本"
+        },
+        {
+          "pointer": "/pages/2/words/0/text",
+          "text": "含む)"
+        },
+        {
+          "pointer": "/pages/2/words/1/text",
+          "text": "スコア上昇量を10％増加（"
+        },
+        {
+          "pointer": "/pages/2/words/2/text",
+          "text": "ターン開始後、スキルカードを引く1ターン"
+        },
+        {
+          "pointer": "/pages/2/words/3/text",
+          "text": "スコア上昇量を50%増加3ターン"
+        },
+        {
+          "pointer": "/pages/2/words/4/text",
+          "text": "深呼吸++"
+        },
+        {
+          "pointer": "/pages/2/words/5/text",
+          "text": "M"
+        },
+        {
+          "pointer": "/pages/2/words/6/text",
+          "text": "アクティブスキルカード使用時、"
+        },
+        {
+          "pointer": "/pages/2/words/7/text",
+          "text": "好調"
+        },
+        {
+          "pointer": "/pages/2/words/8/text",
+          "text": "3ターン"
+        },
+        {
+          "pointer": "/pages/2/words/9/text",
+          "text": "10%1ターン"
+        },
+        {
+          "pointer": "/pages/2/words/10/text",
+          "text": "センブリソーダ"
+        },
+        {
+          "pointer": "/pages/2/words/11/text",
+          "text": "1ターン"
+        },
+        {
+          "pointer": "/pages/2/words/12/text",
+          "text": "願いの力+"
+        },
+        {
+          "pointer": "/pages/2/words/13/text",
+          "text": "タイミングの基本奥義、受け流し！"
+        },
+        {
+          "pointer": "/pages/2/words/14/text",
+          "text": "1-1J"
+        },
+        {
+          "pointer": "/pages/2/words/15/text",
+          "text": "0671"
+        },
+        {
+          "pointer": "/pages/2/words/16/text",
+          "text": "好印象による上昇も"
+        },
+        {
+          "pointer": "/pages/2/words/17/text",
+          "text": "V"
+        },
+        {
+          "pointer": "/pages/2/words/18/text",
+          "text": "集中+1"
+        },
+        {
+          "pointer": "/pages/2/words/19/text",
+          "text": "思考の基本"
+        }
+      ]
+    },
+    {
+      "path": "third_party/MaaGakumasu-hif-dev/tests/fixtures/hif/selected_memory_abilities.json",
+      "sha256": "87a3da9efbbb77adae69c953e5f388bf1433e62e49ce101033c84eb03c4140e9",
+      "snippets": [
+        {
+          "pointer": "/memory_details/5/top/11/text",
+          "text": "スキルカード使用後2回ごとに、パラメータ"
+        },
+        {
+          "pointer": "/memory_details/5/top/12/text",
+          "text": "以降、"
+        },
+        {
+          "pointer": "/memory_details/5/top/15/text",
+          "text": "試験ごとに、以降1回まで、シュプレヒ"
+        },
+        {
+          "pointer": "/memory_details/5/top/16/text",
+          "text": "コール使用後、ランダムな山札か捨札の"
+        },
+        {
+          "pointer": "/memory_details/5/abilities/10/text",
+          "text": "コール使用後、ランダムな山札か捨札の"
+        },
+        {
+          "pointer": "/memory_details/9/top/16/text",
+          "text": "筋使用後、スキルカード使用数追加"
+        },
+        {
+          "pointer": "/memory_details/9/top/18/text",
+          "text": "試験ごとに、以降1回まで、成功への道"
+        },
+        {
+          "pointer": "/memory_details/9/abilities/11/text",
+          "text": "筋使用後、"
+        },
+        {
+          "pointer": "/memory_details/2/top/16/text",
+          "text": "試験ごとに、以降1回まで、立ち位置"
+        },
+        {
+          "pointer": "/memory_details/2/top/17/text",
+          "text": "チェック使用後、"
+        },
+        {
+          "pointer": "/memory_details/2/abilities/12/text",
+          "text": "チェック使用後、"
+        },
+        {
+          "pointer": "/memory_details/2/abilities/14/text",
+          "text": "試験ごとに、以降1回まで、立ち位置"
+        },
+        {
+          "pointer": "/memory_details/3/top/13/text",
+          "text": "以降の3ターンの間、ターン開始後、スキ"
+        },
+        {
+          "pointer": "/memory_details/3/top/16/text",
+          "text": "試験ごとに、以降1回まで、精神統一使"
+        }
+      ]
+    },
+    {
+      "path": "design/arena-adapter/preparation-evidence.json",
+      "sha256": "d89580bab15e199b25bc330073e0360b2cb3c2b0da9e105ec41bd15566085950",
+      "snippets": [
+        {
+          "pointer": "/raw_evidence/idol_item_text",
+          "text": [
+            "勇気の標",
+            "スキルカード使用時、",
+            "★",
+            "スキルカード使用数追加+1",
+            "(レッスン内1回)",
+            "集中+4",
+            "集中が13以上の場合、"
+          ]
+        },
+        {
+          "pointer": "/selected_memory_evidence_indices",
+          "text": [
+            5,
+            9,
+            12,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "path": "third_party/MaaGakumasu-hif-dev/tests/fixtures/hif/fresh_opening_memory_selection.json",
+      "sha256": "2a6ab814d096ce7bd43aae36d555d6ebe9b7c2925b2a1b2fdf9b02718cf41986",
+      "snippets": [
+        {
+          "pointer": "/selected",
+          "text": [
+            5,
+            9,
+            12,
+            3
+          ]
+        },
+        {
+          "pointer": "/confirmed/20/text",
+          "text": "開始時に獲得"
+        }
+      ]
+    },
+    {
+      "path": "third_party/MaaGakumasu-hif-dev/tests/fixtures/hif/selected_memory_abilities.json",
+      "sha256": "87a3da9efbbb77adae69c953e5f388bf1433e62e49ce101033c84eb03c4140e9",
+      "snippets": [
+        {
+          "pointer": "/selected_memory_detail_indices",
+          "text": [
+            5,
+            9,
+            2,
+            3
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Fragments prove historical states, not a complete executable frame.",
+    "Old memory indices 5/9/2/3 differ from later 5/9/12/3; do not merge runs.",
+    "Catalog candidates and supported semantics are in LIVE_PASSIVE_CONTRACT.md."
+  ]
+}

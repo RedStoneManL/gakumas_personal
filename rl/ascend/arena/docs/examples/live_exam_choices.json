@@ -1,0 +1,1669 @@
+{
+  "synthetic": true,
+  "initial": {
+    "synthetic": true,
+    "setup": {
+      "contract_version": "arena-live/1",
+      "run_id": "synthetic-run",
+      "scenario_id": "produce-007",
+      "adapter_version": "synthetic/1",
+      "game_version": null,
+      "masterdata_revision": "571dbb62601e78998cddeacdbce3ea1bc672d7fc",
+      "rules_revision": "arena-rules/2",
+      "checkpoint_mode": "after_initial_effects",
+      "loadout": {
+        "idol_card_id": "i_card-ttmr-3-000",
+        "producer_level": null,
+        "idol_rank": null,
+        "dearness_level": null,
+        "potential_level": null,
+        "prima_stella_level": null,
+        "use_after_item": null,
+        "supports": [],
+        "supports_complete": false,
+        "memories": [],
+        "memories_complete": false
+      },
+      "execution_constraints": {}
+    },
+    "observation": {
+      "contract_version": "arena-live/1",
+      "run_id": "synthetic-run",
+      "observation_id": "synthetic-obs-0",
+      "revision": 0,
+      "captured_at": "synthetic:0",
+      "page": "exam",
+      "stability": "stable",
+      "terminal": false,
+      "event_watermark": 0,
+      "facts": {
+        "exam_id": {
+          "value": "synthetic-exam-1",
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "exam_stage_type": {
+          "value": "ProduceStepType_AuditionMid1",
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "turn": {
+          "value": 1,
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "max_turns": {
+          "value": 8,
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "extra_turns": {
+          "value": 0,
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "plays_used": {
+          "value": 0,
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "plays_remaining": {
+          "value": 1,
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "stamina": {
+          "value": 20,
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "max_stamina": {
+          "value": 30,
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "block": {
+          "value": 0,
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "lesson_buff": {
+          "value": 1,
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "parameter_buff": {
+          "value": 0,
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "parameter_buff_multiple_per_turn": {
+          "value": 0,
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "current_turn_color": {
+          "value": "vocal",
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "exam_effects": {
+          "value": [],
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "exam_enchants": {
+          "value": [],
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "forbidden_card_search_ids": {
+          "value": [],
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        },
+        "exam_card_state": {
+          "value": {
+            "synthetic-card-a": {
+              "grow_effect_ids": [],
+              "transient_effect_ids": [],
+              "transient_trigger_ids": [],
+              "card_status_enchant_id": "",
+              "play_count_bonus": 0
+            },
+            "synthetic-card-b": {
+              "grow_effect_ids": [],
+              "transient_effect_ids": [],
+              "transient_trigger_ids": [],
+              "card_status_enchant_id": "",
+              "play_count_bonus": 0
+            },
+            "synthetic-card-c": {
+              "grow_effect_ids": [],
+              "transient_effect_ids": [],
+              "transient_trigger_ids": [],
+              "card_status_enchant_id": "",
+              "play_count_bonus": 0
+            },
+            "synthetic-card-d": {
+              "grow_effect_ids": [],
+              "transient_effect_ids": [],
+              "transient_trigger_ids": [],
+              "card_status_enchant_id": "",
+              "play_count_bonus": 0
+            }
+          },
+          "status": "observed",
+          "evidence": [
+            "synthetic:checkpoint"
+          ]
+        }
+      },
+      "inventories": {
+        "hand": {
+          "coverage": "complete",
+          "entities": [
+            {
+              "instance_id": "synthetic-card-a",
+              "kind": "card",
+              "definition_id": "p_card-01-act-2_001",
+              "upgrade_count": 1,
+              "customize_ids": [],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:card-detail"
+              ]
+            },
+            {
+              "instance_id": "synthetic-card-b",
+              "kind": "card",
+              "definition_id": "p_card-01-act-2_001",
+              "upgrade_count": 1,
+              "customize_ids": [
+                "p_card_custom-040-g_effect-cost_lesson_buff_reduce-1"
+              ],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:card-detail"
+              ]
+            }
+          ]
+        },
+        "deck": {
+          "coverage": "complete",
+          "entities": [
+            {
+              "instance_id": "synthetic-card-c",
+              "kind": "card",
+              "definition_id": "p_card-01-act-2_001",
+              "upgrade_count": 1,
+              "customize_ids": [],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:card-detail"
+              ]
+            },
+            {
+              "instance_id": "synthetic-card-d",
+              "kind": "card",
+              "definition_id": "p_card-01-act-2_001",
+              "upgrade_count": 1,
+              "customize_ids": [],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:card-detail"
+              ]
+            }
+          ]
+        },
+        "discard": {
+          "coverage": "complete",
+          "entities": []
+        },
+        "drinks": {
+          "coverage": "complete",
+          "entities": [
+            {
+              "kind": "drink",
+              "definition_id": "pdrink_01-3-012",
+              "instance_id": "synthetic-drink-1",
+              "evidence": [
+                "synthetic:drink-detail"
+              ]
+            }
+          ]
+        }
+      },
+      "pending_decision": {
+        "decision_id": "synthetic-decision-0",
+        "kind": "exam",
+        "coverage": "complete",
+        "choices": [
+          {
+            "choice_id": "play-a",
+            "action_type": "card",
+            "targets": [
+              {
+                "instance_id": "synthetic-card-a",
+                "kind": "card",
+                "definition_id": "p_card-01-act-2_001",
+                "upgrade_count": 1,
+                "customize_ids": [],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:card-detail"
+                ]
+              }
+            ],
+            "parameters": {},
+            "ui_enabled": true,
+            "label": "",
+            "evidence": []
+          },
+          {
+            "choice_id": "play-b",
+            "action_type": "card",
+            "targets": [
+              {
+                "instance_id": "synthetic-card-b",
+                "kind": "card",
+                "definition_id": "p_card-01-act-2_001",
+                "upgrade_count": 1,
+                "customize_ids": [
+                  "p_card_custom-040-g_effect-cost_lesson_buff_reduce-1"
+                ],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:card-detail"
+                ]
+              }
+            ],
+            "ui_enabled": true
+          },
+          {
+            "choice_id": "end",
+            "action_type": "end_turn",
+            "targets": [],
+            "parameters": {},
+            "ui_enabled": true,
+            "label": "",
+            "evidence": []
+          },
+          {
+            "choice_id": "use-drink",
+            "action_type": "drink",
+            "targets": [
+              {
+                "kind": "drink",
+                "definition_id": "pdrink_01-3-012",
+                "instance_id": "synthetic-drink-1",
+                "evidence": [
+                  "synthetic:drink-detail"
+                ]
+              }
+            ],
+            "ui_enabled": true
+          }
+        ]
+      },
+      "conflicts": []
+    }
+  },
+  "transitions": [
+    {
+      "command": {
+        "contract_version": "arena-live/1",
+        "command_id": "synthetic-choice-command-1",
+        "run_id": "synthetic-run",
+        "observation_id": "synthetic-obs-0",
+        "revision": 0,
+        "decision_id": "synthetic-decision-0",
+        "choice": {
+          "choice_id": "use-drink",
+          "action_type": "drink",
+          "targets": [
+            {
+              "instance_id": "synthetic-drink-1",
+              "kind": "drink",
+              "definition_id": "pdrink_01-3-012",
+              "upgrade_count": null,
+              "customize_ids": null,
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:drink-detail"
+              ]
+            }
+          ],
+          "parameters": {},
+          "ui_enabled": true,
+          "label": "",
+          "evidence": []
+        }
+      },
+      "result": {
+        "contract_version": "arena-live/1",
+        "result_id": "synthetic-drink-result",
+        "run_id": "synthetic-run",
+        "command_id": "synthetic-choice-command-1",
+        "observation_id": "synthetic-obs-0",
+        "revision": 0,
+        "outcome": "confirmed",
+        "evidence": [
+          "synthetic:actual-result"
+        ]
+      },
+      "next_observation": {
+        "contract_version": "arena-live/1",
+        "run_id": "synthetic-run",
+        "observation_id": "synthetic-obs-1",
+        "revision": 1,
+        "captured_at": "synthetic:1",
+        "page": "exam",
+        "stability": "stable",
+        "terminal": false,
+        "event_watermark": 1,
+        "facts": {
+          "exam_id": {
+            "value": "synthetic-exam-1",
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "exam_stage_type": {
+            "value": "ProduceStepType_AuditionMid1",
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "turn": {
+            "value": 1,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "max_turns": {
+            "value": 8,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "extra_turns": {
+            "value": 0,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "plays_used": {
+            "value": 0,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "plays_remaining": {
+            "value": 1,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "stamina": {
+            "value": 20,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "max_stamina": {
+            "value": 30,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "block": {
+            "value": 0,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "lesson_buff": {
+            "value": 1,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "parameter_buff": {
+            "value": 0,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "parameter_buff_multiple_per_turn": {
+            "value": 0,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "current_turn_color": {
+            "value": "vocal",
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "exam_effects": {
+            "value": [],
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "exam_enchants": {
+            "value": [],
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "forbidden_card_search_ids": {
+            "value": [],
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "exam_card_state": {
+            "value": {
+              "synthetic-card-a": {
+                "grow_effect_ids": [],
+                "transient_effect_ids": [],
+                "transient_trigger_ids": [],
+                "card_status_enchant_id": "",
+                "play_count_bonus": 0
+              },
+              "synthetic-card-b": {
+                "grow_effect_ids": [],
+                "transient_effect_ids": [],
+                "transient_trigger_ids": [],
+                "card_status_enchant_id": "",
+                "play_count_bonus": 0
+              },
+              "synthetic-card-c": {
+                "grow_effect_ids": [],
+                "transient_effect_ids": [],
+                "transient_trigger_ids": [],
+                "card_status_enchant_id": "",
+                "play_count_bonus": 0
+              },
+              "synthetic-card-d": {
+                "grow_effect_ids": [],
+                "transient_effect_ids": [],
+                "transient_trigger_ids": [],
+                "card_status_enchant_id": "",
+                "play_count_bonus": 0
+              }
+            },
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "exam_selection": {
+            "status": "observed",
+            "evidence": [
+              "synthetic:search-prompt"
+            ],
+            "value": {
+              "effect_id": "e_effect-exam_card_move-p_card_search-deck_grave-hand-select-1_1"
+            }
+          }
+        },
+        "inventories": {
+          "hand": {
+            "coverage": "complete",
+            "entities": [
+              {
+                "instance_id": "synthetic-card-a",
+                "kind": "card",
+                "definition_id": "p_card-01-act-2_001",
+                "upgrade_count": 1,
+                "customize_ids": [],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:card-detail"
+                ]
+              },
+              {
+                "instance_id": "synthetic-card-b",
+                "kind": "card",
+                "definition_id": "p_card-01-act-2_001",
+                "upgrade_count": 1,
+                "customize_ids": [
+                  "p_card_custom-040-g_effect-cost_lesson_buff_reduce-1"
+                ],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:card-detail"
+                ]
+              }
+            ]
+          },
+          "deck": {
+            "coverage": "complete",
+            "entities": [
+              {
+                "instance_id": "synthetic-card-c",
+                "kind": "card",
+                "definition_id": "p_card-01-act-2_001",
+                "upgrade_count": 1,
+                "customize_ids": [],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:card-detail"
+                ]
+              },
+              {
+                "instance_id": "synthetic-card-d",
+                "kind": "card",
+                "definition_id": "p_card-01-act-2_001",
+                "upgrade_count": 1,
+                "customize_ids": [],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:card-detail"
+                ]
+              }
+            ]
+          },
+          "discard": {
+            "coverage": "complete",
+            "entities": []
+          },
+          "drinks": {
+            "coverage": "complete",
+            "entities": []
+          }
+        },
+        "pending_decision": {
+          "decision_id": "synthetic-decision-1",
+          "kind": "search",
+          "coverage": "complete",
+          "choices": [
+            {
+              "choice_id": "select-c",
+              "action_type": "card_select",
+              "targets": [
+                {
+                  "instance_id": "synthetic-card-c",
+                  "kind": "card",
+                  "definition_id": "p_card-01-act-2_001",
+                  "upgrade_count": 1,
+                  "customize_ids": [],
+                  "variant_fingerprint": null,
+                  "label": "",
+                  "evidence": [
+                    "synthetic:card-detail"
+                  ]
+                }
+              ],
+              "ui_enabled": true
+            },
+            {
+              "choice_id": "select-d",
+              "action_type": "card_select",
+              "targets": [
+                {
+                  "instance_id": "synthetic-card-d",
+                  "kind": "card",
+                  "definition_id": "p_card-01-act-2_001",
+                  "upgrade_count": 1,
+                  "customize_ids": [],
+                  "variant_fingerprint": null,
+                  "label": "",
+                  "evidence": [
+                    "synthetic:card-detail"
+                  ]
+                }
+              ],
+              "ui_enabled": true
+            }
+          ]
+        },
+        "conflicts": []
+      }
+    },
+    {
+      "command": {
+        "contract_version": "arena-live/1",
+        "command_id": "synthetic-choice-command-2",
+        "run_id": "synthetic-run",
+        "observation_id": "synthetic-obs-1",
+        "revision": 1,
+        "decision_id": "synthetic-decision-1",
+        "choice": {
+          "choice_id": "select-c",
+          "action_type": "card_select",
+          "targets": [
+            {
+              "instance_id": "synthetic-card-c",
+              "kind": "card",
+              "definition_id": "p_card-01-act-2_001",
+              "upgrade_count": 1,
+              "customize_ids": [],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:card-detail"
+              ]
+            }
+          ],
+          "parameters": {},
+          "ui_enabled": true,
+          "label": "",
+          "evidence": []
+        }
+      },
+      "result": {
+        "contract_version": "arena-live/1",
+        "result_id": "synthetic-search-result",
+        "run_id": "synthetic-run",
+        "command_id": "synthetic-choice-command-2",
+        "observation_id": "synthetic-obs-1",
+        "revision": 1,
+        "outcome": "confirmed",
+        "evidence": [
+          "synthetic:actual-result"
+        ]
+      },
+      "next_observation": {
+        "contract_version": "arena-live/1",
+        "run_id": "synthetic-run",
+        "observation_id": "synthetic-obs-2",
+        "revision": 2,
+        "captured_at": "synthetic:2",
+        "page": "exam",
+        "stability": "stable",
+        "terminal": false,
+        "event_watermark": 2,
+        "facts": {
+          "exam_id": {
+            "value": "synthetic-exam-1",
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "exam_stage_type": {
+            "value": "ProduceStepType_AuditionMid1",
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "turn": {
+            "value": 1,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "max_turns": {
+            "value": 8,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "extra_turns": {
+            "value": 0,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "plays_used": {
+            "value": 0,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "plays_remaining": {
+            "value": 1,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "stamina": {
+            "value": 20,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "max_stamina": {
+            "value": 30,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "block": {
+            "value": 0,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "lesson_buff": {
+            "value": 1,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "parameter_buff": {
+            "value": 0,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "parameter_buff_multiple_per_turn": {
+            "value": 0,
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "current_turn_color": {
+            "value": "vocal",
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "exam_effects": {
+            "value": [],
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "exam_enchants": {
+            "value": [],
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "forbidden_card_search_ids": {
+            "value": [],
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          },
+          "exam_card_state": {
+            "value": {
+              "synthetic-card-a": {
+                "grow_effect_ids": [],
+                "transient_effect_ids": [],
+                "transient_trigger_ids": [],
+                "card_status_enchant_id": "",
+                "play_count_bonus": 0
+              },
+              "synthetic-card-b": {
+                "grow_effect_ids": [],
+                "transient_effect_ids": [],
+                "transient_trigger_ids": [],
+                "card_status_enchant_id": "",
+                "play_count_bonus": 0
+              },
+              "synthetic-card-c": {
+                "grow_effect_ids": [],
+                "transient_effect_ids": [],
+                "transient_trigger_ids": [],
+                "card_status_enchant_id": "",
+                "play_count_bonus": 0
+              },
+              "synthetic-card-d": {
+                "grow_effect_ids": [],
+                "transient_effect_ids": [],
+                "transient_trigger_ids": [],
+                "card_status_enchant_id": "",
+                "play_count_bonus": 0
+              }
+            },
+            "status": "observed",
+            "evidence": [
+              "synthetic:checkpoint"
+            ]
+          }
+        },
+        "inventories": {
+          "hand": {
+            "coverage": "complete",
+            "entities": [
+              {
+                "instance_id": "synthetic-card-a",
+                "kind": "card",
+                "definition_id": "p_card-01-act-2_001",
+                "upgrade_count": 1,
+                "customize_ids": [],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:card-detail"
+                ]
+              },
+              {
+                "instance_id": "synthetic-card-b",
+                "kind": "card",
+                "definition_id": "p_card-01-act-2_001",
+                "upgrade_count": 1,
+                "customize_ids": [
+                  "p_card_custom-040-g_effect-cost_lesson_buff_reduce-1"
+                ],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:card-detail"
+                ]
+              },
+              {
+                "instance_id": "synthetic-card-c",
+                "kind": "card",
+                "definition_id": "p_card-01-act-2_001",
+                "upgrade_count": 1,
+                "customize_ids": [],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:card-detail"
+                ]
+              }
+            ]
+          },
+          "deck": {
+            "coverage": "complete",
+            "entities": [
+              {
+                "instance_id": "synthetic-card-d",
+                "kind": "card",
+                "definition_id": "p_card-01-act-2_001",
+                "upgrade_count": 1,
+                "customize_ids": [],
+                "variant_fingerprint": null,
+                "label": "",
+                "evidence": [
+                  "synthetic:card-detail"
+                ]
+              }
+            ]
+          },
+          "discard": {
+            "coverage": "complete",
+            "entities": []
+          },
+          "drinks": {
+            "coverage": "complete",
+            "entities": []
+          }
+        },
+        "pending_decision": {
+          "decision_id": "synthetic-decision-2",
+          "kind": "exam",
+          "coverage": "complete",
+          "choices": [
+            {
+              "choice_id": "play-a",
+              "action_type": "card",
+              "targets": [
+                {
+                  "instance_id": "synthetic-card-a",
+                  "kind": "card",
+                  "definition_id": "p_card-01-act-2_001",
+                  "upgrade_count": 1,
+                  "customize_ids": [],
+                  "variant_fingerprint": null,
+                  "label": "",
+                  "evidence": [
+                    "synthetic:card-detail"
+                  ]
+                }
+              ],
+              "parameters": {},
+              "ui_enabled": true,
+              "label": "",
+              "evidence": []
+            },
+            {
+              "choice_id": "play-b",
+              "action_type": "card",
+              "targets": [
+                {
+                  "instance_id": "synthetic-card-b",
+                  "kind": "card",
+                  "definition_id": "p_card-01-act-2_001",
+                  "upgrade_count": 1,
+                  "customize_ids": [
+                    "p_card_custom-040-g_effect-cost_lesson_buff_reduce-1"
+                  ],
+                  "variant_fingerprint": null,
+                  "label": "",
+                  "evidence": [
+                    "synthetic:card-detail"
+                  ]
+                }
+              ],
+              "ui_enabled": true
+            },
+            {
+              "choice_id": "play-c",
+              "action_type": "card",
+              "targets": [
+                {
+                  "instance_id": "synthetic-card-c",
+                  "kind": "card",
+                  "definition_id": "p_card-01-act-2_001",
+                  "upgrade_count": 1,
+                  "customize_ids": [],
+                  "variant_fingerprint": null,
+                  "label": "",
+                  "evidence": [
+                    "synthetic:card-detail"
+                  ]
+                }
+              ],
+              "ui_enabled": true
+            },
+            {
+              "choice_id": "end",
+              "action_type": "end_turn",
+              "targets": [],
+              "parameters": {},
+              "ui_enabled": true,
+              "label": "",
+              "evidence": []
+            }
+          ]
+        },
+        "conflicts": []
+      }
+    }
+  ],
+  "discard_observation": {
+    "contract_version": "arena-live/1",
+    "run_id": "synthetic-run",
+    "observation_id": "synthetic-obs-0",
+    "revision": 0,
+    "captured_at": "synthetic:0",
+    "page": "exam",
+    "stability": "stable",
+    "terminal": false,
+    "event_watermark": 0,
+    "facts": {
+      "exam_id": {
+        "value": "synthetic-exam-1",
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_stage_type": {
+        "value": "ProduceStepType_AuditionMid1",
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "turn": {
+        "value": 1,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "max_turns": {
+        "value": 8,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "extra_turns": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "plays_used": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "plays_remaining": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "stamina": {
+        "value": 20,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "max_stamina": {
+        "value": 30,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "block": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "lesson_buff": {
+        "value": 1,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "parameter_buff": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "parameter_buff_multiple_per_turn": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "current_turn_color": {
+        "value": "vocal",
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_effects": {
+        "value": [],
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_enchants": {
+        "value": [],
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "forbidden_card_search_ids": {
+        "value": [],
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_card_state": {
+        "value": {
+          "synthetic-card-a": {
+            "grow_effect_ids": [],
+            "transient_effect_ids": [],
+            "transient_trigger_ids": [],
+            "card_status_enchant_id": "",
+            "play_count_bonus": 0
+          },
+          "synthetic-card-b": {
+            "grow_effect_ids": [],
+            "transient_effect_ids": [],
+            "transient_trigger_ids": [],
+            "card_status_enchant_id": "",
+            "play_count_bonus": 0
+          },
+          "synthetic-card-c": {
+            "grow_effect_ids": [],
+            "transient_effect_ids": [],
+            "transient_trigger_ids": [],
+            "card_status_enchant_id": "",
+            "play_count_bonus": 0
+          },
+          "synthetic-card-d": {
+            "grow_effect_ids": [],
+            "transient_effect_ids": [],
+            "transient_trigger_ids": [],
+            "card_status_enchant_id": "",
+            "play_count_bonus": 0
+          }
+        },
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_selection": {
+        "status": "observed",
+        "evidence": [
+          "synthetic:discard-prompt"
+        ],
+        "value": {
+          "effect_id": "e_effect-exam_card_move-p_card_search-hand-1-grave-select-1_1"
+        }
+      }
+    },
+    "inventories": {
+      "hand": {
+        "coverage": "complete",
+        "entities": [
+          {
+            "instance_id": "synthetic-card-a",
+            "kind": "card",
+            "definition_id": "p_card-01-act-2_001",
+            "upgrade_count": 1,
+            "customize_ids": [],
+            "variant_fingerprint": null,
+            "label": "",
+            "evidence": [
+              "synthetic:card-detail"
+            ]
+          },
+          {
+            "instance_id": "synthetic-card-b",
+            "kind": "card",
+            "definition_id": "p_card-01-act-2_001",
+            "upgrade_count": 1,
+            "customize_ids": [
+              "p_card_custom-040-g_effect-cost_lesson_buff_reduce-1"
+            ],
+            "variant_fingerprint": null,
+            "label": "",
+            "evidence": [
+              "synthetic:card-detail"
+            ]
+          }
+        ]
+      },
+      "deck": {
+        "coverage": "complete",
+        "entities": [
+          {
+            "instance_id": "synthetic-card-c",
+            "kind": "card",
+            "definition_id": "p_card-01-act-2_001",
+            "upgrade_count": 1,
+            "customize_ids": [],
+            "variant_fingerprint": null,
+            "label": "",
+            "evidence": [
+              "synthetic:card-detail"
+            ]
+          },
+          {
+            "instance_id": "synthetic-card-d",
+            "kind": "card",
+            "definition_id": "p_card-01-act-2_001",
+            "upgrade_count": 1,
+            "customize_ids": [],
+            "variant_fingerprint": null,
+            "label": "",
+            "evidence": [
+              "synthetic:card-detail"
+            ]
+          }
+        ]
+      },
+      "discard": {
+        "coverage": "complete",
+        "entities": []
+      },
+      "drinks": {
+        "coverage": "complete",
+        "entities": [
+          {
+            "kind": "drink",
+            "definition_id": "pdrink_01-3-012",
+            "instance_id": "synthetic-drink-1",
+            "evidence": [
+              "synthetic:drink-detail"
+            ]
+          }
+        ]
+      }
+    },
+    "pending_decision": {
+      "decision_id": "synthetic-decision-0",
+      "kind": "discard",
+      "coverage": "complete",
+      "choices": [
+        {
+          "choice_id": "discard-a",
+          "action_type": "card_select",
+          "targets": [
+            {
+              "instance_id": "synthetic-card-a",
+              "kind": "card",
+              "definition_id": "p_card-01-act-2_001",
+              "upgrade_count": 1,
+              "customize_ids": [],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:card-detail"
+              ]
+            }
+          ],
+          "ui_enabled": true
+        },
+        {
+          "choice_id": "discard-b",
+          "action_type": "card_select",
+          "targets": [
+            {
+              "instance_id": "synthetic-card-b",
+              "kind": "card",
+              "definition_id": "p_card-01-act-2_001",
+              "upgrade_count": 1,
+              "customize_ids": [
+                "p_card_custom-040-g_effect-cost_lesson_buff_reduce-1"
+              ],
+              "variant_fingerprint": null,
+              "label": "",
+              "evidence": [
+                "synthetic:card-detail"
+              ]
+            }
+          ],
+          "ui_enabled": true
+        }
+      ]
+    },
+    "conflicts": []
+  },
+  "discard_command": {
+    "contract_version": "arena-live/1",
+    "command_id": "synthetic-discard-command-1",
+    "run_id": "synthetic-run",
+    "observation_id": "synthetic-obs-0",
+    "revision": 0,
+    "decision_id": "synthetic-decision-0",
+    "choice": {
+      "choice_id": "discard-b",
+      "action_type": "card_select",
+      "targets": [
+        {
+          "instance_id": "synthetic-card-b",
+          "kind": "card",
+          "definition_id": "p_card-01-act-2_001",
+          "upgrade_count": 1,
+          "customize_ids": [
+            "p_card_custom-040-g_effect-cost_lesson_buff_reduce-1"
+          ],
+          "variant_fingerprint": null,
+          "label": "",
+          "evidence": [
+            "synthetic:card-detail"
+          ]
+        }
+      ],
+      "parameters": {},
+      "ui_enabled": true,
+      "label": "",
+      "evidence": []
+    }
+  },
+  "discard_result": {
+    "contract_version": "arena-live/1",
+    "result_id": "synthetic-discard-result",
+    "run_id": "synthetic-run",
+    "command_id": "synthetic-discard-command-1",
+    "observation_id": "synthetic-obs-0",
+    "revision": 0,
+    "outcome": "confirmed",
+    "evidence": [
+      "synthetic:actual-result"
+    ]
+  },
+  "discard_next_observation": {
+    "contract_version": "arena-live/1",
+    "run_id": "synthetic-run",
+    "observation_id": "synthetic-obs-1",
+    "revision": 1,
+    "captured_at": "synthetic:1",
+    "page": "exam",
+    "stability": "stable",
+    "terminal": false,
+    "event_watermark": 1,
+    "facts": {
+      "exam_id": {
+        "value": "synthetic-exam-1",
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_stage_type": {
+        "value": "ProduceStepType_AuditionMid1",
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "turn": {
+        "value": 1,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "max_turns": {
+        "value": 8,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "extra_turns": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "plays_used": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "plays_remaining": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "stamina": {
+        "value": 20,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "max_stamina": {
+        "value": 30,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "block": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "lesson_buff": {
+        "value": 1,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "parameter_buff": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "parameter_buff_multiple_per_turn": {
+        "value": 0,
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "current_turn_color": {
+        "value": "vocal",
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_effects": {
+        "value": [],
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_enchants": {
+        "value": [],
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "forbidden_card_search_ids": {
+        "value": [],
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      },
+      "exam_card_state": {
+        "value": {
+          "synthetic-card-a": {
+            "grow_effect_ids": [],
+            "transient_effect_ids": [],
+            "transient_trigger_ids": [],
+            "card_status_enchant_id": "",
+            "play_count_bonus": 0
+          },
+          "synthetic-card-b": {
+            "grow_effect_ids": [],
+            "transient_effect_ids": [],
+            "transient_trigger_ids": [],
+            "card_status_enchant_id": "",
+            "play_count_bonus": 0
+          },
+          "synthetic-card-c": {
+            "grow_effect_ids": [],
+            "transient_effect_ids": [],
+            "transient_trigger_ids": [],
+            "card_status_enchant_id": "",
+            "play_count_bonus": 0
+          },
+          "synthetic-card-d": {
+            "grow_effect_ids": [],
+            "transient_effect_ids": [],
+            "transient_trigger_ids": [],
+            "card_status_enchant_id": "",
+            "play_count_bonus": 0
+          }
+        },
+        "status": "observed",
+        "evidence": [
+          "synthetic:checkpoint"
+        ]
+      }
+    },
+    "inventories": {
+      "hand": {
+        "coverage": "complete",
+        "entities": [
+          {
+            "instance_id": "synthetic-card-a",
+            "kind": "card",
+            "definition_id": "p_card-01-act-2_001",
+            "upgrade_count": 1,
+            "customize_ids": [],
+            "variant_fingerprint": null,
+            "label": "",
+            "evidence": [
+              "synthetic:card-detail"
+            ]
+          }
+        ]
+      },
+      "deck": {
+        "coverage": "complete",
+        "entities": [
+          {
+            "instance_id": "synthetic-card-c",
+            "kind": "card",
+            "definition_id": "p_card-01-act-2_001",
+            "upgrade_count": 1,
+            "customize_ids": [],
+            "variant_fingerprint": null,
+            "label": "",
+            "evidence": [
+              "synthetic:card-detail"
+            ]
+          },
+          {
+            "instance_id": "synthetic-card-d",
+            "kind": "card",
+            "definition_id": "p_card-01-act-2_001",
+            "upgrade_count": 1,
+            "customize_ids": [],
+            "variant_fingerprint": null,
+            "label": "",
+            "evidence": [
+              "synthetic:card-detail"
+            ]
+          }
+        ]
+      },
+      "discard": {
+        "coverage": "complete",
+        "entities": [
+          {
+            "instance_id": "synthetic-card-b",
+            "kind": "card",
+            "definition_id": "p_card-01-act-2_001",
+            "upgrade_count": 1,
+            "customize_ids": [
+              "p_card_custom-040-g_effect-cost_lesson_buff_reduce-1"
+            ],
+            "variant_fingerprint": null,
+            "label": "",
+            "evidence": [
+              "synthetic:card-detail"
+            ]
+          }
+        ]
+      },
+      "drinks": {
+        "coverage": "complete",
+        "entities": [
+          {
+            "instance_id": "synthetic-drink-1",
+            "kind": "drink",
+            "definition_id": "pdrink_01-3-012",
+            "upgrade_count": null,
+            "customize_ids": null,
+            "variant_fingerprint": null,
+            "label": "",
+            "evidence": [
+              "synthetic:drink-detail"
+            ]
+          }
+        ]
+      }
+    },
+    "pending_decision": {
+      "decision_id": "synthetic-decision-1",
+      "kind": "exam",
+      "coverage": "complete",
+      "choices": [
+        {
+          "choice_id": "end",
+          "action_type": "end_turn",
+          "targets": [],
+          "parameters": {},
+          "ui_enabled": true,
+          "label": "",
+          "evidence": []
+        }
+      ]
+    },
+    "conflicts": []
+  }
+}

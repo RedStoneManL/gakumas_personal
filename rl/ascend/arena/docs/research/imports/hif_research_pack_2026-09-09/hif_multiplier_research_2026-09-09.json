@@ -1,0 +1,2062 @@
+{
+  "schema_version": 2,
+  "model_version": "hif-display-v0.3-empirical-2026-09-09",
+  "order": [
+    "Vo",
+    "Da",
+    "Vi"
+  ],
+  "colors": {
+    "Vo": "red",
+    "Da": "blue",
+    "Vi": "yellow"
+  },
+  "scope": "HIF WINTER displayed exam score percentages; explicit judging inputs and an opt-in uncalibrated cross-stat penalty hypothesis",
+  "as_of": "2026-09-09",
+  "master_snapshot": {
+    "repo": "vertesan/gakumasu-diff",
+    "commit": "571dbb62601e78998cddeacdbce3ea1bc672d7fc",
+    "commit_date": "2026-09-07",
+    "score_config_url": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceExamBattleScoreConfig.yaml"
+  },
+  "launch_comparison": {
+    "commit": "f0dac51bd2b88a5ba51dee79402024323c59cd4a",
+    "date": "2026-05-16",
+    "comparable_rows": 75,
+    "identical_rows": 75,
+    "note": "Three families existed at launch; all 75 common HIF nodes match the September snapshot."
+  },
+  "formula": {
+    "L": "Piecewise linear interpolation of the selected color Permil column against that color stat",
+    "A_percent": "ceil(100 + L / 10)",
+    "B_internal_percent": "A_percent * dearness_factor",
+    "B_display_percent": "ceil(B_internal_percent)",
+    "K_above_baseline_permil": "min(3000, 2000 + ceil(1000 * (S - T) / D))",
+    "final_display_percent": "ceil(B_internal_percent * K / 1000)",
+    "battle_score_rounding": "Not identified by displayed percentages; retain unrounded values separately.",
+    "low_star_EXPERIMENTAL_ONLY": "ceil(1850 + 150*S/T), 0<=S<T; assumption, not fitted",
+    "cross_stat_penalty": "Uncalibrated HIF branch. Explicit settings-prior: q_i=floor(250-150*min(p_i/t_i,1))/1000 for observed triangle/cross, else 0; Q=1-sum(q_i). Candidate A=ceil(100+(L/10)*Q). Alternative: apply Q to whole A in A-to-B. Neither placement is HIF-validated."
+  },
+  "stages": {
+    "selection1": {
+      "star_baseline": 50,
+      "turn_count": 10,
+      "balanced_stat_baseline_T1_T2_T3": [
+        296,
+        221,
+        172
+      ],
+      "prominent_stat_baseline_T1_T2_T3": [
+        311,
+        207,
+        173
+      ],
+      "candidate_star_denominator": 100,
+      "denominator_evidence": "UNIDENTIFIED: endpoint interpolation assumption only",
+      "lowest_observed_near_3_star": 150
+    },
+    "selection2": {
+      "star_baseline": 200,
+      "turn_count": 12,
+      "balanced_stat_baseline_T1_T2_T3": [
+        585,
+        435,
+        340
+      ],
+      "prominent_stat_baseline_T1_T2_T3": [
+        613,
+        409,
+        341
+      ],
+      "candidate_star_denominator": 175,
+      "denominator_evidence": "UNIDENTIFIED: endpoint interpolation assumption only",
+      "lowest_observed_near_3_star": 375
+    },
+    "selection3": {
+      "star_baseline": 400,
+      "turn_count": 12,
+      "balanced_stat_baseline_T1_T2_T3": [
+        988,
+        735,
+        574
+      ],
+      "prominent_stat_baseline_T1_T2_T3": [
+        1035,
+        690,
+        575
+      ],
+      "candidate_star_denominator": 245,
+      "denominator_evidence": "UNIDENTIFIED: endpoint interpolation assumption only",
+      "lowest_observed_near_3_star": 645
+    },
+    "round1": {
+      "star_baseline": 600,
+      "turn_count": 9,
+      "balanced_stat_baseline_T1_T2_T3": [
+        1871,
+        1392,
+        1088
+      ],
+      "prominent_stat_baseline_T1_T2_T3": [
+        1960,
+        1307,
+        1089
+      ],
+      "candidate_star_denominator": 270,
+      "denominator_evidence": "EMPIRICAL CANDIDATE, conditional on the proposed linear/quantized form",
+      "lowest_observed_near_3_star": 885
+    },
+    "round2": {
+      "star_baseline": 800,
+      "turn_count": 12,
+      "balanced_stat_baseline_T1_T2_T3": [
+        1871,
+        1392,
+        1088
+      ],
+      "prominent_stat_baseline_T1_T2_T3": [
+        1960,
+        1307,
+        1089
+      ],
+      "candidate_star_denominator": 325,
+      "denominator_evidence": "EMPIRICAL CANDIDATE, conditional on the proposed linear/quantized form",
+      "lowest_observed_near_3_star": null
+    }
+  },
+  "families": {
+    "vida-03": {
+      "classification": "balanced",
+      "priority_order": [
+        "Vi",
+        "Da",
+        "Vo"
+      ],
+      "characters_at_snapshot": [
+        "花海咲季",
+        "葛城リーリヤ",
+        "姫崎莉波"
+      ],
+      "config_ids": {
+        "selection1": "p_exam_battle_score_config-vida-03-produce_007-01",
+        "selection2": "p_exam_battle_score_config-vida-03-produce_007-02",
+        "selection3": "p_exam_battle_score_config-vida-03-produce_007-03",
+        "round1": "p_exam_battle_score_config-vida-03-produce_008-01",
+        "round2": "p_exam_battle_score_config-vida-03-produce_008-02"
+      }
+    },
+    "voda-03": {
+      "classification": "balanced",
+      "priority_order": [
+        "Vo",
+        "Da",
+        "Vi"
+      ],
+      "characters_at_snapshot": [
+        "篠澤広"
+      ],
+      "config_ids": {
+        "selection1": "p_exam_battle_score_config-voda-03-produce_007-01",
+        "selection2": "p_exam_battle_score_config-voda-03-produce_007-02",
+        "selection3": "p_exam_battle_score_config-voda-03-produce_007-03",
+        "round1": "p_exam_battle_score_config-voda-03-produce_008-01",
+        "round2": "p_exam_battle_score_config-voda-03-produce_008-02"
+      }
+    },
+    "davo-03": {
+      "classification": "balanced",
+      "priority_order": [
+        "Da",
+        "Vo",
+        "Vi"
+      ],
+      "characters_at_snapshot": [
+        "花海佑芽"
+      ],
+      "config_ids": {
+        "selection1": "p_exam_battle_score_config-davo-03-produce_007-01",
+        "selection2": "p_exam_battle_score_config-davo-03-produce_007-02",
+        "selection3": "p_exam_battle_score_config-davo-03-produce_007-03",
+        "round1": "p_exam_battle_score_config-davo-03-produce_008-01",
+        "round2": "p_exam_battle_score_config-davo-03-produce_008-02"
+      }
+    },
+    "voda-01": {
+      "classification": "prominent",
+      "priority_order": [
+        "Vo",
+        "Da",
+        "Vi"
+      ],
+      "characters_at_snapshot": [
+        "月村手毬"
+      ],
+      "config_ids": {
+        "selection1": "p_exam_battle_score_config-voda-01-produce_007-01",
+        "selection2": "p_exam_battle_score_config-voda-01-produce_007-02",
+        "selection3": "p_exam_battle_score_config-voda-01-produce_007-03",
+        "round1": "p_exam_battle_score_config-voda-01-produce_008-01",
+        "round2": "p_exam_battle_score_config-voda-01-produce_008-02"
+      }
+    },
+    "davi-01": {
+      "classification": "prominent",
+      "priority_order": [
+        "Da",
+        "Vi",
+        "Vo"
+      ],
+      "characters_at_snapshot": [
+        "倉本千奈",
+        "紫雲清夏"
+      ],
+      "config_ids": {
+        "selection1": "p_exam_battle_score_config-davi-01-produce_007-01",
+        "selection2": "p_exam_battle_score_config-davi-01-produce_007-02",
+        "selection3": "p_exam_battle_score_config-davi-01-produce_007-03",
+        "round1": "p_exam_battle_score_config-davi-01-produce_008-01",
+        "round2": "p_exam_battle_score_config-davi-01-produce_008-02"
+      }
+    },
+    "vovi-01": {
+      "classification": "prominent",
+      "priority_order": [
+        "Vo",
+        "Vi",
+        "Da"
+      ],
+      "characters_at_snapshot": [
+        "有村麻央",
+        "秦谷美鈴"
+      ],
+      "config_ids": {
+        "selection1": "p_exam_battle_score_config-vovi-01-produce_007-01",
+        "selection2": "p_exam_battle_score_config-vovi-01-produce_007-02",
+        "selection3": "p_exam_battle_score_config-vovi-01-produce_007-03",
+        "round1": "p_exam_battle_score_config-vovi-01-produce_008-01",
+        "round2": "p_exam_battle_score_config-vovi-01-produce_008-02"
+      }
+    }
+  },
+  "curves": {
+    "p_exam_battle_score_config-davi-01-produce_007-01": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          36,
+          536,
+          268
+        ],
+        [
+          173,
+          612,
+          1112,
+          845
+        ],
+        [
+          207,
+          689,
+          1226,
+          958
+        ],
+        [
+          311,
+          922,
+          1572,
+          1191
+        ],
+        [
+          10000,
+          22671,
+          23321,
+          22940
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-davi-01-produce_007-02": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          36,
+          536,
+          268
+        ],
+        [
+          341,
+          1172,
+          1672,
+          1405
+        ],
+        [
+          409,
+          1325,
+          1899,
+          1631
+        ],
+        [
+          613,
+          1783,
+          2579,
+          2089
+        ],
+        [
+          10000,
+          22854,
+          23650,
+          23160
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-davi-01-produce_007-03": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          36,
+          536,
+          268
+        ],
+        [
+          575,
+          1952,
+          2452,
+          2185
+        ],
+        [
+          690,
+          2211,
+          2836,
+          2568
+        ],
+        [
+          1035,
+          2985,
+          3986,
+          3342
+        ],
+        [
+          10000,
+          23108,
+          24109,
+          23466
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-davi-01-produce_008-01": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          36,
+          536,
+          268
+        ],
+        [
+          1089,
+          3666,
+          4166,
+          3898
+        ],
+        [
+          1307,
+          4155,
+          4892,
+          4625
+        ],
+        [
+          1960,
+          5621,
+          7069,
+          6090
+        ],
+        [
+          10000,
+          23668,
+          25116,
+          24137
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-davi-01-produce_008-02": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          36,
+          536,
+          268
+        ],
+        [
+          1089,
+          3666,
+          4166,
+          3898
+        ],
+        [
+          1307,
+          4155,
+          4892,
+          4625
+        ],
+        [
+          1960,
+          5621,
+          7069,
+          6090
+        ],
+        [
+          10000,
+          23668,
+          25116,
+          24137
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-davo-03-produce_007-01": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          268,
+          536,
+          36
+        ],
+        [
+          172,
+          841,
+          1109,
+          609
+        ],
+        [
+          221,
+          1005,
+          1272,
+          719
+        ],
+        [
+          296,
+          1173,
+          1522,
+          887
+        ],
+        [
+          10000,
+          22955,
+          23305,
+          22670
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-davo-03-produce_007-02": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          268,
+          536,
+          36
+        ],
+        [
+          340,
+          1401,
+          1669,
+          1169
+        ],
+        [
+          435,
+          1718,
+          1986,
+          1382
+        ],
+        [
+          585,
+          2055,
+          2486,
+          1719
+        ],
+        [
+          10000,
+          23188,
+          23619,
+          22853
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-davo-03-produce_007-03": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          268,
+          536,
+          36
+        ],
+        [
+          574,
+          2181,
+          2449,
+          1949
+        ],
+        [
+          735,
+          2718,
+          2986,
+          2310
+        ],
+        [
+          988,
+          3286,
+          3829,
+          2878
+        ],
+        [
+          10000,
+          23515,
+          24058,
+          23107
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-davo-03-produce_008-01": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          268,
+          536,
+          36
+        ],
+        [
+          1088,
+          3895,
+          4162,
+          3662
+        ],
+        [
+          1392,
+          4908,
+          5176,
+          4345
+        ],
+        [
+          1871,
+          5983,
+          6772,
+          5420
+        ],
+        [
+          10000,
+          24230,
+          25019,
+          23667
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-davo-03-produce_008-02": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          268,
+          536,
+          36
+        ],
+        [
+          1088,
+          3895,
+          4162,
+          3662
+        ],
+        [
+          1392,
+          4908,
+          5176,
+          4345
+        ],
+        [
+          1871,
+          5983,
+          6772,
+          5420
+        ],
+        [
+          10000,
+          24230,
+          25019,
+          23667
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-vida-03-produce_007-01": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          36,
+          268,
+          536
+        ],
+        [
+          172,
+          609,
+          841,
+          1109
+        ],
+        [
+          221,
+          719,
+          1005,
+          1272
+        ],
+        [
+          296,
+          887,
+          1173,
+          1522
+        ],
+        [
+          10000,
+          22670,
+          22955,
+          23305
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-vida-03-produce_007-02": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          36,
+          268,
+          536
+        ],
+        [
+          340,
+          1169,
+          1401,
+          1669
+        ],
+        [
+          435,
+          1382,
+          1718,
+          1986
+        ],
+        [
+          585,
+          1719,
+          2055,
+          2486
+        ],
+        [
+          10000,
+          22853,
+          23188,
+          23619
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-vida-03-produce_007-03": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          36,
+          268,
+          536
+        ],
+        [
+          574,
+          1949,
+          2181,
+          2449
+        ],
+        [
+          735,
+          2310,
+          2718,
+          2986
+        ],
+        [
+          988,
+          2878,
+          3286,
+          3829
+        ],
+        [
+          10000,
+          23107,
+          23515,
+          24058
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-vida-03-produce_008-01": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          36,
+          268,
+          536
+        ],
+        [
+          1088,
+          3662,
+          3895,
+          4162
+        ],
+        [
+          1392,
+          4345,
+          4908,
+          5176
+        ],
+        [
+          1871,
+          5420,
+          5983,
+          6772
+        ],
+        [
+          10000,
+          23667,
+          24230,
+          25019
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-vida-03-produce_008-02": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          36,
+          268,
+          536
+        ],
+        [
+          1088,
+          3662,
+          3895,
+          4162
+        ],
+        [
+          1392,
+          4345,
+          4908,
+          5176
+        ],
+        [
+          1871,
+          5420,
+          5983,
+          6772
+        ],
+        [
+          10000,
+          23667,
+          24230,
+          25019
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-voda-01-produce_007-01": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          268,
+          36
+        ],
+        [
+          173,
+          1112,
+          845,
+          612
+        ],
+        [
+          207,
+          1226,
+          958,
+          689
+        ],
+        [
+          311,
+          1572,
+          1191,
+          922
+        ],
+        [
+          10000,
+          23321,
+          22940,
+          22671
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-voda-01-produce_007-02": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          268,
+          36
+        ],
+        [
+          341,
+          1672,
+          1405,
+          1172
+        ],
+        [
+          409,
+          1899,
+          1631,
+          1325
+        ],
+        [
+          613,
+          2579,
+          2089,
+          1783
+        ],
+        [
+          10000,
+          23650,
+          23160,
+          22854
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-voda-01-produce_007-03": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          268,
+          36
+        ],
+        [
+          575,
+          2452,
+          2185,
+          1952
+        ],
+        [
+          690,
+          2836,
+          2568,
+          2211
+        ],
+        [
+          1035,
+          3986,
+          3342,
+          2985
+        ],
+        [
+          10000,
+          24109,
+          23466,
+          23108
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-voda-01-produce_008-01": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          268,
+          36
+        ],
+        [
+          1089,
+          4166,
+          3898,
+          3666
+        ],
+        [
+          1307,
+          4892,
+          4625,
+          4155
+        ],
+        [
+          1960,
+          7069,
+          6090,
+          5621
+        ],
+        [
+          10000,
+          25116,
+          24137,
+          23668
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-voda-01-produce_008-02": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          268,
+          36
+        ],
+        [
+          1089,
+          4166,
+          3898,
+          3666
+        ],
+        [
+          1307,
+          4892,
+          4625,
+          4155
+        ],
+        [
+          1960,
+          7069,
+          6090,
+          5621
+        ],
+        [
+          10000,
+          25116,
+          24137,
+          23668
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-voda-03-produce_007-01": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          268,
+          36
+        ],
+        [
+          172,
+          1109,
+          841,
+          609
+        ],
+        [
+          221,
+          1272,
+          1005,
+          719
+        ],
+        [
+          296,
+          1522,
+          1173,
+          887
+        ],
+        [
+          10000,
+          23305,
+          22955,
+          22670
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-voda-03-produce_007-02": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          268,
+          36
+        ],
+        [
+          340,
+          1669,
+          1401,
+          1169
+        ],
+        [
+          435,
+          1986,
+          1718,
+          1382
+        ],
+        [
+          585,
+          2486,
+          2055,
+          1719
+        ],
+        [
+          10000,
+          23619,
+          23188,
+          22853
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-voda-03-produce_007-03": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          268,
+          36
+        ],
+        [
+          574,
+          2449,
+          2181,
+          1949
+        ],
+        [
+          735,
+          2986,
+          2718,
+          2310
+        ],
+        [
+          988,
+          3829,
+          3286,
+          2878
+        ],
+        [
+          10000,
+          24058,
+          23515,
+          23107
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-voda-03-produce_008-01": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          268,
+          36
+        ],
+        [
+          1088,
+          4162,
+          3895,
+          3662
+        ],
+        [
+          1392,
+          5176,
+          4908,
+          4345
+        ],
+        [
+          1871,
+          6772,
+          5983,
+          5420
+        ],
+        [
+          10000,
+          25019,
+          24230,
+          23667
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-voda-03-produce_008-02": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          268,
+          36
+        ],
+        [
+          1088,
+          4162,
+          3895,
+          3662
+        ],
+        [
+          1392,
+          5176,
+          4908,
+          4345
+        ],
+        [
+          1871,
+          6772,
+          5983,
+          5420
+        ],
+        [
+          10000,
+          25019,
+          24230,
+          23667
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-vovi-01-produce_007-01": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          36,
+          268
+        ],
+        [
+          173,
+          1112,
+          612,
+          845
+        ],
+        [
+          207,
+          1226,
+          689,
+          958
+        ],
+        [
+          311,
+          1572,
+          922,
+          1191
+        ],
+        [
+          10000,
+          23321,
+          22671,
+          22940
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-vovi-01-produce_007-02": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          36,
+          268
+        ],
+        [
+          341,
+          1672,
+          1172,
+          1405
+        ],
+        [
+          409,
+          1899,
+          1325,
+          1631
+        ],
+        [
+          613,
+          2579,
+          1783,
+          2089
+        ],
+        [
+          10000,
+          23650,
+          22854,
+          23160
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-vovi-01-produce_007-03": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          36,
+          268
+        ],
+        [
+          575,
+          2452,
+          1952,
+          2185
+        ],
+        [
+          690,
+          2836,
+          2211,
+          2568
+        ],
+        [
+          1035,
+          3986,
+          2985,
+          3342
+        ],
+        [
+          10000,
+          24109,
+          23108,
+          23466
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-vovi-01-produce_008-01": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          36,
+          268
+        ],
+        [
+          1089,
+          4166,
+          3666,
+          3898
+        ],
+        [
+          1307,
+          4892,
+          4155,
+          4625
+        ],
+        [
+          1960,
+          7069,
+          5621,
+          6090
+        ],
+        [
+          10000,
+          25116,
+          23668,
+          24137
+        ]
+      ]
+    },
+    "p_exam_battle_score_config-vovi-01-produce_008-02": {
+      "columns": [
+        "parameter",
+        "vocalPermil",
+        "dancePermil",
+        "visualPermil"
+      ],
+      "nodes": [
+        [
+          0,
+          536,
+          36,
+          268
+        ],
+        [
+          1089,
+          4166,
+          3666,
+          3898
+        ],
+        [
+          1307,
+          4892,
+          4155,
+          4625
+        ],
+        [
+          1960,
+          7069,
+          5621,
+          6090
+        ],
+        [
+          10000,
+          25116,
+          23668,
+          24137
+        ]
+      ]
+    }
+  },
+  "samples": [
+    {
+      "id": "U-R1",
+      "stage": "round1",
+      "stats": [
+        2759,
+        1727,
+        1209
+      ],
+      "entrance_star": 915,
+      "score_percents": [
+        4397,
+        2997,
+        2223
+      ],
+      "stage_A_display_percents": [
+        977,
+        666,
+        494
+      ],
+      "stage_B_display_percents": [
+        1466,
+        999,
+        741
+      ],
+      "curve_family_for_analysis": "voda-03",
+      "source_id": "U",
+      "image_url": null,
+      "idol": null,
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": [
+        "◎",
+        "◎",
+        "◎"
+      ],
+      "source_quality": "supplied_table_transcription",
+      "notes": [],
+      "curve_family_evidence": "Inferred: only voda-03 matches all six supplied A values; actual idol was not specified.",
+      "original_photo_reference": "Round 1 final: local menu, photo 4",
+      "visible_turn_count": 9
+    },
+    {
+      "id": "U-R2",
+      "stage": "round2",
+      "stats": [
+        2759,
+        1744,
+        1209
+      ],
+      "entrance_star": 1083,
+      "score_percents": [
+        4208,
+        2886,
+        2128
+      ],
+      "stage_A_display_percents": [
+        977,
+        670,
+        494
+      ],
+      "stage_B_display_percents": [
+        1466,
+        1005,
+        741
+      ],
+      "curve_family_for_analysis": "voda-03",
+      "source_id": "U",
+      "image_url": null,
+      "idol": null,
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": [
+        "◎",
+        "◎",
+        "◎"
+      ],
+      "source_quality": "supplied_table_transcription",
+      "notes": [],
+      "curve_family_evidence": "Inferred: only voda-03 matches all six supplied A values; actual idol was not specified.",
+      "original_photo_reference": "Round 2 final: opening star bonus, photo 3",
+      "visible_turn_count": null
+    },
+    {
+      "id": "AZ-R1",
+      "stage": "round1",
+      "stats": [
+        2624,
+        1842,
+        1354
+      ],
+      "entrance_star": 854,
+      "score_percents": [
+        4218,
+        2806,
+        2533
+      ],
+      "stage_A_display_percents": null,
+      "stage_B_display_percents": null,
+      "curve_family_for_analysis": "vovi-01",
+      "source_id": "AZ",
+      "image_url": "https://assets.st-note.com/img/1778985799-b4I3pQ7aOYuABFPeJvRczt28.png?width=1200",
+      "idol": "秦谷美鈴",
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": null,
+      "source_quality": "direct_visual_transcription_of_public_image",
+      "notes": [
+        "Composite image: left=R1, right=R2; stats, star and turn-1 menu are shown together."
+      ]
+    },
+    {
+      "id": "AZ-R2",
+      "stage": "round2",
+      "stats": [
+        2624,
+        1850,
+        1368
+      ],
+      "entrance_star": 1017,
+      "score_percents": [
+        3826,
+        2554,
+        2310
+      ],
+      "stage_A_display_percents": null,
+      "stage_B_display_percents": null,
+      "curve_family_for_analysis": "vovi-01",
+      "source_id": "AZ",
+      "image_url": "https://assets.st-note.com/img/1778985799-b4I3pQ7aOYuABFPeJvRczt28.png?width=1200",
+      "idol": "秦谷美鈴",
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": null,
+      "source_quality": "direct_visual_transcription_of_public_image",
+      "notes": [
+        "Composite image: left=R1, right=R2; stats, star and turn-1 menu are shown together."
+      ]
+    },
+    {
+      "id": "SM-S1",
+      "stage": "selection1",
+      "stats": [
+        337,
+        726,
+        689
+      ],
+      "entrance_star": 195,
+      "score_percents": [
+        896,
+        1580,
+        1368
+      ],
+      "stage_A_display_percents": null,
+      "stage_B_display_percents": null,
+      "curve_family_for_analysis": "davi-01",
+      "source_id": "SM",
+      "image_url": "https://assets.st-note.com/img/1782296785-NMaxRiV5U78jPp3k192b0l6K.png?width=1200",
+      "idol": "紫雲清夏",
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": [
+        "◎",
+        "◎",
+        "◎"
+      ],
+      "source_quality": "direct_visual_transcription_of_public_image",
+      "notes": []
+    },
+    {
+      "id": "SM-S2",
+      "stage": "selection2",
+      "stats": [
+        611,
+        1315,
+        855
+      ],
+      "entrance_star": 375,
+      "score_percents": [
+        1251,
+        2322,
+        1638
+      ],
+      "stage_A_display_percents": null,
+      "stage_B_display_percents": null,
+      "curve_family_for_analysis": "davi-01",
+      "source_id": "SM",
+      "image_url": "https://assets.st-note.com/img/1782302989-nCiqvGQ2D7OYKH1stkm5S6cE.png?width=1200",
+      "idol": "紫雲清夏",
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": [
+        "◎",
+        "◎",
+        "◎"
+      ],
+      "source_quality": "direct_visual_transcription_of_public_image",
+      "notes": []
+    },
+    {
+      "id": "SM-S3",
+      "stage": "selection3",
+      "stats": [
+        788,
+        2279,
+        1263
+      ],
+      "entrance_star": 645,
+      "score_percents": [
+        1548,
+        3501,
+        2187
+      ],
+      "stage_A_display_percents": null,
+      "stage_B_display_percents": null,
+      "curve_family_for_analysis": "davi-01",
+      "source_id": "SM",
+      "image_url": "https://assets.st-note.com/img/1782305163-iE5VD06AoRqGHwnxMsrmJXTP.png?width=1200",
+      "idol": "紫雲清夏",
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": [
+        "◎",
+        "◎",
+        "◎"
+      ],
+      "source_quality": "direct_visual_transcription_of_public_image",
+      "notes": []
+    },
+    {
+      "id": "SM-R1",
+      "stage": "round1",
+      "stats": [
+        1287,
+        3200,
+        1587
+      ],
+      "entrance_star": 885,
+      "score_percents": [
+        2304,
+        4887,
+        2817
+      ],
+      "stage_A_display_percents": null,
+      "stage_B_display_percents": null,
+      "curve_family_for_analysis": "davi-01",
+      "source_id": "SM",
+      "image_url": "https://assets.st-note.com/img/1782365396-6Ek5FbhAezg210sUGBXISKVj.png?width=1200",
+      "idol": "紫雲清夏",
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": [
+        "◎",
+        "◎",
+        "◎"
+      ],
+      "source_quality": "direct_visual_transcription_of_public_image",
+      "notes": []
+    },
+    {
+      "id": "SM-R2",
+      "stage": "round2",
+      "stats": [
+        1317,
+        3200,
+        1572
+      ],
+      "entrance_star": 1110,
+      "score_percents": [
+        2296,
+        4813,
+        2681
+      ],
+      "stage_A_display_percents": null,
+      "stage_B_display_percents": null,
+      "curve_family_for_analysis": "davi-01",
+      "source_id": "SM",
+      "image_url": "https://assets.st-note.com/img/1782366696-fgZ8YaExy1U0O7QMd6THmItu.png?width=1200",
+      "idol": "紫雲清夏",
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": [
+        "◎",
+        "◎",
+        "◎"
+      ],
+      "source_quality": "CONTRADICTION_PRESERVED",
+      "notes": [
+        "Vi=1572 and 2681% are visibly present in the source; no transcription correction was made.",
+        "Vo/Da imply K~2.954, while Vi implies ~2.873. This triple is excluded from denominator selection.",
+        "Opening-animation capture is a possible explanation, not an established cause.",
+        "R1 Vi=1587 and R2 Vi=1572 in the article are not treated as a controlled longitudinal pair."
+      ]
+    },
+    {
+      "id": "SH-S1",
+      "stage": "selection1",
+      "stats": [
+        695,
+        513,
+        401
+      ],
+      "entrance_star": 165,
+      "score_percents": [
+        1548,
+        1071,
+        1080
+      ],
+      "stage_A_display_percents": null,
+      "stage_B_display_percents": null,
+      "curve_family_for_analysis": "vovi-01",
+      "source_id": "SH",
+      "image_url": "https://cdn-ak.f.st-hatena.com/images/fotolife/s/shuice13/20260703/20260703101252.png",
+      "idol": "秦谷美鈴",
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": [
+        "◎",
+        "◎",
+        "◎"
+      ],
+      "source_quality": "direct_visual_transcription_of_public_image",
+      "notes": []
+    },
+    {
+      "id": "SH-S2",
+      "stage": "selection2",
+      "stats": [
+        1278,
+        619,
+        723
+      ],
+      "entrance_star": 390,
+      "score_percents": [
+        2286,
+        1260,
+        1503
+      ],
+      "stage_A_display_percents": null,
+      "stage_B_display_percents": null,
+      "curve_family_for_analysis": "vovi-01",
+      "source_id": "SH",
+      "image_url": "https://cdn-ak.f.st-hatena.com/images/fotolife/s/shuice13/20260703/20260703102805.png",
+      "idol": "秦谷美鈴",
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": [
+        "◎",
+        "◎",
+        "◎"
+      ],
+      "source_quality": "direct_visual_transcription_of_public_image",
+      "notes": []
+    },
+    {
+      "id": "SH-S3",
+      "stage": "selection3",
+      "stats": [
+        1928,
+        1045,
+        1239
+      ],
+      "entrance_star": 660,
+      "score_percents": [
+        3150,
+        1805,
+        2160
+      ],
+      "stage_A_display_percents": null,
+      "stage_B_display_percents": null,
+      "curve_family_for_analysis": "vovi-01",
+      "source_id": "SH",
+      "image_url": "https://cdn-ak.f.st-hatena.com/images/fotolife/s/shuice13/20260703/20260703105115.png",
+      "idol": "秦谷美鈴",
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": [
+        "◎",
+        "◎",
+        "◎"
+      ],
+      "source_quality": "direct_visual_transcription_of_public_image",
+      "notes": []
+    },
+    {
+      "id": "SH-R1",
+      "stage": "round1",
+      "stats": [
+        3055,
+        1251,
+        1691
+      ],
+      "entrance_star": 907,
+      "score_percents": [
+        4739,
+        2264,
+        2921
+      ],
+      "stage_A_display_percents": null,
+      "stage_B_display_percents": null,
+      "curve_family_for_analysis": "vovi-01",
+      "source_id": "SHF",
+      "image_url": "https://cdn-ak.f.st-hatena.com/images/fotolife/s/shuice13/20260804/20260804080921.png",
+      "idol": "秦谷美鈴",
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": [
+        "◎",
+        "◎",
+        "◎"
+      ],
+      "source_quality": "direct_visual_transcription_of_public_image",
+      "notes": []
+    },
+    {
+      "id": "AZ-S1",
+      "stage": "selection1",
+      "stats": [
+        721,
+        499,
+        586
+      ],
+      "entrance_star": 150,
+      "score_percents": [
+        1575,
+        1058,
+        1265
+      ],
+      "stage_A_display_percents": null,
+      "stage_B_display_percents": null,
+      "curve_family_for_analysis": "vovi-01",
+      "source_id": "AZ",
+      "image_url": "https://assets.st-note.com/img/1778943895-LjmPJ6RnAUhqbkYxde5c1E4I.png",
+      "idol": "秦谷美鈴",
+      "dearness_factor_for_analysis": 1.5,
+      "dearness_level_observed": null,
+      "judging_icons": [
+        "◎",
+        "◎",
+        "◎"
+      ],
+      "source_quality": "direct_visual_transcription_of_public_image",
+      "notes": []
+    }
+  ],
+  "sources": {
+    "U": {
+      "title": "2026-09-09 本战两轮截图汇总表",
+      "author": "实机记录提供者",
+      "date": "2026-09-09",
+      "url": null,
+      "access_note": "仅据会话中完整汇总表转录；原始照片及 examples/hif_multiplier_samples_2026-09-09.json 的文件字节未取得。"
+    },
+    "AZ": {
+      "title": "学マス ー HIF-WINTER中文詳細攻略",
+      "author": "アザンAzhan",
+      "date": "2026-05-17",
+      "url": "https://note.com/azhan1024/n/n368cae06669f"
+    },
+    "SM": {
+      "title": "【学マス】簡単解説！HIFで優勝するにはインターバルでスキルカードを集めろ",
+      "author": "斜籐もなみ / Shato Monami",
+      "date": "2026-06-27",
+      "url": "https://note.com/syato_monami/n/n3e6218f3c356"
+    },
+    "SH": {
+      "title": "【学マス】HIF解説します",
+      "author": "しゅーあいす",
+      "date": "2026-07-14",
+      "url": "https://shuice13.hatenablog.com/entry/2026/07/14/080142"
+    },
+    "SHF": {
+      "title": "【学マス】本選の解説します",
+      "author": "しゅーあいす",
+      "date": "2026-08-04",
+      "url": "https://shuice13.hatenablog.com/entry/2026/08/04/182126"
+    }
+  },
+  "source_urls": {
+    "battle_config": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceExamBattleConfig.yaml",
+    "idol_stage_mapping": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceStepAuditionDifficulty.yaml",
+    "dearness_levels": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/CharacterDearnessLevel.yaml",
+    "dearness_skill": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceSkill.yaml",
+    "dearness_effect": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceEffect.yaml",
+    "wiki": "https://seesaawiki.jp/gakumasu/d/H.I.F",
+    "penalty_settings": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/Setting.yaml",
+    "judging_settings": "https://github.com/vertesan/gakumasu-diff/blob/571dbb62601e78998cddeacdbce3ea1bc672d7fc/ProduceSetting.yaml",
+    "contest_penalty_prior": "https://wikiwiki.jp/gakumas/システム関連",
+    "pro_judging_original_research": "https://note.com/lal_ilul_elo/n/ndc72ead428c6",
+    "pro_judging_author_correction": "https://note.com/lal_ilul_elo/n/na6c0a57bfc18"
+  },
+  "limits": [
+    "13 of 14 complete triples reconstruct; the remaining row has a Vi contradiction.",
+    "Sample corpus is not an independent blind test set.",
+    "Selection unsaturated star ramps are not identified.",
+    "Only three of six curve families have direct multiplier samples.",
+    "A and B intermediate displays are supplied only for two rows.",
+    "Client build numbers are unavailable; penalty magnitudes, placement and aggregation are uncalibrated."
+  ],
+  "judging_and_penalty": {
+    "observed_behavior": "HIF community records report that at least one triangle/cross lowers other colors as well.",
+    "icon_policy": "Store the actually displayed Vo / Da / Vi icons; do not silently infer them from raw master baselines.",
+    "icons": [
+      "◎",
+      "○",
+      "△",
+      "×"
+    ],
+    "master_settings": {
+      "produceExamBattleScorePenaltyMinPermil": 100,
+      "produceExamBattleScorePenaltyMaxPermil": 250,
+      "produceAuditionTrendAssessmentPermilSeparateEnable": true,
+      "produce_007_and_008_trendAssessmentPermilUpper": 110,
+      "produce_007_and_008_trendAssessmentPermilLower": 110
+    },
+    "prior_provenance": "100/250 are raw global settings; shape and additive combination are inspired by a published Contest formula, not established HIF engine behavior.",
+    "main_hypothesis": "Only observed triangle/cross axes create q_i; their sum reduces the curve bonus of every color, before +100 and A ceiling.",
+    "alternative_hypotheses": [
+      "Apply the shared remaining factor after A in the A-to-B step.",
+      "Multiply individual remaining factors instead of adding penalties; differs only with at least two deficient axes."
+    ],
+    "threshold_policy": "Use explicit experimental thresholds if supplied; otherwise opt-in uses per-stage master stat baselines as unvalidated scale parameters.",
+    "HIF_deficient_complete_tuple_count": 0,
+    "known_boundary_observations": [
+      {
+        "stage": "selection2",
+        "classification": "balanced",
+        "priority": 1,
+        "stat": 637,
+        "icon": "○"
+      },
+      {
+        "stage": "selection3",
+        "classification": "prominent",
+        "priority": 1,
+        "stat": 1030,
+        "icon": "△"
+      },
+      {
+        "stage": "rounds_unspecified",
+        "classification": "balanced",
+        "priority": 1,
+        "stat": 1926,
+        "icon": "○"
+      },
+      {
+        "stage": "rounds_unspecified",
+        "classification": "balanced",
+        "priority": 3,
+        "stat": 1087,
+        "icon": "△"
+      },
+      {
+        "stage": "rounds_unspecified",
+        "classification": "balanced",
+        "priority": 3,
+        "stat": 1093,
+        "icon": "○"
+      },
+      {
+        "stage": "rounds_unspecified",
+        "classification": "prominent",
+        "priority": 1,
+        "stat": 2018,
+        "icon": "△"
+      },
+      {
+        "stage": "rounds_unspecified",
+        "classification": "prominent",
+        "priority": 2,
+        "stat": 1307,
+        "icon": "△"
+      },
+      {
+        "stage": "rounds_unspecified",
+        "classification": "prominent",
+        "priority": 3,
+        "stat": 1090,
+        "icon": "○"
+      }
+    ],
+    "boundary_observation_caveat": "Sparse parenthesized HIF Wiki reports with incomplete card/round identity; these are inequality constraints only if the same configuration is assumed, not exact threshold values."
+  },
+  "next_record_template": {
+    "stage": null,
+    "idol_card_id": null,
+    "curve_family": null,
+    "plan": null,
+    "dearness_level": null,
+    "client_version": null,
+    "stats_Vo_Da_Vi": [
+      null,
+      null,
+      null
+    ],
+    "entrance_star": null,
+    "star_baseline": null,
+    "judging_icons_Vo_Da_Vi": [
+      null,
+      null,
+      null
+    ],
+    "stage_A_display_percents": [
+      null,
+      null,
+      null
+    ],
+    "stage_B_display_percents": [
+      null,
+      null,
+      null
+    ],
+    "settled_menu_score_percents": [
+      null,
+      null,
+      null
+    ],
+    "capture_timing": "same entrance state; wait for animation to settle; preserve all photos or a continuous video"
+  }
+}

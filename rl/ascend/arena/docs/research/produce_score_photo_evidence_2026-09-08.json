@@ -1,0 +1,980 @@
+{
+  "schema_version": "arena-photo-observations/1",
+  "received_date": "2026-09-08",
+  "synthetic": false,
+  "source": "user-provided screenshots",
+  "manifest": "evidence/2026-09-08-produce-score/manifest.json",
+  "produce_mode": "HIF main competition",
+  "exam_mode": "HIF main competition / Round 1",
+  "source_limitations": [
+    "Game build and recording date are not shown.",
+    "Four opening memory abilities are not fully visible; only positioning-check ability text is readable.",
+    "Full deck, instance identities, customization details, support effects and maximum stamina are not supplied.",
+    "Image 12 is byte-identical to image 8; do not count its actions twice.",
+    "The score transition 361476 to 384363 is inferred across a crop gap; its individual effect lines are not shown.",
+    "Supplemental image 28 cuts off the second +3 vocal result; 2115 is confirmed at the next visible lesson, so that intermediate transition is inferred."
+  ],
+  "produce": [
+    {
+      "images": [
+        1
+      ],
+      "day": 1,
+      "action": "授業(ビジュアル)",
+      "changes": {
+        "stamina": [
+          33,
+          28
+        ],
+        "visual": [
+          1209,
+          1389
+        ]
+      },
+      "card_change": [
+        "思考の基本+",
+        "国民的アイドル+"
+      ],
+      "support": {
+        "name": "もう一度、最初から！",
+        "trigger_text": "授業・営業終了時、ボーカル上昇+7",
+        "vocal": [
+          2090,
+          2097
+        ]
+      }
+    },
+    {
+      "images": [
+        2,
+        3
+      ],
+      "day": 2,
+      "action": "SP公開ダンスレッスン(スター性重視)",
+      "changes": {
+        "stamina": [
+          28,
+          20
+        ],
+        "dance": [
+          1346,
+          1520
+        ],
+        "visual": [
+          1389,
+          1413
+        ],
+        "p_points": [
+          200,
+          250
+        ],
+        "star_power": [
+          840,
+          885
+        ]
+      },
+      "support_dance_gains": [
+        {
+          "name": "ふわふわでワクワク",
+          "before": 1520,
+          "after": 1533
+        },
+        {
+          "name": "あっちも行きたいですわ！",
+          "before": 1533,
+          "after": 1550
+        },
+        {
+          "name": "いつまでも続けばいいのに",
+          "before": 1550,
+          "after": 1563
+        }
+      ],
+      "item": "ふわふわでもこもこ",
+      "acquired_drinks": [
+        "スタミナ爆発ドリンク",
+        "アイスコーヒー"
+      ],
+      "drink_gain_support": {
+        "name": "いつまでも続けばいいのに",
+        "trigger_text": "Pドリンク獲得時、ダンス上昇+4",
+        "transitions": [
+          [
+            1563,
+            1567
+          ],
+          [
+            1567,
+            1571
+          ]
+        ]
+      }
+    },
+    {
+      "images": [
+        28,
+        29,
+        30
+      ],
+      "day": 3,
+      "action": "差し入れ",
+      "support_vocal_gains": [
+        {
+          "name": "すっかり秋色ですわね！",
+          "trigger": "活動支給・差し入れ選択時",
+          "before": 2097,
+          "after": 2109
+        },
+        {
+          "name": "次の桜の季節には。",
+          "trigger": "スキルカード強化時",
+          "before": 2109,
+          "after": 2112
+        },
+        {
+          "name": "次の桜の季節には。",
+          "trigger": "スキルカード強化時",
+          "before": 2112,
+          "after": 2115,
+          "inferred_from_next_visible_value": true
+        }
+      ],
+      "item": "つやつやでふさふさ",
+      "upgraded_cards": [
+        "成就+",
+        "天賦の才+"
+      ],
+      "p_points": [
+        250,
+        330
+      ],
+      "acquired_drinks": [
+        "センブリソーダ"
+      ],
+      "drink_support_dance": [
+        1571,
+        1575
+      ],
+      "acquired_card": "天真爛漫",
+      "ssr_card_support_dance": [
+        1575,
+        1580
+      ],
+      "hif_patch_star": [
+        885,
+        900
+      ],
+      "support_event": {
+        "name": "美鈴の苦手なもの",
+        "dance": [
+          1580,
+          1615
+        ]
+      }
+    },
+    {
+      "images": [
+        30
+      ],
+      "day": 4,
+      "action": "授業(ダンス)",
+      "changes": {
+        "stamina": [
+          20,
+          15
+        ],
+        "dance": [
+          1615,
+          1795
+        ]
+      },
+      "card_change": [
+        "落ち着きの基本",
+        "脚光"
+      ],
+      "support": {
+        "name": "もう一度、最初から！",
+        "vocal": [
+          2115,
+          2122
+        ]
+      }
+    },
+    {
+      "images": [
+        31,
+        32
+      ],
+      "day": 5,
+      "action": "SP公開ダンスレッスン",
+      "changes": {
+        "stamina": [
+          15,
+          7
+        ],
+        "vocal": [
+          2122,
+          2247
+        ],
+        "dance": [
+          1795,
+          1998
+        ],
+        "p_points": [
+          330,
+          380
+        ],
+        "star_power": [
+          900,
+          915
+        ]
+      },
+      "support_dance_transitions": [
+        [
+          1998,
+          2011
+        ],
+        [
+          2011,
+          2028
+        ],
+        [
+          2028,
+          2041
+        ]
+      ],
+      "item": "ふわふわでもこもこ",
+      "acquired_drinks": [
+        "ブーストエキス",
+        "初星水"
+      ],
+      "drink_support_dance_transitions": [
+        [
+          2041,
+          2045
+        ],
+        [
+          2045,
+          2049
+        ]
+      ]
+    },
+    {
+      "images": [
+        33
+      ],
+      "day": 6,
+      "action": "相談",
+      "item": "花もじゃ（黄）",
+      "acquired_drinks": [
+        "初星ホエイプロテイン",
+        "ブーストエキス"
+      ],
+      "item_accumulated_exam_effect_added": true,
+      "drink_support_dance_transitions": [
+        [
+          2049,
+          2053
+        ],
+        [
+          2053,
+          2057
+        ]
+      ]
+    },
+    {
+      "images": [
+        34
+      ],
+      "day": 7,
+      "action": "決戦の舞台へ！",
+      "stamina_before_exam": [
+        7,
+        25
+      ],
+      "exam": {
+        "round": 1,
+        "passed": true,
+        "rank": 1,
+        "score": 508647,
+        "stamina": [
+          25,
+          30
+        ],
+        "p_points": [
+          380,
+          580
+        ],
+        "star_power": [
+          915,
+          1095
+        ]
+      },
+      "post_exam_item": "H.I.F応援棒（緑）"
+    }
+  ],
+  "score_header": {
+    "image": 4,
+    "total": 508647,
+    "by_attribute": {
+      "vocal": 341357,
+      "dance": 113292,
+      "visual": 53998
+    },
+    "displayed_judging_standard": 950
+  },
+  "score_turns": [
+    {
+      "turn": 1,
+      "attribute": "vocal",
+      "displayed_percent": 3879,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "turn": 2,
+      "attribute": "dance",
+      "displayed_percent": 3335,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "turn": 3,
+      "attribute": "dance",
+      "displayed_percent": 3335,
+      "before": 0,
+      "after": 4103
+    },
+    {
+      "turn": 4,
+      "attribute": "visual",
+      "displayed_percent": 2430,
+      "before": 4103,
+      "after": 8648
+    },
+    {
+      "turn": 5,
+      "attribute": "vocal",
+      "displayed_percent": 3879,
+      "before": 8648,
+      "after": 14312
+    },
+    {
+      "turn": 6,
+      "attribute": "vocal",
+      "displayed_percent": 3879,
+      "before": 14312,
+      "after": 38440
+    },
+    {
+      "turn": 7,
+      "attribute": "visual",
+      "displayed_percent": 2430,
+      "before": 38440,
+      "after": 87893
+    },
+    {
+      "turn": 8,
+      "attribute": "dance",
+      "displayed_percent": 3335,
+      "before": 87893,
+      "after": 197082
+    },
+    {
+      "turn": 9,
+      "attribute": "vocal",
+      "displayed_percent": 3879,
+      "before": 197082,
+      "after": 508647
+    }
+  ],
+  "plays": [
+    {
+      "ordinal": 1,
+      "turn": 1,
+      "images": [
+        5
+      ],
+      "name": "あなたがくれた夢++"
+    },
+    {
+      "ordinal": 2,
+      "turn": 1,
+      "images": [
+        5
+      ],
+      "name": "アイドル魂+"
+    },
+    {
+      "ordinal": 3,
+      "turn": 1,
+      "images": [
+        6
+      ],
+      "name": "わたしだけの思い出+"
+    },
+    {
+      "ordinal": 4,
+      "turn": 2,
+      "images": [
+        7
+      ],
+      "name": "大胆不敵++"
+    },
+    {
+      "ordinal": 5,
+      "turn": 2,
+      "images": [
+        7
+      ],
+      "name": "成就+"
+    },
+    {
+      "ordinal": 6,
+      "turn": 3,
+      "images": [
+        8
+      ],
+      "name": "魅惑の視線+"
+    },
+    {
+      "ordinal": 7,
+      "turn": 3,
+      "images": [
+        8
+      ],
+      "name": "夏夜に咲く思い出"
+    },
+    {
+      "ordinal": 8,
+      "turn": 3,
+      "images": [
+        8
+      ],
+      "name": "願いの力"
+    },
+    {
+      "ordinal": 9,
+      "turn": 4,
+      "images": [
+        9
+      ],
+      "name": "スリリング+"
+    },
+    {
+      "ordinal": 10,
+      "turn": 4,
+      "images": [
+        9
+      ],
+      "name": "精神統一+"
+    },
+    {
+      "ordinal": 11,
+      "turn": 5,
+      "images": [
+        10
+      ],
+      "name": "存在感+"
+    },
+    {
+      "ordinal": 12,
+      "turn": 5,
+      "images": [
+        10,
+        11
+      ],
+      "name": "天賦の才+",
+      "summer_trigger_before_body": true
+    },
+    {
+      "ordinal": 13,
+      "turn": 6,
+      "images": [
+        13,
+        14
+      ],
+      "name": "脚光+"
+    },
+    {
+      "ordinal": 14,
+      "turn": 6,
+      "images": [
+        14
+      ],
+      "name": "エキサイト+"
+    },
+    {
+      "ordinal": 15,
+      "turn": 6,
+      "images": [
+        15
+      ],
+      "name": "シュプレヒコール+"
+    },
+    {
+      "ordinal": 16,
+      "turn": 6,
+      "images": [
+        15
+      ],
+      "name": "国民的アイドル+"
+    },
+    {
+      "ordinal": 17,
+      "turn": 6,
+      "images": [
+        15,
+        16
+      ],
+      "name": "天真爛漫+",
+      "body_executions": 2,
+      "summer_trigger_before_body": true
+    },
+    {
+      "ordinal": 18,
+      "turn": 7,
+      "images": [
+        17
+      ],
+      "name": "あなたがくれた夢+"
+    },
+    {
+      "ordinal": 19,
+      "turn": 7,
+      "images": [
+        17,
+        18
+      ],
+      "name": "立ち位置チェック+",
+      "footlight_trigger_after": true
+    },
+    {
+      "ordinal": 20,
+      "turn": 8,
+      "images": [
+        19
+      ],
+      "name": "シュプレヒコール+"
+    },
+    {
+      "ordinal": 21,
+      "turn": 8,
+      "images": [
+        20
+      ],
+      "name": "存在感+",
+      "footlight_trigger_after": true
+    },
+    {
+      "ordinal": 22,
+      "turn": 8,
+      "images": [
+        20,
+        21
+      ],
+      "name": "花萌ゆ季節+",
+      "summer_trigger_before_body": true
+    },
+    {
+      "ordinal": 23,
+      "turn": 8,
+      "images": [
+        21,
+        22
+      ],
+      "name": "精神統一+",
+      "footlight_trigger_after": true
+    },
+    {
+      "ordinal": 24,
+      "turn": 8,
+      "images": [
+        22
+      ],
+      "name": "破竹の勢い+"
+    },
+    {
+      "ordinal": 25,
+      "turn": 9,
+      "images": [
+        23,
+        24
+      ],
+      "name": "わたしだけの思い出+",
+      "automatic": true,
+      "source": "encore",
+      "footlight_trigger_after": true
+    },
+    {
+      "ordinal": 26,
+      "turn": 9,
+      "images": [
+        24
+      ],
+      "name": "あなたがくれた夢+"
+    },
+    {
+      "ordinal": 27,
+      "turn": 9,
+      "images": [
+        25
+      ],
+      "name": "シュプレヒコール+",
+      "summer_trigger_before_body": true,
+      "footlight_trigger_after": true
+    },
+    {
+      "ordinal": 28,
+      "turn": 9,
+      "images": [
+        25,
+        26
+      ],
+      "name": "大胆不敵+"
+    },
+    {
+      "ordinal": 29,
+      "turn": 9,
+      "images": [
+        26,
+        27
+      ],
+      "name": "ペース配分++",
+      "footlight_trigger_after": true
+    }
+  ],
+  "score_events": [
+    {
+      "turn": 3,
+      "image": 8,
+      "source": "成就+ reservation",
+      "before": 0,
+      "after": 4103
+    },
+    {
+      "turn": 4,
+      "image": 9,
+      "source": "精神統一+ body",
+      "before": 4103,
+      "after": 8648
+    },
+    {
+      "turn": 5,
+      "image": 10,
+      "source": "夏夜に咲く思い出",
+      "before": 8648,
+      "after": 14312
+    },
+    {
+      "turn": 6,
+      "image": 14,
+      "source": "エキサイト+",
+      "before": 14312,
+      "after": 22652
+    },
+    {
+      "turn": 6,
+      "image": 15,
+      "source": "シュプレヒコール+",
+      "before": 22652,
+      "after": 30449
+    },
+    {
+      "turn": 6,
+      "image": 16,
+      "source": "夏夜に咲く思い出",
+      "before": 30449,
+      "after": 38440
+    },
+    {
+      "turn": 7,
+      "image": 18,
+      "source": "立ち位置チェック+ hit 1",
+      "before": 38440,
+      "after": 52875
+    },
+    {
+      "turn": 7,
+      "image": 18,
+      "source": "立ち位置チェック+ hit 2",
+      "before": 52875,
+      "after": 67310
+    },
+    {
+      "turn": 7,
+      "image": 18,
+      "source": "脚光+",
+      "before": 67310,
+      "after": 87893
+    },
+    {
+      "turn": 8,
+      "image": 19,
+      "source": "シュプレヒコール+",
+      "before": 87893,
+      "after": 95764
+    },
+    {
+      "turn": 8,
+      "image": 20,
+      "source": "脚光+",
+      "before": 95764,
+      "after": 130215
+    },
+    {
+      "turn": 8,
+      "image": 21,
+      "source": "夏夜に咲く思い出",
+      "before": 130215,
+      "after": 139153
+    },
+    {
+      "turn": 8,
+      "image": 21,
+      "source": "精神統一+ body",
+      "before": 139153,
+      "after": 151159
+    },
+    {
+      "turn": 8,
+      "image": 22,
+      "source": "脚光+",
+      "before": 151159,
+      "after": 197082
+    },
+    {
+      "turn": 9,
+      "image": 23,
+      "source": "破竹の勢い+",
+      "before": 197082,
+      "after": 211861
+    },
+    {
+      "turn": 9,
+      "image": 24,
+      "source": "脚光+",
+      "before": 211861,
+      "after": 271443
+    },
+    {
+      "turn": 9,
+      "image": 25,
+      "source": "夏夜に咲く思い出",
+      "before": 271443,
+      "after": 285408
+    },
+    {
+      "turn": 9,
+      "image": 25,
+      "source": "シュプレヒコール+",
+      "before": 285408,
+      "after": 299567
+    },
+    {
+      "turn": 9,
+      "image": 25,
+      "source": "脚光+",
+      "before": 299567,
+      "after": 361476
+    },
+    {
+      "turn": 9,
+      "images": [
+        25,
+        26,
+        27
+      ],
+      "source": "unshown interval during ペース配分++",
+      "before": 361476,
+      "after": 384363,
+      "inferred_gap": true
+    },
+    {
+      "turn": 9,
+      "image": 27,
+      "source": "脚光+",
+      "before": 384363,
+      "after": 508647
+    }
+  ],
+  "resource_cases": {
+    "repeated_tenshin": {
+      "images": [
+        15,
+        16
+      ],
+      "focus_before": 50,
+      "body_focus_after": [
+        51,
+        52
+      ],
+      "end_focus_after": [
+        54,
+        56
+      ],
+      "expected_body_uses": 1,
+      "expected_end_listeners": 2
+    },
+    "focus_fixed_gain_each_listener": [
+      {
+        "images": [
+          19
+        ],
+        "fixed_gain_bonus": 2,
+        "before": 56,
+        "after": [
+          60,
+          64
+        ]
+      },
+      {
+        "images": [
+          27
+        ],
+        "fixed_gain_bonus": 4,
+        "before": 128,
+        "after": [
+          134,
+          140
+        ]
+      }
+    ],
+    "wish_active_before_body": [
+      {
+        "image": 13,
+        "fixed_gain_bonus": 0,
+        "focus": [
+          41,
+          42
+        ]
+      },
+      {
+        "image": 17,
+        "fixed_gain_bonus": 2,
+        "focus": [
+          53,
+          56
+        ]
+      },
+      {
+        "image": 25,
+        "fixed_gain_bonus": 4,
+        "focus": [
+          101,
+          106
+        ]
+      }
+    ],
+    "protein_skip": {
+      "images": [
+        16,
+        17
+      ],
+      "turn": 6,
+      "drink": "初星ホエイプロテイン",
+      "displayed_added_uses": [
+        0,
+        1
+      ],
+      "skip_stamina": [
+        21,
+        23
+      ],
+      "next_turn_opening_uses": null,
+      "interpretation": "Use+1 then skip observed; next-turn remaining windows not directly shown and a card/item grants further uses."
+    },
+    "idol_item": {
+      "name": "すべてを賭けた輝き",
+      "images": [
+        5,
+        17,
+        24
+      ],
+      "fixed_cost_reduction": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "stamina": [
+        [
+          28,
+          26
+        ],
+        [
+          29,
+          27
+        ],
+        [
+          27,
+          25
+        ]
+      ],
+      "added_uses": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "encore": {
+      "images": [
+        23,
+        24
+      ],
+      "turn": 9,
+      "prepared_card": "わたしだけの思い出+",
+      "new_encore_registration_visible": false,
+      "new_end_listener_visible": true
+    },
+    "pending_no_change": [
+      {
+        "images": [
+          6,
+          7
+        ],
+        "turn": 2,
+        "source": "アイドル魂+ reservation"
+      },
+      {
+        "image": 23,
+        "turn": 9,
+        "source": "花萌ゆ季節+ reservation"
+      }
+    ],
+    "positioning_memory": {
+      "image": 4,
+      "text": "試験ごとに、以降1回まで、立ち位置チェック使用後、スキルカード使用数追加+1・スキルカードを引く。H.I.F専用 重複発動不可",
+      "activation_image": 18,
+      "added_uses": [
+        0,
+        1
+      ],
+      "draw": "眠気"
+    }
+  },
+  "mode_confirmation": {
+    "user_confirmed": true,
+    "result_image": 34,
+    "label": "H.I.F本戦 ラウンド1終了",
+    "rank": 1,
+    "score": 508647
+  }
+}

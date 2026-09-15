@@ -1,0 +1,215 @@
+{
+  "$defs": {
+    "EntityRef": {
+      "additionalProperties": false,
+      "description": "定义、变体和具体副本分开；槽位不属于永久身份。",
+      "properties": {
+        "instance_id": {
+          "minLength": 1,
+          "title": "Instance Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "card",
+            "drink",
+            "item",
+            "support",
+            "memory",
+            "option"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "definition_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Definition Id"
+        },
+        "upgrade_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upgrade Count"
+        },
+        "customize_ids": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Customize Ids"
+        },
+        "variant_fingerprint": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Variant Fingerprint"
+        },
+        "label": {
+          "default": "",
+          "title": "Label",
+          "type": "string"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "instance_id",
+        "kind"
+      ],
+      "title": "EntityRef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "每个状态拥有独立身份与作用域；所有可空项也要求调用方明确传入。",
+  "properties": {
+    "state_id": {
+      "minLength": 1,
+      "title": "State Id",
+      "type": "string"
+    },
+    "exam_id": {
+      "minLength": 1,
+      "title": "Exam Id",
+      "type": "string"
+    },
+    "enchant_id": {
+      "minLength": 1,
+      "title": "Enchant Id",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/EntityRef"
+    },
+    "source_level": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Source Level"
+    },
+    "remaining_turns": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Remaining Turns"
+    },
+    "remaining_count": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Remaining Count"
+    },
+    "applied_turn": {
+      "minimum": 0,
+      "title": "Applied Turn",
+      "type": "integer"
+    },
+    "applied_phase": {
+      "enum": [
+        "exam_start",
+        "turn_start",
+        "card_resolution",
+        "drink_resolution"
+      ],
+      "title": "Applied Phase",
+      "type": "string"
+    },
+    "last_fired_turn": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Last Fired Turn"
+    },
+    "bound_card_instance_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Bound Card Instance Id"
+    },
+    "once_per_turn": {
+      "title": "Once Per Turn",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "state_id",
+    "exam_id",
+    "enchant_id",
+    "source",
+    "source_level",
+    "remaining_turns",
+    "remaining_count",
+    "applied_turn",
+    "applied_phase",
+    "last_fired_turn",
+    "bound_card_instance_id",
+    "once_per_turn"
+  ],
+  "title": "ExamEnchantState",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

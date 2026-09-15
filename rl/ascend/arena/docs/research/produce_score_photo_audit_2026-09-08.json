@@ -1,0 +1,128 @@
+{
+  "schema_version": "arena-photo-engine-audit/1",
+  "rules_version": "arena-content-rules/4",
+  "synthetic": true,
+  "full_game_replay": false,
+  "source_revision": "571dbb62601e78998cddeacdbce3ea1bc672d7fc",
+  "evidence_sha256": "b3a8d19a66e78af13da21fba5638d6c6c711419909f2c245c646893b4c7a6818",
+  "engine_sha256": {
+    "gakumas_rl/simulation/exam/runtime.py": "d08e8e5cce78c194f91b198bc59c7c1f1e479c361c83fa0ab9b7c880a503d47e",
+    "gakumas_rl/simulation/exam/resolution.py": "e77798559dc8f10f09416377d743a220641f6ed912ce25153de3aa24005485bc",
+    "gakumas_rl/simulation/produce/runtime.py": "577dd2ce758ca01670a11e9746c5d72de3570d61909b1a74b614e36ff41b8f76"
+  },
+  "score_ledger": {
+    "status": "arithmetic_match",
+    "by_attribute": {
+      "vocal": 341357,
+      "dance": 113292,
+      "visual": 53998
+    },
+    "total": 508647,
+    "contains_inferred_gap": true
+  },
+  "counts": {
+    "match": 6,
+    "diverge": 2
+  },
+  "probes": [
+    {
+      "id": "national_repeats_tenshin_body_but_not_use",
+      "expected_from_photos": [
+        52,
+        56,
+        1,
+        2
+      ],
+      "observed_in_engine": [
+        52.0,
+        56.0,
+        1,
+        2
+      ],
+      "status": "match",
+      "scope": "Images 15-16. Real native card definitions; synthetic paid-cost-free state.",
+      "synthetic": true
+    },
+    {
+      "id": "each_persistent_gain_adds_fixed_2",
+      "expected_from_photos": 64,
+      "observed_in_engine": 64.0,
+      "status": "match",
+      "scope": "Images 19/27. Two native end listeners, explicitly seeded fixed gain.",
+      "synthetic": true
+    },
+    {
+      "id": "each_persistent_gain_adds_fixed_4",
+      "expected_from_photos": 140,
+      "observed_in_engine": 140.0,
+      "status": "match",
+      "scope": "Images 19/27. Two native end listeners, explicitly seeded fixed gain.",
+      "synthetic": true
+    },
+    {
+      "id": "wish_before_active_body_fixed_0",
+      "expected_from_photos": 42,
+      "observed_in_engine": 42.0,
+      "status": "match",
+      "scope": "Images 13/17/25. Isolate native active-card listener before body.",
+      "synthetic": true
+    },
+    {
+      "id": "wish_before_active_body_fixed_2",
+      "expected_from_photos": 56,
+      "observed_in_engine": 56.0,
+      "status": "match",
+      "scope": "Images 13/17/25. Isolate native active-card listener before body.",
+      "synthetic": true
+    },
+    {
+      "id": "wish_before_active_body_fixed_4",
+      "expected_from_photos": 106,
+      "observed_in_engine": 106.0,
+      "status": "match",
+      "scope": "Images 13/17/25. Isolate native active-card listener before body.",
+      "synthetic": true
+    },
+    {
+      "id": "summer_effect_local_interval",
+      "expected_from_photos": [
+        12,
+        17,
+        22,
+        27
+      ],
+      "observed_in_engine": [
+        10,
+        15,
+        20,
+        25
+      ],
+      "status": "diverge",
+      "scope": "Images 8/10/16/21/25. Registration after visible use 7; ordinal reconstruction assumes supplied sequence is complete.",
+      "synthetic": true
+    },
+    {
+      "id": "footlight_condition_gated_local_interval",
+      "expected_from_photos": [
+        19,
+        21,
+        23,
+        25,
+        27,
+        29
+      ],
+      "observed_in_engine": [
+        14,
+        18,
+        20,
+        22,
+        24,
+        26,
+        28
+      ],
+      "status": "diverge",
+      "scope": "Images 13-27. Seed post-body good-condition values per boundary; this is NOT a continuous gameplay replay.",
+      "synthetic": true
+    }
+  ]
+}

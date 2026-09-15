@@ -1,0 +1,121 @@
+{
+  "schema_version": "arena-hif-multiplier-samples/1",
+  "received_date": "2026-09-09",
+  "synthetic": false,
+  "attribute_order": [
+    "vocal",
+    "dance",
+    "visual"
+  ],
+  "units": {
+    "raw_parameters": "attribute points",
+    "star_before_exam": "star points before this round",
+    "star_reference": "displayed star reference for this round",
+    "score_percents": "final displayed percentages: 4397 means 43.97 times",
+    "stage_a_score_percents_displayed": "opening UI percentages, not exact internal values",
+    "stage_b_score_percents_displayed": "opening UI percentages, not exact internal values"
+  },
+  "samples": [
+    {
+      "sample_id": "hif-main-round1-20260909-vo2759-da1727-vi1209-star915",
+      "exam_round": 1,
+      "raw_parameters": [
+        2759,
+        1727,
+        1209
+      ],
+      "star_before_exam": 915,
+      "star_reference": 600,
+      "stage_a_score_percents_displayed": [
+        977,
+        666,
+        494
+      ],
+      "stage_b_score_percents_displayed": [
+        1466,
+        999,
+        741
+      ],
+      "score_percents": [
+        4397,
+        2997,
+        2223
+      ],
+      "final_display_source": "in_exam_menu",
+      "observed_turn_count": 9,
+      "observed_turn_types": [
+        "vocal",
+        "vocal",
+        "visual",
+        "vocal",
+        "dance",
+        "dance",
+        "visual",
+        "dance",
+        "vocal"
+      ],
+      "engine_p_idol_id": null,
+      "masterdata_profile_id": null,
+      "dearness_score_effects": null,
+      "source": {
+        "record": "../research/hif_round1_multiplier_observation_2026-09-09.json",
+        "record_sha256": "c22e4497d8e43d2489c95dbf4101e1158248027efa554f2636b8d74c88f5a3d7",
+        "image_manifest": "../research/evidence/2026-09-09-hif-round1-multipliers/manifest.json",
+        "image_manifest_sha256": "1c4adeff2819871004cf3d7d5ca2d3056fab55b423ed3471b2fbcf68c9a75694",
+        "stage_a_image": 1,
+        "stage_b_image": 2,
+        "final_display_image": 4
+      }
+    },
+    {
+      "sample_id": "hif-main-round2-20260909-vo2759-da1744-vi1209-star1083",
+      "exam_round": 2,
+      "raw_parameters": [
+        2759,
+        1744,
+        1209
+      ],
+      "star_before_exam": 1083,
+      "star_reference": 800,
+      "stage_a_score_percents_displayed": [
+        977,
+        670,
+        494
+      ],
+      "stage_b_score_percents_displayed": [
+        1466,
+        1005,
+        741
+      ],
+      "score_percents": [
+        4208,
+        2886,
+        2128
+      ],
+      "final_display_source": "opening_star_bonus_screen",
+      "observed_turn_count": null,
+      "observed_turn_types": null,
+      "engine_p_idol_id": null,
+      "masterdata_profile_id": null,
+      "dearness_score_effects": null,
+      "source": {
+        "record": "../research/hif_round2_multiplier_observation_2026-09-09.json",
+        "record_sha256": "9ebba67b38c666cb4c6e51dd99163336cf755c44dbb42447dc73b68bc9b984e8",
+        "image_manifest": "../research/evidence/2026-09-09-hif-round2-multipliers/manifest.json",
+        "image_manifest_sha256": "4623ddfb792572d7127d08d633c65b7dab78c23da7029f34ff5f1d0dc5b084be",
+        "stage_a_image": 1,
+        "stage_b_image": 2,
+        "final_display_image": 3
+      }
+    }
+  ],
+  "usage_notes": [
+    "Use each sample separately with its exam_round and source; do not combine raw resources from one sample with percentages from another.",
+    "score_percents can be supplied to the existing Arena percent input as already-bonused values. Do not multiply by star or the opening stage bonuses again.",
+    "observed_turn_types is a single observed sequence, not a general turn-generation policy; null means it was not shown.",
+    "These observations do not contain a complete deck or establish the raw-stat/star-to-HIF-percentage function. Supply the actual remaining entry configuration separately.",
+    "Dearness score effects and exact P-idol/profile IDs are not provided; null values must not be filled with assumptions from the other sample.",
+    "R1 stage-B vocal 1466 times 3 equals 4398, while the final display is 4397. Preserve UI rounding distinctions.",
+    "The shared displayed parameter marker 950 has not been established as three identical per-attribute thresholds."
+  ]
+}

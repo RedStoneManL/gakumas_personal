@@ -1,0 +1,216 @@
+{
+  "schema_version": "arena-exam-entry/2",
+  "preset": "hif-round2",
+  "source": {
+    "kind": "custom_environment",
+    "family": "hif-round2-custom/2"
+  },
+  "cards": [
+    {
+      "instance_id": "entry:000",
+      "definition_id": 816,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:001",
+      "definition_id": 818,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:002",
+      "definition_id": 762,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:003",
+      "definition_id": 752,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:004",
+      "definition_id": 752,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:005",
+      "definition_id": 709,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:006",
+      "definition_id": 593,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:007",
+      "definition_id": 169,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:008",
+      "definition_id": 117,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:009",
+      "definition_id": 597,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:010",
+      "definition_id": 293,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:011",
+      "definition_id": 87,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:012",
+      "definition_id": 648,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:013",
+      "definition_id": 159,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:014",
+      "definition_id": 599,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:015",
+      "definition_id": 145,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:016",
+      "definition_id": 707,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:017",
+      "definition_id": 108,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:018",
+      "definition_id": 584,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:019",
+      "definition_id": 247,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    },
+    {
+      "instance_id": "entry:020",
+      "definition_id": 668,
+      "customizations": {},
+      "growth": {},
+      "bindings": []
+    }
+  ],
+  "resources": {
+    "stamina": 25,
+    "max_stamina": 35,
+    "drinks": [
+      18,
+      22,
+      14,
+      12
+    ]
+  },
+  "p_items": [
+    428,
+    442
+  ],
+  "memory_abilities": [],
+  "persistent_effects": [],
+  "context": {
+    "idol_id": 140,
+    "plan": "sense",
+    "boundary": "before_opening",
+    "scoring": {
+      "mode": "percent",
+      "values": [
+        2030,
+        1472,
+        1098
+      ],
+      "support_bonus": 0
+    },
+    "stage": {
+      "type": "contest",
+      "season": 51,
+      "turnCounts": {
+        "vocal": 5,
+        "dance": 4,
+        "visual": 3
+      },
+      "firstTurns": {
+        "vocal": 1,
+        "dance": 0,
+        "visual": 0
+      },
+      "criteria": {
+        "vocal": 0.45,
+        "dance": 0.3,
+        "visual": 0.25
+      },
+      "effects": "",
+      "linkTurnCounts": []
+    },
+    "turn_types": null,
+    "basic_card_pool": [
+      646,
+      648,
+      666,
+      668,
+      670
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "synthetic": true,
+  "real_game_verified": false,
+  "rules_version": "arena-content-rules/4",
+  "trigger_order_policy": "stable_id_lexicographic/1",
+  "expected": [
+    {
+      "turn": 1,
+      "focus": 3.0,
+      "score": 0.0
+    },
+    {
+      "turn": 2,
+      "focus": 6.0,
+      "score": 14.0
+    }
+  ],
+  "explanation": "input lists second before first, but IDs sort first before second; turn1 second is ineligible; turn2 score reads focus6 after first executes"
+}

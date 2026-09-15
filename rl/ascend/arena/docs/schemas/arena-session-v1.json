@@ -1,0 +1,1029 @@
+{
+  "$defs": {
+    "ActionResult": {
+      "additionalProperties": false,
+      "description": "输入回执；confirmed 表示游戏事实确认，不表示鼠标已点击。",
+      "properties": {
+        "contract_version": {
+          "const": "arena-live/1",
+          "default": "arena-live/1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "result_id": {
+          "minLength": 1,
+          "title": "Result Id",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "command_id": {
+          "title": "Command Id",
+          "type": "string"
+        },
+        "observation_id": {
+          "title": "Observation Id",
+          "type": "string"
+        },
+        "revision": {
+          "title": "Revision",
+          "type": "integer"
+        },
+        "outcome": {
+          "enum": [
+            "confirmed",
+            "not_applied",
+            "uncertain"
+          ],
+          "title": "Outcome",
+          "type": "string"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "result_id",
+        "run_id",
+        "command_id",
+        "observation_id",
+        "revision",
+        "outcome"
+      ],
+      "title": "ActionResult",
+      "type": "object"
+    },
+    "Choice": {
+      "additionalProperties": false,
+      "description": "当前页面的一项语义动作，不接受 UI 坐标或策略槽号。",
+      "properties": {
+        "choice_id": {
+          "minLength": 1,
+          "title": "Choice Id",
+          "type": "string"
+        },
+        "action_type": {
+          "minLength": 1,
+          "title": "Action Type",
+          "type": "string"
+        },
+        "targets": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EntityRef"
+          },
+          "title": "Targets",
+          "type": "array"
+        },
+        "parameters": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Parameters",
+          "type": "object"
+        },
+        "ui_enabled": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ui Enabled"
+        },
+        "label": {
+          "default": "",
+          "title": "Label",
+          "type": "string"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "choice_id",
+        "action_type"
+      ],
+      "title": "Choice",
+      "type": "object"
+    },
+    "Command": {
+      "additionalProperties": false,
+      "description": "提案绑定当前运行、观察、修订与目标；由 adapter 临执行前核验。",
+      "properties": {
+        "contract_version": {
+          "const": "arena-live/1",
+          "default": "arena-live/1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "command_id": {
+          "title": "Command Id",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "observation_id": {
+          "title": "Observation Id",
+          "type": "string"
+        },
+        "revision": {
+          "title": "Revision",
+          "type": "integer"
+        },
+        "decision_id": {
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "choice": {
+          "$ref": "#/$defs/Choice"
+        }
+      },
+      "required": [
+        "command_id",
+        "run_id",
+        "observation_id",
+        "revision",
+        "decision_id",
+        "choice"
+      ],
+      "title": "Command",
+      "type": "object"
+    },
+    "CommandEntry": {
+      "additionalProperties": false,
+      "description": "记录原命令，恢复时不能重新询问 policy。",
+      "properties": {
+        "operation": {
+          "enum": [
+            "propose",
+            "submit"
+          ],
+          "title": "Operation",
+          "type": "string"
+        },
+        "command": {
+          "$ref": "#/$defs/Command"
+        }
+      },
+      "required": [
+        "operation",
+        "command"
+      ],
+      "title": "CommandEntry",
+      "type": "object"
+    },
+    "EntityRef": {
+      "additionalProperties": false,
+      "description": "定义、变体和具体副本分开；槽位不属于永久身份。",
+      "properties": {
+        "instance_id": {
+          "minLength": 1,
+          "title": "Instance Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "card",
+            "drink",
+            "item",
+            "support",
+            "memory",
+            "option"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "definition_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Definition Id"
+        },
+        "upgrade_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upgrade Count"
+        },
+        "customize_ids": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Customize Ids"
+        },
+        "variant_fingerprint": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Variant Fingerprint"
+        },
+        "label": {
+          "default": "",
+          "title": "Label",
+          "type": "string"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "instance_id",
+        "kind"
+      ],
+      "title": "EntityRef",
+      "type": "object"
+    },
+    "Inventory": {
+      "additionalProperties": false,
+      "description": "只覆盖命名区域；partial/unknown 不能当完整资产集合。",
+      "properties": {
+        "coverage": {
+          "enum": [
+            "complete",
+            "partial",
+            "unknown"
+          ],
+          "title": "Coverage",
+          "type": "string"
+        },
+        "entities": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EntityRef"
+          },
+          "title": "Entities",
+          "type": "array"
+        }
+      },
+      "required": [
+        "coverage"
+      ],
+      "title": "Inventory",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "MemorySetup": {
+      "additionalProperties": false,
+      "description": "生成来源与使用限制独立；数值快照不参与初始属性加算。",
+      "properties": {
+        "instance_id": {
+          "title": "Instance Id",
+          "type": "string"
+        },
+        "source_idol_card_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Idol Card Id"
+        },
+        "allowed_character_ids": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Allowed Character Ids"
+        },
+        "card": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EntityRef"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "acquisition_phase": {
+          "anyOf": [
+            {
+              "enum": [
+                "ProduceStart",
+                "EndAuditionMid"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Acquisition Phase"
+        },
+        "ability_ids": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ability Ids"
+        },
+        "ability_levels": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ability Levels"
+        },
+        "contest_snapshot": {
+          "additionalProperties": {
+            "$ref": "#/$defs/ObservedValue"
+          },
+          "title": "Contest Snapshot",
+          "type": "object"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "instance_id"
+      ],
+      "title": "MemorySetup",
+      "type": "object"
+    },
+    "Observation": {
+      "additionalProperties": false,
+      "description": "绝对快照；facts 和 inventories 中未出现的字段在此刻未知。",
+      "properties": {
+        "contract_version": {
+          "const": "arena-live/1",
+          "default": "arena-live/1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "observation_id": {
+          "minLength": 1,
+          "title": "Observation Id",
+          "type": "string"
+        },
+        "revision": {
+          "minimum": 0,
+          "title": "Revision",
+          "type": "integer"
+        },
+        "captured_at": {
+          "title": "Captured At",
+          "type": "string"
+        },
+        "page": {
+          "title": "Page",
+          "type": "string"
+        },
+        "stability": {
+          "enum": [
+            "stable",
+            "transition",
+            "preview"
+          ],
+          "title": "Stability",
+          "type": "string"
+        },
+        "terminal": {
+          "default": false,
+          "title": "Terminal",
+          "type": "boolean"
+        },
+        "event_watermark": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Event Watermark",
+          "type": "integer"
+        },
+        "facts": {
+          "additionalProperties": {
+            "$ref": "#/$defs/ObservedValue"
+          },
+          "title": "Facts",
+          "type": "object"
+        },
+        "inventories": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Inventory"
+          },
+          "title": "Inventories",
+          "type": "object"
+        },
+        "pending_decision": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PendingDecision"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "conflicts": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Conflicts",
+          "type": "array"
+        }
+      },
+      "required": [
+        "run_id",
+        "observation_id",
+        "revision",
+        "captured_at",
+        "page",
+        "stability"
+      ],
+      "title": "Observation",
+      "type": "object"
+    },
+    "ObservationEntry": {
+      "additionalProperties": false,
+      "description": "一次绝对观察。",
+      "properties": {
+        "operation": {
+          "const": "observe",
+          "default": "observe",
+          "title": "Operation",
+          "type": "string"
+        },
+        "observation": {
+          "$ref": "#/$defs/Observation"
+        }
+      },
+      "required": [
+        "observation"
+      ],
+      "title": "ObservationEntry",
+      "type": "object"
+    },
+    "ObservedEvent": {
+      "additionalProperties": false,
+      "description": "对账记录，绝不在绝对快照上再次执行事件中的数值差量。",
+      "properties": {
+        "event_id": {
+          "minLength": 1,
+          "title": "Event Id",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "command_id": {
+          "title": "Command Id",
+          "type": "string"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Payload",
+          "type": "object"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "event_id",
+        "sequence",
+        "command_id",
+        "kind"
+      ],
+      "title": "ObservedEvent",
+      "type": "object"
+    },
+    "ObservedValue": {
+      "additionalProperties": false,
+      "description": "当前观察中的事实；未知值只能是 null，估计另存。",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/JsonValue",
+          "default": null
+        },
+        "status": {
+          "default": "unknown",
+          "enum": [
+            "observed",
+            "unknown"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "title": "ObservedValue",
+      "type": "object"
+    },
+    "PendingDecision": {
+      "additionalProperties": false,
+      "description": "中间页面也是独立决策；每个 Choice 表示一次完整语义输入。",
+      "properties": {
+        "decision_id": {
+          "minLength": 1,
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "planning",
+            "exam",
+            "school",
+            "card_reward",
+            "consult",
+            "drink_overflow",
+            "search",
+            "discard",
+            "upgrade",
+            "delete",
+            "customize",
+            "event",
+            "result"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "coverage": {
+          "enum": [
+            "complete",
+            "partial",
+            "unknown"
+          ],
+          "title": "Coverage",
+          "type": "string"
+        },
+        "choices": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Choice"
+          },
+          "title": "Choices",
+          "type": "array"
+        }
+      },
+      "required": [
+        "decision_id",
+        "kind",
+        "coverage"
+      ],
+      "title": "PendingDecision",
+      "type": "object"
+    },
+    "ResultEntry": {
+      "additionalProperties": false,
+      "description": "包含 next_observation 的原始结果包，支持精确去重。",
+      "properties": {
+        "operation": {
+          "const": "result",
+          "default": "result",
+          "title": "Operation",
+          "type": "string"
+        },
+        "result": {
+          "$ref": "#/$defs/ActionResult"
+        },
+        "events": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ObservedEvent"
+          },
+          "title": "Events",
+          "type": "array"
+        },
+        "next_observation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Observation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "result"
+      ],
+      "title": "ResultEntry",
+      "type": "object"
+    },
+    "RunLoadout": {
+      "additionalProperties": false,
+      "description": "实测编成入口；未读成长等级保留 None，不套训练默认值。",
+      "properties": {
+        "idol_card_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Idol Card Id"
+        },
+        "producer_level": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Producer Level"
+        },
+        "idol_rank": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Idol Rank"
+        },
+        "dearness_level": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dearness Level"
+        },
+        "potential_level": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Potential Level"
+        },
+        "prima_stella_level": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prima Stella Level"
+        },
+        "use_after_item": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Use After Item"
+        },
+        "supports": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/SupportSetup"
+          },
+          "title": "Supports",
+          "type": "array"
+        },
+        "supports_complete": {
+          "default": false,
+          "title": "Supports Complete",
+          "type": "boolean"
+        },
+        "memories": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MemorySetup"
+          },
+          "title": "Memories",
+          "type": "array"
+        },
+        "memories_complete": {
+          "default": false,
+          "title": "Memories Complete",
+          "type": "boolean"
+        }
+      },
+      "title": "RunLoadout",
+      "type": "object"
+    },
+    "RunSetup": {
+      "additionalProperties": false,
+      "description": "初始化仅接受已经结算开场效果的实测 checkpoint。",
+      "properties": {
+        "contract_version": {
+          "const": "arena-live/1",
+          "default": "arena-live/1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "run_id": {
+          "minLength": 1,
+          "title": "Run Id",
+          "type": "string"
+        },
+        "scenario_id": {
+          "minLength": 1,
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "adapter_version": {
+          "title": "Adapter Version",
+          "type": "string"
+        },
+        "game_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Game Version"
+        },
+        "masterdata_revision": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Masterdata Revision"
+        },
+        "rules_revision": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rules Revision"
+        },
+        "checkpoint_mode": {
+          "const": "after_initial_effects",
+          "default": "after_initial_effects",
+          "title": "Checkpoint Mode",
+          "type": "string"
+        },
+        "loadout": {
+          "$ref": "#/$defs/RunLoadout"
+        },
+        "execution_constraints": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Execution Constraints",
+          "type": "object"
+        }
+      },
+      "required": [
+        "run_id",
+        "scenario_id",
+        "adapter_version"
+      ],
+      "title": "RunSetup",
+      "type": "object"
+    },
+    "SupportSetup": {
+      "additionalProperties": false,
+      "description": "逐槽支援配置，不用统一等级覆盖实测等级。",
+      "properties": {
+        "instance_id": {
+          "title": "Instance Id",
+          "type": "string"
+        },
+        "support_card_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Support Card Id"
+        },
+        "level": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Level"
+        },
+        "borrowed": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Borrowed"
+        }
+      },
+      "required": [
+        "instance_id"
+      ],
+      "title": "SupportSetup",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "同版本账本的原子快照；调用方负责安全落盘及新观察补读。",
+  "properties": {
+    "version": {
+      "const": "arena-session/1",
+      "default": "arena-session/1",
+      "title": "Version",
+      "type": "string"
+    },
+    "setup": {
+      "$ref": "#/$defs/RunSetup"
+    },
+    "entries": {
+      "items": {
+        "discriminator": {
+          "mapping": {
+            "observe": "#/$defs/ObservationEntry",
+            "propose": "#/$defs/CommandEntry",
+            "result": "#/$defs/ResultEntry",
+            "submit": "#/$defs/CommandEntry"
+          },
+          "propertyName": "operation"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/ObservationEntry"
+          },
+          {
+            "$ref": "#/$defs/CommandEntry"
+          },
+          {
+            "$ref": "#/$defs/ResultEntry"
+          }
+        ]
+      },
+      "title": "Entries",
+      "type": "array"
+    },
+    "sha256": {
+      "title": "Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "setup",
+    "entries",
+    "sha256"
+  ],
+  "title": "SessionSnapshot",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

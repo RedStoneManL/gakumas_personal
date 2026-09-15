@@ -1,0 +1,111 @@
+{
+  "synthetic": true,
+  "purpose": "known input gap reproduction; does not certify engine fidelity or train a model",
+  "legacy_action_features_equal": true,
+  "samples": [
+    {
+      "configured_turns": 3,
+      "encoder_version": "arena-exam-observed/3",
+      "encoder_sha256": "426e3a8a9b64e69191a07cfa0545377443aebf0d7cbe30fcd7f6c409649eebe4",
+      "rules_version": "arena-content-rules/2",
+      "shapes": {
+        "global": [
+          65
+        ],
+        "action_features": [
+          52,
+          252
+        ],
+        "action_mask": [
+          52
+        ],
+        "global_known_mask": [
+          65
+        ],
+        "action_features_known_mask": [
+          52,
+          252
+        ],
+        "decision_kind": [
+          3
+        ],
+        "exam_context": [
+          2
+        ],
+        "exam_context_known_mask": [
+          2
+        ],
+        "passive_features": [
+          32,
+          77
+        ],
+        "passive_effect_features": [
+          128,
+          133
+        ],
+        "passive_features_known_mask": [
+          32,
+          77
+        ],
+        "passive_effect_features_known_mask": [
+          128,
+          133
+        ]
+      },
+      "observation_float_elements": 65373,
+      "executed_good_condition_turns": 3.0
+    },
+    {
+      "configured_turns": 7,
+      "encoder_version": "arena-exam-observed/3",
+      "encoder_sha256": "426e3a8a9b64e69191a07cfa0545377443aebf0d7cbe30fcd7f6c409649eebe4",
+      "rules_version": "arena-content-rules/2",
+      "shapes": {
+        "global": [
+          65
+        ],
+        "action_features": [
+          52,
+          252
+        ],
+        "action_mask": [
+          52
+        ],
+        "global_known_mask": [
+          65
+        ],
+        "action_features_known_mask": [
+          52,
+          252
+        ],
+        "decision_kind": [
+          3
+        ],
+        "exam_context": [
+          2
+        ],
+        "exam_context_known_mask": [
+          2
+        ],
+        "passive_features": [
+          32,
+          77
+        ],
+        "passive_effect_features": [
+          128,
+          133
+        ],
+        "passive_features_known_mask": [
+          32,
+          77
+        ],
+        "passive_effect_features_known_mask": [
+          128,
+          133
+        ]
+      },
+      "observation_float_elements": 65373,
+      "executed_good_condition_turns": 7.0
+    }
+  ]
+}

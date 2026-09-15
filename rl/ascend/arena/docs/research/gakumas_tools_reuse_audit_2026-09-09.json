@@ -1,0 +1,264 @@
+{
+  "schema_version": "arena-upstream-reuse-probe/1",
+  "revision": "6c3d00648c32ea72a05086a18c63ab62e0d0c7e5",
+  "full_game_replay": false,
+  "synthetic": true,
+  "counts": {
+    "skill_cards": {
+      "rows": 870,
+      "statuses": {
+        "effect_defined": 869,
+        "cost_or_condition_only": 1
+      }
+    },
+    "p_items": {
+      "rows": 484,
+      "statuses": {
+        "no_effect_definition": 110,
+        "effect_defined": 374
+      }
+    },
+    "p_drinks": {
+      "rows": 28,
+      "statuses": {
+        "effect_defined": 28
+      }
+    },
+    "customizations": {
+      "rows": 111,
+      "statuses": {
+        "effect_defined": 105,
+        "metadata_effect_defined": 2,
+        "cost_or_condition_only": 4
+      }
+    },
+    "stages": {
+      "rows": 180,
+      "statuses": {
+        "effect_defined": 180
+      }
+    }
+  },
+  "probes": [
+    {
+      "id": "summer_effect_local_interval",
+      "synthetic": true,
+      "expected_from_photos": [
+        12,
+        17,
+        22,
+        27
+      ],
+      "observed_in_upstream": [
+        12,
+        17,
+        22,
+        27
+      ],
+      "status": "match",
+      "scope": "Source card 584 delayed rule installed after visible use 7; phase-only probe."
+    },
+    {
+      "id": "footlight_condition_gated_local_interval",
+      "synthetic": true,
+      "expected_from_photos": [
+        19,
+        21,
+        23,
+        25,
+        27,
+        29
+      ],
+      "observed_in_upstream": [
+        18,
+        20,
+        22,
+        24,
+        26,
+        28
+      ],
+      "status": "diverge",
+      "scope": "Source card 762 delayed rule, including its own after-use boundary; supplied post-body good-condition values.",
+      "trace": [
+        {
+          "ordinal": 13,
+          "good": 19,
+          "counter": {
+            "100": {
+              "main": 1
+            }
+          },
+          "hit": false
+        },
+        {
+          "ordinal": 14,
+          "good": 19,
+          "counter": {
+            "100": {
+              "main": 2
+            }
+          },
+          "hit": false
+        },
+        {
+          "ordinal": 15,
+          "good": 22,
+          "counter": {
+            "100": {
+              "main": 2
+            }
+          },
+          "hit": false
+        },
+        {
+          "ordinal": 16,
+          "good": 21,
+          "counter": {
+            "100": {
+              "main": 2
+            }
+          },
+          "hit": false
+        },
+        {
+          "ordinal": 17,
+          "good": 21,
+          "counter": {
+            "100": {
+              "main": 2
+            }
+          },
+          "hit": false
+        },
+        {
+          "ordinal": 18,
+          "good": 20,
+          "counter": {
+            "100": {
+              "main": 3
+            }
+          },
+          "hit": true
+        },
+        {
+          "ordinal": 19,
+          "good": 20,
+          "counter": {
+            "100": {
+              "main": 4
+            }
+          },
+          "hit": false
+        },
+        {
+          "ordinal": 20,
+          "good": 19,
+          "counter": {
+            "100": {
+              "main": 5
+            }
+          },
+          "hit": true
+        },
+        {
+          "ordinal": 21,
+          "good": 18,
+          "counter": {
+            "100": {
+              "main": 6
+            }
+          },
+          "hit": false
+        },
+        {
+          "ordinal": 22,
+          "good": 18,
+          "counter": {
+            "100": {
+              "main": 7
+            }
+          },
+          "hit": true
+        },
+        {
+          "ordinal": 23,
+          "good": 15,
+          "counter": {
+            "100": {
+              "main": 8
+            }
+          },
+          "hit": false
+        },
+        {
+          "ordinal": 24,
+          "good": 12,
+          "counter": {
+            "100": {
+              "main": 9
+            }
+          },
+          "hit": true
+        },
+        {
+          "ordinal": 25,
+          "good": 11,
+          "counter": {
+            "100": {
+              "main": 10
+            }
+          },
+          "hit": false
+        },
+        {
+          "ordinal": 26,
+          "good": 8,
+          "counter": {
+            "100": {
+              "main": 11
+            }
+          },
+          "hit": true
+        },
+        {
+          "ordinal": 27,
+          "good": 11,
+          "counter": {
+            "100": {
+              "main": 12
+            }
+          },
+          "hit": false
+        },
+        {
+          "ordinal": 28,
+          "good": 11,
+          "counter": {
+            "100": {
+              "main": 13
+            }
+          },
+          "hit": true
+        },
+        {
+          "ordinal": 29,
+          "good": 19,
+          "counter": {
+            "100": {
+              "main": 14
+            }
+          },
+          "hit": false
+        }
+      ]
+    },
+    {
+      "id": "protein_drink_dsl_executes",
+      "synthetic": true,
+      "expected_from_photos": 1,
+      "observed_in_upstream": 1,
+      "status": "match",
+      "scope": "Low-level DSL execution only. No public drink inventory/use-decision API is demonstrated."
+    }
+  ]
+}

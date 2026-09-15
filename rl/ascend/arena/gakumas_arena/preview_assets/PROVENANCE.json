@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/surisuririsu/gakumas-tools",
+  "revision": "6c3d00648c32ea72a05086a18c63ab62e0d0c7e5",
+  "retrieved": "2026-09-09",
+  "license": "BSD-3-Clause; see ../_vendor/gakumas_tools/LICENSE",
+  "files": {
+    "p_item_icon_keys.json": {
+      "source": "packages/gakumas-images/images/pItems/icons/keys.json",
+      "sha256": "f65ca6e15e1a7474d047f90b0c1ab059fe7ab880bc8ff14ca0cdc38f384b2086",
+      "modifications": []
+    },
+    "p_drink_icon_keys.json": {
+      "source": "packages/gakumas-images/images/pDrinks/icons/keys.json",
+      "sha256": "c089885115e9968ac3f009371ea1a1291a628c0599843d136169c034bf464135",
+      "modifications": []
+    },
+    "skill_card_icon_keys.json": {
+      "source": "packages/gakumas-images/images/skillCards/icons/keys.json",
+      "sha256": "daf5bc7df018ec0699eb36deca6249f65e1dce33f0dbfbddeb02d5b98f487006",
+      "modifications": []
+    }
+  },
+  "icon_resolver_reference": "packages/gakumas-images/remote.js",
+  "artwork": "Original game artwork; no ownership claim. The package includes filename indexes. The renderer caches pinned upstream PNGs in data/image_cache/<revision> by default, records SHA-256 in the cache manifest, and embeds used images in HTML for offline viewing."
+}

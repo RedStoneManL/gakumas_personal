@@ -1,0 +1,36 @@
+{
+  "stage": null,
+  "idol_card_id": null,
+  "curve_family": null,
+  "plan": null,
+  "dearness_level": null,
+  "client_version": null,
+  "stats_Vo_Da_Vi": [
+    null,
+    null,
+    null
+  ],
+  "entrance_star": null,
+  "star_baseline": null,
+  "judging_icons_Vo_Da_Vi": [
+    null,
+    null,
+    null
+  ],
+  "stage_A_display_percents": [
+    null,
+    null,
+    null
+  ],
+  "stage_B_display_percents": [
+    null,
+    null,
+    null
+  ],
+  "settled_menu_score_percents": [
+    null,
+    null,
+    null
+  ],
+  "capture_timing": "same entrance state; wait for animation to settle; preserve all photos or a continuous video"
+}

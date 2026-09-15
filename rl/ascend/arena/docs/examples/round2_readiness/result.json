@@ -1,0 +1,10 @@
+{
+  "scope": "SYNTHETIC_ENGINEERING_NOT_HIF",
+  "rules_version": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+  "terminated": true,
+  "score": 106,
+  "decision_submissions": 14,
+  "selection_submissions": 3,
+  "score_expectation": "execution output only; not an independent golden expected score",
+  "terminal_private_observation_sha256": "f85b3e0817307480e6299ec08222a3fc53f656a19e38e947102394e545442bf4"
+}

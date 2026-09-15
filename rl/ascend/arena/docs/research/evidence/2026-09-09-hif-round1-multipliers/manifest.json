@@ -1,0 +1,48 @@
+{
+  "schema_version": "arena-user-photo-manifest/1",
+  "received_date": "2026-09-09",
+  "source": "user-provided HIF main competition Round 1 screenshots",
+  "synthetic": false,
+  "images": [
+    {
+      "image": 1,
+      "file": "01.jpg",
+      "original_path": "C:/Users/Liu/.codex/codex-remote-attachments/01a07bfd-5638-7a21-8993-8797c7dc3a23/A14B91B3-7FCA-425A-8FA3-07DCDF7CF1A2/1-照片-1.jpg",
+      "sha256": "6460c0af11f92c772342beb70fc524f452120160d9452e092d41a7d9104df0c7",
+      "bytes": 149822,
+      "width": 590,
+      "height": 1280,
+      "modifications": []
+    },
+    {
+      "image": 2,
+      "file": "02.jpg",
+      "original_path": "C:/Users/Liu/.codex/codex-remote-attachments/01a07bfd-5638-7a21-8993-8797c7dc3a23/A14B91B3-7FCA-425A-8FA3-07DCDF7CF1A2/2-照片-2.jpg",
+      "sha256": "05aa9e58fa293e61a0412b88a79b44b7731864b1133317169705a5f340988a18",
+      "bytes": 151919,
+      "width": 590,
+      "height": 1280,
+      "modifications": []
+    },
+    {
+      "image": 3,
+      "file": "03.jpg",
+      "original_path": "C:/Users/Liu/.codex/codex-remote-attachments/01a07bfd-5638-7a21-8993-8797c7dc3a23/A14B91B3-7FCA-425A-8FA3-07DCDF7CF1A2/3-照片-3.jpg",
+      "sha256": "8c54e6c1eb0a7a146bfa7f696d831337870b06bcc8db4bd8f54367bb7a63100f",
+      "bytes": 117596,
+      "width": 590,
+      "height": 1280,
+      "modifications": []
+    },
+    {
+      "image": 4,
+      "file": "04.jpg",
+      "original_path": "C:/Users/Liu/.codex/codex-remote-attachments/01a07bfd-5638-7a21-8993-8797c7dc3a23/A14B91B3-7FCA-425A-8FA3-07DCDF7CF1A2/4-照片-4.jpg",
+      "sha256": "2d58a41ef72c96db1e2a1d3169e5c40321b5cda1dd67a9eaf008707d64423113",
+      "bytes": 105951,
+      "width": 590,
+      "height": 1280,
+      "modifications": []
+    }
+  ]
+}

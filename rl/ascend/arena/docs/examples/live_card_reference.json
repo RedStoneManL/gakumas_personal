@@ -1,0 +1,638 @@
+{
+  "masterdata": {
+    "repository": "https://github.com/vertesan/gakumasu-diff",
+    "revision": "571dbb62601e78998cddeacdbce3ea1bc672d7fc"
+  },
+  "community": {
+    "repository": "https://github.com/surisuririsu/gakumas-tools",
+    "revision": "6c3d00648c32ea72a05086a18c63ab62e0d0c7e5",
+    "card_rows": 870,
+    "customization_rows": 111
+  },
+  "master_tables": {
+    "Produce": {
+      "row_count": 8,
+      "sha256": "8fcff9e5a3f74f39ded20653edfa617f075fa0c117ba3477ba14c97dd38f3851"
+    },
+    "ProduceCard": {
+      "row_count": 1714,
+      "sha256": "35bbfd3a746973f5b3a5d90688f001bfaf14262b97ecfda7f483cccf3ed8b667"
+    },
+    "ProduceCardCustomize": {
+      "row_count": 343,
+      "sha256": "215662cb67392244158d79dfeac86debbd7af75453728524b032a3f411aa77b7"
+    },
+    "ProduceCardGrowEffect": {
+      "row_count": 453,
+      "sha256": "897acdd5eabf583272872a4c5ada02d4569681ba390850a053c058ad76c6757f"
+    },
+    "MemoryGift": {
+      "row_count": 21,
+      "sha256": "8970a568c04525cb8c7b34c34e7c1f5e716df7428ea50015905f9ede73de6f32"
+    },
+    "MemoryAbility": {
+      "row_count": 575,
+      "sha256": "2ef52c80802ce1b49b239da6af9ec801e4c6d34c37cdd77dee215e1259d9c32a"
+    },
+    "ProduceCardRandomPool": {
+      "row_count": 313,
+      "sha256": "d411fd5a892bbccaf89b164e54b1e56de14a3b98520eaf9f535051595cf83bbf"
+    },
+    "ProduceExamBattleScoreConfig": {
+      "row_count": 4108,
+      "sha256": "3406ab940474c35806fa79e4e07264fb3ac5851914bed3f6e8abd52b174ab8a7"
+    },
+    "ProduceExamAutoEvaluation": {
+      "row_count": 11130,
+      "sha256": "c302452100807f5bcdadf6dd4be04e5e2b3fa64a1dfde9509b19a59f4893e35b"
+    },
+    "ProduceExamAutoGrowEffectEvaluation": {
+      "row_count": 3710,
+      "sha256": "4dc40a0e66acf6ece8317ba1b716c88e4619808e5f7aa538c1d23e20eec7223d"
+    },
+    "ProduceExamAutoTriggerEvaluation": {
+      "row_count": 315,
+      "sha256": "ab1125bbe830fab2660843fe344cc010682d367e0476346bb07f2978cb36fea3"
+    },
+    "ProduceExamAutoCardSelectEvaluation": {
+      "row_count": 210,
+      "sha256": "f790c76ff41fc31b06db91c957d4ae3790e0acc97db66408b5775078c9ea1c59"
+    }
+  },
+  "notes": [
+    "Community IDs are only references; commands must use master definition IDs.",
+    "Name matches are cross-check candidates, not full semantic equivalence proofs.",
+    "All selected instance/customization/phase fields remain unknown until adapter evidence.",
+    "Customization level rows contain the current total, not incremental growth."
+  ],
+  "cards": [
+    {
+      "definition_id": "p_card-01-act-3_185",
+      "name": "脚光+",
+      "upgrade_count": 1,
+      "max_customize_count": 1,
+      "base_cost": {
+        "stamina": 0,
+        "forceStamina": 0,
+        "costType": "ExamCostType_ExamParameterBuff",
+        "costValue": 2
+      },
+      "customization_options": [
+        {
+          "definition_id": "p_card_custom-wrapper-p_card-01-act-3_185-a-01",
+          "levels": [
+            {
+              "level": 1,
+              "produce_points": 40,
+              "overwrite_type": "ProduceCardGrowEffectType_Unknown",
+              "grow_effects": [
+                {
+                  "id": "g_effect-cost_parameter_buff_reduce-1",
+                  "effectType": "ProduceCardGrowEffectType_CostParameterBuffReduce",
+                  "costType": "ExamCostType_Unknown",
+                  "value": 1,
+                  "playProduceExamTriggerId": "",
+                  "playEffectProduceExamTriggerId": "",
+                  "targetPlayEffectProduceExamTriggerIds": [],
+                  "playProduceExamEffectId": "",
+                  "targetPlayProduceExamEffectIds": [],
+                  "produceCardStatusEnchantId": "",
+                  "playMovePositionType": "ProduceCardMovePositionType_Unknown",
+                  "effectGroupIds": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "definition_id": "p_card_custom-wrapper-p_card-01-act-3_185-b-01",
+          "levels": [
+            {
+              "level": 1,
+              "produce_points": 70,
+              "overwrite_type": "ProduceCardGrowEffectType_Unknown",
+              "grow_effects": [
+                {
+                  "id": "g_effect-lesson_buff_add-2",
+                  "effectType": "ProduceCardGrowEffectType_LessonBuffAdd",
+                  "costType": "ExamCostType_Unknown",
+                  "value": 2,
+                  "playProduceExamTriggerId": "",
+                  "playEffectProduceExamTriggerId": "",
+                  "targetPlayEffectProduceExamTriggerIds": [],
+                  "playProduceExamEffectId": "",
+                  "targetPlayProduceExamEffectIds": [],
+                  "produceCardStatusEnchantId": "",
+                  "playMovePositionType": "ProduceCardMovePositionType_Unknown",
+                  "effectGroupIds": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "community_name_matches": [
+        {
+          "id": 762,
+          "name": "脚光+",
+          "availableCustomizations": "31,17",
+          "rarity": "SSR",
+          "type": "active",
+          "plan": "sense",
+          "unlockPlv": 75,
+          "upgraded": true,
+          "unique": true,
+          "sourceType": "produce",
+          "pIdolId": "",
+          "forceInitialHand": false,
+          "conditions": "",
+          "cost": "goodConditionTurns-=2",
+          "actions": "concentration+=7; cardUsesRemaining+=1; at:afterCardUsed { if:goodConditionTurns<=20 { effectCounter+=1; if:effectCounter>=2 & effectCounter%2==0 { concentrationMultiplier=4; score+=6; goodConditionTurns-=3 } } }",
+          "limit": 1,
+          "effects": ""
+        }
+      ],
+      "community_customization_options": [
+        {
+          "id": 17,
+          "alias": "concentration1",
+          "name": "集中+",
+          "type": "buff",
+          "price": 70,
+          "max": 1,
+          "forceInitialHand": "",
+          "conditions": "",
+          "cost": "",
+          "actions": "",
+          "limit": "",
+          "effects": "at:prestage { target:this { g.concentration+=2 } }"
+        },
+        {
+          "id": 31,
+          "alias": "goodConditionTurnsCost1",
+          "name": "好調コスト値-",
+          "type": "cost",
+          "price": 40,
+          "max": 1,
+          "forceInitialHand": "",
+          "conditions": "",
+          "cost": "",
+          "actions": "",
+          "limit": "",
+          "effects": "at:prestage { target:this { g.typedCost+=1 } }"
+        }
+      ],
+      "selected_instance_id": null,
+      "selected_customize_ids": null,
+      "acquisition_phase": null
+    },
+    {
+      "definition_id": "p_card-01-men-3_006",
+      "name": "国民的アイドル+",
+      "upgrade_count": 1,
+      "max_customize_count": 1,
+      "base_cost": {
+        "stamina": 0,
+        "forceStamina": 0,
+        "costType": "ExamCostType_ExamParameterBuff",
+        "costValue": 1
+      },
+      "customization_options": [
+        {
+          "definition_id": "p_card_custom-070-g_effect-block_add-9",
+          "levels": [
+            {
+              "level": 1,
+              "produce_points": 70,
+              "overwrite_type": "ProduceCardGrowEffectType_Unknown",
+              "grow_effects": [
+                {
+                  "id": "g_effect-block_add-9",
+                  "effectType": "ProduceCardGrowEffectType_BlockAdd",
+                  "costType": "ExamCostType_Unknown",
+                  "value": 9,
+                  "playProduceExamTriggerId": "",
+                  "playEffectProduceExamTriggerId": "",
+                  "targetPlayEffectProduceExamTriggerIds": [],
+                  "playProduceExamEffectId": "",
+                  "targetPlayProduceExamEffectIds": [],
+                  "produceCardStatusEnchantId": "",
+                  "playMovePositionType": "ProduceCardMovePositionType_Unknown",
+                  "effectGroupIds": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "definition_id": "p_card_custom-070-g_effect-effect_add-e_effect-exam_lesson-0006-01",
+          "levels": [
+            {
+              "level": 1,
+              "produce_points": 70,
+              "overwrite_type": "ProduceCardGrowEffectType_LessonAdd",
+              "grow_effects": [
+                {
+                  "id": "g_effect-effect_add-e_effect-exam_lesson-0006-01",
+                  "effectType": "ProduceCardGrowEffectType_EffectAdd",
+                  "costType": "ExamCostType_Unknown",
+                  "value": 0,
+                  "playProduceExamTriggerId": "",
+                  "playEffectProduceExamTriggerId": "",
+                  "targetPlayEffectProduceExamTriggerIds": [],
+                  "playProduceExamEffectId": "e_effect-exam_lesson-0006-01",
+                  "targetPlayProduceExamEffectIds": [],
+                  "produceCardStatusEnchantId": "",
+                  "playMovePositionType": "ProduceCardMovePositionType_Unknown",
+                  "effectGroupIds": [
+                    "effect_group-visible-exam_lesson-000"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "community_name_matches": [
+        {
+          "id": 163,
+          "name": "国民的アイドル+",
+          "availableCustomizations": "26,3",
+          "rarity": "SSR",
+          "type": "mental",
+          "plan": "sense",
+          "unlockPlv": 25,
+          "upgraded": true,
+          "unique": true,
+          "sourceType": "produce",
+          "pIdolId": "",
+          "forceInitialHand": false,
+          "conditions": "",
+          "cost": "goodConditionTurns-=1",
+          "actions": "genki+=8; doubleCardEffectCards+=1; cardUsesRemaining+=1",
+          "limit": 1,
+          "effects": ""
+        }
+      ],
+      "community_customization_options": [
+        {
+          "id": 26,
+          "alias": "genki1_9",
+          "name": "元気+",
+          "type": "genki",
+          "price": 70,
+          "max": 1,
+          "forceInitialHand": "",
+          "conditions": "",
+          "cost": "",
+          "actions": "",
+          "limit": "",
+          "effects": "at:prestage { target:this { g.genki+=9 } }"
+        },
+        {
+          "id": 3,
+          "alias": "scoreAdd1_6",
+          "name": "パラメータ追加",
+          "type": "score",
+          "price": 70,
+          "max": 1,
+          "forceInitialHand": "",
+          "conditions": "",
+          "cost": "",
+          "actions": "score+=6",
+          "limit": "",
+          "effects": ""
+        }
+      ],
+      "selected_instance_id": null,
+      "selected_customize_ids": null,
+      "acquisition_phase": null
+    },
+    {
+      "definition_id": "p_card-01-act-2_001",
+      "name": "シュプレヒコール+",
+      "upgrade_count": 1,
+      "max_customize_count": 1,
+      "base_cost": {
+        "stamina": 0,
+        "forceStamina": 0,
+        "costType": "ExamCostType_ExamLessonBuff",
+        "costValue": 2
+      },
+      "customization_options": [
+        {
+          "definition_id": "p_card_custom-040-g_effect-cost_lesson_buff_reduce-1",
+          "levels": [
+            {
+              "level": 1,
+              "produce_points": 40,
+              "overwrite_type": "ProduceCardGrowEffectType_Unknown",
+              "grow_effects": [
+                {
+                  "id": "g_effect-cost_lesson_buff_reduce-1",
+                  "effectType": "ProduceCardGrowEffectType_CostLessonBuffReduce",
+                  "costType": "ExamCostType_Unknown",
+                  "value": 1,
+                  "playProduceExamTriggerId": "",
+                  "playEffectProduceExamTriggerId": "",
+                  "targetPlayEffectProduceExamTriggerIds": [],
+                  "playProduceExamEffectId": "",
+                  "targetPlayProduceExamEffectIds": [],
+                  "produceCardStatusEnchantId": "",
+                  "playMovePositionType": "ProduceCardMovePositionType_Unknown",
+                  "effectGroupIds": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "definition_id": "p_card_custom-070-g_effect-effect_add-e_effect-exam_card_upgrade-p_card_search-hand-all-0_0",
+          "levels": [
+            {
+              "level": 1,
+              "produce_points": 70,
+              "overwrite_type": "ProduceCardGrowEffectType_Unknown",
+              "grow_effects": [
+                {
+                  "id": "g_effect-effect_add-e_effect-exam_card_upgrade-p_card_search-hand-all-0_0",
+                  "effectType": "ProduceCardGrowEffectType_EffectAdd",
+                  "costType": "ExamCostType_Unknown",
+                  "value": 0,
+                  "playProduceExamTriggerId": "",
+                  "playEffectProduceExamTriggerId": "",
+                  "targetPlayEffectProduceExamTriggerIds": [],
+                  "playProduceExamEffectId": "e_effect-exam_card_upgrade-p_card_search-hand-all-0_0",
+                  "targetPlayProduceExamEffectIds": [],
+                  "produceCardStatusEnchantId": "",
+                  "playMovePositionType": "ProduceCardMovePositionType_Unknown",
+                  "effectGroupIds": [
+                    "effect_group-visible-exam_card_upgrade-000"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "community_name_matches": [
+        {
+          "id": 87,
+          "name": "シュプレヒコール+",
+          "availableCustomizations": "32,39",
+          "rarity": "SR",
+          "type": "active",
+          "plan": "sense",
+          "unlockPlv": 33,
+          "upgraded": true,
+          "unique": true,
+          "sourceType": "produce",
+          "pIdolId": "",
+          "forceInitialHand": false,
+          "conditions": "",
+          "cost": "concentration-=2",
+          "actions": "score+=6; goodConditionTurns+=3; cardUsesRemaining+=1",
+          "limit": "",
+          "effects": ""
+        }
+      ],
+      "community_customization_options": [
+        {
+          "id": 32,
+          "alias": "concentrationCost1",
+          "name": "集中コスト値-",
+          "type": "cost",
+          "price": 40,
+          "max": 1,
+          "forceInitialHand": "",
+          "conditions": "",
+          "cost": "",
+          "actions": "",
+          "limit": "",
+          "effects": "at:prestage { target:this { g.typedCost+=1 } }"
+        },
+        {
+          "id": 39,
+          "alias": "upgradeHand1",
+          "name": "スキルカード強化追加",
+          "type": "effect",
+          "price": 70,
+          "max": 1,
+          "forceInitialHand": "",
+          "conditions": "",
+          "cost": "",
+          "actions": "upgradeHand",
+          "limit": "",
+          "effects": ""
+        }
+      ],
+      "selected_instance_id": null,
+      "selected_customize_ids": null,
+      "acquisition_phase": null
+    },
+    {
+      "definition_id": "p_card-01-men-2_104",
+      "name": "精神統一+",
+      "upgrade_count": 1,
+      "max_customize_count": 2,
+      "base_cost": {
+        "stamina": 0,
+        "forceStamina": 3,
+        "costType": "ExamCostType_Unknown",
+        "costValue": 0
+      },
+      "customization_options": [
+        {
+          "definition_id": "p_card_custom-wrapper-p_card-01-men-2_104-a-01",
+          "levels": [
+            {
+              "level": 1,
+              "produce_points": 70,
+              "overwrite_type": "ProduceCardGrowEffectType_LessonAdd",
+              "grow_effects": [
+                {
+                  "id": "g_effect-effect_add-e_effect-exam_lesson-0006-01",
+                  "effectType": "ProduceCardGrowEffectType_EffectAdd",
+                  "costType": "ExamCostType_Unknown",
+                  "value": 0,
+                  "playProduceExamTriggerId": "",
+                  "playEffectProduceExamTriggerId": "",
+                  "targetPlayEffectProduceExamTriggerIds": [],
+                  "playProduceExamEffectId": "e_effect-exam_lesson-0006-01",
+                  "targetPlayProduceExamEffectIds": [],
+                  "produceCardStatusEnchantId": "",
+                  "playMovePositionType": "ProduceCardMovePositionType_Unknown",
+                  "effectGroupIds": [
+                    "effect_group-visible-exam_lesson-000"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "definition_id": "p_card_custom-wrapper-p_card-01-men-2_104-b-01",
+          "levels": [
+            {
+              "level": 1,
+              "produce_points": 40,
+              "overwrite_type": "ProduceCardGrowEffectType_Unknown",
+              "grow_effects": [
+                {
+                  "id": "g_effect-lesson_buff_add-1",
+                  "effectType": "ProduceCardGrowEffectType_LessonBuffAdd",
+                  "costType": "ExamCostType_Unknown",
+                  "value": 1,
+                  "playProduceExamTriggerId": "",
+                  "playEffectProduceExamTriggerId": "",
+                  "targetPlayEffectProduceExamTriggerIds": [],
+                  "playProduceExamEffectId": "",
+                  "targetPlayProduceExamEffectIds": [],
+                  "produceCardStatusEnchantId": "",
+                  "playMovePositionType": "ProduceCardMovePositionType_Unknown",
+                  "effectGroupIds": []
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "produce_points": 70,
+              "overwrite_type": "ProduceCardGrowEffectType_Unknown",
+              "grow_effects": [
+                {
+                  "id": "g_effect-lesson_buff_add-3",
+                  "effectType": "ProduceCardGrowEffectType_LessonBuffAdd",
+                  "costType": "ExamCostType_Unknown",
+                  "value": 3,
+                  "playProduceExamTriggerId": "",
+                  "playEffectProduceExamTriggerId": "",
+                  "targetPlayEffectProduceExamTriggerIds": [],
+                  "playProduceExamEffectId": "",
+                  "targetPlayProduceExamEffectIds": [],
+                  "produceCardStatusEnchantId": "",
+                  "playMovePositionType": "ProduceCardMovePositionType_Unknown",
+                  "effectGroupIds": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "definition_id": "p_card_custom-wrapper-p_card-01-men-2_104-c-01",
+          "levels": [
+            {
+              "level": 1,
+              "produce_points": 40,
+              "overwrite_type": "ProduceCardGrowEffectType_Unknown",
+              "grow_effects": [
+                {
+                  "id": "g_effect-block_add-4",
+                  "effectType": "ProduceCardGrowEffectType_BlockAdd",
+                  "costType": "ExamCostType_Unknown",
+                  "value": 4,
+                  "playProduceExamTriggerId": "",
+                  "playEffectProduceExamTriggerId": "",
+                  "targetPlayEffectProduceExamTriggerIds": [],
+                  "playProduceExamEffectId": "",
+                  "targetPlayProduceExamEffectIds": [],
+                  "produceCardStatusEnchantId": "",
+                  "playMovePositionType": "ProduceCardMovePositionType_Unknown",
+                  "effectGroupIds": []
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "produce_points": 70,
+              "overwrite_type": "ProduceCardGrowEffectType_Unknown",
+              "grow_effects": [
+                {
+                  "id": "g_effect-block_add-13",
+                  "effectType": "ProduceCardGrowEffectType_BlockAdd",
+                  "costType": "ExamCostType_Unknown",
+                  "value": 13,
+                  "playProduceExamTriggerId": "",
+                  "playEffectProduceExamTriggerId": "",
+                  "targetPlayEffectProduceExamTriggerIds": [],
+                  "playProduceExamEffectId": "",
+                  "targetPlayProduceExamEffectIds": [],
+                  "produceCardStatusEnchantId": "",
+                  "playMovePositionType": "ProduceCardMovePositionType_Unknown",
+                  "effectGroupIds": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "community_name_matches": [
+        {
+          "id": 752,
+          "name": "精神統一+",
+          "availableCustomizations": "3,54,59",
+          "rarity": "SR",
+          "type": "mental",
+          "plan": "sense",
+          "unlockPlv": 74,
+          "upgraded": true,
+          "unique": false,
+          "sourceType": "produce",
+          "pIdolId": "",
+          "forceInitialHand": false,
+          "conditions": "",
+          "cost": "stamina-=3",
+          "actions": "genki+=8; concentration+=6; at:afterStartOfTurn { drawCard; limit:3 }; if:goodConditionTurns<=15 { setConcentrationEffectBuff(0.2,3) }",
+          "limit": "",
+          "effects": ""
+        }
+      ],
+      "community_customization_options": [
+        {
+          "id": 54,
+          "alias": "concentration2",
+          "name": "集中+",
+          "type": "buff",
+          "price": "40,70",
+          "max": 2,
+          "forceInitialHand": "",
+          "conditions": "",
+          "cost": "",
+          "actions": "",
+          "limit": "",
+          "effects": "level:1 { at:prestage { target:this { g.concentration+=1 } } } level:2 { at:prestage { target:this { g.concentration+=3 } } }"
+        },
+        {
+          "id": 59,
+          "alias": "genki2",
+          "name": "元気+",
+          "type": "genki",
+          "price": "40,70",
+          "max": 2,
+          "forceInitialHand": "",
+          "conditions": "",
+          "cost": "",
+          "actions": "",
+          "limit": "",
+          "effects": "level:1 { at:prestage { target:this { g.genki+=4 } } } level:2 { at:prestage { target:this { g.genki+=13 } } }"
+        },
+        {
+          "id": 3,
+          "alias": "scoreAdd1_6",
+          "name": "パラメータ追加",
+          "type": "score",
+          "price": 70,
+          "max": 1,
+          "forceInitialHand": "",
+          "conditions": "",
+          "cost": "",
+          "actions": "score+=6",
+          "limit": "",
+          "effects": ""
+        }
+      ],
+      "selected_instance_id": null,
+      "selected_customize_ids": null,
+      "acquisition_phase": null
+    }
+  ]
+}

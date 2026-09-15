@@ -1,0 +1,17 @@
+{
+  "additionalProperties": false,
+  "description": "当前补选提示对应的确切主数据效果。",
+  "properties": {
+    "effect_id": {
+      "minLength": 1,
+      "title": "Effect Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "effect_id"
+  ],
+  "title": "ExamSelection",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

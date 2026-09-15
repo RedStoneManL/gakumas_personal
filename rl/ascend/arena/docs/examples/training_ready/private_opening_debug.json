@@ -1,0 +1,675 @@
+{
+  "scope": "PRIVATE_DEBUG",
+  "state": {
+    "logs": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "graphData": {
+      "3": [
+        25
+      ],
+      "5": [
+        0
+      ],
+      "7": [
+        0
+      ],
+      "33": [
+        0
+      ],
+      "37": [
+        0
+      ],
+      "39": [
+        0
+      ],
+      "40": [
+        0
+      ],
+      "44": [
+        0
+      ],
+      "52": [
+        0
+      ],
+      "57": [
+        0
+      ],
+      "58": [
+        0
+      ],
+      "60": [
+        0
+      ]
+    },
+    "cardUsesRemaining": 1,
+    "stamina": 25,
+    "consumedStamina": 0,
+    "genki": 0,
+    "consumedGenki": 0,
+    "score": 0,
+    "turnsElapsed": 0,
+    "turnsRemaining": 12,
+    "turnTypes": [
+      "vocal",
+      "vocal",
+      "vocal",
+      "visual",
+      "dance",
+      "dance",
+      "visual",
+      "vocal",
+      "dance",
+      "visual",
+      "dance",
+      "vocal"
+    ],
+    "linkPhase": 0,
+    "halfCostTurns": 0,
+    "doubleCostTurns": 0,
+    "costReduction": 0,
+    "costIncrease": 0,
+    "nullifyCostCards": 0,
+    "nullifyCostActiveCards": 0,
+    "nullifyDebuff": 0,
+    "nullifyGenkiTurns": 0,
+    "doubleCardEffectCards": 0,
+    "noActiveTurns": 0,
+    "noMentalTurns": 0,
+    "poorConditionTurns": 0,
+    "uneaseTurns": 0,
+    "scoreBuffs": [],
+    "scoreDebuffs": [],
+    "goodImpressionTurnsBuffs": [],
+    "goodImpressionTurnsEffectBuffs": [],
+    "goodImpressionTurnsTimesBuffs": [],
+    "concentrationBuffs": [],
+    "concentrationAdditionBuffs": [],
+    "concentrationEffectBuffs": [],
+    "goodConditionTurns": 0,
+    "goodConditionTurnsBuffs": [],
+    "perfectConditionTurns": 0,
+    "concentration": 0,
+    "goodImpressionTurns": 0,
+    "motivation": 0,
+    "motivationBuffs": [],
+    "motivationAdditionBuffs": [],
+    "prideTurns": 0,
+    "stance": "none",
+    "prevStance": "none",
+    "lockStanceTurns": 0,
+    "strengthEffectBuffs": [],
+    "fullPowerCharge": 0,
+    "fullPowerChargeBuffs": [],
+    "fullPowerEffectBuffs": [],
+    "cumulativeFullPowerCharge": 0,
+    "enthusiasm": 0,
+    "enthusiasmBonusBuffs": [],
+    "enthusiasmBuffs": [],
+    "strengthTimes": 0,
+    "preservationTimes": 0,
+    "leisureTimes": 0,
+    "fullPowerTimes": 0,
+    "stanceChangedByDirectEffectTimes": 0,
+    "freshBuffs": {},
+    "scoreTimes": 0,
+    "cardMap": [
+      {
+        "id": 816,
+        "baseId": 815
+      },
+      {
+        "id": 818,
+        "baseId": 817
+      },
+      {
+        "id": 762,
+        "baseId": 761
+      },
+      {
+        "id": 752,
+        "baseId": 751
+      },
+      {
+        "id": 752,
+        "baseId": 751
+      },
+      {
+        "id": 709,
+        "baseId": 708
+      },
+      {
+        "id": 593,
+        "baseId": 592
+      },
+      {
+        "id": 169,
+        "baseId": 168
+      },
+      {
+        "id": 117,
+        "baseId": 116
+      },
+      {
+        "id": 597,
+        "baseId": 596
+      },
+      {
+        "id": 293,
+        "baseId": 292
+      },
+      {
+        "id": 87,
+        "baseId": 86
+      },
+      {
+        "id": 648,
+        "baseId": 648
+      },
+      {
+        "id": 159,
+        "baseId": 158
+      },
+      {
+        "id": 599,
+        "baseId": 598
+      },
+      {
+        "id": 145,
+        "baseId": 144
+      },
+      {
+        "id": 707,
+        "baseId": 706
+      },
+      {
+        "id": 108,
+        "baseId": 108
+      },
+      {
+        "id": 584,
+        "baseId": 584
+      },
+      {
+        "id": 247,
+        "baseId": 246
+      },
+      {
+        "id": 668,
+        "baseId": 668
+      },
+      {
+        "id": 666,
+        "baseId": 666
+      }
+    ],
+    "deckCards": [
+      17,
+      14,
+      11,
+      9,
+      12,
+      16,
+      7,
+      18,
+      10,
+      20,
+      6,
+      4,
+      19,
+      21,
+      3,
+      8,
+      2,
+      5,
+      15
+    ],
+    "handCards": [
+      13,
+      1,
+      0
+    ],
+    "discardedCards": [],
+    "removedCards": [],
+    "heldCards": [],
+    "cardsUsed": 0,
+    "activeCardsUsed": 0,
+    "turnCardsUsed": 0,
+    "turnCardsUpgraded": 0,
+    "usedCard": null,
+    "lastUsedCard": null,
+    "movedCard": 0,
+    "noCardUseTurns": 0,
+    "effects": [
+      {
+        "phase": "cardUsed",
+        "conditions": [
+          {
+            "type": "comparison",
+            "op": "==",
+            "left": {
+              "type": "identifier",
+              "name": "stance"
+            },
+            "right": {
+              "type": "identifier",
+              "name": "strength2"
+            }
+          }
+        ],
+        "actions": [
+          {
+            "type": "assignment",
+            "lhs": "fixedStamina",
+            "op": "-=",
+            "rhs": {
+              "type": "number",
+              "value": 1
+            }
+          }
+        ],
+        "source": {
+          "type": "default",
+          "id": "強気2"
+        },
+        "effectInstanceId": 0
+      },
+      {
+        "phase": "startOfStage",
+        "conditions": [
+          {
+            "type": "comparison",
+            "op": "<",
+            "left": {
+              "type": "call",
+              "name": "countCards",
+              "target": {
+                "type": "identifier",
+                "name": "deck"
+              },
+              "args": []
+            },
+            "right": {
+              "type": "number",
+              "value": 22
+            }
+          }
+        ],
+        "actions": [
+          {
+            "type": "call",
+            "name": "addRandomBasicCardToDeckAtRandom",
+            "target": null,
+            "args": [
+              {
+                "type": "binary",
+                "op": "-",
+                "left": {
+                  "type": "number",
+                  "value": 22
+                },
+                "right": {
+                  "type": "call",
+                  "name": "countCards",
+                  "target": {
+                    "type": "identifier",
+                    "name": "deck"
+                  },
+                  "args": []
+                }
+              }
+            ]
+          }
+        ],
+        "effectInstanceId": 1,
+        "source": {
+          "type": "pItem",
+          "id": 428,
+          "primary": true
+        }
+      },
+      {
+        "phase": "afterCardUsed",
+        "conditions": [
+          {
+            "type": "binary",
+            "op": "&",
+            "left": {
+              "type": "comparison",
+              "op": "==",
+              "left": {
+                "type": "identifier",
+                "name": "cardSourceType"
+              },
+              "right": {
+                "type": "identifier",
+                "name": "pIdol"
+              }
+            },
+            "right": {
+              "type": "comparison",
+              "op": ">=",
+              "left": {
+                "type": "identifier",
+                "name": "stamina"
+              },
+              "right": {
+                "type": "binary",
+                "op": "*",
+                "left": {
+                  "type": "identifier",
+                  "name": "maxStamina"
+                },
+                "right": {
+                  "type": "number",
+                  "value": 0.8
+                }
+              }
+            }
+          }
+        ],
+        "actions": [
+          {
+            "type": "assignment",
+            "lhs": "costReduction",
+            "op": "+=",
+            "rhs": {
+              "type": "number",
+              "value": 1
+            }
+          },
+          {
+            "type": "assignment",
+            "lhs": "cardUsesRemaining",
+            "op": "+=",
+            "rhs": {
+              "type": "number",
+              "value": 1
+            }
+          },
+          {
+            "type": "assignment",
+            "lhs": "fixedStamina",
+            "op": "-=",
+            "rhs": {
+              "type": "number",
+              "value": 2
+            }
+          }
+        ],
+        "limit": 3,
+        "effectInstanceId": 2,
+        "source": {
+          "type": "pItem",
+          "id": 442,
+          "primary": true
+        }
+      },
+      {
+        "phase": "everyTurn",
+        "conditions": [
+          {
+            "type": "comparison",
+            "op": ">",
+            "left": {
+              "type": "call",
+              "name": "countCards",
+              "target": {
+                "type": "binary",
+                "op": "&",
+                "left": {
+                  "type": "call",
+                  "name": "baseId",
+                  "target": null,
+                  "args": [
+                    {
+                      "type": "number",
+                      "value": 815
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "identifier",
+                  "name": "removed"
+                }
+              },
+              "args": []
+            },
+            "right": {
+              "type": "number",
+              "value": 0
+            }
+          }
+        ],
+        "actions": [
+          {
+            "type": "assignment",
+            "lhs": "effectCounter",
+            "op": "+=",
+            "rhs": {
+              "type": "number",
+              "value": 1
+            }
+          }
+        ],
+        "effectInstanceId": 3,
+        "source": {
+          "type": "skillCard",
+          "id": 816,
+          "idx": 0,
+          "primary": true
+        }
+      },
+      {
+        "phase": "everyTurn",
+        "conditions": [
+          {
+            "type": "comparison",
+            "op": ">",
+            "left": {
+              "type": "call",
+              "name": "countCards",
+              "target": {
+                "type": "binary",
+                "op": "&",
+                "left": {
+                  "type": "call",
+                  "name": "baseId",
+                  "target": null,
+                  "args": [
+                    {
+                      "type": "number",
+                      "value": 815
+                    }
+                  ]
+                },
+                "right": {
+                  "type": "identifier",
+                  "name": "removed"
+                }
+              },
+              "args": []
+            },
+            "right": {
+              "type": "number",
+              "value": 0
+            }
+          },
+          {
+            "type": "binary",
+            "op": "&",
+            "left": {
+              "type": "comparison",
+              "op": "==",
+              "left": {
+                "type": "binary",
+                "op": "%",
+                "left": {
+                  "type": "identifier",
+                  "name": "effectCounter"
+                },
+                "right": {
+                  "type": "number",
+                  "value": 2
+                }
+              },
+              "right": {
+                "type": "number",
+                "value": 1
+              }
+            },
+            "right": {
+              "type": "comparison",
+              "op": ">=",
+              "left": {
+                "type": "identifier",
+                "name": "stamina"
+              },
+              "right": {
+                "type": "binary",
+                "op": "*",
+                "left": {
+                  "type": "identifier",
+                  "name": "maxStamina"
+                },
+                "right": {
+                  "type": "number",
+                  "value": 0.8
+                }
+              }
+            }
+          }
+        ],
+        "actions": [
+          {
+            "type": "call",
+            "name": "useRandomCardFree",
+            "target": {
+              "type": "call",
+              "name": "baseId",
+              "target": null,
+              "args": [
+                {
+                  "type": "number",
+                  "value": 815
+                }
+              ]
+            },
+            "args": []
+          }
+        ],
+        "limit": 2,
+        "effectInstanceId": 3,
+        "source": {
+          "type": "skillCard",
+          "id": 816,
+          "idx": 0,
+          "primary": true
+        }
+      }
+    ],
+    "effectInstanceId": 4,
+    "effectCounters": {},
+    "currentEffectInstanceId": null,
+    "nullifySelect": 0,
+    "freeCardUses": 0,
+    "paidCardUses": 0,
+    "unfreshPhase": false,
+    "buffCostConsumed": false,
+    "goodImpressionTurnsDelta": 0,
+    "motivationDelta": 0,
+    "genkiDelta": 0,
+    "goodConditionTurnsDelta": 0,
+    "concentrationDelta": 0,
+    "staminaDelta": 0
+  },
+  "known_top": [],
+  "opening_audit": [
+    {
+      "source": {
+        "type": "pItem",
+        "id": 428,
+        "primary": true
+      },
+      "phase": "startOfStage",
+      "deck_count_before": 21,
+      "requested": 1,
+      "pool": [
+        646,
+        648,
+        666,
+        668,
+        670
+      ],
+      "sampling": "golden_uniform_unique_ids",
+      "deck_count_after": 22,
+      "generated": [
+        {
+          "definition_id": 666,
+          "instance_id": "generated:0",
+          "private_deck_index": 13
+        }
+      ]
+    }
+  ],
+  "logs": [
+    {
+      "logType": "entityStart",
+      "data": {
+        "type": "pItem",
+        "id": 428,
+        "primary": true
+      }
+    },
+    {
+      "logType": "addCardToDeckAtRandom",
+      "data": {
+        "type": "skillCard",
+        "id": 666
+      }
+    },
+    {
+      "logType": "entityEnd",
+      "data": {
+        "type": "pItem",
+        "id": 428,
+        "primary": true
+      }
+    },
+    {
+      "logType": "startTurn",
+      "data": {
+        "num": 1,
+        "type": "vocal",
+        "multiplier": 20.3
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 159
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 818
+      }
+    },
+    {
+      "logType": "drawCard",
+      "data": {
+        "type": "skillCard",
+        "id": 816
+      }
+    }
+  ]
+}

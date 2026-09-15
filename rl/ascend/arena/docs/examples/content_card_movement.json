@@ -1,0 +1,25 @@
+{
+  "namespace": "movement",
+  "revision": "1",
+  "synthetic": true,
+  "effects": [
+    {"id": "movement/focus", "operation": "concentration", "arguments": {"amount": 3}}
+  ],
+  "cards": [
+    {
+      "id": "movement/card",
+      "name": "合成：入手获得集中",
+      "effects": [],
+      "on_move": {"destination": "hand", "effects": ["movement/focus"]}
+    }
+  ],
+  "auditions": [
+    {
+      "id": "movement/exam",
+      "turns": 2,
+      "clear_score": 100,
+      "colors": ["vocal", "vocal"],
+      "deck": [{"card": "movement/card"}]
+    }
+  ]
+}

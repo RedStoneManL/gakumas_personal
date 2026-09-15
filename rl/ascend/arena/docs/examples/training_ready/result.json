@@ -1,0 +1,14 @@
+{
+  "terminated": true,
+  "truncated": false,
+  "reason": "normal",
+  "score": 71874,
+  "final_score": 71874,
+  "round2_score": 71874,
+  "combined_score": null,
+  "rank": null,
+  "entry_sha256": "553bba2ae047dc538c84f80029007f7277e7107611297a101b38f180685a0f7e",
+  "decisions": 28,
+  "choices": 1,
+  "expectation": "observed output; independent arithmetic is tested separately"
+}

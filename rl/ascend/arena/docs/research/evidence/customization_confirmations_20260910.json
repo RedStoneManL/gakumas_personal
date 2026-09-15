@@ -1,0 +1,53 @@
+{
+  "schema_version": "arena-user-customization-evidence/1",
+  "date": "2026-09-10",
+  "scope": "three customization conflicts reported by the user; not a blanket certification of all master data",
+  "upstream": {
+    "repository": "https://github.com/surisuririsu/gakumas-tools",
+    "revision": "6c3d00648c32ea72a05086a18c63ab62e0d0c7e5",
+    "site": "https://gktools.ris.moe/zh-Hans"
+  },
+  "confirmations": [
+    {
+      "card": "p_card-01-act-1_020@1",
+      "name": "ハイタッチ+",
+      "customization": "p_card_custom-070-g_effect-effect_add-e_effect-exam_block-0009",
+      "confirmed": {
+        "added_genki": 9
+      },
+      "source_type": "user_text_report",
+      "user_quote": "追加元气+9"
+    },
+    {
+      "card": "p_card-02-act-1_004@1",
+      "name": "元気な挨拶+",
+      "customization": "p_card_custom-020-g_effect-cost_penetrate_reduce-1",
+      "confirmed": {
+        "fixed_stamina_cost_after_customization": 2,
+        "customization_price": 20
+      },
+      "source_type": "user_screenshot",
+      "image": "docs/research/evidence/genki_greeting_custom_cost_20260910.png",
+      "image_sha256": "da06c394bd4d5641d8ddbcafd991465eea7fa8f3b079721159fe376736ff7eaa",
+      "visible_evidence": [
+        "元気な挨拶+",
+        "体力消費2",
+        "体力消費コスト値- selected",
+        "20 P",
+        "カスタマイズ可能数1/3"
+      ],
+      "boundary": "Image verifies customized card display and selected option; no in-exam action log supplied."
+    },
+    {
+      "card": "p_card-02-act-3_039@1",
+      "name": "届いて！+",
+      "customization": "p_card_custom-100-g_effect-lesson_depend_block_add-1000",
+      "confirmed": {
+        "customization_price": 100
+      },
+      "source_type": "user_text_report",
+      "user_quote": "最后那个价格是100P"
+    }
+  ],
+  "policy": "Use these confirmed values over the pinned upstream data. Keep upstream baseline immutable; identify local corrections separately."
+}

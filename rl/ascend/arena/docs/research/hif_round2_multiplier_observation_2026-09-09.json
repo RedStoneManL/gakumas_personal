@@ -1,0 +1,106 @@
+{
+  "schema_version": "arena-hif-multiplier-observation/1",
+  "sample_id": "hif-main-round2-20260909-vo2759-da1744-vi1209-star1083",
+  "received_date": "2026-09-09",
+  "recording_date": null,
+  "synthetic": false,
+  "source": "user-provided game screenshots and explicit Round 2 identification",
+  "manifest": "evidence/2026-09-09-hif-round2-multipliers/manifest.json",
+  "attribute_order": ["vocal", "dance", "visual"],
+  "exam": {
+    "mode": "HIF main competition",
+    "round": 2,
+    "round_confirmed_by_user": true,
+    "round_number_explicitly_visible_in_images": false,
+    "round_supporting_evidence": "All three images display star reference 800, consistent with the separately documented Round 2 reference. The user explicitly identifies this sample as Round 2.",
+    "engine_p_idol_id": null,
+    "masterdata_profile_id": null,
+    "game_build": null,
+    "final_exam_score": null,
+    "turn_count": null,
+    "turn_types": null,
+    "record_as_round1": false
+  },
+  "user_explanation": {
+    "scope": "Record the three displayed parameter stages as a separate HIF main competition Round 2 sample.",
+    "final_star_bonus_animation_captured": true,
+    "final_percentages_observed_in_later_exam_menu": false
+  },
+  "observed": {
+    "raw_parameters": {
+      "vocal": 2759,
+      "dance": 1744,
+      "visual": 1209,
+      "images": [1, 2, 3]
+    },
+    "star_before_exam": {
+      "value": 1083,
+      "displayed_rank": 9,
+      "images": [1, 2, 3]
+    },
+    "review_ui": {
+      "star_reference_value_displayed": 800,
+      "star_reference_rank_displayed": 8,
+      "parameter_reference_marker_displayed": 950,
+      "star_qualification_text": "スター性：達成",
+      "parameter_qualification_texts": ["すばらしい！", "すばらしい！", "すばらしい！"],
+      "images": [1, 2, 3],
+      "note": "The single parameter marker 950 is recorded as displayed, not as three identical raw-stat thresholds. Rank badges 8/9 are ranks, not multipliers."
+    },
+    "opening_display_frames": [
+      {
+        "id": "opening_a",
+        "image": 1,
+        "score_percents_displayed": [977, 670, 494]
+      },
+      {
+        "id": "opening_b",
+        "image": 2,
+        "score_percents_displayed": [1466, 1005, 741]
+      },
+      {
+        "id": "opening_c_star_bonus",
+        "image": 3,
+        "score_percents_displayed": [4208, 2886, 2128],
+        "overlay_text": "スター性ボーナス"
+      }
+    ],
+    "star_bonus_result_display": {
+      "image": 3,
+      "score_percents": [4208, 2886, 2128],
+      "source_kind": "opening star-bonus screen",
+      "independently_confirmed_by_in_exam_menu": false
+    }
+  },
+  "derived": {
+    "percent_to_multiplier": [42.08, 28.86, 21.28],
+    "arithmetic_comparisons": {
+      "opening_a_times_1_5": [1465.5, 1005, 741],
+      "opening_a_times_1_5_rounded_half_up": [1466, 1005, 741],
+      "opening_b_times_3": [4398, 3015, 2223],
+      "star_bonus_display_minus_opening_b_times_3_percentage_points": [-190, -129, -95],
+      "interpretation": "The first display transition matches multiplication by 1.5 followed by half-up display rounding. The third display is not the second display multiplied by 3. These arithmetic comparisons do not establish the complete star curve, dearness effects, or internal rounding sequence."
+    },
+    "comparison_with_previous_round1_observation": {
+      "sample_id": "hif-main-round1-20260909-vo2759-da1727-vi1209-star915",
+      "record": "hif_round1_multiplier_observation_2026-09-09.json",
+      "raw_parameter_differences": [0, 17, 0],
+      "star_value_difference": 168,
+      "star_reference_difference": 200,
+      "final_display_percentage_point_differences": [-189, -111, -95],
+      "scope": "Numerical comparison of separately identified Round 1 and Round 2 observations; it does not establish a one-variable marginal return or identical hidden entry settings."
+    }
+  },
+  "arena_input_fragment": {
+    "function": "make_training_entry",
+    "kwargs": {"score_percents": [4208, 2886, 2128]},
+    "scope": "Observed Round 2 star-bonus display percentages only. Use the actual deck, idol, turn configuration and other entry resources. No turn order is supplied by these three images. Do not apply star or the opening bonus a second time."
+  },
+  "limitations": [
+    "This is a recorded Round 2 observation, not a successful test of a raw-stat/star-to-HIF-percent resolver.",
+    "The final values come from the opening star-bonus screen. A separate in-exam menu image is not present in this set.",
+    "The screenshots do not expose internal fractional percentages, dearness score effects, complete P-idol/profile identifiers, or the turn order.",
+    "Keep this sample separate from both earlier Round 1 observations; do not inherit their nine-turn sequence or star reference 600.",
+    "No default training configuration or golden engine formula is replaced by this observation."
+  ]
+}

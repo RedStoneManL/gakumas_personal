@@ -1,0 +1,296 @@
+{
+  "schema_version": "arena-user-photo-manifest/1",
+  "received_date": "2026-09-08",
+  "source": "user-provided game log screenshots",
+  "synthetic": false,
+  "images": [
+    {
+      "image": 1,
+      "file": "01.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-54c19123-d9f1-4466-9ea2-0cf16078ed59.png",
+      "sha256": "55948d251cec19324a8e76d642a5ce3d1749d97eb2730ddab1d6e04d4db64153",
+      "width": 984,
+      "height": 1510
+    },
+    {
+      "image": 2,
+      "file": "02.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-41adfe1c-6a02-4c7b-92f8-d4191794f198.png",
+      "sha256": "e0b805aecf513d3b2736180e7614d74bbb81f022e4452924a05f5011cda11347",
+      "width": 987,
+      "height": 1517
+    },
+    {
+      "image": 3,
+      "file": "03.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-034f96ee-cf48-42c1-b22d-aa35a7d9e9f4.png",
+      "sha256": "ebfb657487e1ce673b2a4662fb469461486d28aa10d456b6cf999eedebc097f0",
+      "width": 963,
+      "height": 1496
+    },
+    {
+      "image": 4,
+      "file": "04.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-d22f1b52-88a4-41a6-a4dd-107690c12597.png",
+      "sha256": "045ef59217fc0e1e9568014e8df5e853d84c3ed85ec598af72fa48d8099823f0",
+      "width": 1008,
+      "height": 1417
+    },
+    {
+      "image": 5,
+      "file": "05.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-b648c15f-aff4-47b7-a7b1-31c9191b150c.png",
+      "sha256": "ae9d9a9963c74d31d8a7b0c7136d066c9f9862849d6c0ff6656a3bf51d99227d",
+      "width": 1006,
+      "height": 1132
+    },
+    {
+      "image": 6,
+      "file": "06.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-e343ccec-b32d-477b-b519-3cc2423a4c84.png",
+      "sha256": "23a2b9c21eab371048dfbc0a006d6f4a6832cc95bb92e4f949c1a70755bf4b68",
+      "width": 979,
+      "height": 1040
+    },
+    {
+      "image": 7,
+      "file": "07.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-cd8c4d36-6e82-478f-809e-3c287912677b.png",
+      "sha256": "6a36bd4e138450c6c7dbee4983a9b24f12a4b5333af0a24f6f8da9b8704cfd84",
+      "width": 1003,
+      "height": 1210
+    },
+    {
+      "image": 8,
+      "file": "08.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-4bb5b8e2-7cc1-40d9-9995-c691d48fe8d6.png",
+      "sha256": "1cb1339c74bb727f3f038506db7e678f9214184ca699712ac93ab464b7b71918",
+      "width": 976,
+      "height": 1249
+    },
+    {
+      "image": 9,
+      "file": "09.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-05985cb6-7359-4933-928b-fb68c37c9549.png",
+      "sha256": "ace5e27530afe3c9c5957532fcd4a63960a8d6736a19560fd1c190b3fb24fa73",
+      "width": 968,
+      "height": 1145
+    },
+    {
+      "image": 10,
+      "file": "10.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-3e68580e-53ae-4f21-96a3-adab6321b0ec.png",
+      "sha256": "7b9853c915921d071bfff7d20c27d9818ecff80da8c5054bcede6926993c4794",
+      "width": 1001,
+      "height": 1346
+    },
+    {
+      "image": 11,
+      "file": "11.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-eaabee9a-83fe-4aca-ae66-e226c2e2b6c0.png",
+      "sha256": "aab44928b57501a87045fa62bc6c408476f3c7bfed14cca3ec19a9301c0f6955",
+      "width": 978,
+      "height": 1302
+    },
+    {
+      "image": 12,
+      "file": "12.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-94e606de-6aa5-4d94-b358-b813642c512c.png",
+      "sha256": "1cb1339c74bb727f3f038506db7e678f9214184ca699712ac93ab464b7b71918",
+      "width": 976,
+      "height": 1249,
+      "duplicate_of": 8
+    },
+    {
+      "image": 13,
+      "file": "13.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-8bfbca4f-d81f-44ba-b5ba-4873e2b8b392.png",
+      "sha256": "ff379aecc77b6fcad85235a54ab05d81eb9b25c88e2b8fed3650b50847a30cc3",
+      "width": 1008,
+      "height": 1333
+    },
+    {
+      "image": 14,
+      "file": "14.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-708ffbbc-3775-43a0-8eac-95dec4fd9e8b.png",
+      "sha256": "480ef1d3cf5690b065a51e1d4382020beaffdb0a533d5c1027d2d70f3adda321",
+      "width": 976,
+      "height": 1139
+    },
+    {
+      "image": 15,
+      "file": "15.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-7dd56d3e-aa43-4d09-9c3f-4822717951d0.png",
+      "sha256": "3ee30cd44ebbeba9d04c86f77137cbc1d060105ae2e9101d39acf45d18653249",
+      "width": 985,
+      "height": 1355
+    },
+    {
+      "image": 16,
+      "file": "16.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-a8b55644-7b3d-46e9-8aef-a44cb3df8461.png",
+      "sha256": "8483713d3886e799fceeb2456de94a450f678c8ca6c3f935854d42c82a0dc8f1",
+      "width": 971,
+      "height": 1376
+    },
+    {
+      "image": 17,
+      "file": "17.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-6e61a7fb-3721-4bca-b3c1-17d24e3fcd3c.png",
+      "sha256": "c029a3b183423409ce6cc09ba588279833059f75c92295894bb765163b435388",
+      "width": 1011,
+      "height": 1344
+    },
+    {
+      "image": 18,
+      "file": "18.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-20479800-8afb-4958-b283-776b0b5da810.png",
+      "sha256": "9eee193e26d54b984b9a746d7a0ab2ddb08fa61b8aef1818be3e42d6288db2b5",
+      "width": 982,
+      "height": 1330
+    },
+    {
+      "image": 19,
+      "file": "19.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-7c82371d-9252-44bb-9554-dd7ac52865a6.png",
+      "sha256": "97f1ad84a88bb05bff93b1ccb29b9d3540b670346a9af165d06a1296362e5653",
+      "width": 994,
+      "height": 1283
+    },
+    {
+      "image": 20,
+      "file": "20.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-dfa3d908-265d-4f81-be03-76e5ec13aa2a.png",
+      "sha256": "8af423b63c79b4e24fe09c6b3bb9011ffac51fd2492f1ac606ad4e2f882a1e9f",
+      "width": 999,
+      "height": 1344
+    },
+    {
+      "image": 21,
+      "file": "21.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-d066c4dd-9d2b-430c-9234-eb17dae7573f.png",
+      "sha256": "193b77d71e4afa53e6e380b27f5d41ba5fb8823c8be579b370ece65815aa18a3",
+      "width": 989,
+      "height": 1369
+    },
+    {
+      "image": 22,
+      "file": "22.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-5febcb5d-9837-43d7-9314-cf5e674f7f30.png",
+      "sha256": "3af0b86ef6a25c63fcc575115184e2195d87d1ee6feb6d8815e375ff7d568925",
+      "width": 963,
+      "height": 1325
+    },
+    {
+      "image": 23,
+      "file": "23.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-d6204706-4cf2-468d-a6ea-7e7179a6e981.png",
+      "sha256": "1ad272905638a19273f706a6279b50fa3ed8377bc1c1a1416f8252003dae0405",
+      "width": 996,
+      "height": 1352
+    },
+    {
+      "image": 24,
+      "file": "24.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-49d0ac5a-d758-4971-955a-fb40ad90f741.png",
+      "sha256": "c0b52baa2d9c6145bb24ab96d539dfa0a7e3e8ac753d4c551358be27a4e445a5",
+      "width": 978,
+      "height": 1351
+    },
+    {
+      "image": 25,
+      "file": "25.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-09208fb0-b191-48f5-9b37-6b9ad9ce083b.png",
+      "sha256": "e3299c68b8dbeaccde3af03adb36c9dbe1bd06284f085ddff4514e3ce949ae8e",
+      "width": 990,
+      "height": 1356
+    },
+    {
+      "image": 26,
+      "file": "26.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-8267beee-b8f6-4b20-9060-566c1691ace2.png",
+      "sha256": "3d38ed988df3efbead25bba4e5381a4c0564f7337750d22799a5d143b88230ae",
+      "width": 989,
+      "height": 1338
+    },
+    {
+      "image": 27,
+      "file": "27.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-5d39548d-4f98-4fa1-ac52-6b3eb9de6b7e.png",
+      "sha256": "aa8632a338b8b62596456097885187996f42c00537854d053e6550967d69f10e",
+      "width": 1010,
+      "height": 1039
+    },
+    {
+      "image": 28,
+      "file": "28.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-4cd48c49-cf4b-4a6d-a716-68cf78f981e4.png",
+      "sha256": "993c53074cdb9db856234fedec374f5ab37f99402b261949c1d89d31c9d66fe4",
+      "width": 963,
+      "height": 1549,
+      "batch": "supplemental_cultivation",
+      "received_date": "2026-09-09"
+    },
+    {
+      "image": 29,
+      "file": "29.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-495989a5-1b6c-40cf-af0b-ffbea639ff48.png",
+      "sha256": "aa2ade4550f37d4d9bf3ecbf02e06d6a7f5ee6739f7600824173a32d4af5283a",
+      "width": 978,
+      "height": 1396,
+      "batch": "supplemental_cultivation",
+      "received_date": "2026-09-09"
+    },
+    {
+      "image": 30,
+      "file": "30.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-483869bf-9345-43b2-a5e1-eca4daf76bf1.png",
+      "sha256": "1053f90afad8ce20ccef40c647beb41fdfe6b256cfa8aca5346986c02af941c4",
+      "width": 982,
+      "height": 1463,
+      "batch": "supplemental_cultivation",
+      "received_date": "2026-09-09"
+    },
+    {
+      "image": 31,
+      "file": "31.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-72dd51fc-5c06-44c6-82f0-177bc6a2c5bd.png",
+      "sha256": "c37fc7cd7d799d6117f9b31398cbe99cf996f4d34a20cfac1d809c42da0acd4b",
+      "width": 992,
+      "height": 1500,
+      "batch": "supplemental_cultivation",
+      "received_date": "2026-09-09"
+    },
+    {
+      "image": 32,
+      "file": "32.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-2b685004-38da-49bb-9457-51deaaa32f42.png",
+      "sha256": "76156f33c7498bf6da3d12e4f33501b81bfe22694310325e6c16584d7b9d6953",
+      "width": 1026,
+      "height": 1258,
+      "batch": "supplemental_cultivation",
+      "received_date": "2026-09-09"
+    },
+    {
+      "image": 33,
+      "file": "33.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-7ecea313-6dfa-491e-b7d8-03f2ab85fb38.png",
+      "sha256": "2ceb02a069cddd4a0580ed8738d8c2663becfeab9a0ac95b2f1bacc427587c4c",
+      "width": 1003,
+      "height": 1501,
+      "batch": "supplemental_cultivation",
+      "received_date": "2026-09-09"
+    },
+    {
+      "image": 34,
+      "file": "34.png",
+      "original_path": "C:/Users/Liu/AppData/Local/Temp/codex-clipboard-dbb6976d-a0cf-44f4-9558-49ae243e25e0.png",
+      "sha256": "5eb3bbf8f75741a8436a1d5df64485f80b619b7c50061f414ebea9a26f88d361",
+      "width": 994,
+      "height": 1409,
+      "batch": "supplemental_cultivation",
+      "received_date": "2026-09-09"
+    }
+  ],
+  "transcription_note": "Image 12 overlaps/repeats image 8; count the turn-3 actions once."
+}

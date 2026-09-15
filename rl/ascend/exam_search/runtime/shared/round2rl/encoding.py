@@ -130,7 +130,11 @@ def encode(obs):
             return "card_reference"
         return x
 
-    state = copy.deepcopy(obs["state"])
+    # Only top-level keys are popped below, and `clean` is pure: it reads its input
+    # and returns freshly-built dicts/lists, never mutating them. A shallow copy is
+    # therefore enough to keep obs["state"] intact, and avoids deep-copying the whole
+    # observation on every decision of every episode.
+    state = dict(obs["state"])
     effects = state.pop("effects", [])
     counters = state.pop("effectCounters", {})
     current_effect = state.pop("currentEffectInstanceId", None)
@@ -173,7 +177,7 @@ def encode(obs):
                               "bindings": bindings.get(c['instance_id'], []),
                               "definition_metadata": definition, **payload}, index)
     for order, effect in enumerate(effects):
-        effect = copy.deepcopy(effect)
+        effect = dict(effect)   # top-level pop only; `clean` below does not mutate.
         eid = effect.pop("effectInstanceId", None)
         count = counters.get(str(eid)) if isinstance(counters, dict) else (counters[eid] if isinstance(eid, int) and 0 <= eid < len(counters) else None)
         index = len(nodes)

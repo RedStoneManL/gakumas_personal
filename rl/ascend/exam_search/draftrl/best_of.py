@@ -136,8 +136,17 @@ def construction_evaluation(pool,model,rows,config,device,choose,output,label):
                     'evaluation_parent_seed':row['seed'],'branch_id':branch}})
     if len({t['replay_seed'] for t in tasks})!=len(tasks):raise ValueError('Duplicate evaluation repeat seeds')
     from pathlib import Path
-    records,repeated,_=rollout_bank(pool,model,None,config,device,len(tasks),None,choose,
-        tasks=tasks,greedy=True,source='validation_best4',log_path=Path(output)/(label+'-repeats.jsonl'))
+    # The task list is explicit and the grouping below is keyed by parent seed, so the
+    # replays are sharded across the learner ranks; the assertions that follow still hold
+    # because every task must come back for the four-outcome grouping to succeed.
+    from . import distributed as _distributed
+    log=Path(output)/(label+'-repeats.jsonl')
+    if _distributed.ACTIVE is not None:
+        records,repeated=_distributed.ACTIVE.bank_rollout(pool,model,config['_setup'],config,tasks,
+            log_path=log,source='validation_best4')
+    else:
+        records,repeated,_=rollout_bank(pool,model,None,config,device,len(tasks),None,choose,
+            tasks=tasks,greedy=True,source='validation_best4',log_path=log)
     if records or len(repeated)!=len(tasks):raise ValueError('Invalid four-exam evaluation')
     groups=defaultdict(list)
     for row in repeated:groups[row['evaluation_parent_seed']].append(row)

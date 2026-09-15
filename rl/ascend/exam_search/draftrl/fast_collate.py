@@ -24,6 +24,12 @@ def collate(examples, device='cpu'):
     paths, kinds, values, numbers, entities = [], [], [], [], []
     edge_src, edge_dst, edge_word, batches, actions = [], [], [], [], []
     path_cache, number_cache = {}, {}
+    # `paths`/`numbers` were lists of N references into a small deduplicated set of
+    # row-lists. np.asarray over a list-of-lists costs ~16ms/11ms per call at N=20k
+    # (measured on this box) because it walks Python objects. Instead intern the rows,
+    # collect flat int indices, and fancy-index the small unique table once in C.
+    # Output is bit-identical: same rows, same order, same dtype.
+    unique_paths, unique_numbers = [], []
     offset = 0
     for batch, e in enumerate(examples):
         batches.extend([batch] * e.entity_count)
@@ -32,7 +38,8 @@ def collate(examples, device='cpu'):
             path = tuple(path)
             row = path_cache.get(path)
             if row is None:
-                row = [word(p) for p in path] + [0] * (MAX_DEPTH - len(path))
+                row = len(unique_paths)
+                unique_paths.append([word(p) for p in path] + [0] * (MAX_DEPTH - len(path)))
                 path_cache[path] = row
             paths.append(row)
             kinds.append(kind)
@@ -42,9 +49,10 @@ def collate(examples, device='cpu'):
             key = (number, math.copysign(1.0, number))
             numeric = number_cache.get(key)
             if numeric is None:
-                numeric = [math.copysign(math.log1p(abs(number)), number),
-                           number / (1 + abs(number)), number / 10000,
-                           float(number != 0)]
+                numeric = len(unique_numbers)
+                unique_numbers.append([math.copysign(math.log1p(abs(number)), number),
+                                       number / (1 + abs(number)), number / 10000,
+                                       float(number != 0)])
                 number_cache[key] = numeric
             numbers.append(numeric)
         for src, dst, text in e.edges:
@@ -68,15 +76,29 @@ def collate(examples, device='cpu'):
     def tensor(value, dtype=np.int64):
         return torch.from_numpy(np.asarray(value, dtype=dtype)).to(device)
 
+    def flat(value, dtype=np.int64):
+        # np.fromiter avoids the generic object walk np.asarray does on a Python list.
+        return torch.from_numpy(np.fromiter(value, dtype=dtype, count=len(value))).to(device)
+
+    def gathered(index, table, dtype):
+        # index rows out of the deduplicated table in C rather than converting N lists.
+        if not index:
+            return torch.from_numpy(np.zeros((0, 0), dtype=dtype)).to(device)
+        tab = np.asarray(table, dtype=dtype)
+        idx = np.fromiter(index, dtype=np.int64, count=len(index))
+        return torch.from_numpy(tab[idx]).to(device)
+
     phase_values = [e.phase for e in examples]
     if any(p not in range(5) for p in phase_values):
         raise ValueError('Unknown phase')
     phase = tensor(phase_values)
     return {'bytes': tensor(byte_np), 'lengths': torch.from_numpy(lengths_np),
-            'paths': tensor(paths), 'kinds': tensor(kinds), 'values': tensor(values),
-            'numbers': tensor(numbers, np.float32), 'entities': tensor(entities),
-            'edge_src': tensor(edge_src), 'edge_dst': tensor(edge_dst),
-            'edge_word': tensor(edge_word), 'batches': tensor(batches),
+            'paths': gathered(paths, unique_paths, np.int64),
+            'kinds': flat(kinds), 'values': flat(values),
+            'numbers': gathered(numbers, unique_numbers, np.float32),
+            'entities': flat(entities),
+            'edge_src': flat(edge_src), 'edge_dst': flat(edge_dst),
+            'edge_word': flat(edge_word), 'batches': flat(batches),
             'action_index': tensor(action_np), 'mask': tensor(mask_np, np.bool_),
             'entity_count': offset, 'batch_size': len(examples),
             'phase': phase, 'drink_phase': phase == 1,

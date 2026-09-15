@@ -58,6 +58,25 @@ def configurations(search, full, **settings):
     return {'search.json': search, 'full_produce.json': full}
 
 
+def advisories(search):
+    """Settings that are accepted and stored but cannot take effect as written.
+
+    These are not errors: every shipped base config trips the first one, so refusing
+    them would reject the project's own presets. They are reported so nobody spends
+    time tuning a value the architecture cannot reach.
+    """
+    parallel = search.get('parallelism', {})
+    batch, roots = parallel.get('inference_batch'), parallel.get('parallel_roots')
+    notes = []
+    if type(batch) is int and type(roots) is int and batch > roots:
+        notes.append(
+            f'inference_batch={batch} is capped at parallel_roots={roots}. Each search '
+            f'process submits one inference request and then blocks on its own reply, so '
+            f'at most {roots} requests are ever in flight and no batch can exceed {roots}. '
+            f'Raise --search-workers to make larger inference batches reachable.')
+    return notes
+
+
 def write_configs(output, configs):
     output = Path(output)
     for name in configs:
@@ -85,8 +104,13 @@ def main(argv=None):
     full = json.loads(args.full_base.read_text(encoding='utf-8-sig'))
     configs = configurations(search, full, **{name: getattr(args, name) for name in (*FIELDS, 'device')})
     write_configs(args.output_dir, configs)
+    parallel = configs['search.json'].get('parallelism', {})
     print(json.dumps({'directory': str(args.output_dir.resolve()),
                       'learners': configs['search.json']['learner_world_size'],
+                      'effective_inference_batch': min(
+                          parallel.get('inference_batch', 0) or 0,
+                          parallel.get('parallel_roots', 0) or 0) or parallel.get('inference_batch'),
+                      'advisories': advisories(configs['search.json']),
                       'configs': list(configs)}, ensure_ascii=False, indent=2))
 
 

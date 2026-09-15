@@ -89,7 +89,8 @@ def choose(model, examples, device, greedy=False, driver='policy', rngs=None, ex
 
 
 def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=None,
-            target_decisions=None, greedy=False, fixed_drinks=None, spec=None, driver='policy', log_path=None, exploration=None, scenario_bank=None,keep_entries=False):
+            target_decisions=None, greedy=False, fixed_drinks=None, spec=None, driver='policy', log_path=None, exploration=None, scenario_bank=None,keep_entries=False,
+            index_offset=0, seed_stride=1):
     """One frozen current policy across construction, resources, memories and exam."""
     assert (count is None) != (target_decisions is None)
     training = target_decisions is not None
@@ -163,7 +164,7 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
     while active or can_start():
         for i in range(config['workers']):
             if i not in active and can_start():
-                index = next_seed - config['train_seed_base'] if target_decisions is not None else started
+                index = next_seed - config['train_seed_base'] if target_decisions is not None else started + index_offset
                 profile = config['_profiles'][index % len(config['_profiles'])]
                 local_index = index // len(config['_profiles'])
                 scene_index = local_index // len(profile['spec']['scenarios'])
@@ -200,7 +201,10 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                        'choice_state':None, 'choice_steps':[],
                        'exploration_mode':mode_for(config,local_index,training)}
                 row['search_enabled'] = bool(router and router.select_episode(local_index))
-                next_seed += 1; started += 1
+                # seed_stride > 1 lets sharded learners walk disjoint interleaved seed
+                # streams (rank r starts at start_seed + r and steps by the rank count),
+                # so no two ranks can ever simulate the same episode.
+                next_seed += seed_stride; started += 1
                 active[i] = row
         blocked = set(flow.pending) if flow else set()
         ready = flow.poll(wait=bool(blocked) and len(blocked)==len(active)) if flow else []
@@ -452,6 +456,7 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
     resume=resume or continuation is not None
     if config['gamma'] != 1:
         raise ValueError('Generalist score objective uses undiscounted complete episodes')
+    from . import distributed as _distributed
     resolve_device(config['device'])
     window=RuntimeWindow(output,config)
     if not window.allows(0):
@@ -470,7 +475,9 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         raise RuntimeError('Frozen Arena differs from prepared inputs')
     source_hash = source_version()
     setup_hashes = {n:digest(setup/n) for n in ('profiles.json','catalog.json','provenance.json','config.json')}
-    run_config = {**config, '_profiles':profiles}
+    # '_setup' travels in the broadcast config so a worker rank can rebuild the
+    # catalog, profiles and Arena pool for its shard without a second channel.
+    run_config = {**config, '_profiles':profiles, '_setup':str(setup)}
     resumed=None;recovery=None
     if resume:
         if continuation is not None:
@@ -622,16 +629,25 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                 resources.last_rejection = str(exc)
                 publish('resource_request_rejected', resource_request_error=str(exc))
             return
+        # README: workers/search-workers are the whole job's parallelism, "not multiplied by
+        # the learner count". Every rank therefore takes an equal share of the configured
+        # totals, and run_config['workers'] must match this rank's pool because rollout()
+        # indexes worker slots with range(config['workers']).
+        _world = _distributed.ACTIVE.size if _distributed.ACTIVE is not None else 1
         pool, changed = resources.apply(request, run_config, batches, pool,
-            lambda count: Workers(count, arena, arena_hash))
+            lambda count: Workers(max(1, count // _world), arena, arena_hash))
+        run_config['workers'] = max(1, resources.current['workers'] // _world)
         if changed:
             from .search_router import SearchRouter
             counter = (search_router.counter if search_router is not None else
                        (resumed or {}).get('search_seed_counter', 0))
             if search_router is not None:
                 search_router.close()
-            search_cfg = {**config['search'], **{k: resources.current[k]
-                          for k in ('parallel_roots', 'inference_batch')}}
+            _roots = max(1, resources.current['parallel_roots'] // _world)
+            search_cfg = {**config['search'], 'parallel_roots': _roots,
+                          # inference_batch above parallel_roots is unreachable: each search
+                          # process blocks on its own reply, so only that many are in flight.
+                          'inference_batch': min(resources.current['inference_batch'], _roots)}
             search_cfg['objective_k'] = 4 if config.get('practice',{}).get('forks',{}).get('objective')=='best_of_k' else 1
             search_router = SearchRouter(model, device, search_cfg, seed_counter=counter,
                 log_path=output/'search-roots.jsonl',
@@ -645,9 +661,20 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         publish('evaluating',evaluation_label=label)
         best4_enabled=practice.get('forks',{}).get('objective')=='best_of_k'
         eval_config={**run_config,'_policy_version':f'{source_hash}:{batches}:evaluation:{label}'}
-        _,episodes,_,_=rollout(pool,policy if policy is not None else model,None,catalog,eval_config,device,
-            config['eval_seed_base'] if seed is None else seed,count=count or config['eval_episodes'],
-            greedy=True,log_path=output/f'{label}-episodes.jsonl',keep_entries=best4_enabled)
+        # Greedy evaluation is deterministic per (seed, index) and describe() aggregates
+        # order-independently, so the episode set is sharded across the learner ranks and
+        # gathered. With one rank this is the identical local call.
+        from . import distributed as _distributed
+        eval_seed=config['eval_seed_base'] if seed is None else seed
+        eval_count=count or config['eval_episodes']
+        if _distributed.ACTIVE is not None:
+            episodes=_distributed.ACTIVE.evaluate_rollout(pool,policy if policy is not None else model,
+                setup,catalog,eval_config,eval_seed,eval_count,
+                log_path=output/f'{label}-episodes.jsonl',keep_entries=best4_enabled)
+        else:
+            _,episodes,_,_=rollout(pool,policy if policy is not None else model,None,catalog,eval_config,
+                device,eval_seed,count=eval_count,greedy=True,
+                log_path=output/f'{label}-episodes.jsonl',keep_entries=best4_enabled)
         result=describe(episodes)
         if best4_enabled:
             from .best_of import construction_evaluation
@@ -834,10 +861,25 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
             exploration=schedule(config,decisions,elapsed_minutes=(before-started)/60)
             publish('collecting',active_exploration=exploration)
             search_before = search_router.diagnostics()
-            records,episodes,added,episode_index=rollout(pool,model,None,catalog,run_config,device,
-                episode_index,target_decisions=config['batch_decisions'],
-                log_path=output/'train-episodes.jsonl',exploration=exploration,scenario_bank=bank,
-                keep_entries=practice.get('forks',{}).get('enabled',False))
+            # Sharded across the learner ranks: each walks its own interleaved seed stream
+            # and an equal share of the soft decision budget. The bank is fed afterwards
+            # from the gathered episodes so one deduplicating bank stays authoritative.
+            _bank_rows=[]
+            if _distributed.ACTIVE is not None and _distributed.ACTIVE.size>1:
+                records,episodes,added,episode_index,_bank_rows=_distributed.ACTIVE.collect_rollout(
+                    pool,model,setup,catalog,run_config,episode_index,config['batch_decisions'],
+                    exploration,log_path=output/'train-episodes.jsonl',
+                    keep_entries=practice.get('forks',{}).get('enabled',False),
+                    search_log=output/'search-roots.jsonl',
+                    search_seed_base=search_router.counter if search_router is not None else 0)
+                if bank is not None:
+                    for _row in _bank_rows:
+                        if not _row.get('keycard_focus'):bank.add(_row)
+            else:
+                records,episodes,added,episode_index=rollout(pool,model,None,catalog,run_config,device,
+                    episode_index,target_decisions=config['batch_decisions'],
+                    log_path=output/'train-episodes.jsonl',exploration=exploration,scenario_bank=bank,
+                    keep_entries=practice.get('forks',{}).get('enabled',False))
             joint_episode_count=len(episodes)
             tasks,fork_next_seed=make_fork_tasks(episodes,run_config,fork_next_seed)
             fork_stats=[]

@@ -1,0 +1,120 @@
+{
+  "date": "2026-09-15",
+  "passed": true,
+  "host": {
+    "os": "Windows AMD64",
+    "python": "3.12.7",
+    "torch": "2.9.1+cu128",
+    "node": "26.6.0"
+  },
+  "scope": "Local CPU/CUDA code, native engine and relocation validation. No ARM64/NPU/HCCL execution claim.",
+  "tested_bundle_sha256": "7e72759b749ecbf4ee4c19c918087377c331f25e3c70d5c50108f3a310c7de1d",
+  "tested_bundle_manifest_sha256": "6d3d7fff6923eb37db17c8e3768ce13ec79e3b58bad2108d14aeec41125c3888",
+  "search_source_sha256": "db322b503e204b386a543ee2f04ec9a1208b147f3fcdca3045ff39d6c53f9017",
+  "regressions": {
+    "core": {
+      "run": 66,
+      "passed": 66,
+      "log_sha256": "33bf8060557736c378cf61aaaf312d87f97550f852711622de34bf246be2ee73"
+    },
+    "bundled_core_subset": {
+      "run": 31,
+      "passed": 31
+    },
+    "search_and_distributed": {
+      "run": 28,
+      "passed": 25,
+      "skipped": 3
+    },
+    "unique_passed": 91,
+    "skipped": [
+      "native Windows Gloo initialization unavailable",
+      "historical Windows continue_run supervisor",
+      "historical Windows continue_soft_value supervisor"
+    ],
+    "distributed_test_transport": "two real processes with test-only serialized Pipe transport; not Gloo/HCCL",
+    "full_produce_parameter_max_abs_diff": 7.275957614183426e-12,
+    "search_two_updates_parameter_max_abs_diff": 1.4901161193847656e-08
+  },
+  "steps": [
+    {
+      "name": "portable-regressions",
+      "exit_code": 0,
+      "seconds": 82.65600000007544,
+      "log_sha256": "c0bf06d46cdb34ef32fea20a9a61f7a13414da650e2395297eca1d7c7ce1cace"
+    },
+    {
+      "name": "native-search",
+      "exit_code": 0,
+      "seconds": 4.640999999945052,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "full-session-1",
+      "exit_code": 0,
+      "seconds": 51.14000000001397,
+      "log_sha256": "5e36a66e1f01fe26ab382ebf38f81bd878adff159f47c15295143ad6c2431d03"
+    },
+    {
+      "name": "full-session-2",
+      "exit_code": 0,
+      "seconds": 35.17200000002049,
+      "log_sha256": "1f03b39869ac62904e770286efa2c9b8364fc9f7018246da94b048eb3412c265"
+    },
+    {
+      "name": "search-training",
+      "exit_code": 0,
+      "seconds": 243.14100000006147,
+      "log_sha256": "6b2c612ba8d62fe526f38c2cd8302be4608def356c7a89c5d44086bf6a832273"
+    },
+    {
+      "name": "search-resume",
+      "exit_code": 0,
+      "seconds": 43.76599999994505,
+      "log_sha256": "ef9b8a873ab333c628dea3bf1dc571cb7f553760dc680415b38b6ee76fe67827"
+    }
+  ],
+  "native_search": {
+    "passed": true,
+    "valid_search_roots": 2,
+    "decisions": 2,
+    "native_final_score": 8,
+    "changed_parameters": 81,
+    "rng_roundtrip": true
+  },
+  "full_produce": {
+    "iteration": 2,
+    "episodes_seen": 4,
+    "seed_cursor": 92000004,
+    "learner_world_size": 1,
+    "workers": 2,
+    "scratch_directories": 2,
+    "scope": "two complete update boundaries, four terminated produce episodes; no natural full-clear claim"
+  },
+  "search": {
+    "batches": 1,
+    "decisions": 156,
+    "next_episode_index": 34000002,
+    "episodes": 8,
+    "search_records": 84,
+    "ppo_records": 74,
+    "optimizer_steps": 20,
+    "collection_seconds": 106.71900000004098,
+    "update_seconds": 71.42199999990407,
+    "learner_world_size": 1
+  },
+  "imports": {
+    "exam_files": 222,
+    "full_arena_files": 700,
+    "exam_import_manifest_sha256": "904a924ef229e873729d825363207ce281ec6196426e5f15b5b7cf5576b8dc87",
+    "full_arena_import_manifest_sha256": "abf61fb2004caabcb007e11af19aeac4ec2a9d112b55a7d0cd5eb518a379cfc2"
+  },
+  "unverified": [
+    "Linux ARM64 execution",
+    "provider CANN/driver/firmware pairing",
+    "real NPU operator coverage",
+    "native 8-rank HCCL",
+    "96+24 process throughput and RAM budget",
+    "policy strength and convergence"
+  ]
+}

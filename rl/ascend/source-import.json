@@ -1,0 +1,1191 @@
+{
+  "source": "rl/generalist-search-signed-credit",
+  "checkpoint_included": true,
+  "previous_source": "rl/generalist-search-soft-value",
+  "scope": "Frozen signed-credit source merged with ARM64/Ascend, distributed learners and configurable scale; checkpoint provenance is separate.",
+  "upstream_acceptance": {
+    "status": "passed",
+    "candidate_source_sha256": "7ba9b5b20fae7d83ec0f79a17c25e75a48ebb3204dbecb647396b1e6ba1e1bb7",
+    "supervisor_sha256": "0696c2499c52d0282349b7a8c9dad64449503374f3312ae5416fae7b3a92d72c",
+    "training_config_sha256": "c5702bc418d39c9a9de6cc9c87201afd92893d90573c6a2a996234b0b7f690ee",
+    "source_code_sha256s": [
+      "23eec2a4f706fea6beda5b0b66644a4e8204c3ac1179c00e78049739d722b62c",
+      "6db42482a2db9feb0af45b57dee40d23f1f98112f6fdeca8e304663086b9ff82"
+    ],
+    "acceptance_report": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\experiments\\signed-credit-20260915\\report.json",
+    "acceptance_report_sha256": "2362dfe71b50c13f6b0946f237abbdf6856d3e2dbf8a15bf2381b663f586bd1b",
+    "core_tests_passed": 72,
+    "core_test_seconds": 15.709,
+    "dashboard_tests_passed": 29,
+    "javascript_syntax": "passed",
+    "runtime_setup_identical": true,
+    "real_arena_games": 40,
+    "source_checkpoint_sha256": "897f94ef4430de521baa230481120c096050d01c34b1b22a89d057b140611cdf",
+    "probe_scope": "Fresh construction plus four-game continuations and fixed bank entries; one search root per game. Functional and gradient acceptance, not production score improvement.",
+    "diagnostic_alignment": "Post-probe gradient diagnostic uses signed advantages without parameter mutation; included in final 72-test suite. No actor or update code changes after probe."
+  },
+  "files": [
+    {
+      "path": "continue_kl_value.py",
+      "sha256": "a9341aa61d5f6f0aab79e029c52b024f4efa0163771e67a5395bc898257a815f",
+      "bytes": 8656
+    },
+    {
+      "path": "continue_run.py",
+      "sha256": "f2eb6bd625bcf0ff409f06c8417349951548c81c7d5bf811f534baa254863999",
+      "bytes": 14357
+    },
+    {
+      "path": "continue_signed_credit.py",
+      "sha256": "0696c2499c52d0282349b7a8c9dad64449503374f3312ae5416fae7b3a92d72c",
+      "bytes": 10165
+    },
+    {
+      "path": "continue_soft_value.py",
+      "sha256": "13f664632d00b66971ec0d8b53145fd57e7da6c752ee0887ae9dfeda5dbfbcce",
+      "bytes": 8912
+    },
+    {
+      "path": "draftrl/__init__.py",
+      "sha256": "1434046301bb3241c0cb81b5ae74641117ff5dcc2f75c58181d2a0258ca030cf",
+      "bytes": 74
+    },
+    {
+      "path": "draftrl/advantages.py",
+      "sha256": "686a8516d8feefc4770ed08cc58b78cf6b4213d55d40b671dab61adc7fd8a937",
+      "bytes": 1865
+    },
+    {
+      "path": "draftrl/async_decisions.py",
+      "sha256": "7cdc713a2686e2d341f204549483816686d8d2a09829767885a6ab8f228fdef6",
+      "bytes": 1927
+    },
+    {
+      "path": "draftrl/async_service.py",
+      "sha256": "83255ccf5c93ddf81eeba5e939fbee2a0f2228f8c72ad73b72ace677ecbda4e7",
+      "bytes": 11300
+    },
+    {
+      "path": "draftrl/bank_rollout.py",
+      "sha256": "d491752c8941e2a45605794f1486bbdbc7b09a24fe258d6893b20e736974e5f6",
+      "bytes": 9545
+    },
+    {
+      "path": "draftrl/best_of.py",
+      "sha256": "6a707d2bbab9251f25b16a718ede64ffb45a59b74ba3280cafe146548b5bcae1",
+      "bytes": 9330
+    },
+    {
+      "path": "draftrl/checkpoint.py",
+      "sha256": "44a76d87e82156cbee4b6b3ddaad45e62df1f1c79cf7976e0808c7bd1a135ff3",
+      "bytes": 4937
+    },
+    {
+      "path": "draftrl/choice.py",
+      "sha256": "046ff196b66e756c44081ce715c905b431d74a923716ced954277d4b12e4b2e8",
+      "bytes": 2773
+    },
+    {
+      "path": "draftrl/construction_reward.py",
+      "sha256": "5510bad63c766e92eb521315da2e33241fea842615bd5e7891aa3e987528151f",
+      "bytes": 2613
+    },
+    {
+      "path": "draftrl/continuation.py",
+      "sha256": "4a406d69f50faf067eafec63767f352653e201b03915f5ef5b5dff377d7ae3b8",
+      "bytes": 14014
+    },
+    {
+      "path": "draftrl/contracts.py",
+      "sha256": "c2264a251f9793ec7952abc5d262b59b48e862d6e0adedff800ef240ed86e1f8",
+      "bytes": 3126
+    },
+    {
+      "path": "draftrl/coverage.py",
+      "sha256": "2f0381f4a777594803b6b6d3448c6274c83b61c5576adffecb73941750a93b57",
+      "bytes": 1640
+    },
+    {
+      "path": "draftrl/critic_completion.py",
+      "sha256": "39882ddf96fbd3c50d2e7fcef0f2d3a9765c3b1811106095aedaefe4fd401138",
+      "bytes": 5173
+    },
+    {
+      "path": "draftrl/deck_size.py",
+      "sha256": "87c707c203410ec2760b688fd6ec70c98bab9c8ccefff6ad1d98f702c5179e05",
+      "bytes": 599
+    },
+    {
+      "path": "draftrl/distribution.py",
+      "sha256": "1664d7bdab8d9ee48435c4f4fb406fc8e79a3603d3a322f7e2bed611b7931d41",
+      "bytes": 3637
+    },
+    {
+      "path": "draftrl/drinks.py",
+      "sha256": "443210bdd3fc51c6d911b33b7ef62706208ea48ffb4654950e583937d6da6c57",
+      "bytes": 9775
+    },
+    {
+      "path": "draftrl/duplicate_limits.py",
+      "sha256": "625da8baff5b402e2b47bff6e1630a6564820a271af8927f38c29769e54dbb4d",
+      "bytes": 2896
+    },
+    {
+      "path": "draftrl/encoding.py",
+      "sha256": "2798002dabeee1ff7c1ac947e2f6cbb16c1f5f24335001ab858f7fbd024ecf3d",
+      "bytes": 19917
+    },
+    {
+      "path": "draftrl/exploration_migration.py",
+      "sha256": "47d43a959b0242704626da3dfd9aaa392e6b1cf2f87a52d1a42f3f70432c0ca7",
+      "bytes": 3091
+    },
+    {
+      "path": "draftrl/fast_collate.py",
+      "sha256": "ed404533ac08f200c9055e937319c2e646aaaf7cfb07bcd150dd3d6744c6afba",
+      "bytes": 3872
+    },
+    {
+      "path": "draftrl/general_scenarios.py",
+      "sha256": "e302068560675eecfb6dd66e449cceca5acd6504f5e6dfa36bf96f847e4dc76b",
+      "bytes": 12167
+    },
+    {
+      "path": "draftrl/gradient_diagnostics.py",
+      "sha256": "8086a85b85f7962a8a0f2216ee01c14571af1467dfdb8f535e127d39c633e28a",
+      "bytes": 1956
+    },
+    {
+      "path": "draftrl/guidance.py",
+      "sha256": "efd528a2f71281adaec108fec2f1c2ad3980a22c376557eb0adeb78fc1ff397a",
+      "bytes": 5734
+    },
+    {
+      "path": "draftrl/keycard_focus.py",
+      "sha256": "b9501222697adccc1ebd2a33657e761d832fb580267d783954bb430b59c65b2b",
+      "bytes": 5862
+    },
+    {
+      "path": "draftrl/keycard_probe.py",
+      "sha256": "287e38a7dbc3bb5f5e3901416d3e3af98df9a39b97bc4d37dd518784528ba198",
+      "bytes": 5848
+    },
+    {
+      "path": "draftrl/kl_value_migration.py",
+      "sha256": "a842840688b1ac2f014a254604765663c3b4ba64cb7e414e69d903c5b28e7686",
+      "bytes": 815
+    },
+    {
+      "path": "draftrl/learning_rates.py",
+      "sha256": "fe475fb227a6033d915f30d5c20da0fabbc9637a28f0ec20d787ae14e4e81c3d",
+      "bytes": 2572
+    },
+    {
+      "path": "draftrl/learning_settings.py",
+      "sha256": "9155bc5539558e6a21f67da921f133d2e289c540b7d96e7833341a6382a603da",
+      "bytes": 1292
+    },
+    {
+      "path": "draftrl/legacy_model.py",
+      "sha256": "5aa99eb4a84d1f660963c79556cff5249eb1c25792dbbf52e1f9808355bbc57b",
+      "bytes": 2424
+    },
+    {
+      "path": "draftrl/memory.py",
+      "sha256": "b9b911d54c9d3acd808a6730c24ce9111a1d4b98802e7958cb024aff1d50eb6d",
+      "bytes": 6163
+    },
+    {
+      "path": "draftrl/migration.py",
+      "sha256": "45e4110262c961df40d5f01f37f1fa91accadc77fc8fcf3b65b12edf20c0c5a2",
+      "bytes": 3403
+    },
+    {
+      "path": "draftrl/model.py",
+      "sha256": "1ffa854516fbb3be41a6d834e42ed8d0446d9c05223c6d2a8d2940cb1518c597",
+      "bytes": 9344
+    },
+    {
+      "path": "draftrl/play_evaluation.py",
+      "sha256": "a2f3950dde5c686fdf787d486b226048056d56841317d254d2554ee617996180",
+      "bytes": 7223
+    },
+    {
+      "path": "draftrl/ppo.py",
+      "sha256": "fa494127a7eb46985781d5ba78e20e5785571267bd4c87020eb88fff10cc2ee3",
+      "bytes": 11410
+    },
+    {
+      "path": "draftrl/practice.py",
+      "sha256": "2f1f6fc25b7e22b4c4570542fa6b818317d9df2064a3dcbc3b536c12f20f14cc",
+      "bytes": 13463
+    },
+    {
+      "path": "draftrl/process_service.py",
+      "sha256": "c65b19273bf3900c3289fd4f0826f8e42a275d41b0f9e99ec02d8b095348e8e9",
+      "bytes": 5224
+    },
+    {
+      "path": "draftrl/public_mcts.py",
+      "sha256": "0e7e06c6a1e616fcef90aade0f23851e77a3d4d3d0291970575def259d988291",
+      "bytes": 13652
+    },
+    {
+      "path": "draftrl/recovery.py",
+      "sha256": "7eb58e61fe8d293ea5b80a58c3feb27602a20dc795d39583875c3d2035eee050",
+      "bytes": 5159
+    },
+    {
+      "path": "draftrl/resource_modes.py",
+      "sha256": "0bb584808de3998cf40e5bacfe78932b99e49f585fb3ba3e733470ddc6226c63",
+      "bytes": 5381
+    },
+    {
+      "path": "draftrl/runner.py",
+      "sha256": "606afc2bb27c4febfbca25caf742c4497358dda1b33485233c5af35d4c6840e4",
+      "bytes": 67285
+    },
+    {
+      "path": "draftrl/runtime_window.py",
+      "sha256": "76f22edaea5d418b0837c5b4f06b5e083a8d11da660015d09edb9a5f2ad5da0a",
+      "bytes": 3905
+    },
+    {
+      "path": "draftrl/sample_bank.py",
+      "sha256": "0e648b281c34c1ea1824a183dc2e376f21e942c26ee3ae8a3a0ce1ab3003b93c",
+      "bytes": 8198
+    },
+    {
+      "path": "draftrl/scenarios.py",
+      "sha256": "d3c57760bb8d5c41df9549b4eb2cf6862dbc9a05ae5e3b77d7e4d4c940842064",
+      "bytes": 3193
+    },
+    {
+      "path": "draftrl/search_adapter.py",
+      "sha256": "92900f18b19bd026b2547b3ef63c111e0f31c778fcc5e5b03722e7994a7f3cb6",
+      "bytes": 10501
+    },
+    {
+      "path": "draftrl/search_budgets.py",
+      "sha256": "d7a6dc3e38d502eb4526a404945301dac7dd50f7a2a55912a4eb4ede367c12f4",
+      "bytes": 852
+    },
+    {
+      "path": "draftrl/search_learning.py",
+      "sha256": "8003b19638a1a3ec4fde1694374cac2fe8d0169c7789470b97a8c8f39466c83f",
+      "bytes": 2659
+    },
+    {
+      "path": "draftrl/search_router.py",
+      "sha256": "b58ebe036223386ab2527ff59325d05ddebb5a0c82c5a179265b88f244f0a59a",
+      "bytes": 6908
+    },
+    {
+      "path": "draftrl/search_service.py",
+      "sha256": "83bcaa58945f790dc9b708c71f81e0f185a5fdde4216531dc8c747f96c260813",
+      "bytes": 136
+    },
+    {
+      "path": "draftrl/signed_credit.py",
+      "sha256": "9fcaec0c3c5956a1c5c23dfdf60716bbcfbdcd9eb1cd2f637892bfc66dd37e15",
+      "bytes": 3745
+    },
+    {
+      "path": "draftrl/soft_value_migration.py",
+      "sha256": "ab5fee65d1eac07191721c7b0725e3fca89bf1d744fd7fc7d33f9c31ede326eb",
+      "bytes": 1015
+    },
+    {
+      "path": "draftrl/source_identity.py",
+      "sha256": "c25598c906e8a566536b48a3073dae5471e1b3ed9e22e1574eef24103089ecf7",
+      "bytes": 636
+    },
+    {
+      "path": "draftrl/source_stamp.py",
+      "sha256": "36987b29a4ff48e4cff3df22a06f8750331a66d1c3a454c379eb183d34048a3e",
+      "bytes": 2049
+    },
+    {
+      "path": "draftrl/ultra_migration.py",
+      "sha256": "f9727df609605d65e1dd2905734b32eebad7036bdbf1750270f8ecbafdd66351",
+      "bytes": 1177
+    },
+    {
+      "path": "draftrl/update_diagnostics.py",
+      "sha256": "ebd04f5c6e8c58fb559040b88c566467a654a3927e08d58d6413f052bf8b50a1",
+      "bytes": 3368
+    },
+    {
+      "path": "draftrl/value_calibration.py",
+      "sha256": "2918b64910517539c968c927acaeccbe5c01326a1c1c9f423ce6cce6d49396a4",
+      "bytes": 13968
+    },
+    {
+      "path": "draftrl/value_distribution.py",
+      "sha256": "6d9e1bf824bc470410e68e9e8348c29c6f71ef71bf0e150a3823059a4907652f",
+      "bytes": 1616
+    },
+    {
+      "path": "probe_kl_value.py",
+      "sha256": "e84206d6486727b91f9af07e9a3a8493a26ecc9ec2e9e7c7c2e3ee0b8f1f304b",
+      "bytes": 5522
+    },
+    {
+      "path": "probe_signed.py",
+      "sha256": "bd3842fac7cef1c61537e7ba5ef78eb21f7f852a7f93832630b610f32feffbd9",
+      "bytes": 6209
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/__init__.py",
+      "sha256": "6d4832f8b1d1bbb013b816380c8bd8ae674819ec44cdcf330d7f6b23b514d346",
+      "bytes": 1313
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/LICENSE",
+      "sha256": "6d2df9f3c7dae76229b9f3aba6906bf382606eb0b0e7bfeef9d0c96db33473b3",
+      "bytes": 1529
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/PROVENANCE.json",
+      "sha256": "1b278b8abfd2e907a4f5d29c1ac544e4f5f946aadd09f2bd7e4fd80dc377376a",
+      "bytes": 8996
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/Effects.md",
+      "sha256": "52777cda7369aabc2145526773faaa2d49ad144bccce0cb26c461d0bb3539ee8",
+      "bytes": 24341
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/README.md",
+      "sha256": "8195c7ba824623cbf186ef7ad44f1c50fdef950f40553177b28eaa82dba7a6e5",
+      "bytes": 2150
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/customizations.js",
+      "sha256": "d115d9ca818b39e90627d5e7eb8aeb5f0d17ac420eca620e5302728b2b6779f4",
+      "bytes": 779
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/idols.js",
+      "sha256": "fa309d2bce312f4065b2e4bcb9c8e0dfa2ab6331afa909673c978ae25cfa8542",
+      "bytes": 347
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/index.js",
+      "sha256": "a09a727f3c405a74f0f1631b597e879494aa6d02593d777962af4151f439299d",
+      "bytes": 469
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/pDrinks.js",
+      "sha256": "064cb5c328b6040990b055f7d8b3b1054a8ec4415ebf9587cb52e1fec4d87e36",
+      "bytes": 763
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/pIdols.js",
+      "sha256": "ebe39e305ae9c651bf13c9af2f76a297f70d1aace1bb210f71123dd7e8c52119",
+      "bytes": 857
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/pItems.js",
+      "sha256": "b2969076d09bb6e9822e2df88b096bdf392de9f42ee60e1f4dc66575781201d5",
+      "bytes": 1149
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/skillCards.js",
+      "sha256": "35d06b5e218fe5ab8acba51feafd7ffcc23398b4008d9926bd6d6f864fdc6ead",
+      "bytes": 1761
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/stages.js",
+      "sha256": "00ec516f0b81720b23b21c71215a7b20ed05476373edb5d74096981da1623dbc",
+      "bytes": 1013
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/index.js",
+      "sha256": "9081ae97374785e1bb48bf2f4e5699e306832313c76ea0f317bdb38f23646826",
+      "bytes": 950
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/customizations.json",
+      "sha256": "54deb7d19eb305b18d5e7e7f359afa922aa8ecc8b2e595e280f43dffb381ee60",
+      "bytes": 28738
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/idols.json",
+      "sha256": "c14ce8e4310e366a3bf751a4f11b857ad4be775c689fd40db3deb3a77285b26e",
+      "bytes": 460
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_drinks.json",
+      "sha256": "2cf514aee1d5bf563c4536f631d41d3b657215aea3290ade26b5832664490410",
+      "bytes": 3874
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_idols.json",
+      "sha256": "a2985e47c76cf2f7094a0805ea8d65eba5e3fd068e0289466328becf469ed60f",
+      "bytes": 17836
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_items.json",
+      "sha256": "61c4fb67eddbbadf4d4c839535a356edc2b7693532529d02587fec5e3b2b3be1",
+      "bytes": 120758
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/skill_cards.json",
+      "sha256": "17b334a11c52aae1c6f14fea9a83a08279727973f9c2647066c4f3e3bac4ab54",
+      "bytes": 317188
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/stages.json",
+      "sha256": "4e38f475ffcc33693fa341e73950898546383192c2d4ce90c28120491150ca5a",
+      "bytes": 62542
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/package.json",
+      "sha256": "3e855763dee9bbf2da3c7f9dd53f5234d6419cf69d3d38c2d89f99b1af79f4ee",
+      "bytes": 172
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/scripts/csv_to_json.py",
+      "sha256": "eb422a11514101d6449e6fb5e714d178159848fa7f40907a935d7c97d9bfddd5",
+      "bytes": 729
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/contestPower.js",
+      "sha256": "aac16976f1ccc2dfec605cf0b6b1115450b393d730d94a3cf2a96e8b7e513c39",
+      "bytes": 1393
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/effects.js",
+      "sha256": "79a79ad319d3ef143b24bcc969c62502915375b18048bef8425fba24a821da3d",
+      "bytes": 1431
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/index.js",
+      "sha256": "51e354de77eed3287a5efba7155e2226db6697c91a729ba6e3f80bac027c9a31",
+      "bytes": 1261
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/parser.js",
+      "sha256": "0f6552a5858d9d1574e4ac6f732cd9f66c98fd8de151efb305d98a862d5e40b6",
+      "bytes": 21993
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokenizer.js",
+      "sha256": "45e6333e04eb4724aa2fe0091110b141e811157e56891e35f7c5fc2d85098baf",
+      "bytes": 4482
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokens.js",
+      "sha256": "aac316b2b08c0d5a0d321b0bfc9bbfc50be6e8657ace52040555f36936caf810",
+      "bytes": 1469
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/stamina.js",
+      "sha256": "50ac351d524ed5bd22bce12f73883896e869581a3dcd6c2e80a66da42fe8690b",
+      "bytes": 5423
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/index.js",
+      "sha256": "293557fe442a7b077c912727c5b5bb1532faaebf4cc2d43eabec77f98636d974",
+      "bytes": 250
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/serialize.js",
+      "sha256": "7cadeac21de2e544896e13cfc8ad016f0121560fe7e578231a8ea2be6cc4e75b",
+      "bytes": 7508
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/transform.js",
+      "sha256": "1ae5ad1e64c072379f535029c7b0bdece7140a77f1d20d8e45ea76f9abe01bd5",
+      "bytes": 14504
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/validator/index.js",
+      "sha256": "dfa165a3c6527e0150f9245b863a935e9b4c694a897bb8f7b84ebfae62b71760",
+      "bytes": 7309
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/validator/schema.js",
+      "sha256": "d74eec0970423b80a2980f2e94a1a8824a633b001e360da02380f5dcef3b3fa2",
+      "bytes": 4880
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/README.md",
+      "sha256": "41f7016b2d986ebfb751c3992ca025af97678196bb83ca413f2435805b5ad64a",
+      "bytes": 2385
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/IdolConfig.js",
+      "sha256": "d5c5cd37e65c11797f47247a875bace44bd6d3281111d22651fa2b19e5c45a43",
+      "bytes": 3886
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/IdolStageConfig.js",
+      "sha256": "df2c80eb0dc0b1aee539f09f56b05d6631c9e6d6f8403ea3994a53ee65abd7d5",
+      "bytes": 1952
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/StageConfig.js",
+      "sha256": "451f17f52b1463efa4cadc2e8b852f7aaf2c335441288f931e2b94e8cf0bb3a0",
+      "bytes": 898
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/index.js",
+      "sha256": "e05f239e877f89d9659f4e0e2e7090e0403a4fc2438e7c2ff5d74471baf8e671",
+      "bytes": 177
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/constants.js",
+      "sha256": "a1d7ab266912f736e8119ebf0bef902db205e19c5c48a4c597ba429dae0741e5",
+      "bytes": 9370
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/BuffManager.js",
+      "sha256": "ecbc37d65d9af340c8205314396ab51a35e5bd629a01986542cc0767828447c7",
+      "bytes": 10153
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/index.js",
+      "sha256": "b26446071e0479dc94044321a7f6a21977f38af78e4fe8a977e0f46e0dd384cd",
+      "bytes": 43372
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/targeting.js",
+      "sha256": "7966126b53fdd5818577b81b74ee61e2bc019d0c5ef5822777f709dfc86eda79",
+      "bytes": 6985
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/EffectManager.js",
+      "sha256": "9afebd49a5a0c0b9a73385e9ef2ec733815a437a770c4f9d235d3744bd03a5b0",
+      "bytes": 13438
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/EngineComponent.js",
+      "sha256": "838783b0401f35b8d5f38e16cf149aacf8d7397d89b5382a14b37a2a227f71a6",
+      "bytes": 205
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/Evaluator.js",
+      "sha256": "4c76b83dc8e4617be8d2ecd581c252e2ff6684ef32c0ae4f54840ac8ea20f7f1",
+      "bytes": 6221
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/index.js",
+      "sha256": "7feb2e1d52cab213ba2d6fa91f0f96d72c8b1c522f7ec0597924ac5a715e2154",
+      "bytes": 18328
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/resolvers.js",
+      "sha256": "8ef7b15de7b791e9bd90d0f8b767ceb15d6cbc9e6804ee60332e2d2fa7f964cf",
+      "bytes": 8574
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/StageEngine.js",
+      "sha256": "a6fc6dff4a2b6b644931a0d537a1d0136141c1a715e4dd306d39db7dda770e93",
+      "bytes": 3466
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/StageLogger.js",
+      "sha256": "1555d56ee386386ea5c0c5bf421d94fec9ec682aa6b2c2c7bda05ff2ed7ec839",
+      "bytes": 3005
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/StagePlayer.js",
+      "sha256": "e591e1c7f763174e34d41583ab3978ee289262671e1ebd8a0ac92060f370ac2c",
+      "bytes": 1035
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/TurnManager.js",
+      "sha256": "ad4accefb14e57938ea4f59764aa3e6dd59ee64fe0aac84113323c516de9ca5a",
+      "bytes": 5691
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/index.js",
+      "sha256": "c754e977d45a627986edc35a8e4dd042ffd9cf0ae923b302b842a3823ba76648",
+      "bytes": 114
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/index.js",
+      "sha256": "c4f52ac2ca574268d702b1b8cd9b96a0b02439fb3cd0e362acf67c78017d6f00",
+      "bytes": 271
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/package.json",
+      "sha256": "b817509081232d30fbe5ab599507fea69e92539113f2200bdb1e3bdce49a3bef",
+      "bytes": 165
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/BaseStrategy.js",
+      "sha256": "cdb0ad4dbc786afad30bc865a9c45db06d0330a31d1f26dbf085cc666980f86f",
+      "bytes": 1633
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/HeuristicStrategy.js",
+      "sha256": "730597b140722b6d4e7e0f01d09356f57ae57eb728b805bb559d1dfbc13ead35",
+      "bytes": 13900
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/ManualStrategy.js",
+      "sha256": "225f97c2c267bff265fe186ea88a2dbde2605db029a95bc25152bc04c5be60d7",
+      "bytes": 3869
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/PlayerStrategy.js",
+      "sha256": "08cbe58ff1c757481b8baa93bf6b5baa7a54de9eb0bdafb6f27620d0d88018c7",
+      "bytes": 1499
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/index.js",
+      "sha256": "960bb4a0cfaa7f8d3238c3044f3f31b09fc9c59204dbf497d3c33ebd6b4b5ccc",
+      "bytes": 229
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/typeMultipliers.js",
+      "sha256": "3e6f9b56d78c4f9a9563731047e02adceb12f825d71760fbb7d4fca8b6d59ade",
+      "bytes": 2880
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/utils.js",
+      "sha256": "ab6649ce7d9278e2ae0563710e0160883048d5352196cfc8a7253c01af1b9505",
+      "bytes": 5562
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/scripts/extensionless-loader.mjs",
+      "sha256": "368e9c2ad66aa2ccb1150520e5a3c48193b0095d38f09b37433a2b1cc7b46584",
+      "bytes": 2721
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/scripts/validate-data.mjs",
+      "sha256": "eea708f000226030da20fa8438ccf2c6b103c85999289c67336d44bb891794fd",
+      "bytes": 5453
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/tests/coverage.mjs",
+      "sha256": "80d7f0bf0dcbd714e804800943816e62b39118db3b1c080977ef6ef100ccff82",
+      "bytes": 3929
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/tests/lib.mjs",
+      "sha256": "fa98d65967f2546cbfdbe031e101ab14c8d215b055c30e32c1863333a978a1ef",
+      "bytes": 4281
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/_vendor/gakumas_tools/tests/run.mjs",
+      "sha256": "38cd54486ca6df8d222e3d49e46f8fe6b442074fa02538e713d1661957b1c873",
+      "bytes": 1955
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/agents/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/agents/random_agent.py",
+      "sha256": "3f6b5f7fc7bb05cc52464c7c0bd3a4dde759c1db9d124b53e0cbdc927a67f50c",
+      "bytes": 324
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/catalogue.py",
+      "sha256": "2fa80d33a05c1b815eb034f8a0d88720ecc2177161eac39debdd0a5e00d9bcb1",
+      "bytes": 20794
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/content/__init__.py",
+      "sha256": "55c85364a758d17b089dd566d7bddd49bbcd46a83f008ecc9a8b0c1b28423b30",
+      "bytes": 523
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/content/__main__.py",
+      "sha256": "46c10a6eb496905808d177c474b1bb4d10ed542af801189319178c3cd9d5b190",
+      "bytes": 6783
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/content/capabilities.py",
+      "sha256": "6e63bd12448c2b00af35622af182dcfbace1499247b2f08a8c5a732213f02696",
+      "bytes": 7431
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/content/compiler.py",
+      "sha256": "60ebf6ad62eab9700cfa23bdaabb9a8d69757e5cf94c98ed157f5a0932abd21b",
+      "bytes": 28837
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/content/exam.py",
+      "sha256": "87d8229f3f393ca09eea947fb9a9be706d808965e30d223a1921ca77204717af",
+      "bytes": 21621
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/content/flow.py",
+      "sha256": "c5b8afdbf2676963c81f10285c3cd7e0fe8c5b5dcf94eab30fd0c7d57a41405e",
+      "bytes": 19905
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/content/models.py",
+      "sha256": "8470e675765f2a292402628d5d4bda2beeba38f160d35eca7d99d49c400536eb",
+      "bytes": 9218
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/content/native.py",
+      "sha256": "6ffd37cdb14cd36133241fa00fea08f1f932dcd0d143ab59cb73982758057bd3",
+      "bytes": 4420
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/content/native_catalogue_overrides.json",
+      "sha256": "4f342e717242503eb1247922c0d03e8866359753444313f8726aaf029e20f907",
+      "bytes": 2097
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/content/operations.py",
+      "sha256": "ff794b32874fbdd72b42e29c6233f2c5176b3c1e4b66d992dc1d84571d3c25c6",
+      "bytes": 11174
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/content/starter.json",
+      "sha256": "c9180307dc9b57ffff44f99e51745a205ab57d9880767936306309bc4644fe97",
+      "bytes": 4350
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/__init__.py",
+      "sha256": "1b4a4beaffb1defb9e03ba9fed400d340e8bca4188b739fc8d1f205d39fa6bea",
+      "bytes": 6196
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/__main__.py",
+      "sha256": "c902f2f7ca5f63d3792d2d6db094573e466acb959b18048d4dd1505810796e45",
+      "bytes": 1731
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/catalogue_overrides.py",
+      "sha256": "ea074214e3df37cecb7c069356582f3fb969c8e513b4bcff0da866f589792023",
+      "bytes": 2878
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/search.py",
+      "sha256": "5a68c44b04554e2e9d320010203481c4ac66d477ba67db302931281f1e6325a6",
+      "bytes": 17312
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/search_loader.mjs",
+      "sha256": "6a1141418dfad7e838e513a899c1cf7acab5682a0244ada2ecba3aa63835fd0a",
+      "bytes": 2064
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/search_worker.mjs",
+      "sha256": "91b41aca7b1f9c81727874f01411ec5ce09eb02bff9d69f0e5c01e8f8045d8da",
+      "bytes": 21516
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/training.py",
+      "sha256": "8abd6cfc4a9a9c1912cbc96faf71d0cf0e793f2ada94b28213d813eb3b4be573",
+      "bytes": 20326
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/training_basic_pool.mjs",
+      "sha256": "a3adf49d611ffe077def3e4c849c6f66bd0597b663f7a0f458396dd0bf64a4b6",
+      "bytes": 1052
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/training_catalogue.mjs",
+      "sha256": "f49ee2c448fb510703bfe9b12cbc7f5f5a72611c3221e7480ac13629bd1dd499",
+      "bytes": 2485
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/training_config.mjs",
+      "sha256": "9f2089a6aba21bafd761c418249dd316bb329451872f5a7b3cd5e4f26b21740f",
+      "bytes": 11841
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/training_support.mjs",
+      "sha256": "26957c250937a5e3e8545b6ce32b56175416c68729dbad711fa271bf12595ffe",
+      "bytes": 10464
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/training_worker.mjs",
+      "sha256": "bae9ff10b7eeb2fce4fd453c43288c74bc1bcc9f9aa0856d08b36af8cfd02bd4",
+      "bytes": 22035
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/engine/worker.mjs",
+      "sha256": "640dbd798744e67cf944eda5042ad8acaae48fd216cde290df417ca3db7cc78a",
+      "bytes": 8893
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/env/__init__.py",
+      "sha256": "4bd740bf47653d1c546747d9cf31d7f57ade56d035790338c473969728d20936",
+      "bytes": 12116
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/live/__init__.py",
+      "sha256": "37e7c93b1bcc4bea68831538293024d82169759f84c1ac9b4ec0269d9a61c8de",
+      "bytes": 1437
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/live/contracts.py",
+      "sha256": "083f5625d83f081f9c01411299c63eb47880540debf86fb2e03ae8aa28415429",
+      "bytes": 7845
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/live/exam.py",
+      "sha256": "f30dba33fb852e4e530f0a01d8850a4d70fa91ee4e4eb89f566596ae327d2fd3",
+      "bytes": 23297
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/live/issues.py",
+      "sha256": "ca5daa4158fc33a41b96eef9083ea053d5c87f8faf46be9ce1438f2b1247e340",
+      "bytes": 2491
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/live/loadout.py",
+      "sha256": "46b21bb028d9b3f9edbd620a4f0702ece94dc05fc1d6626304b9f0f946113d9d",
+      "bytes": 2972
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/live/passive.py",
+      "sha256": "18eef0296598c3f13a7b0ada6f7df200c1f8acb92e3d334619fd3de69d19c9a1",
+      "bytes": 11664
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/live/passive_generic.py",
+      "sha256": "eefb2165c4543d66f4cf28990581fd877a30ff46dae59d6af593ead75c07b456",
+      "bytes": 11709
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/live/planning.py",
+      "sha256": "f791c0b23f7da9d586bcb14cfea1ebc16193c61e1a7fba080bc29dc91866edcf",
+      "bytes": 8617
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/live/recovery.py",
+      "sha256": "ad5ec97b4fa94755e70b267afe189921c94d25073293130771894ce0b7cf9295",
+      "bytes": 2109
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/live/session.py",
+      "sha256": "ef22ec99e995fbf51a6710decb4962cadc90f769bec3145f3bf808269fa4c66a",
+      "bytes": 17551
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/loadouts.py",
+      "sha256": "3ed5b38e971ff126764937abdc52af42d84168a3b5288d174be538123f582a71",
+      "bytes": 14896
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/masterdata/__init__.py",
+      "sha256": "5c642199f8615d08451b4a4bc9b187648f5fdfdcfdb333b2b858a77e9765f5ae",
+      "bytes": 49
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/masterdata/store.py",
+      "sha256": "89c59ef39366baab4d20d2e2add683044a27a0e055cdc96ba8d100607d4cb76c",
+      "bytes": 4383
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/policies/__init__.py",
+      "sha256": "7c07c0f193e4376e0ec36afc4510c6a41e73ae3db396635f732bfaa6bb1d24cc",
+      "bytes": 1053
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/policies/base.py",
+      "sha256": "2faab32d92bcc63da26336da83c3d6c678916e6625229ab2bfca41fcfc56f873",
+      "bytes": 1565
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/policies/basic.py",
+      "sha256": "378e9c0b6ff1bb9e047fe08cda64eb7ecd95f0549f420316bd187ffd69ab5585",
+      "bytes": 2059
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/policies/evaluation.py",
+      "sha256": "b37b90a42b683a7c7f9fd5f14cc0f1d24562f305d2dcc0820aa10ad764dd8e40",
+      "bytes": 13506
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/policies/search.py",
+      "sha256": "0029ec6f8de5cf0242a4f97bdf8f5360d00fe4b761e4fd4fd26002ad87d3fbd8",
+      "bytes": 15522
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/preview.py",
+      "sha256": "0c5ef5931e96a61977403f3070e5e53df69c617a90881fd66e77f923113d1781",
+      "bytes": 12708
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/preview_assets/PROVENANCE.json",
+      "sha256": "13341ba6f8671bc2649ccb217257c8480d87f9dda5411b57a128a0c2bf0b74f4",
+      "bytes": 1251
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/preview_assets/p_drink_icon_keys.json",
+      "sha256": "c089885115e9968ac3f009371ea1a1291a628c0599843d136169c034bf464135",
+      "bytes": 159
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/preview_assets/p_item_icon_keys.json",
+      "sha256": "f65ca6e15e1a7474d047f90b0c1ab059fe7ab880bc8ff14ca0cdc38f384b2086",
+      "bytes": 3231
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/preview_assets/skill_card_icon_keys.json",
+      "sha256": "daf5bc7df018ec0699eb36deca6249f65e1dce33f0dbfbddeb02d5b98f487006",
+      "bytes": 29556
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/preview_images.py",
+      "sha256": "51c0857de981f5f94361d4e8e92c9cef66a754a96b31107412c1857fe8f6739f",
+      "bytes": 7371
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/produce/__init__.py",
+      "sha256": "0103e953fb71f98068646fe4789b12231088951b147fba7d7ea43e7634ab68e4",
+      "bytes": 268
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/produce/golden.py",
+      "sha256": "3d54dd61dfed8f35f9d3e7bc077181df00704a70b8a673359578829ef6314370",
+      "bytes": 21250
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/produce/plugins/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/produce/scenario.py",
+      "sha256": "2098a732687f1534c31ace5f21f3613ad53d5981ce0bc88fcbe0d35575866992",
+      "bytes": 1212
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/scenarios/hif.yaml",
+      "sha256": "65ce909d7ad6391a34e4f0f1d337e4005036516f9fa18ed33cdf1a97373c02d1",
+      "bytes": 297
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/scoring/__init__.py",
+      "sha256": "4d1f6d0773436312c237f3f8f64857f40c7b1de0fb47d741db6292d3c27fc4af",
+      "bytes": 230
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/scoring/_hif_reference.py",
+      "sha256": "9a3fa2021cd27fcafc6a5ce1600f6079c596276aad8902f53731bf56f80506c0",
+      "bytes": 14851
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/scoring/hif.py",
+      "sha256": "16c9d21ffa4b6af8206dce30ae1d3729cad0dcd793bec650d33ff4bf9ac8f9d5",
+      "bytes": 4700
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/scoring/hif_multiplier_research_2026-09-09.json",
+      "sha256": "c476cb66adf95651fa9246f5ce701c8503ff2f85d0e3ebf7d38437e34d5ac55d",
+      "bytes": 44791
+    },
+    {
+      "path": "runtime/arena/gakumas_arena/sim/__init__.py",
+      "sha256": "36e2e402a3ec68e589287f36f6bfde8867eb356fb729494d9cbf8b946e491cbd",
+      "bytes": 11837
+    },
+    {
+      "path": "runtime/shared/r1rl/__init__.py",
+      "sha256": "5dcbb7c3c80b6e20d002f634b1e450d0d04bc4cbd3229c2da399a3d6a058ca61",
+      "bytes": 71
+    },
+    {
+      "path": "runtime/shared/r1rl/checkpoint.py",
+      "sha256": "3562db724405ff03b85c7779e3aaed128b4b54b1fef8674bfa3a24b64be22744",
+      "bytes": 2579
+    },
+    {
+      "path": "runtime/shared/r1rl/encoding.py",
+      "sha256": "272195a217f7c28beae1b2c00d4021d93bd2cf410b1567181637bf574cdbbf2a",
+      "bytes": 3017
+    },
+    {
+      "path": "runtime/shared/r1rl/environment.py",
+      "sha256": "66a50d009b0b575a9d2a155ec3a12bd270331429b090448f0d4373146d3b56f2",
+      "bytes": 3905
+    },
+    {
+      "path": "runtime/shared/r1rl/model.py",
+      "sha256": "05a3aed0baf50f8c61049a41ca28b6d15cfa052879d09af307ab83d8c2a63d2e",
+      "bytes": 1225
+    },
+    {
+      "path": "runtime/shared/r1rl/ppo.py",
+      "sha256": "4c7ca629c1f70848234c0243aa836cc48a41ceb876022fbb30d3c47a74e37cd0",
+      "bytes": 3363
+    },
+    {
+      "path": "runtime/shared/r1rl/runner.py",
+      "sha256": "80cbbbb1ff6092992850657d559b8fa25f3a7c391ed249508b31b3495e84192a",
+      "bytes": 16118
+    },
+    {
+      "path": "runtime/shared/round2rl/__init__.py",
+      "sha256": "3a9cdf8edc25900e93ab4184c049f848f74e5356c8cb3e1e1b46015ee77d91d4",
+      "bytes": 93
+    },
+    {
+      "path": "runtime/shared/round2rl/checkpoint.py",
+      "sha256": "08ab4335b86a1087b2035b71f3ce0c686679137c72cccb324993b6f5e1196e89",
+      "bytes": 2679
+    },
+    {
+      "path": "runtime/shared/round2rl/cli.py",
+      "sha256": "88a26b4ad250311110382bc8855916c6228e3ca96d779483b61c231ecc544b0f",
+      "bytes": 9469
+    },
+    {
+      "path": "runtime/shared/round2rl/course.py",
+      "sha256": "796c4d96b836f61f39bbb7494fc12172027cd8ae5b7d2902dd1b7c8e6cba6fe6",
+      "bytes": 1350
+    },
+    {
+      "path": "runtime/shared/round2rl/encoding.py",
+      "sha256": "39726b9cd99c31ec0dd3e32d4488e75b2092d49046702bf6de3687f339bc22c1",
+      "bytes": 13092
+    },
+    {
+      "path": "runtime/shared/round2rl/environment.py",
+      "sha256": "53cc1eb3a3f341933363bb4788be6aedd08bd0d94f4256e503355db7abe05461",
+      "bytes": 3362
+    },
+    {
+      "path": "runtime/shared/round2rl/model.py",
+      "sha256": "47533aee1ca9d26c4acece26b5007267ee2deb8d03a927816bfc0c1d44b31357",
+      "bytes": 4147
+    },
+    {
+      "path": "runtime/shared/round2rl/ppo.py",
+      "sha256": "4c7ca629c1f70848234c0243aa836cc48a41ceb876022fbb30d3c47a74e37cd0",
+      "bytes": 3363
+    },
+    {
+      "path": "runtime/shared/round2rl/report.py",
+      "sha256": "af2cf4ee303a9e767e95514fcb2d351f3395d15b89aa9399c8453adf90a822ec",
+      "bytes": 2487
+    },
+    {
+      "path": "runtime/shared/round2rl/runner.py",
+      "sha256": "cef4eacd95cbc59df031b834f1d1f5bcf9f52d1034df439d856d76168fe708de",
+      "bytes": 21792
+    },
+    {
+      "path": "setup/catalog.json",
+      "sha256": "8a71a52493843f9e79897a39dfc528f2c4216a451bd90d9ea5f5d16d483e519a",
+      "bytes": 2440491
+    },
+    {
+      "path": "setup/config.json",
+      "sha256": "64cf21998c67368875600bd2b33ea85226a1f655308920d1c4660589a5862dc3",
+      "bytes": 6371
+    },
+    {
+      "path": "setup/migration.json",
+      "sha256": "78e89f72c2832c77bdf15b238badb621c2f0e5b05eec59856c0825115ba2cba6",
+      "bytes": 2186
+    },
+    {
+      "path": "setup/profiles.json",
+      "sha256": "4e533cbba6b68ab3a3790c383b0f65676cd97c8dce0e6a5cd88ca6b0085fb797",
+      "bytes": 2499613
+    },
+    {
+      "path": "setup/provenance.json",
+      "sha256": "6f1852e152495d5b22e5fee3cdaff4950a8158d0fff5b5a643f63a9f4de9aba0",
+      "bytes": 31760
+    },
+    {
+      "path": "tests/test_async_collectors.py",
+      "sha256": "1a909e9adcac8584367c42ac68fe08a97181d757914a4657bac58c1d5144cc80",
+      "bytes": 6415
+    },
+    {
+      "path": "tests/test_best4_recovery.py",
+      "sha256": "0cfe1285e38915ae431af889b2dfd263fe57da2cca13f46f7af58d321333817a",
+      "bytes": 5549
+    },
+    {
+      "path": "tests/test_best_of.py",
+      "sha256": "16c73efb9bc3285782de8d120a1165da61b79475443cf0a36d994988502ff600",
+      "bytes": 4315
+    },
+    {
+      "path": "tests/test_best_of_search.py",
+      "sha256": "242bd45bdaa784c4c57f81a70021b32d8e7d5e9fa73ab5df0cd26893eba01297",
+      "bytes": 2520
+    },
+    {
+      "path": "tests/test_continuation_seal.py",
+      "sha256": "6e1a94b0e895f868328561e8d305fcb50133a6f5a6bc0411eb2bfc7ca68b5a61",
+      "bytes": 8126
+    },
+    {
+      "path": "tests/test_critic_completion.py",
+      "sha256": "1813ccda24a18ee1c947f441f4e22aaa114dfe3077578f05bef1fdada6312343",
+      "bytes": 8384
+    },
+    {
+      "path": "tests/test_decision_exploration.py",
+      "sha256": "abddc7e5c9e25d9839900dd8fabecdaf7e595c971a19bcb53c03fa13bed6cf96",
+      "bytes": 4478
+    },
+    {
+      "path": "tests/test_joint_search.py",
+      "sha256": "1959b349ee34e7567ab6ff937dad0a3b852d0fecdd65db7f855c908a91725982",
+      "bytes": 10444
+    },
+    {
+      "path": "tests/test_search_bootstrap.py",
+      "sha256": "68b7584187925b34b7437f21d350472b63087a7961bc262660d116ca749969d9",
+      "bytes": 1212
+    },
+    {
+      "path": "tests/test_search_budgets.py",
+      "sha256": "39046da1f634b8a80f8735b44151818ad00d4e96ac7e22e47adc9add6083b00e",
+      "bytes": 1808
+    },
+    {
+      "path": "tests/test_signed_learning.py",
+      "sha256": "6a9d150ed0068aeff3539a1690ae392fa1bb868f5cdf8194db3bbda7042942d1",
+      "bytes": 9948
+    },
+    {
+      "path": "tests/test_soft_value.py",
+      "sha256": "babb03bb2c716a2773f467fc3fb3f6f672e7e5d0c512bb9317173e1885600af5",
+      "bytes": 8541
+    },
+    {
+      "path": "tests/test_source_stamp.py",
+      "sha256": "339220f74d0bcaf1fdb0344305c7c44021c018ce547a786e8909646043ba0e3a",
+      "bytes": 2359
+    },
+    {
+      "path": "tests/test_ultra.py",
+      "sha256": "23aeb279b74bcd3a5b7b54b525b3de5d25e22ef8c7cb5449007864262baa5105",
+      "bytes": 2282
+    },
+    {
+      "path": "tests/test_view_ownership.py",
+      "sha256": "f18f0de3e569f036837fefdf357e0834b7318c622e735105e9b2675aac5e724b",
+      "bytes": 2999
+    },
+    {
+      "path": "train.py",
+      "sha256": "3d23bf5dbbf5f22777966aa70f9cd9ef3300ee858af0cc2a7e376053618b5c6c",
+      "bytes": 1163
+    },
+    {
+      "path": "training-config.json",
+      "sha256": "c5702bc418d39c9a9de6cc9c87201afd92893d90573c6a2a996234b0b7f690ee",
+      "bytes": 7511
+    }
+  ],
+  "additional_imports": [
+    {
+      "source": "rl/generalist-search/verify_update.py",
+      "destination": "exam_search/verify_update.py",
+      "sha256": "d01c583b9ad18a2e31b8b44c208f25e0aa5848e62239227249beea2b8ba349a1"
+    }
+  ]
+}

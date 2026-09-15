@@ -1,0 +1,430 @@
+{
+  "arena_version": {
+    "golden_rules": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+    "public_schema": "arena-public-exam/1",
+    "effective_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+    "files_sha256": {
+      "_vendor/gakumas_tools/packages/gakumas-data/data/customizations.js": "d115d9ca818b39e90627d5e7eb8aeb5f0d17ac420eca620e5302728b2b6779f4",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/idols.js": "fa309d2bce312f4065b2e4bcb9c8e0dfa2ab6331afa909673c978ae25cfa8542",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/index.js": "a09a727f3c405a74f0f1631b597e879494aa6d02593d777962af4151f439299d",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/pDrinks.js": "064cb5c328b6040990b055f7d8b3b1054a8ec4415ebf9587cb52e1fec4d87e36",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/pIdols.js": "ebe39e305ae9c651bf13c9af2f76a297f70d1aace1bb210f71123dd7e8c52119",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/pItems.js": "b2969076d09bb6e9822e2df88b096bdf392de9f42ee60e1f4dc66575781201d5",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/skillCards.js": "35d06b5e218fe5ab8acba51feafd7ffcc23398b4008d9926bd6d6f864fdc6ead",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/stages.js": "00ec516f0b81720b23b21c71215a7b20ed05476373edb5d74096981da1623dbc",
+      "_vendor/gakumas_tools/packages/gakumas-data/index.js": "9081ae97374785e1bb48bf2f4e5699e306832313c76ea0f317bdb38f23646826",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/contestPower.js": "aac16976f1ccc2dfec605cf0b6b1115450b393d730d94a3cf2a96e8b7e513c39",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/effects.js": "79a79ad319d3ef143b24bcc969c62502915375b18048bef8425fba24a821da3d",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/index.js": "51e354de77eed3287a5efba7155e2226db6697c91a729ba6e3f80bac027c9a31",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/parser.js": "0f6552a5858d9d1574e4ac6f732cd9f66c98fd8de151efb305d98a862d5e40b6",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokenizer.js": "45e6333e04eb4724aa2fe0091110b141e811157e56891e35f7c5fc2d85098baf",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokens.js": "aac316b2b08c0d5a0d321b0bfc9bbfc50be6e8657ace52040555f36936caf810",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/stamina.js": "50ac351d524ed5bd22bce12f73883896e869581a3dcd6c2e80a66da42fe8690b",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/index.js": "293557fe442a7b077c912727c5b5bb1532faaebf4cc2d43eabec77f98636d974",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/serialize.js": "7cadeac21de2e544896e13cfc8ad016f0121560fe7e578231a8ea2be6cc4e75b",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/transform.js": "1ae5ad1e64c072379f535029c7b0bdece7140a77f1d20d8e45ea76f9abe01bd5",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/validator/index.js": "dfa165a3c6527e0150f9245b863a935e9b4c694a897bb8f7b84ebfae62b71760",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/validator/schema.js": "d74eec0970423b80a2980f2e94a1a8824a633b001e360da02380f5dcef3b3fa2",
+      "_vendor/gakumas_tools/packages/gakumas-engine/config/IdolConfig.js": "d5c5cd37e65c11797f47247a875bace44bd6d3281111d22651fa2b19e5c45a43",
+      "_vendor/gakumas_tools/packages/gakumas-engine/config/IdolStageConfig.js": "df2c80eb0dc0b1aee539f09f56b05d6631c9e6d6f8403ea3994a53ee65abd7d5",
+      "_vendor/gakumas_tools/packages/gakumas-engine/config/index.js": "e05f239e877f89d9659f4e0e2e7090e0403a4fc2438e7c2ff5d74471baf8e671",
+      "_vendor/gakumas_tools/packages/gakumas-engine/config/StageConfig.js": "451f17f52b1463efa4cadc2e8b852f7aaf2c335441288f931e2b94e8cf0bb3a0",
+      "_vendor/gakumas_tools/packages/gakumas-engine/constants.js": "a1d7ab266912f736e8119ebf0bef902db205e19c5c48a4c597ba429dae0741e5",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/BuffManager.js": "ecbc37d65d9af340c8205314396ab51a35e5bd629a01986542cc0767828447c7",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/index.js": "b26446071e0479dc94044321a7f6a21977f38af78e4fe8a977e0f46e0dd384cd",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/targeting.js": "7966126b53fdd5818577b81b74ee61e2bc019d0c5ef5822777f709dfc86eda79",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/EffectManager.js": "9afebd49a5a0c0b9a73385e9ef2ec733815a437a770c4f9d235d3744bd03a5b0",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/EngineComponent.js": "838783b0401f35b8d5f38e16cf149aacf8d7397d89b5382a14b37a2a227f71a6",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/Evaluator.js": "4c76b83dc8e4617be8d2ecd581c252e2ff6684ef32c0ae4f54840ac8ea20f7f1",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/index.js": "7feb2e1d52cab213ba2d6fa91f0f96d72c8b1c522f7ec0597924ac5a715e2154",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/resolvers.js": "8ef7b15de7b791e9bd90d0f8b767ceb15d6cbc9e6804ee60332e2d2fa7f964cf",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/index.js": "c754e977d45a627986edc35a8e4dd042ffd9cf0ae923b302b842a3823ba76648",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/StageEngine.js": "a6fc6dff4a2b6b644931a0d537a1d0136141c1a715e4dd306d39db7dda770e93",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/StageLogger.js": "1555d56ee386386ea5c0c5bf421d94fec9ec682aa6b2c2c7bda05ff2ed7ec839",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/StagePlayer.js": "e591e1c7f763174e34d41583ab3978ee289262671e1ebd8a0ac92060f370ac2c",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/TurnManager.js": "ad4accefb14e57938ea4f59764aa3e6dd59ee64fe0aac84113323c516de9ca5a",
+      "_vendor/gakumas_tools/packages/gakumas-engine/index.js": "c4f52ac2ca574268d702b1b8cd9b96a0b02439fb3cd0e362acf67c78017d6f00",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/BaseStrategy.js": "cdb0ad4dbc786afad30bc865a9c45db06d0330a31d1f26dbf085cc666980f86f",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/HeuristicStrategy.js": "730597b140722b6d4e7e0f01d09356f57ae57eb728b805bb559d1dfbc13ead35",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/index.js": "960bb4a0cfaa7f8d3238c3044f3f31b09fc9c59204dbf497d3c33ebd6b4b5ccc",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/ManualStrategy.js": "225f97c2c267bff265fe186ea88a2dbde2605db029a95bc25152bc04c5be60d7",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/PlayerStrategy.js": "08cbe58ff1c757481b8baa93bf6b5baa7a54de9eb0bdafb6f27620d0d88018c7",
+      "_vendor/gakumas_tools/packages/gakumas-engine/typeMultipliers.js": "3e6f9b56d78c4f9a9563731047e02adceb12f825d71760fbb7d4fca8b6d59ade",
+      "_vendor/gakumas_tools/packages/gakumas-engine/utils.js": "ab6649ce7d9278e2ae0563710e0160883048d5352196cfc8a7253c01af1b9505",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/customizations.json": "54deb7d19eb305b18d5e7e7f359afa922aa8ecc8b2e595e280f43dffb381ee60",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/idols.json": "c14ce8e4310e366a3bf751a4f11b857ad4be775c689fd40db3deb3a77285b26e",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/p_drinks.json": "2cf514aee1d5bf563c4536f631d41d3b657215aea3290ade26b5832664490410",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/p_idols.json": "a2985e47c76cf2f7094a0805ea8d65eba5e3fd068e0289466328becf469ed60f",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/p_items.json": "61c4fb67eddbbadf4d4c839535a356edc2b7693532529d02587fec5e3b2b3be1",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/skill_cards.json": "17b334a11c52aae1c6f14fea9a83a08279727973f9c2647066c4f3e3bac4ab54",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/stages.json": "4e38f475ffcc33693fa341e73950898546383192c2d4ce90c28120491150ca5a",
+      "_vendor/gakumas_tools/packages/gakumas-data/package.json": "3e855763dee9bbf2da3c7f9dd53f5234d6419cf69d3d38c2d89f99b1af79f4ee",
+      "_vendor/gakumas_tools/packages/gakumas-engine/package.json": "b817509081232d30fbe5ab599507fea69e92539113f2200bdb1e3bdce49a3bef",
+      "_vendor/gakumas_tools/scripts/extensionless-loader.mjs": "368e9c2ad66aa2ccb1150520e5a3c48193b0095d38f09b37433a2b1cc7b46584",
+      "engine/training.py": "8abd6cfc4a9a9c1912cbc96faf71d0cf0e793f2ada94b28213d813eb3b4be573",
+      "engine/training_worker.mjs": "bae9ff10b7eeb2fce4fd453c43288c74bc1bcc9f9aa0856d08b36af8cfd02bd4",
+      "engine/training_config.mjs": "9f2089a6aba21bafd761c418249dd316bb329451872f5a7b3cd5e4f26b21740f",
+      "engine/training_basic_pool.mjs": "a3adf49d611ffe077def3e4c849c6f66bd0597b663f7a0f458396dd0bf64a4b6",
+      "engine/training_support.mjs": "26957c250937a5e3e8545b6ce32b56175416c68729dbad711fa271bf12595ffe",
+      "engine/training_catalogue.mjs": "f49ee2c448fb510703bfe9b12cbc7f5f5a72611c3221e7480ac13629bd1dd499",
+      "engine/catalogue_overrides.py": "ea074214e3df37cecb7c069356582f3fb969c8e513b4bcff0da866f589792023",
+      "content/native_catalogue_overrides.json": "4f342e717242503eb1247922c0d03e8866359753444313f8726aaf029e20f907",
+      "engine/__init__.py": "1b4a4beaffb1defb9e03ba9fed400d340e8bca4188b739fc8d1f205d39fa6bea",
+      "__init__.py": "6d4832f8b1d1bbb013b816380c8bd8ae674819ec44cdcf330d7f6b23b514d346"
+    }
+  },
+  "arena_path": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\generalist-search\\runtime\\arena",
+  "assumptions": {
+    "stage": "HIF R1, 9 base turns; per-idol 4/3/2 priority quota; full schedule visible only after opening",
+    "first_turn": "0.85 primary / 0.15 secondary is an approximation, not a fitted probability",
+    "scoring": "Fixed reference multipliers by priority 4397/2997/2223 percent, no invented exact Star formula; Saki/Liliya use Vi>Da>Vo and Ume uses Da>Vo>Vi; reordered references are not real-device measurements",
+    "stamina": "Full HP: Hiro35 from prior setup; Saki45=master32+13, Ume43=master30+13, Liliya41=master28+13 are provisional using the same13 bonus as Hiro22->35, not verified account maxima",
+    "idol_upgrade": "Original cards and original P items use normal + variants; the unlocked Wild Prima Stella card853 has no + form; all fixed cards start with no guidance",
+    "prima_stella": "User correction: ALL Prima Stella cards are excluded from the 20-23 construction slots. Wild fixed853 remains physically in the entry alongside original784; its counted deck has 20-23 cards and physical entry has21-24. Only the master-chain registry is exempt; ordinary originals and unrelated L cards still count. This slot rule does not change Arena shuffle, draw, in-exam deck count, ownership or unlock conditions.",
+    "liliya_mechanism": "Native and master both say P item181: after turn start with motivation>=5, motivation x1.3 and draw1, at most3 activations. The remembered x1.5 twice is not the local Christmas card mechanism.",
+    "ume_mechanism": "P item213 requires using Just Appeal base380 (including plus381) while a held card exists; switches to preservation2, gives fullPowerCharge+4 and held-card score count+1/cost+1, once per exam. Card487 exposes held-card choice.",
+    "support": "No inherited Hiro-only support cards, P items or +6/+6 opening buff in any profile; 447 is a produce-only HIF badge with no exam effect",
+    "objective": "Conditional terminal R1 score, gamma1. Not a full cultivation simulator; standard + acquisition costs remain outside this experiment"
+  },
+  "guidance_interpretation": "White means R (local N cards cannot be customized; R has 40/40/70 tracks). Preserve the earlier four-card allowance: each eligible R card can receive 40+40 free, third step paid. The user may correct this interpretation.",
+  "training_window": {
+    "end": "2026-09-11T02:40:00+08:00",
+    "note": "Keep the existing overnight cutoff; do not restart an eight-hour window."
+  },
+  "sampling": "Equal episode counts per fifteen profile/scenario cells; five idols x free/sleep1/sleep2. Effective gradient batch64; epsilon-mixture exact PPO likelihood.",
+  "old_run": {
+    "launcher_pid": 27980,
+    "output": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\generalist\\runs\\memory-optional-20260910-234138",
+    "stdout": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\generalist\\jobs\\memory-optional-20260910-234138\\stdout.log",
+    "stderr": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\generalist\\jobs\\memory-optional-20260910-234138\\stderr.log",
+    "started_at": "2026-09-10T23:41:41.5170401+08:00",
+    "expected_training_end": "2026-09-11T02:40:00.0000000+08:00",
+    "experiment": "generalist-optional-hif-memory-drink0to4",
+    "code_root": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\generalist-memory",
+    "max_minutes": 480,
+    "workers": 10,
+    "profiles": [
+      "saki-wild",
+      "saki-hif",
+      "hiro-hif",
+      "ume-campus",
+      "liliya-xmas"
+    ],
+    "url": "http://127.0.0.1:8900/"
+  },
+  "exclusion_policy": "own-plan/free ordinary + cards and sleep plus support + cards, PLv <= 76; support cards <= 3 in total; no Prima Stella",
+  "prima_stella_registry": {
+    "schema": "prima-stella-deck-slot-exemptions/1",
+    "source_chain": "IdolCardPrimaStellaProduceSkill -> ProduceSkill(id,level) -> ProduceEffect.produceRewards -> ProduceCard -> native catalog",
+    "sources": {
+      "IdolCardPrimaStellaProduceSkill.json": "7acfc2582c704f0496b69de7e9d563dbd758270ca68a806fed767dd07151e599",
+      "ProduceSkill.json": "ff152cfb3865f65ff06ef3372bef83d0f6c745c57e998ca3876e07659ddf6695",
+      "ProduceEffect.json": "4cd536a2b47f76820cfedad350c15101cdc961990b18f0a45495d2cb1929caac",
+      "ProduceCard.json": "c0f88d092bfa4d82b21dc3de9e090ca8deac28c7297be4f1a98f8316cb2d50b7",
+      "IdolCard.json": "3ce356402f0e1c141e437541218841522a9e85cbbe278999145a983c1c7395dd"
+    },
+    "cards": [
+      {
+        "native_card_id": 829,
+        "name": "高みへ羽ばたく一番星",
+        "master_card_id": "p_card-03-ido-100_038",
+        "upgrade_count": 0,
+        "owner_master_ids": [
+          "i_card-ttmr-3-016"
+        ],
+        "prima_skill_ids": [
+          "prima_stella_produce_skill-i_card-ttmr-3-016"
+        ],
+        "produce_skill_ids": [
+          "p_primastella_skill-common-hatsuboshi_idol_festival-final-p_trigger-produce_start-produce_reward-p_card-03-ido-100_038-03-001"
+        ],
+        "produce_effect_ids": [
+          "p_effect-produce_reward-0001_0001-produce_card-p_card-03-ido-100_038-0"
+        ]
+      },
+      {
+        "native_card_id": 830,
+        "name": "舞台で輝く一番星",
+        "master_card_id": "p_card-01-ido-100_040",
+        "upgrade_count": 0,
+        "owner_master_ids": [
+          "i_card-amao-3-015"
+        ],
+        "prima_skill_ids": [
+          "prima_stella_produce_skill-i_card-amao-3-015"
+        ],
+        "produce_skill_ids": [
+          "p_primastella_skill-common-hatsuboshi_idol_festival-final-p_trigger-produce_start-produce_reward-p_card-01-ido-100_040-03-001"
+        ],
+        "produce_effect_ids": [
+          "p_effect-produce_reward-0001_0001-produce_card-p_card-01-ido-100_040-0"
+        ]
+      },
+      {
+        "native_card_id": 831,
+        "name": "笑顔を生み出す一番星",
+        "master_card_id": "p_card-02-ido-100_041",
+        "upgrade_count": 0,
+        "owner_master_ids": [
+          "i_card-hrnm-3-013"
+        ],
+        "prima_skill_ids": [
+          "prima_stella_produce_skill-i_card-hrnm-3-013"
+        ],
+        "produce_skill_ids": [
+          "p_primastella_skill-common-hatsuboshi_idol_festival-final-p_trigger-produce_start-produce_reward-p_card-02-ido-100_041-03-001"
+        ],
+        "produce_effect_ids": [
+          "p_effect-produce_reward-0001_0001-produce_card-p_card-02-ido-100_041-0"
+        ]
+      },
+      {
+        "native_card_id": 834,
+        "name": "星々を見下ろす一番星",
+        "master_card_id": "p_card-03-ido-100_047",
+        "upgrade_count": 0,
+        "owner_master_ids": [
+          "i_card-hmsz-3-016"
+        ],
+        "prima_skill_ids": [
+          "prima_stella_produce_skill-i_card-hmsz-3-016"
+        ],
+        "produce_skill_ids": [
+          "p_primastella_skill-common-hatsuboshi_idol_festival-final-p_trigger-produce_start-produce_reward-p_card-03-ido-100_047-03-001"
+        ],
+        "produce_effect_ids": [
+          "p_effect-produce_reward-0001_0001-produce_card-p_card-03-ido-100_047-0"
+        ]
+      },
+      {
+        "native_card_id": 835,
+        "name": "皆に愛される一番星",
+        "master_card_id": "p_card-01-ido-100_045",
+        "upgrade_count": 0,
+        "owner_master_ids": [
+          "i_card-kcna-3-014"
+        ],
+        "prima_skill_ids": [
+          "prima_stella_produce_skill-i_card-kcna-3-014"
+        ],
+        "produce_skill_ids": [
+          "p_primastella_skill-common-hatsuboshi_idol_festival-final-p_trigger-produce_start-produce_reward-p_card-01-ido-100_045-03-001"
+        ],
+        "produce_effect_ids": [
+          "p_effect-produce_reward-0001_0001-produce_card-p_card-01-ido-100_045-0"
+        ]
+      },
+      {
+        "native_card_id": 836,
+        "name": "奇跡を起こした一番星",
+        "master_card_id": "p_card-03-ido-100_042",
+        "upgrade_count": 0,
+        "owner_master_ids": [
+          "i_card-shro-3-012"
+        ],
+        "prima_skill_ids": [
+          "prima_stella_produce_skill-i_card-shro-3-012"
+        ],
+        "produce_skill_ids": [
+          "p_primastella_skill-common-hatsuboshi_idol_festival-final-p_trigger-produce_start-produce_reward-p_card-03-ido-100_042-03-001"
+        ],
+        "produce_effect_ids": [
+          "p_effect-produce_reward-0001_0001-produce_card-p_card-03-ido-100_042-0"
+        ]
+      },
+      {
+        "native_card_id": 837,
+        "name": "背中を押す一番星",
+        "master_card_id": "p_card-01-ido-100_044",
+        "upgrade_count": 0,
+        "owner_master_ids": [
+          "i_card-ssmk-3-012"
+        ],
+        "prima_skill_ids": [
+          "prima_stella_produce_skill-i_card-ssmk-3-012"
+        ],
+        "produce_skill_ids": [
+          "p_primastella_skill-common-hatsuboshi_idol_festival-final-p_trigger-produce_start-produce_reward-p_card-01-ido-100_044-03-001"
+        ],
+        "produce_effect_ids": [
+          "p_effect-produce_reward-0001_0001-produce_card-p_card-01-ido-100_044-0"
+        ]
+      },
+      {
+        "native_card_id": 838,
+        "name": "勇気を届ける一番星",
+        "master_card_id": "p_card-03-ido-100_043",
+        "upgrade_count": 0,
+        "owner_master_ids": [
+          "i_card-kllj-3-015"
+        ],
+        "prima_skill_ids": [
+          "prima_stella_produce_skill-i_card-kllj-3-015"
+        ],
+        "produce_skill_ids": [
+          "p_primastella_skill-common-hatsuboshi_idol_festival-final-p_trigger-produce_start-produce_reward-p_card-03-ido-100_043-03-001"
+        ],
+        "produce_effect_ids": [
+          "p_effect-produce_reward-0001_0001-produce_card-p_card-03-ido-100_043-0"
+        ]
+      },
+      {
+        "native_card_id": 853,
+        "name": "先陣を切る一番星",
+        "master_card_id": "p_card-02-ido-100_037",
+        "upgrade_count": 0,
+        "owner_master_ids": [
+          "i_card-hski-3-017"
+        ],
+        "prima_skill_ids": [
+          "prima_stella_produce_skill-i_card-hski-3-017"
+        ],
+        "produce_skill_ids": [
+          "p_primastella_skill-common-hatsuboshi_idol_festival-final-p_trigger-produce_start-produce_reward-p_card-02-ido-100_037-03-001"
+        ],
+        "produce_effect_ids": [
+          "p_effect-produce_reward-0001_0001-produce_card-p_card-02-ido-100_037-0"
+        ]
+      },
+      {
+        "native_card_id": 854,
+        "name": "証明し続ける一番星",
+        "master_card_id": "p_card-02-ido-100_046",
+        "upgrade_count": 0,
+        "owner_master_ids": [
+          "i_card-hume-3-017"
+        ],
+        "prima_skill_ids": [
+          "prima_stella_produce_skill-i_card-hume-3-017"
+        ],
+        "produce_skill_ids": [
+          "p_primastella_skill-common-hatsuboshi_idol_festival-final-p_trigger-produce_start-produce_reward-p_card-02-ido-100_046-03-001"
+        ],
+        "produce_effect_ids": [
+          "p_effect-produce_reward-0001_0001-produce_card-p_card-02-ido-100_046-0"
+        ]
+      }
+    ]
+  },
+  "deck_size_exempt_ids": [],
+  "warmstart_original": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\generalist\\runs\\memory-optional-20260910-234138\\best.pt",
+  "warmstart_sha256": "6d1fb5ec9af6d87eacf24d191762ec9827fe8009b094937330c765a328871786",
+  "master_id_aliases": {
+    "464": "p_card-02-ido-3_086/0",
+    "465": "p_card-02-ido-3_086/1"
+  },
+  "support_pool": {
+    "native_source": "training_catalog cards.sourceType == support",
+    "native_plus_count": 57,
+    "master_card_sha256": "c0f88d092bfa4d82b21dc3de9e090ca8deac28c7297be4f1a98f8316cb2d50b7",
+    "explicit_aliases": {
+      "243": "p_card-00-sup-2_028",
+      "587": "p_card-00-sup-3_155"
+    },
+    "counts": {
+      "free": 20,
+      "sense": 11,
+      "logic": 15,
+      "anomaly": 11
+    },
+    "support_cards_per_deck": 3,
+    "only_upgraded_forms": true
+  },
+  "prima_policy": {
+    "excluded_all_registered_ids": [
+      829,
+      830,
+      831,
+      834,
+      835,
+      836,
+      837,
+      838,
+      853,
+      854
+    ],
+    "scope": "all current generalist scenes, both memory modes"
+  },
+  "inherited_arena_version": {
+    "golden_rules": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+    "public_schema": "arena-public-exam/1",
+    "effective_sha256": "eb46bfa214f9eb482b01d41dffa62d4fbded571516b5fc1e46055ddc601e366f",
+    "files_sha256": {
+      "_vendor/gakumas_tools/packages/gakumas-data/data/customizations.js": "d115d9ca818b39e90627d5e7eb8aeb5f0d17ac420eca620e5302728b2b6779f4",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/idols.js": "fa309d2bce312f4065b2e4bcb9c8e0dfa2ab6331afa909673c978ae25cfa8542",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/index.js": "a09a727f3c405a74f0f1631b597e879494aa6d02593d777962af4151f439299d",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/pDrinks.js": "064cb5c328b6040990b055f7d8b3b1054a8ec4415ebf9587cb52e1fec4d87e36",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/pIdols.js": "ebe39e305ae9c651bf13c9af2f76a297f70d1aace1bb210f71123dd7e8c52119",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/pItems.js": "b2969076d09bb6e9822e2df88b096bdf392de9f42ee60e1f4dc66575781201d5",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/skillCards.js": "35d06b5e218fe5ab8acba51feafd7ffcc23398b4008d9926bd6d6f864fdc6ead",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/stages.js": "00ec516f0b81720b23b21c71215a7b20ed05476373edb5d74096981da1623dbc",
+      "_vendor/gakumas_tools/packages/gakumas-data/index.js": "9081ae97374785e1bb48bf2f4e5699e306832313c76ea0f317bdb38f23646826",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/contestPower.js": "aac16976f1ccc2dfec605cf0b6b1115450b393d730d94a3cf2a96e8b7e513c39",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/effects.js": "79a79ad319d3ef143b24bcc969c62502915375b18048bef8425fba24a821da3d",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/index.js": "51e354de77eed3287a5efba7155e2226db6697c91a729ba6e3f80bac027c9a31",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/parser.js": "0f6552a5858d9d1574e4ac6f732cd9f66c98fd8de151efb305d98a862d5e40b6",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokenizer.js": "45e6333e04eb4724aa2fe0091110b141e811157e56891e35f7c5fc2d85098baf",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokens.js": "aac316b2b08c0d5a0d321b0bfc9bbfc50be6e8657ace52040555f36936caf810",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/stamina.js": "50ac351d524ed5bd22bce12f73883896e869581a3dcd6c2e80a66da42fe8690b",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/index.js": "293557fe442a7b077c912727c5b5bb1532faaebf4cc2d43eabec77f98636d974",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/serialize.js": "7cadeac21de2e544896e13cfc8ad016f0121560fe7e578231a8ea2be6cc4e75b",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/transform.js": "1ae5ad1e64c072379f535029c7b0bdece7140a77f1d20d8e45ea76f9abe01bd5",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/validator/index.js": "dfa165a3c6527e0150f9245b863a935e9b4c694a897bb8f7b84ebfae62b71760",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/validator/schema.js": "d74eec0970423b80a2980f2e94a1a8824a633b001e360da02380f5dcef3b3fa2",
+      "_vendor/gakumas_tools/packages/gakumas-engine/config/IdolConfig.js": "d5c5cd37e65c11797f47247a875bace44bd6d3281111d22651fa2b19e5c45a43",
+      "_vendor/gakumas_tools/packages/gakumas-engine/config/IdolStageConfig.js": "df2c80eb0dc0b1aee539f09f56b05d6631c9e6d6f8403ea3994a53ee65abd7d5",
+      "_vendor/gakumas_tools/packages/gakumas-engine/config/index.js": "e05f239e877f89d9659f4e0e2e7090e0403a4fc2438e7c2ff5d74471baf8e671",
+      "_vendor/gakumas_tools/packages/gakumas-engine/config/StageConfig.js": "451f17f52b1463efa4cadc2e8b852f7aaf2c335441288f931e2b94e8cf0bb3a0",
+      "_vendor/gakumas_tools/packages/gakumas-engine/constants.js": "a1d7ab266912f736e8119ebf0bef902db205e19c5c48a4c597ba429dae0741e5",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/BuffManager.js": "ecbc37d65d9af340c8205314396ab51a35e5bd629a01986542cc0767828447c7",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/index.js": "b26446071e0479dc94044321a7f6a21977f38af78e4fe8a977e0f46e0dd384cd",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/targeting.js": "7966126b53fdd5818577b81b74ee61e2bc019d0c5ef5822777f709dfc86eda79",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/EffectManager.js": "9afebd49a5a0c0b9a73385e9ef2ec733815a437a770c4f9d235d3744bd03a5b0",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/EngineComponent.js": "838783b0401f35b8d5f38e16cf149aacf8d7397d89b5382a14b37a2a227f71a6",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/Evaluator.js": "4c76b83dc8e4617be8d2ecd581c252e2ff6684ef32c0ae4f54840ac8ea20f7f1",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/index.js": "7feb2e1d52cab213ba2d6fa91f0f96d72c8b1c522f7ec0597924ac5a715e2154",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/resolvers.js": "8ef7b15de7b791e9bd90d0f8b767ceb15d6cbc9e6804ee60332e2d2fa7f964cf",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/index.js": "c754e977d45a627986edc35a8e4dd042ffd9cf0ae923b302b842a3823ba76648",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/StageEngine.js": "a6fc6dff4a2b6b644931a0d537a1d0136141c1a715e4dd306d39db7dda770e93",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/StageLogger.js": "1555d56ee386386ea5c0c5bf421d94fec9ec682aa6b2c2c7bda05ff2ed7ec839",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/StagePlayer.js": "e591e1c7f763174e34d41583ab3978ee289262671e1ebd8a0ac92060f370ac2c",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/TurnManager.js": "ad4accefb14e57938ea4f59764aa3e6dd59ee64fe0aac84113323c516de9ca5a",
+      "_vendor/gakumas_tools/packages/gakumas-engine/index.js": "c4f52ac2ca574268d702b1b8cd9b96a0b02439fb3cd0e362acf67c78017d6f00",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/BaseStrategy.js": "cdb0ad4dbc786afad30bc865a9c45db06d0330a31d1f26dbf085cc666980f86f",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/HeuristicStrategy.js": "730597b140722b6d4e7e0f01d09356f57ae57eb728b805bb559d1dfbc13ead35",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/index.js": "960bb4a0cfaa7f8d3238c3044f3f31b09fc9c59204dbf497d3c33ebd6b4b5ccc",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/ManualStrategy.js": "225f97c2c267bff265fe186ea88a2dbde2605db029a95bc25152bc04c5be60d7",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/PlayerStrategy.js": "08cbe58ff1c757481b8baa93bf6b5baa7a54de9eb0bdafb6f27620d0d88018c7",
+      "_vendor/gakumas_tools/packages/gakumas-engine/typeMultipliers.js": "3e6f9b56d78c4f9a9563731047e02adceb12f825d71760fbb7d4fca8b6d59ade",
+      "_vendor/gakumas_tools/packages/gakumas-engine/utils.js": "ab6649ce7d9278e2ae0563710e0160883048d5352196cfc8a7253c01af1b9505",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/customizations.json": "54deb7d19eb305b18d5e7e7f359afa922aa8ecc8b2e595e280f43dffb381ee60",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/idols.json": "c14ce8e4310e366a3bf751a4f11b857ad4be775c689fd40db3deb3a77285b26e",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/p_drinks.json": "2cf514aee1d5bf563c4536f631d41d3b657215aea3290ade26b5832664490410",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/p_idols.json": "a2985e47c76cf2f7094a0805ea8d65eba5e3fd068e0289466328becf469ed60f",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/p_items.json": "61c4fb67eddbbadf4d4c839535a356edc2b7693532529d02587fec5e3b2b3be1",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/skill_cards.json": "17b334a11c52aae1c6f14fea9a83a08279727973f9c2647066c4f3e3bac4ab54",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/stages.json": "4e38f475ffcc33693fa341e73950898546383192c2d4ce90c28120491150ca5a",
+      "_vendor/gakumas_tools/packages/gakumas-data/package.json": "3e855763dee9bbf2da3c7f9dd53f5234d6419cf69d3d38c2d89f99b1af79f4ee",
+      "_vendor/gakumas_tools/packages/gakumas-engine/package.json": "b817509081232d30fbe5ab599507fea69e92539113f2200bdb1e3bdce49a3bef",
+      "_vendor/gakumas_tools/scripts/extensionless-loader.mjs": "368e9c2ad66aa2ccb1150520e5a3c48193b0095d38f09b37433a2b1cc7b46584",
+      "engine/training.py": "677ae3f28dc3d6514bdd9805accfc03d2857443798e28b487d7417d246ef2688",
+      "engine/training_worker.mjs": "b5118c6c40a41124ba81c6699381869f1968e4489da6ed5ce286ff2b6c4b06a8",
+      "engine/training_config.mjs": "bc66c7fd52989e0d5aa2eada388e725cbf28d080827e7efd8156bcf89b52506f",
+      "engine/__init__.py": "1b4a4beaffb1defb9e03ba9fed400d340e8bca4188b739fc8d1f205d39fa6bea",
+      "__init__.py": "6d4832f8b1d1bbb013b816380c8bd8ae674819ec44cdcf330d7f6b23b514d346"
+    }
+  },
+  "inherited_arena_path": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\generalist-support\\runtime\\arena",
+  "search_version": {
+    "schema_version": "arena-public-search/1",
+    "base_effective_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+    "search_sha256": "06fc68d7509e612295b3bb60f6c7d1266a3c89acaf682cf33dd027be291c0293",
+    "search_files_sha256": {
+      "search.py": "5a68c44b04554e2e9d320010203481c4ac66d477ba67db302931281f1e6325a6",
+      "search_loader.mjs": "6a1141418dfad7e838e513a899c1cf7acab5682a0244ada2ecba3aa63835fd0a",
+      "search_worker.mjs": "91b41aca7b1f9c81727874f01411ec5ce09eb02bff9d69f0e5c01e8f8045d8da"
+    },
+    "posterior_model": "draw-conditioned-sequential-importance/1"
+  },
+  "migration_scope": "Two verified customization option corrections; inherited run/window/warmstart fields are historical, not a launch configuration"
+}

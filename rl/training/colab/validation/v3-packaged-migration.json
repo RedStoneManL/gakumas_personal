@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "actual_colab_tested": false,
+  "new_episodes_or_updates": 0,
+  "bundle_manifest_sha256": "39b8f40a57ccc969fe9003f1a185b616b90672ca10a1706404272cf2768cbad5",
+  "source_run_name": "setup-mixed-gpu-smoke",
+  "target_run_name": "v3-migration-check-sl2q70o3",
+  "source_files_unchanged": true,
+  "attempts": [
+    {
+      "attempt": 1,
+      "exit_code": 0
+    },
+    {
+      "attempt": 2,
+      "exit_code": 0
+    }
+  ],
+  "output": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\training\\artifacts\\colab\\v3-migration-check-sl2q70o3"
+}

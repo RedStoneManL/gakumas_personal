@@ -1,0 +1,10 @@
+.logs-section{margin-top:22px;scroll-margin-top:20px}
+.logs-heading{align-items:flex-start;flex-wrap:wrap}
+.logs-heading .caption{margin-top:4px}
+.log-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:.82rem}
+.log-controls button,.log-controls select{font-size:.82rem}
+.log-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.76rem;color:var(--muted);margin:8px 0}
+#log-pending{color:#95600a}
+.log-output{height:300px;max-height:300px;margin:0 0 12px;padding:14px 16px;background:#172133;color:#dbe5f3;border:1px solid #263951;border-radius:8px;font:12px/1.8 Consolas,"Microsoft YaHei",monospace;white-space:pre-wrap;overflow-wrap:anywhere;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;tab-size:2}
+.log-output:focus-visible{outline:3px solid #7b9fde;outline-offset:3px}
+@media(max-width:600px){.log-controls{width:100%}.log-controls select{max-width:calc(100% - 45px)}.log-output{height:260px;max-height:260px;padding:10px;font-size:11px}.log-meta{font-size:.72rem}}

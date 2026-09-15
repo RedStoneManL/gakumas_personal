@@ -1,0 +1,1067 @@
+{
+  "schema": "hif-research-inventory-audit/1",
+  "inventory_sha256": "8f7216c38a8300f7e42e373d17007acd6d32d90346fc1af88ecb99996f31d92f",
+  "support_count": 201,
+  "gold_factor_count": 10,
+  "hif_ability_count": 105,
+  "card_identity_count": 143,
+  "card_variant_count": 1062,
+  "card_plans": {
+    "ProducePlanType_Common": 9,
+    "ProducePlanType_Plan1": 45,
+    "ProducePlanType_Plan2": 45,
+    "ProducePlanType_Plan3": 44
+  },
+  "cards": [
+    {
+      "card_id": "p_card-00-act-2_009",
+      "name": "前途洋々+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Common",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-00-men-1_005",
+      "name": "気合十分！+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Common",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-00-men-1_007",
+      "name": "ファーストステップ+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Common",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-00-men-2_012",
+      "name": "アイドル宣言+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Common",
+      "variants": 4
+    },
+    {
+      "card_id": "p_card-00-men-2_014",
+      "name": "ハイテンション+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Common",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-00-men-3_003",
+      "name": "アイドル魂+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Common",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-00-men-3_005",
+      "name": "仕切り直し+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Common",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-00-men-3_011",
+      "name": "叶えたい夢+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Common",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-00-men-3_012",
+      "name": "テレビ出演+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Common",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-01-act-1_001",
+      "name": "ファンサ+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-01-act-1_002",
+      "name": "軽い足取り+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-01-act-1_019",
+      "name": "愛嬌+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-01-act-1_020",
+      "name": "ハイタッチ+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-01-act-1_021",
+      "name": "トークタイム+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-01-act-1_022",
+      "name": "準備運動+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-01-act-1_023",
+      "name": "勢い任せ+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-01-act-1_036",
+      "name": "エキサイト+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-01-act-1_074",
+      "name": "ペース配分+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-01-act-2_001",
+      "name": "シュプレヒコール+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 4
+    },
+    {
+      "card_id": "p_card-01-act-2_002",
+      "name": "スタートダッシュ+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-act-2_003",
+      "name": "決めポーズ+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-act-2_030",
+      "name": "アドリブ+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-act-2_031",
+      "name": "情熱ターン+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-act-2_032",
+      "name": "スタンドプレー+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-act-2_033",
+      "name": "飛躍+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-act-2_042",
+      "name": "祝福+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-act-2_059",
+      "name": "立ち位置チェック+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-act-2_061",
+      "name": "破竹の勢い+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-act-3_010",
+      "name": "魅惑のパフォーマンス+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-01-act-3_029",
+      "name": "成就+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-01-act-3_030",
+      "name": "コール＆レスポンス+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-01-act-3_031",
+      "name": "バズワード+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-01-act-3_032",
+      "name": "覚醒+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-01-act-3_049",
+      "name": "至高のエンタメ+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-01-men-1_008",
+      "name": "深呼吸+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-01-men-1_024",
+      "name": "バランス感覚+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-01-men-1_025",
+      "name": "楽観的+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-01-men-1_034",
+      "name": "ひと呼吸+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-01-men-2_011",
+      "name": "スポットライト+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-men-2_034",
+      "name": "演出計画+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-men-2_035",
+      "name": "静かな意志+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-men-2_036",
+      "name": "始まりの合図+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-men-2_037",
+      "name": "存在感+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 4
+    },
+    {
+      "card_id": "p_card-01-men-2_038",
+      "name": "願いの力+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-men-2_039",
+      "name": "眼力+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-men-2_040",
+      "name": "意地+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-men-2_041",
+      "name": "成功への道筋+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-men-2_043",
+      "name": "大声援+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-men-2_104",
+      "name": "精神統一+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-01-men-3_006",
+      "name": "国民的アイドル+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-01-men-3_033",
+      "name": "鳴り止まない拍手+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-01-men-3_034",
+      "name": "天賦の才+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-01-men-3_035",
+      "name": "天真爛漫+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-01-men-3_036",
+      "name": "魅惑の視線+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan1",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-act-1_003",
+      "name": "手拍子+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-02-act-1_004",
+      "name": "元気な挨拶+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-02-act-1_027",
+      "name": "今日もおはよう+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-02-act-1_028",
+      "name": "ゆるふわおしゃべり+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-02-act-1_029",
+      "name": "もう少しだけ+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-02-act-1_037",
+      "name": "デイドリーミング+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-02-act-2_045",
+      "name": "ハートの合図+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-act-2_046",
+      "name": "ラブリーウインク+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-act-2_047",
+      "name": "ありがとうの言葉+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-act-2_048",
+      "name": "キラメキ+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-act-2_049",
+      "name": "みんな大好き+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 4
+    },
+    {
+      "card_id": "p_card-02-act-2_062",
+      "name": "きらきら紙吹雪+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-act-3_001",
+      "name": "200%スマイル+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-act-3_038",
+      "name": "開花+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-act-3_039",
+      "name": "届いて！+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-act-3_045",
+      "name": "あのときの約束+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-act-3_050",
+      "name": "輝くキミへ+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-act-3_052",
+      "name": "キセキの魔法+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-men-1_006",
+      "name": "リズミカル+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-02-men-1_009",
+      "name": "励まし+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-02-men-1_030",
+      "name": "リスタート+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-02-men-1_031",
+      "name": "えいえいおー+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-02-men-1_032",
+      "name": "思い出し笑い+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-02-men-1_033",
+      "name": "パステル気分+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-02-men-1_035",
+      "name": "幸せのおまじない+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-02-men-1_076",
+      "name": "イメチェン+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-02-men-2_004",
+      "name": "ワクワクが止まらない+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-men-2_008",
+      "name": "イメトレ+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-men-2_050",
+      "name": "幸せな時間+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-men-2_051",
+      "name": "やる気は満点+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-men-2_052",
+      "name": "ひなたぼっこ+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-men-2_053",
+      "name": "あふれる思い出+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-men-2_054",
+      "name": "本番前夜+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-men-2_055",
+      "name": "ふれあい+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-men-2_056",
+      "name": "止められない想い+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 4
+    },
+    {
+      "card_id": "p_card-02-men-2_057",
+      "name": "ゆめみごこち+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 4
+    },
+    {
+      "card_id": "p_card-02-men-2_058",
+      "name": "ファンシーチャーム+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-02-men-2_060",
+      "name": "オトメゴコロ+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 4
+    },
+    {
+      "card_id": "p_card-02-men-3_002",
+      "name": "私がスター+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-men-3_004",
+      "name": "星屑センセーション+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-men-3_040",
+      "name": "夢色リップ+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-men-3_041",
+      "name": "ノートの端の決意+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-men-3_042",
+      "name": "虹色ドリーマー+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-men-3_043",
+      "name": "トキメキ+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-02-men-3_044",
+      "name": "手書きのメッセージ+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan2",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-03-act-1_038",
+      "name": "ジャストアピール+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 17
+    },
+    {
+      "card_id": "p_card-03-act-1_040",
+      "name": "スターライト+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-03-act-1_041",
+      "name": "ラッキー♪+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 17
+    },
+    {
+      "card_id": "p_card-03-act-1_042",
+      "name": "積み重ね+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-03-act-1_043",
+      "name": "ハッスル+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-03-act-1_044",
+      "name": "精一杯+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-03-act-1_046",
+      "name": "一歩+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-03-act-2_063",
+      "name": "オープニングアクト+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-act-2_065",
+      "name": "せーのっ！+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-act-2_067",
+      "name": "理想のテンポ+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-act-2_068",
+      "name": "はじけるパッション+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-act-2_069",
+      "name": "汗と成長+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-act-2_070",
+      "name": "始まりの笑顔+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-act-2_071",
+      "name": "トレーニングの成果+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-act-2_072",
+      "name": "アッチェレランド+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-act-2_073",
+      "name": "カウントダウン+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-act-2_081",
+      "name": "第一印象+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-act-2_082",
+      "name": "トレンドリーダー+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 4
+    },
+    {
+      "card_id": "p_card-03-act-2_106",
+      "name": "アンダンテ+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-act-3_053",
+      "name": "輝け！+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-03-act-3_054",
+      "name": "総合芸術+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-03-act-3_055",
+      "name": "クライマックス+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-03-act-3_056",
+      "name": "心・技・体+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-03-act-3_057",
+      "name": "翔び立て！+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-03-act-3_065",
+      "name": "全身全霊+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-03-men-1_039",
+      "name": "ハッピー♪+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-03-men-1_048",
+      "name": "涙の思い出+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 17
+    },
+    {
+      "card_id": "p_card-03-men-1_049",
+      "name": "嬉しい誤算+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 16
+    },
+    {
+      "card_id": "p_card-03-men-1_050",
+      "name": "巻き返し+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-03-men-1_051",
+      "name": "セッティング+",
+      "rarity": "ProduceCardRarity_R",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 15
+    },
+    {
+      "card_id": "p_card-03-men-2_064",
+      "name": "潜在能力+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-men-2_066",
+      "name": "プライド+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-men-2_074",
+      "name": "タフネス+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 4
+    },
+    {
+      "card_id": "p_card-03-men-2_075",
+      "name": "モチベ+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-men-2_076",
+      "name": "盛り上げ上手+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-men-2_077",
+      "name": "忍耐力+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 5
+    },
+    {
+      "card_id": "p_card-03-men-2_078",
+      "name": "達成感+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 4
+    },
+    {
+      "card_id": "p_card-03-men-2_079",
+      "name": "切磋琢磨+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 4
+    },
+    {
+      "card_id": "p_card-03-men-2_080",
+      "name": "インフルエンサー+",
+      "rarity": "ProduceCardRarity_Sr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 4
+    },
+    {
+      "card_id": "p_card-03-men-3_058",
+      "name": "アイドルになります+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-03-men-3_060",
+      "name": "本領発揮+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-03-men-3_061",
+      "name": "一心不乱+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-03-men-3_062",
+      "name": "頂点へ+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 3
+    },
+    {
+      "card_id": "p_card-03-men-3_063",
+      "name": "覚悟+",
+      "rarity": "ProduceCardRarity_Ssr",
+      "plan": "ProducePlanType_Plan3",
+      "variants": 3
+    }
+  ],
+  "scope": {
+    "ruleset": "hif-research-gold-compositional/1",
+    "account_inventory_claimed": false,
+    "server_generation_feasibility_claimed": false,
+    "producer_level": 76,
+    "ordinary_factors_per_memory": 3,
+    "ordinary_factor_rarity": "SkillRarity_Sr",
+    "ordinary_factors_distinct_within_memory": true,
+    "hif_abilities_per_memory": "0 or 1; selected independently of carried card",
+    "card_upgrade_count": 1,
+    "customization_budget": {
+      "ProduceCardRarity_R": 2,
+      "ProduceCardRarity_Sr": 1,
+      "ProduceCardRarity_Ssr": 1
+    },
+    "initial_hand_customization_consumes_one_slot": true,
+    "produce_start_acquisition_consumes_one_slot": true,
+    "acquisition_phases": {
+      "R": [
+        "ProduceMemoryProduceCardPhaseType_ProduceStart",
+        "ProduceMemoryProduceCardPhaseType_EndAuditionMid"
+      ],
+      "Sr": [
+        "ProduceMemoryProduceCardPhaseType_ProduceStart",
+        "ProduceMemoryProduceCardPhaseType_EndAuditionMid"
+      ],
+      "Ssr": [
+        "ProduceMemoryProduceCardPhaseType_EndAuditionMid"
+      ]
+    },
+    "cross_plan_carried_cards_excluded": true,
+    "support_levels": "maximum legal rarity level; all local definitions",
+    "ordinary_factor_deduplication": "same ProduceSkill ID and exact level",
+    "source_tables": [
+      "SupportCard",
+      "ProduceCard",
+      "ProduceCardCustomize",
+      "ProduceCardGrowEffect",
+      "MemoryAbility",
+      "ProduceSkill"
+    ],
+    "source_tables_sha256": {
+      "SupportCard": "f9f917243d38eaf1a51240e59366c95f4307f5caabddd7c9ab438be547b7c342",
+      "ProduceCard": "cd39497a4cf3d0976e39b72ea050a58ece15437268e13474634d794a611ffcb7",
+      "ProduceCardCustomize": "3c3d9f9b07ede90458382d18ce581e4eed1956cc2417b630ea5bb60464286626",
+      "MemoryAbility": "f11edc6706aa3d6a334107756564444f8f98b96092a90d88eab2bc2ecd09524d",
+      "ProduceSkill": "9a6d62a929901b2f11b54e52ebd9ac4e543707904e8332d97c7bd85dbf7c99b0"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": "arena-search-construction-migration/1",
+  "search_version": {
+    "schema_version": "arena-public-search/1",
+    "base_effective_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+    "search_sha256": "06fc68d7509e612295b3bb60f6c7d1266a3c89acaf682cf33dd027be291c0293",
+    "search_files_sha256": {
+      "search.py": "5a68c44b04554e2e9d320010203481c4ac66d477ba67db302931281f1e6325a6",
+      "search_loader.mjs": "6a1141418dfad7e838e513a899c1cf7acab5682a0244ada2ecba3aa63835fd0a",
+      "search_worker.mjs": "91b41aca7b1f9c81727874f01411ec5ce09eb02bff9d69f0e5c01e8f8045d8da"
+    },
+    "posterior_model": "draw-conditioned-sequential-importance/1"
+  },
+  "changes": [
+    {
+      "profile": "hiro-hif",
+      "card_id": 35,
+      "old_customization": "27",
+      "new_customization": "28",
+      "old_prices": [
+        70
+      ],
+      "new_prices": [
+        70
+      ]
+    },
+    {
+      "profile": "saki-wild",
+      "card_id": 47,
+      "old_customization": "29",
+      "new_customization": "30",
+      "old_prices": [
+        20
+      ],
+      "new_prices": [
+        20
+      ]
+    },
+    {
+      "profile": "liliya-xmas",
+      "card_id": 47,
+      "old_customization": "29",
+      "new_customization": "30",
+      "old_prices": [
+        20
+      ],
+      "new_prices": [
+        20
+      ]
+    }
+  ],
+  "legacy_experience_relabelled": false,
+  "old_weights_are_inference_warm_start_only": true,
+  "budget_card_count_duplicate_and_profile_rules_preserved": true,
+  "source_override_sha256": "4f342e717242503eb1247922c0d03e8866359753444313f8726aaf029e20f907",
+  "files_sha256": {
+    "catalog.json": "8a71a52493843f9e79897a39dfc528f2c4216a451bd90d9ea5f5d16d483e519a",
+    "config.json": "816b49f1dddba98c689859180bcceea6aea0de32a329e1192c94a8f5194bbcd0",
+    "profiles.json": "4e533cbba6b68ab3a3790c383b0f65676cd97c8dce0e6a5cd88ca6b0085fb797",
+    "provenance.json": "cbb372a93ec2719781096d2931373b1a464ca3c87966f0aa5e8274e14383eb61"
+  },
+  "production_launch_enabled": false,
+  "config_usage": "Inherited only; a new joint trainer launch configuration remains required"
+}

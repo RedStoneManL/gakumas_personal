@@ -1,0 +1,321 @@
+{
+  "name": "generalist-joint-public-mcts-48h",
+  "resource_mode": "ultra",
+  "seed": 911101,
+  "device": "cuda",
+  "workers": 10,
+  "target_decisions": 1000000000,
+  "batch_decisions": 4096,
+  "max_minutes": 2880,
+  "max_episode_decisions": 1024,
+  "gamma": 1,
+  "score_scale": 150000,
+  "eval_episodes": 180,
+  "eval_seed_base": 74000000,
+  "final_seed_base": 105000000,
+  "eval_every_batches": 4,
+  "learning_rate": 0.0005,
+  "drink_learning_rate": 0.0005,
+  "adam_eps": 1e-05,
+  "epochs": 2,
+  "minibatch": 4,
+  "clip": 0.2,
+  "target_kl": 0.03,
+  "max_grad": 0.5,
+  "value_coefficient": 0.5,
+  "drink_capacity": 4,
+  "train_seed_base": 34000000,
+  "exploration": {
+    "drink": {
+      "temperature": [
+        1.3828398828014392,
+        1.3
+      ],
+      "uniform_mix": [
+        0.2414199414007196,
+        0.2
+      ],
+      "entropy_coefficient": [
+        0.012761329426714641,
+        0.01
+      ]
+    },
+    "exam": {
+      "temperature": [
+        1.1276132942671464,
+        1.1
+      ],
+      "uniform_mix": [
+        0.07104531770685855,
+        0.06
+      ],
+      "entropy_coefficient": [
+        0.007104531770685856,
+        0.006
+      ]
+    },
+    "draft": {
+      "temperature": [
+        1.2828398828014391,
+        1.2
+      ],
+      "uniform_mix": [
+        0.15589728254729032,
+        0.12
+      ],
+      "entropy_coefficient": [
+        0.012761329426714641,
+        0.01
+      ]
+    },
+    "guidance": {
+      "temperature": [
+        1.2828398828014391,
+        1.2
+      ],
+      "uniform_mix": [
+        0.1776132942671464,
+        0.15
+      ],
+      "entropy_coefficient": [
+        0.012761329426714641,
+        0.01
+      ]
+    },
+    "memory": {
+      "temperature": [
+        1.3828398828014392,
+        1.3
+      ],
+      "uniform_mix": [
+        0.2414199414007196,
+        0.2
+      ],
+      "entropy_coefficient": [
+        0.012761329426714641,
+        0.01
+      ]
+    }
+  },
+  "exploration_schedule": {
+    "basis": "meaningful_decisions",
+    "origin_decisions": 81767,
+    "hold_decisions": 0,
+    "decay_decisions": 200000
+  },
+  "draft_learning_rate": 0.0005,
+  "guidance_learning_rate": 0.0005,
+  "final_episodes": 180,
+  "memory_learning_rate": 0.0005,
+  "scenario_mode": "balanced five profiles x sleep x drink capacity x no-HIF/HIF memory",
+  "coverage_enabled": true,
+  "effective_minibatch": 512,
+  "training_stage": "joint_build_and_public_history_mcts_exam",
+  "generalist": {
+    "counted_deck_size": [
+      18,
+      25
+    ],
+    "drink_capacities": [
+      0,
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "global_score_scales": [
+      0.5,
+      1.0,
+      1.5
+    ],
+    "base_turn_counts": [
+      9,
+      10,
+      12
+    ],
+    "research_distribution": true,
+    "not_claimed_to_cover_all_real_game_modes": true,
+    "independent_conditions_visible_to_draft": true,
+    "normalization": "per-profile reference times sampled global multiplier; fixed-condition baseline selection",
+    "hif_memory_modes": [
+      "none",
+      "hif"
+    ],
+    "hif_memory_capacities": [
+      0,
+      4
+    ],
+    "support_card_limit": 3,
+    "exclude_prima_stella": true
+  },
+  "supply": {
+    "modes": [
+      "random",
+      "low_supply",
+      "coverage"
+    ],
+    "random_weight": 0.7,
+    "low_supply_weight": 0.2,
+    "coverage_weight": 0.1,
+    "inventory_size": [
+      6,
+      8
+    ],
+    "low_supply_size": [
+      2,
+      3
+    ],
+    "order": "completed deck and guidance, then observed finite drink inventory, then memory effect selection and exam"
+  },
+  "absolute_deadline": "2026-09-15T20:47:33.416779+00:00",
+  "memory_mode_weights": {
+    "none": 0.5,
+    "hif": 0.5
+  },
+  "update_duty_cycle": 1.0,
+  "evaluation_interval_minutes": 60,
+  "sample_efficiency": {
+    "scenario_bank": true,
+    "bank_capacity_per_profile": 64,
+    "bank_extra_episodes_per_joint": 0.25,
+    "bank_max_episodes_per_batch": 20,
+    "ppo_epochs_max": 4,
+    "advantage_mode": "mc",
+    "gae_lambda": 0.98,
+    "historical_actions_in_ppo": false
+  },
+  "practice": {
+    "coverage": true,
+    "bank": {
+      "enabled": true
+    },
+    "routing": {
+      "enabled": true,
+      "cycle": [
+        "normal",
+        "draft",
+        "normal",
+        "exam",
+        "draft"
+      ],
+      "overrides": {
+        "draft": {
+          "temperature": 1.6,
+          "uniform_mix": 0.3
+        },
+        "exam": {
+          "temperature": 1.25,
+          "uniform_mix": 0.12
+        }
+      }
+    },
+    "forks": {
+      "enabled": true,
+      "replicas": 4,
+      "every_n_per_profile": 1,
+      "selector": "route-cycle-rotation-v1",
+      "objective": "best_of_k",
+      "exam_credit": "leave_one_out_max"
+    },
+    "play_evaluation": {
+      "enabled": true,
+      "replicas": 8
+    },
+    "search_supervision": {
+      "enabled": true,
+      "source": "public-history-MCTS; no external teacher"
+    },
+    "gradient_diagnostics": {
+      "enabled": true,
+      "every_batches": 20,
+      "examples_per_profile": 2
+    },
+    "size_exploration": {
+      "enabled": true,
+      "prior_mix": 0.8
+    },
+    "duplicates": {
+      "enabled": true,
+      "free_copies": 3,
+      "coefficient": 0.1,
+      "cap": 0.75,
+      "scope": "draft_only",
+      "max_same_name": 3,
+      "max_same_name_overrides": {
+        "精神統一": 2
+      }
+    },
+    "keycard_focus": {
+      "batches": 1000000,
+      "customization_id": "37",
+      "card_id": 591,
+      "profile_id": "saki-hif",
+      "start_batch": 0,
+      "enabled": true
+    },
+    "update_diagnostics": {
+      "max_records": 512,
+      "enabled": true
+    }
+  },
+  "learning_rate_schedule": {
+    "schema": "arena-learning-rate-linear/1",
+    "basis": "elapsed_minutes",
+    "origin_elapsed_minutes": 0.0,
+    "hold_minutes": 116.24127453666642,
+    "decay_minutes": 2880.0,
+    "min_ratio": 0.2
+  },
+  "search": {
+    "enabled": true,
+    "trajectory_every": 4,
+    "parallel_roots": 4,
+    "inference_batch": 4,
+    "simulations": 32,
+    "particles": 8,
+    "seconds": 60.0,
+    "sampling_ms": 10000,
+    "max_depth": 12,
+    "rollout_steps": 8,
+    "loss_coefficient": 0.1,
+    "seed_base": 2110000000,
+    "max_roots_per_episode": null,
+    "native_action_budget": 60000,
+    "root_selection": "soft_budget",
+    "soft_floor": 0.25,
+    "soft_temperature": 0.8,
+    "soft_min_visits": 2,
+    "learning_target": {
+      "mode": "prior_advantage",
+      "temperature": 0.25,
+      "noise_floor": 0.05,
+      "uncertainty_multiplier": 1.0,
+      "max_logit_change": 4.0
+    }
+  },
+  "value_calibration": {
+    "quantiles": 32,
+    "objective_k": 4,
+    "distribution_coefficient": 1.0,
+    "research_manifest": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\experiments\\research-playgrounds-20260915\\manifest.json",
+    "train_replicas": 12,
+    "eval_replicas": 8,
+    "states_per_game": 8,
+    "epochs": 10,
+    "steps_per_epoch": 24,
+    "batch_per_profile": 16,
+    "learning_rate": 0.0005
+  },
+  "critic_completion": {
+    "enabled": true,
+    "minimum_passes": 1,
+    "actor_frozen": true
+  },
+  "signed_exam_credit": {
+    "mode": "state_best4_contribution",
+    "baseline": "frozen_pre_action_quantiles",
+    "quantiles": 32,
+    "rms_floor": 0.1
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "training-effect-manifest-check/1",
+  "tables": {
+    "ProduceEffect": {
+      "rows": 2114,
+      "types": 66
+    },
+    "ProduceExamEffect": {
+      "rows": 2070,
+      "types": 107
+    }
+  },
+  "errors": [],
+  "scope": "row schemas and semantic operation labels; no execution-equivalence claim",
+  "passed": true,
+  "arena_version": {
+    "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+    "public_schema": "arena-public-exam/1",
+    "produce_master_sha256": "f137f3623563bc726c3b6a06091722868d3216d58299f63dcdca2edf0cf83480"
+  },
+  "semantic_manifest_sha256": "b47f35a7af006facda24399787349dcf1de88e5b3e01c3448e71a96f91141554"
+}

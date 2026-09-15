@@ -1,0 +1,10 @@
+{
+  "source_commit": "78799fa51a151991693fadc2de20117a05ced27f",
+  "source_paths": [
+    "rl/ascend",
+    "rl/training",
+    "rl/hif-colab/build_bundle.py",
+    "rl/hif-colab/build_training_bundle.py"
+  ],
+  "history_policy": "Arena snapshots and training sources are separate commits"
+}

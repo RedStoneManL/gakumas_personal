@@ -1,0 +1,101 @@
+{
+  "schema": "gakumas-colab-portability-audit/1",
+  "not_training": true,
+  "linux_runtime_executed": false,
+  "source_scan": {
+    "raw_yaml_count": 286,
+    "vendor_js_count": 47,
+    "vendor_json_count": 9,
+    "external_imports": [
+      "gakumas-data",
+      "gakumas-engine/constants",
+      "gakumas-engine/engine/BuffManager",
+      "gakumas-engine/engine/CardManager",
+      "gakumas-engine/engine/Evaluator",
+      "gakumas-engine/engine/TurnManager"
+    ],
+    "missing_relative_imports": [],
+    "case_mismatches": []
+  },
+  "plv76_natural_probe": {
+    "config": {
+      "loadout": {
+        "idol_card_id": "i_card-shro-3-018",
+        "producer_level": 76,
+        "idol_rank": 6,
+        "dearness_level": 37,
+        "auto_support_cards": false,
+        "support_card_ids": [
+          "s_card-2-0007",
+          "s_card-3-0030",
+          "s_card-3-0064",
+          "s_card-3-0069",
+          "s_card-3-0070",
+          "s_card-3-0077"
+        ],
+        "support_card_levels": [
+          50,
+          60,
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "research_config": {
+        "growth_panel_levels": {
+          "01": 5,
+          "02": 5,
+          "03": 5,
+          "04": 5,
+          "05": 6,
+          "06": 6,
+          "07": 6,
+          "08": 6,
+          "09": 6
+        }
+      },
+      "max_outer_decisions": 1000,
+      "max_exam_decisions": 2000,
+      "early_terminal_policy": "final_formula_zero_unplayed_v1"
+    },
+    "observed_producer_levels": [
+      76.0
+    ],
+    "observed_support_skill_counts": [
+      37
+    ],
+    "decision_kinds": {
+      "outer": 9,
+      "produce_choice": 10,
+      "exam_action": 10
+    },
+    "raw_terminal_rating": 1737.0,
+    "termination": "failed",
+    "accepted_exam_count": 1,
+    "rating_provenance": {
+      "field": "explicit_early_terminal_mapping",
+      "formula_source": "hif-five-exam-research/1",
+      "early_terminal_mapping": true,
+      "policy": "final_formula_zero_unplayed_v1",
+      "formula_detail": {
+        "rating": 1737,
+        "rank": "E",
+        "parameter_total": 1280.0,
+        "star_quality_after_round2": 157.0,
+        "base": 3737,
+        "round1_component": 0,
+        "round2_component": 0,
+        "formula_source": "hif-five-exam-research/1"
+      },
+      "game_awarded_rating_verified": false
+    },
+    "seconds": 7.817580500006443,
+    "claim": "PLv76 real loadout executes; this is not a policy-quality or complete 3+2 proof"
+  },
+  "arena_version": {
+    "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+    "public_schema": "arena-public-exam/1",
+    "produce_master_sha256": "f137f3623563bc726c3b6a06091722868d3216d58299f63dcdca2edf0cf83480"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "scope": "CPU process/RNG isolation and lifecycle control probe; no throughput claim, neural inference or PPO training.",
+  "platform": "nt",
+  "start_method": "spawn",
+  "episodes": [
+    [
+      {
+        "kind": "episode",
+        "task": "full_produce",
+        "seed": 1961,
+        "raw_score": -2.0,
+        "termination": "failed",
+        "trace_sha256": "a6333ac2d0c9c14112822e62587752046308d97adef215b7f373aa6f8e8c56d8",
+        "transitions": 29,
+        "kinds": {
+          "outer": 9,
+          "produce_choice": 10,
+          "exam_action": 10
+        },
+        "node_pid": 62216
+      },
+      {
+        "kind": "episode",
+        "task": "exam_score",
+        "seed": 1961,
+        "raw_score": 39461.0,
+        "termination": "normal",
+        "trace_sha256": "d48fe930fff7c8105075595d580d0b1b539a04ecab25ee90496703d7272cf224",
+        "transitions": 21,
+        "kinds": {
+          "exam_action": 21
+        },
+        "node_pid": 62216
+      },
+      {
+        "kind": "episode",
+        "task": "exam_score",
+        "seed": 1962,
+        "raw_score": 28290.0,
+        "termination": "normal",
+        "trace_sha256": "01345a3055d9a74b13f6c0c462e67288c986bddaf83f1dfd16f73b8f89aeee90",
+        "transitions": 25,
+        "kinds": {
+          "exam_action": 24,
+          "exam_choice": 1
+        },
+        "node_pid": 62216
+      }
+    ],
+    [
+      {
+        "kind": "episode",
+        "task": "exam_score",
+        "seed": 1962,
+        "raw_score": 28290.0,
+        "termination": "normal",
+        "trace_sha256": "01345a3055d9a74b13f6c0c462e67288c986bddaf83f1dfd16f73b8f89aeee90",
+        "transitions": 25,
+        "kinds": {
+          "exam_action": 24,
+          "exam_choice": 1
+        },
+        "node_pid": 63512
+      },
+      {
+        "kind": "episode",
+        "task": "exam_score",
+        "seed": 1961,
+        "raw_score": 39461.0,
+        "termination": "normal",
+        "trace_sha256": "d48fe930fff7c8105075595d580d0b1b539a04ecab25ee90496703d7272cf224",
+        "transitions": 21,
+        "kinds": {
+          "exam_action": 21
+        },
+        "node_pid": 63512
+      },
+      {
+        "kind": "episode",
+        "task": "full_produce",
+        "seed": 1961,
+        "raw_score": -2.0,
+        "termination": "failed",
+        "trace_sha256": "a6333ac2d0c9c14112822e62587752046308d97adef215b7f373aa6f8e8c56d8",
+        "transitions": 29,
+        "kinds": {
+          "outer": 9,
+          "produce_choice": 10,
+          "exam_action": 10
+        },
+        "node_pid": 63512
+      }
+    ]
+  ],
+  "same_seed_different_interleaving_identical": true,
+  "different_seed_trace_differs": true,
+  "worker_pids": [
+    63416,
+    44988
+  ],
+  "node_pids": [
+    62216,
+    63512
+  ],
+  "cancel": {
+    "kind": "cancelled",
+    "error": "Parent cancelled this in-flight episode",
+    "episode_returned": false
+  },
+  "normal_close": {
+    "kind": "closed",
+    "node_returncode": 1
+  },
+  "pipe_disconnect_cleaned_child_and_node": true,
+  "forced_tree_stop_cleaned_node": null,
+  "forced_tree_stop_scope": "Skipped by explicit flag; no forced-stop coverage claimed",
+  "seconds": 10.469000000011874
+}

@@ -1,0 +1,275 @@
+"""Single-player public-history MCTS with Gumbel-style root allocation.
+
+Worlds are drawn from an independently supplied conditional root distribution.
+The planner never takes a live exam or its seed. The evaluator only receives
+public views. Finite search is not an optimal-deck-quality certificate.
+"""
+import copy
+import hashlib
+import json
+import math
+import random
+from collections import deque
+from dataclasses import dataclass, field
+from .best_of import empirical_best
+from .value_distribution import mixture_best_of, sample_mean
+
+
+def key(value):
+    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(',', ':'),
+                                     allow_nan=False).encode()).hexdigest()
+
+
+@dataclass
+class Evaluation:
+    actions: list
+    priors: list
+    value: float
+    terminal_return: float | None = None
+    return_atoms: list | None = None
+
+    def validate(self):
+        if self.return_atoms is not None and (len(self.return_atoms)!=32 or
+                any(not math.isfinite(v) for v in self.return_atoms)):
+            raise ValueError('Invalid 32-atom return distribution')
+        if not math.isfinite(self.value):
+            raise ValueError('Nonfinite value')
+        if self.terminal_return is not None:
+            if not math.isfinite(self.terminal_return) or self.actions:
+                raise ValueError('Invalid terminal result')
+            return
+        if (not self.actions or len(self.actions) != len(self.priors)
+                or len({key(a) for a in self.actions}) != len(self.actions)
+                or any(not math.isfinite(p) or p < 0 for p in self.priors)
+                or not math.isclose(sum(self.priors), 1.0, abs_tol=1e-5)):
+            raise ValueError('Invalid public action distribution')
+
+
+@dataclass
+class Node:
+    evaluation: Evaluation
+    objective_k: int = 1
+    visits: list = field(init=False)
+    totals: list = field(init=False)
+    samples: list = field(init=False)
+
+    def __post_init__(self):
+        self.visits = [0] * len(self.evaluation.actions)
+        self.totals = [0.] * len(self.visits)
+        self.samples = [[] for _ in self.visits]
+
+    def utility(self, index):
+        if self.objective_k == 1:
+            return self.totals[index]/self.visits[index] if self.visits[index] else self.evaluation.value
+        if self.samples[index]:
+            return mixture_best_of(self.samples[index],self.objective_k)
+        atoms = self.evaluation.return_atoms
+        return mixture_best_of([atoms],self.objective_k) if atoms else self.evaluation.value
+
+    def select(self, rng, c_puct):
+        # Visit legal options before letting a low prior exclude a key action.
+        unseen = [i for i, n in enumerate(self.visits) if not n]
+        if unseen:
+            best_prior = max(self.evaluation.priors[i] for i in unseen)
+            return rng.choice([i for i in unseen if self.evaluation.priors[i] == best_prior])
+        q = [self.utility(i) for i in range(len(self.visits))]
+        # Values already have an exogenous score scale. Stabilize PUCT's units
+        # without clipping or changing the backed-up mean-return objective.
+        spread = max(1.0, max(q)-min(q))
+        scores = [q[i]/spread + c_puct*self.evaluation.priors[i]
+                  * math.sqrt(sum(self.visits)+1)/(1+n)
+                  for i, n in enumerate(self.visits)]
+        best = max(scores)
+        return rng.choice([i for i, v in enumerate(scores) if v == best])
+
+
+def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
+           rollout_steps=64, c_puct=1.5, search_seed=9171,
+           root_selection='gumbel_halving', objective_k=1,
+           soft_floor=.25, soft_temperature=.8, soft_min_visits=2, learning_target=None):
+    """sample_world() returns a fresh compatible hypothetical world.
+
+    A world exposes only observe() and step(public_command) to this algorithm.
+    evaluate(view) returns Evaluation; terminal_return is the full normalized
+    terminal score. Intermediate cumulative scores are not added again.
+    max_depth counts policy decisions, including pending choice substeps.
+    """
+    if (type(simulations) is not int or simulations < 1 or type(max_depth) is not int
+            or max_depth < 1 or type(rollout_steps) is not int or rollout_steps < 0
+            or not math.isfinite(c_puct) or c_puct <= 0):
+        raise ValueError('Invalid search budget')
+    if root_selection not in ('puct', 'gumbel_halving', 'soft_budget'):
+        raise ValueError('Unknown root selection')
+    if not 0 < soft_floor < 1 or soft_temperature <= 0 or soft_min_visits != 2:
+        raise ValueError('Invalid soft allocation settings')
+    if type(objective_k) is not int or objective_k not in (1,4):
+        raise ValueError('Supported search objectives are mean or empirical Best-of-4')
+    rng = random.Random(search_seed)
+    counters = {'worlds': 0, 'policy_evaluations': 0, 'world_steps': 0,
+                'terminal_evaluations': 0, 'bootstrap_evaluations': 0}
+    root_signature = key(root_view)
+    cache = {}
+
+    def assess(view):
+        signature = key(view)
+        if signature not in cache:
+            value = evaluate(copy.deepcopy(view))
+            value.validate()
+            cache[signature] = value
+            counters['policy_evaluations'] += 1
+        return cache[signature]
+
+    first = assess(root_view)
+    if first.terminal_return is not None:
+        raise ValueError('Search root is already terminal')
+    tree = {root_signature: Node(first,objective_k)}
+    root = tree[root_signature]
+    prior_logits = [math.log(max(p, 1e-12)) for p in first.priors]
+    gumbels = [-math.log(-math.log(max(1e-12, rng.random()))) for _ in first.actions]
+    contenders = sorted(range(len(first.actions)),
+                        key=lambda i: gumbels[i]+prior_logits[i], reverse=True)
+    rounds_left = max(1, math.ceil(math.log2(len(contenders))))
+    root_schedule = deque()
+    round_started = False
+    debt = [0.] * len(first.actions)
+
+    def soft_probabilities():
+        q = [root.utility(i) for i in range(len(root.visits))]
+        spread = max(1., max(q)-min(q))
+        # Once all actions have evidence, a tiny old policy prior must not
+        # outweigh that evidence and starve a newly discovered combination.
+        logits = [(v-max(q))/spread/soft_temperature for v in q]
+        weights = [math.exp(v-max(logits)) for v in logits]
+        return [soft_floor/len(weights)+(1-soft_floor)*v/sum(weights) for v in weights]
+
+    def transformed_q():
+        # Gumbel-style root improvement, using sampled mean returns. The
+        # exact-value improvement theorem is not claimed for this POMDP adapter.
+        q = [root.utility(i) for i in range(len(root.visits))]
+        low, high = min([first.value]+q), max([first.value]+q)
+        scale = .1 * (50 + max(root.visits))
+        return [scale*(v-low)/max(high-low, 1e-8) for v in q]
+
+    def root_ranking(i):
+        return gumbels[i] + prior_logits[i] + transformed_q()[i]
+
+    def leaf(world, view):
+        for step in range(rollout_steps + 1):
+            current = assess(view)
+            if current.terminal_return is not None:
+                counters['terminal_evaluations'] += 1
+                return current.terminal_return
+            if step == rollout_steps:
+                counters['bootstrap_evaluations'] += 1
+                return tuple(current.return_atoms) if current.return_atoms else current.value
+            # Greedy public-policy rollout. Deeper tree decisions progressively
+            # replace this weak continuation; it is not a handcrafted teacher.
+            action = current.actions[max(range(len(current.actions)),
+                                         key=lambda i: current.priors[i])]
+            view = world.step(copy.deepcopy(action))
+            counters['world_steps'] += 1
+
+    for simulation in range(simulations):
+        forced_root = None
+        if root_selection == 'soft_budget':
+            if min(root.visits) < soft_min_visits:
+                minimum = min(root.visits)
+                forced_root = next(i for i in contenders if root.visits[i]==minimum)
+            else:
+                probabilities = soft_probabilities()
+                for i,p in enumerate(probabilities): debt[i] += p
+                forced_root = max(range(len(debt)),key=lambda i:debt[i])
+                debt[forced_root] -= 1.
+        elif root_selection == 'gumbel_halving':
+            if not root_schedule:
+                if round_started:
+                    contenders = sorted(contenders, key=root_ranking, reverse=True)[:
+                        max(1, math.ceil(len(contenders)/2))]
+                    rounds_left = max(1, rounds_left-1)
+                remaining = simulations-simulation
+                per_action = max(1, remaining//rounds_left//len(contenders))
+                root_schedule.extend((contenders*per_action)[:remaining])
+                round_started = True
+            forced_root = root_schedule.popleft()
+        world = sample_world()
+        counters['worlds'] += 1
+        view = world.observe()
+        if key(view) != root_signature:
+            raise ValueError('Sampled world contradicts the public root')
+        history = root_signature
+        path = []
+        value = None
+        for depth in range(max_depth):
+            node = tree[history]
+            action_index = forced_root if depth == 0 and forced_root is not None else node.select(rng, c_puct)
+            action = node.evaluation.actions[action_index]
+            path.append((node, action_index))
+            view = world.step(copy.deepcopy(action))
+            counters['world_steps'] += 1
+            # No true-world ID in a node key. Identical public histories share
+            # decisions even when their hypothetical hidden decks differ.
+            history = key([history, action, view])
+            current = assess(view)
+            if current.terminal_return is not None:
+                value = current.terminal_return
+                counters['terminal_evaluations'] += 1
+                break
+            if history not in tree:
+                tree[history] = Node(current,objective_k)
+                value = leaf(world, view)
+                break
+            if depth + 1 == max_depth:
+                value = leaf(world, view)
+        if value is None or not math.isfinite(sample_mean(value)):
+            raise ValueError('Incomplete simulation is not a zero-score sample')
+        for node, index in path:
+            node.visits[index] += 1
+            node.totals[index] += sample_mean(value)
+            node.samples[index].append(value)
+        # Resident Arena branches must be released before the next simulation.
+        # On exceptions their owning adapter retains cleanup responsibility.
+        release = getattr(world, 'release', None)
+        if release is not None:
+            release()
+
+    total = sum(root.visits)
+    learning = None
+    behavior = None
+    if root_selection == 'soft_budget':
+        policy = soft_probabilities()
+        selected = rng.choices(range(len(policy)),weights=policy,k=1)[0]
+        behavior = policy[:]
+        if learning_target is not None:
+            from .search_learning import improve, entropy
+            policy, learning = improve(first.priors,root.samples,objective_k,learning_target)
+            learning['behavior_entropy'] = entropy(behavior)
+    elif root_selection == 'gumbel_halving':
+        improved_logits = [p+q for p, q in zip(prior_logits, transformed_q())]
+        weights = [math.exp(v-max(improved_logits)) for v in improved_logits]
+        policy = [v/sum(weights) for v in weights]
+        visited_contenders = [i for i in contenders if root.visits[i]]
+        selected = max(visited_contenders, key=root_ranking)
+    else:
+        policy = [n/total for n in root.visits]
+        selected = max(range(len(policy)), key=lambda i: (policy[i],
+                        root.utility(i)))
+    return {'schema': 'arena-public-history-mcts/0', 'root_selection': root_selection,
+            'selected_action': copy.deepcopy(first.actions[selected]),
+            'actions': copy.deepcopy(first.actions), 'target_policy': policy,
+            'behavior_policy':behavior, 'learning_target':learning,
+            'root_visits': root.visits,
+            'root_value_mean': first.value,
+            'root_value_best4': mixture_best_of([first.return_atoms],4) if first.return_atoms else None,
+            'value_semantics': '32-quantile behavioral distribution; Best4 once' if first.return_atoms else 'legacy scalar',
+            'root_mean_returns': [v/n if n else None for v, n in zip(root.totals, root.visits)],
+            'root_objective_returns':[root.utility(i) if n else None for i,n in enumerate(root.visits)],
+            'objective_k':objective_k,
+            'objective':'mean' if objective_k==1 else 'empirical_best_of_4',
+            'objective_scope':'Best-of-4 applied once to equally weighted simulation distributions. Learned atoms remain behavioral estimates, not optimal-value bounds.',
+            'soft_allocation': {'floor':soft_floor,'temperature':soft_temperature,
+                'minimum_visits':soft_min_visits,'permanently_eliminated_actions':0} if root_selection=='soft_budget' else None,
+            'root_action_coverage': sum(n > 0 for n in root.visits)/len(root.visits),
+            'tree_decision_nodes': len(tree), 'cost': counters,
+            'teacher_qualified': False,
+            'target_budget_eligible': all(n > 0 for n in root.visits) and total >= 2*len(root.visits),
+            'limitation': 'Finite-budget conditional-world search; rollout/value blind spots remain.'}

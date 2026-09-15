@@ -1,0 +1,307 @@
+{
+  "schema": "gakumas-colab-local-acceptance/1",
+  "passed": true,
+  "actual_colab_tested": false,
+  "platform": "win32",
+  "bundle_sha256": "0f683e625636e854e2aa7daa1cd983dd6354082249ce5da7ce8fad1c46dcce08",
+  "manifest_sha256": "7fe85c80cf8fe99a4cd86cb4634b8700c2189f211ed0a06d586dcf9d9c75a122",
+  "relocated_root": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\training\\artifacts\\colab\\hif-training-muhx3bu0",
+  "run_root": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\training\\artifacts\\colab\\acceptance-hif-training-muhx3bu0",
+  "steps": [
+    {
+      "name": "gpu-session-1",
+      "exit_code": 0,
+      "seconds": 638.0940000000119,
+      "log": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\training\\artifacts\\colab\\acceptance-hif-training-muhx3bu0\\gpu-session-1.log"
+    },
+    {
+      "name": "gpu-session-2",
+      "exit_code": 0,
+      "seconds": 431.06200000000536,
+      "log": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\training\\artifacts\\colab\\acceptance-hif-training-muhx3bu0\\gpu-session-2.log"
+    },
+    {
+      "name": "held-out-evaluation",
+      "exit_code": 0,
+      "seconds": 362.6719999999914,
+      "log": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\training\\artifacts\\colab\\acceptance-hif-training-muhx3bu0\\held-out-evaluation.log"
+    }
+  ],
+  "final_state": {
+    "active_wall_seconds": 1052.0469999999914,
+    "decisions": 1091,
+    "episodes_seen": 20,
+    "hardware": {
+      "bitwise_replay_claimed": false,
+      "cuda_device_count": 1,
+      "cuda_runtime": "12.8",
+      "gpus": [
+        "NVIDIA GeForce RTX 5080"
+      ],
+      "python": "3.12.7",
+      "resume_note": "Optimizer/RNG/seed continuation; changing GPU model or runtime may change floating-point results.",
+      "torch": "2.9.1+cu128"
+    },
+    "identity_sha256": "981dac9aef8e5c463fd51c24b6b239961960c8d23d526afb80eb1158b99f72a6",
+    "iteration": 2,
+    "last_error": null,
+    "lost_work_boundary": "an interrupted in-progress batch is repeated from the last complete checkpoint",
+    "policy_version": 2,
+    "schema": "gakumas-colab-session-state/1",
+    "seed_cursor": 92000020,
+    "session_limit_seconds": 28800.0,
+    "session_wall_seconds": 424.14100000000326,
+    "status": "max_updates_reached",
+    "total_target_seconds": 86400.0,
+    "updated_at": "2026-09-10T16:51:52.786130+00:00"
+  },
+  "evaluation": {
+    "task": "full_produce",
+    "iteration": 2,
+    "policy_version": 2,
+    "namespace": "evaluation",
+    "seconds": 353.67139649999444,
+    "episodes": 10,
+    "raw_score_mean": 1320.7,
+    "raw_score_min": 950.0,
+    "raw_score_max": 1813.0,
+    "raw_score_std": 249.2549119096976,
+    "terminations": {
+      "failed": 10
+    },
+    "decisions": 745,
+    "setup_modes": {
+      "given": {
+        "episodes": 5,
+        "raw_score_mean": 1158.4,
+        "terminations": {
+          "failed": 5
+        },
+        "decisions": 294
+      },
+      "select": {
+        "episodes": 5,
+        "raw_score_mean": 1483.0,
+        "terminations": {
+          "failed": 5
+        },
+        "decisions": 451
+      }
+    },
+    "loadout_profiles": {
+      "hiro-hif": {
+        "episodes": 2,
+        "raw_score_mean": 1310.0,
+        "terminations": {
+          "failed": 2
+        },
+        "decisions": 155,
+        "setup_modes": {
+          "given": {
+            "episodes": 1,
+            "raw_score_mean": 1114.0,
+            "terminations": {
+              "failed": 1
+            },
+            "decisions": 62
+          },
+          "select": {
+            "episodes": 1,
+            "raw_score_mean": 1506.0,
+            "terminations": {
+              "failed": 1
+            },
+            "decisions": 93
+          }
+        }
+      },
+      "liliya-xmas": {
+        "episodes": 2,
+        "raw_score_mean": 1485.0,
+        "terminations": {
+          "failed": 2
+        },
+        "decisions": 148,
+        "setup_modes": {
+          "given": {
+            "episodes": 1,
+            "raw_score_mean": 1157.0,
+            "terminations": {
+              "failed": 1
+            },
+            "decisions": 58
+          },
+          "select": {
+            "episodes": 1,
+            "raw_score_mean": 1813.0,
+            "terminations": {
+              "failed": 1
+            },
+            "decisions": 90
+          }
+        }
+      },
+      "saki-hif": {
+        "episodes": 2,
+        "raw_score_mean": 1097.5,
+        "terminations": {
+          "failed": 2
+        },
+        "decisions": 147,
+        "setup_modes": {
+          "given": {
+            "episodes": 1,
+            "raw_score_mean": 950.0,
+            "terminations": {
+              "failed": 1
+            },
+            "decisions": 58
+          },
+          "select": {
+            "episodes": 1,
+            "raw_score_mean": 1245.0,
+            "terminations": {
+              "failed": 1
+            },
+            "decisions": 89
+          }
+        }
+      },
+      "saki-wild": {
+        "episodes": 2,
+        "raw_score_mean": 1433.0,
+        "terminations": {
+          "failed": 2
+        },
+        "decisions": 148,
+        "setup_modes": {
+          "given": {
+            "episodes": 1,
+            "raw_score_mean": 1436.0,
+            "terminations": {
+              "failed": 1
+            },
+            "decisions": 58
+          },
+          "select": {
+            "episodes": 1,
+            "raw_score_mean": 1430.0,
+            "terminations": {
+              "failed": 1
+            },
+            "decisions": 90
+          }
+        }
+      },
+      "ume-campus": {
+        "episodes": 2,
+        "raw_score_mean": 1278.0,
+        "terminations": {
+          "failed": 2
+        },
+        "decisions": 147,
+        "setup_modes": {
+          "given": {
+            "episodes": 1,
+            "raw_score_mean": 1135.0,
+            "terminations": {
+              "failed": 1
+            },
+            "decisions": 58
+          },
+          "select": {
+            "episodes": 1,
+            "raw_score_mean": 1421.0,
+            "terminations": {
+              "failed": 1
+            },
+            "decisions": 89
+          }
+        }
+      }
+    },
+    "setup_selection_counts": {
+      "setup_support": {
+        "setup:support:s_card-3-0015": 5,
+        "setup:support:s_card-3-0006": 5,
+        "setup:support:s_card-3-0039": 5,
+        "setup:support:s_card-3-0033": 5,
+        "setup:support:s_card-3-0105": 2,
+        "setup:support:s_card-3-0023": 3,
+        "setup:support:s_card-3-0091": 2,
+        "setup:support:s_card-3-0081": 2,
+        "setup:support:s_card-3-0031": 1
+      },
+      "setup_memory_card": {
+        "setup:memory:research:card:ac0ab9256ea6a056e53ac005": 8,
+        "setup:memory:research:card:3454d4f09cbc933e5f905961": 8,
+        "setup:memory:research:card:84c33cee29a8136f245015f9": 4
+      },
+      "setup_memory_card_variant": {
+        "setup:memory:research:card:94c328f3cff313186c72e13d": 8,
+        "setup:memory:research:card:ee210e616aa31cc02f3ed31c": 8,
+        "setup:memory:research:card:02ce869fe2929464e85a0596": 4
+      },
+      "setup_memory_hif": {
+        "setup:memory:research:hif:f1200231c87dd666a45da33a": 20
+      },
+      "setup_memory_factor": {
+        "setup:memory:research:gold:af75dcf0146bb9a22621c6cc": 20,
+        "setup:memory:research:gold:6ac9a8752bf7d6540c247232": 20,
+        "setup:memory:research:gold:462fafe38eb7a1d5bcb9f290": 20
+      }
+    },
+    "equipped_inventory_counts": {
+      "given": {
+        "episodes": 5,
+        "support_ids": {
+          "s_card-2-0007": 5,
+          "s_card-3-0009": 2,
+          "s_card-3-0024": 2,
+          "s_card-3-0069": 5,
+          "s_card-3-0026": 2,
+          "s_card-3-0035": 2,
+          "s_card-3-0032": 2,
+          "s_card-3-0021": 2,
+          "s_card-3-0043": 2,
+          "s_card-3-0047": 2,
+          "s_card-3-0030": 1,
+          "s_card-3-0064": 1,
+          "s_card-3-0070": 1,
+          "s_card-3-0077": 1
+        },
+        "memory_ids": {}
+      },
+      "select": {
+        "episodes": 5,
+        "support_ids": {
+          "s_card-3-0015": 5,
+          "s_card-3-0006": 5,
+          "s_card-3-0039": 5,
+          "s_card-3-0033": 5,
+          "s_card-3-0105": 2,
+          "s_card-3-0023": 3,
+          "s_card-3-0091": 2,
+          "s_card-3-0081": 2,
+          "s_card-3-0031": 1
+        },
+        "memory_ids": {
+          "research-composed:0:f62ed85643f495e9": 2,
+          "research-composed:1:f62ed85643f495e9": 2,
+          "research-composed:2:f62ed85643f495e9": 2,
+          "research-composed:3:f62ed85643f495e9": 2,
+          "research-composed:0:e5c2079008b68341": 2,
+          "research-composed:1:e5c2079008b68341": 2,
+          "research-composed:2:e5c2079008b68341": 2,
+          "research-composed:3:e5c2079008b68341": 2,
+          "research-composed:0:b710063653cce9f8": 1,
+          "research-composed:1:b710063653cce9f8": 1,
+          "research-composed:2:b710063653cce9f8": 1,
+          "research-composed:3:b710063653cce9f8": 1
+        }
+      }
+    }
+  },
+  "restored_into_fresh_local_directory": true,
+  "checkpoint_sha256": "e0a33ea29da08bf5ca87c5c8db289dce9627c0bb38d41773eead25bf8967740d"
+}

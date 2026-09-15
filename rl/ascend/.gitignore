@@ -1,0 +1,9 @@
+artifacts/
+runs/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.pt
+!checkpoints/latest.pt
+!dashboard/assets.zip

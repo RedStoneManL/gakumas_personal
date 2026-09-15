@@ -1,0 +1,2191 @@
+{
+  "scope": "Identity resolution for support-origin cards and exam items; not a claim of full behavioral coverage for every effect.",
+  "arena_version": {
+    "hash_schema": "arena-effective-rules-and-master/2",
+    "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+    "public_schema": "arena-public-exam/1",
+    "produce_master_sha256": "68b900c406de5e0e9c5e24cd7e060a976b95b68701369b3000fc247e6800e4ca"
+  },
+  "support_count": 201,
+  "cards": [
+    {
+      "master_id": "p_card-00-sup-2_025",
+      "support_id": "s_card-2-0000",
+      "master_name": "お姉ちゃんだもの！",
+      "upgrade_count": 0,
+      "native_id": 236,
+      "native_name": "お姉ちゃんだもの！"
+    },
+    {
+      "master_id": "p_card-00-sup-2_025",
+      "support_id": "s_card-2-0000",
+      "master_name": "お姉ちゃんだもの！+",
+      "upgrade_count": 1,
+      "native_id": 237,
+      "native_name": "お姉ちゃんだもの！+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_025",
+      "support_id": "s_card-2-0000",
+      "master_name": "お姉ちゃんだもの！++",
+      "upgrade_count": 2,
+      "native_id": 237,
+      "native_name": "お姉ちゃんだもの！+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_025",
+      "support_id": "s_card-2-0000",
+      "master_name": "お姉ちゃんだもの！+++",
+      "upgrade_count": 3,
+      "native_id": 237,
+      "native_name": "お姉ちゃんだもの！+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_026",
+      "support_id": "s_card-2-0002",
+      "master_name": "おアツイ視線",
+      "upgrade_count": 0,
+      "native_id": 238,
+      "native_name": "おアツイ視線"
+    },
+    {
+      "master_id": "p_card-00-sup-2_026",
+      "support_id": "s_card-2-0002",
+      "master_name": "おアツイ視線+",
+      "upgrade_count": 1,
+      "native_id": 239,
+      "native_name": "おアツイ視線+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_026",
+      "support_id": "s_card-2-0002",
+      "master_name": "おアツイ視線++",
+      "upgrade_count": 2,
+      "native_id": 239,
+      "native_name": "おアツイ視線+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_026",
+      "support_id": "s_card-2-0002",
+      "master_name": "おアツイ視線+++",
+      "upgrade_count": 3,
+      "native_id": 239,
+      "native_name": "おアツイ視線+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_027",
+      "support_id": "s_card-2-0004",
+      "master_name": "ご指導ご鞭撻",
+      "upgrade_count": 0,
+      "native_id": 240,
+      "native_name": "ご指導ご鞭撻"
+    },
+    {
+      "master_id": "p_card-00-sup-2_027",
+      "support_id": "s_card-2-0004",
+      "master_name": "ご指導ご鞭撻+",
+      "upgrade_count": 1,
+      "native_id": 241,
+      "native_name": "ご指導ご鞭撻+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_027",
+      "support_id": "s_card-2-0004",
+      "master_name": "ご指導ご鞭撻++",
+      "upgrade_count": 2,
+      "native_id": 241,
+      "native_name": "ご指導ご鞭撻+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_027",
+      "support_id": "s_card-2-0004",
+      "master_name": "ご指導ご鞭撻+++",
+      "upgrade_count": 3,
+      "native_id": 241,
+      "native_name": "ご指導ご鞭撻+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_028",
+      "support_id": "s_card-2-0006",
+      "master_name": "ストレッチ談議",
+      "upgrade_count": 0,
+      "native_id": 242,
+      "native_name": "ストレッチ談義"
+    },
+    {
+      "master_id": "p_card-00-sup-2_028",
+      "support_id": "s_card-2-0006",
+      "master_name": "ストレッチ談議+",
+      "upgrade_count": 1,
+      "native_id": 243,
+      "native_name": "ストレッチ談義+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_028",
+      "support_id": "s_card-2-0006",
+      "master_name": "ストレッチ談議++",
+      "upgrade_count": 2,
+      "native_id": 243,
+      "native_name": "ストレッチ談義+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_028",
+      "support_id": "s_card-2-0006",
+      "master_name": "ストレッチ談議+++",
+      "upgrade_count": 3,
+      "native_id": 243,
+      "native_name": "ストレッチ談義+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_029",
+      "support_id": "s_card-2-0014",
+      "master_name": "全力サポート",
+      "upgrade_count": 0,
+      "native_id": 244,
+      "native_name": "全力サポート"
+    },
+    {
+      "master_id": "p_card-00-sup-2_029",
+      "support_id": "s_card-2-0014",
+      "master_name": "全力サポート+",
+      "upgrade_count": 1,
+      "native_id": 245,
+      "native_name": "全力サポート+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_029",
+      "support_id": "s_card-2-0014",
+      "master_name": "全力サポート++",
+      "upgrade_count": 2,
+      "native_id": 245,
+      "native_name": "全力サポート+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_029",
+      "support_id": "s_card-2-0014",
+      "master_name": "全力サポート+++",
+      "upgrade_count": 3,
+      "native_id": 245,
+      "native_name": "全力サポート+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_092",
+      "support_id": "s_card-2-0032",
+      "master_name": "旬の味わい",
+      "upgrade_count": 0,
+      "native_id": 456,
+      "native_name": "旬の味わい"
+    },
+    {
+      "master_id": "p_card-00-sup-2_092",
+      "support_id": "s_card-2-0032",
+      "master_name": "旬の味わい+",
+      "upgrade_count": 1,
+      "native_id": 457,
+      "native_name": "旬の味わい+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_092",
+      "support_id": "s_card-2-0032",
+      "master_name": "旬の味わい++",
+      "upgrade_count": 2,
+      "native_id": 457,
+      "native_name": "旬の味わい+"
+    },
+    {
+      "master_id": "p_card-00-sup-2_092",
+      "support_id": "s_card-2-0032",
+      "master_name": "旬の味わい+++",
+      "upgrade_count": 3,
+      "native_id": 457,
+      "native_name": "旬の味わい+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_024",
+      "support_id": "s_card-3-0005",
+      "master_name": "花萌ゆ季節",
+      "upgrade_count": 0,
+      "native_id": 246,
+      "native_name": "花萌ゆ季節"
+    },
+    {
+      "master_id": "p_card-00-sup-3_024",
+      "support_id": "s_card-3-0005",
+      "master_name": "花萌ゆ季節+",
+      "upgrade_count": 1,
+      "native_id": 247,
+      "native_name": "花萌ゆ季節+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_024",
+      "support_id": "s_card-3-0005",
+      "master_name": "花萌ゆ季節++",
+      "upgrade_count": 2,
+      "native_id": 247,
+      "native_name": "花萌ゆ季節+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_024",
+      "support_id": "s_card-3-0005",
+      "master_name": "花萌ゆ季節+++",
+      "upgrade_count": 3,
+      "native_id": 247,
+      "native_name": "花萌ゆ季節+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_025",
+      "support_id": "s_card-3-0006",
+      "master_name": "陽だまりの生徒会室",
+      "upgrade_count": 0,
+      "native_id": 248,
+      "native_name": "陽だまりの生徒会室"
+    },
+    {
+      "master_id": "p_card-00-sup-3_025",
+      "support_id": "s_card-3-0006",
+      "master_name": "陽だまりの生徒会室+",
+      "upgrade_count": 1,
+      "native_id": 249,
+      "native_name": "陽だまりの生徒会室+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_025",
+      "support_id": "s_card-3-0006",
+      "master_name": "陽だまりの生徒会室++",
+      "upgrade_count": 2,
+      "native_id": 249,
+      "native_name": "陽だまりの生徒会室+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_025",
+      "support_id": "s_card-3-0006",
+      "master_name": "陽だまりの生徒会室+++",
+      "upgrade_count": 3,
+      "native_id": 249,
+      "native_name": "陽だまりの生徒会室+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_026",
+      "support_id": "s_card-3-0008",
+      "master_name": "心のアルバム",
+      "upgrade_count": 0,
+      "native_id": 250,
+      "native_name": "心のアルバム"
+    },
+    {
+      "master_id": "p_card-00-sup-3_026",
+      "support_id": "s_card-3-0008",
+      "master_name": "心のアルバム+",
+      "upgrade_count": 1,
+      "native_id": 251,
+      "native_name": "心のアルバム+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_026",
+      "support_id": "s_card-3-0008",
+      "master_name": "心のアルバム++",
+      "upgrade_count": 2,
+      "native_id": 251,
+      "native_name": "心のアルバム+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_026",
+      "support_id": "s_card-3-0008",
+      "master_name": "心のアルバム+++",
+      "upgrade_count": 3,
+      "native_id": 251,
+      "native_name": "心のアルバム+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_027",
+      "support_id": "s_card-3-0010",
+      "master_name": "ティーパーティ",
+      "upgrade_count": 0,
+      "native_id": 252,
+      "native_name": "ティーパーティ"
+    },
+    {
+      "master_id": "p_card-00-sup-3_027",
+      "support_id": "s_card-3-0010",
+      "master_name": "ティーパーティ+",
+      "upgrade_count": 1,
+      "native_id": 253,
+      "native_name": "ティーパーティ+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_027",
+      "support_id": "s_card-3-0010",
+      "master_name": "ティーパーティ++",
+      "upgrade_count": 2,
+      "native_id": 253,
+      "native_name": "ティーパーティ+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_027",
+      "support_id": "s_card-3-0010",
+      "master_name": "ティーパーティ+++",
+      "upgrade_count": 3,
+      "native_id": 253,
+      "native_name": "ティーパーティ+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_037",
+      "support_id": "s_card-3-0018",
+      "master_name": "薄れゆく壁",
+      "upgrade_count": 0,
+      "native_id": 262,
+      "native_name": "薄れゆく壁"
+    },
+    {
+      "master_id": "p_card-00-sup-3_037",
+      "support_id": "s_card-3-0018",
+      "master_name": "薄れゆく壁+",
+      "upgrade_count": 1,
+      "native_id": 263,
+      "native_name": "薄れゆく壁+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_037",
+      "support_id": "s_card-3-0018",
+      "master_name": "薄れゆく壁++",
+      "upgrade_count": 2,
+      "native_id": 263,
+      "native_name": "薄れゆく壁+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_037",
+      "support_id": "s_card-3-0018",
+      "master_name": "薄れゆく壁+++",
+      "upgrade_count": 3,
+      "native_id": 263,
+      "native_name": "薄れゆく壁+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_046",
+      "support_id": "s_card-3-0014",
+      "master_name": "光のステージ",
+      "upgrade_count": 0,
+      "native_id": 254,
+      "native_name": "光のステージ"
+    },
+    {
+      "master_id": "p_card-00-sup-3_046",
+      "support_id": "s_card-3-0014",
+      "master_name": "光のステージ+",
+      "upgrade_count": 1,
+      "native_id": 255,
+      "native_name": "光のステージ+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_046",
+      "support_id": "s_card-3-0014",
+      "master_name": "光のステージ++",
+      "upgrade_count": 2,
+      "native_id": 255,
+      "native_name": "光のステージ+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_046",
+      "support_id": "s_card-3-0014",
+      "master_name": "光のステージ+++",
+      "upgrade_count": 3,
+      "native_id": 255,
+      "native_name": "光のステージ+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_048",
+      "support_id": "s_card-3-0015",
+      "master_name": "新生徒会爆誕！",
+      "upgrade_count": 0,
+      "native_id": 260,
+      "native_name": "新生徒会爆誕！"
+    },
+    {
+      "master_id": "p_card-00-sup-3_048",
+      "support_id": "s_card-3-0015",
+      "master_name": "新生徒会爆誕！+",
+      "upgrade_count": 1,
+      "native_id": 261,
+      "native_name": "新生徒会爆誕！+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_048",
+      "support_id": "s_card-3-0015",
+      "master_name": "新生徒会爆誕！++",
+      "upgrade_count": 2,
+      "native_id": 261,
+      "native_name": "新生徒会爆誕！+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_048",
+      "support_id": "s_card-3-0015",
+      "master_name": "新生徒会爆誕！+++",
+      "upgrade_count": 3,
+      "native_id": 261,
+      "native_name": "新生徒会爆誕！+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_088",
+      "support_id": "s_card-3-0023",
+      "master_name": "みずたまりスキップ",
+      "upgrade_count": 0,
+      "native_id": 276,
+      "native_name": "みずたまりスキップ"
+    },
+    {
+      "master_id": "p_card-00-sup-3_088",
+      "support_id": "s_card-3-0023",
+      "master_name": "みずたまりスキップ+",
+      "upgrade_count": 1,
+      "native_id": 277,
+      "native_name": "みずたまりスキップ+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_088",
+      "support_id": "s_card-3-0023",
+      "master_name": "みずたまりスキップ++",
+      "upgrade_count": 2,
+      "native_id": 277,
+      "native_name": "みずたまりスキップ+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_088",
+      "support_id": "s_card-3-0023",
+      "master_name": "みずたまりスキップ+++",
+      "upgrade_count": 3,
+      "native_id": 277,
+      "native_name": "みずたまりスキップ+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_093",
+      "support_id": "s_card-3-0039",
+      "master_name": "紅葉ランニング",
+      "upgrade_count": 0,
+      "native_id": 452,
+      "native_name": "紅葉ランニング"
+    },
+    {
+      "master_id": "p_card-00-sup-3_093",
+      "support_id": "s_card-3-0039",
+      "master_name": "紅葉ランニング+",
+      "upgrade_count": 1,
+      "native_id": 453,
+      "native_name": "紅葉ランニング+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_093",
+      "support_id": "s_card-3-0039",
+      "master_name": "紅葉ランニング++",
+      "upgrade_count": 2,
+      "native_id": 453,
+      "native_name": "紅葉ランニング+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_093",
+      "support_id": "s_card-3-0039",
+      "master_name": "紅葉ランニング+++",
+      "upgrade_count": 3,
+      "native_id": 453,
+      "native_name": "紅葉ランニング+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_125",
+      "support_id": "s_card-3-0053",
+      "master_name": "勝負はこれから！",
+      "upgrade_count": 0,
+      "native_id": 530,
+      "native_name": "勝負はこれから！"
+    },
+    {
+      "master_id": "p_card-00-sup-3_125",
+      "support_id": "s_card-3-0053",
+      "master_name": "勝負はこれから！+",
+      "upgrade_count": 1,
+      "native_id": 531,
+      "native_name": "勝負はこれから！+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_125",
+      "support_id": "s_card-3-0053",
+      "master_name": "勝負はこれから！++",
+      "upgrade_count": 2,
+      "native_id": 531,
+      "native_name": "勝負はこれから！+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_125",
+      "support_id": "s_card-3-0053",
+      "master_name": "勝負はこれから！+++",
+      "upgrade_count": 3,
+      "native_id": 531,
+      "native_name": "勝負はこれから！+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_152",
+      "support_id": "s_card-3-0069",
+      "master_name": "夏夜に咲く思い出",
+      "upgrade_count": 0,
+      "native_id": 584,
+      "native_name": "夏夜に咲く思い出"
+    },
+    {
+      "master_id": "p_card-00-sup-3_152",
+      "support_id": "s_card-3-0069",
+      "master_name": "夏夜に咲く思い出+",
+      "upgrade_count": 1,
+      "native_id": 585,
+      "native_name": "夏夜に咲く思い出+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_152",
+      "support_id": "s_card-3-0069",
+      "master_name": "夏夜に咲く思い出++",
+      "upgrade_count": 2,
+      "native_id": 585,
+      "native_name": "夏夜に咲く思い出+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_152",
+      "support_id": "s_card-3-0069",
+      "master_name": "夏夜に咲く思い出+++",
+      "upgrade_count": 3,
+      "native_id": 585,
+      "native_name": "夏夜に咲く思い出+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_155",
+      "support_id": "s_card-3-0033",
+      "master_name": "月明かりに包まれて",
+      "upgrade_count": 0,
+      "native_id": 586,
+      "native_name": "月明りに包まれて"
+    },
+    {
+      "master_id": "p_card-00-sup-3_155",
+      "support_id": "s_card-3-0033",
+      "master_name": "月明かりに包まれて+",
+      "upgrade_count": 1,
+      "native_id": 587,
+      "native_name": "月明りに包まれて+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_155",
+      "support_id": "s_card-3-0033",
+      "master_name": "月明かりに包まれて++",
+      "upgrade_count": 2,
+      "native_id": 587,
+      "native_name": "月明りに包まれて+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_155",
+      "support_id": "s_card-3-0033",
+      "master_name": "月明かりに包まれて+++",
+      "upgrade_count": 3,
+      "native_id": 587,
+      "native_name": "月明りに包まれて+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_158",
+      "support_id": "s_card-3-0098",
+      "master_name": "勝利をつかめ！",
+      "upgrade_count": 0,
+      "native_id": 608,
+      "native_name": "勝利をつかめ！"
+    },
+    {
+      "master_id": "p_card-00-sup-3_158",
+      "support_id": "s_card-3-0098",
+      "master_name": "勝利をつかめ！+",
+      "upgrade_count": 1,
+      "native_id": 609,
+      "native_name": "勝利をつかめ！+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_158",
+      "support_id": "s_card-3-0098",
+      "master_name": "勝利をつかめ！++",
+      "upgrade_count": 2,
+      "native_id": 609,
+      "native_name": "勝利をつかめ！+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_158",
+      "support_id": "s_card-3-0098",
+      "master_name": "勝利をつかめ！+++",
+      "upgrade_count": 3,
+      "native_id": 609,
+      "native_name": "勝利をつかめ！+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_161",
+      "support_id": "s_card-3-0080",
+      "master_name": "執念キャッチャー",
+      "upgrade_count": 0,
+      "native_id": 626,
+      "native_name": "執念キャッチャー"
+    },
+    {
+      "master_id": "p_card-00-sup-3_161",
+      "support_id": "s_card-3-0080",
+      "master_name": "執念キャッチャー+",
+      "upgrade_count": 1,
+      "native_id": 627,
+      "native_name": "執念キャッチャー+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_161",
+      "support_id": "s_card-3-0080",
+      "master_name": "執念キャッチャー++",
+      "upgrade_count": 2,
+      "native_id": 627,
+      "native_name": "執念キャッチャー+"
+    },
+    {
+      "master_id": "p_card-00-sup-3_161",
+      "support_id": "s_card-3-0080",
+      "master_name": "執念キャッチャー+++",
+      "upgrade_count": 3,
+      "native_id": 627,
+      "native_name": "執念キャッチャー+"
+    },
+    {
+      "master_id": "p_card-01-sup-2_087",
+      "support_id": "s_card-2-0019",
+      "master_name": "キメ顔で自撮り",
+      "upgrade_count": 0,
+      "native_id": 274,
+      "native_name": "キメ顔で自撮り"
+    },
+    {
+      "master_id": "p_card-01-sup-2_087",
+      "support_id": "s_card-2-0019",
+      "master_name": "キメ顔で自撮り+",
+      "upgrade_count": 1,
+      "native_id": 275,
+      "native_name": "キメ顔で自撮り+"
+    },
+    {
+      "master_id": "p_card-01-sup-2_087",
+      "support_id": "s_card-2-0019",
+      "master_name": "キメ顔で自撮り++",
+      "upgrade_count": 2,
+      "native_id": 275,
+      "native_name": "キメ顔で自撮り+"
+    },
+    {
+      "master_id": "p_card-01-sup-2_087",
+      "support_id": "s_card-2-0019",
+      "master_name": "キメ顔で自撮り+++",
+      "upgrade_count": 3,
+      "native_id": 275,
+      "native_name": "キメ顔で自撮り+"
+    },
+    {
+      "master_id": "p_card-01-sup-2_088",
+      "support_id": "s_card-2-0023",
+      "master_name": "切れた鼻緒が結んだ絆",
+      "upgrade_count": 0,
+      "native_id": 340,
+      "native_name": "切れた鼻緒が結んだ絆"
+    },
+    {
+      "master_id": "p_card-01-sup-2_088",
+      "support_id": "s_card-2-0023",
+      "master_name": "切れた鼻緒が結んだ絆+",
+      "upgrade_count": 1,
+      "native_id": 341,
+      "native_name": "切れた鼻緒が結んだ絆+"
+    },
+    {
+      "master_id": "p_card-01-sup-2_088",
+      "support_id": "s_card-2-0023",
+      "master_name": "切れた鼻緒が結んだ絆++",
+      "upgrade_count": 2,
+      "native_id": 341,
+      "native_name": "切れた鼻緒が結んだ絆+"
+    },
+    {
+      "master_id": "p_card-01-sup-2_088",
+      "support_id": "s_card-2-0023",
+      "master_name": "切れた鼻緒が結んだ絆+++",
+      "upgrade_count": 3,
+      "native_id": 341,
+      "native_name": "切れた鼻緒が結んだ絆+"
+    },
+    {
+      "master_id": "p_card-01-sup-2_090",
+      "support_id": "s_card-2-0030",
+      "master_name": "気になる……",
+      "upgrade_count": 0,
+      "native_id": 352,
+      "native_name": "気になる……"
+    },
+    {
+      "master_id": "p_card-01-sup-2_090",
+      "support_id": "s_card-2-0030",
+      "master_name": "気になる……+",
+      "upgrade_count": 1,
+      "native_id": 353,
+      "native_name": "気になる……+"
+    },
+    {
+      "master_id": "p_card-01-sup-2_090",
+      "support_id": "s_card-2-0030",
+      "master_name": "気になる……++",
+      "upgrade_count": 2,
+      "native_id": 353,
+      "native_name": "気になる……+"
+    },
+    {
+      "master_id": "p_card-01-sup-2_090",
+      "support_id": "s_card-2-0030",
+      "master_name": "気になる……+++",
+      "upgrade_count": 3,
+      "native_id": 353,
+      "native_name": "気になる……+"
+    },
+    {
+      "master_id": "p_card-01-sup-2_097",
+      "support_id": "s_card-2-0055",
+      "master_name": "のんびりすやすや",
+      "upgrade_count": 0,
+      "native_id": 863,
+      "native_name": "のんびりすやすや"
+    },
+    {
+      "master_id": "p_card-01-sup-2_097",
+      "support_id": "s_card-2-0055",
+      "master_name": "のんびりすやすや+",
+      "upgrade_count": 1,
+      "native_id": 864,
+      "native_name": "のんびりすやすや+"
+    },
+    {
+      "master_id": "p_card-01-sup-2_097",
+      "support_id": "s_card-2-0055",
+      "master_name": "のんびりすやすや++",
+      "upgrade_count": 2,
+      "native_id": 864,
+      "native_name": "のんびりすやすや+"
+    },
+    {
+      "master_id": "p_card-01-sup-2_097",
+      "support_id": "s_card-2-0055",
+      "master_name": "のんびりすやすや+++",
+      "upgrade_count": 3,
+      "native_id": 864,
+      "native_name": "のんびりすやすや+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_047",
+      "support_id": "s_card-3-0002",
+      "master_name": "喧嘩するほど仲がいい",
+      "upgrade_count": 0,
+      "native_id": 256,
+      "native_name": "喧嘩するほど仲がいい"
+    },
+    {
+      "master_id": "p_card-01-sup-3_047",
+      "support_id": "s_card-3-0002",
+      "master_name": "喧嘩するほど仲がいい+",
+      "upgrade_count": 1,
+      "native_id": 257,
+      "native_name": "喧嘩するほど仲がいい+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_047",
+      "support_id": "s_card-3-0002",
+      "master_name": "喧嘩するほど仲がいい++",
+      "upgrade_count": 2,
+      "native_id": 257,
+      "native_name": "喧嘩するほど仲がいい+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_047",
+      "support_id": "s_card-3-0002",
+      "master_name": "喧嘩するほど仲がいい+++",
+      "upgrade_count": 3,
+      "native_id": 257,
+      "native_name": "喧嘩するほど仲がいい+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_090",
+      "support_id": "s_card-3-0028",
+      "master_name": "はじける水しぶき",
+      "upgrade_count": 0,
+      "native_id": 310,
+      "native_name": "はじける水しぶき"
+    },
+    {
+      "master_id": "p_card-01-sup-3_090",
+      "support_id": "s_card-3-0028",
+      "master_name": "はじける水しぶき+",
+      "upgrade_count": 1,
+      "native_id": 311,
+      "native_name": "はじける水しぶき+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_090",
+      "support_id": "s_card-3-0028",
+      "master_name": "はじける水しぶき++",
+      "upgrade_count": 2,
+      "native_id": 311,
+      "native_name": "はじける水しぶき+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_090",
+      "support_id": "s_card-3-0028",
+      "master_name": "はじける水しぶき+++",
+      "upgrade_count": 3,
+      "native_id": 311,
+      "native_name": "はじける水しぶき+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_091",
+      "support_id": "s_card-3-0031",
+      "master_name": "交わる感情",
+      "upgrade_count": 0,
+      "native_id": 318,
+      "native_name": "交わる感情"
+    },
+    {
+      "master_id": "p_card-01-sup-3_091",
+      "support_id": "s_card-3-0031",
+      "master_name": "交わる感情+",
+      "upgrade_count": 1,
+      "native_id": 319,
+      "native_name": "交わる感情+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_091",
+      "support_id": "s_card-3-0031",
+      "master_name": "交わる感情++",
+      "upgrade_count": 2,
+      "native_id": 319,
+      "native_name": "交わる感情+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_091",
+      "support_id": "s_card-3-0031",
+      "master_name": "交わる感情+++",
+      "upgrade_count": 3,
+      "native_id": 319,
+      "native_name": "交わる感情+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_095",
+      "support_id": "s_card-3-0041",
+      "master_name": "光の夜",
+      "upgrade_count": 0,
+      "native_id": 462,
+      "native_name": "光の夜"
+    },
+    {
+      "master_id": "p_card-01-sup-3_095",
+      "support_id": "s_card-3-0041",
+      "master_name": "光の夜+",
+      "upgrade_count": 1,
+      "native_id": 463,
+      "native_name": "光の夜+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_095",
+      "support_id": "s_card-3-0041",
+      "master_name": "光の夜++",
+      "upgrade_count": 2,
+      "native_id": 463,
+      "native_name": "光の夜+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_095",
+      "support_id": "s_card-3-0041",
+      "master_name": "光の夜+++",
+      "upgrade_count": 3,
+      "native_id": 463,
+      "native_name": "光の夜+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_109",
+      "support_id": "s_card-3-0044",
+      "master_name": "練習再開！",
+      "upgrade_count": 0,
+      "native_id": 474,
+      "native_name": "練習再開！"
+    },
+    {
+      "master_id": "p_card-01-sup-3_109",
+      "support_id": "s_card-3-0044",
+      "master_name": "練習再開！+",
+      "upgrade_count": 1,
+      "native_id": 475,
+      "native_name": "練習再開！+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_109",
+      "support_id": "s_card-3-0044",
+      "master_name": "練習再開！++",
+      "upgrade_count": 2,
+      "native_id": 475,
+      "native_name": "練習再開！+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_109",
+      "support_id": "s_card-3-0044",
+      "master_name": "練習再開！+++",
+      "upgrade_count": 3,
+      "native_id": 475,
+      "native_name": "練習再開！+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_157",
+      "support_id": "s_card-3-0077",
+      "master_name": "ほぐれるひととき",
+      "upgrade_count": 0,
+      "native_id": 620,
+      "native_name": "ほぐれるひととき"
+    },
+    {
+      "master_id": "p_card-01-sup-3_157",
+      "support_id": "s_card-3-0077",
+      "master_name": "ほぐれるひととき+",
+      "upgrade_count": 1,
+      "native_id": 621,
+      "native_name": "ほぐれるひととき+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_157",
+      "support_id": "s_card-3-0077",
+      "master_name": "ほぐれるひととき++",
+      "upgrade_count": 2,
+      "native_id": 621,
+      "native_name": "ほぐれるひととき+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_157",
+      "support_id": "s_card-3-0077",
+      "master_name": "ほぐれるひととき+++",
+      "upgrade_count": 3,
+      "native_id": 621,
+      "native_name": "ほぐれるひととき+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_160",
+      "support_id": "s_card-3-0078",
+      "master_name": "奥義、受け流し！",
+      "upgrade_count": 0,
+      "native_id": 624,
+      "native_name": "奥義、受け流し！"
+    },
+    {
+      "master_id": "p_card-01-sup-3_160",
+      "support_id": "s_card-3-0078",
+      "master_name": "奥義、受け流し！+",
+      "upgrade_count": 1,
+      "native_id": 625,
+      "native_name": "奥義、受け流し！+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_160",
+      "support_id": "s_card-3-0078",
+      "master_name": "奥義、受け流し！++",
+      "upgrade_count": 2,
+      "native_id": 625,
+      "native_name": "奥義、受け流し！+"
+    },
+    {
+      "master_id": "p_card-01-sup-3_160",
+      "support_id": "s_card-3-0078",
+      "master_name": "奥義、受け流し！+++",
+      "upgrade_count": 3,
+      "native_id": 625,
+      "native_name": "奥義、受け流し！+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_086",
+      "support_id": "s_card-2-0015",
+      "master_name": "なに聴いてるの？",
+      "upgrade_count": 0,
+      "native_id": 266,
+      "native_name": "なに聴いてるの？"
+    },
+    {
+      "master_id": "p_card-02-sup-2_086",
+      "support_id": "s_card-2-0015",
+      "master_name": "なに聴いてるの？+",
+      "upgrade_count": 1,
+      "native_id": 267,
+      "native_name": "なに聴いてるの？+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_086",
+      "support_id": "s_card-2-0015",
+      "master_name": "なに聴いてるの？++",
+      "upgrade_count": 2,
+      "native_id": 267,
+      "native_name": "なに聴いてるの？+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_086",
+      "support_id": "s_card-2-0015",
+      "master_name": "なに聴いてるの？+++",
+      "upgrade_count": 3,
+      "native_id": 267,
+      "native_name": "なに聴いてるの？+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_089",
+      "support_id": "s_card-2-0026",
+      "master_name": "味見はいかが",
+      "upgrade_count": 0,
+      "native_id": 733,
+      "native_name": "味見はいかが"
+    },
+    {
+      "master_id": "p_card-02-sup-2_089",
+      "support_id": "s_card-2-0026",
+      "master_name": "味見はいかが+",
+      "upgrade_count": 1,
+      "native_id": 734,
+      "native_name": "味見はいかが+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_089",
+      "support_id": "s_card-2-0026",
+      "master_name": "味見はいかが++",
+      "upgrade_count": 2,
+      "native_id": 734,
+      "native_name": "味見はいかが+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_089",
+      "support_id": "s_card-2-0026",
+      "master_name": "味見はいかが+++",
+      "upgrade_count": 3,
+      "native_id": 734,
+      "native_name": "味見はいかが+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_091",
+      "support_id": "s_card-2-0033",
+      "master_name": "こうかい……？",
+      "upgrade_count": 0,
+      "native_id": 366,
+      "native_name": "こうかい……?"
+    },
+    {
+      "master_id": "p_card-02-sup-2_091",
+      "support_id": "s_card-2-0033",
+      "master_name": "こうかい……？+",
+      "upgrade_count": 1,
+      "native_id": 367,
+      "native_name": "こうかい……?+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_091",
+      "support_id": "s_card-2-0033",
+      "master_name": "こうかい……？++",
+      "upgrade_count": 2,
+      "native_id": 367,
+      "native_name": "こうかい……?+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_091",
+      "support_id": "s_card-2-0033",
+      "master_name": "こうかい……？+++",
+      "upgrade_count": 3,
+      "native_id": 367,
+      "native_name": "こうかい……?+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_094",
+      "support_id": "s_card-2-0042",
+      "master_name": "ディテールが肝心",
+      "upgrade_count": 0,
+      "native_id": 502,
+      "native_name": "ディテールが肝心"
+    },
+    {
+      "master_id": "p_card-02-sup-2_094",
+      "support_id": "s_card-2-0042",
+      "master_name": "ディテールが肝心+",
+      "upgrade_count": 1,
+      "native_id": 503,
+      "native_name": "ディテールが肝心+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_094",
+      "support_id": "s_card-2-0042",
+      "master_name": "ディテールが肝心++",
+      "upgrade_count": 2,
+      "native_id": 503,
+      "native_name": "ディテールが肝心+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_094",
+      "support_id": "s_card-2-0042",
+      "master_name": "ディテールが肝心+++",
+      "upgrade_count": 3,
+      "native_id": 503,
+      "native_name": "ディテールが肝心+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_095",
+      "support_id": "s_card-2-0044",
+      "master_name": "草笛ハーモニー",
+      "upgrade_count": 0,
+      "native_id": 508,
+      "native_name": "草笛ハーモニー"
+    },
+    {
+      "master_id": "p_card-02-sup-2_095",
+      "support_id": "s_card-2-0044",
+      "master_name": "草笛ハーモニー+",
+      "upgrade_count": 1,
+      "native_id": 509,
+      "native_name": "草笛ハーモニー+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_095",
+      "support_id": "s_card-2-0044",
+      "master_name": "草笛ハーモニー++",
+      "upgrade_count": 2,
+      "native_id": 509,
+      "native_name": "草笛ハーモニー+"
+    },
+    {
+      "master_id": "p_card-02-sup-2_095",
+      "support_id": "s_card-2-0044",
+      "master_name": "草笛ハーモニー+++",
+      "upgrade_count": 3,
+      "native_id": 509,
+      "native_name": "草笛ハーモニー+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_023",
+      "support_id": "s_card-3-0009",
+      "master_name": "ダメダメクッキング",
+      "upgrade_count": 0,
+      "native_id": 258,
+      "native_name": "ダメダメクッキング"
+    },
+    {
+      "master_id": "p_card-02-sup-3_023",
+      "support_id": "s_card-3-0009",
+      "master_name": "ダメダメクッキング+",
+      "upgrade_count": 1,
+      "native_id": 259,
+      "native_name": "ダメダメクッキング+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_023",
+      "support_id": "s_card-3-0009",
+      "master_name": "ダメダメクッキング++",
+      "upgrade_count": 2,
+      "native_id": 259,
+      "native_name": "ダメダメクッキング+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_023",
+      "support_id": "s_card-3-0009",
+      "master_name": "ダメダメクッキング+++",
+      "upgrade_count": 3,
+      "native_id": 259,
+      "native_name": "ダメダメクッキング+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_089",
+      "support_id": "s_card-3-0024",
+      "master_name": "お泊り猛勉強",
+      "upgrade_count": 0,
+      "native_id": 282,
+      "native_name": "お泊り猛勉強"
+    },
+    {
+      "master_id": "p_card-02-sup-3_089",
+      "support_id": "s_card-3-0024",
+      "master_name": "お泊り猛勉強+",
+      "upgrade_count": 1,
+      "native_id": 283,
+      "native_name": "お泊り猛勉強+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_089",
+      "support_id": "s_card-3-0024",
+      "master_name": "お泊り猛勉強++",
+      "upgrade_count": 2,
+      "native_id": 283,
+      "native_name": "お泊り猛勉強+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_089",
+      "support_id": "s_card-3-0024",
+      "master_name": "お泊り猛勉強+++",
+      "upgrade_count": 3,
+      "native_id": 283,
+      "native_name": "お泊り猛勉強+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_092",
+      "support_id": "s_card-3-0035",
+      "master_name": "その本、おもしろい？",
+      "upgrade_count": 0,
+      "native_id": 338,
+      "native_name": "その本、おもしろい？"
+    },
+    {
+      "master_id": "p_card-02-sup-3_092",
+      "support_id": "s_card-3-0035",
+      "master_name": "その本、おもしろい？+",
+      "upgrade_count": 1,
+      "native_id": 339,
+      "native_name": "その本、おもしろい？+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_092",
+      "support_id": "s_card-3-0035",
+      "master_name": "その本、おもしろい？++",
+      "upgrade_count": 2,
+      "native_id": 339,
+      "native_name": "その本、おもしろい？+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_092",
+      "support_id": "s_card-3-0035",
+      "master_name": "その本、おもしろい？+++",
+      "upgrade_count": 3,
+      "native_id": 339,
+      "native_name": "その本、おもしろい？+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_094",
+      "support_id": "s_card-3-0040",
+      "master_name": "ほかほか焼き芋",
+      "upgrade_count": 0,
+      "native_id": 364,
+      "native_name": "ほかほか焼き芋"
+    },
+    {
+      "master_id": "p_card-02-sup-3_094",
+      "support_id": "s_card-3-0040",
+      "master_name": "ほかほか焼き芋+",
+      "upgrade_count": 1,
+      "native_id": 365,
+      "native_name": "ほかほか焼き芋+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_094",
+      "support_id": "s_card-3-0040",
+      "master_name": "ほかほか焼き芋++",
+      "upgrade_count": 2,
+      "native_id": 365,
+      "native_name": "ほかほか焼き芋+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_094",
+      "support_id": "s_card-3-0040",
+      "master_name": "ほかほか焼き芋+++",
+      "upgrade_count": 3,
+      "native_id": 365,
+      "native_name": "ほかほか焼き芋+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_156",
+      "support_id": "s_card-3-0076",
+      "master_name": "対象、ロックオン",
+      "upgrade_count": 0,
+      "native_id": 616,
+      "native_name": "対象、ロックオン"
+    },
+    {
+      "master_id": "p_card-02-sup-3_156",
+      "support_id": "s_card-3-0076",
+      "master_name": "対象、ロックオン+",
+      "upgrade_count": 1,
+      "native_id": 617,
+      "native_name": "対象、ロックオン+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_156",
+      "support_id": "s_card-3-0076",
+      "master_name": "対象、ロックオン++",
+      "upgrade_count": 2,
+      "native_id": 617,
+      "native_name": "対象、ロックオン+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_156",
+      "support_id": "s_card-3-0076",
+      "master_name": "対象、ロックオン+++",
+      "upgrade_count": 3,
+      "native_id": 617,
+      "native_name": "対象、ロックオン+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_178",
+      "support_id": "s_card-3-0083",
+      "master_name": "あこがれ不良ムーブ",
+      "upgrade_count": 0,
+      "native_id": 731,
+      "native_name": "あこがれ不良ムーブ"
+    },
+    {
+      "master_id": "p_card-02-sup-3_178",
+      "support_id": "s_card-3-0083",
+      "master_name": "あこがれ不良ムーブ+",
+      "upgrade_count": 1,
+      "native_id": 732,
+      "native_name": "あこがれ不良ムーブ+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_178",
+      "support_id": "s_card-3-0083",
+      "master_name": "あこがれ不良ムーブ++",
+      "upgrade_count": 2,
+      "native_id": 732,
+      "native_name": "あこがれ不良ムーブ+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_178",
+      "support_id": "s_card-3-0083",
+      "master_name": "あこがれ不良ムーブ+++",
+      "upgrade_count": 3,
+      "native_id": 732,
+      "native_name": "あこがれ不良ムーブ+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_180",
+      "support_id": "s_card-3-0088",
+      "master_name": "ふれんどめもりーず",
+      "upgrade_count": 0,
+      "native_id": 743,
+      "native_name": "ふれんどめもりーず"
+    },
+    {
+      "master_id": "p_card-02-sup-3_180",
+      "support_id": "s_card-3-0088",
+      "master_name": "ふれんどめもりーず+",
+      "upgrade_count": 1,
+      "native_id": 744,
+      "native_name": "ふれんどめもりーず+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_180",
+      "support_id": "s_card-3-0088",
+      "master_name": "ふれんどめもりーず++",
+      "upgrade_count": 2,
+      "native_id": 744,
+      "native_name": "ふれんどめもりーず+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_180",
+      "support_id": "s_card-3-0088",
+      "master_name": "ふれんどめもりーず+++",
+      "upgrade_count": 3,
+      "native_id": 744,
+      "native_name": "ふれんどめもりーず+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_181",
+      "support_id": "s_card-3-0089",
+      "master_name": "お姉ちゃん、参戦！",
+      "upgrade_count": 0,
+      "native_id": 759,
+      "native_name": "お姉ちゃん、参戦！"
+    },
+    {
+      "master_id": "p_card-02-sup-3_181",
+      "support_id": "s_card-3-0089",
+      "master_name": "お姉ちゃん、参戦！+",
+      "upgrade_count": 1,
+      "native_id": 760,
+      "native_name": "お姉ちゃん、参戦！+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_181",
+      "support_id": "s_card-3-0089",
+      "master_name": "お姉ちゃん、参戦！++",
+      "upgrade_count": 2,
+      "native_id": 760,
+      "native_name": "お姉ちゃん、参戦！+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_181",
+      "support_id": "s_card-3-0089",
+      "master_name": "お姉ちゃん、参戦！+++",
+      "upgrade_count": 3,
+      "native_id": 760,
+      "native_name": "お姉ちゃん、参戦！+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_182",
+      "support_id": "s_card-3-0094",
+      "master_name": "頭上に注意！",
+      "upgrade_count": 0,
+      "native_id": 801,
+      "native_name": "頭上に注意！"
+    },
+    {
+      "master_id": "p_card-02-sup-3_182",
+      "support_id": "s_card-3-0094",
+      "master_name": "頭上に注意！+",
+      "upgrade_count": 1,
+      "native_id": 802,
+      "native_name": "頭上に注意！+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_182",
+      "support_id": "s_card-3-0094",
+      "master_name": "頭上に注意！++",
+      "upgrade_count": 2,
+      "native_id": 802,
+      "native_name": "頭上に注意！+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_182",
+      "support_id": "s_card-3-0094",
+      "master_name": "頭上に注意！+++",
+      "upgrade_count": 3,
+      "native_id": 802,
+      "native_name": "頭上に注意！+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_195",
+      "support_id": "s_card-3-0105",
+      "master_name": "お手並み拝見",
+      "upgrade_count": 0,
+      "native_id": 823,
+      "native_name": "お手並み拝見"
+    },
+    {
+      "master_id": "p_card-02-sup-3_195",
+      "support_id": "s_card-3-0105",
+      "master_name": "お手並み拝見+",
+      "upgrade_count": 1,
+      "native_id": 824,
+      "native_name": "お手並み拝見+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_195",
+      "support_id": "s_card-3-0105",
+      "master_name": "お手並み拝見++",
+      "upgrade_count": 2,
+      "native_id": 824,
+      "native_name": "お手並み拝見+"
+    },
+    {
+      "master_id": "p_card-02-sup-3_195",
+      "support_id": "s_card-3-0105",
+      "master_name": "お手並み拝見+++",
+      "upgrade_count": 3,
+      "native_id": 824,
+      "native_name": "お手並み拝見+"
+    },
+    {
+      "master_id": "p_card-03-sup-2_093",
+      "support_id": "s_card-2-0041",
+      "master_name": "愛情レインボー",
+      "upgrade_count": 0,
+      "native_id": 498,
+      "native_name": "愛情レインボー"
+    },
+    {
+      "master_id": "p_card-03-sup-2_093",
+      "support_id": "s_card-2-0041",
+      "master_name": "愛情レインボー+",
+      "upgrade_count": 1,
+      "native_id": 499,
+      "native_name": "愛情レインボー+"
+    },
+    {
+      "master_id": "p_card-03-sup-2_093",
+      "support_id": "s_card-2-0041",
+      "master_name": "愛情レインボー++",
+      "upgrade_count": 2,
+      "native_id": 499,
+      "native_name": "愛情レインボー+"
+    },
+    {
+      "master_id": "p_card-03-sup-2_093",
+      "support_id": "s_card-2-0041",
+      "master_name": "愛情レインボー+++",
+      "upgrade_count": 3,
+      "native_id": 499,
+      "native_name": "愛情レインボー+"
+    },
+    {
+      "master_id": "p_card-03-sup-2_096",
+      "support_id": "s_card-2-0045",
+      "master_name": "小さなお客さん",
+      "upgrade_count": 0,
+      "native_id": 512,
+      "native_name": "小さなお客さん"
+    },
+    {
+      "master_id": "p_card-03-sup-2_096",
+      "support_id": "s_card-2-0045",
+      "master_name": "小さなお客さん+",
+      "upgrade_count": 1,
+      "native_id": 513,
+      "native_name": "小さなお客さん+"
+    },
+    {
+      "master_id": "p_card-03-sup-2_096",
+      "support_id": "s_card-2-0045",
+      "master_name": "小さなお客さん++",
+      "upgrade_count": 2,
+      "native_id": 513,
+      "native_name": "小さなお客さん+"
+    },
+    {
+      "master_id": "p_card-03-sup-2_096",
+      "support_id": "s_card-2-0045",
+      "master_name": "小さなお客さん+++",
+      "upgrade_count": 3,
+      "native_id": 513,
+      "native_name": "小さなお客さん+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_121",
+      "support_id": "s_card-3-0021",
+      "master_name": "雨宿りのバス停",
+      "upgrade_count": 0,
+      "native_id": 454,
+      "native_name": "雨宿りのバス停"
+    },
+    {
+      "master_id": "p_card-03-sup-3_121",
+      "support_id": "s_card-3-0021",
+      "master_name": "雨宿りのバス停+",
+      "upgrade_count": 1,
+      "native_id": 455,
+      "native_name": "雨宿りのバス停+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_121",
+      "support_id": "s_card-3-0021",
+      "master_name": "雨宿りのバス停++",
+      "upgrade_count": 2,
+      "native_id": 455,
+      "native_name": "雨宿りのバス停+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_121",
+      "support_id": "s_card-3-0021",
+      "master_name": "雨宿りのバス停+++",
+      "upgrade_count": 3,
+      "native_id": 455,
+      "native_name": "雨宿りのバス停+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_124",
+      "support_id": "s_card-3-0047",
+      "master_name": "バレンタイン大作戦！",
+      "upgrade_count": 0,
+      "native_id": 496,
+      "native_name": "バレンタイン大作戦！"
+    },
+    {
+      "master_id": "p_card-03-sup-3_124",
+      "support_id": "s_card-3-0047",
+      "master_name": "バレンタイン大作戦！+",
+      "upgrade_count": 1,
+      "native_id": 497,
+      "native_name": "バレンタイン大作戦！+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_124",
+      "support_id": "s_card-3-0047",
+      "master_name": "バレンタイン大作戦！++",
+      "upgrade_count": 2,
+      "native_id": 497,
+      "native_name": "バレンタイン大作戦！+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_124",
+      "support_id": "s_card-3-0047",
+      "master_name": "バレンタイン大作戦！+++",
+      "upgrade_count": 3,
+      "native_id": 497,
+      "native_name": "バレンタイン大作戦！+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_126",
+      "support_id": "s_card-3-0054",
+      "master_name": "対戦お願いします！",
+      "upgrade_count": 0,
+      "native_id": 528,
+      "native_name": "対戦お願いします！"
+    },
+    {
+      "master_id": "p_card-03-sup-3_126",
+      "support_id": "s_card-3-0054",
+      "master_name": "対戦お願いします！+",
+      "upgrade_count": 1,
+      "native_id": 529,
+      "native_name": "対戦お願いします！+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_126",
+      "support_id": "s_card-3-0054",
+      "master_name": "対戦お願いします！++",
+      "upgrade_count": 2,
+      "native_id": 529,
+      "native_name": "対戦お願いします！+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_126",
+      "support_id": "s_card-3-0054",
+      "master_name": "対戦お願いします！+++",
+      "upgrade_count": 3,
+      "native_id": 529,
+      "native_name": "対戦お願いします！+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_162",
+      "support_id": "s_card-3-0081",
+      "master_name": "いたずらサンタさん",
+      "upgrade_count": 0,
+      "native_id": 636,
+      "native_name": "いたずらサンタさん"
+    },
+    {
+      "master_id": "p_card-03-sup-3_162",
+      "support_id": "s_card-3-0081",
+      "master_name": "いたずらサンタさん+",
+      "upgrade_count": 1,
+      "native_id": 637,
+      "native_name": "いたずらサンタさん+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_162",
+      "support_id": "s_card-3-0081",
+      "master_name": "いたずらサンタさん++",
+      "upgrade_count": 2,
+      "native_id": 637,
+      "native_name": "いたずらサンタさん+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_162",
+      "support_id": "s_card-3-0081",
+      "master_name": "いたずらサンタさん+++",
+      "upgrade_count": 3,
+      "native_id": 637,
+      "native_name": "いたずらサンタさん+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_179",
+      "support_id": "s_card-3-0084",
+      "master_name": "寒空リサイタル",
+      "upgrade_count": 0,
+      "native_id": 737,
+      "native_name": "寒空リサイタル"
+    },
+    {
+      "master_id": "p_card-03-sup-3_179",
+      "support_id": "s_card-3-0084",
+      "master_name": "寒空リサイタル+",
+      "upgrade_count": 1,
+      "native_id": 738,
+      "native_name": "寒空リサイタル+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_179",
+      "support_id": "s_card-3-0084",
+      "master_name": "寒空リサイタル++",
+      "upgrade_count": 2,
+      "native_id": 738,
+      "native_name": "寒空リサイタル+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_179",
+      "support_id": "s_card-3-0084",
+      "master_name": "寒空リサイタル+++",
+      "upgrade_count": 3,
+      "native_id": 738,
+      "native_name": "寒空リサイタル+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_183",
+      "support_id": "s_card-3-0091",
+      "master_name": "せーのでぱくっ！",
+      "upgrade_count": 0,
+      "native_id": 769,
+      "native_name": "せーのでぱくっ！"
+    },
+    {
+      "master_id": "p_card-03-sup-3_183",
+      "support_id": "s_card-3-0091",
+      "master_name": "せーのでぱくっ！+",
+      "upgrade_count": 1,
+      "native_id": 770,
+      "native_name": "せーのでぱくっ！+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_183",
+      "support_id": "s_card-3-0091",
+      "master_name": "せーのでぱくっ！++",
+      "upgrade_count": 2,
+      "native_id": 770,
+      "native_name": "せーのでぱくっ！+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_183",
+      "support_id": "s_card-3-0091",
+      "master_name": "せーのでぱくっ！+++",
+      "upgrade_count": 3,
+      "native_id": 770,
+      "native_name": "せーのでぱくっ！+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_194",
+      "support_id": "s_card-3-0096",
+      "master_name": "ガタゴトすやすや",
+      "upgrade_count": 0,
+      "native_id": 805,
+      "native_name": "ガタゴトすやすや"
+    },
+    {
+      "master_id": "p_card-03-sup-3_194",
+      "support_id": "s_card-3-0096",
+      "master_name": "ガタゴトすやすや+",
+      "upgrade_count": 1,
+      "native_id": 806,
+      "native_name": "ガタゴトすやすや+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_194",
+      "support_id": "s_card-3-0096",
+      "master_name": "ガタゴトすやすや++",
+      "upgrade_count": 2,
+      "native_id": 806,
+      "native_name": "ガタゴトすやすや+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_194",
+      "support_id": "s_card-3-0096",
+      "master_name": "ガタゴトすやすや+++",
+      "upgrade_count": 3,
+      "native_id": 806,
+      "native_name": "ガタゴトすやすや+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_196",
+      "support_id": "s_card-3-0102",
+      "master_name": "あつあつはふはふ",
+      "upgrade_count": 0,
+      "native_id": 841,
+      "native_name": "あつあつはふはふ"
+    },
+    {
+      "master_id": "p_card-03-sup-3_196",
+      "support_id": "s_card-3-0102",
+      "master_name": "あつあつはふはふ+",
+      "upgrade_count": 1,
+      "native_id": 842,
+      "native_name": "あつあつはふはふ+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_196",
+      "support_id": "s_card-3-0102",
+      "master_name": "あつあつはふはふ++",
+      "upgrade_count": 2,
+      "native_id": 842,
+      "native_name": "あつあつはふはふ+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_196",
+      "support_id": "s_card-3-0102",
+      "master_name": "あつあつはふはふ+++",
+      "upgrade_count": 3,
+      "native_id": 842,
+      "native_name": "あつあつはふはふ+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_250",
+      "support_id": "s_card-3-0108",
+      "master_name": "ぴらっ♪",
+      "upgrade_count": 0,
+      "native_id": 855,
+      "native_name": "ぴらっ♪"
+    },
+    {
+      "master_id": "p_card-03-sup-3_250",
+      "support_id": "s_card-3-0108",
+      "master_name": "ぴらっ♪+",
+      "upgrade_count": 1,
+      "native_id": 856,
+      "native_name": "ぴらっ♪+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_250",
+      "support_id": "s_card-3-0108",
+      "master_name": "ぴらっ♪++",
+      "upgrade_count": 2,
+      "native_id": 856,
+      "native_name": "ぴらっ♪+"
+    },
+    {
+      "master_id": "p_card-03-sup-3_250",
+      "support_id": "s_card-3-0108",
+      "master_name": "ぴらっ♪+++",
+      "upgrade_count": 3,
+      "native_id": 856,
+      "native_name": "ぴらっ♪+"
+    }
+  ],
+  "items": [
+    {
+      "master_id": "pitem_00-2-116-0",
+      "support_id": "s_card-2-0022",
+      "master_name": "おさぼりタオル",
+      "native_id": 317,
+      "native_name": "おさぼりタオル"
+    },
+    {
+      "master_id": "pitem_00-3-009-0",
+      "support_id": "s_card-3-0000",
+      "master_name": "得体のしれないモノ",
+      "native_id": 71,
+      "native_name": "得体のしれないモノ"
+    },
+    {
+      "master_id": "pitem_00-3-010-0",
+      "support_id": "s_card-3-0001",
+      "master_name": "天川ラーメン巡り",
+      "native_id": 82,
+      "native_name": "天川ラーメン巡り"
+    },
+    {
+      "master_id": "pitem_00-3-011-0",
+      "support_id": "s_card-3-0007",
+      "master_name": "星のリトルプリンス",
+      "native_id": 72,
+      "native_name": "星のリトルプリンス"
+    },
+    {
+      "master_id": "pitem_00-3-012-0",
+      "support_id": "s_card-3-0004",
+      "master_name": "悔しさの象徴",
+      "native_id": 73,
+      "native_name": "悔しさの象徴"
+    },
+    {
+      "master_id": "pitem_00-3-013-0",
+      "support_id": "s_card-3-0012",
+      "master_name": "曇りをぬぐったタオル",
+      "native_id": 74,
+      "native_name": "曇りをぬぐったタオル"
+    },
+    {
+      "master_id": "pitem_00-3-014-0",
+      "support_id": "s_card-3-0013",
+      "master_name": "スカウト遮り帽",
+      "native_id": 75,
+      "native_name": "スカウト遮り帽"
+    },
+    {
+      "master_id": "pitem_00-3-016-0",
+      "support_id": "s_card-3-0003",
+      "master_name": "満開ペアヘアピン",
+      "native_id": 77,
+      "native_name": "満開ペアヘアピン"
+    },
+    {
+      "master_id": "pitem_00-3-026-0",
+      "support_id": "s_card-3-0011",
+      "master_name": "仲直りのきっかけ",
+      "native_id": 78,
+      "native_name": "仲直りのきっかけ"
+    },
+    {
+      "master_id": "pitem_00-3-027-0",
+      "support_id": "s_card-3-0017",
+      "master_name": "夢にあふれた大荷物",
+      "native_id": 79,
+      "native_name": "夢にあふれた大荷物"
+    },
+    {
+      "master_id": "pitem_00-3-028-0",
+      "support_id": "s_card-3-0016",
+      "master_name": "みんなの教科書",
+      "native_id": 138,
+      "native_name": "みんなの教科書"
+    },
+    {
+      "master_id": "pitem_00-3-053-0",
+      "support_id": "s_card-3-0022",
+      "master_name": "虹かけるクロス",
+      "native_id": 92,
+      "native_name": "虹かけるクロス"
+    },
+    {
+      "master_id": "pitem_00-3-059-0",
+      "support_id": "s_card-3-0034",
+      "master_name": "とろけた時間",
+      "native_id": 141,
+      "native_name": "とろけた時間"
+    },
+    {
+      "master_id": "pitem_00-3-119-0",
+      "support_id": "s_card-3-0049",
+      "master_name": "ひとりだちシューズ",
+      "native_id": 239,
+      "native_name": "ひとりだちシューズ"
+    },
+    {
+      "master_id": "pitem_00-3-139-0",
+      "support_id": "s_card-3-0068",
+      "master_name": "好き嫌い禁止！",
+      "native_id": 306,
+      "native_name": "好き嫌い禁止！"
+    },
+    {
+      "master_id": "pitem_00-3-182-0",
+      "support_id": "s_card-3-0067",
+      "master_name": "勝利より大切なもの",
+      "native_id": 269,
+      "native_name": "勝利より大切なもの"
+    },
+    {
+      "master_id": "pitem_00-3-264-0",
+      "support_id": "s_card-3-0086",
+      "master_name": "めちゃかわプリ",
+      "native_id": 363,
+      "native_name": "めちゃかわプリ"
+    },
+    {
+      "master_id": "pitem_01-2-035-0",
+      "support_id": "s_card-2-0034",
+      "master_name": "小さい秋見つけた",
+      "native_id": 165,
+      "native_name": "小さい秋見つけた"
+    },
+    {
+      "master_id": "pitem_01-2-036-0",
+      "support_id": "s_card-2-0035",
+      "master_name": "イケてるセーター",
+      "native_id": 179,
+      "native_name": "イケてるセーター"
+    },
+    {
+      "master_id": "pitem_01-3-056-0",
+      "support_id": "s_card-3-0027",
+      "master_name": "オーバーパワーボール",
+      "native_id": 106,
+      "native_name": "オーバーパワーボール"
+    },
+    {
+      "master_id": "pitem_01-3-123-0",
+      "support_id": "s_card-3-0055",
+      "master_name": "夢へのスタートライン",
+      "native_id": 244,
+      "native_name": "夢へのスタートライン"
+    },
+    {
+      "master_id": "pitem_01-3-127-0",
+      "support_id": "s_card-3-0059",
+      "master_name": "勝利をその手に",
+      "native_id": 286,
+      "native_name": "勝利をその手に"
+    },
+    {
+      "master_id": "pitem_01-3-136-0",
+      "support_id": "s_card-3-0064",
+      "master_name": "包まれるやさしさ",
+      "native_id": 295,
+      "native_name": "包まれるやさしさ"
+    },
+    {
+      "master_id": "pitem_01-3-305-0",
+      "support_id": "s_card-3-0087",
+      "master_name": "ぴったしコレクション",
+      "native_id": 380,
+      "native_name": "ぴったりコレクション"
+    },
+    {
+      "master_id": "pitem_01-3-307-0",
+      "support_id": "s_card-3-0093",
+      "master_name": "夢を叶えるために",
+      "native_id": 413,
+      "native_name": "夢を叶えるために"
+    },
+    {
+      "master_id": "pitem_01-3-322-0",
+      "support_id": "s_card-3-0097",
+      "master_name": "想定外のチケット",
+      "native_id": 426,
+      "native_name": "想定外のチケット"
+    },
+    {
+      "master_id": "pitem_02-2-033-0",
+      "support_id": "s_card-2-0029",
+      "master_name": "お嬢様の恩返し",
+      "native_id": 148,
+      "native_name": "お嬢様の恩返し"
+    },
+    {
+      "master_id": "pitem_02-2-126-0",
+      "support_id": "s_card-2-0072",
+      "master_name": "演技のたしなみ",
+      "native_id": 405,
+      "native_name": "演技のたしなみ"
+    },
+    {
+      "master_id": "pitem_02-3-055-0",
+      "support_id": "s_card-3-0026",
+      "master_name": "負けず嫌いの勲章",
+      "native_id": 100,
+      "native_name": "負けず嫌いの勲章"
+    },
+    {
+      "master_id": "pitem_02-3-057-0",
+      "support_id": "s_card-3-0029",
+      "master_name": "873シューター",
+      "native_id": 114,
+      "native_name": "873シューター"
+    },
+    {
+      "master_id": "pitem_02-3-060-0",
+      "support_id": "s_card-3-0036",
+      "master_name": "いじっぱりバルーン",
+      "native_id": 147,
+      "native_name": "いじっぱりバルーン"
+    },
+    {
+      "master_id": "pitem_02-3-064-0",
+      "support_id": "s_card-3-0042",
+      "master_name": "ぬくもりふたりぶん",
+      "native_id": 182,
+      "native_name": "ぬくもりふたりぶん"
+    },
+    {
+      "master_id": "pitem_02-3-118-0",
+      "support_id": "s_card-3-0048",
+      "master_name": "お姉さまビッグラブ",
+      "native_id": 228,
+      "native_name": "お姉さまビッグラブ"
+    },
+    {
+      "master_id": "pitem_02-3-128-0",
+      "support_id": "s_card-3-0060",
+      "master_name": "迷子のお呼び出し",
+      "native_id": 287,
+      "native_name": "迷子のお呼び出し"
+    },
+    {
+      "master_id": "pitem_02-3-137-0",
+      "support_id": "s_card-3-0065",
+      "master_name": "手作りサブスク弁当",
+      "native_id": 299,
+      "native_name": "手作りサブスク弁当"
+    },
+    {
+      "master_id": "pitem_02-3-185-0",
+      "support_id": "s_card-3-0074",
+      "master_name": "月刊アニメトーク♪",
+      "native_id": 335,
+      "native_name": "月刊アニメトーク♪"
+    },
+    {
+      "master_id": "pitem_02-3-262-0",
+      "support_id": "s_card-3-0079",
+      "master_name": "寝心地は良好",
+      "native_id": 358,
+      "native_name": "寝心地は良好"
+    },
+    {
+      "master_id": "pitem_02-3-306-0",
+      "support_id": "s_card-3-0090",
+      "master_name": "迷子のゆくえ",
+      "native_id": 389,
+      "native_name": "迷子のゆくえ"
+    },
+    {
+      "master_id": "pitem_02-3-309-0",
+      "support_id": "s_card-3-0092",
+      "master_name": "咲季の完全食・改",
+      "native_id": 404,
+      "native_name": "咲季の完全食・改"
+    },
+    {
+      "master_id": "pitem_02-3-328-0",
+      "support_id": "s_card-3-0103",
+      "master_name": "全力おうえんうちわ",
+      "native_id": 461,
+      "native_name": "全力おうえんうちわ"
+    },
+    {
+      "master_id": "pitem_03-2-084-0",
+      "support_id": "s_card-2-0046",
+      "master_name": "たたいてかぶって",
+      "native_id": 362,
+      "native_name": "たたいてかぶって"
+    },
+    {
+      "master_id": "pitem_03-2-128-0",
+      "support_id": "s_card-2-0074",
+      "master_name": "のんびりアフタヌーン",
+      "native_id": 421,
+      "native_name": "のんびりアフタヌーン"
+    },
+    {
+      "master_id": "pitem_03-3-065-0",
+      "support_id": "s_card-3-0043",
+      "master_name": "はいぼくせんげん",
+      "native_id": 186,
+      "native_name": "はいぼくせんげん"
+    },
+    {
+      "master_id": "pitem_03-3-068-0",
+      "support_id": "s_card-3-0032",
+      "master_name": "アイドルパワー測定機",
+      "native_id": 174,
+      "native_name": "アイドルパワー測定器"
+    },
+    {
+      "master_id": "pitem_03-3-129-0",
+      "support_id": "s_card-3-0061",
+      "master_name": "麻央にぴったし",
+      "native_id": 288,
+      "native_name": "麻央にぴったし"
+    },
+    {
+      "master_id": "pitem_03-3-134-0",
+      "support_id": "s_card-3-0062",
+      "master_name": "居残りの生徒会室",
+      "native_id": 282,
+      "native_name": "居残りの生徒会室"
+    },
+    {
+      "master_id": "pitem_03-3-184-0",
+      "support_id": "s_card-3-0073",
+      "master_name": "しぼまない思い出",
+      "native_id": 331,
+      "native_name": "しぼまない思い出"
+    },
+    {
+      "master_id": "pitem_03-3-308-0",
+      "support_id": "s_card-3-0095",
+      "master_name": "おかいものバッグ",
+      "native_id": 415,
+      "native_name": "おかいものバッグ"
+    },
+    {
+      "master_id": "pitem_03-3-324-0",
+      "support_id": "s_card-3-0101",
+      "master_name": "恋心のゆくえ",
+      "native_id": 452,
+      "native_name": "恋心のゆくえ"
+    },
+    {
+      "master_id": "pitem_03-3-329-0",
+      "support_id": "s_card-3-0104",
+      "master_name": "注目インタビュー！",
+      "native_id": 467,
+      "native_name": "注目インタビュー！"
+    }
+  ],
+  "failures": [],
+  "mapped_card_variants": 228,
+  "mapped_exam_items": 50
+}

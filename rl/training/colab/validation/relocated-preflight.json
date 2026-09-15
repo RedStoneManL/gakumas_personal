@@ -1,0 +1,234 @@
+{
+  "schema": "hif-colab-preflight/1",
+  "passed": true,
+  "scope": "Executed on this runtime; no policy-quality or full-game coverage claim",
+  "manifest_sha256": "b51e725f98da73a9766290e00840d60a7539a92f842f1a43906ff721ddd8fe72",
+  "runtime": {
+    "python": "3.12.7 | packaged by conda-forge | (main, Oct  4 2024, 15:47:54) [MSC v.1941 64 bit (AMD64)]",
+    "node": "v26.6.0",
+    "torch": "2.9.1+cu128",
+    "cuda_runtime": "12.8",
+    "device": "cpu",
+    "cuda_available": true
+  },
+  "selected_config_sha256": "219d0ea0880519edc4505d05604e891a1f1e685d9c844bd2405e5dd05810fc1f",
+  "tasks": [
+    {
+      "task": "exam_score",
+      "real_episode_raw_score": 80878.0,
+      "termination": "normal",
+      "decision_kinds": {
+        "exam_action": 26,
+        "exam_choice": 1
+      },
+      "decisions": 27,
+      "peak_nodes": 1645,
+      "peak_edges": 3516,
+      "peak_candidates": 11,
+      "max_projected_support_sources": 0,
+      "vocabulary_size": 531,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "gradient_abs_sum": 652.7852705749683,
+      "forward_backward_seconds": 0.08080689999042079,
+      "encode_seconds": 0.39410390009288676,
+      "elapsed_seconds": 1.6442411000025459,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "0167db6de115140a3d342f5d6481cd133e0247babeeaed7dcd5d06cf0995144e"
+      },
+      "loadout_profile": null
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 2160.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 13
+      },
+      "decisions": 32,
+      "peak_nodes": 9539,
+      "peak_edges": 20694,
+      "peak_candidates": 6,
+      "max_projected_support_sources": 1,
+      "vocabulary_size": 2370,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "gradient_abs_sum": 1374.1429875309113,
+      "forward_backward_seconds": 0.21340389997931197,
+      "encode_seconds": 2.354061100020772,
+      "elapsed_seconds": 67.36566959999618,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "0167db6de115140a3d342f5d6481cd133e0247babeeaed7dcd5d06cf0995144e"
+      },
+      "loadout_profile": "saki-wild"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 3814.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "outer": 15,
+        "produce_choice": 16,
+        "exam_action": 33,
+        "exam_choice": 4
+      },
+      "decisions": 68,
+      "peak_nodes": 10508,
+      "peak_edges": 23454,
+      "peak_candidates": 15,
+      "max_projected_support_sources": 1,
+      "vocabulary_size": 2616,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "gradient_abs_sum": 72.78383744310122,
+      "forward_backward_seconds": 0.23496329999761656,
+      "encode_seconds": 5.550602400151547,
+      "elapsed_seconds": 29.82526849998976,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "0167db6de115140a3d342f5d6481cd133e0247babeeaed7dcd5d06cf0995144e"
+      },
+      "loadout_profile": "saki-hif"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 1969.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 13
+      },
+      "decisions": 32,
+      "peak_nodes": 9655,
+      "peak_edges": 21000,
+      "peak_candidates": 6,
+      "max_projected_support_sources": 3,
+      "vocabulary_size": 2386,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "gradient_abs_sum": 1286.0861838186538,
+      "forward_backward_seconds": 0.19539830001303926,
+      "encode_seconds": 2.045919500000309,
+      "elapsed_seconds": 12.794749799999408,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "0167db6de115140a3d342f5d6481cd133e0247babeeaed7dcd5d06cf0995144e"
+      },
+      "loadout_profile": "hiro-hif"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 1495.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_choice": 10,
+        "exam_action": 25
+      },
+      "decisions": 54,
+      "peak_nodes": 10250,
+      "peak_edges": 22734,
+      "peak_candidates": 14,
+      "max_projected_support_sources": 1,
+      "vocabulary_size": 2481,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "gradient_abs_sum": 632.4654286449659,
+      "forward_backward_seconds": 0.23700059999828227,
+      "encode_seconds": 4.669963600113988,
+      "elapsed_seconds": 22.86507430000347,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "0167db6de115140a3d342f5d6481cd133e0247babeeaed7dcd5d06cf0995144e"
+      },
+      "loadout_profile": "ume-campus"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 2084.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 11
+      },
+      "decisions": 30,
+      "peak_nodes": 9561,
+      "peak_edges": 20778,
+      "peak_candidates": 7,
+      "max_projected_support_sources": 1,
+      "vocabulary_size": 2361,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "gradient_abs_sum": 942.1834933446953,
+      "forward_backward_seconds": 0.20603760000085458,
+      "encode_seconds": 1.7439166000112891,
+      "elapsed_seconds": 11.937149000004865,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "0167db6de115140a3d342f5d6481cd133e0247babeeaed7dcd5d06cf0995144e"
+      },
+      "loadout_profile": "liliya-xmas"
+    }
+  ]
+}

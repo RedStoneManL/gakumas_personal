@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gakumas-training"
+version = "0.1.0"
+description = "Independent full-produce and single-exam on-policy PPO training"
+requires-python = ">=3.11"
+dependencies = ["torch>=2.5", "numpy>=1.26"]
+
+[project.optional-dependencies]
+arena = ["gymnasium>=0.29", "pyyaml>=6.0", "orjson>=3.9", "pydantic>=2.6"]
+
+[project.scripts]
+gakumas-train = "gakumas_training.cli:entrypoint"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gakumas_training*"]
+
+[tool.setuptools.package-data]
+gakumas_training = ["encoding/*.json", "configs/*.json"]

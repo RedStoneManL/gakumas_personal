@@ -1,0 +1,42 @@
+{
+  "schema": "gakumas-checkpoint-snapshot/1",
+  "source_run": "joint-mcts-soft-value-20260915-121503",
+  "source_code": "generalist-search-soft-value",
+  "file": "latest.pt",
+  "bytes": 33809227,
+  "sha256": "f482b54dccaddfd3d154e963b28142aad6d831baca93b9ac777e2c3a13954eb8",
+  "scope": "Complete latest committed checkpoint, imported as weights and Adam for a new portable run. Source logs and active writer are not copied.",
+  "created_at": "2026-09-15T10:48:58.477347+00:00",
+  "rl_source_sha256": "23eec2a4f706fea6beda5b0b66644a4e8204c3ac1179c00e78049739d722b62c",
+  "arena_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+  "batches": 14,
+  "decisions": 190584,
+  "next_episode_index": 34001097,
+  "model_schema": "arena-joint-public-mcts-split/1",
+  "encoding": "arena-generalist-build-exam/3",
+  "model_config": {
+    "width": 96,
+    "lexical": 16,
+    "depth": 4,
+    "quantiles": 32
+  },
+  "search_version": {
+    "schema_version": "arena-public-search/1",
+    "base_effective_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+    "search_sha256": "06fc68d7509e612295b3bb60f6c7d1266a3c89acaf682cf33dd027be291c0293",
+    "search_files_sha256": {
+      "search.py": "5a68c44b04554e2e9d320010203481c4ac66d477ba67db302931281f1e6325a6",
+      "search_loader.mjs": "6a1141418dfad7e838e513a899c1cf7acab5682a0244ada2ecba3aa63835fd0a",
+      "search_worker.mjs": "91b41aca7b1f9c81727874f01411ec5ce09eb02bff9d69f0e5c01e8f8045d8da"
+    },
+    "posterior_model": "draw-conditioned-sequential-importance/1"
+  },
+  "setup_sha256": {
+    "profiles.json": "4e533cbba6b68ab3a3790c383b0f65676cd97c8dce0e6a5cd88ca6b0085fb797",
+    "catalog.json": "8a71a52493843f9e79897a39dfc528f2c4216a451bd90d9ea5f5d16d483e519a",
+    "provenance.json": "6f1852e152495d5b22e5fee3cdaff4950a8158d0fff5b5a643f63a9f4de9aba0",
+    "config.json": "64cf21998c67368875600bd2b33ea85226a1f655308920d1c4660589a5862dc3"
+  },
+  "optimizer_included": true,
+  "quantile_head_included": true
+}

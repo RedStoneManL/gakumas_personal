@@ -1,0 +1,969 @@
+{
+  "schema": "hif-colab-preflight/1",
+  "passed": true,
+  "scope": "Executed on this runtime; no policy-quality or full-game coverage claim",
+  "manifest_sha256": "7fe85c80cf8fe99a4cd86cb4634b8700c2189f211ed0a06d586dcf9d9c75a122",
+  "runtime": {
+    "python": "3.12.7 | packaged by conda-forge | (main, Oct  4 2024, 15:47:54) [MSC v.1941 64 bit (AMD64)]",
+    "node": "v26.6.0",
+    "torch": "2.9.1+cu128",
+    "cuda_runtime": "12.8",
+    "device": "cpu",
+    "cuda_available": true
+  },
+  "selected_config_sha256": "c899838f3700c2ffcd713f3caf95e71f4288ad5951e300acbf1762a6099bd316",
+  "tasks": [
+    {
+      "task": "exam_score",
+      "real_episode_raw_score": 80878.0,
+      "termination": "normal",
+      "decision_kinds": {
+        "exam_action": 26,
+        "exam_choice": 1
+      },
+      "decisions": 27,
+      "peak_nodes": 1645,
+      "peak_edges": 3516,
+      "peak_candidates": 11,
+      "max_projected_support_sources": 0,
+      "vocabulary_size": 531,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "setup_mode": null,
+      "model_checked_decision_kinds": [
+        "exam_action",
+        "exam_choice"
+      ],
+      "model_probes": [
+        {
+          "decision_kind": "exam_action",
+          "nodes": 1486,
+          "candidates": 8,
+          "gradient_abs_sum": 509.70352079020813
+        },
+        {
+          "decision_kind": "exam_choice",
+          "nodes": 1645,
+          "candidates": 11,
+          "gradient_abs_sum": 467.4189974325709
+        },
+        {
+          "decision_kind": "exam_action",
+          "nodes": 1619,
+          "candidates": 4,
+          "gradient_abs_sum": 460.9335173056461
+        },
+        {
+          "decision_kind": "exam_action",
+          "nodes": 1620,
+          "candidates": 5,
+          "gradient_abs_sum": 447.7636328364024
+        }
+      ],
+      "gradient_abs_sum": 1885.8196683648275,
+      "forward_backward_seconds": 0.14903979998780414,
+      "encode_seconds": 0.5340222999220714,
+      "elapsed_seconds": 1.8105630000063684,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c07cd6a7ef166253ae5a8dafcddd45368f42709ba0c59be29d9b8593edf49bee"
+      },
+      "loadout_profile": null
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 2160.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 13
+      },
+      "decisions": 32,
+      "peak_nodes": 9539,
+      "peak_edges": 20694,
+      "peak_candidates": 6,
+      "max_projected_support_sources": 1,
+      "vocabulary_size": 2370,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "setup_mode": "given",
+      "model_checked_decision_kinds": [
+        "exam_action",
+        "outer",
+        "produce_choice"
+      ],
+      "model_probes": [
+        {
+          "decision_kind": "outer",
+          "nodes": 1813,
+          "candidates": 3,
+          "gradient_abs_sum": 318.14932010423945
+        },
+        {
+          "decision_kind": "exam_action",
+          "nodes": 9539,
+          "candidates": 6,
+          "gradient_abs_sum": 285.921521484619
+        },
+        {
+          "decision_kind": "outer",
+          "nodes": 2634,
+          "candidates": 2,
+          "gradient_abs_sum": 331.9434158067961
+        },
+        {
+          "decision_kind": "produce_choice",
+          "nodes": 2913,
+          "candidates": 5,
+          "gradient_abs_sum": 359.4605751945637
+        }
+      ],
+      "gradient_abs_sum": 1295.4748325902183,
+      "forward_backward_seconds": 0.2770476999867242,
+      "encode_seconds": 2.4816987000522204,
+      "elapsed_seconds": 64.59448999998858,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c07cd6a7ef166253ae5a8dafcddd45368f42709ba0c59be29d9b8593edf49bee"
+      },
+      "loadout_profile": "saki-wild"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 1815.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "setup_support": 6,
+        "setup_memory_card": 4,
+        "setup_memory_card_variant": 4,
+        "setup_memory_hif": 4,
+        "setup_memory_factor": 12,
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 12
+      },
+      "decisions": 61,
+      "peak_nodes": 23367,
+      "peak_edges": 55970,
+      "peak_candidates": 123,
+      "max_projected_support_sources": 0,
+      "vocabulary_size": 2768,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "setup_mode": "select",
+      "model_checked_decision_kinds": [
+        "exam_action",
+        "outer",
+        "produce_choice",
+        "setup_memory_card",
+        "setup_memory_card_variant",
+        "setup_memory_factor",
+        "setup_memory_hif",
+        "setup_support"
+      ],
+      "model_probes": [
+        {
+          "decision_kind": "setup_support",
+          "nodes": 23367,
+          "candidates": 123,
+          "gradient_abs_sum": 7176.141318173148
+        },
+        {
+          "decision_kind": "outer",
+          "nodes": 2660,
+          "candidates": 2,
+          "gradient_abs_sum": 180.59350519955478
+        },
+        {
+          "decision_kind": "exam_action",
+          "nodes": 9608,
+          "candidates": 6,
+          "gradient_abs_sum": 213.5368880033493
+        },
+        {
+          "decision_kind": "produce_choice",
+          "nodes": 2777,
+          "candidates": 5,
+          "gradient_abs_sum": 183.65097725205123
+        },
+        {
+          "decision_kind": "setup_memory_card",
+          "nodes": 8897,
+          "candidates": 55,
+          "gradient_abs_sum": 497.5892036247824
+        },
+        {
+          "decision_kind": "setup_memory_card_variant",
+          "nodes": 3336,
+          "candidates": 5,
+          "gradient_abs_sum": 272.3047840336367
+        },
+        {
+          "decision_kind": "setup_memory_factor",
+          "nodes": 3195,
+          "candidates": 10,
+          "gradient_abs_sum": 168.98961332838553
+        },
+        {
+          "decision_kind": "setup_memory_hif",
+          "nodes": 14216,
+          "candidates": 106,
+          "gradient_abs_sum": 635.3594575030438
+        }
+      ],
+      "gradient_abs_sum": 9328.165747117951,
+      "forward_backward_seconds": 1.2123615000164136,
+      "encode_seconds": 5.546551399980672,
+      "elapsed_seconds": 20.45913699999801,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c07cd6a7ef166253ae5a8dafcddd45368f42709ba0c59be29d9b8593edf49bee"
+      },
+      "loadout_profile": "saki-wild"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 3814.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "outer": 15,
+        "produce_choice": 16,
+        "exam_action": 33,
+        "exam_choice": 4
+      },
+      "decisions": 68,
+      "peak_nodes": 10508,
+      "peak_edges": 23454,
+      "peak_candidates": 15,
+      "max_projected_support_sources": 1,
+      "vocabulary_size": 2616,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "setup_mode": "given",
+      "model_checked_decision_kinds": [
+        "exam_action",
+        "exam_choice",
+        "outer",
+        "produce_choice"
+      ],
+      "model_probes": [
+        {
+          "decision_kind": "outer",
+          "nodes": 1827,
+          "candidates": 3,
+          "gradient_abs_sum": 325.0562511176686
+        },
+        {
+          "decision_kind": "exam_action",
+          "nodes": 10508,
+          "candidates": 5,
+          "gradient_abs_sum": 526.8375889103627
+        },
+        {
+          "decision_kind": "outer",
+          "nodes": 3380,
+          "candidates": 2,
+          "gradient_abs_sum": 368.7033411987577
+        },
+        {
+          "decision_kind": "exam_choice",
+          "nodes": 10503,
+          "candidates": 5,
+          "gradient_abs_sum": 524.5659067764354
+        },
+        {
+          "decision_kind": "produce_choice",
+          "nodes": 3539,
+          "candidates": 5,
+          "gradient_abs_sum": 386.715280671604
+        }
+      ],
+      "gradient_abs_sum": 2131.8783686748284,
+      "forward_backward_seconds": 0.5156287999998312,
+      "encode_seconds": 5.671801299962681,
+      "elapsed_seconds": 31.61614989998634,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c07cd6a7ef166253ae5a8dafcddd45368f42709ba0c59be29d9b8593edf49bee"
+      },
+      "loadout_profile": "saki-hif"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 1815.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "setup_support": 6,
+        "setup_memory_card": 4,
+        "setup_memory_card_variant": 4,
+        "setup_memory_hif": 4,
+        "setup_memory_factor": 12,
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 13
+      },
+      "decisions": 62,
+      "peak_nodes": 22171,
+      "peak_edges": 52970,
+      "peak_candidates": 112,
+      "max_projected_support_sources": 0,
+      "vocabulary_size": 2797,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "setup_mode": "select",
+      "model_checked_decision_kinds": [
+        "exam_action",
+        "outer",
+        "produce_choice",
+        "setup_memory_card",
+        "setup_memory_card_variant",
+        "setup_memory_factor",
+        "setup_memory_hif",
+        "setup_support"
+      ],
+      "model_probes": [
+        {
+          "decision_kind": "setup_support",
+          "nodes": 22171,
+          "candidates": 112,
+          "gradient_abs_sum": 6511.447442834207
+        },
+        {
+          "decision_kind": "outer",
+          "nodes": 2663,
+          "candidates": 2,
+          "gradient_abs_sum": 246.73906142133637
+        },
+        {
+          "decision_kind": "exam_action",
+          "nodes": 9698,
+          "candidates": 6,
+          "gradient_abs_sum": 277.1832221657969
+        },
+        {
+          "decision_kind": "outer",
+          "nodes": 2669,
+          "candidates": 3,
+          "gradient_abs_sum": 239.9919094156212
+        },
+        {
+          "decision_kind": "produce_choice",
+          "nodes": 2811,
+          "candidates": 5,
+          "gradient_abs_sum": 240.31347871059552
+        },
+        {
+          "decision_kind": "setup_memory_card",
+          "nodes": 10799,
+          "candidates": 54,
+          "gradient_abs_sum": 4954.034856641083
+        },
+        {
+          "decision_kind": "setup_memory_card_variant",
+          "nodes": 3483,
+          "candidates": 5,
+          "gradient_abs_sum": 933.0754404500149
+        },
+        {
+          "decision_kind": "setup_memory_factor",
+          "nodes": 3342,
+          "candidates": 10,
+          "gradient_abs_sum": 951.0959259241208
+        },
+        {
+          "decision_kind": "setup_memory_hif",
+          "nodes": 14363,
+          "candidates": 106,
+          "gradient_abs_sum": 1610.982925283548
+        }
+      ],
+      "gradient_abs_sum": 15964.864262846324,
+      "forward_backward_seconds": 1.3847711000125855,
+      "encode_seconds": 6.2940307999379,
+      "elapsed_seconds": 23.324835099978372,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c07cd6a7ef166253ae5a8dafcddd45368f42709ba0c59be29d9b8593edf49bee"
+      },
+      "loadout_profile": "saki-hif"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 1969.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 13
+      },
+      "decisions": 32,
+      "peak_nodes": 9655,
+      "peak_edges": 21000,
+      "peak_candidates": 6,
+      "max_projected_support_sources": 3,
+      "vocabulary_size": 2386,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "setup_mode": "given",
+      "model_checked_decision_kinds": [
+        "exam_action",
+        "outer",
+        "produce_choice"
+      ],
+      "model_probes": [
+        {
+          "decision_kind": "outer",
+          "nodes": 1753,
+          "candidates": 3,
+          "gradient_abs_sum": 1249.1576798157184
+        },
+        {
+          "decision_kind": "exam_action",
+          "nodes": 9655,
+          "candidates": 6,
+          "gradient_abs_sum": 1684.4620091097895
+        },
+        {
+          "decision_kind": "outer",
+          "nodes": 2691,
+          "candidates": 2,
+          "gradient_abs_sum": 1285.7359621239011
+        },
+        {
+          "decision_kind": "produce_choice",
+          "nodes": 2845,
+          "candidates": 5,
+          "gradient_abs_sum": 1315.2636541170068
+        }
+      ],
+      "gradient_abs_sum": 5534.619305166416,
+      "forward_backward_seconds": 0.27568279998376966,
+      "encode_seconds": 2.464205199998105,
+      "elapsed_seconds": 15.236423800000921,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c07cd6a7ef166253ae5a8dafcddd45368f42709ba0c59be29d9b8593edf49bee"
+      },
+      "loadout_profile": "hiro-hif"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 1685.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "setup_support": 6,
+        "setup_memory_card": 4,
+        "setup_memory_card_variant": 4,
+        "setup_memory_hif": 4,
+        "setup_memory_factor": 12,
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 10
+      },
+      "decisions": 59,
+      "peak_nodes": 21542,
+      "peak_edges": 51560,
+      "peak_candidates": 112,
+      "max_projected_support_sources": 0,
+      "vocabulary_size": 2763,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "setup_mode": "select",
+      "model_checked_decision_kinds": [
+        "exam_action",
+        "outer",
+        "produce_choice",
+        "setup_memory_card",
+        "setup_memory_card_variant",
+        "setup_memory_factor",
+        "setup_memory_hif",
+        "setup_support"
+      ],
+      "model_probes": [
+        {
+          "decision_kind": "setup_support",
+          "nodes": 21542,
+          "candidates": 112,
+          "gradient_abs_sum": 20726.142321917694
+        },
+        {
+          "decision_kind": "outer",
+          "nodes": 2587,
+          "candidates": 2,
+          "gradient_abs_sum": 216.93021665829292
+        },
+        {
+          "decision_kind": "exam_action",
+          "nodes": 9608,
+          "candidates": 6,
+          "gradient_abs_sum": 380.94106957362965
+        },
+        {
+          "decision_kind": "produce_choice",
+          "nodes": 2742,
+          "candidates": 5,
+          "gradient_abs_sum": 239.9134255554527
+        },
+        {
+          "decision_kind": "setup_memory_card",
+          "nodes": 8806,
+          "candidates": 55,
+          "gradient_abs_sum": 3607.4057648646412
+        },
+        {
+          "decision_kind": "setup_memory_card_variant",
+          "nodes": 3413,
+          "candidates": 5,
+          "gradient_abs_sum": 2235.9072377129924
+        },
+        {
+          "decision_kind": "setup_memory_factor",
+          "nodes": 3272,
+          "candidates": 10,
+          "gradient_abs_sum": 1919.641147493705
+        },
+        {
+          "decision_kind": "setup_memory_hif",
+          "nodes": 14292,
+          "candidates": 106,
+          "gradient_abs_sum": 4596.771014013968
+        }
+      ],
+      "gradient_abs_sum": 33923.652197790376,
+      "forward_backward_seconds": 1.2450340000214055,
+      "encode_seconds": 4.719457099941792,
+      "elapsed_seconds": 19.284802399983164,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c07cd6a7ef166253ae5a8dafcddd45368f42709ba0c59be29d9b8593edf49bee"
+      },
+      "loadout_profile": "hiro-hif"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 1495.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_choice": 10,
+        "exam_action": 25
+      },
+      "decisions": 54,
+      "peak_nodes": 10250,
+      "peak_edges": 22734,
+      "peak_candidates": 14,
+      "max_projected_support_sources": 1,
+      "vocabulary_size": 2481,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "setup_mode": "given",
+      "model_checked_decision_kinds": [
+        "exam_action",
+        "exam_choice",
+        "outer",
+        "produce_choice"
+      ],
+      "model_probes": [
+        {
+          "decision_kind": "outer",
+          "nodes": 2101,
+          "candidates": 3,
+          "gradient_abs_sum": 282.98749331569707
+        },
+        {
+          "decision_kind": "exam_choice",
+          "nodes": 10250,
+          "candidates": 14,
+          "gradient_abs_sum": 1078.5623371066758
+        },
+        {
+          "decision_kind": "outer",
+          "nodes": 3093,
+          "candidates": 2,
+          "gradient_abs_sum": 268.26067047406104
+        },
+        {
+          "decision_kind": "exam_action",
+          "nodes": 10228,
+          "candidates": 7,
+          "gradient_abs_sum": 1082.9636507795658
+        },
+        {
+          "decision_kind": "outer",
+          "nodes": 3162,
+          "candidates": 3,
+          "gradient_abs_sum": 266.6120297000307
+        },
+        {
+          "decision_kind": "produce_choice",
+          "nodes": 3283,
+          "candidates": 5,
+          "gradient_abs_sum": 275.49971542460844
+        }
+      ],
+      "gradient_abs_sum": 3254.885896800639,
+      "forward_backward_seconds": 0.5660312999971211,
+      "encode_seconds": 5.106380500015803,
+      "elapsed_seconds": 23.766680800006725,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c07cd6a7ef166253ae5a8dafcddd45368f42709ba0c59be29d9b8593edf49bee"
+      },
+      "loadout_profile": "ume-campus"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 1707.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "setup_support": 6,
+        "setup_memory_card": 4,
+        "setup_memory_card_variant": 4,
+        "setup_memory_hif": 4,
+        "setup_memory_factor": 12,
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 13,
+        "exam_choice": 2
+      },
+      "decisions": 64,
+      "peak_nodes": 22310,
+      "peak_edges": 53292,
+      "peak_candidates": 112,
+      "max_projected_support_sources": 0,
+      "vocabulary_size": 2861,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "setup_mode": "select",
+      "model_checked_decision_kinds": [
+        "exam_action",
+        "exam_choice",
+        "outer",
+        "produce_choice",
+        "setup_memory_card",
+        "setup_memory_card_variant",
+        "setup_memory_factor",
+        "setup_memory_hif",
+        "setup_support"
+      ],
+      "model_probes": [
+        {
+          "decision_kind": "setup_support",
+          "nodes": 22310,
+          "candidates": 112,
+          "gradient_abs_sum": 23352.01511991641
+        },
+        {
+          "decision_kind": "outer",
+          "nodes": 2913,
+          "candidates": 2,
+          "gradient_abs_sum": 1325.8760706225366
+        },
+        {
+          "decision_kind": "exam_action",
+          "nodes": 9916,
+          "candidates": 5,
+          "gradient_abs_sum": 2052.16114402283
+        },
+        {
+          "decision_kind": "exam_choice",
+          "nodes": 9937,
+          "candidates": 9,
+          "gradient_abs_sum": 2044.986028501473
+        },
+        {
+          "decision_kind": "produce_choice",
+          "nodes": 3035,
+          "candidates": 5,
+          "gradient_abs_sum": 1362.7288615959696
+        },
+        {
+          "decision_kind": "setup_memory_card",
+          "nodes": 10936,
+          "candidates": 54,
+          "gradient_abs_sum": 6442.39767133494
+        },
+        {
+          "decision_kind": "setup_memory_card_variant",
+          "nodes": 3625,
+          "candidates": 5,
+          "gradient_abs_sum": 4899.7728936620315
+        },
+        {
+          "decision_kind": "setup_memory_factor",
+          "nodes": 3484,
+          "candidates": 10,
+          "gradient_abs_sum": 4325.770627190055
+        },
+        {
+          "decision_kind": "setup_memory_hif",
+          "nodes": 14504,
+          "candidates": 106,
+          "gradient_abs_sum": 6082.522406432723
+        }
+      ],
+      "gradient_abs_sum": 51888.230823278966,
+      "forward_backward_seconds": 1.4031852000043727,
+      "encode_seconds": 5.413548300071852,
+      "elapsed_seconds": 21.828399799996987,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c07cd6a7ef166253ae5a8dafcddd45368f42709ba0c59be29d9b8593edf49bee"
+      },
+      "loadout_profile": "ume-campus"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 2084.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 11
+      },
+      "decisions": 30,
+      "peak_nodes": 9561,
+      "peak_edges": 20778,
+      "peak_candidates": 7,
+      "max_projected_support_sources": 1,
+      "vocabulary_size": 2361,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "setup_mode": "given",
+      "model_checked_decision_kinds": [
+        "exam_action",
+        "outer",
+        "produce_choice"
+      ],
+      "model_probes": [
+        {
+          "decision_kind": "outer",
+          "nodes": 1805,
+          "candidates": 3,
+          "gradient_abs_sum": 306.6956666941478
+        },
+        {
+          "decision_kind": "exam_action",
+          "nodes": 9561,
+          "candidates": 5,
+          "gradient_abs_sum": 521.7588383855764
+        },
+        {
+          "decision_kind": "outer",
+          "nodes": 2744,
+          "candidates": 2,
+          "gradient_abs_sum": 329.1224930307653
+        },
+        {
+          "decision_kind": "produce_choice",
+          "nodes": 3056,
+          "candidates": 5,
+          "gradient_abs_sum": 335.5223833087366
+        }
+      ],
+      "gradient_abs_sum": 1493.0993814192261,
+      "forward_backward_seconds": 0.31317439998383634,
+      "encode_seconds": 3.0171014000370633,
+      "elapsed_seconds": 13.408108000003267,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c07cd6a7ef166253ae5a8dafcddd45368f42709ba0c59be29d9b8593edf49bee"
+      },
+      "loadout_profile": "liliya-xmas"
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 1711.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "setup_support": 6,
+        "setup_memory_card": 4,
+        "setup_memory_card_variant": 4,
+        "setup_memory_hif": 4,
+        "setup_memory_factor": 12,
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 10
+      },
+      "decisions": 59,
+      "peak_nodes": 23177,
+      "peak_edges": 55546,
+      "peak_candidates": 123,
+      "max_projected_support_sources": 0,
+      "vocabulary_size": 2752,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "setup_mode": "select",
+      "model_checked_decision_kinds": [
+        "exam_action",
+        "outer",
+        "produce_choice",
+        "setup_memory_card",
+        "setup_memory_card_variant",
+        "setup_memory_factor",
+        "setup_memory_hif",
+        "setup_support"
+      ],
+      "model_probes": [
+        {
+          "decision_kind": "setup_support",
+          "nodes": 23177,
+          "candidates": 123,
+          "gradient_abs_sum": 24955.115325925595
+        },
+        {
+          "decision_kind": "outer",
+          "nodes": 2657,
+          "candidates": 2,
+          "gradient_abs_sum": 635.2777806351369
+        },
+        {
+          "decision_kind": "exam_action",
+          "nodes": 9524,
+          "candidates": 6,
+          "gradient_abs_sum": 1228.3122354992665
+        },
+        {
+          "decision_kind": "produce_choice",
+          "nodes": 2774,
+          "candidates": 5,
+          "gradient_abs_sum": 654.1902081398293
+        },
+        {
+          "decision_kind": "setup_memory_card",
+          "nodes": 8708,
+          "candidates": 55,
+          "gradient_abs_sum": 3462.9172937751428
+        },
+        {
+          "decision_kind": "setup_memory_card_variant",
+          "nodes": 3148,
+          "candidates": 5,
+          "gradient_abs_sum": 4038.0556355369044
+        },
+        {
+          "decision_kind": "setup_memory_factor",
+          "nodes": 3007,
+          "candidates": 10,
+          "gradient_abs_sum": 2577.7012870517083
+        },
+        {
+          "decision_kind": "setup_memory_hif",
+          "nodes": 14028,
+          "candidates": 106,
+          "gradient_abs_sum": 5386.497422845154
+        }
+      ],
+      "gradient_abs_sum": 42938.067189408735,
+      "forward_backward_seconds": 1.3188113999785855,
+      "encode_seconds": 6.547027900000103,
+      "elapsed_seconds": 21.950129100005142,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c07cd6a7ef166253ae5a8dafcddd45368f42709ba0c59be29d9b8593edf49bee"
+      },
+      "loadout_profile": "liliya-xmas"
+    }
+  ]
+}

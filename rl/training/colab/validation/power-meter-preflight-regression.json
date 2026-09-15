@@ -1,0 +1,40 @@
+{
+  "loadout_profile": "saki-hif",
+  "seed": 791031,
+  "result": {
+    "task": "full_produce",
+    "real_episode_raw_score": 3814.0,
+    "termination": "failed",
+    "decision_kinds": {
+      "outer": 15,
+      "produce_choice": 16,
+      "exam_action": 33,
+      "exam_choice": 4
+    },
+    "decisions": 68,
+    "peak_nodes": 10508,
+    "peak_edges": 23454,
+    "peak_candidates": 15,
+    "max_projected_support_sources": 1,
+    "vocabulary_size": 2616,
+    "model": {
+      "width": 64,
+      "layers": 2,
+      "token_dim": 16,
+      "vocab_capacity": 65536,
+      "max_nodes": 32768
+    },
+    "gradient_abs_sum": 416.0021746858838,
+    "forward_backward_seconds": 0.25272240000776947,
+    "encode_seconds": 5.6137567999830935,
+    "elapsed_seconds": 27.33238869998604,
+    "full_success_route_proven": false,
+    "policy_quality_proven": false,
+    "arena_version": {
+      "hash_schema": "arena-effective-rules-and-master/2",
+      "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+      "public_schema": "arena-public-exam/1",
+      "produce_master_sha256": "f3ab0f305f1f3241509af60e4964a78e5c942455c275f0e61793e93f17214773"
+    }
+  }
+}

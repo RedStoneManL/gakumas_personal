@@ -1,0 +1,155 @@
+{
+  "scope": "Real Arena full episode with deterministic first-legal setup policy; a control-flow smoke, not neural PPO data or a success benchmark.",
+  "seed": 92000007,
+  "termination": "failed",
+  "raw_score": 1687.0,
+  "decision_kinds": {
+    "setup_support": 6,
+    "setup_memory_card": 4,
+    "setup_memory_card_variant": 4,
+    "setup_memory_hif": 4,
+    "setup_memory_factor": 12,
+    "outer": 9,
+    "produce_choice": 10,
+    "exam_action": 11
+  },
+  "seconds": 11.017743825912476,
+  "arena_version": {
+    "hash_schema": "arena-effective-rules-and-master/2",
+    "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+    "public_schema": "arena-public-exam/1",
+    "produce_master_sha256": "68b900c406de5e0e9c5e24cd7e060a976b95b68701369b3000fc247e6800e4ca"
+  },
+  "setup_mode": "select",
+  "accepted_exam_count": 1,
+  "selected_support_ids": [
+    "s_card-1-0000",
+    "s_card-1-0001",
+    "s_card-1-0002",
+    "s_card-1-0003",
+    "s_card-1-0004",
+    "s_card-1-0005"
+  ],
+  "selected_memory_specs": [
+    {
+      "memory_id": "research-composed:0:0253a42f102a7183",
+      "idol_card_id": "",
+      "grade": "",
+      "produce_card": {
+        "card_id": "p_card-00-act-2_009",
+        "upgrade_count": 1,
+        "customize_ids": [],
+        "phase_type": "ProduceMemoryProduceCardPhaseType_ProduceStart"
+      },
+      "ability_ids": [
+        "ability-001-p_memory_skill-common-p_trigger-end_lesson-lesson_dance-stamina_recover_fix-02-001",
+        "ability-001-p_memory_skill-common-p_trigger-end_lesson-lesson_visual-stamina_recover_fix-02-001",
+        "ability-001-p_memory_skill-common-p_trigger-end_lesson-lesson_vocal-stamina_recover_fix-02-001",
+        "memory_ability-p_memory_skill-common-hatsuboshi_idol_festival-p_trigger-start_audition-for_hif_memory-exam_status_enchant-exam_turn_timer-exam_status_enchant-01-001-001"
+      ],
+      "ability_levels": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "vocal": 0,
+      "dance": 0,
+      "visual": 0,
+      "stamina": 0,
+      "exam_battle_produce_card_ids": [],
+      "exam_battle_produce_item_ids": [],
+      "allowed_character_ids": []
+    },
+    {
+      "memory_id": "research-composed:1:0253a42f102a7183",
+      "idol_card_id": "",
+      "grade": "",
+      "produce_card": {
+        "card_id": "p_card-00-act-2_009",
+        "upgrade_count": 1,
+        "customize_ids": [],
+        "phase_type": "ProduceMemoryProduceCardPhaseType_ProduceStart"
+      },
+      "ability_ids": [
+        "ability-001-p_memory_skill-common-p_trigger-end_lesson-lesson_dance-stamina_recover_fix-02-001",
+        "ability-001-p_memory_skill-common-p_trigger-end_lesson-lesson_visual-stamina_recover_fix-02-001",
+        "ability-001-p_memory_skill-common-p_trigger-end_lesson-lesson_vocal-stamina_recover_fix-02-001",
+        "memory_ability-p_memory_skill-common-hatsuboshi_idol_festival-p_trigger-start_audition-for_hif_memory-exam_status_enchant-exam_turn_timer-exam_status_enchant-01-001-001"
+      ],
+      "ability_levels": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "vocal": 0,
+      "dance": 0,
+      "visual": 0,
+      "stamina": 0,
+      "exam_battle_produce_card_ids": [],
+      "exam_battle_produce_item_ids": [],
+      "allowed_character_ids": []
+    },
+    {
+      "memory_id": "research-composed:2:0253a42f102a7183",
+      "idol_card_id": "",
+      "grade": "",
+      "produce_card": {
+        "card_id": "p_card-00-act-2_009",
+        "upgrade_count": 1,
+        "customize_ids": [],
+        "phase_type": "ProduceMemoryProduceCardPhaseType_ProduceStart"
+      },
+      "ability_ids": [
+        "ability-001-p_memory_skill-common-p_trigger-end_lesson-lesson_dance-stamina_recover_fix-02-001",
+        "ability-001-p_memory_skill-common-p_trigger-end_lesson-lesson_visual-stamina_recover_fix-02-001",
+        "ability-001-p_memory_skill-common-p_trigger-end_lesson-lesson_vocal-stamina_recover_fix-02-001",
+        "memory_ability-p_memory_skill-common-hatsuboshi_idol_festival-p_trigger-start_audition-for_hif_memory-exam_status_enchant-exam_turn_timer-exam_status_enchant-01-001-001"
+      ],
+      "ability_levels": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "vocal": 0,
+      "dance": 0,
+      "visual": 0,
+      "stamina": 0,
+      "exam_battle_produce_card_ids": [],
+      "exam_battle_produce_item_ids": [],
+      "allowed_character_ids": []
+    },
+    {
+      "memory_id": "research-composed:3:0253a42f102a7183",
+      "idol_card_id": "",
+      "grade": "",
+      "produce_card": {
+        "card_id": "p_card-00-act-2_009",
+        "upgrade_count": 1,
+        "customize_ids": [],
+        "phase_type": "ProduceMemoryProduceCardPhaseType_ProduceStart"
+      },
+      "ability_ids": [
+        "ability-001-p_memory_skill-common-p_trigger-end_lesson-lesson_dance-stamina_recover_fix-02-001",
+        "ability-001-p_memory_skill-common-p_trigger-end_lesson-lesson_visual-stamina_recover_fix-02-001",
+        "ability-001-p_memory_skill-common-p_trigger-end_lesson-lesson_vocal-stamina_recover_fix-02-001",
+        "memory_ability-p_memory_skill-common-hatsuboshi_idol_festival-p_trigger-start_audition-for_hif_memory-exam_status_enchant-exam_turn_timer-exam_status_enchant-01-001-001"
+      ],
+      "ability_levels": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "vocal": 0,
+      "dance": 0,
+      "visual": 0,
+      "stamina": 0,
+      "exam_battle_produce_card_ids": [],
+      "exam_battle_produce_item_ids": [],
+      "allowed_character_ids": []
+    }
+  ]
+}

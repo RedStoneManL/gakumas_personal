@@ -1,0 +1,124 @@
+{
+  "schema": "training-cli-acceptance/1",
+  "full_produce_cuda": {
+    "status": "ready",
+    "task": "full_produce",
+    "iteration": 1,
+    "policy_version": 1,
+    "seed_cursor": 92000002,
+    "collection_seconds": 21.130631599982735,
+    "update_seconds": 6.345509100006893,
+    "policy_timings": {
+      "encoding_seconds": 1.8799122000636999,
+      "inference_seconds": 3.6755757999781054,
+      "decisions": 71
+    },
+    "elapsed_training_seconds": 27.476161700004013,
+    "total_decisions": 71,
+    "total_episodes": 2,
+    "episodes": 2,
+    "raw_score_mean": -235.5,
+    "raw_score_min": -302.0,
+    "raw_score_max": -169.0,
+    "raw_score_std": 94.04520189781083,
+    "terminations": {
+      "failed": 2
+    },
+    "decisions": 71,
+    "ppo": {
+      "loss": -0.18961608223617077,
+      "policy_loss": -0.17635639011859894,
+      "value_loss": 0.001456355829873246,
+      "entropy": 1.3987876679748297,
+      "kl": 2.1387157695634025E-08,
+      "grad_norm_before_clip": 0.3329559229314327,
+      "clip_fraction": 0.0,
+      "optimizer_steps": 4,
+      "epochs_started": 2,
+      "transitions": 71,
+      "meaningful_decisions": 71,
+      "behavior_parity_max_error": 1.1920928955078125E-07,
+      "kl_stop_reason": null,
+      "score_scale": 50000.0,
+      "gamma": 1.0
+    },
+    "evaluation": {
+      "task": "full_produce",
+      "iteration": 1,
+      "policy_version": 1,
+      "namespace": "evaluation",
+      "seconds": 15.047670700005256,
+      "episodes": 2,
+      "raw_score_mean": -633.0,
+      "raw_score_min": -633.0,
+      "raw_score_max": -633.0,
+      "raw_score_std": 0.0,
+      "terminations": {
+        "failed": 2
+      },
+      "decisions": 46
+    }
+  },
+  "exam_score_cpu_and_resume": {
+    "status": "ready",
+    "task": "exam_score",
+    "iteration": 2,
+    "policy_version": 2,
+    "seed_cursor": 91000004,
+    "collection_seconds": 2.6457552000065334,
+    "update_seconds": 2.4467614000022877,
+    "policy_timings": {
+      "encoding_seconds": 0.7686064000008628,
+      "inference_seconds": 0.5598037000163458,
+      "decisions": 45
+    },
+    "elapsed_training_seconds": 10.771491400024388,
+    "total_decisions": 94,
+    "total_episodes": 4,
+    "episodes": 2,
+    "raw_score_mean": 5433.5,
+    "raw_score_min": 5008.0,
+    "raw_score_max": 5859.0,
+    "raw_score_std": 601.7478707897519,
+    "terminations": {
+      "normal": 2
+    },
+    "decisions": 45,
+    "ppo": {
+      "loss": 0.12515801517292857,
+      "policy_loss": -7.685011951252818E-06,
+      "value_loss": 0.28156475303694606,
+      "entropy": 1.5616676565259695,
+      "kl": 0.0,
+      "grad_norm_before_clip": 6.3447957038879395,
+      "clip_fraction": 0.0,
+      "optimizer_steps": 2,
+      "epochs_started": 2,
+      "transitions": 45,
+      "meaningful_decisions": 45,
+      "behavior_parity_max_error": 1.1920928955078125E-07,
+      "kl_stop_reason": null,
+      "score_scale": 150000.0,
+      "gamma": 1.0
+    },
+    "evaluation": {
+      "task": "exam_score",
+      "iteration": 2,
+      "policy_version": 2,
+      "namespace": "evaluation",
+      "seconds": 2.746857499994803,
+      "episodes": 2,
+      "raw_score_mean": 34336.5,
+      "raw_score_min": 28285.0,
+      "raw_score_max": 40388.0,
+      "raw_score_std": 8558.113372700785,
+      "terminations": {
+        "normal": 2
+      },
+      "decisions": 46
+    }
+  },
+  "full_produce_separate_evaluate_exit_code": 0,
+  "all_cli_exit_codes": 0,
+  "policy_quality_improvement_proven": false
+}

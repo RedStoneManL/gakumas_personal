@@ -1,0 +1,72 @@
+{
+  "task": "full_produce",
+  "score_scale": 50000.0,
+  "seed": 92000000,
+  "eval_seed": 192000000,
+  "episodes_per_update": 8,
+  "eval_every_updates": 5,
+  "eval_episodes": 8,
+  "device": "cuda",
+  "workers": 1,
+  "model": {
+    "width": 64,
+    "layers": 2,
+    "token_dim": 16,
+    "vocab_capacity": 65536,
+    "max_nodes": 32768
+  },
+  "ppo": {
+    "learning_rate": 3e-05,
+    "epochs": 2,
+    "minibatch_size": 64,
+    "microbatch_size": 2,
+    "clip": 0.2,
+    "target_kl": 0.015,
+    "value_coefficient": 0.5,
+    "entropy_coefficient": 0.01,
+    "gamma": 1.0,
+    "setup_entropy_coefficient": 0.05
+  },
+  "task_config": {
+    "loadout": {
+      "idol_card_id": "i_card-shro-3-018",
+      "producer_level": 76,
+      "idol_rank": 6,
+      "dearness_level": 37,
+      "auto_support_cards": false,
+      "support_card_ids": [
+        "s_card-2-0007",
+        "s_card-3-0030",
+        "s_card-3-0064",
+        "s_card-3-0069",
+        "s_card-3-0070",
+        "s_card-3-0077"
+      ],
+      "support_card_levels": [
+        50,
+        60,
+        60,
+        60,
+        60,
+        60
+      ]
+    },
+    "research_config": {
+      "growth_panel_levels": {
+        "01": 5,
+        "02": 5,
+        "03": 5,
+        "04": 5,
+        "05": 6,
+        "06": 6,
+        "07": 6,
+        "08": 6,
+        "09": 6
+      }
+    },
+    "max_outer_decisions": 1000,
+    "max_exam_decisions": 2000,
+    "early_terminal_policy": "final_formula_zero_unplayed_v1",
+    "setup_mode": "given"
+  }
+}

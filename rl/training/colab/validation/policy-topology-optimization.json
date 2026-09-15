@@ -1,0 +1,77 @@
+{
+  "scope": "Local short model forward/backward only; not Colab or end-to-end training",
+  "gpu": "NVIDIA GeForce RTX 5080",
+  "torch": "2.9.1+cu128",
+  "tf32_matmul": false,
+  "tf32_cudnn": true,
+  "amp": false,
+  "iterations": 8,
+  "cases": {
+    "exam_batch2": {
+      "nodes": [
+        1484,
+        1484
+      ],
+      "tree_depth": 12,
+      "paths": {
+        "legacy": {
+          "median_forward_ms": 13.904699997510761,
+          "profile_events": {
+            "aten::nonzero": 40,
+            "cudaStreamSynchronize": 52,
+            "aten::_unique2": 12,
+            "cudaDeviceSynchronize": 1
+          }
+        },
+        "precomputed": {
+          "median_forward_ms": 8.664599998155609,
+          "profile_events": {
+            "cudaDeviceSynchronize": 1
+          }
+        }
+      },
+      "max_log_prob_difference": 0.0,
+      "max_gradient_difference": 4.172325134277344e-07,
+      "parameter_gradient_count": 39,
+      "forward_speedup": 1.6047711377871554,
+      "passed": true
+    },
+    "mixed_batch4": {
+      "nodes": [
+        21191,
+        1484,
+        21191,
+        1484
+      ],
+      "tree_depth": 53,
+      "paths": {
+        "legacy": {
+          "median_forward_ms": 61.55964999925345,
+          "profile_events": {
+            "aten::nonzero": 167,
+            "cudaStreamSynchronize": 220,
+            "aten::_unique2": 53,
+            "cudaDeviceSynchronize": 1
+          }
+        },
+        "precomputed": {
+          "median_forward_ms": 28.032050002366304,
+          "profile_events": {
+            "cudaDeviceSynchronize": 1
+          }
+        }
+      },
+      "max_log_prob_difference": 0.0,
+      "max_gradient_difference": 1.71661376953125e-05,
+      "parameter_gradient_count": 39,
+      "forward_speedup": 2.196045240860263,
+      "passed": true
+    }
+  },
+  "checkpoint_strict_load_passed": true,
+  "source_sha256": {
+    "gakumas_training/models/policy.py": "f781d1fb611fb153ebc4ce10ad57b0638109a689be004397e2e9d0a1e589c169",
+    "gakumas_training/encoding/graph.py": "7a6200d6085c2e07b2cc670e61ef6d0be6588552e6f74c3a22ce1a68c9432356"
+  },
+  "passed": true
+}

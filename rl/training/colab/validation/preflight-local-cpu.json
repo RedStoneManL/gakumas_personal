@@ -1,0 +1,74 @@
+{
+  "scope": "local CPU execution of Colab preflight task probes; not Colab/GPU validation",
+  "tasks": [
+    {
+      "task": "exam_score",
+      "real_episode_raw_score": 80878.0,
+      "termination": "normal",
+      "decision_kinds": {
+        "exam_action": 26,
+        "exam_choice": 1
+      },
+      "decisions": 27,
+      "peak_nodes": 1645,
+      "peak_edges": 3516,
+      "peak_candidates": 11,
+      "max_projected_support_sources": 0,
+      "vocabulary_size": 531,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "gradient_abs_sum": 3023.632441096008,
+      "forward_backward_seconds": 0.08291510000708513,
+      "encode_seconds": 0.3841688998800237,
+      "elapsed_seconds": 1.4511988000012934,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c5db7d2e0e2c4dda83a3a224f1b97958ac71569fafa3d2671b67b29fc39c123a"
+      }
+    },
+    {
+      "task": "full_produce",
+      "real_episode_raw_score": 1969.0,
+      "termination": "failed",
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 13
+      },
+      "decisions": 32,
+      "peak_nodes": 9655,
+      "peak_edges": 21000,
+      "peak_candidates": 6,
+      "max_projected_support_sources": 3,
+      "vocabulary_size": 2386,
+      "model": {
+        "width": 64,
+        "layers": 2,
+        "token_dim": 16,
+        "vocab_capacity": 65536,
+        "max_nodes": 32768
+      },
+      "gradient_abs_sum": 885.5950671455939,
+      "forward_backward_seconds": 0.22080350000760518,
+      "encode_seconds": 1.8862528999743517,
+      "elapsed_seconds": 12.22445159999188,
+      "full_success_route_proven": false,
+      "policy_quality_proven": false,
+      "arena_version": {
+        "hash_schema": "arena-effective-rules-and-master/2",
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "c5db7d2e0e2c4dda83a3a224f1b97958ac71569fafa3d2671b67b29fc39c123a"
+      }
+    }
+  ]
+}

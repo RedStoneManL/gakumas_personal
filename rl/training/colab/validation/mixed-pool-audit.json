@@ -1,0 +1,2859 @@
+{
+  "schema": "gakumas-mixed-pool-natural-audit/1",
+  "not_training": true,
+  "seed_selection": "seed_mod_pool_size_v1",
+  "profiles": [
+    {
+      "name": "saki-wild",
+      "seed": 92000000,
+      "idol_card_id": "i_card-hski-3-017",
+      "ok": true,
+      "termination": "failed",
+      "raw_score": 1663.0,
+      "accepted_exam_count": 1,
+      "rating_provenance": {
+        "field": "explicit_early_terminal_mapping",
+        "formula_source": "hif-five-exam-research/1",
+        "early_terminal_mapping": true,
+        "policy": "final_formula_zero_unplayed_v1",
+        "formula_detail": {
+          "rating": 1663,
+          "rank": "E",
+          "parameter_total": 1299.0,
+          "star_quality_after_round2": 142.0,
+          "base": 3663,
+          "round1_component": 0,
+          "round2_component": 0,
+          "formula_source": "hif-five-exam-research/1"
+        },
+        "game_awarded_rating_verified": false
+      },
+      "first_public": {
+        "state": {
+          "vocal": 200.0,
+          "dance": 265.0,
+          "visual": 335.0,
+          "vocal_growth": 0.22,
+          "dance_growth": 0.45400000000000007,
+          "visual_growth": 0.25,
+          "stamina": 35.0,
+          "max_stamina": 35.0,
+          "producer_level": 76.0,
+          "idol_rank": 6.0
+        },
+        "card_ids": [
+          "p_card-02-men-0_035",
+          "p_card-02-act-0_032",
+          "p_card-02-act-0_032",
+          "p_card-02-men-0_034",
+          "p_card-02-men-0_034",
+          "p_card-02-men-0_034",
+          "p_card-02-men-0_036",
+          "p_card-02-ido-3_173"
+        ],
+        "support_skills": [
+          {
+            "skill_id": "p_idol_skill-common-p_trigger-produce_start-no_description-lesson_sp_change_rate_permil_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_sp_change_rate_permil_addition-0100_0100"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "idol_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_audition-dance_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_audition",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 2,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0013_0013"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-dance_growth_rate_addition-02-001",
+            "level": 11,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-dance_growth_rate_addition-0064_0064"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0210_0210"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-02-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-02-001",
+            "level": 49,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson_before_present-lesson_dance_sp-lesson_present_produce_point_up-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson_before_present-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-lesson_present_produce_point_up-0330_0330"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0013_0013"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-dance_growth_rate_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-dance_growth_rate_addition-0085_0085"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-upgrade_produce_card-0000_0000-p_card_search-mental_skill-deck_all-dance_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-upgrade_produce_card-0000_0000-p_card_search-mental_skill-deck_all",
+            "effect_ids": [
+              "p_effect-dance_addition-0007_0007"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_visual-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_visual",
+            "effect_ids": [
+              "p_effect-visual_addition-0006_0006"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_card-0000_0000-p_card_search-mental_skill-deck_all-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_card-0000_0000-p_card_search-mental_skill-deck_all",
+            "effect_ids": [
+              "p_effect-visual_addition-0003_0003"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-visual_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-visual_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_visual_sp_change_rate_permil_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_visual_sp_change_rate_permil_addition-0280_0280"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_card-p_card_search-ssr-deck_all-1-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_card-p_card_search-ssr-deck_all-1",
+            "effect_ids": [
+              "p_effect-dance_addition-0006_0006"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_drink-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_drink",
+            "effect_ids": [
+              "p_effect-dance_addition-0005_0005"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-dance_growth_rate_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-dance_growth_rate_addition-0085_0085"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_audition-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_audition",
+            "effect_ids": [
+              "p_effect-dance_addition-0022_0022"
+            ],
+            "fire_limit": 2,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-dance_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-dance_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0280_0280"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-buy_shop_item_produce_drink-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-buy_shop_item_produce_drink",
+            "effect_ids": [
+              "p_effect-visual_addition-0011_0011"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_visual_sp-stamina_recover_fix-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_visual_sp",
+            "effect_ids": [
+              "p_effect-stamina_recover_fix-0007_0007"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_visual_sp-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_visual_sp",
+            "effect_ids": [
+              "p_effect-visual_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-visual_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-visual_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          }
+        ],
+        "produce_items": [
+          {
+            "spec": {
+              "item_id": "pitem_02-3-299-1",
+              "trigger": null,
+              "effects": [
+                {
+                  "item_effect_id": "p_item_effect-exam_status_enchant-inf-01-enchant-pitem_02-3-299-1-enc01",
+                  "effect_type": "ProduceItemEffectType_ExamStatusEnchant",
+                  "produce_effect_id": "",
+                  "enchant_id": "enchant-p_item_effect_02-3-299-1-enc01",
+                  "effect_turn": null,
+                  "effect_count": 1,
+                  "skill_trigger": null
+                }
+              ],
+              "fire_limit": 0,
+              "fire_interval": 0,
+              "is_challenge": false,
+              "is_exam_effect": true
+            },
+            "source": "loadout",
+            "fire_count": 0,
+            "cooldown_remaining": 0
+          },
+          {
+            "spec": {
+              "item_id": "pitem_00-3-265-0",
+              "trigger": {
+                "trigger_id": "p_trigger-get_produce_card-0000_0000-p_card_search-deck_all",
+                "phase_type": "ProducePhaseType_GetProduceCard",
+                "lesson_filter": "",
+                "card_search_id": "p_card_search-deck_all",
+                "business_reward_kind": "",
+                "scenario_tag": "",
+                "parameter_thresholds": [],
+                "stamina_ratio_min": null,
+                "produce_card_count_min": null
+              },
+              "effects": [
+                {
+                  "item_effect_id": "p_item_effect-produce_effect-p_effect-star_addition-0010_0010",
+                  "effect_type": "ProduceItemEffectType_ProduceEffect",
+                  "produce_effect_id": "p_effect-star_addition-0010_0010",
+                  "enchant_id": "",
+                  "effect_turn": 0,
+                  "effect_count": null,
+                  "skill_trigger": null
+                }
+              ],
+              "fire_limit": 20,
+              "fire_interval": 0,
+              "is_challenge": false,
+              "is_exam_effect": false
+            },
+            "source": "reward",
+            "fire_count": 0,
+            "cooldown_remaining": 0
+          }
+        ],
+        "character_id": "hski",
+        "mechanism_count": 162,
+        "encoded_nodes": 1813
+      },
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 12
+      },
+      "peak_encoded_nodes": 9436,
+      "seconds": 11.371664099977352
+    },
+    {
+      "name": "saki-hif",
+      "seed": 92000001,
+      "idol_card_id": "i_card-hski-3-018",
+      "ok": true,
+      "termination": "failed",
+      "raw_score": 3302.0,
+      "accepted_exam_count": 2,
+      "rating_provenance": {
+        "field": "explicit_early_terminal_mapping",
+        "formula_source": "hif-five-exam-research/1",
+        "early_terminal_mapping": true,
+        "policy": "final_formula_zero_unplayed_v1",
+        "formula_detail": {
+          "rating": 3302,
+          "rank": "C",
+          "parameter_total": 1721.0,
+          "star_quality_after_round2": 248.0,
+          "base": 5302,
+          "round1_component": 0,
+          "round2_component": 0,
+          "formula_source": "hif-five-exam-research/1"
+        },
+        "game_awarded_rating_verified": false
+      },
+      "first_public": {
+        "state": {
+          "vocal": 200.0,
+          "dance": 330.0,
+          "visual": 205.0,
+          "vocal_growth": 0.22,
+          "dance_growth": 0.369,
+          "visual_growth": 0.42000000000000004,
+          "stamina": 35.0,
+          "max_stamina": 35.0,
+          "producer_level": 76.0,
+          "idol_rank": 6.0
+        },
+        "card_ids": [
+          "p_card-03-act-0_042",
+          "p_card-03-act-0_043",
+          "p_card-03-act-0_043",
+          "p_card-03-act-0_043",
+          "p_card-03-men-0_044",
+          "p_card-03-men-0_044",
+          "p_card-03-men-0_045",
+          "p_card-03-ido-3_197"
+        ],
+        "support_skills": [
+          {
+            "skill_id": "p_idol_skill-common-p_trigger-produce_start-no_description-lesson_sp_change_rate_permil_addition-03-003",
+            "level": 2,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_sp_change_rate_permil_addition-0150_0150"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "idol_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_audition-dance_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_audition",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 2,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0013_0013"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-dance_growth_rate_addition-02-001",
+            "level": 11,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-dance_growth_rate_addition-0064_0064"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0210_0210"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-02-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-02-001",
+            "level": 49,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_audition-dance_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_audition",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 2,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-dance_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-dance_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0210_0210"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-start_present-stamina_recover_fix-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-start_present",
+            "effect_ids": [
+              "p_effect-stamina_recover_fix-0004_0004"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson_before_present-lesson_visual_sp-lesson_present_produce_point_up-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson_before_present-lesson_visual_sp",
+            "effect_ids": [
+              "p_effect-lesson_present_produce_point_up-0330_0330"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_visual_sp-visual_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson-lesson_visual_sp",
+            "effect_ids": [
+              "p_effect-visual_addition-0013_0013"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-visual_growth_rate_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-visual_growth_rate_addition-0085_0085"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-upgrade_produce_card-0000_0000-p_card_search-mental_skill-deck_all-visual_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-upgrade_produce_card-0000_0000-p_card_search-mental_skill-deck_all",
+            "effect_ids": [
+              "p_effect-visual_addition-0007_0007"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_card-p_card_search-ssr-deck_all-1-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_card-p_card_search-ssr-deck_all-1",
+            "effect_ids": [
+              "p_effect-dance_addition-0006_0006"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_drink-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_drink",
+            "effect_ids": [
+              "p_effect-dance_addition-0005_0005"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-dance_growth_rate_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-dance_growth_rate_addition-0085_0085"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_card-0000_0000-p_card_search-active_skill-deck_all-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_card-0000_0000-p_card_search-active_skill-deck_all",
+            "effect_ids": [
+              "p_effect-dance_addition-0003_0003"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-dance_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-dance_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0280_0280"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-delete_produce_card-0000_0000-p_card_search-deck_all-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-delete_produce_card-0000_0000-p_card_search-deck_all",
+            "effect_ids": [
+              "p_effect-visual_addition-0011_0011"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_visual_sp-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_visual_sp",
+            "effect_ids": [
+              "p_effect-visual_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-visual_growth_rate_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-visual_growth_rate_addition-0085_0085"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-upgrade_produce_card-0000_0000-p_card_search-active_skill-deck_all-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-upgrade_produce_card-0000_0000-p_card_search-active_skill-deck_all",
+            "effect_ids": [
+              "p_effect-visual_addition-0009_0009"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          }
+        ],
+        "produce_items": [
+          {
+            "spec": {
+              "item_id": "pitem_03-3-320-1",
+              "trigger": null,
+              "effects": [
+                {
+                  "item_effect_id": "p_item_effect-exam_status_enchant-inf-02-enchant-pitem_03-3-320-1-enc01",
+                  "effect_type": "ProduceItemEffectType_ExamStatusEnchant",
+                  "produce_effect_id": "",
+                  "enchant_id": "enchant-p_item_effect_03-3-320-1-enc01",
+                  "effect_turn": null,
+                  "effect_count": 2,
+                  "skill_trigger": null
+                }
+              ],
+              "fire_limit": 0,
+              "fire_interval": 0,
+              "is_challenge": false,
+              "is_exam_effect": true
+            },
+            "source": "loadout",
+            "fire_count": 0,
+            "cooldown_remaining": 0
+          },
+          {
+            "spec": {
+              "item_id": "pitem_00-3-265-0",
+              "trigger": {
+                "trigger_id": "p_trigger-get_produce_card-0000_0000-p_card_search-deck_all",
+                "phase_type": "ProducePhaseType_GetProduceCard",
+                "lesson_filter": "",
+                "card_search_id": "p_card_search-deck_all",
+                "business_reward_kind": "",
+                "scenario_tag": "",
+                "parameter_thresholds": [],
+                "stamina_ratio_min": null,
+                "produce_card_count_min": null
+              },
+              "effects": [
+                {
+                  "item_effect_id": "p_item_effect-produce_effect-p_effect-star_addition-0010_0010",
+                  "effect_type": "ProduceItemEffectType_ProduceEffect",
+                  "produce_effect_id": "p_effect-star_addition-0010_0010",
+                  "enchant_id": "",
+                  "effect_turn": 0,
+                  "effect_count": null,
+                  "skill_trigger": null
+                }
+              ],
+              "fire_limit": 20,
+              "fire_interval": 0,
+              "is_challenge": false,
+              "is_exam_effect": false
+            },
+            "source": "reward",
+            "fire_count": 0,
+            "cooldown_remaining": 0
+          }
+        ],
+        "character_id": "hski",
+        "mechanism_count": 165,
+        "encoded_nodes": 1827
+      },
+      "decision_kinds": {
+        "outer": 15,
+        "produce_choice": 16,
+        "exam_action": 34,
+        "exam_choice": 2
+      },
+      "peak_encoded_nodes": 10821,
+      "seconds": 26.453739700024016
+    },
+    {
+      "name": "hiro-hif",
+      "seed": 92000002,
+      "idol_card_id": "i_card-shro-3-018",
+      "ok": true,
+      "termination": "failed",
+      "raw_score": 1877.0,
+      "accepted_exam_count": 1,
+      "rating_provenance": {
+        "field": "explicit_early_terminal_mapping",
+        "formula_source": "hif-five-exam-research/1",
+        "early_terminal_mapping": true,
+        "policy": "final_formula_zero_unplayed_v1",
+        "formula_detail": {
+          "rating": 1877,
+          "rank": "E",
+          "parameter_total": 1320.0,
+          "star_quality_after_round2": 165.0,
+          "base": 3877,
+          "round1_component": 0,
+          "round2_component": 0,
+          "formula_source": "hif-five-exam-research/1"
+        },
+        "game_awarded_rating_verified": false
+      },
+      "first_public": {
+        "state": {
+          "vocal": 175.0,
+          "dance": 305.0,
+          "visual": 245.0,
+          "vocal_growth": 0.32,
+          "dance_growth": 0.42900000000000005,
+          "visual_growth": 0.28500000000000003,
+          "stamina": 28.0,
+          "max_stamina": 28.0,
+          "producer_level": 76.0,
+          "idol_rank": 6.0
+        },
+        "card_ids": [
+          "p_card-01-act-0_028",
+          "p_card-01-act-0_027",
+          "p_card-01-act-0_027",
+          "p_card-01-men-0_025",
+          "p_card-01-men-0_026",
+          "p_card-01-men-0_026",
+          "p_card-01-men-0_029",
+          "p_card-01-ido-3_202"
+        ],
+        "support_skills": [
+          {
+            "skill_id": "p_idol_skill-common-p_trigger-produce_start-no_description-lesson_sp_change_rate_permil_addition-03-003",
+            "level": 2,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_sp_change_rate_permil_addition-0150_0150"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "idol_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_audition-dance_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_audition",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 2,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0013_0013"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-dance_growth_rate_addition-02-001",
+            "level": 11,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-dance_growth_rate_addition-0064_0064"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0210_0210"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-02-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-02-001",
+            "level": 49,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_card-0000_0000-p_card_search-active_skill-deck_all-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_card-0000_0000-p_card_search-active_skill-deck_all",
+            "effect_ids": [
+              "p_effect-dance_addition-0003_0003"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-dance_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-dance_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0280_0280"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-delete_produce_card-0000_0000-p_card_search-deck_all-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-delete_produce_card-0000_0000-p_card_search-deck_all",
+            "effect_ids": [
+              "p_effect-visual_addition-0011_0011"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_visual_sp-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_visual_sp",
+            "effect_ids": [
+              "p_effect-visual_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_drink-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_drink",
+            "effect_ids": [
+              "p_effect-visual_addition-0005_0005"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-visual_growth_rate_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-visual_growth_rate_addition-0085_0085"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_card-p_card_search-ssr-deck_all-1-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_card-p_card_search-ssr-deck_all-1",
+            "effect_ids": [
+              "p_effect-dance_addition-0006_0006"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_drink-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_drink",
+            "effect_ids": [
+              "p_effect-dance_addition-0005_0005"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-dance_growth_rate_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-dance_growth_rate_addition-0085_0085"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_drink-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_drink",
+            "effect_ids": [
+              "p_effect-dance_addition-0005_0005"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-dance_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-dance_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0280_0280"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_step_event_school-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_step_event_school",
+            "effect_ids": [
+              "p_effect-visual_addition-0007_0007"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_card-p_card_search-ssr-deck_all-1-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_card-p_card_search-ssr-deck_all-1",
+            "effect_ids": [
+              "p_effect-visual_addition-0006_0006"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-visual_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-visual_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-start_shop-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-start_shop",
+            "effect_ids": [
+              "p_effect-visual_addition-0018_0018"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          }
+        ],
+        "produce_items": [
+          {
+            "spec": {
+              "item_id": "pitem_01-3-313-1",
+              "trigger": null,
+              "effects": [
+                {
+                  "item_effect_id": "p_item_effect-exam_status_enchant-inf-03-enchant-pitem_01-3-313-1-enc01",
+                  "effect_type": "ProduceItemEffectType_ExamStatusEnchant",
+                  "produce_effect_id": "",
+                  "enchant_id": "enchant-p_item_effect_01-3-313-1-enc01",
+                  "effect_turn": null,
+                  "effect_count": 3,
+                  "skill_trigger": null
+                }
+              ],
+              "fire_limit": 0,
+              "fire_interval": 0,
+              "is_challenge": false,
+              "is_exam_effect": true
+            },
+            "source": "loadout",
+            "fire_count": 0,
+            "cooldown_remaining": 0
+          },
+          {
+            "spec": {
+              "item_id": "pitem_00-3-265-0",
+              "trigger": {
+                "trigger_id": "p_trigger-get_produce_card-0000_0000-p_card_search-deck_all",
+                "phase_type": "ProducePhaseType_GetProduceCard",
+                "lesson_filter": "",
+                "card_search_id": "p_card_search-deck_all",
+                "business_reward_kind": "",
+                "scenario_tag": "",
+                "parameter_thresholds": [],
+                "stamina_ratio_min": null,
+                "produce_card_count_min": null
+              },
+              "effects": [
+                {
+                  "item_effect_id": "p_item_effect-produce_effect-p_effect-star_addition-0010_0010",
+                  "effect_type": "ProduceItemEffectType_ProduceEffect",
+                  "produce_effect_id": "p_effect-star_addition-0010_0010",
+                  "enchant_id": "",
+                  "effect_turn": 0,
+                  "effect_count": null,
+                  "skill_trigger": null
+                }
+              ],
+              "fire_limit": 20,
+              "fire_interval": 0,
+              "is_challenge": false,
+              "is_exam_effect": false
+            },
+            "source": "reward",
+            "fire_count": 0,
+            "cooldown_remaining": 0
+          }
+        ],
+        "character_id": "shro",
+        "mechanism_count": 161,
+        "encoded_nodes": 1753
+      },
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 12
+      },
+      "peak_encoded_nodes": 9497,
+      "seconds": 11.295871599984821
+    },
+    {
+      "name": "ume-campus",
+      "seed": 92000003,
+      "idol_card_id": "i_card-hume-3-006",
+      "ok": true,
+      "termination": "failed",
+      "raw_score": 1862.0,
+      "accepted_exam_count": 1,
+      "rating_provenance": {
+        "field": "explicit_early_terminal_mapping",
+        "formula_source": "hif-five-exam-research/1",
+        "early_terminal_mapping": true,
+        "policy": "final_formula_zero_unplayed_v1",
+        "formula_detail": {
+          "rating": 1862,
+          "rank": "E",
+          "parameter_total": 1256.0,
+          "star_quality_after_round2": 180.0,
+          "base": 3862,
+          "round1_component": 0,
+          "round2_component": 0,
+          "formula_source": "hif-five-exam-research/1"
+        },
+        "game_awarded_rating_verified": false
+      },
+      "first_public": {
+        "state": {
+          "vocal": 175.0,
+          "dance": 315.0,
+          "visual": 185.0,
+          "vocal_growth": 0.27,
+          "dance_growth": 0.44900000000000007,
+          "visual_growth": 0.39,
+          "stamina": 33.0,
+          "max_stamina": 33.0,
+          "producer_level": 76.0,
+          "idol_rank": 6.0
+        },
+        "card_ids": [
+          "p_card-03-act-0_047",
+          "p_card-03-act-2_073",
+          "p_card-03-act-0_048",
+          "p_card-03-men-0_049",
+          "p_card-03-men-0_049",
+          "p_card-03-men-0_050",
+          "p_card-03-men-0_050",
+          "p_card-03-ido-3_107"
+        ],
+        "support_skills": [
+          {
+            "skill_id": "p_idol_skill-common-p_trigger-produce_start-no_description-produce_card_change_upgrade-p_rd-p_ability-p_idol_skill-i_card-hume-3-006-03-001",
+            "level": 1,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-produce_card_change_upgrade-0001_0001-p_rd-p_ability-p_idol_skill-i_card-hume-3-006-p_card_search-deck_all-1-p_card-00-men-0_003-p_card-03-act-0_048-i_card-hume-3-006-all-00_00"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "idol_skill"
+          },
+          {
+            "skill_id": "p_idol_skill-common-p_trigger-produce_start-no_description-lesson_sp_change_rate_permil_addition-03-003",
+            "level": 2,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_sp_change_rate_permil_addition-0150_0150"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "idol_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_audition-dance_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_audition",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 2,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0013_0013"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-dance_growth_rate_addition-02-001",
+            "level": 11,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-dance_growth_rate_addition-0064_0064"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0210_0210"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-02-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-02-001",
+            "level": 49,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_audition-dance_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_audition",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 2,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-dance_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-dance_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0210_0210"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-start_present-stamina_recover_fix-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-start_present",
+            "effect_ids": [
+              "p_effect-stamina_recover_fix-0004_0004"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson_before_present-lesson_visual_sp-lesson_present_produce_point_up-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson_before_present-lesson_visual_sp",
+            "effect_ids": [
+              "p_effect-lesson_present_produce_point_up-0330_0330"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_visual_sp-visual_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson-lesson_visual_sp",
+            "effect_ids": [
+              "p_effect-visual_addition-0013_0013"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-visual_growth_rate_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-visual_growth_rate_addition-0085_0085"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-upgrade_produce_card-0000_0000-p_card_search-mental_skill-deck_all-visual_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-upgrade_produce_card-0000_0000-p_card_search-mental_skill-deck_all",
+            "effect_ids": [
+              "p_effect-visual_addition-0007_0007"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_card-p_card_search-ssr-deck_all-1-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_card-p_card_search-ssr-deck_all-1",
+            "effect_ids": [
+              "p_effect-dance_addition-0006_0006"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_drink-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_drink",
+            "effect_ids": [
+              "p_effect-dance_addition-0005_0005"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-dance_growth_rate_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-dance_growth_rate_addition-0085_0085"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_card-0000_0000-p_card_search-active_skill-deck_all-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_card-0000_0000-p_card_search-active_skill-deck_all",
+            "effect_ids": [
+              "p_effect-dance_addition-0003_0003"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-dance_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-dance_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0280_0280"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-delete_produce_card-0000_0000-p_card_search-deck_all-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-delete_produce_card-0000_0000-p_card_search-deck_all",
+            "effect_ids": [
+              "p_effect-visual_addition-0011_0011"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_visual_sp-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_visual_sp",
+            "effect_ids": [
+              "p_effect-visual_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-visual_growth_rate_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-visual_growth_rate_addition-0085_0085"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-upgrade_produce_card-0000_0000-p_card_search-active_skill-deck_all-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-upgrade_produce_card-0000_0000-p_card_search-active_skill-deck_all",
+            "effect_ids": [
+              "p_effect-visual_addition-0009_0009"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          }
+        ],
+        "produce_items": [
+          {
+            "spec": {
+              "item_id": "pitem_03-3-078-1",
+              "trigger": null,
+              "effects": [
+                {
+                  "item_effect_id": "p_item_effect-exam_status_enchant-inf-01-enchant-pitem_03-3-078-1-enc01",
+                  "effect_type": "ProduceItemEffectType_ExamStatusEnchant",
+                  "produce_effect_id": "",
+                  "enchant_id": "enchant-p_item_effect_03-3-078-1-enc01",
+                  "effect_turn": null,
+                  "effect_count": 1,
+                  "skill_trigger": null
+                }
+              ],
+              "fire_limit": 0,
+              "fire_interval": 0,
+              "is_challenge": false,
+              "is_exam_effect": true
+            },
+            "source": "loadout",
+            "fire_count": 0,
+            "cooldown_remaining": 0
+          },
+          {
+            "spec": {
+              "item_id": "pitem_00-3-265-0",
+              "trigger": {
+                "trigger_id": "p_trigger-get_produce_card-0000_0000-p_card_search-deck_all",
+                "phase_type": "ProducePhaseType_GetProduceCard",
+                "lesson_filter": "",
+                "card_search_id": "p_card_search-deck_all",
+                "business_reward_kind": "",
+                "scenario_tag": "",
+                "parameter_thresholds": [],
+                "stamina_ratio_min": null,
+                "produce_card_count_min": null
+              },
+              "effects": [
+                {
+                  "item_effect_id": "p_item_effect-produce_effect-p_effect-star_addition-0010_0010",
+                  "effect_type": "ProduceItemEffectType_ProduceEffect",
+                  "produce_effect_id": "p_effect-star_addition-0010_0010",
+                  "enchant_id": "",
+                  "effect_turn": 0,
+                  "effect_count": null,
+                  "skill_trigger": null
+                }
+              ],
+              "fire_limit": 20,
+              "fire_interval": 0,
+              "is_challenge": false,
+              "is_exam_effect": false
+            },
+            "source": "reward",
+            "fire_count": 0,
+            "cooldown_remaining": 0
+          }
+        ],
+        "character_id": "hume",
+        "mechanism_count": 209,
+        "encoded_nodes": 2124
+      },
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 19,
+        "exam_choice": 3
+      },
+      "peak_encoded_nodes": 10133,
+      "seconds": 15.113154699996812
+    },
+    {
+      "name": "liliya-xmas",
+      "seed": 92000004,
+      "idol_card_id": "i_card-kllj-3-005",
+      "ok": true,
+      "termination": "failed",
+      "raw_score": 1960.0,
+      "accepted_exam_count": 1,
+      "rating_provenance": {
+        "field": "explicit_early_terminal_mapping",
+        "formula_source": "hif-five-exam-research/1",
+        "early_terminal_mapping": true,
+        "policy": "final_formula_zero_unplayed_v1",
+        "formula_detail": {
+          "rating": 1960,
+          "rank": "E",
+          "parameter_total": 1279.0,
+          "star_quality_after_round2": 187.0,
+          "base": 3960,
+          "round1_component": 0,
+          "round2_component": 0,
+          "formula_source": "hif-five-exam-research/1"
+        },
+        "game_awarded_rating_verified": false
+      },
+      "first_public": {
+        "state": {
+          "vocal": 180.0,
+          "dance": 245.0,
+          "visual": 320.0,
+          "vocal_growth": 0.24000000000000002,
+          "dance_growth": 0.494,
+          "visual_growth": 0.28,
+          "stamina": 31.0,
+          "max_stamina": 31.0,
+          "producer_level": 76.0,
+          "idol_rank": 6.0
+        },
+        "card_ids": [
+          "p_card-02-act-0_037",
+          "p_card-02-act-0_038",
+          "p_card-02-men-0_039",
+          "p_card-02-men-0_039",
+          "p_card-02-men-0_039",
+          "p_card-02-men-0_039",
+          "p_card-02-men-0_041",
+          "p_card-02-ido-3_086"
+        ],
+        "support_skills": [
+          {
+            "skill_id": "p_idol_skill-common-p_trigger-produce_start-no_description-lesson_sp_change_rate_permil_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_sp_change_rate_permil_addition-0100_0100"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "idol_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_audition-dance_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_audition",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 2,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0013_0013"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-dance_growth_rate_addition-02-001",
+            "level": 11,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-dance_growth_rate_addition-0064_0064"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-02-001",
+            "level": 2,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0210_0210"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-02-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-02-001",
+            "level": 49,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson_before_present-lesson_dance_sp-lesson_present_produce_point_up-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson_before_present-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-lesson_present_produce_point_up-0330_0330"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0013_0013"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-dance_growth_rate_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-dance_growth_rate_addition-0085_0085"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-upgrade_produce_card-0000_0000-p_card_search-mental_skill-deck_all-dance_addition-03-001",
+            "level": 2,
+            "trigger_id": "p_trigger-upgrade_produce_card-0000_0000-p_card_search-mental_skill-deck_all",
+            "effect_ids": [
+              "p_effect-dance_addition-0007_0007"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_visual-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_visual",
+            "effect_ids": [
+              "p_effect-visual_addition-0006_0006"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_card-0000_0000-p_card_search-mental_skill-deck_all-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_card-0000_0000-p_card_search-mental_skill-deck_all",
+            "effect_ids": [
+              "p_effect-visual_addition-0003_0003"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-visual_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-visual_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_visual_sp_change_rate_permil_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_visual_sp_change_rate_permil_addition-0280_0280"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_card-p_card_search-ssr-deck_all-1-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_card-p_card_search-ssr-deck_all-1",
+            "effect_ids": [
+              "p_effect-dance_addition-0006_0006"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-get_produce_drink-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-get_produce_drink",
+            "effect_ids": [
+              "p_effect-dance_addition-0005_0005"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-dance_growth_rate_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-dance_growth_rate_addition-0085_0085"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_audition-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_audition",
+            "effect_ids": [
+              "p_effect-dance_addition-0022_0022"
+            ],
+            "fire_limit": 2,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_dance_sp-dance_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_dance_sp",
+            "effect_ids": [
+              "p_effect-dance_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-dance_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-dance_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-lesson_dance_sp_change_rate_permil_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-lesson_dance_sp_change_rate_permil_addition-0280_0280"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-buy_shop_item_produce_drink-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-buy_shop_item_produce_drink",
+            "effect_ids": [
+              "p_effect-visual_addition-0011_0011"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_visual_sp-stamina_recover_fix-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_visual_sp",
+            "effect_ids": [
+              "p_effect-stamina_recover_fix-0007_0007"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-end_lesson-lesson_visual_sp-visual_addition-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-end_lesson-lesson_visual_sp",
+            "effect_ids": [
+              "p_effect-visual_addition-0017_0017"
+            ],
+            "fire_limit": 0,
+            "fire_count": 0,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-initial-visual_addition-03-001",
+            "level": 13,
+            "trigger_id": "p_trigger-produce_start-initial",
+            "effect_ids": [
+              "p_effect-visual_addition-0065_0065"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_event_parameter_addition_value_up-03-001",
+            "level": 3,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_event_parameter_addition_value_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          },
+          {
+            "skill_id": "p_support_skill-common-p_trigger-produce_start-no_description-support_card_produce_card_upgrade_probability_up-03-001",
+            "level": 59,
+            "trigger_id": "p_trigger-produce_start-no_description",
+            "effect_ids": [
+              "p_effect-support_card_produce_card_upgrade_probability_up-1000_1000"
+            ],
+            "fire_limit": 1,
+            "fire_count": 1,
+            "activation_rate_permille": 0,
+            "source": "support_skill"
+          }
+        ],
+        "produce_items": [
+          {
+            "spec": {
+              "item_id": "pitem_02-3-050-1",
+              "trigger": null,
+              "effects": [
+                {
+                  "item_effect_id": "p_item_effect-exam_status_enchant-inf-03-enchant-pitem_02-3-050-1-enc01",
+                  "effect_type": "ProduceItemEffectType_ExamStatusEnchant",
+                  "produce_effect_id": "",
+                  "enchant_id": "enchant-p_item_effect_02-3-050-1-enc01",
+                  "effect_turn": null,
+                  "effect_count": 3,
+                  "skill_trigger": null
+                }
+              ],
+              "fire_limit": 0,
+              "fire_interval": 0,
+              "is_challenge": false,
+              "is_exam_effect": true
+            },
+            "source": "loadout",
+            "fire_count": 0,
+            "cooldown_remaining": 0
+          },
+          {
+            "spec": {
+              "item_id": "pitem_00-3-265-0",
+              "trigger": {
+                "trigger_id": "p_trigger-get_produce_card-0000_0000-p_card_search-deck_all",
+                "phase_type": "ProducePhaseType_GetProduceCard",
+                "lesson_filter": "",
+                "card_search_id": "p_card_search-deck_all",
+                "business_reward_kind": "",
+                "scenario_tag": "",
+                "parameter_thresholds": [],
+                "stamina_ratio_min": null,
+                "produce_card_count_min": null
+              },
+              "effects": [
+                {
+                  "item_effect_id": "p_item_effect-produce_effect-p_effect-star_addition-0010_0010",
+                  "effect_type": "ProduceItemEffectType_ProduceEffect",
+                  "produce_effect_id": "p_effect-star_addition-0010_0010",
+                  "enchant_id": "",
+                  "effect_turn": 0,
+                  "effect_count": null,
+                  "skill_trigger": null
+                }
+              ],
+              "fire_limit": 20,
+              "fire_interval": 0,
+              "is_challenge": false,
+              "is_exam_effect": false
+            },
+            "source": "reward",
+            "fire_count": 0,
+            "cooldown_remaining": 0
+          }
+        ],
+        "character_id": "kllj",
+        "mechanism_count": 159,
+        "encoded_nodes": 1805
+      },
+      "decision_kinds": {
+        "outer": 9,
+        "produce_choice": 10,
+        "exam_action": 10
+      },
+      "peak_encoded_nodes": 9478,
+      "seconds": 10.704618699994171
+    }
+  ],
+  "all_natural_terminals_encoded": true,
+  "configuration_unchanged": true,
+  "arena_version": {
+    "hash_schema": "arena-effective-rules-and-master/2",
+    "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+    "public_schema": "arena-public-exam/1",
+    "produce_master_sha256": "c5db7d2e0e2c4dda83a3a224f1b97958ac71569fafa3d2671b67b29fc39c123a"
+  }
+}

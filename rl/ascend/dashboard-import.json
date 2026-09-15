@@ -1,0 +1,56 @@
+{
+  "source": "rl/dashboard",
+  "files": [
+    {
+      "path": "generalist_data.py",
+      "sha256": "e1860b0a788bf9d0b0a96c6af138a89da49e063224eec7f70aa975bb421eac84",
+      "bytes": 39316
+    },
+    {
+      "path": "generalist.js",
+      "sha256": "18c082ac5d7322a2f57554f8818ed9acfc4e38dd568df0523bfb70a25bb6a581",
+      "bytes": 24578
+    },
+    {
+      "path": "generalist.html",
+      "sha256": "436124408fb428331828b2d65a6aad42523745a5321f3e743cf54512d1febab9",
+      "bytes": 10269
+    },
+    {
+      "path": "generalist.css",
+      "sha256": "80ff185155922b853d8f29ab242a4fd3df5ecbfb1c61bc75774532de54581f9e",
+      "bytes": 4283
+    },
+    {
+      "path": "resources.js",
+      "sha256": "35459f9ede2fbd58d35da48393cbaad5b20a0e58cee8da5bc4cf8f0f67158dc9",
+      "bytes": 2466
+    },
+    {
+      "path": "search-panel.js",
+      "sha256": "aeaa3b1c7d1d932aa6ae3a89337ee0713ea9b865a3aec10e7513c8aa8d72fd51",
+      "bytes": 4500
+    },
+    {
+      "path": "style.css",
+      "sha256": "76efad6c2547746c203c9943a9743f55604338a350904f2efa31e5e9630e4a8c",
+      "bytes": 11305
+    },
+    {
+      "path": "logs.css",
+      "sha256": "3a1718d0e3d28b2fef5fc1dbe6e4aa735f381f521a1fe47161df9172a551d061",
+      "bytes": 1042
+    },
+    {
+      "path": "draft.css",
+      "sha256": "970eeebf357966b22e620c4eb36098b08a0d47224def465fc6944817ec9180cf",
+      "bytes": 1067
+    },
+    {
+      "path": "test_generalist_data.py",
+      "sha256": "451be0c7e4cf40f7c61ea2ee7bc3731ed0adc5fe176437a2d90f6e57b227d880",
+      "bytes": 17323
+    }
+  ],
+  "scope": "Latest signed-credit UI and data adapter; portable server and resource controller maintained separately."
+}

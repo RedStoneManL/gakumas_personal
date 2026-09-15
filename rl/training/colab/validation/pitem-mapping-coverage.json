@@ -1,0 +1,380 @@
+{
+  "created_at_utc": "2026-09-10T16:02:43.958456+00:00",
+  "config_sha256": "219d0ea0880519edc4505d05604e891a1f1e685d9c844bd2405e5dd05810fc1f",
+  "config_name": "full_produce_mixed.json",
+  "scope": "Current five configured HIF loadouts at PLv76; source-pool identity coverage only",
+  "limitations": [
+    "No effect-by-effect semantic equivalence claim",
+    "No official reward probability claim",
+    "Conditional rewards are included as a conservative source closure; not all coexist in one run",
+    "No game stepping or training performed"
+  ],
+  "source_sha256": {
+    "gakumas_arena/produce/golden.py": "a76b5edf8cfc0f8340ccabc4f6832ac7b65754687ab336b5dd34bc035e773a6d",
+    "gakumas_arena/produce/sampling.py": "94af9d0fa166aa03e4f5a5fabc5f031b5d923ac35d145ce4ed7eb7cb4ff1b63b",
+    "gakumas_rl/simulation/produce/runtime.py": "dfc8230d10c830c94cd6ce6fd699aa233cbb7456a062d447e4e0ba1e0fa65dc8",
+    "gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_items.json": "61c4fb67eddbbadf4d4c839535a356edc2b7693532529d02587fec5e3b2b3be1",
+    "gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/skill_cards.json": "17b334a11c52aae1c6f14fea9a83a08279727973f9c2647066c4f3e3bac4ab54",
+    "gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_drinks.json": "2cf514aee1d5bf563c4536f631d41d3b657215aea3290ade26b5832664490410"
+  },
+  "master_table_sha256": {
+    "IdolCard": "324d61f41248c07708a6fa4aa222fcc90a2615af36300ad70ecba6c0dd4c7ff0",
+    "ProduceItem": "d3cc3243f04a540463658a569b48f9778de040568f97ed8feb9d14d21b9d944c",
+    "ProduceCard": "cd39497a4cf3d0976e39b72ea050a58ece15437268e13474634d794a611ffcb7",
+    "ProduceDrink": "18e1473dd496f318bee852992ecd712ba61035b15a6f2de17d2e4f57ccbca9df",
+    "ProduceEventSupportCard": "897a404440342158ae131077d2c0dd95c21f55189247bf9d1658db5e491889ec",
+    "ProduceStepEventDetail": "d7185c72e81aa7f74652ea624b1da2d788f9f8d1e062bb22da9e33b82ab1d3cc",
+    "ProduceEffect": "0657c2d5222326b81a33122bf89ba56bbfae285de32691ef5a0dcd36026f70b9"
+  },
+  "schema": "gakumas-current-pitem-mapping-coverage/1",
+  "profiles": [
+    {
+      "name": "saki-wild",
+      "idol_card_id": "i_card-hski-3-017",
+      "plan": "ProducePlanType_Plan2",
+      "producer_level": 76,
+      "pools": [
+        {
+          "scenario": "hif_selection",
+          "selection_rows": 74,
+          "initial_deck_rows": 8,
+          "consult_drinks": 16,
+          "hif_reward_interval_drinks": 16,
+          "hif_drinks_above_plv76": [],
+          "hif_drinks_with_support_origin": []
+        },
+        {
+          "scenario": "hif_final",
+          "selection_rows": 74,
+          "initial_deck_rows": 8,
+          "consult_drinks": 16,
+          "hif_reward_interval_drinks": 16,
+          "hif_drinks_above_plv76": [],
+          "hif_drinks_with_support_origin": []
+        }
+      ]
+    },
+    {
+      "name": "saki-hif",
+      "idol_card_id": "i_card-hski-3-018",
+      "plan": "ProducePlanType_Plan3",
+      "producer_level": 76,
+      "pools": [
+        {
+          "scenario": "hif_selection",
+          "selection_rows": 76,
+          "initial_deck_rows": 8,
+          "consult_drinks": 16,
+          "hif_reward_interval_drinks": 16,
+          "hif_drinks_above_plv76": [],
+          "hif_drinks_with_support_origin": []
+        },
+        {
+          "scenario": "hif_final",
+          "selection_rows": 76,
+          "initial_deck_rows": 8,
+          "consult_drinks": 16,
+          "hif_reward_interval_drinks": 16,
+          "hif_drinks_above_plv76": [],
+          "hif_drinks_with_support_origin": []
+        }
+      ]
+    },
+    {
+      "name": "hiro-hif",
+      "idol_card_id": "i_card-shro-3-018",
+      "plan": "ProducePlanType_Plan1",
+      "producer_level": 76,
+      "pools": [
+        {
+          "scenario": "hif_selection",
+          "selection_rows": 74,
+          "initial_deck_rows": 8,
+          "consult_drinks": 16,
+          "hif_reward_interval_drinks": 16,
+          "hif_drinks_above_plv76": [],
+          "hif_drinks_with_support_origin": []
+        },
+        {
+          "scenario": "hif_final",
+          "selection_rows": 74,
+          "initial_deck_rows": 8,
+          "consult_drinks": 16,
+          "hif_reward_interval_drinks": 16,
+          "hif_drinks_above_plv76": [],
+          "hif_drinks_with_support_origin": []
+        }
+      ]
+    },
+    {
+      "name": "ume-campus",
+      "idol_card_id": "i_card-hume-3-006",
+      "plan": "ProducePlanType_Plan3",
+      "producer_level": 76,
+      "pools": [
+        {
+          "scenario": "hif_selection",
+          "selection_rows": 74,
+          "initial_deck_rows": 8,
+          "consult_drinks": 16,
+          "hif_reward_interval_drinks": 16,
+          "hif_drinks_above_plv76": [],
+          "hif_drinks_with_support_origin": []
+        },
+        {
+          "scenario": "hif_final",
+          "selection_rows": 74,
+          "initial_deck_rows": 8,
+          "consult_drinks": 16,
+          "hif_reward_interval_drinks": 16,
+          "hif_drinks_above_plv76": [],
+          "hif_drinks_with_support_origin": []
+        }
+      ]
+    },
+    {
+      "name": "liliya-xmas",
+      "idol_card_id": "i_card-kllj-3-005",
+      "plan": "ProducePlanType_Plan2",
+      "producer_level": 76,
+      "pools": [
+        {
+          "scenario": "hif_selection",
+          "selection_rows": 74,
+          "initial_deck_rows": 8,
+          "consult_drinks": 16,
+          "hif_reward_interval_drinks": 16,
+          "hif_drinks_above_plv76": [],
+          "hif_drinks_with_support_origin": []
+        },
+        {
+          "scenario": "hif_final",
+          "selection_rows": 74,
+          "initial_deck_rows": 8,
+          "consult_drinks": 16,
+          "hif_reward_interval_drinks": 16,
+          "hif_drinks_above_plv76": [],
+          "hif_drinks_with_support_origin": []
+        }
+      ]
+    }
+  ],
+  "exam_item_count": 20,
+  "mapped_count": 20,
+  "items": [
+    {
+      "id": "pitem_01-3-136-0",
+      "name": "包まれるやさしさ",
+      "sources": [
+        "hiro-hif:support:s_card-3-0064:event-detail-s_card-3-0064-01"
+      ],
+      "mapped": true,
+      "native_id": 295
+    },
+    {
+      "id": "pitem_01-3-266-0",
+      "name": "H.I.F応援棒（紫）",
+      "sources": [
+        "hif:baton_or_badge_reward"
+      ],
+      "mapped": true,
+      "native_id": 427
+    },
+    {
+      "id": "pitem_01-3-267-0",
+      "name": "H.I.F応援棒（緑）",
+      "sources": [
+        "hif:baton_or_badge_reward"
+      ],
+      "mapped": true,
+      "native_id": 428
+    },
+    {
+      "id": "pitem_01-3-313-0",
+      "name": "すべてを賭けた輝き",
+      "sources": [
+        "hiro-hif:idol:beforeProduceItemId"
+      ],
+      "mapped": true,
+      "native_id": 442
+    },
+    {
+      "id": "pitem_01-3-313-1",
+      "name": "すべてを賭けた輝き+",
+      "sources": [
+        "hiro-hif:idol:afterProduceItemId"
+      ],
+      "mapped": true,
+      "native_id": 443
+    },
+    {
+      "id": "pitem_02-3-050-0",
+      "name": "海の向こうまで",
+      "sources": [
+        "liliya-xmas:idol:beforeProduceItemId"
+      ],
+      "mapped": true,
+      "native_id": 180
+    },
+    {
+      "id": "pitem_02-3-050-1",
+      "name": "海の向こうまで+",
+      "sources": [
+        "liliya-xmas:idol:afterProduceItemId"
+      ],
+      "mapped": true,
+      "native_id": 181
+    },
+    {
+      "id": "pitem_02-3-055-0",
+      "name": "負けず嫌いの勲章",
+      "sources": [
+        "liliya-xmas:support:s_card-3-0026:event-detail-s_card-3-0026-01",
+        "saki-wild:support:s_card-3-0026:event-detail-s_card-3-0026-01"
+      ],
+      "mapped": true,
+      "native_id": 100
+    },
+    {
+      "id": "pitem_02-3-268-0",
+      "name": "H.I.F応援棒（黄）",
+      "sources": [
+        "hif:baton_or_badge_reward"
+      ],
+      "mapped": true,
+      "native_id": 429
+    },
+    {
+      "id": "pitem_02-3-269-0",
+      "name": "H.I.F応援棒（赤）",
+      "sources": [
+        "hif:baton_or_badge_reward"
+      ],
+      "mapped": true,
+      "native_id": 430
+    },
+    {
+      "id": "pitem_02-3-299-0",
+      "name": "すべてを超えた先へ",
+      "sources": [
+        "saki-wild:idol:beforeProduceItemId"
+      ],
+      "mapped": true,
+      "native_id": 402
+    },
+    {
+      "id": "pitem_02-3-299-1",
+      "name": "すべてを超えた先へ+",
+      "sources": [
+        "saki-wild:idol:afterProduceItemId"
+      ],
+      "mapped": true,
+      "native_id": 403
+    },
+    {
+      "id": "pitem_03-3-065-0",
+      "name": "はいぼくせんげん",
+      "sources": [
+        "saki-hif:support:s_card-3-0043:event-detail-s_card-3-0043-01",
+        "ume-campus:support:s_card-3-0043:event-detail-s_card-3-0043-01"
+      ],
+      "mapped": true,
+      "native_id": 186
+    },
+    {
+      "id": "pitem_03-3-068-0",
+      "name": "アイドルパワー測定機",
+      "sources": [
+        "saki-hif:support:s_card-3-0032:event-detail-s_card-3-0032-01",
+        "ume-campus:support:s_card-3-0032:event-detail-s_card-3-0032-01"
+      ],
+      "mapped": true,
+      "native_id": 174
+    },
+    {
+      "id": "pitem_03-3-078-0",
+      "name": "叶える覚悟",
+      "sources": [
+        "ume-campus:idol:beforeProduceItemId"
+      ],
+      "mapped": true,
+      "native_id": 212
+    },
+    {
+      "id": "pitem_03-3-078-1",
+      "name": "叶える覚悟+",
+      "sources": [
+        "ume-campus:idol:afterProduceItemId"
+      ],
+      "mapped": true,
+      "native_id": 213
+    },
+    {
+      "id": "pitem_03-3-270-0",
+      "name": "H.I.F応援棒（青）",
+      "sources": [
+        "hif:baton_or_badge_reward"
+      ],
+      "mapped": true,
+      "native_id": 440
+    },
+    {
+      "id": "pitem_03-3-271-0",
+      "name": "H.I.F応援棒（桃）",
+      "sources": [
+        "hif:baton_or_badge_reward"
+      ],
+      "mapped": true,
+      "native_id": 441
+    },
+    {
+      "id": "pitem_03-3-320-0",
+      "name": "不屈の輝き",
+      "sources": [
+        "saki-hif:idol:beforeProduceItemId"
+      ],
+      "mapped": true,
+      "native_id": 465
+    },
+    {
+      "id": "pitem_03-3-320-1",
+      "name": "不屈の輝き+",
+      "sources": [
+        "saki-hif:idol:afterProduceItemId"
+      ],
+      "mapped": true,
+      "native_id": 466
+    }
+  ],
+  "excluded_non_exam_items": [
+    {
+      "id": "pitem_00-2-004-0",
+      "reason": "non-exam item; Golden exam mapping not needed"
+    },
+    {
+      "id": "pitem_00-3-265-0",
+      "reason": "non-exam item; Golden exam mapping not needed"
+    },
+    {
+      "id": "pitem_01-3-058-0",
+      "reason": "non-exam item; Golden exam mapping not needed"
+    },
+    {
+      "id": "pitem_01-3-140-0",
+      "reason": "non-exam item; Golden exam mapping not needed"
+    }
+  ],
+  "future_configuration_limitations": [
+    {
+      "id": "pitem_01-3-305-0",
+      "name": "ぴったしコレクション",
+      "sources": [
+        "future support s_card-3-0087"
+      ],
+      "mapped": false,
+      "error": "Need explicit item mapping for pitem_01-3-305-0: []",
+      "current_config_uses_support": false,
+      "impact": "Changing to s_card-3-0087 can require a new explicit native mapping; not a blocker for current five profiles"
+    }
+  ]
+}

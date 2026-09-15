@@ -1,0 +1,1734 @@
+{
+  "schema": "ascend-latest-delivery/1",
+  "checkpoint": {
+    "schema": "gakumas-checkpoint-snapshot/1",
+    "source_run": "joint-mcts-soft-value-20260915-121503",
+    "source_code": "generalist-search-soft-value",
+    "file": "latest.pt",
+    "bytes": 33809227,
+    "sha256": "f482b54dccaddfd3d154e963b28142aad6d831baca93b9ac777e2c3a13954eb8",
+    "scope": "Complete latest committed checkpoint, imported as weights and Adam for a new portable run. Source logs and active writer are not copied.",
+    "created_at": "2026-09-15T10:48:58.477347+00:00",
+    "rl_source_sha256": "23eec2a4f706fea6beda5b0b66644a4e8204c3ac1179c00e78049739d722b62c",
+    "arena_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+    "batches": 14,
+    "decisions": 190584,
+    "next_episode_index": 34001097,
+    "model_schema": "arena-joint-public-mcts-split/1",
+    "encoding": "arena-generalist-build-exam/3",
+    "model_config": {
+      "width": 96,
+      "lexical": 16,
+      "depth": 4,
+      "quantiles": 32
+    },
+    "search_version": {
+      "schema_version": "arena-public-search/1",
+      "base_effective_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+      "search_sha256": "06fc68d7509e612295b3bb60f6c7d1266a3c89acaf682cf33dd027be291c0293",
+      "search_files_sha256": {
+        "search.py": "5a68c44b04554e2e9d320010203481c4ac66d477ba67db302931281f1e6325a6",
+        "search_loader.mjs": "6a1141418dfad7e838e513a899c1cf7acab5682a0244ada2ecba3aa63835fd0a",
+        "search_worker.mjs": "91b41aca7b1f9c81727874f01411ec5ce09eb02bff9d69f0e5c01e8f8045d8da"
+      },
+      "posterior_model": "draw-conditioned-sequential-importance/1"
+    },
+    "setup_sha256": {
+      "profiles.json": "4e533cbba6b68ab3a3790c383b0f65676cd97c8dce0e6a5cd88ca6b0085fb797",
+      "catalog.json": "8a71a52493843f9e79897a39dfc528f2c4216a451bd90d9ea5f5d16d483e519a",
+      "provenance.json": "6f1852e152495d5b22e5fee3cdaff4950a8158d0fff5b5a643f63a9f4de9aba0",
+      "config.json": "64cf21998c67368875600bd2b33ea85226a1f655308920d1c4660589a5862dc3"
+    },
+    "optimizer_included": true,
+    "quantile_head_included": true
+  },
+  "tests": {
+    "core_passed": 53,
+    "search_passed": 53,
+    "search_skipped": 3,
+    "dashboard_passed": 23,
+    "total_distinct_passed": 129
+  },
+  "hardware_scope": "Windows AMD64 / CPU; native NPU and HCCL not exercised",
+  "latest_native": {
+    "passed": true,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "architecture": "AMD64",
+    "world_size": 1,
+    "scope": "native/MCTS/update/connectivity; no policy-quality claim",
+    "hardware": {
+      "device": "cpu",
+      "torch": "2.9.1+cu128",
+      "cuda_runtime": "12.8"
+    },
+    "collective": "single",
+    "initial_checkpoint": "f482b54dccaddfd3d154e963b28142aad6d831baca93b9ac777e2c3a13954eb8",
+    "arena": {
+      "golden_rules": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+      "public_schema": "arena-public-exam/1",
+      "effective_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+      "files_sha256": {
+        "_vendor/gakumas_tools/packages/gakumas-data/data/customizations.js": "d115d9ca818b39e90627d5e7eb8aeb5f0d17ac420eca620e5302728b2b6779f4",
+        "_vendor/gakumas_tools/packages/gakumas-data/data/idols.js": "fa309d2bce312f4065b2e4bcb9c8e0dfa2ab6331afa909673c978ae25cfa8542",
+        "_vendor/gakumas_tools/packages/gakumas-data/data/index.js": "a09a727f3c405a74f0f1631b597e879494aa6d02593d777962af4151f439299d",
+        "_vendor/gakumas_tools/packages/gakumas-data/data/pDrinks.js": "064cb5c328b6040990b055f7d8b3b1054a8ec4415ebf9587cb52e1fec4d87e36",
+        "_vendor/gakumas_tools/packages/gakumas-data/data/pIdols.js": "ebe39e305ae9c651bf13c9af2f76a297f70d1aace1bb210f71123dd7e8c52119",
+        "_vendor/gakumas_tools/packages/gakumas-data/data/pItems.js": "b2969076d09bb6e9822e2df88b096bdf392de9f42ee60e1f4dc66575781201d5",
+        "_vendor/gakumas_tools/packages/gakumas-data/data/skillCards.js": "35d06b5e218fe5ab8acba51feafd7ffcc23398b4008d9926bd6d6f864fdc6ead",
+        "_vendor/gakumas_tools/packages/gakumas-data/data/stages.js": "00ec516f0b81720b23b21c71215a7b20ed05476373edb5d74096981da1623dbc",
+        "_vendor/gakumas_tools/packages/gakumas-data/index.js": "9081ae97374785e1bb48bf2f4e5699e306832313c76ea0f317bdb38f23646826",
+        "_vendor/gakumas_tools/packages/gakumas-data/utils/contestPower.js": "aac16976f1ccc2dfec605cf0b6b1115450b393d730d94a3cf2a96e8b7e513c39",
+        "_vendor/gakumas_tools/packages/gakumas-data/utils/effects.js": "79a79ad319d3ef143b24bcc969c62502915375b18048bef8425fba24a821da3d",
+        "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/index.js": "51e354de77eed3287a5efba7155e2226db6697c91a729ba6e3f80bac027c9a31",
+        "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/parser.js": "0f6552a5858d9d1574e4ac6f732cd9f66c98fd8de151efb305d98a862d5e40b6",
+        "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokenizer.js": "45e6333e04eb4724aa2fe0091110b141e811157e56891e35f7c5fc2d85098baf",
+        "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokens.js": "aac316b2b08c0d5a0d321b0bfc9bbfc50be6e8657ace52040555f36936caf810",
+        "_vendor/gakumas_tools/packages/gakumas-data/utils/stamina.js": "50ac351d524ed5bd22bce12f73883896e869581a3dcd6c2e80a66da42fe8690b",
+        "_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/index.js": "293557fe442a7b077c912727c5b5bb1532faaebf4cc2d43eabec77f98636d974",
+        "_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/serialize.js": "7cadeac21de2e544896e13cfc8ad016f0121560fe7e578231a8ea2be6cc4e75b",
+        "_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/transform.js": "1ae5ad1e64c072379f535029c7b0bdece7140a77f1d20d8e45ea76f9abe01bd5",
+        "_vendor/gakumas_tools/packages/gakumas-data/utils/validator/index.js": "dfa165a3c6527e0150f9245b863a935e9b4c694a897bb8f7b84ebfae62b71760",
+        "_vendor/gakumas_tools/packages/gakumas-data/utils/validator/schema.js": "d74eec0970423b80a2980f2e94a1a8824a633b001e360da02380f5dcef3b3fa2",
+        "_vendor/gakumas_tools/packages/gakumas-engine/config/IdolConfig.js": "d5c5cd37e65c11797f47247a875bace44bd6d3281111d22651fa2b19e5c45a43",
+        "_vendor/gakumas_tools/packages/gakumas-engine/config/IdolStageConfig.js": "df2c80eb0dc0b1aee539f09f56b05d6631c9e6d6f8403ea3994a53ee65abd7d5",
+        "_vendor/gakumas_tools/packages/gakumas-engine/config/index.js": "e05f239e877f89d9659f4e0e2e7090e0403a4fc2438e7c2ff5d74471baf8e671",
+        "_vendor/gakumas_tools/packages/gakumas-engine/config/StageConfig.js": "451f17f52b1463efa4cadc2e8b852f7aaf2c335441288f931e2b94e8cf0bb3a0",
+        "_vendor/gakumas_tools/packages/gakumas-engine/constants.js": "a1d7ab266912f736e8119ebf0bef902db205e19c5c48a4c597ba429dae0741e5",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/BuffManager.js": "ecbc37d65d9af340c8205314396ab51a35e5bd629a01986542cc0767828447c7",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/index.js": "b26446071e0479dc94044321a7f6a21977f38af78e4fe8a977e0f46e0dd384cd",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/targeting.js": "7966126b53fdd5818577b81b74ee61e2bc019d0c5ef5822777f709dfc86eda79",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/EffectManager.js": "9afebd49a5a0c0b9a73385e9ef2ec733815a437a770c4f9d235d3744bd03a5b0",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/EngineComponent.js": "838783b0401f35b8d5f38e16cf149aacf8d7397d89b5382a14b37a2a227f71a6",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/Evaluator.js": "4c76b83dc8e4617be8d2ecd581c252e2ff6684ef32c0ae4f54840ac8ea20f7f1",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/index.js": "7feb2e1d52cab213ba2d6fa91f0f96d72c8b1c522f7ec0597924ac5a715e2154",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/resolvers.js": "8ef7b15de7b791e9bd90d0f8b767ceb15d6cbc9e6804ee60332e2d2fa7f964cf",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/index.js": "c754e977d45a627986edc35a8e4dd042ffd9cf0ae923b302b842a3823ba76648",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/StageEngine.js": "a6fc6dff4a2b6b644931a0d537a1d0136141c1a715e4dd306d39db7dda770e93",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/StageLogger.js": "1555d56ee386386ea5c0c5bf421d94fec9ec682aa6b2c2c7bda05ff2ed7ec839",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/StagePlayer.js": "e591e1c7f763174e34d41583ab3978ee289262671e1ebd8a0ac92060f370ac2c",
+        "_vendor/gakumas_tools/packages/gakumas-engine/engine/TurnManager.js": "ad4accefb14e57938ea4f59764aa3e6dd59ee64fe0aac84113323c516de9ca5a",
+        "_vendor/gakumas_tools/packages/gakumas-engine/index.js": "c4f52ac2ca574268d702b1b8cd9b96a0b02439fb3cd0e362acf67c78017d6f00",
+        "_vendor/gakumas_tools/packages/gakumas-engine/strategies/BaseStrategy.js": "cdb0ad4dbc786afad30bc865a9c45db06d0330a31d1f26dbf085cc666980f86f",
+        "_vendor/gakumas_tools/packages/gakumas-engine/strategies/HeuristicStrategy.js": "730597b140722b6d4e7e0f01d09356f57ae57eb728b805bb559d1dfbc13ead35",
+        "_vendor/gakumas_tools/packages/gakumas-engine/strategies/index.js": "960bb4a0cfaa7f8d3238c3044f3f31b09fc9c59204dbf497d3c33ebd6b4b5ccc",
+        "_vendor/gakumas_tools/packages/gakumas-engine/strategies/ManualStrategy.js": "225f97c2c267bff265fe186ea88a2dbde2605db029a95bc25152bc04c5be60d7",
+        "_vendor/gakumas_tools/packages/gakumas-engine/strategies/PlayerStrategy.js": "08cbe58ff1c757481b8baa93bf6b5baa7a54de9eb0bdafb6f27620d0d88018c7",
+        "_vendor/gakumas_tools/packages/gakumas-engine/typeMultipliers.js": "3e6f9b56d78c4f9a9563731047e02adceb12f825d71760fbb7d4fca8b6d59ade",
+        "_vendor/gakumas_tools/packages/gakumas-engine/utils.js": "ab6649ce7d9278e2ae0563710e0160883048d5352196cfc8a7253c01af1b9505",
+        "_vendor/gakumas_tools/packages/gakumas-data/json/customizations.json": "54deb7d19eb305b18d5e7e7f359afa922aa8ecc8b2e595e280f43dffb381ee60",
+        "_vendor/gakumas_tools/packages/gakumas-data/json/idols.json": "c14ce8e4310e366a3bf751a4f11b857ad4be775c689fd40db3deb3a77285b26e",
+        "_vendor/gakumas_tools/packages/gakumas-data/json/p_drinks.json": "2cf514aee1d5bf563c4536f631d41d3b657215aea3290ade26b5832664490410",
+        "_vendor/gakumas_tools/packages/gakumas-data/json/p_idols.json": "a2985e47c76cf2f7094a0805ea8d65eba5e3fd068e0289466328becf469ed60f",
+        "_vendor/gakumas_tools/packages/gakumas-data/json/p_items.json": "61c4fb67eddbbadf4d4c839535a356edc2b7693532529d02587fec5e3b2b3be1",
+        "_vendor/gakumas_tools/packages/gakumas-data/json/skill_cards.json": "17b334a11c52aae1c6f14fea9a83a08279727973f9c2647066c4f3e3bac4ab54",
+        "_vendor/gakumas_tools/packages/gakumas-data/json/stages.json": "4e38f475ffcc33693fa341e73950898546383192c2d4ce90c28120491150ca5a",
+        "_vendor/gakumas_tools/packages/gakumas-data/package.json": "3e855763dee9bbf2da3c7f9dd53f5234d6419cf69d3d38c2d89f99b1af79f4ee",
+        "_vendor/gakumas_tools/packages/gakumas-engine/package.json": "b817509081232d30fbe5ab599507fea69e92539113f2200bdb1e3bdce49a3bef",
+        "_vendor/gakumas_tools/scripts/extensionless-loader.mjs": "368e9c2ad66aa2ccb1150520e5a3c48193b0095d38f09b37433a2b1cc7b46584",
+        "engine/training.py": "8abd6cfc4a9a9c1912cbc96faf71d0cf0e793f2ada94b28213d813eb3b4be573",
+        "engine/training_worker.mjs": "bae9ff10b7eeb2fce4fd453c43288c74bc1bcc9f9aa0856d08b36af8cfd02bd4",
+        "engine/training_config.mjs": "9f2089a6aba21bafd761c418249dd316bb329451872f5a7b3cd5e4f26b21740f",
+        "engine/training_basic_pool.mjs": "a3adf49d611ffe077def3e4c849c6f66bd0597b663f7a0f458396dd0bf64a4b6",
+        "engine/training_support.mjs": "26957c250937a5e3e8545b6ce32b56175416c68729dbad711fa271bf12595ffe",
+        "engine/training_catalogue.mjs": "f49ee2c448fb510703bfe9b12cbc7f5f5a72611c3221e7480ac13629bd1dd499",
+        "engine/catalogue_overrides.py": "ea074214e3df37cecb7c069356582f3fb969c8e513b4bcff0da866f589792023",
+        "content/native_catalogue_overrides.json": "4f342e717242503eb1247922c0d03e8866359753444313f8726aaf029e20f907",
+        "engine/__init__.py": "1b4a4beaffb1defb9e03ba9fed400d340e8bca4188b739fc8d1f205d39fa6bea",
+        "__init__.py": "6d4832f8b1d1bbb013b816380c8bd8ae674819ec44cdcf330d7f6b23b514d346"
+      }
+    },
+    "valid_search_roots": 2,
+    "search_stats": {
+      "roots_submitted": 2,
+      "assembly_seconds": 0.03200000000651926,
+      "forward_seconds": 0.23499999986961484,
+      "inference_batches": 13,
+      "inference_examples": 20,
+      "inference_requests_served": 20,
+      "inference_seconds": 0.2669999998761341,
+      "batch_size_2": 7,
+      "batch_size_1": 6,
+      "roots": 2,
+      "eligible_targets": 2,
+      "search_many_seconds": 0.9380000000819564
+    },
+    "native_scores": [
+      19.0,
+      8.0,
+      19.0,
+      19.0
+    ],
+    "update": {
+      "loss": 1.0239579558838159,
+      "policy_loss": 0.9999121725559235,
+      "search_loss": 0.0,
+      "value_loss": 0.0010973940225085244,
+      "distribution_loss": 0.023497099755331874,
+      "entropy_bonus": 0.0,
+      "kl": 0.0,
+      "grad_norm": 1.8678674697875977,
+      "clip_fraction": 0.0,
+      "signed_credit": {
+        "mode": "best_of_k_state_contribution",
+        "groups": {
+          "all_exam": {
+            "records": 8,
+            "negative": 8,
+            "ppo_meaningful": 7,
+            "ppo_negative": 7,
+            "accepted_ppo_negative": 7
+          },
+          "profile:preflight": {
+            "records": 8,
+            "negative": 8,
+            "ppo_meaningful": 7,
+            "ppo_negative": 7,
+            "accepted_ppo_negative": 7
+          },
+          "loss:search": {
+            "records": 1,
+            "negative": 1
+          },
+          "loss:ppo": {
+            "records": 7,
+            "negative": 7,
+            "ppo_meaningful": 7,
+            "ppo_negative": 7,
+            "accepted_ppo_negative": 7
+          }
+        },
+        "records_sha256": "beb09d2697cfac63b240850dc783eaad8603d2d2be083a6420ad9b08135a3c20",
+        "frozen_pre_action_baselines": true,
+        "own_terminal_targets_preserved": true,
+        "samples": [
+          {
+            "profile": "preflight",
+            "sign": "negative",
+            "record_index": 1,
+            "peer_max": 0.00012666666666666666,
+            "own_return": 0.00012666666666666666,
+            "actual_contribution": 0.0,
+            "baseline": 0.04794457895087699,
+            "advantage": -0.19177831580350796
+          },
+          {
+            "profile": "preflight",
+            "sign": "negative",
+            "record_index": 2,
+            "peer_max": 0.00012666666666666666,
+            "own_return": 5.333333333333333e-05,
+            "actual_contribution": 0.0,
+            "baseline": 0.04924345624505232,
+            "advantage": -0.19697382498020927
+          }
+        ],
+        "unit": "normalized score; raw signed credit before profile RMS scaling",
+        "accepted_counts_available": true
+      },
+      "search_learning": {
+        "roots": 1,
+        "weighted_roots": 0,
+        "mean_weight": 0.0,
+        "mean_target_entropy": 0.9839187962798244,
+        "mean_prior_entropy": 0.9839187962798244,
+        "mean_behavior_entropy": 0.9999999996803709,
+        "mean_estimated_gain": 0.0
+      },
+      "intentional_pause_seconds": 0.0,
+      "update_duty_cycle": 1.0,
+      "epochs_attempted": 1,
+      "epochs_max": 1,
+      "ppo_stop_reason": "epoch_limit",
+      "advantage_mode": "mc",
+      "optimizer_steps": 1,
+      "effective_minibatch": 32,
+      "microbatch": 1,
+      "search_records": 1,
+      "ppo_records": 7,
+      "task_records": {
+        "preflight": 8
+      },
+      "kl_early_stop": false,
+      "stopping_block": null,
+      "update_coverage": {
+        "record_count": 8,
+        "accepted_unique": 8,
+        "attempted_unique": 8,
+        "accepted_fraction": 1.0,
+        "groups": {
+          "phase:exam": {
+            "records": 8,
+            "accepted_unique": 8,
+            "attempted_unique": 8,
+            "accepted_fraction": 1.0
+          },
+          "profile:preflight": {
+            "records": 8,
+            "accepted_unique": 8,
+            "attempted_unique": 8,
+            "accepted_fraction": 1.0
+          },
+          "loss:search": {
+            "records": 1,
+            "accepted_unique": 1,
+            "attempted_unique": 1,
+            "accepted_fraction": 1.0
+          },
+          "route:normal": {
+            "records": 8,
+            "accepted_unique": 8,
+            "attempted_unique": 8,
+            "accepted_fraction": 1.0
+          },
+          "loss:ppo": {
+            "records": 7,
+            "accepted_unique": 7,
+            "attempted_unique": 7,
+            "accepted_fraction": 1.0
+          }
+        },
+        "note": "Unique records used by accepted optimizer steps; diagnostics and rejected gradients are excluded."
+      },
+      "critic_completion": {
+        "enabled": true,
+        "completed_records": 0,
+        "optimizer_steps": 0,
+        "loss": 0.0,
+        "value_loss": 0.0,
+        "distribution_loss": 0.0,
+        "grad_norm": 0.0,
+        "actor_unchanged": true,
+        "actor_sha256_before": "94feef7fdec76cfc483640212a0d5d5f3d91444582f35c59174d1df0c3eded1c",
+        "actor_sha256_after": "94feef7fdec76cfc483640212a0d5d5f3d91444582f35c59174d1df0c3eded1c",
+        "coverage": {
+          "record_count": 8,
+          "accepted_unique": 8,
+          "attempted_unique": 8,
+          "accepted_fraction": 1.0,
+          "groups": {
+            "phase:exam": {
+              "records": 8,
+              "accepted_unique": 8,
+              "attempted_unique": 8,
+              "accepted_fraction": 1.0
+            },
+            "profile:preflight": {
+              "records": 8,
+              "accepted_unique": 8,
+              "attempted_unique": 8,
+              "accepted_fraction": 1.0
+            },
+            "loss:search": {
+              "records": 1,
+              "accepted_unique": 1,
+              "attempted_unique": 1,
+              "accepted_fraction": 1.0
+            },
+            "route:normal": {
+              "records": 8,
+              "accepted_unique": 8,
+              "attempted_unique": 8,
+              "accepted_fraction": 1.0
+            },
+            "loss:ppo": {
+              "records": 7,
+              "accepted_unique": 7,
+              "attempted_unique": 7,
+              "accepted_fraction": 1.0
+            }
+          },
+          "note": "Unique records used by accepted optimizer steps; diagnostics and rejected gradients are excluded."
+        },
+        "target_semantics": "Current batch actual returns: construction Best4 and own-exam terminal distribution.",
+        "policy_replay": false
+      },
+      "critic_update_coverage": {
+        "record_count": 8,
+        "accepted_unique": 8,
+        "attempted_unique": 8,
+        "accepted_fraction": 1.0,
+        "groups": {
+          "phase:exam": {
+            "records": 8,
+            "accepted_unique": 8,
+            "attempted_unique": 8,
+            "accepted_fraction": 1.0
+          },
+          "profile:preflight": {
+            "records": 8,
+            "accepted_unique": 8,
+            "attempted_unique": 8,
+            "accepted_fraction": 1.0
+          },
+          "loss:search": {
+            "records": 1,
+            "accepted_unique": 1,
+            "attempted_unique": 1,
+            "accepted_fraction": 1.0
+          },
+          "route:normal": {
+            "records": 8,
+            "accepted_unique": 8,
+            "attempted_unique": 8,
+            "accepted_fraction": 1.0
+          },
+          "loss:ppo": {
+            "records": 7,
+            "accepted_unique": 7,
+            "attempted_unique": 7,
+            "accepted_fraction": 1.0
+          }
+        },
+        "note": "Unique records used by accepted optimizer steps; diagnostics and rejected gradients are excluded."
+      },
+      "learner_world_size": 1,
+      "post_update_kl": null
+    },
+    "changed_parameters": 116,
+    "native_final_score": 19,
+    "decisions": 8,
+    "rng_roundtrip": true
+  },
+  "files": [
+    {
+      "path": "exam_search/continue_kl_value.py",
+      "bytes": 8555,
+      "sha256": "ab553165bc6e9e248ef7f63da734754649276b707fbd07f30de7ed2c1a696da5"
+    },
+    {
+      "path": "exam_search/continue_run.py",
+      "bytes": 14357,
+      "sha256": "f2eb6bd625bcf0ff409f06c8417349951548c81c7d5bf811f534baa254863999"
+    },
+    {
+      "path": "exam_search/continue_signed_credit.py",
+      "bytes": 10041,
+      "sha256": "6d20b4a26d23bb1de5192b8c862607f70b7f3635e4527d6ade4e52fdaf2d5cdf"
+    },
+    {
+      "path": "exam_search/continue_soft_value.py",
+      "bytes": 8912,
+      "sha256": "13f664632d00b66971ec0d8b53145fd57e7da6c752ee0887ae9dfeda5dbfbcce"
+    },
+    {
+      "path": "exam_search/draftrl/__init__.py",
+      "bytes": 74,
+      "sha256": "1434046301bb3241c0cb81b5ae74641117ff5dcc2f75c58181d2a0258ca030cf"
+    },
+    {
+      "path": "exam_search/draftrl/advantages.py",
+      "bytes": 1865,
+      "sha256": "686a8516d8feefc4770ed08cc58b78cf6b4213d55d40b671dab61adc7fd8a937"
+    },
+    {
+      "path": "exam_search/draftrl/async_decisions.py",
+      "bytes": 1927,
+      "sha256": "7cdc713a2686e2d341f204549483816686d8d2a09829767885a6ab8f228fdef6"
+    },
+    {
+      "path": "exam_search/draftrl/async_service.py",
+      "bytes": 11354,
+      "sha256": "5b674c98c15c1dc2c103bf44ba648de4f447c9d089bf383d110245b1091cc818"
+    },
+    {
+      "path": "exam_search/draftrl/bank_rollout.py",
+      "bytes": 9545,
+      "sha256": "d491752c8941e2a45605794f1486bbdbc7b09a24fe258d6893b20e736974e5f6"
+    },
+    {
+      "path": "exam_search/draftrl/best_of.py",
+      "bytes": 9330,
+      "sha256": "6a707d2bbab9251f25b16a718ede64ffb45a59b74ba3280cafe146548b5bcae1"
+    },
+    {
+      "path": "exam_search/draftrl/checkpoint.py",
+      "bytes": 4799,
+      "sha256": "f0e7f938500c853498623d680b12fc9309604b4707532d10102d6e2ea45a1d3b"
+    },
+    {
+      "path": "exam_search/draftrl/choice.py",
+      "bytes": 2773,
+      "sha256": "046ff196b66e756c44081ce715c905b431d74a923716ced954277d4b12e4b2e8"
+    },
+    {
+      "path": "exam_search/draftrl/construction_reward.py",
+      "bytes": 2613,
+      "sha256": "5510bad63c766e92eb521315da2e33241fea842615bd5e7891aa3e987528151f"
+    },
+    {
+      "path": "exam_search/draftrl/continuation.py",
+      "bytes": 14014,
+      "sha256": "4a406d69f50faf067eafec63767f352653e201b03915f5ef5b5dff377d7ae3b8"
+    },
+    {
+      "path": "exam_search/draftrl/contracts.py",
+      "bytes": 3126,
+      "sha256": "c2264a251f9793ec7952abc5d262b59b48e862d6e0adedff800ef240ed86e1f8"
+    },
+    {
+      "path": "exam_search/draftrl/coverage.py",
+      "bytes": 1640,
+      "sha256": "2f0381f4a777594803b6b6d3448c6274c83b61c5576adffecb73941750a93b57"
+    },
+    {
+      "path": "exam_search/draftrl/critic_completion.py",
+      "bytes": 5692,
+      "sha256": "e5ca831e285b4159f526e51c84e1be1e55cdfbd30c5d509ad887661f1566fce9"
+    },
+    {
+      "path": "exam_search/draftrl/deck_size.py",
+      "bytes": 599,
+      "sha256": "87c707c203410ec2760b688fd6ec70c98bab9c8ccefff6ad1d98f702c5179e05"
+    },
+    {
+      "path": "exam_search/draftrl/distributed.py",
+      "bytes": 3316,
+      "sha256": "f528fd8ef040388176e19597399496cec46690a3822061c188ab448ce568d083"
+    },
+    {
+      "path": "exam_search/draftrl/distribution.py",
+      "bytes": 3637,
+      "sha256": "1664d7bdab8d9ee48435c4f4fb406fc8e79a3603d3a322f7e2bed611b7931d41"
+    },
+    {
+      "path": "exam_search/draftrl/drinks.py",
+      "bytes": 9775,
+      "sha256": "443210bdd3fc51c6d911b33b7ef62706208ea48ffb4654950e583937d6da6c57"
+    },
+    {
+      "path": "exam_search/draftrl/duplicate_limits.py",
+      "bytes": 2896,
+      "sha256": "625da8baff5b402e2b47bff6e1630a6564820a271af8927f38c29769e54dbb4d"
+    },
+    {
+      "path": "exam_search/draftrl/encoding.py",
+      "bytes": 19917,
+      "sha256": "2798002dabeee1ff7c1ac947e2f6cbb16c1f5f24335001ab858f7fbd024ecf3d"
+    },
+    {
+      "path": "exam_search/draftrl/exploration_migration.py",
+      "bytes": 3091,
+      "sha256": "47d43a959b0242704626da3dfd9aaa392e6b1cf2f87a52d1a42f3f70432c0ca7"
+    },
+    {
+      "path": "exam_search/draftrl/fast_collate.py",
+      "bytes": 3872,
+      "sha256": "ed404533ac08f200c9055e937319c2e646aaaf7cfb07bcd150dd3d6744c6afba"
+    },
+    {
+      "path": "exam_search/draftrl/general_scenarios.py",
+      "bytes": 12167,
+      "sha256": "e302068560675eecfb6dd66e449cceca5acd6504f5e6dfa36bf96f847e4dc76b"
+    },
+    {
+      "path": "exam_search/draftrl/gradient_diagnostics.py",
+      "bytes": 1956,
+      "sha256": "8086a85b85f7962a8a0f2216ee01c14571af1467dfdb8f535e127d39c633e28a"
+    },
+    {
+      "path": "exam_search/draftrl/guidance.py",
+      "bytes": 5734,
+      "sha256": "efd528a2f71281adaec108fec2f1c2ad3980a22c376557eb0adeb78fc1ff397a"
+    },
+    {
+      "path": "exam_search/draftrl/keycard_focus.py",
+      "bytes": 5862,
+      "sha256": "b9501222697adccc1ebd2a33657e761d832fb580267d783954bb430b59c65b2b"
+    },
+    {
+      "path": "exam_search/draftrl/keycard_probe.py",
+      "bytes": 5888,
+      "sha256": "03f4ad87c7328f0045b4089d0a2f867ba0d626b4f85e8cce9f63e96eed933666"
+    },
+    {
+      "path": "exam_search/draftrl/kl_value_migration.py",
+      "bytes": 815,
+      "sha256": "a842840688b1ac2f014a254604765663c3b4ba64cb7e414e69d903c5b28e7686"
+    },
+    {
+      "path": "exam_search/draftrl/learning_rates.py",
+      "bytes": 2572,
+      "sha256": "fe475fb227a6033d915f30d5c20da0fabbc9637a28f0ec20d787ae14e4e81c3d"
+    },
+    {
+      "path": "exam_search/draftrl/learning_settings.py",
+      "bytes": 1292,
+      "sha256": "9155bc5539558e6a21f67da921f133d2e289c540b7d96e7833341a6382a603da"
+    },
+    {
+      "path": "exam_search/draftrl/legacy_model.py",
+      "bytes": 2424,
+      "sha256": "5aa99eb4a84d1f660963c79556cff5249eb1c25792dbbf52e1f9808355bbc57b"
+    },
+    {
+      "path": "exam_search/draftrl/memory.py",
+      "bytes": 6163,
+      "sha256": "b9b911d54c9d3acd808a6730c24ce9111a1d4b98802e7958cb024aff1d50eb6d"
+    },
+    {
+      "path": "exam_search/draftrl/migration.py",
+      "bytes": 3403,
+      "sha256": "45e4110262c961df40d5f01f37f1fa91accadc77fc8fcf3b65b12edf20c0c5a2"
+    },
+    {
+      "path": "exam_search/draftrl/model.py",
+      "bytes": 9532,
+      "sha256": "bcca61086d57df4444ee470bba32eda9c6dcd8b761725f34d161e3aa6d2dce9f"
+    },
+    {
+      "path": "exam_search/draftrl/play_evaluation.py",
+      "bytes": 7223,
+      "sha256": "a2f3950dde5c686fdf787d486b226048056d56841317d254d2554ee617996180"
+    },
+    {
+      "path": "exam_search/draftrl/portable_gru.py",
+      "bytes": 982,
+      "sha256": "8decb0b77db282a29bf76be691b4a4e1b8af3d7ef691eb73a34ae2fce1286f81"
+    },
+    {
+      "path": "exam_search/draftrl/ppo.py",
+      "bytes": 12140,
+      "sha256": "019f1e1ce63f53d430ea9d1f6ae3ac062806e90f5ebde3cc83fa5fd0ca126db2"
+    },
+    {
+      "path": "exam_search/draftrl/practice.py",
+      "bytes": 13463,
+      "sha256": "2f1f6fc25b7e22b4c4570542fa6b818317d9df2064a3dcbc3b536c12f20f14cc"
+    },
+    {
+      "path": "exam_search/draftrl/process_service.py",
+      "bytes": 5224,
+      "sha256": "c65b19273bf3900c3289fd4f0826f8e42a275d41b0f9e99ec02d8b095348e8e9"
+    },
+    {
+      "path": "exam_search/draftrl/public_mcts.py",
+      "bytes": 13652,
+      "sha256": "0e7e06c6a1e616fcef90aade0f23851e77a3d4d3d0291970575def259d988291"
+    },
+    {
+      "path": "exam_search/draftrl/recovery.py",
+      "bytes": 5382,
+      "sha256": "ea6afcab416e5edcfcedeb09851c6f7aa482a1d156d3f1f9c042f30967d1670e"
+    },
+    {
+      "path": "exam_search/draftrl/resource_modes.py",
+      "bytes": 6753,
+      "sha256": "31dd544bcae89dff10746ba422023cc04057add5c4cf0b94967986563d3547e2"
+    },
+    {
+      "path": "exam_search/draftrl/runner.py",
+      "bytes": 68274,
+      "sha256": "d5e19453673715a0d072b6b97db55748c164c8595b2c78d674782ab27d635c8c"
+    },
+    {
+      "path": "exam_search/draftrl/runtime_window.py",
+      "bytes": 3905,
+      "sha256": "76f22edaea5d418b0837c5b4f06b5e083a8d11da660015d09edb9a5f2ad5da0a"
+    },
+    {
+      "path": "exam_search/draftrl/sample_bank.py",
+      "bytes": 8198,
+      "sha256": "0e648b281c34c1ea1824a183dc2e376f21e942c26ee3ae8a3a0ce1ab3003b93c"
+    },
+    {
+      "path": "exam_search/draftrl/scenarios.py",
+      "bytes": 3193,
+      "sha256": "d3c57760bb8d5c41df9549b4eb2cf6862dbc9a05ae5e3b77d7e4d4c940842064"
+    },
+    {
+      "path": "exam_search/draftrl/search_adapter.py",
+      "bytes": 10501,
+      "sha256": "92900f18b19bd026b2547b3ef63c111e0f31c778fcc5e5b03722e7994a7f3cb6"
+    },
+    {
+      "path": "exam_search/draftrl/search_budgets.py",
+      "bytes": 852,
+      "sha256": "d7a6dc3e38d502eb4526a404945301dac7dd50f7a2a55912a4eb4ede367c12f4"
+    },
+    {
+      "path": "exam_search/draftrl/search_learning.py",
+      "bytes": 2659,
+      "sha256": "8003b19638a1a3ec4fde1694374cac2fe8d0169c7789470b97a8c8f39466c83f"
+    },
+    {
+      "path": "exam_search/draftrl/search_router.py",
+      "bytes": 6908,
+      "sha256": "b58ebe036223386ab2527ff59325d05ddebb5a0c82c5a179265b88f244f0a59a"
+    },
+    {
+      "path": "exam_search/draftrl/search_service.py",
+      "bytes": 136,
+      "sha256": "83bcaa58945f790dc9b708c71f81e0f185a5fdde4216531dc8c747f96c260813"
+    },
+    {
+      "path": "exam_search/draftrl/signed_credit.py",
+      "bytes": 3745,
+      "sha256": "9fcaec0c3c5956a1c5c23dfdf60716bbcfbdcd9eb1cd2f637892bfc66dd37e15"
+    },
+    {
+      "path": "exam_search/draftrl/soft_value_migration.py",
+      "bytes": 1015,
+      "sha256": "ab5fee65d1eac07191721c7b0725e3fca89bf1d744fd7fc7d33f9c31ede326eb"
+    },
+    {
+      "path": "exam_search/draftrl/source_identity.py",
+      "bytes": 1066,
+      "sha256": "87d38bd1b2ffb70880a656a9f48f30df81539910ef8767cb9cb57fc0603e5832"
+    },
+    {
+      "path": "exam_search/draftrl/source_stamp.py",
+      "bytes": 2049,
+      "sha256": "36987b29a4ff48e4cff3df22a06f8750331a66d1c3a454c379eb183d34048a3e"
+    },
+    {
+      "path": "exam_search/draftrl/supervisor_state.py",
+      "bytes": 1218,
+      "sha256": "8cdc577aeedcbd1a8e9604fdacbef0bc70ef4776c5a97e7f520851db554e293b"
+    },
+    {
+      "path": "exam_search/draftrl/ultra_migration.py",
+      "bytes": 1177,
+      "sha256": "f9727df609605d65e1dd2905734b32eebad7036bdbf1750270f8ecbafdd66351"
+    },
+    {
+      "path": "exam_search/draftrl/update_diagnostics.py",
+      "bytes": 3368,
+      "sha256": "ebd04f5c6e8c58fb559040b88c566467a654a3927e08d58d6413f052bf8b50a1"
+    },
+    {
+      "path": "exam_search/draftrl/value_calibration.py",
+      "bytes": 13979,
+      "sha256": "4970b9b6393dab30c43876531e6bc0ce17cc30eae7693741d4806bd587ccb1fa"
+    },
+    {
+      "path": "exam_search/draftrl/value_distribution.py",
+      "bytes": 1616,
+      "sha256": "6d9e1bf824bc470410e68e9e8348c29c6f71ef71bf0e150a3823059a4907652f"
+    },
+    {
+      "path": "exam_search/probe_calibrated_search.py",
+      "bytes": 2730,
+      "sha256": "aa7d8afcf78dc7d4c6a189ca49bc18cd378fc27c4a91165b3f5192a4b774b13c"
+    },
+    {
+      "path": "exam_search/probe_kl_value.py",
+      "bytes": 5522,
+      "sha256": "e84206d6486727b91f9af07e9a3a8493a26ecc9ec2e9e7c7c2e3ee0b8f1f304b"
+    },
+    {
+      "path": "exam_search/probe_signed.py",
+      "bytes": 6209,
+      "sha256": "bd3842fac7cef1c61537e7ba5ef78eb21f7f852a7f93832630b610f32feffbd9"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/__init__.py",
+      "bytes": 1313,
+      "sha256": "6d4832f8b1d1bbb013b816380c8bd8ae674819ec44cdcf330d7f6b23b514d346"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/LICENSE",
+      "bytes": 1529,
+      "sha256": "6d2df9f3c7dae76229b9f3aba6906bf382606eb0b0e7bfeef9d0c96db33473b3"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/customizations.js",
+      "bytes": 779,
+      "sha256": "d115d9ca818b39e90627d5e7eb8aeb5f0d17ac420eca620e5302728b2b6779f4"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/idols.js",
+      "bytes": 347,
+      "sha256": "fa309d2bce312f4065b2e4bcb9c8e0dfa2ab6331afa909673c978ae25cfa8542"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/index.js",
+      "bytes": 469,
+      "sha256": "a09a727f3c405a74f0f1631b597e879494aa6d02593d777962af4151f439299d"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/pDrinks.js",
+      "bytes": 763,
+      "sha256": "064cb5c328b6040990b055f7d8b3b1054a8ec4415ebf9587cb52e1fec4d87e36"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/pIdols.js",
+      "bytes": 857,
+      "sha256": "ebe39e305ae9c651bf13c9af2f76a297f70d1aace1bb210f71123dd7e8c52119"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/pItems.js",
+      "bytes": 1149,
+      "sha256": "b2969076d09bb6e9822e2df88b096bdf392de9f42ee60e1f4dc66575781201d5"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/skillCards.js",
+      "bytes": 1761,
+      "sha256": "35d06b5e218fe5ab8acba51feafd7ffcc23398b4008d9926bd6d6f864fdc6ead"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/data/stages.js",
+      "bytes": 1013,
+      "sha256": "00ec516f0b81720b23b21c71215a7b20ed05476373edb5d74096981da1623dbc"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/Effects.md",
+      "bytes": 24341,
+      "sha256": "52777cda7369aabc2145526773faaa2d49ad144bccce0cb26c461d0bb3539ee8"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/index.js",
+      "bytes": 950,
+      "sha256": "9081ae97374785e1bb48bf2f4e5699e306832313c76ea0f317bdb38f23646826"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/customizations.json",
+      "bytes": 28738,
+      "sha256": "54deb7d19eb305b18d5e7e7f359afa922aa8ecc8b2e595e280f43dffb381ee60"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/idols.json",
+      "bytes": 460,
+      "sha256": "c14ce8e4310e366a3bf751a4f11b857ad4be775c689fd40db3deb3a77285b26e"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_drinks.json",
+      "bytes": 3874,
+      "sha256": "2cf514aee1d5bf563c4536f631d41d3b657215aea3290ade26b5832664490410"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_idols.json",
+      "bytes": 17836,
+      "sha256": "a2985e47c76cf2f7094a0805ea8d65eba5e3fd068e0289466328becf469ed60f"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/p_items.json",
+      "bytes": 120758,
+      "sha256": "61c4fb67eddbbadf4d4c839535a356edc2b7693532529d02587fec5e3b2b3be1"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/skill_cards.json",
+      "bytes": 317188,
+      "sha256": "17b334a11c52aae1c6f14fea9a83a08279727973f9c2647066c4f3e3bac4ab54"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/json/stages.json",
+      "bytes": 62542,
+      "sha256": "4e38f475ffcc33693fa341e73950898546383192c2d4ce90c28120491150ca5a"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/package.json",
+      "bytes": 172,
+      "sha256": "3e855763dee9bbf2da3c7f9dd53f5234d6419cf69d3d38c2d89f99b1af79f4ee"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/README.md",
+      "bytes": 2150,
+      "sha256": "8195c7ba824623cbf186ef7ad44f1c50fdef950f40553177b28eaa82dba7a6e5"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/scripts/csv_to_json.py",
+      "bytes": 729,
+      "sha256": "eb422a11514101d6449e6fb5e714d178159848fa7f40907a935d7c97d9bfddd5"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/contestPower.js",
+      "bytes": 1393,
+      "sha256": "aac16976f1ccc2dfec605cf0b6b1115450b393d730d94a3cf2a96e8b7e513c39"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/effects.js",
+      "bytes": 1431,
+      "sha256": "79a79ad319d3ef143b24bcc969c62502915375b18048bef8425fba24a821da3d"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/index.js",
+      "bytes": 1261,
+      "sha256": "51e354de77eed3287a5efba7155e2226db6697c91a729ba6e3f80bac027c9a31"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/parser.js",
+      "bytes": 21993,
+      "sha256": "0f6552a5858d9d1574e4ac6f732cd9f66c98fd8de151efb305d98a862d5e40b6"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokenizer.js",
+      "bytes": 4482,
+      "sha256": "45e6333e04eb4724aa2fe0091110b141e811157e56891e35f7c5fc2d85098baf"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokens.js",
+      "bytes": 1469,
+      "sha256": "aac316b2b08c0d5a0d321b0bfc9bbfc50be6e8657ace52040555f36936caf810"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/stamina.js",
+      "bytes": 5423,
+      "sha256": "50ac351d524ed5bd22bce12f73883896e869581a3dcd6c2e80a66da42fe8690b"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/index.js",
+      "bytes": 250,
+      "sha256": "293557fe442a7b077c912727c5b5bb1532faaebf4cc2d43eabec77f98636d974"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/serialize.js",
+      "bytes": 7508,
+      "sha256": "7cadeac21de2e544896e13cfc8ad016f0121560fe7e578231a8ea2be6cc4e75b"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/transform.js",
+      "bytes": 14504,
+      "sha256": "1ae5ad1e64c072379f535029c7b0bdece7140a77f1d20d8e45ea76f9abe01bd5"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/validator/index.js",
+      "bytes": 7309,
+      "sha256": "dfa165a3c6527e0150f9245b863a935e9b4c694a897bb8f7b84ebfae62b71760"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-data/utils/validator/schema.js",
+      "bytes": 4880,
+      "sha256": "d74eec0970423b80a2980f2e94a1a8824a633b001e360da02380f5dcef3b3fa2"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/IdolConfig.js",
+      "bytes": 3886,
+      "sha256": "d5c5cd37e65c11797f47247a875bace44bd6d3281111d22651fa2b19e5c45a43"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/IdolStageConfig.js",
+      "bytes": 1952,
+      "sha256": "df2c80eb0dc0b1aee539f09f56b05d6631c9e6d6f8403ea3994a53ee65abd7d5"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/index.js",
+      "bytes": 177,
+      "sha256": "e05f239e877f89d9659f4e0e2e7090e0403a4fc2438e7c2ff5d74471baf8e671"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/config/StageConfig.js",
+      "bytes": 898,
+      "sha256": "451f17f52b1463efa4cadc2e8b852f7aaf2c335441288f931e2b94e8cf0bb3a0"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/constants.js",
+      "bytes": 9370,
+      "sha256": "a1d7ab266912f736e8119ebf0bef902db205e19c5c48a4c597ba429dae0741e5"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/BuffManager.js",
+      "bytes": 10153,
+      "sha256": "ecbc37d65d9af340c8205314396ab51a35e5bd629a01986542cc0767828447c7"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/index.js",
+      "bytes": 43372,
+      "sha256": "b26446071e0479dc94044321a7f6a21977f38af78e4fe8a977e0f46e0dd384cd"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/targeting.js",
+      "bytes": 6985,
+      "sha256": "7966126b53fdd5818577b81b74ee61e2bc019d0c5ef5822777f709dfc86eda79"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/EffectManager.js",
+      "bytes": 13438,
+      "sha256": "9afebd49a5a0c0b9a73385e9ef2ec733815a437a770c4f9d235d3744bd03a5b0"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/EngineComponent.js",
+      "bytes": 205,
+      "sha256": "838783b0401f35b8d5f38e16cf149aacf8d7397d89b5382a14b37a2a227f71a6"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/Evaluator.js",
+      "bytes": 6221,
+      "sha256": "4c76b83dc8e4617be8d2ecd581c252e2ff6684ef32c0ae4f54840ac8ea20f7f1"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/index.js",
+      "bytes": 18328,
+      "sha256": "7feb2e1d52cab213ba2d6fa91f0f96d72c8b1c522f7ec0597924ac5a715e2154"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/resolvers.js",
+      "bytes": 8574,
+      "sha256": "8ef7b15de7b791e9bd90d0f8b767ceb15d6cbc9e6804ee60332e2d2fa7f964cf"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/index.js",
+      "bytes": 114,
+      "sha256": "c754e977d45a627986edc35a8e4dd042ffd9cf0ae923b302b842a3823ba76648"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/StageEngine.js",
+      "bytes": 3466,
+      "sha256": "a6fc6dff4a2b6b644931a0d537a1d0136141c1a715e4dd306d39db7dda770e93"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/StageLogger.js",
+      "bytes": 3005,
+      "sha256": "1555d56ee386386ea5c0c5bf421d94fec9ec682aa6b2c2c7bda05ff2ed7ec839"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/StagePlayer.js",
+      "bytes": 1035,
+      "sha256": "e591e1c7f763174e34d41583ab3978ee289262671e1ebd8a0ac92060f370ac2c"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/engine/TurnManager.js",
+      "bytes": 5691,
+      "sha256": "ad4accefb14e57938ea4f59764aa3e6dd59ee64fe0aac84113323c516de9ca5a"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/index.js",
+      "bytes": 271,
+      "sha256": "c4f52ac2ca574268d702b1b8cd9b96a0b02439fb3cd0e362acf67c78017d6f00"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/package.json",
+      "bytes": 165,
+      "sha256": "b817509081232d30fbe5ab599507fea69e92539113f2200bdb1e3bdce49a3bef"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/README.md",
+      "bytes": 2385,
+      "sha256": "41f7016b2d986ebfb751c3992ca025af97678196bb83ca413f2435805b5ad64a"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/BaseStrategy.js",
+      "bytes": 1633,
+      "sha256": "cdb0ad4dbc786afad30bc865a9c45db06d0330a31d1f26dbf085cc666980f86f"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/HeuristicStrategy.js",
+      "bytes": 13900,
+      "sha256": "730597b140722b6d4e7e0f01d09356f57ae57eb728b805bb559d1dfbc13ead35"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/index.js",
+      "bytes": 229,
+      "sha256": "960bb4a0cfaa7f8d3238c3044f3f31b09fc9c59204dbf497d3c33ebd6b4b5ccc"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/ManualStrategy.js",
+      "bytes": 3869,
+      "sha256": "225f97c2c267bff265fe186ea88a2dbde2605db029a95bc25152bc04c5be60d7"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/strategies/PlayerStrategy.js",
+      "bytes": 1499,
+      "sha256": "08cbe58ff1c757481b8baa93bf6b5baa7a54de9eb0bdafb6f27620d0d88018c7"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/typeMultipliers.js",
+      "bytes": 2880,
+      "sha256": "3e6f9b56d78c4f9a9563731047e02adceb12f825d71760fbb7d4fca8b6d59ade"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/packages/gakumas-engine/utils.js",
+      "bytes": 5562,
+      "sha256": "ab6649ce7d9278e2ae0563710e0160883048d5352196cfc8a7253c01af1b9505"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/PROVENANCE.json",
+      "bytes": 8996,
+      "sha256": "1b278b8abfd2e907a4f5d29c1ac544e4f5f946aadd09f2bd7e4fd80dc377376a"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/scripts/extensionless-loader.mjs",
+      "bytes": 2721,
+      "sha256": "368e9c2ad66aa2ccb1150520e5a3c48193b0095d38f09b37433a2b1cc7b46584"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/scripts/validate-data.mjs",
+      "bytes": 5453,
+      "sha256": "eea708f000226030da20fa8438ccf2c6b103c85999289c67336d44bb891794fd"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/tests/coverage.mjs",
+      "bytes": 3929,
+      "sha256": "80d7f0bf0dcbd714e804800943816e62b39118db3b1c080977ef6ef100ccff82"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/tests/lib.mjs",
+      "bytes": 4281,
+      "sha256": "fa98d65967f2546cbfdbe031e101ab14c8d215b055c30e32c1863333a978a1ef"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/_vendor/gakumas_tools/tests/run.mjs",
+      "bytes": 1955,
+      "sha256": "38cd54486ca6df8d222e3d49e46f8fe6b442074fa02538e713d1661957b1c873"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/agents/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/agents/random_agent.py",
+      "bytes": 324,
+      "sha256": "3f6b5f7fc7bb05cc52464c7c0bd3a4dde759c1db9d124b53e0cbdc927a67f50c"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/catalogue.py",
+      "bytes": 20794,
+      "sha256": "2fa80d33a05c1b815eb034f8a0d88720ecc2177161eac39debdd0a5e00d9bcb1"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/content/__init__.py",
+      "bytes": 523,
+      "sha256": "55c85364a758d17b089dd566d7bddd49bbcd46a83f008ecc9a8b0c1b28423b30"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/content/__main__.py",
+      "bytes": 6783,
+      "sha256": "46c10a6eb496905808d177c474b1bb4d10ed542af801189319178c3cd9d5b190"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/content/capabilities.py",
+      "bytes": 7431,
+      "sha256": "6e63bd12448c2b00af35622af182dcfbace1499247b2f08a8c5a732213f02696"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/content/compiler.py",
+      "bytes": 28837,
+      "sha256": "60ebf6ad62eab9700cfa23bdaabb9a8d69757e5cf94c98ed157f5a0932abd21b"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/content/exam.py",
+      "bytes": 21621,
+      "sha256": "87d8229f3f393ca09eea947fb9a9be706d808965e30d223a1921ca77204717af"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/content/flow.py",
+      "bytes": 19905,
+      "sha256": "c5b8afdbf2676963c81f10285c3cd7e0fe8c5b5dcf94eab30fd0c7d57a41405e"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/content/models.py",
+      "bytes": 9218,
+      "sha256": "8470e675765f2a292402628d5d4bda2beeba38f160d35eca7d99d49c400536eb"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/content/native.py",
+      "bytes": 4420,
+      "sha256": "6ffd37cdb14cd36133241fa00fea08f1f932dcd0d143ab59cb73982758057bd3"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/content/native_catalogue_overrides.json",
+      "bytes": 2097,
+      "sha256": "4f342e717242503eb1247922c0d03e8866359753444313f8726aaf029e20f907"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/content/operations.py",
+      "bytes": 11174,
+      "sha256": "ff794b32874fbdd72b42e29c6233f2c5176b3c1e4b66d992dc1d84571d3c25c6"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/content/starter.json",
+      "bytes": 4350,
+      "sha256": "c9180307dc9b57ffff44f99e51745a205ab57d9880767936306309bc4644fe97"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/__init__.py",
+      "bytes": 6196,
+      "sha256": "1b4a4beaffb1defb9e03ba9fed400d340e8bca4188b739fc8d1f205d39fa6bea"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/__main__.py",
+      "bytes": 1731,
+      "sha256": "c902f2f7ca5f63d3792d2d6db094573e466acb959b18048d4dd1505810796e45"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/catalogue_overrides.py",
+      "bytes": 2878,
+      "sha256": "ea074214e3df37cecb7c069356582f3fb969c8e513b4bcff0da866f589792023"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/search.py",
+      "bytes": 17312,
+      "sha256": "5a68c44b04554e2e9d320010203481c4ac66d477ba67db302931281f1e6325a6"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/search_loader.mjs",
+      "bytes": 2064,
+      "sha256": "6a1141418dfad7e838e513a899c1cf7acab5682a0244ada2ecba3aa63835fd0a"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/search_worker.mjs",
+      "bytes": 21516,
+      "sha256": "91b41aca7b1f9c81727874f01411ec5ce09eb02bff9d69f0e5c01e8f8045d8da"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/training.py",
+      "bytes": 20326,
+      "sha256": "8abd6cfc4a9a9c1912cbc96faf71d0cf0e793f2ada94b28213d813eb3b4be573"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/training_basic_pool.mjs",
+      "bytes": 1052,
+      "sha256": "a3adf49d611ffe077def3e4c849c6f66bd0597b663f7a0f458396dd0bf64a4b6"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/training_catalogue.mjs",
+      "bytes": 2485,
+      "sha256": "f49ee2c448fb510703bfe9b12cbc7f5f5a72611c3221e7480ac13629bd1dd499"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/training_config.mjs",
+      "bytes": 11841,
+      "sha256": "9f2089a6aba21bafd761c418249dd316bb329451872f5a7b3cd5e4f26b21740f"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/training_support.mjs",
+      "bytes": 10464,
+      "sha256": "26957c250937a5e3e8545b6ce32b56175416c68729dbad711fa271bf12595ffe"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/training_worker.mjs",
+      "bytes": 22035,
+      "sha256": "bae9ff10b7eeb2fce4fd453c43288c74bc1bcc9f9aa0856d08b36af8cfd02bd4"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/engine/worker.mjs",
+      "bytes": 8893,
+      "sha256": "640dbd798744e67cf944eda5042ad8acaae48fd216cde290df417ca3db7cc78a"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/env/__init__.py",
+      "bytes": 12116,
+      "sha256": "4bd740bf47653d1c546747d9cf31d7f57ade56d035790338c473969728d20936"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/live/__init__.py",
+      "bytes": 1437,
+      "sha256": "37e7c93b1bcc4bea68831538293024d82169759f84c1ac9b4ec0269d9a61c8de"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/live/contracts.py",
+      "bytes": 7845,
+      "sha256": "083f5625d83f081f9c01411299c63eb47880540debf86fb2e03ae8aa28415429"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/live/exam.py",
+      "bytes": 23297,
+      "sha256": "f30dba33fb852e4e530f0a01d8850a4d70fa91ee4e4eb89f566596ae327d2fd3"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/live/issues.py",
+      "bytes": 2491,
+      "sha256": "ca5daa4158fc33a41b96eef9083ea053d5c87f8faf46be9ce1438f2b1247e340"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/live/loadout.py",
+      "bytes": 2972,
+      "sha256": "46b21bb028d9b3f9edbd620a4f0702ece94dc05fc1d6626304b9f0f946113d9d"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/live/passive.py",
+      "bytes": 11664,
+      "sha256": "18eef0296598c3f13a7b0ada6f7df200c1f8acb92e3d334619fd3de69d19c9a1"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/live/passive_generic.py",
+      "bytes": 11709,
+      "sha256": "eefb2165c4543d66f4cf28990581fd877a30ff46dae59d6af593ead75c07b456"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/live/planning.py",
+      "bytes": 8617,
+      "sha256": "f791c0b23f7da9d586bcb14cfea1ebc16193c61e1a7fba080bc29dc91866edcf"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/live/recovery.py",
+      "bytes": 2109,
+      "sha256": "ad5ec97b4fa94755e70b267afe189921c94d25073293130771894ce0b7cf9295"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/live/session.py",
+      "bytes": 17551,
+      "sha256": "ef22ec99e995fbf51a6710decb4962cadc90f769bec3145f3bf808269fa4c66a"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/loadouts.py",
+      "bytes": 14896,
+      "sha256": "3ed5b38e971ff126764937abdc52af42d84168a3b5288d174be538123f582a71"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/masterdata/__init__.py",
+      "bytes": 49,
+      "sha256": "5c642199f8615d08451b4a4bc9b187648f5fdfdcfdb333b2b858a77e9765f5ae"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/masterdata/store.py",
+      "bytes": 4383,
+      "sha256": "89c59ef39366baab4d20d2e2add683044a27a0e055cdc96ba8d100607d4cb76c"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/policies/__init__.py",
+      "bytes": 1053,
+      "sha256": "7c07c0f193e4376e0ec36afc4510c6a41e73ae3db396635f732bfaa6bb1d24cc"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/policies/base.py",
+      "bytes": 1565,
+      "sha256": "2faab32d92bcc63da26336da83c3d6c678916e6625229ab2bfca41fcfc56f873"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/policies/basic.py",
+      "bytes": 2059,
+      "sha256": "378e9c0b6ff1bb9e047fe08cda64eb7ecd95f0549f420316bd187ffd69ab5585"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/policies/evaluation.py",
+      "bytes": 13506,
+      "sha256": "b37b90a42b683a7c7f9fd5f14cc0f1d24562f305d2dcc0820aa10ad764dd8e40"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/policies/search.py",
+      "bytes": 15522,
+      "sha256": "0029ec6f8de5cf0242a4f97bdf8f5360d00fe4b761e4fd4fd26002ad87d3fbd8"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/preview.py",
+      "bytes": 12708,
+      "sha256": "0c5ef5931e96a61977403f3070e5e53df69c617a90881fd66e77f923113d1781"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/preview_assets/p_drink_icon_keys.json",
+      "bytes": 159,
+      "sha256": "c089885115e9968ac3f009371ea1a1291a628c0599843d136169c034bf464135"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/preview_assets/p_item_icon_keys.json",
+      "bytes": 3231,
+      "sha256": "f65ca6e15e1a7474d047f90b0c1ab059fe7ab880bc8ff14ca0cdc38f384b2086"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/preview_assets/PROVENANCE.json",
+      "bytes": 1251,
+      "sha256": "13341ba6f8671bc2649ccb217257c8480d87f9dda5411b57a128a0c2bf0b74f4"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/preview_assets/skill_card_icon_keys.json",
+      "bytes": 29556,
+      "sha256": "daf5bc7df018ec0699eb36deca6249f65e1dce33f0dbfbddeb02d5b98f487006"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/preview_images.py",
+      "bytes": 7371,
+      "sha256": "51c0857de981f5f94361d4e8e92c9cef66a754a96b31107412c1857fe8f6739f"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/produce/__init__.py",
+      "bytes": 268,
+      "sha256": "0103e953fb71f98068646fe4789b12231088951b147fba7d7ea43e7634ab68e4"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/produce/golden.py",
+      "bytes": 21250,
+      "sha256": "3d54dd61dfed8f35f9d3e7bc077181df00704a70b8a673359578829ef6314370"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/produce/plugins/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/produce/scenario.py",
+      "bytes": 1212,
+      "sha256": "2098a732687f1534c31ace5f21f3613ad53d5981ce0bc88fcbe0d35575866992"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/scenarios/hif.yaml",
+      "bytes": 297,
+      "sha256": "65ce909d7ad6391a34e4f0f1d337e4005036516f9fa18ed33cdf1a97373c02d1"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/scoring/__init__.py",
+      "bytes": 230,
+      "sha256": "4d1f6d0773436312c237f3f8f64857f40c7b1de0fb47d741db6292d3c27fc4af"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/scoring/_hif_reference.py",
+      "bytes": 14851,
+      "sha256": "9a3fa2021cd27fcafc6a5ce1600f6079c596276aad8902f53731bf56f80506c0"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/scoring/hif.py",
+      "bytes": 4700,
+      "sha256": "16c9d21ffa4b6af8206dce30ae1d3729cad0dcd793bec650d33ff4bf9ac8f9d5"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/scoring/hif_multiplier_research_2026-09-09.json",
+      "bytes": 44791,
+      "sha256": "c476cb66adf95651fa9246f5ce701c8503ff2f85d0e3ebf7d38437e34d5ac55d"
+    },
+    {
+      "path": "exam_search/runtime/arena/gakumas_arena/sim/__init__.py",
+      "bytes": 11837,
+      "sha256": "36e2e402a3ec68e589287f36f6bfde8867eb356fb729494d9cbf8b946e491cbd"
+    },
+    {
+      "path": "exam_search/runtime/shared/r1rl/__init__.py",
+      "bytes": 71,
+      "sha256": "5dcbb7c3c80b6e20d002f634b1e450d0d04bc4cbd3229c2da399a3d6a058ca61"
+    },
+    {
+      "path": "exam_search/runtime/shared/r1rl/checkpoint.py",
+      "bytes": 2579,
+      "sha256": "3562db724405ff03b85c7779e3aaed128b4b54b1fef8674bfa3a24b64be22744"
+    },
+    {
+      "path": "exam_search/runtime/shared/r1rl/encoding.py",
+      "bytes": 3017,
+      "sha256": "272195a217f7c28beae1b2c00d4021d93bd2cf410b1567181637bf574cdbbf2a"
+    },
+    {
+      "path": "exam_search/runtime/shared/r1rl/environment.py",
+      "bytes": 3905,
+      "sha256": "66a50d009b0b575a9d2a155ec3a12bd270331429b090448f0d4373146d3b56f2"
+    },
+    {
+      "path": "exam_search/runtime/shared/r1rl/model.py",
+      "bytes": 1225,
+      "sha256": "05a3aed0baf50f8c61049a41ca28b6d15cfa052879d09af307ab83d8c2a63d2e"
+    },
+    {
+      "path": "exam_search/runtime/shared/r1rl/ppo.py",
+      "bytes": 3363,
+      "sha256": "4c7ca629c1f70848234c0243aa836cc48a41ceb876022fbb30d3c47a74e37cd0"
+    },
+    {
+      "path": "exam_search/runtime/shared/r1rl/runner.py",
+      "bytes": 16118,
+      "sha256": "80cbbbb1ff6092992850657d559b8fa25f3a7c391ed249508b31b3495e84192a"
+    },
+    {
+      "path": "exam_search/runtime/shared/round2rl/__init__.py",
+      "bytes": 93,
+      "sha256": "3a9cdf8edc25900e93ab4184c049f848f74e5356c8cb3e1e1b46015ee77d91d4"
+    },
+    {
+      "path": "exam_search/runtime/shared/round2rl/checkpoint.py",
+      "bytes": 2679,
+      "sha256": "08ab4335b86a1087b2035b71f3ce0c686679137c72cccb324993b6f5e1196e89"
+    },
+    {
+      "path": "exam_search/runtime/shared/round2rl/cli.py",
+      "bytes": 9469,
+      "sha256": "88a26b4ad250311110382bc8855916c6228e3ca96d779483b61c231ecc544b0f"
+    },
+    {
+      "path": "exam_search/runtime/shared/round2rl/course.py",
+      "bytes": 1350,
+      "sha256": "796c4d96b836f61f39bbb7494fc12172027cd8ae5b7d2902dd1b7c8e6cba6fe6"
+    },
+    {
+      "path": "exam_search/runtime/shared/round2rl/encoding.py",
+      "bytes": 13092,
+      "sha256": "39726b9cd99c31ec0dd3e32d4488e75b2092d49046702bf6de3687f339bc22c1"
+    },
+    {
+      "path": "exam_search/runtime/shared/round2rl/environment.py",
+      "bytes": 3362,
+      "sha256": "53cc1eb3a3f341933363bb4788be6aedd08bd0d94f4256e503355db7abe05461"
+    },
+    {
+      "path": "exam_search/runtime/shared/round2rl/model.py",
+      "bytes": 4147,
+      "sha256": "47533aee1ca9d26c4acece26b5007267ee2deb8d03a927816bfc0c1d44b31357"
+    },
+    {
+      "path": "exam_search/runtime/shared/round2rl/ppo.py",
+      "bytes": 3363,
+      "sha256": "4c7ca629c1f70848234c0243aa836cc48a41ceb876022fbb30d3c47a74e37cd0"
+    },
+    {
+      "path": "exam_search/runtime/shared/round2rl/report.py",
+      "bytes": 2487,
+      "sha256": "af2cf4ee303a9e767e95514fcb2d351f3395d15b89aa9399c8453adf90a822ec"
+    },
+    {
+      "path": "exam_search/runtime/shared/round2rl/runner.py",
+      "bytes": 21792,
+      "sha256": "cef4eacd95cbc59df031b834f1d1f5bcf9f52d1034df439d856d76168fe708de"
+    },
+    {
+      "path": "exam_search/setup/catalog.json",
+      "bytes": 2440491,
+      "sha256": "8a71a52493843f9e79897a39dfc528f2c4216a451bd90d9ea5f5d16d483e519a"
+    },
+    {
+      "path": "exam_search/setup/config.json",
+      "bytes": 6371,
+      "sha256": "64cf21998c67368875600bd2b33ea85226a1f655308920d1c4660589a5862dc3"
+    },
+    {
+      "path": "exam_search/setup/migration.json",
+      "bytes": 2186,
+      "sha256": "78e89f72c2832c77bdf15b238badb621c2f0e5b05eec59856c0825115ba2cba6"
+    },
+    {
+      "path": "exam_search/setup/profiles.json",
+      "bytes": 2499613,
+      "sha256": "4e533cbba6b68ab3a3790c383b0f65676cd97c8dce0e6a5cd88ca6b0085fb797"
+    },
+    {
+      "path": "exam_search/setup/provenance.json",
+      "bytes": 31760,
+      "sha256": "6f1852e152495d5b22e5fee3cdaff4950a8158d0fff5b5a643f63a9f4de9aba0"
+    },
+    {
+      "path": "exam_search/tests/test_async_collectors.py",
+      "bytes": 6415,
+      "sha256": "1a909e9adcac8584367c42ac68fe08a97181d757914a4657bac58c1d5144cc80"
+    },
+    {
+      "path": "exam_search/tests/test_best4_recovery.py",
+      "bytes": 5549,
+      "sha256": "0cfe1285e38915ae431af889b2dfd263fe57da2cca13f46f7af58d321333817a"
+    },
+    {
+      "path": "exam_search/tests/test_best_of.py",
+      "bytes": 4315,
+      "sha256": "16c73efb9bc3285782de8d120a1165da61b79475443cf0a36d994988502ff600"
+    },
+    {
+      "path": "exam_search/tests/test_best_of_search.py",
+      "bytes": 2520,
+      "sha256": "242bd45bdaa784c4c57f81a70021b32d8e7d5e9fa73ab5df0cd26893eba01297"
+    },
+    {
+      "path": "exam_search/tests/test_continuation_seal.py",
+      "bytes": 8126,
+      "sha256": "6e1a94b0e895f868328561e8d305fcb50133a6f5a6bc0411eb2bfc7ca68b5a61"
+    },
+    {
+      "path": "exam_search/tests/test_critic_completion.py",
+      "bytes": 8366,
+      "sha256": "a0e7a94e5814d8fbcffd75d8f68886cca1f06aa2df0b2fd0fa20fefe53c20343"
+    },
+    {
+      "path": "exam_search/tests/test_decision_exploration.py",
+      "bytes": 4478,
+      "sha256": "abddc7e5c9e25d9839900dd8fabecdaf7e595c971a19bcb53c03fa13bed6cf96"
+    },
+    {
+      "path": "exam_search/tests/test_joint_search.py",
+      "bytes": 10444,
+      "sha256": "1959b349ee34e7567ab6ff937dad0a3b852d0fecdd65db7f855c908a91725982"
+    },
+    {
+      "path": "exam_search/tests/test_search_bootstrap.py",
+      "bytes": 1212,
+      "sha256": "68b7584187925b34b7437f21d350472b63087a7961bc262660d116ca749969d9"
+    },
+    {
+      "path": "exam_search/tests/test_search_budgets.py",
+      "bytes": 1902,
+      "sha256": "779c42d676a2fad65de163afc753ce30b04b9d5acc6b6ef26fb8e3a4213cc5b7"
+    },
+    {
+      "path": "exam_search/tests/test_signed_learning.py",
+      "bytes": 9930,
+      "sha256": "ce9be431198bba0f50c23495add5445cca81da48f8292922c13f4a491323262e"
+    },
+    {
+      "path": "exam_search/tests/test_soft_value.py",
+      "bytes": 8636,
+      "sha256": "86070402feccba7e89889bce50a7345ef07373f05319f42faf636a2ee1a3fde5"
+    },
+    {
+      "path": "exam_search/tests/test_source_stamp.py",
+      "bytes": 2359,
+      "sha256": "339220f74d0bcaf1fdb0344305c7c44021c018ce547a786e8909646043ba0e3a"
+    },
+    {
+      "path": "exam_search/tests/test_ultra.py",
+      "bytes": 2282,
+      "sha256": "23aeb279b74bcd3a5b7b54b525b3de5d25e22ef8c7cb5449007864262baa5105"
+    },
+    {
+      "path": "exam_search/tests/test_view_ownership.py",
+      "bytes": 2999,
+      "sha256": "f18f0de3e569f036837fefdf357e0834b7318c622e735105e9b2675aac5e724b"
+    },
+    {
+      "path": "exam_search/train.py",
+      "bytes": 1972,
+      "sha256": "55b49f807ec2e0d692b9463dafed62de8c55e44f18ee6c2c86f3dee63cefd125"
+    },
+    {
+      "path": "exam_search/training-config.json",
+      "bytes": 7511,
+      "sha256": "c5702bc418d39c9a9de6cc9c87201afd92893d90573c6a2a996234b0b7f690ee"
+    },
+    {
+      "path": "exam_search/validate_calibration.py",
+      "bytes": 3084,
+      "sha256": "7a238e78e152ff0c61b57efe0afd7f688e9dd977a04775331cdfcd480ab00572"
+    },
+    {
+      "path": "exam_search/verify_update.py",
+      "bytes": 11726,
+      "sha256": "d01c583b9ad18a2e31b8b44c208f25e0aa5848e62239227249beea2b8ba349a1"
+    },
+    {
+      "path": "dashboard/assets-provenance.json",
+      "bytes": 229,
+      "sha256": "f5a5af358cf4ed1cef26d85ecfc634307551dda1c4305357e8ed7fc25fd395ed"
+    },
+    {
+      "path": "dashboard/assets.zip",
+      "bytes": 24728704,
+      "sha256": "b84dc37e043e1427e9b2f370c1d4ffa99cbf02d198a8793d7de692f990bcc53f"
+    },
+    {
+      "path": "dashboard/draft.css",
+      "bytes": 1067,
+      "sha256": "970eeebf357966b22e620c4eb36098b08a0d47224def465fc6944817ec9180cf"
+    },
+    {
+      "path": "dashboard/generalist.css",
+      "bytes": 4283,
+      "sha256": "80ff185155922b853d8f29ab242a4fd3df5ecbfb1c61bc75774532de54581f9e"
+    },
+    {
+      "path": "dashboard/generalist.html",
+      "bytes": 9762,
+      "sha256": "8a7adeeac60ea339f93f97aaf66a98cd32ba379137ac371b8ce24d3df845d2a3"
+    },
+    {
+      "path": "dashboard/generalist.js",
+      "bytes": 24578,
+      "sha256": "18c082ac5d7322a2f57554f8818ed9acfc4e38dd568df0523bfb70a25bb6a581"
+    },
+    {
+      "path": "dashboard/generalist_data.py",
+      "bytes": 40023,
+      "sha256": "5ddbdc1d17f520d078fd55fc3429c09076b1684220870b253f259ebd863937b0"
+    },
+    {
+      "path": "dashboard/logs.css",
+      "bytes": 1042,
+      "sha256": "3a1718d0e3d28b2fef5fc1dbe6e4aa735f381f521a1fe47161df9172a551d061"
+    },
+    {
+      "path": "dashboard/resource_control.py",
+      "bytes": 2471,
+      "sha256": "411fe82fbbaf5a1fed7f62551ac4665355f35bef7bc2411b134a4568e8f01b9d"
+    },
+    {
+      "path": "dashboard/resources.js",
+      "bytes": 2887,
+      "sha256": "5693f0a46a9be1e0d4b777a6d7a2e33eb545a7f7c36110da62973c4df430e030"
+    },
+    {
+      "path": "dashboard/search-panel.js",
+      "bytes": 4500,
+      "sha256": "aeaa3b1c7d1d932aa6ae3a89337ee0713ea9b865a3aec10e7513c8aa8d72fd51"
+    },
+    {
+      "path": "dashboard/server.py",
+      "bytes": 7666,
+      "sha256": "5d9d0bccb5d2882979f6a7e2707d77ad37a4f260cf4c8df68aab6ee746291777"
+    },
+    {
+      "path": "dashboard/style.css",
+      "bytes": 11305,
+      "sha256": "76efad6c2547746c203c9943a9743f55604338a350904f2efa31e5e9630e4a8c"
+    },
+    {
+      "path": "dashboard/test_generalist_data.py",
+      "bytes": 17323,
+      "sha256": "451be0c7e4cf40f7c61ea2ee7bc3731ed0adc5fe176437a2d90f6e57b227d880"
+    },
+    {
+      "path": "dashboard/test_portable.py",
+      "bytes": 4435,
+      "sha256": "2510f95285c734d3734bd831b813dfb4720e46d2c8656ac18c10cb5606d98a72"
+    },
+    {
+      "path": "scripts/configure.py",
+      "bytes": 4675,
+      "sha256": "92c0042f679b78e12e33c9487a4cf3cb70b9c1e0f75ab37c17e671b3144c03a5"
+    },
+    {
+      "path": "scripts/doctor.py",
+      "bytes": 3267,
+      "sha256": "4c401ac2d37aa32232d3ba946bbc5fd3f75da2ace8efbc9877d681516ffbbb4f"
+    },
+    {
+      "path": "scripts/install.sh",
+      "bytes": 954,
+      "sha256": "eeef004475c7e94a02df7082e3873aaf4ae10635051a6332f08191e46f9f47ca"
+    },
+    {
+      "path": "scripts/preflight_search.py",
+      "bytes": 8135,
+      "sha256": "7643a1ef4d2f2cdf3d48cfc321e917ad9fd94e18ec94016e714c71e910c9c250"
+    },
+    {
+      "path": "scripts/prepare_configs.py",
+      "bytes": 3257,
+      "sha256": "e35906a7de5ec7ebf0a029879c3055c15b7b7f3f57d24a149dcc4b296bcd8804"
+    },
+    {
+      "path": "scripts/run_tests.py",
+      "bytes": 2158,
+      "sha256": "c9623ee4dc6df0a89e96fa90180818d767fd9a7aad96e4acdeaa1b8f7056ae49"
+    },
+    {
+      "path": "scripts/train_full.py",
+      "bytes": 1445,
+      "sha256": "90122d48ec099d97db890770506a1ebea2e14ef05f57a601c5e93eca5c459d7d"
+    },
+    {
+      "path": "configs/full_produce_npu.json",
+      "bytes": 1176218,
+      "sha256": "8e88967d12401f27261c43843ff495a0ac9903b7c33bdb7e7df7ab73b24f8730"
+    },
+    {
+      "path": "configs/search_1npu.json",
+      "bytes": 7251,
+      "sha256": "189546aef33e9188e98264fc52cc2556878b7f6e2fb158fcfdd0fa9640bf2539"
+    },
+    {
+      "path": "configs/search_8npu.json",
+      "bytes": 7256,
+      "sha256": "04a4e3e88d78813078225e1a1cf745d6212e8b3e423bf848ef1460ab06c977e1"
+    },
+    {
+      "path": "configs/search_smoke.json",
+      "bytes": 7265,
+      "sha256": "54c17a33ef5a4ea986fe4020db04ed066c4ec6a3d1077b208bbd848a5f496f3d"
+    },
+    {
+      "path": "tests/test_distributed.py",
+      "bytes": 9112,
+      "sha256": "3b6a77e670df61ba0d59ec1d4b68f1c821ee778f9b7325f660a5d4178455b2d8"
+    },
+    {
+      "path": "tests/test_portable_gru.py",
+      "bytes": 1120,
+      "sha256": "5ed177933fd5df8eb059c8467761ddd2ca00d4859e5afcdeb390a5a49cb2c333"
+    },
+    {
+      "path": "tests/test_scaling.py",
+      "bytes": 7928,
+      "sha256": "530ea84258b156a56ee63f3e38977cb4406c3bde908a03d0b082e0d79678369b"
+    },
+    {
+      "path": "checkpoints/latest.pt",
+      "bytes": 33809227,
+      "sha256": "f482b54dccaddfd3d154e963b28142aad6d831baca93b9ac777e2c3a13954eb8"
+    },
+    {
+      "path": "checkpoints/provenance.json",
+      "bytes": 2009,
+      "sha256": "c4e0b397f57796af323fd6a2092e98888c68631e88c497740005f3788eb5e42d"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "schema": "gakumas-training-acceptance/1",
+  "tasks": [
+    {
+      "task": "exam_score",
+      "passed": true,
+      "seconds": 6.728440100006992,
+      "first_update": {
+        "task": "exam_score",
+        "iteration": 1,
+        "policy_version": 1,
+        "seed_cursor": 91030001,
+        "collection_seconds": 1.2454012999951374,
+        "update_seconds": 0.5230463000189047,
+        "policy_timings": {
+          "encoding_seconds": 0.4608796998800244,
+          "inference_seconds": 0.2026711999787949,
+          "decisions": 22
+        },
+        "elapsed_training_seconds": 1.768458999984432,
+        "total_decisions": 22,
+        "total_episodes": 1,
+        "episodes": 1,
+        "raw_score_mean": 4678.0,
+        "raw_score_min": 4678.0,
+        "raw_score_max": 4678.0,
+        "raw_score_std": 0.0,
+        "terminations": {
+          "normal": 1
+        },
+        "decisions": 22,
+        "ppo": {
+          "loss": -0.14010203466750681,
+          "policy_loss": -0.12373048951849341,
+          "value_loss": 0.0014021012393641286,
+          "entropy": 1.7072597816586494,
+          "kl": 0.0,
+          "grad_norm_before_clip": 0.32009074091911316,
+          "clip_fraction": 0.0,
+          "optimizer_steps": 2,
+          "epochs_started": 1,
+          "transitions": 22,
+          "meaningful_decisions": 22,
+          "behavior_parity_max_error": 1.1920928955078125e-07,
+          "kl_stop_reason": null,
+          "score_scale": 150000.0,
+          "gamma": 1.0
+        }
+      },
+      "parameter_tensors_changed": 39,
+      "parameter_count": 543234,
+      "training_source_sha256": "975b87e0a9c6f3dc7ac6899680b47afc6dbd592adc52185e40f59805f0a4d07b",
+      "next_episode_exact": true,
+      "next_update_parameters_exact": true,
+      "next_optimizer_state_exact": true,
+      "next_episode_scores": [
+        32046.0
+      ],
+      "next_episode_terminations": [
+        "normal"
+      ],
+      "next_episode_max_nodes": 1614,
+      "arena_version": {
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "f137f3623563bc726c3b6a06091722868d3216d58299f63dcdca2edf0cf83480"
+      },
+      "checkpoint": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\training\\artifacts\\acceptance-final\\exam_score\\checkpoints\\latest.pt",
+      "scope": "real configured Arena episodes; no synthetic score or course override; CPU only",
+      "policy_quality_improvement_proven": false
+    },
+    {
+      "task": "full_produce",
+      "passed": true,
+      "seconds": 33.588204400002724,
+      "first_update": {
+        "task": "full_produce",
+        "iteration": 1,
+        "policy_version": 1,
+        "seed_cursor": 91030001,
+        "collection_seconds": 10.51772920001531,
+        "update_seconds": 1.5629290000069886,
+        "policy_timings": {
+          "encoding_seconds": 1.4592850999324583,
+          "inference_seconds": 0.5511205000511836,
+          "decisions": 55
+        },
+        "elapsed_training_seconds": 12.080670499999542,
+        "total_decisions": 55,
+        "total_episodes": 1,
+        "episodes": 1,
+        "raw_score_mean": -389.0,
+        "raw_score_min": -389.0,
+        "raw_score_max": -389.0,
+        "raw_score_std": 0.0,
+        "terminations": {
+          "failed": 1
+        },
+        "decisions": 55,
+        "ppo": {
+          "loss": -0.0008706238586455584,
+          "policy_loss": 0.003530559130012989,
+          "value_loss": 0.019355385651579127,
+          "entropy": 1.407888038083911,
+          "kl": 9.313225746154785e-10,
+          "grad_norm_before_clip": 0.9235654920339584,
+          "clip_fraction": 0.0,
+          "optimizer_steps": 4,
+          "epochs_started": 1,
+          "transitions": 55,
+          "meaningful_decisions": 55,
+          "behavior_parity_max_error": 1.1920928955078125e-07,
+          "kl_stop_reason": null,
+          "score_scale": 50000.0,
+          "gamma": 1.0
+        }
+      },
+      "parameter_tensors_changed": 39,
+      "parameter_count": 543234,
+      "training_source_sha256": "975b87e0a9c6f3dc7ac6899680b47afc6dbd592adc52185e40f59805f0a4d07b",
+      "next_episode_exact": true,
+      "next_update_parameters_exact": true,
+      "next_optimizer_state_exact": true,
+      "next_episode_scores": [
+        -168.0
+      ],
+      "next_episode_terminations": [
+        "failed"
+      ],
+      "next_episode_max_nodes": 2116,
+      "arena_version": {
+        "native_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+        "public_schema": "arena-public-exam/1",
+        "produce_master_sha256": "f137f3623563bc726c3b6a06091722868d3216d58299f63dcdca2edf0cf83480"
+      },
+      "checkpoint": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\training\\artifacts\\acceptance-final\\full_produce\\checkpoints\\latest.pt",
+      "scope": "real configured Arena episodes; no synthetic score or course override; CPU only",
+      "policy_quality_improvement_proven": false
+    }
+  ]
+}

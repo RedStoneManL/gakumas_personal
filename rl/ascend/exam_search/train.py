@@ -18,6 +18,8 @@ def main(argv=None):
     p.add_argument('--config', type=Path, required=True)
     p.add_argument('--initial', type=Path, help='Optional compatible weights/Adam checkpoint for a NEW run')
     p.add_argument('--resume', action='store_true', help='Continue an audited complete checkpoint with its optimizer, RNG and original baseline')
+    p.add_argument('--continue-from', type=Path, dest='continue_from',
+                   help='Versioned continuation from a COMPLETED run directory into a new --output: weights, Adam, RNG, sample bank, coverage and history carry over; the source code may differ')
     args = p.parse_args(argv)
     config = json.loads(args.config.read_text(encoding='utf-8-sig'))
     from draftrl import distributed
@@ -35,7 +37,8 @@ def main(argv=None):
             print(json.dumps({'event': 'learner_ready', 'world_size': mesh.size,
                 'device': str(mesh.device), 'sampling_owner_rank': 0,
                 'update': 'global-block-normalized gradient SUM'}), flush=True)
-            train(HERE, HERE/'setup', config, args.initial, args.output.resolve(), resume=args.resume)
+            train(HERE, HERE/'setup', config, args.initial, args.output.resolve(), resume=args.resume,
+                  continuation=args.continue_from)
             mesh.stop()
     finally:
         mesh.close()

@@ -2,6 +2,7 @@
 import copy
 import ctypes
 import json
+import os
 import shutil
 from datetime import datetime,timedelta,timezone
 from pathlib import Path
@@ -16,6 +17,19 @@ def read(path):return json.loads(Path(path).read_text(encoding='utf-8-sig'))
 
 def process_alive(pid):
     if not pid:return False
+    if os.name!='nt':
+        # POSIX: a reaped pid has no /proc entry; an unreaped zombie (this container
+        # has no init reaper) has state Z and is just as exited.
+        try:
+            stat=Path('/proc/%d/stat'%int(pid)).read_text(encoding='utf-8',errors='replace')
+        except FileNotFoundError:
+            return False
+        except OSError:
+            try:os.kill(int(pid),0)
+            except ProcessLookupError:return False
+            except PermissionError:return True
+            return True
+        return stat.rsplit(')',1)[-1].split()[0] not in ('Z','X')
     kernel=ctypes.WinDLL('kernel32',use_last_error=True)
     kernel.OpenProcess.restype=ctypes.c_void_p
     kernel.GetExitCodeProcess.argtypes=[ctypes.c_void_p,ctypes.POINTER(ctypes.c_ulong)]
@@ -50,7 +64,19 @@ def stage(source,output,setup,config,arena_hash):
     if info['arena_sha256']!=arena_hash:raise ValueError('Arena changed; not an equivalent continuation')
     if any(digest(setup/n)!=h for n,h in info['setup_sha256'].items()):
         raise ValueError('Original prepared scenario files differ from checkpoint')
-    if config.get('signed_exam_credit'):
+    from .learning_settings import SIGNED, SEARCH
+    already_signed = (config.get('signed_exam_credit') == SIGNED
+                      and info['training_config'].get('signed_exam_credit') == SIGNED
+                      and config.get('search', {}).get('learning_target') == SEARCH
+                      and info['training_config'].get('search', {}).get('learning_target') == SEARCH)
+    if already_signed:
+        # Same audited learning settings on both sides: no feature migration to
+        # validate. The permitted-key diff below audits the rest, except the keys the
+        # critic-completion branch adds to `permitted`; pin those here explicitly.
+        for key in ('target_kl','critic_completion','signed_exam_credit'):
+            if config.get(key)!=info['training_config'].get(key):
+                raise ValueError('Same-feature continuation may not change %s'%key)
+    elif config.get('signed_exam_credit'):
         from .learning_settings import validate_config as validate_signed
         validate_signed(info['training_config'], config)
     elif config.get('critic_completion'):
@@ -116,11 +142,24 @@ def stage(source,output,setup,config,arena_hash):
     output.mkdir(parents=True)
     json_write(output/'continuation-staging.json',{'source':str(source),'complete':False})
     for p in files:shutil.copy2(p,output/p.name)
+    calibration_provenance=None
     if config.get('critic_completion'):
         calibration = source/'value-calibration'
-        if not (calibration/'report.json').is_file() or read(calibration/'report.json').get('status') != 'passed':
+        if (calibration/'report.json').is_file():
+            if read(calibration/'report.json').get('status') != 'passed':
+                raise ValueError('Missing passed distribution calibration provenance')
+            shutil.copytree(calibration, output/'value-calibration')
+            calibration_provenance={'status':'copied','path':str(calibration)}
+        elif already_signed and info['training_config'].get('critic_completion')==config.get('critic_completion'):
+            # Same-feature continuation of a run that itself began from a portable checkpoint
+            # snapshot (deploy/checkpoints/provenance.json: quantile head and Adam imported,
+            # source logs deliberately not copied): the calibration evidence stayed with the
+            # original run. Nothing in training reads this directory; the runner still refuses
+            # to continue unless the model carries exam_quantile_head.
+            calibration_provenance={'status':'absent_in_source','reason':'portable checkpoint start',
+                'source_transfer':read(source/'manifest.json').get('transfer') if (source/'manifest.json').is_file() else None}
+        else:
             raise ValueError('Missing passed distribution calibration provenance')
-        shutil.copytree(calibration, output/'value-calibration')
     # An explicit resource-only continuation may request a new preset. Do not
     # let the copied source request silently override the target configuration.
     if config.get('resource_mode') != info['training_config'].get('resource_mode'):
@@ -156,13 +195,31 @@ def stage(source,output,setup,config,arena_hash):
            'optimizer_restored':True,'rng_restored':True,'old_weights_preserved':True,
            'source_history_copied':True,'target_config':config,
            'paused_boundary':paused,'uncommitted_tail_rows_archived':len(discarded),
+           'calibration_provenance':calibration_provenance,
            'configuration_changes':{k:{'old':info['training_config'].get(k),'new':config.get(k)}
                                     for k in permitted if info['training_config'].get(k)!=config.get(k)}}
     old_limit = info['training_config'].get('practice',{}).get('duplicates',{}).get('max_same_name')
     new_limit = config.get('practice',{}).get('duplicates',{}).get('max_same_name')
     old_overrides = info['training_config'].get('practice',{}).get('duplicates',{}).get('max_same_name_overrides',{})
     new_overrides = config.get('practice',{}).get('duplicates',{}).get('max_same_name_overrides',{})
-    reset_joint_reference = (old_limit,old_overrides) != (new_limit,new_overrides)
+    cap_changed = (old_limit,old_overrides) != (new_limit,new_overrides)
+    # practice.duplicates.keep_benchmark_history: change the copy cap without archiving
+    # the validation lineage or measuring a new baseline. The index from this point on
+    # is measured under the new cap against the ORIGINAL baseline, so part of any rise
+    # is the cap itself; the audit and construction-benchmark.json say so.
+    keep_history = bool(config.get('practice',{}).get('duplicates',{}).get('keep_benchmark_history'))
+    reset_joint_reference = cap_changed and not keep_history
+    if cap_changed and keep_history:
+        audit['construction_benchmark_change'] = {
+            'old_max_same_name':old_limit,'new_max_same_name':new_limit,
+            'old_overrides':old_overrides,'new_overrides':new_overrides,
+            'history_kept':True,'change_batch':info['batches'],
+            'reference':'original baseline retained; validation index after this batch includes the cap change',
+            'fixed_play_reference_unchanged':True}
+        json_write(output/'construction-benchmark.json',{'max_same_name':new_limit,
+            'max_same_name_overrides':new_overrides,'start_batch':info['batches'],'baseline_index':None,
+            'history_kept':True,'reference':'validation lineage kept across the copy-cap change',
+            'fixed_play_unchanged':True})
     if reset_joint_reference:
         # Only files already copied into this NEW continuation are relocated.
         # Keep the original run intact and the fixed-play evaluation unchanged.

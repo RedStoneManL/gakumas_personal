@@ -6,6 +6,7 @@ import queue
 import threading
 import time
 from .encoding import collate
+from .fast_collate import merge
 from .search_adapter import root_search, RejectedRoot
 
 
@@ -160,7 +161,12 @@ class SearchService:
         if unique:
             tick = time.monotonic()
             try:
-                batch = collate([job['encoded'] for job in unique], self.device)
+                # Process-mode workers pre-collate (see process_service._predict);
+                # the in-process thread service still sends Encoded objects.
+                if all('pre' in job for job in unique):
+                    batch = merge([job['pre'] for job in unique], self.device)
+                else:
+                    batch = collate([job['encoded'] for job in unique], self.device)
                 assembled = time.monotonic()
                 encoders = (self.model.actor, self.model.critic)
                 try:
@@ -176,13 +182,15 @@ class SearchService:
                         encoder._search_lex_cache = None
                 self.stats['assembly_seconds'] += assembled-tick
                 self.stats['forward_seconds'] += time.monotonic()-assembled
+                def _width(job):
+                    return job['pre']['n_submissions'] if 'pre' in job else len(job['encoded'].submissions)
                 for i,(job, prior, value) in enumerate(zip(unique, probabilities, predictions)):
-                    result = (prior[:len(job['encoded'].submissions)], value)
+                    result = (prior[:_width(job)], value)
                     if distributions is not None:result += (distributions[i],)
                     self._put_cached(job['key'], result)
                 for job in active:
                     k = job['prediction_index']
-                    job['result'] = (probabilities[k][:len(job['encoded'].submissions)], predictions[k])
+                    job['result'] = (probabilities[k][:_width(job)], predictions[k])
                     if distributions is not None:job['result'] += (distributions[k],)
                 self.stats['inference_batches'] += 1
                 self.stats['inference_examples'] += len(unique)

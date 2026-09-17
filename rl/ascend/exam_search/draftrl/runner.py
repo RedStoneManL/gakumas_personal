@@ -43,6 +43,7 @@ from . import keycard_focus
 from .keycard_probe import check as keycard_check
 from . import duplicate_limits
 from . import learning_rates
+from . import stage_progress
 
 
 def append(path, row):
@@ -104,7 +105,13 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
     router = config.get('_search_router') if training else None
     flow = AsyncDecisions(router) if router else None
     next_seed, started, meaningful = start_seed, 0, 0
-    last_log = time.monotonic()
+    from . import distributed as _dist
+    _shards = _dist.ACTIVE.size if _dist.ACTIVE is not None else 1
+    stage_progress.begin('collect' if training else 'evaluate',
+        target_decisions if training else count,
+        'decisions' if training else 'episodes', shards=_shards)
+    rollout_started = time.monotonic()
+    last_log = rollout_started
 
     def can_start():
         return started < count if count is not None else meaningful < target_decisions
@@ -116,7 +123,9 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
         validate_entry(row['entry'], row['spec'], catalog, row['drink_pool'])
         row['keycard_tracking'] = keycard_focus.tracker(row['entry'])
         pool.send(i, 'reset', (row['entry'], row['seed']))
-        row['obs'] = pool.receive(i)['observation']
+        _answer = pool.receive(i)
+        row['obs'] = _answer['observation']
+        row['pre_encoded'] = _answer.get('encoded')
         row['resolved_turn_types'] = list(row['obs']['context']['turn_types'])
         row['phase'] = 'exam'
         if row['obs']['result']['terminated'] or row['obs']['result']['truncated']:
@@ -225,7 +234,11 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                     if row['choice_state'] is None:row['choice_state']=ChoiceState(row['obs'])
                     e=row['choice_state'].encode()
                 else:
-                    e = encode_exam(row['obs'])
+                    # Pre-encoded by the arena worker (r1rl.environment.worker) for plain
+                    # exam views; anything else is encoded here as before.
+                    e = row.get('pre_encoded')
+                    if e is None:
+                        e = encode_exam(row['obs'])
             examples.append(e)
         if ids:
             actions, logps, values, settings, diagnostics = choose(model, examples, device, greedy, driver,
@@ -296,7 +309,9 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                 awaiting.append(i)
         for i in awaiting:
             row = active[i]
-            row['obs'] = pool.receive(i)['observation']
+            _answer = pool.receive(i)
+            row['obs'] = _answer['observation']
+            row['pre_encoded'] = _answer.get('encoded')
             result = row['obs']['result']
             if result['truncated']:
                 raise RuntimeError('truncated episode; no terminal reward fabricated')
@@ -362,12 +377,34 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
         if any(r['steps'] >= config['max_episode_decisions'] for r in active.values()):
             raise RuntimeError('decision guard reached, not a game terminal')
         if time.monotonic() - last_log > 30:
+            _elapsed = time.monotonic() - rollout_started
+            _target = target_decisions if training else count
+            _done = meaningful if training else len(summaries)
+            _rate = _done / _elapsed if _elapsed > 0 and _done else 0.
+            _stage = 'collect' if training else 'evaluate'
+            _batch = str(config.get('_policy_version', '')).split(':')[1:2]
+            print('[PROGRESS] batch=%s stage=%-9s %s %s/%s (%s%%) | %s/min | elapsed %sm | eta %sm | %d live' % (
+                _batch[0] if _batch else '?', _stage,
+                'decisions' if training else 'episodes', _done, _target,
+                round(100. * _done / _target, 1) if _target else '?',
+                round(_rate * 60, 1), round(_elapsed / 60, 1),
+                round((_target - _done) / _rate / 60, 1) if _rate and _target and _done < _target else 0,
+                len(active)), flush=True)
             print(json.dumps({'event': 'rollout', 'completed': len(summaries), 'active': len(active),
-                              'meaningful_decisions': meaningful, 'start_seed': start_seed, 'profiles':dict(Counter(r['profile'] for r in summaries))}), flush=True)
+                              'meaningful_decisions': meaningful, 'start_seed': start_seed,
+                              'target': _target, 'target_kind': 'decisions' if training else 'episodes',
+                              'percent': round(100. * _done / _target, 1) if _target else None,
+                              'per_minute': round(_rate * 60, 1),
+                              'elapsed_minutes': round(_elapsed / 60, 1),
+                              'eta_minutes': round((_target - _done) / _rate / 60, 1) if _rate and _target and _done < _target else None,
+                              'profiles':dict(Counter(r['profile'] for r in summaries))}), flush=True)
+            stage_progress.update(_done, len(active))
             last_log = time.monotonic()
+    stage_progress.end()
     if flow: flow.assert_drained()
     print(json.dumps({'event': 'rollout_ready', 'schema': RUNNER_SCHEMA,
         'episodes': len(summaries), 'meaningful_decisions': meaningful, 'next_seed': next_seed,
+        'elapsed_minutes': round((time.monotonic() - rollout_started) / 60, 1),
         'capacity_counts': dict(Counter(str(r['drink_capacity']) for r in summaries)),
         'memory_mode_counts': dict(Counter(r['memory_mode'] for r in summaries)),
         'support_card_counts': dict(Counter(str(r['support_card_count']) for r in summaries)),
@@ -581,11 +618,29 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
     def publish(event, **details):
         state.update(window.progress_fields())
         state.update(resources.progress_fields())
+        state.update(stage=stage_progress.snapshot())
         state.update(event=event,batches=batches,decisions=decisions,
             elapsed_minutes=(time.monotonic()-started)/60,updated_at=datetime.now(timezone.utc).isoformat(),**details)
         json_write(output/'progress.json',state)
         append(output/'events.jsonl',copy.deepcopy(state))
-        line=f'[{datetime.now():%H:%M:%S}] {event} batch={batches} decisions={decisions} elapsed={state["elapsed_minutes"]:.1f}m'
+        line=f'[{datetime.now():%H:%M:%S}] b{batches} {event} run {state["elapsed_minutes"]:.0f}m decisions={decisions}'
+        line+=' | '+stage_progress.line()
+        # Long silent stages carry their own detail; show it instead of burying it in JSON.
+        if 'ppo_progress' in details:
+            p=details['ppo_progress']
+            line+=(f" | PPO epoch {p.get('epoch')}/{p.get('epochs_max')}"
+                   f" records {p.get('records_seen')}/{p.get('records_total')}"
+                   f" steps {p.get('optimizer_steps')} kl {p.get('kl',0):.4f}")
+        if 'search_progress' in details:
+            q=details['search_progress']
+            # `roots` is only what is in flight right now; attempted/accepted are
+            # cumulative for the run and are what says whether search is producing.
+            _att,_acc=q.get('attempted',0),q.get('accepted',0)
+            line+=f" | MCTS {q.get('roots')} in flight"
+            if _att:
+                line+=f", {_acc}/{_att} roots accepted ({100.*_acc/_att:.0f}%)"
+            else:
+                line+=", no root has finished yet"
         for k in ('train_mean','train_normalized_mean','validation_mean','validation_normalized_mean','best_validation_index'):
             if k in details:line+=f' {k}={details[k]:.3f}'
         if 'profile_scores' in details:
@@ -859,6 +914,7 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
             run_config['_completed_batches'] = batches
             if bank is not None:bank.configure(practice.get('bank',{}),run_config['_policy_version'],batches)
             exploration=schedule(config,decisions,elapsed_minutes=(before-started)/60)
+            stage_progress.begin_batch(batches)
             publish('collecting',active_exploration=exploration)
             search_before = search_router.diagnostics()
             # Sharded across the learner ranks: each walks its own interleaved seed stream
@@ -884,10 +940,25 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
             tasks,fork_next_seed=make_fork_tasks(episodes,run_config,fork_next_seed)
             fork_stats=[]
             if tasks:
-                fork_records,fork_episodes,fork_decisions=rollout_bank(pool,model,None,run_config,device,
-                    len(tasks),exploration,choose,log_path=output/'train-episodes.jsonl',tasks=tasks,source='fork_exam')
-                fork_stats=apply_fork_returns(records,episodes,fork_records,fork_episodes,expected_tasks=tasks,
-                    objective=practice.get('forks',{}).get('objective','mean'))
+                # Measured at 3246 tasks / 4 per minute on rank0 alone; sharded across the
+                # learners instead. apply_fork_returns groups by prefix and compares
+                # multisets, so gather order is irrelevant, and it already raises on a
+                # missing or duplicate continuation.
+                _objective=practice.get('forks',{}).get('objective','mean')
+                if _distributed.ACTIVE is not None and _distributed.ACTIVE.size>1:
+                    # Each rank replays the forks of its own joint episodes and credits the
+                    # group locally (apply_fork_returns extends `records` in place there);
+                    # only the fork summaries and per-group diagnostics come back gathered.
+                    fork_records,fork_episodes,fork_decisions,fork_stats=_distributed.ACTIVE.fork_rollout(
+                        pool,model,setup,run_config,tasks,exploration,
+                        records=records,summaries=episodes,objective=_objective,
+                        log_path=output/'train-episodes.jsonl',source='fork_exam',
+                        search_seed_base=search_router.counter if search_router is not None else 0)
+                else:
+                    fork_records,fork_episodes,fork_decisions=rollout_bank(pool,model,None,run_config,device,
+                        len(tasks),exploration,choose,log_path=output/'train-episodes.jsonl',tasks=tasks,source='fork_exam')
+                    fork_stats=apply_fork_returns(records,episodes,fork_records,fork_episodes,expected_tasks=tasks,
+                        objective=_objective)
                 if bank is not None:
                     for result in fork_episodes:bank.feedback(result['bank_key'],result['normalized_score'])
                 for item in fork_stats:append(output/'fork-returns.jsonl',{'batch':batches+1,**item})
@@ -901,11 +972,17 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                     from .best_of import repeat_bank_tasks,apply_bank_returns
                     extra_tasks,fork_next_seed=repeat_bank_tasks(
                         keycard_focus.filter_bank_tasks(bank.sample(extra_count),run_config),fork_next_seed)
-                extra_records,extra_episodes,extra_decisions=rollout_bank(pool,model,bank,run_config,device,
-                    extra_count,exploration,choose,log_path=output/'train-episodes.jsonl',tasks=extra_tasks)
-                if extra_tasks is not None:
-                    bank_groups=apply_bank_returns(extra_records,extra_episodes,extra_tasks)
-                    for item in bank_groups:append(output/'bank-group-returns.jsonl',{'batch':batches+1,**item})
+                if extra_tasks is not None and _distributed.ACTIVE is not None and _distributed.ACTIVE.size>1:
+                    # Replica groups are whole on one rank and credited there; the replays
+                    # run with bank=None everywhere, so the bank is fed here from summaries.
+                    extra_records,extra_episodes,extra_decisions,bank_groups=_distributed.ACTIVE.bank_replay(
+                        pool,model,setup,run_config,extra_tasks,exploration,log_path=output/'train-episodes.jsonl')
+                    for row in extra_episodes:bank.feedback(row['bank_key'],row['normalized_score'])
+                else:
+                    extra_records,extra_episodes,extra_decisions=rollout_bank(pool,model,bank,run_config,device,
+                        extra_count,exploration,choose,log_path=output/'train-episodes.jsonl',tasks=extra_tasks)
+                    bank_groups=apply_bank_returns(extra_records,extra_episodes,extra_tasks) if extra_tasks is not None else []
+                for item in bank_groups:append(output/'bank-group-returns.jsonl',{'batch':batches+1,**item})
                 records.extend(extra_records);episodes.extend(extra_episodes);added+=extra_decisions
             duplicate_reward = apply_draft_penalty(records, episodes)
             collection=time.monotonic()-before
@@ -916,18 +993,38 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                 append(output/'gradient-diagnostics.jsonl',{'batch':batches+1,**probe})
             unchanged(); before=time.monotonic()
             state['optimizer_schedule'] = learning_rates.apply(optimizer,config,(before-started)/60)
+            _epoch_cap=run_config.get('sample_efficiency',{}).get('ppo_epochs_max',run_config['epochs'])
+            _ranks=_distributed.ACTIVE.size if _distributed.ACTIVE is not None else 1
+            stage_progress.begin('ppo_update',len(records)*max(1,_epoch_cap),'records',shards=_ranks)
+            # The first ppo_progress callback only fires after the first optimizer block,
+            # which sits behind the records broadcast to the worker ranks. Say so now,
+            # or the log and dashboard sit on the last bank line for the whole wait.
+            publish('ppo_update_begin', ppo_records=len(records), ppo_epoch_cap=_epoch_cap)
+            def _ppo_progress(**details):
+                stage_progress.update((details.get('epoch',1)-1)*len(records)+details.get('records_seen',0))
+                publish('ppo_progress', ppo_progress=details)
             losses=update(model,optimizer,records,run_config,device,
-                progress=lambda **details: publish('ppo_progress', ppo_progress=details))
+                progress=_ppo_progress)
             losses['learning_rates'] = learning_rates.current(optimizer)
             losses['optimizer_schedule'] = state['optimizer_schedule']
+            stage_progress.end()
             update_seconds=time.monotonic()-before
             decisions+=added;batches+=1
             summary=describe(episodes)
+            # update() reduced these over every rank's records; finalise the means here.
+            _rs=losses.get('record_stats') or {}
+            _fields=('behavior_entropy_fraction','base_entropy_fraction','behavior_max_probability','base_max_probability')
             stats={}
-            for phase,name in enumerate(('exam','drink','draft','guidance','memory')):
-                rows=[r for r in records if r['encoded'].phase==phase and len(r['encoded'].submissions)>1 and r['loss_kind']=='ppo']
-                stats[name]={k:statistics.mean(r[k] for r in rows) if rows else 0 for k in
-                    ('behavior_entropy_fraction','base_entropy_fraction','behavior_max_probability','base_max_probability')}
+            for name in ('exam','drink','draft','guidance','memory'):
+                _e=(_rs.get('exploration') or {}).get(name) or {}
+                _c=_e.get('count',0)
+                stats[name]={k:(_e.get(k,0.)/_c if _c else 0) for k in _fields}
+            _pd={}
+            for _key,_g in (_rs.get('practice') or {}).items():
+                _pd[_key.replace('/','|')]={'decisions':int(_g.get('decisions',0)),'meaningful':int(_g.get('meaningful',0)),
+                    'value_mae':_g.get('value_mae',0.)/max(1,_g.get('decisions',0)),
+                    'behavior_max_probability':(_g.get('bmp_sum',0.)/_g['bmp_count']) if _g.get('bmp_count') else None}
+            _phase_decisions={k:int(v) for k,v in (_rs.get('phase_decisions') or {}).items()}
             construction={'drink_capacity_counts':dict(Counter(str(r['drink_capacity']) for r in episodes)),
                 'build_best_of_k':summarize_groups(fork_stats),
                 'construction_objective':practice.get('forks',{}).get('objective','mean'),
@@ -940,7 +1037,7 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                 'fork_episode_count':sum(r['sampling_source']=='fork_exam' for r in episodes),
                 'fork_prefix_count':len(fork_stats),'practice_modes':dict(Counter(r.get('exploration_mode','normal') for r in episodes[:joint_episode_count])),
                 'fork_coverage':fork_coverage(episodes[:joint_episode_count],fork_stats),
-                'practice_diagnostics':practice_diagnostics(records),
+                'practice_diagnostics':_pd,
                 'coverage_summary':coverage.summary(),
                 'duplicate_regularization':duplicate_reward,
                 'joint_deck_size_counts':dict(Counter(str(r['deck_size']) for r in episodes[:joint_episode_count])),
@@ -964,7 +1061,7 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                 'resource_settings': resources.current,
                 'scenarios':summary['scenarios'],'benchmark_cells':summary['benchmark_cells'],
                 'capacities':summary['capacities'],'courses':summary['courses'],'exploration_settings':exploration,'exploration_stats':stats,
-                'phase_decisions':dict(Counter(str(r['encoded'].phase) for r in records)),**construction,**losses})
+                'phase_decisions':_phase_decisions,**construction,**losses})
             checkpoint('latest.pt')
             if practice.get('coverage',False):json_write(output/'coverage.json',coverage.rows)
             publish('update',train_mean=summary['mean'],profile_scores=summary['profiles'],scenarios=summary['scenarios'],

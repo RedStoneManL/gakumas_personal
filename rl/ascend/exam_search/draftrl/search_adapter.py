@@ -67,7 +67,7 @@ def root_search(model, entry, history, *, score_scale, policy_version,
                 seconds=8., sampling_ms=2000, max_depth=8, rollout_steps=4,
                 predictor=None, shared_client=None, objective_k=1, native_action_budget=20000,
                 root_selection='gumbel_halving', soft_floor=.25, soft_temperature=.8, soft_min_visits=2,
-                learning_target=None):
+                learning_target=None, require_terminal=False):
     if score_scale <= 0 or not math.isfinite(score_scale):
         raise ValueError('Positive exogenous score scale required')
     if type(native_action_budget) is not int or native_action_budget not in (20000, 60000):
@@ -78,7 +78,8 @@ def root_search(model, entry, history, *, score_scale, policy_version,
               'search_seed': search_seed, 'score_scale': score_scale,
               'valid_training_target': False, 'search': None, 'objective_k':objective_k,
               'budgets': {'root_seconds':seconds, 'sampling_ms':sampling_ms,
-                          'native_action_budget':native_action_budget}}
+                          'native_action_budget':native_action_budget,
+                          'require_terminal':require_terminal}}
     roots, branches = [], []
     # A separate client owns only hypothetical worlds; hard cancellation can
     # never invalidate the actual recorder owned by the collector.
@@ -177,15 +178,32 @@ def root_search(model, entry, history, *, score_scale, policy_version,
                 branches.append(wrapped)
                 wrapped.view = native.observe(budget=budget())
                 return wrapped
+            def spent_budget(error):
+                # RejectedRoot covers the wall-clock deadline and the native action caps.
+                # TrainingError counts only for the kinds this adapter already treats as
+                # a budget outcome; anything else stays a hard failure.
+                if isinstance(error, RejectedRoot):
+                    return True
+                return (isinstance(error, TrainingError) and error.kind in
+                        ('deadline', 'budget_exhausted', 'cancelled', 'worker_timeout', 'closed'))
+
             result = search(root, sample_world, evaluate, simulations=simulations,
                             max_depth=max_depth, rollout_steps=rollout_steps, search_seed=search_seed,
                             objective_k=objective_k, root_selection=root_selection,
+                            recoverable=spent_budget, require_terminal=require_terminal,
                             soft_floor=soft_floor,soft_temperature=soft_temperature,soft_min_visits=soft_min_visits,
                             learning_target=learning_target)
-            budget()
+            # Only re-check the budget for a root that finished inside it. A truncated
+            # root is over budget by definition; calling budget() here would raise and
+            # throw away the very simulations this path exists to keep.
+            if result.get('truncated_reason') is None:
+                budget()
             report['search'] = result
             report['valid_training_target'] = result['target_budget_eligible']
-            report['status'] = 'ok' if report['valid_training_target'] else 'insufficient_search_budget'
+            if report['valid_training_target']:
+                report['status'] = 'ok' if result.get('truncated_reason') is None else 'ok_truncated'
+            else:
+                report['status'] = 'insufficient_search_budget'
         except RejectedRoot as error:
             report['status'] = str(error)
             report['search'] = None

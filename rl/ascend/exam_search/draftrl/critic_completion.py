@@ -4,6 +4,7 @@ import torch
 from gakumas_training.device import optimizer_options
 from .encoding import collate
 from .update_diagnostics import update_coverage
+from . import sharded
 from .value_calibration import state_digest
 from .value_distribution import quantile_loss
 from .kl_value_migration import SETTINGS
@@ -33,12 +34,26 @@ def complete_values(model, optimizer, records, targets, weights, accepted,
     try:
         for name, parameter in model.named_parameters():
             parameter.requires_grad_(flags[name] and value_parameter(name))
-        for start in range(0, len(remaining), config['effective_minibatch']):
-            block = remaining[start:start+config['effective_minibatch']]
+        # Two layouts. shared: every rank holds the same full record list (the group
+        # broadcast it, as before this change), so blocks are global and strided.
+        # local: each rank holds only its own records; block_plan keeps the ranks in
+        # lockstep and block_length supplies the global divisor.
+        shared = mesh is not None and getattr(mesh, 'shared_records', False)
+        local_mesh = None if shared else mesh
+        if shared:
+            effective = config['effective_minibatch']
+            num_blocks = -(-len(remaining) // effective)
+            bounds = [(i*effective, min((i+1)*effective, len(remaining))) for i in range(num_blocks)]
+        else:
+            bounds, num_blocks, _ = sharded.block_plan(local_mesh, len(remaining), config['effective_minibatch'])
+        for block_index in range(num_blocks):
+            start, end = bounds[block_index]
+            block = remaining[start:end]
+            block_size = len(block) if shared else sharded.block_length(local_mesh, len(block))
             optimizer.zero_grad(set_to_none=True)
             value_attempted.update(block)
             block_value = block_distribution = block_loss = 0.
-            shard = block if mesh is None else block[mesh.rank::mesh.size]
+            shard = block[mesh.rank::mesh.size] if shared else block
             for offset in range(0, len(shard), config['minibatch']):
                 indices = shard[offset:offset+config['minibatch']]
                 batch = collate([records[i]['encoded'] for i in indices], device)
@@ -46,11 +61,11 @@ def complete_values(model, optimizer, records, targets, weights, accepted,
                 truth = targets[indices].to(device)
                 weight = weights[indices].to(device)
                 scalar = (torch.nn.functional.smooth_l1_loss(values, truth, reduction='none')
-                          * weight).sum()/len(block)
+                          * weight).sum()/block_size
                 distribution = values.new_zeros(())
                 if atoms is not None:
                     distribution = (quantile_loss(atoms, truth) * weight
-                                    * (batch['phase']==0)).sum()/len(block)
+                                    * (batch['phase']==0)).sum()/block_size
                 loss = config['value_coefficient']*scalar + config.get(
                     'value_calibration', {}).get('distribution_coefficient', 1.)*distribution
                 if not torch.isfinite(loss):
@@ -73,7 +88,7 @@ def complete_values(model, optimizer, records, targets, weights, accepted,
             losses.append(block_loss); value_losses.append(block_value)
             distribution_losses.append(block_distribution); norms.append(float(norm))
             if progress is not None and time.monotonic()-last_progress >= 30:
-                progress(stage='critic_completion', records_seen=min(start+len(block), len(remaining)),
+                progress(stage='critic_completion', records_seen=end,
                          records_total=len(remaining), optimizer_steps=len(losses), actor_frozen=True)
                 last_progress = time.monotonic()
     finally:
@@ -90,6 +105,6 @@ def complete_values(model, optimizer, records, targets, weights, accepted,
             'loss': mean(losses), 'value_loss': mean(value_losses),
             'distribution_loss': mean(distribution_losses), 'grad_norm': mean(norms),
             'actor_unchanged': True, 'actor_sha256_before': before, 'actor_sha256_after': after,
-            'coverage': update_coverage(records, value_accepted, value_attempted),
+            'coverage': sharded.reduce_coverage(local_mesh, update_coverage(records, value_accepted, value_attempted)),
             'target_semantics': 'Current batch actual returns: construction Best4 and own-exam terminal distribution.',
             'policy_replay': False}

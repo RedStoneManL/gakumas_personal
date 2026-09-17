@@ -8,7 +8,13 @@ class SearchRouter:
     def __init__(self, model, device, config, *, seed_counter=0, log_path=None, progress=None):
         self.config = dict(config)
         self.counter = seed_counter
-        self.log_path, self.progress = log_path, progress
+        self.log_path = log_path
+        self._sink = progress
+        # SearchService reports sum(f.done() for f in pending): roots that finished but
+        # have not been harvested yet. The collector harvests on every poll, so that
+        # number is ~always 0 and reads as "nothing is working". Attach the cumulative
+        # outcome counts, which are what actually says whether search is producing.
+        self.progress = self._report if progress is not None else None
         self.service = SearchService(model, device,
             parallel_roots=config['parallel_roots'], inference_batch=config['inference_batch'])
         self.counts = Counter()
@@ -59,7 +65,7 @@ class SearchRouter:
                 'native_action_budget':self.config.get('native_action_budget',20000),
                 'objective_k':self.config.get('objective_k',1),
                 'root_selection':self.config.get('root_selection','gumbel_halving'),
-                **{k:self.config[k] for k in ('soft_floor','soft_temperature','soft_min_visits','learning_target') if k in self.config},
+                **{k:self.config[k] for k in ('soft_floor','soft_temperature','soft_min_visits','learning_target','require_terminal') if k in self.config},
                 'score_scale': item['score_scale'], 'policy_version': policy_version,
                 'search_seed': search_seed, 'partial_selection': item['partial_selection'],
                 **{k: self.config[k] for k in ('simulations', 'particles', 'seconds',
@@ -105,6 +111,12 @@ class SearchRouter:
             actions[position], logps[position], extras[position] = self.finish(
                 items[position], result, actions[position], logps[position])
         return extras
+
+    def _report(self, **details):
+        self._sink(**details,
+                   attempted=self.counts['attempted_roots'],
+                   accepted=self.counts['accepted_targets'],
+                   fallbacks=self.counts['ppo_fallbacks'])
 
     def diagnostics(self):
         return {'counts': dict(self.counts), 'inference': dict(self.service.stats),

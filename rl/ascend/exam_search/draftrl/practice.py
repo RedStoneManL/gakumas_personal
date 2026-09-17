@@ -78,6 +78,10 @@ def make_fork_tasks(summaries, config, next_seed):
             raise ValueError('Stale prefix cannot receive a new return')
         for branch in range(1, replicas):
             meta = retained_metadata(s)
+            if not config.get('search', {}).get('fork_episodes', True):
+                # Replays exist to supply real Best-of-4 terminal returns; their
+                # exam decisions stay PPO records and do not open search roots.
+                meta['search_enabled'] = False
             meta.update(prefix_id=f"joint:{s['seed']}", branch_id=branch, fork_replicas=replicas,
                         parent_entry_sha256=s.get('entry_sha256'),
                         parent_environment_seed=s['seed'], environment_seed=next_seed,

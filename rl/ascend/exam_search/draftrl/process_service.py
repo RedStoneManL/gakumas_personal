@@ -35,7 +35,13 @@ def _predict(encoded, deadline):
     global _worker_sequence
     _worker_sequence += 1
     sequence = _worker_sequence
-    _worker_requests.put({'encoded':encoded, 'deadline':deadline,
+    # Assemble the network input HERE, on this worker's core, and ship compact
+    # arrays. The collector thread serving every searcher on this rank was
+    # spending 37.6% of its time unpickling Encoded objects off this queue and
+    # another 28.7% collating them, so its pump was O(searchers) per cycle and
+    # adding searchers did not add throughput.
+    from .fast_collate import precollate
+    _worker_requests.put({'pre':precollate(encoded), 'deadline':deadline,
                           'slot':_worker_slot, 'sequence':sequence,
                           'policy_version':_worker_policy_version})
     while True:
@@ -91,7 +97,10 @@ class _Requests:
     def get(self, timeout=0.):
         job = self.queue.get(timeout=timeout)
         job['done'] = _Completion(job, self.outputs[job['slot']])
-        job['key'] = self.owner.cache_key(job['encoded']) if self.owner.cache_limit else None
+        # ProcessSearchService constructs with inference_cache_bytes=0, so the key is
+        # never used here; a pre-collated job has no Encoded to key on anyway.
+        job['key'] = (self.owner.cache_key(job['encoded'])
+                      if self.owner.cache_limit and 'encoded' in job else None)
         if job['policy_version'] != self.owner.policy_version:
             job['deadline'] = 0.
         return job

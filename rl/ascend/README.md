@@ -4,7 +4,7 @@
 
 **两套任务保留各自的观察、奖励和检查点契约。** 搜索改进在 `exam-search` 入口中完整保留；完整育成入口仍优化整局原始育成评价，没有把“四局考试最高分”替换成育成目标，也没有把搜索标签直接塞进育成 PPO。
 
-本地完成的检查见 [验收记录](ACCEPTANCE.md)。ARM64、具体 NPU 型号、CANN 算子与 8 卡 HCCL 仍需下列实机预检；当前没有该服务器连接。
+本地完成的检查见 [验收记录](ACCEPTANCE.md)。真机（Atlas 800T A2 / 8×Ascend 910B3）上的八卡性能改造见 [ASCEND_OPTIMIZATION.md](ASCEND_OPTIMIZATION.md)，生产训练期间的修复、改造与实测结果见 [生产训练报告](PRODUCTION_RUN.md)，逐日排查流水账见 [RUN_NOTES.md](RUN_NOTES.md)。
 
 ## 1. 环境和安装
 

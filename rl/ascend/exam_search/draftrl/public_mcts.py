@@ -85,7 +85,8 @@ class Node:
 
 def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
            rollout_steps=64, c_puct=1.5, search_seed=9171,
-           root_selection='gumbel_halving', objective_k=1,
+           root_selection='gumbel_halving', objective_k=1, recoverable=None,
+           require_terminal=False,
            soft_floor=.25, soft_temperature=.8, soft_min_visits=2, learning_target=None):
     """sample_world() returns a fresh compatible hypothetical world.
 
@@ -106,7 +107,8 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
         raise ValueError('Supported search objectives are mean or empirical Best-of-4')
     rng = random.Random(search_seed)
     counters = {'worlds': 0, 'policy_evaluations': 0, 'world_steps': 0,
-                'terminal_evaluations': 0, 'bootstrap_evaluations': 0}
+                'terminal_evaluations': 0, 'bootstrap_evaluations': 0,
+                'discarded_unterminated': 0}
     root_signature = key(root_view)
     cache = {}
 
@@ -154,14 +156,15 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
         return gumbels[i] + prior_logits[i] + transformed_q()[i]
 
     def leaf(world, view):
+        # Returns (value, grounded); grounded is True only for a real terminal score.
         for step in range(rollout_steps + 1):
             current = assess(view)
             if current.terminal_return is not None:
                 counters['terminal_evaluations'] += 1
-                return current.terminal_return
+                return current.terminal_return, True
             if step == rollout_steps:
                 counters['bootstrap_evaluations'] += 1
-                return tuple(current.return_atoms) if current.return_atoms else current.value
+                return (tuple(current.return_atoms) if current.return_atoms else current.value), False
             # Greedy public-policy rollout. Deeper tree decisions progressively
             # replace this weak continuation; it is not a handcrafted teacher.
             action = current.actions[max(range(len(current.actions)),
@@ -169,6 +172,18 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
             view = world.step(copy.deepcopy(action))
             counters['world_steps'] += 1
 
+    truncated = None
+    completed = simulations
+
+    def salvageable():
+        # Partial credit is only worth taking if the tree can survive everything that
+        # still runs after the loop: the admission rule, and the learning-target
+        # estimator, which needs two samples per action to form its jackknife.
+        if not sum(root.visits):
+            return False
+        if learning_target is not None and any(len(s) < 2 for s in root.samples):
+            return False
+        return True
     for simulation in range(simulations):
         forced_root = None
         if root_selection == 'soft_budget':
@@ -191,55 +206,75 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
                 root_schedule.extend((contenders*per_action)[:remaining])
                 round_started = True
             forced_root = root_schedule.popleft()
-        world = sample_world()
-        counters['worlds'] += 1
-        view = world.observe()
-        if key(view) != root_signature:
-            raise ValueError('Sampled world contradicts the public root')
-        history = root_signature
-        path = []
-        value = None
-        for depth in range(max_depth):
-            node = tree[history]
-            action_index = forced_root if depth == 0 and forced_root is not None else node.select(rng, c_puct)
-            action = node.evaluation.actions[action_index]
-            path.append((node, action_index))
-            view = world.step(copy.deepcopy(action))
-            counters['world_steps'] += 1
-            # No true-world ID in a node key. Identical public histories share
-            # decisions even when their hypothetical hidden decks differ.
-            history = key([history, action, view])
-            current = assess(view)
-            if current.terminal_return is not None:
-                value = current.terminal_return
-                counters['terminal_evaluations'] += 1
-                break
-            if history not in tree:
-                tree[history] = Node(current,objective_k)
-                value = leaf(world, view)
-                break
-            if depth + 1 == max_depth:
-                value = leaf(world, view)
-        if value is None or not math.isfinite(sample_mean(value)):
-            raise ValueError('Incomplete simulation is not a zero-score sample')
-        for node, index in path:
-            node.visits[index] += 1
-            node.totals[index] += sample_mean(value)
-            node.samples[index].append(value)
-        # Resident Arena branches must be released before the next simulation.
-        # On exceptions their owning adapter retains cleanup responsibility.
-        release = getattr(world, 'release', None)
-        if release is not None:
-            release()
+        try:
+            world = sample_world()
+            counters['worlds'] += 1
+            view = world.observe()
+            if key(view) != root_signature:
+                raise ValueError('Sampled world contradicts the public root')
+            history = root_signature
+            path = []
+            value = None
+            grounded = False
+            for depth in range(max_depth):
+                node = tree[history]
+                action_index = forced_root if depth == 0 and forced_root is not None else node.select(rng, c_puct)
+                action = node.evaluation.actions[action_index]
+                path.append((node, action_index))
+                view = world.step(copy.deepcopy(action))
+                counters['world_steps'] += 1
+                # No true-world ID in a node key. Identical public histories share
+                # decisions even when their hypothetical hidden decks differ.
+                history = key([history, action, view])
+                current = assess(view)
+                if current.terminal_return is not None:
+                    value = current.terminal_return
+                    grounded = True
+                    counters['terminal_evaluations'] += 1
+                    break
+                if history not in tree:
+                    tree[history] = Node(current,objective_k)
+                    value, grounded = leaf(world, view)
+                    break
+                if depth + 1 == max_depth:
+                    value, grounded = leaf(world, view)
+            if value is None or not math.isfinite(sample_mean(value)):
+                raise ValueError('Incomplete simulation is not a zero-score sample')
+            if require_terminal and not grounded:
+                # The rollout never played the game out. Keep it out of the label entirely
+                # rather than letting the value head vote on its own target.
+                counters['discarded_unterminated'] += 1
+            else:
+                for node, index in path:
+                    node.visits[index] += 1
+                    node.totals[index] += sample_mean(value)
+                    node.samples[index].append(value)
+            # Resident Arena branches must be released before the next simulation.
+            # On exceptions their owning adapter retains cleanup responsibility.
+            release = getattr(world, 'release', None)
+            if release is not None:
+                release()
+        except Exception as error:
+            # A partial tree is still a usable label if it cleared the admission bar;
+            # the incomplete simulation contributed no visits, so the tree is coherent.
+            if recoverable is None or not recoverable(error) or not salvageable():
+                raise
+            truncated = error
+            completed = simulation
+            break
 
     total = sum(root.visits)
+    # improve() forms a delete-one jackknife and so needs two samples for every action.
+    # With require_terminal a root can finish under that bar, and the ValueError it
+    # raises here would escape root_search's budget handlers and kill the search worker.
+    supported = learning_target is None or all(len(s) >= 2 for s in root.samples)
     learning = None
     behavior = None
     if root_selection == 'soft_budget':
         policy = soft_probabilities()
         selected = rng.choices(range(len(policy)),weights=policy,k=1)[0]
         behavior = policy[:]
-        if learning_target is not None:
+        if learning_target is not None and supported:
             from .search_learning import improve, entropy
             policy, learning = improve(first.priors,root.samples,objective_k,learning_target)
             learning['behavior_entropy'] = entropy(behavior)
@@ -248,9 +283,15 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
         weights = [math.exp(v-max(improved_logits)) for v in improved_logits]
         policy = [v/sum(weights) for v in weights]
         visited_contenders = [i for i in contenders if root.visits[i]]
+        if not visited_contenders:
+            # Halving can retire every contender this truncated run actually visited.
+            if truncated is not None:
+                raise truncated
+            raise ValueError('No visited root contender remains')
         selected = max(visited_contenders, key=root_ranking)
     else:
-        policy = [n/total for n in root.visits]
+        policy = ([n/total for n in root.visits] if total else
+                  [1./len(root.visits)]*len(root.visits))
         selected = max(range(len(policy)), key=lambda i: (policy[i],
                         root.utility(i)))
     return {'schema': 'arena-public-history-mcts/0', 'root_selection': root_selection,
@@ -270,6 +311,11 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
                 'minimum_visits':soft_min_visits,'permanently_eliminated_actions':0} if root_selection=='soft_budget' else None,
             'root_action_coverage': sum(n > 0 for n in root.visits)/len(root.visits),
             'tree_decision_nodes': len(tree), 'cost': counters,
+            'simulations_requested': simulations, 'simulations_completed': completed,
+            'require_terminal': require_terminal,
+            'terminal_grounded_simulations': total,
+            'truncated_reason': None if truncated is None else str(truncated),
             'teacher_qualified': False,
-            'target_budget_eligible': all(n > 0 for n in root.visits) and total >= 2*len(root.visits),
+            'target_budget_eligible': (all(n > 0 for n in root.visits)
+                                       and total >= 2*len(root.visits) and supported),
             'limitation': 'Finite-budget conditional-world search; rollout/value blind spots remain.'}

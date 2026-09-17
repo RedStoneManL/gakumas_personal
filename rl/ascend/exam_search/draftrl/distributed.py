@@ -51,6 +51,48 @@ def shard(count, size, rank):
 _SEARCH_SEED_BLOCK = 1_000_000
 
 
+def seed_rank(config, device, rank, stage):
+    """Seed this rank's RNGs deterministically, and differently from every other rank.
+
+    rollout() samples non-greedy actions with distribution.sample(), which draws from the
+    GLOBAL torch generator -- the per-episode random.Random objects serve driver='random'
+    only. runner.train() calls seed_device once, but it runs on the coordinator alone, so
+    without this the seven worker ranks sampled the PPO collection from a generator
+    PyTorch had seeded from OS entropy at process start: not reproducible, and outside the
+    checkpoint's RNG save and restore.
+
+    The stage name is mixed in so the collection and fork stages of one batch do not
+    replay the same stream, and the rank so no two ranks ever sample in lockstep.
+    """
+    import random as _random
+    from gakumas_training.device import seed_device
+    base = int(config.get('seed', 0))
+    mixed = (base + 1_000_003 * (rank + 1) + 7_919 * (sum(map(ord, stage)) + 1)) % (2 ** 31 - 1)
+    _random.seed(mixed)
+    seed_device(mixed, str(device))
+    return mixed
+
+
+def worker_search_config(config, size):
+    """Build a worker rank's search config so it matches the coordinator's exactly.
+
+    objective_k is the trap: runner.apply_resources() sets it on the coordinator's router
+    from practice.forks.objective, but it is NOT a key of config['search'], so a worker
+    that only spreads config['search'] silently falls back to SearchRouter's default of 1.
+    That made rank 0 optimise empirical Best-of-4 while ranks 1-7 optimised the mean --
+    no error, and cheaper on the workers, so it never showed up as a slowdown.
+    """
+    parallel = config.get('parallelism', {}) or {}
+    roots = max(1, int(parallel.get('parallel_roots', 1)) // size)
+    forks = (config.get('practice', {}) or {}).get('forks', {}) or {}
+    return {**config['search'],
+            'parallel_roots': roots,
+            # inference_batch above parallel_roots is unreachable: each search process
+            # blocks on its own reply, so only that many are ever in flight.
+            'inference_batch': min(int(parallel.get('inference_batch', roots)), roots),
+            'objective_k': 4 if forks.get('objective') == 'best_of_k' else 1}
+
+
 class _BankRows:
     """Stands in for the sample bank inside a sharded rollout.
 
@@ -76,11 +118,20 @@ def shard_log(log_path, rank):
 
 
 def merge_shard_logs(log_path, size):
-    """Concatenate the per-rank episode logs into one file ordered by seed.
+    """APPEND the per-rank episode logs to the shared log, ordered by seed.
 
-    The dashboard reads validation-*-episodes.jsonl (generalist_data.py), so the merged
-    file must hold every episode, not just the coordinator's slice. Written to a
-    temporary file and renamed so a reader never sees a half-merged log.
+    Append, never replace. rollout() and rollout_bank() only ever append to these files,
+    and three things depend on that:
+      - train-episodes.jsonl is written by the collection stage AND the fork stage AND the
+        bank stage of the SAME batch, and accumulates across every batch. Replacing it
+        would leave only whichever stage merged last.
+      - checkpoint.save_committed records each log's size as a resume offset and
+        recovery.prepare rejects a log shorter than its recorded offset, so the file must
+        never shrink.
+      - the dashboard reads validation-*-episodes.jsonl incrementally.
+
+    Sorting by seed keeps the file order deterministic, which matters because
+    play_evaluation.prepare_suite selects strata with eligible[0] / eligible[-1].
     """
     import json
     from pathlib import Path
@@ -96,11 +147,9 @@ def merge_shard_logs(log_path, size):
         with part.open(encoding='utf-8') as stream:
             rows += [json.loads(line) for line in stream if line.strip()]
     rows.sort(key=lambda row: row.get('seed', 0))
-    temporary = log_path.with_suffix(log_path.suffix + '.merging')
-    with temporary.open('w', encoding='utf-8', newline='\n') as stream:
+    with log_path.open('a', encoding='utf-8', newline='\n') as stream:
         for row in rows:
             stream.write(json.dumps(row, ensure_ascii=False) + '\n')
-    temporary.replace(log_path)
     for part in present:
         part.unlink()
 
@@ -111,11 +160,28 @@ class LearnerGroup(CollectiveGroup):
         if self.size > 1:
             names = {id(p): name for name, p in model.named_parameters()}
             groups = [[names[id(p)] for p in g['params']] for g in optimizer.param_groups]
+            # After a sharded collection every rank holds the records it produced and
+            # trains on them (serve's update branch); the payload is then ~75 MB of
+            # weights and Adam state instead of ~1 GB of Encoded objects. A group that
+            # never collected (direct update() callers, the two-process tests) still
+            # receives the full record list and uses the original strided layout.
+            self.shared_records = not getattr(self, 'local_summaries', None)
             payload = {'command': 'update', 'model_config': model.config,
                        'model': cpu_copy(model.state_dict()), 'optimizer': cpu_copy(optimizer.state_dict()),
-                       'groups': groups, 'records': records,
+                       'groups': groups,
                        'config': {k: v for k, v in config.items() if k not in ('_search_router', '_coverage')}}
+            if self.shared_records:
+                payload['records'] = records
+            # One broadcast_object_list carries weights, Adam state and every record:
+            # a single-threaded pickle on this rank, then seven single-threaded
+            # unpickles. Measured once at ~18 silent minutes before the first PPO
+            # block; report it every batch so the cost stays visible.
+            import time as _time, json as _json
+            _t0 = _time.monotonic()
             self.broadcast(payload)
+            print(_json.dumps({'event': 'records_broadcast', 'records': len(records),
+                               'seconds': round(_time.monotonic() - _t0, 1),
+                               'ranks': self.size}), flush=True)
         return update(model, optimizer, records, config, self.device, progress=progress, mesh=self)
 
     # ---- sharded evaluation rollout -------------------------------------------------
@@ -241,6 +307,7 @@ class LearnerGroup(CollectiveGroup):
         its own seed by the unmodified rollout.
         """
         from .runner import rollout
+        from . import sharded
         offset, share = shard(target_decisions, self.size, self.rank)
         if self.size > 1:
             payload = {'command': 'collect', 'model_config': model.config,
@@ -254,19 +321,30 @@ class LearnerGroup(CollectiveGroup):
                                   if k not in ('_search_router', '_coverage')}}
             self.broadcast(payload)
         bank = _BankRows()
-        records, summaries, meaningful, next_seed = rollout(
-            pool, model, None, catalog, config, self.device, episode_index + self.rank,
-            target_decisions=max(1, share), seed_stride=self.size, exploration=exploration,
-            scenario_bank=bank, keep_entries=keep_entries,
-            log_path=shard_log(log_path, self.rank) if self.size > 1 else log_path)
-        started = (next_seed - (episode_index + self.rank)) // self.size
+        start = episode_index + self.rank
+        records, summaries, meaningful, next_seed = [], [], 0, start
+        try:
+            records, summaries, meaningful, next_seed = rollout(
+                pool, model, None, catalog, config, self.device, start,
+                target_decisions=max(1, share), seed_stride=self.size, exploration=exploration,
+                scenario_bank=bank, keep_entries=keep_entries,
+                log_path=shard_log(log_path, self.rank) if self.size > 1 else log_path)
+        finally:
+            # The other coordinators guard their work the same way. Without this, a raise
+            # here (decision guard, Arena failure, search error) would skip all four gathers
+            # while seven ranks are already blocked inside serve_collect's matching ones.
+            if self.size > 1:
+                # Records stay here. Summaries carry their origin so fork replays can be
+                # routed back to the rank that holds the parent records.
+                for row in summaries:
+                    row['origin_rank'] = self.rank
+                gathered_episodes = self.gather_lists(summaries)
+                gathered_bank = self.gather_lists(bank.rows)
+                counts = self.gather_lists([
+                    {'rank': self.rank, 'started': (next_seed - start) // self.size,
+                     'meaningful': meaningful}])
         if self.size == 1:
             return records, summaries, meaningful, next_seed, bank.rows
-        gathered_records = self.gather_lists(records)
-        gathered_episodes = self.gather_lists(summaries)
-        gathered_bank = self.gather_lists(bank.rows)
-        counts = self.gather_lists([{'rank': self.rank, 'started': started,
-                                     'meaningful': meaningful}])
         merge_shard_logs(log_path, self.size)
         merge_shard_logs(search_log, self.size)
         # Advance past every rank's highest used seed. Ranks stop at different episode
@@ -276,7 +354,8 @@ class LearnerGroup(CollectiveGroup):
         total_meaningful = sum(row['meaningful'] for row in counts)
         # Bank order must not depend on which rank happened to report first.
         gathered_bank.sort(key=lambda row: row['seed'])
-        return (gathered_records, gathered_episodes, total_meaningful,
+        self.local_summaries = summaries
+        return (records, gathered_episodes, total_meaningful,
                 episode_index + max(widest, 1) * self.size, gathered_bank)
 
     def serve_collect(self, payload):
@@ -292,15 +371,14 @@ class LearnerGroup(CollectiveGroup):
         model = DraftPolicy(**payload['model_config']).to(self.device)
         model.load_state_dict(payload['model'], strict=True)
         offset, share = shard(payload['target_decisions'], self.size, self.rank)
+        seed_rank(config, self.device, self.rank, 'collect')
         router = None
         records, summaries, bank = [], [], _BankRows()
         started, meaningful = 0, 0
         try:
             pool, workers = self.pool_for(config, setup)
-            parallel = config.get('parallelism', {})
-            roots = max(1, int(parallel.get('parallel_roots', 1)) // self.size)
-            search_cfg = {**config['search'], 'parallel_roots': roots,
-                          'inference_batch': min(int(parallel.get('inference_batch', roots)), roots)}
+            search_cfg = worker_search_config(config, self.size)
+            roots = search_cfg['parallel_roots']
             # Disjoint seed blocks: a shared counter would hand two ranks the same search seed.
             router = SearchRouter(model, self.device, search_cfg,
                                   seed_counter=payload['search_seed_base'] + self.rank * _SEARCH_SEED_BLOCK,
@@ -317,13 +395,197 @@ class LearnerGroup(CollectiveGroup):
         finally:
             # Every gather must be reached in the same order as the coordinator, or the
             # whole job blocks until the 72h Gloo timeout instead of failing here.
-            self.gather_lists(records)
+            for row in summaries:
+                row['origin_rank'] = self.rank
+            self.local_records, self.local_summaries = records, summaries
             self.gather_lists(summaries)
             self.gather_lists(bank.rows)
             self.gather_lists([{'rank': self.rank, 'started': started,
                                 'meaningful': meaningful}])
             if router is not None:
                 router.close()
+        del model
+
+    # ---- sharded fork / continuation rollout ----------------------------------------
+
+    def fork_rollout(self, pool, model, setup, config, tasks, exploration, *,
+                     records, summaries, objective='mean',
+                     log_path=None, source='fork_exam', search_seed_base=0):
+        """PPO-producing replay of an explicit task list, spread over every rank.
+
+        Used for the per-episode fork continuations, which are the largest remaining
+        rank0-only stage (measured: 3246 tasks at 4/min on one rank). The task list is
+        explicit so the shard is a plain slice, and practice.apply_fork_returns groups by
+        prefix_id and compares multisets, so gather order does not matter. It also already
+        raises on a missing, duplicate or unexpected continuation, which is exactly the
+        assertion a wrong shard would trip.
+        """
+        from .bank_rollout import rollout_bank
+        from .runner import choose
+        from .practice import apply_fork_returns
+        from . import sharded
+        if self.size == 1 or not tasks:
+            fork_records, fork_summaries, meaningful = rollout_bank(
+                pool, model, None, config, self.device, len(tasks),
+                exploration, choose, tasks=tasks, source=source, log_path=log_path)
+            stats = apply_fork_returns(records, summaries, fork_records, fork_summaries,
+                                       expected_tasks=tasks, objective=objective)
+            return fork_records, fork_summaries, meaningful, stats
+        # Every replica of a joint episode goes to the rank that produced it, so the
+        # group is whole there and apply_fork_returns needs no gather of records.
+        sharded.stamp_shards(tasks, self.size, key=lambda t: t['metadata']['prefix_id'],
+                             rank_of=lambda t: t['metadata']['origin_rank'])
+        payload = {'command': 'fork', 'model_config': model.config,
+                   'model': cpu_copy(model.state_dict()), 'setup': str(setup),
+                   'tasks': tasks, 'source': source, 'exploration': exploration,
+                   'objective': objective, 'search_seed_base': search_seed_base,
+                   'log_path': None if log_path is None else str(log_path),
+                   'config': {k: v for k, v in config.items()
+                              if k not in ('_search_router', '_coverage')}}
+        self.broadcast(payload)
+        slice_tasks = sharded.mine(tasks, self.rank)
+        fork_records, fork_summaries, meaningful, stats = [], [], 0, []
+        try:
+            if slice_tasks:
+                fork_records, fork_summaries, meaningful = rollout_bank(
+                    pool, model, None, config, self.device, len(slice_tasks), exploration,
+                    choose, tasks=slice_tasks, source=source,
+                    log_path=shard_log(log_path, self.rank))
+            own = [row for row in summaries if row.get('origin_rank', 0) == self.rank]
+            stats = apply_fork_returns(records, own, fork_records, fork_summaries,
+                                       expected_tasks=slice_tasks, objective=objective)
+        finally:
+            gathered_summaries = self.gather_lists(fork_summaries)
+            gathered_stats = self.gather_lists(stats)
+            counts = self.gather_lists([{'rank': self.rank, 'meaningful': meaningful}])
+        merge_shard_logs(log_path, self.size)
+        return fork_records, gathered_summaries, sum(r['meaningful'] for r in counts), gathered_stats
+
+    def serve_fork(self, payload):
+        import json
+        from pathlib import Path
+        from .model import DraftPolicy
+        from .bank_rollout import rollout_bank
+        from .runner import choose
+        from .search_router import SearchRouter
+        setup = Path(payload['setup'])
+        config = {**payload['config'],
+                  '_profiles': json.loads((setup / 'profiles.json').read_text(encoding='utf-8'))}
+        torch.set_num_threads(config.get('parallelism', {}).get('torch_threads', 2))
+        model = DraftPolicy(**payload['model_config']).to(self.device)
+        model.load_state_dict(payload['model'], strict=True)
+        from .practice import apply_fork_returns
+        from . import sharded
+        tasks = payload['tasks']
+        seed_rank(config, self.device, self.rank, 'fork')
+        router = None
+        records, summaries, meaningful, stats = [], [], 0, []
+        try:
+            slice_tasks = sharded.mine(tasks, self.rank)
+            if slice_tasks:
+                pool, workers = self.pool_for(config, setup)
+                config = {**config, 'workers': workers}
+                search = config.get('search', {})
+                if search.get('enabled') and search.get('fork_episodes', True):
+                    search_cfg = worker_search_config(config, self.size)
+                    # Disjoint seed blocks; a shared counter would repeat search seeds.
+                    router = SearchRouter(model, self.device, search_cfg,
+                                          seed_counter=payload['search_seed_base'] + self.rank * _SEARCH_SEED_BLOCK)
+                    config['_search_router'] = router
+                records, summaries, meaningful = rollout_bank(
+                    pool, model, None, config, self.device, len(slice_tasks),
+                    payload['exploration'], choose, tasks=slice_tasks,
+                    source=payload['source'], log_path=shard_log(payload['log_path'], self.rank))
+            own = [row for row in self.local_summaries if row.get('origin_rank', 0) == self.rank]
+            # apply_fork_returns extends self.local_records with the fork records itself
+            # (practice.py: `records.extend(fork_records)`); keeping a second list here
+            # would count every fork record twice at update time.
+            stats = apply_fork_returns(self.local_records, own, records, summaries,
+                                       expected_tasks=slice_tasks, objective=payload['objective'])
+        finally:
+            # Same gather order as the coordinator, or the job blocks until the Gloo timeout.
+            self.gather_lists(summaries)
+            self.gather_lists(stats)
+            self.gather_lists([{'rank': self.rank, 'meaningful': meaningful}])
+            if router is not None:
+                router.close()
+        del model
+
+    # ---- sharded training bank replay -----------------------------------------------
+
+    def bank_replay(self, pool, model, setup, config, tasks, exploration, *, log_path=None):
+        """Replay of sampled bank loadouts (already replica-expanded), spread over ranks.
+
+        Replica groups stay whole on one rank so apply_bank_returns can credit them
+        there; only summaries and the group diagnostics are gathered. The caller feeds
+        the sample bank from the gathered summaries.
+        """
+        from .bank_rollout import rollout_bank
+        from .best_of import apply_bank_returns
+        from .runner import choose
+        from . import sharded
+        if self.size == 1 or not tasks:
+            bank_records, bank_summaries, meaningful = rollout_bank(
+                pool, model, None, config, self.device, len(tasks),
+                exploration, choose, tasks=tasks, source='bank_exam', log_path=log_path)
+            groups = apply_bank_returns(bank_records, bank_summaries, tasks) if tasks else []
+            return bank_records, bank_summaries, meaningful, groups
+        sharded.stamp_shards(tasks, self.size, key=lambda t: t['metadata']['prefix_id'])
+        payload = {'command': 'bank_replay', 'model_config': model.config,
+                   'model': cpu_copy(model.state_dict()), 'setup': str(setup),
+                   'tasks': tasks, 'exploration': exploration,
+                   'log_path': None if log_path is None else str(log_path),
+                   'config': {k: v for k, v in config.items()
+                              if k not in ('_search_router', '_coverage')}}
+        self.broadcast(payload)
+        slice_tasks = sharded.mine(tasks, self.rank)
+        bank_records, bank_summaries, meaningful, groups = [], [], 0, []
+        try:
+            if slice_tasks:
+                bank_records, bank_summaries, meaningful = rollout_bank(
+                    pool, model, None, config, self.device, len(slice_tasks), exploration,
+                    choose, tasks=slice_tasks, source='bank_exam',
+                    log_path=shard_log(log_path, self.rank))
+                groups = apply_bank_returns(bank_records, bank_summaries, slice_tasks)
+        finally:
+            gathered_summaries = self.gather_lists(bank_summaries)
+            gathered_groups = self.gather_lists(groups)
+            counts = self.gather_lists([{'rank': self.rank, 'meaningful': meaningful}])
+        merge_shard_logs(log_path, self.size)
+        return bank_records, gathered_summaries, sum(r['meaningful'] for r in counts), gathered_groups
+
+    def serve_bank_replay(self, payload):
+        import json
+        from pathlib import Path
+        from .model import DraftPolicy
+        from .bank_rollout import rollout_bank
+        from .best_of import apply_bank_returns
+        from .runner import choose
+        from . import sharded
+        setup = Path(payload['setup'])
+        config = {**payload['config'],
+                  '_profiles': json.loads((setup / 'profiles.json').read_text(encoding='utf-8'))}
+        torch.set_num_threads(config.get('parallelism', {}).get('torch_threads', 2))
+        model = DraftPolicy(**payload['model_config']).to(self.device)
+        model.load_state_dict(payload['model'], strict=True)
+        seed_rank(config, self.device, self.rank, 'bank')
+        records, summaries, meaningful, groups = [], [], 0, []
+        try:
+            slice_tasks = sharded.mine(payload['tasks'], self.rank)
+            if slice_tasks:
+                pool, workers = self.pool_for(config, setup)
+                # Bank replays never open search roots (the bank keeps no search flag).
+                config = {**config, 'workers': workers}
+                records, summaries, meaningful = rollout_bank(
+                    pool, model, None, config, self.device, len(slice_tasks),
+                    payload['exploration'], choose, tasks=slice_tasks, source='bank_exam',
+                    log_path=shard_log(payload['log_path'], self.rank))
+                groups = apply_bank_returns(records, summaries, slice_tasks)
+            self.local_bank_records = records
+        finally:
+            self.gather_lists(summaries)
+            self.gather_lists(groups)
+            self.gather_lists([{'rank': self.rank, 'meaningful': meaningful}])
         del model
 
     # ---- sharded explicit-task (bank) rollout ---------------------------------------
@@ -413,6 +675,14 @@ class LearnerGroup(CollectiveGroup):
                 self.serve_collect(payload)
                 del payload
                 continue
+            if payload['command'] == 'fork':
+                self.serve_fork(payload)
+                del payload
+                continue
+            if payload['command'] == 'bank_replay':
+                self.serve_bank_replay(payload)
+                del payload
+                continue
             if payload['command'] != 'update':
                 raise ValueError('Unknown learner command')
             torch.set_num_threads(payload['config'].get('torch_threads', 2))
@@ -422,8 +692,21 @@ class LearnerGroup(CollectiveGroup):
             optimizer = torch.optim.Adam([{'params': [named[n] for n in names]} for names in payload['groups']],
                                          **optimizer_options(model))
             load_optimizer_state(optimizer, payload['optimizer'], self.device)
-            update(model, optimizer, payload['records'], payload['config'], self.device, mesh=self)
-            del model, optimizer, payload
+            # Train on the records this rank produced. The draft duplicate penalty is the
+            # one per-record step rank 0 applies after the bank stage; it needs only this
+            # rank's own joint summaries, so it is reproduced here in the same order.
+            from .construction_reward import apply_draft_penalty
+            # local_records already holds the fork records (apply_fork_returns appended
+            # them); bank replays are credited without appending, so they join here.
+            self.shared_records = 'records' in payload
+            if self.shared_records:
+                records = payload['records']
+            else:
+                records = getattr(self, 'local_records', []) + getattr(self, 'local_bank_records', [])
+                apply_draft_penalty(records, getattr(self, 'local_summaries', []))
+            update(model, optimizer, records, payload['config'], self.device, mesh=self)
+            self.local_records, self.local_bank_records, self.local_summaries = [], [], []
+            del model, optimizer, payload, records
 
     def stop(self):
         if self.rank == 0 and self.size > 1:

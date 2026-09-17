@@ -9,6 +9,7 @@ from collections import Counter
 from .choice import ChoiceState
 from .async_decisions import AsyncDecisions
 from .encoding import encode_exam
+from . import stage_progress
 from .practice import routed_parameters
 from . import keycard_focus
 from .duplicate_limits import limit as copy_limit, validate as validate_copy_limit, overrides as copy_overrides
@@ -25,9 +26,13 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
         tasks = keycard_focus.filter_bank_tasks(tasks, config)
     if not tasks:return [],[],0
     pending=iter(tasks);active={};records=[];summaries=[];meaningful=0
-    last_log=time.monotonic()
+    started_at=time.monotonic()
+    last_log=started_at
     router = config.get('_search_router') if not greedy else None
     flow = AsyncDecisions(router) if router else None
+    from . import distributed as _dist
+    stage_progress.begin(source,len(tasks),'episodes',
+        shards=_dist.ACTIVE.size if _dist.ACTIVE is not None else 1)
     print(json.dumps({'event':'bank_rollout_begin','count':len(tasks),'policy_version':config['_policy_version']}),flush=True)
     while True:
         for i in range(min(config['workers'],len(tasks))):
@@ -41,10 +46,11 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
             # Arena initializes opening effects and shuffles from a new seed.
             # There is no restore of a historical hand/deck order or engine RNG.
             pool.send(i,'reset',(task['entry'],task['replay_seed']))
-            obs=pool.receive(i)['observation']
+            _answer=pool.receive(i)
+            obs=_answer['observation']
             if obs['result']['terminated'] or obs['result']['truncated']:
                 raise ValueError('bank opening is not a live exam')
-            active[i]={'task':task,'obs':obs,'choice':None,'records':[],
+            active[i]={'task':task,'obs':obs,'pre_encoded':_answer.get('encoded'),'choice':None,'records':[],
                        'keycard_tracking':keycard_focus.tracker(task['entry']),
                        'submissions':[],'choice_steps':[],'steps':0,'drink_used':0,
                        'rng':random.Random(task['replay_seed']+40_000_000)}
@@ -57,7 +63,7 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
             if row['obs'].get('choice'):
                 if row['choice'] is None:row['choice']=ChoiceState(row['obs'])
                 examples.append(row['choice'].encode())
-            else:examples.append(encode_exam(row['obs']))
+            else:examples.append(row['pre_encoded'] if row.get('pre_encoded') is not None else encode_exam(row['obs']))
         modes=[active[i]['task']['metadata'].get('exploration_mode','normal') for i in ids]
         overrides=routed_parameters(examples,modes,exploration,config)
         if ids:
@@ -102,7 +108,8 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
             keycard_focus.observe(row['keycard_tracking'],row['obs'],command)
             row['submissions'].append(command);pool.send(i,'step',command);awaiting.append(i)
         for i in awaiting:
-            row=active[i];task=row['task'];row['obs']=pool.receive(i)['observation']
+            row=active[i];task=row['task'];_answer=pool.receive(i)
+            row['obs']=_answer['observation'];row['pre_encoded']=_answer.get('encoded')
             result=row['obs']['result']
             if result['truncated']:raise RuntimeError('truncated bank game cannot be a PPO target')
             if not result['terminated']:continue
@@ -137,9 +144,25 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
             if bank is not None:bank.feedback(task['key'],normalized)
             del active[i]
         if time.monotonic()-last_log>30:
-            print(json.dumps({'event':'bank_rollout','completed':len(summaries),'active':len(active)}),flush=True)
+            _done=len(summaries);_elapsed=time.monotonic()-started_at
+            _rate=_done/_elapsed if _elapsed>0 and _done else 0.
+            _batch=str(config.get('_policy_version','')).split(':')[1:2]
+            print('[PROGRESS] batch=%s stage=%-9s episodes %s/%s (%s%%) | %s/min | elapsed %sm | eta %sm | %d live' % (
+                _batch[0] if _batch else '?', source, _done, len(tasks),
+                round(100.*_done/len(tasks),1), round(_rate*60,1), round(_elapsed/60,1),
+                round((len(tasks)-_done)/_rate/60,1) if _rate else 0, len(active)), flush=True)
+            print(json.dumps({'event':'bank_rollout','source':source,
+                'completed':_done,'total':len(tasks),'active':len(active),
+                'percent':round(100.*_done/len(tasks),1),
+                'episodes_per_minute':round(_rate*60,1),
+                'elapsed_minutes':round(_elapsed/60,1),
+                'eta_minutes':round((len(tasks)-_done)/_rate/60,1) if _rate else None}),flush=True)
+            stage_progress.update(_done,len(active))
             last_log=time.monotonic()
     if flow: flow.assert_drained()
+    stage_progress.end()
     print(json.dumps({'event':'bank_rollout_ready','episodes':len(summaries),'meaningful_decisions':meaningful,
+                      'total':len(tasks),'source':source,
+                      'elapsed_minutes':round((time.monotonic()-started_at)/60,1),
                       'profiles':dict(Counter(r['profile'] for r in summaries))}),flush=True)
     return records,summaries,meaningful

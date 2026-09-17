@@ -411,7 +411,8 @@ class GeneralistData:
             stale_seconds=max(0, round(time.time() - modified)), updated_at=progress.get('updated_at'),
             progress={k: (config.get(k, progress.get(k)) if k == 'batch_decisions'
                           else progress.get(k, config.get(k))) for k in
-                      ('batches', 'decisions', 'event', 'elapsed_minutes', 'batch_decisions', 'max_minutes')},
+                      ('batches', 'decisions', 'event', 'elapsed_minutes', 'batch_decisions',
+                       'max_minutes', 'stage')},
             metrics={'train_raw_mean': last.get('train_mean'),
                      'validation_batch': validation.get('batch'),
                      'validation_from_current_revision': bool(validation) and (
@@ -464,7 +465,19 @@ class GeneralistData:
         if folder is None:
             return []
         if mode == 'train':
-            return [folder / 'train-episodes.jsonl']
+            # Per-rank shards hold the episodes of the stage still in progress; each rank
+            # appends to its own file and the trainer merges them into train-episodes.jsonl
+            # only when every rank has finished the stage. Listing the shards first shows
+            # finished games without waiting for the merge. A shard can vanish between
+            # glob and stat (the merge deletes it), so a missing one is simply skipped.
+            def modified(path):
+                try:
+                    return path.stat().st_mtime
+                except OSError:
+                    return -1.0
+            shards = [(modified(p), p) for p in folder.glob('train-episodes.rank*.jsonl')]
+            shards = [p for m, p in sorted(shards, key=lambda item: item[0], reverse=True) if m >= 0]
+            return shards + [folder / 'train-episodes.jsonl']
         return sorted(folder.glob('validation-*-episodes.jsonl'),
                       key=lambda p: p.stat().st_mtime, reverse=True)[:3]
 

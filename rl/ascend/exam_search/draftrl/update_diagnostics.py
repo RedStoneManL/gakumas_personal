@@ -53,9 +53,14 @@ def post_update(model, records, config, device):
         raise ValueError('Invalid bounded post-update diagnostic size')
     selected = stratified_indices(records, limit)
     groups = defaultdict(list)
+    # config['minibatch'] is the TRAINING microbatch (4), sized for backward-pass memory.
+    # This pass is under no_grad, so slicing 512 records into 128 forwards of 4 buys
+    # nothing and costs 128 sequential launches on the coordinator. Use the optimizer
+    # block size, falling back to the microbatch if it is not configured.
+    _chunk = config.get('effective_minibatch') or config['minibatch']
     with torch.no_grad():
-        for start in range(0, len(selected), config['minibatch']):
-            rows = [records[i] for i in selected[start:start+config['minibatch']]]
+        for start in range(0, len(selected), _chunk):
+            rows = [records[i] for i in selected[start:start+_chunk]]
             b = collate([r['encoded'] for r in rows], device)
             logits, _ = model(b)
             dist, _ = distributions(logits, b['mask'], [r['exploration'] for r in rows])

@@ -41,16 +41,23 @@ print('\n=== committed batches: %d ===' % len(rows))
 for r in rows:
     print('\n--- batch %s ---' % r['batch'])
     print('  time      : collect %.1f min, update %.1f min' % (r.get('collection_seconds', 0)/60, r.get('update_seconds', 0)/60))
-    print('  records   : ppo=%s search=%s  (search share %.1f%%)' % (
+    print('  real actions: ppo=%s actor_search=%s  (actor-search share %.1f%%)' % (
         r.get('ppo_records'), r.get('search_records'),
         100. * (r.get('search_records') or 0) / max(1, (r.get('ppo_records') or 0) + (r.get('search_records') or 0))))
     sb = (r.get('search_batch') or {}).get('counts', {})
     att, acc = sb.get('attempted_roots', 0), sb.get('accepted_targets', 0)
-    print('  roots     : attempted=%s accepted=%s (%.1f%%)  [rank 0 only; x8 for the batch]  statuses=%s' % (
+    print('  router roots: attempted=%s budget_admitted=%s (%.1f%%)  [main router only; not extrapolated to other ranks]  statuses=%s' % (
         att, acc, 100. * acc / max(1, att),
         {k.split(':', 1)[1]: v for k, v in sb.items() if k.startswith('status:')}))
     sl = r.get('search_learning') or {}
-    print('  SEARCH GAIN over prior (should FALL as the policy absorbs the search):')
+    auxiliary = r.get('auxiliary_search') or {}
+    if auxiliary or r.get('auxiliary_search_roots'):
+        print('  auxiliary : global_raw_roots=%s quality_labels=%s positive_weight_labels=%s rejected_roots=%s' % (
+            r.get('auxiliary_search_roots',0), r.get('auxiliary_search_records',0),
+            auxiliary.get('weighted_roots',0), auxiliary.get('rejected_roots',0)))
+        print('     Additional CE on the same real PPO records; not additional real actions. Reasons: %s' %
+              auxiliary.get('rejected_reasons',{}))
+    print('  SEARCH GAIN over prior (finite-search diagnostic, not independent improvement validation):')
     print('     mean_estimated_gain=%.4f  weighted_roots=%s/%s  mean_weight=%.3f' % (
         sl.get('mean_estimated_gain', 0), sl.get('weighted_roots'), sl.get('roots'), sl.get('mean_weight', 0)))
     print('     target entropy=%.3f  prior entropy=%.3f  behavior entropy=%.3f' % (

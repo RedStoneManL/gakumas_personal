@@ -23,6 +23,23 @@ SCHEMA = 'arena-generalist-dashboard/1'
 REPLAY_REVISIONS = ('generalist', 'generalist-memory', 'generalist-support', 'generalist-explore', 'generalist-explore2', 'generalist-extra', 'generalist-keycard', 'generalist-keycard-long', 'generalist-duplicate4', 'generalist-duplicate3', 'generalist-lr0005', 'generalist-repeats', 'generalist-batch512', 'generalist-search', 'generalist-search-faststamp', 'generalist-search-viewref', 'generalist-search-best4', 'generalist-search-async', 'generalist-search-decisions', 'generalist-search-ultra', 'generalist-search-ultra-scale', 'generalist-search-soft-value', 'generalist-search-kl-value','generalist-search-signed-credit')
 
 
+def search_supervision_summary(metric, config):
+    """Budget-approved raw roots are not yet evidence-gated CE labels."""
+    auxiliary=metric.get('auxiliary_search') or {}
+    learning=metric.get('search_learning') or {}
+    return {'execution_mode':config.get('search',{}).get('execution_mode','act'),
+            'actor_search_records':metric.get('search_records'),
+            'real_ppo_records':metric.get('ppo_records'),
+            'auxiliary_raw_roots':metric.get('auxiliary_search_roots',0),
+            'auxiliary_labels':metric.get('auxiliary_search_records',0),
+            'auxiliary_weighted_labels':auxiliary.get('weighted_roots',0),
+            'auxiliary_rejected_roots':auxiliary.get('rejected_roots',0),
+            'auxiliary_rejected_reasons':auxiliary.get('rejected_reasons',{}),
+            'all_weighted_labels':learning.get('weighted_roots'),
+            'router_counter_scope':'main_router', 'learning_counter_scope':'learner_global',
+            'independent_heldout_validation':auxiliary.get('independent_heldout_validation')}
+
+
 def replay_runtime(root, candidate):
     """Only explicitly supported, workspace-local frozen revisions are executable."""
     root = Path(root).resolve()
@@ -209,6 +226,8 @@ class GeneralistData:
                     if r.get('policy_version') == version]
             result = {'policy_version': version, 'points': len(rows),
                       'valid_targets': sum(bool(r.get('valid_training_target')) for r in rows),
+                      'budget_admitted_roots': sum(bool(r.get('valid_training_target')) for r in rows),
+                      'quality_labels_available': False,
                       'statuses': dict(Counter(r.get('status') for r in rows)),
                       'max_points': 256, 'committed': False,
                       'modified_at': datetime.fromtimestamp(info.st_mtime, timezone.utc).isoformat()}
@@ -385,6 +404,7 @@ class GeneralistData:
                     'batch_decisions_actual':last.get('batch_decisions_actual'),
                     'loss':last.get('search_loss'), 'search_records':last.get('search_records'),
                     'ppo_records':last.get('ppo_records'),
+                    'supervision':search_supervision_summary(last,config),
                     'version':manifest.get('search_version')},
             practice={'enabled':bool(config.get('practice')), 'config':config.get('practice',{}),
                       'committed_objective':last.get('construction_objective','mean'),

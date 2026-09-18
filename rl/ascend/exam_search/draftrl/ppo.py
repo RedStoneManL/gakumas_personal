@@ -6,9 +6,22 @@ import torch
 from .encoding import collate
 from .distribution import distributions
 from .advantages import estimate, assert_current_policy
-from .practice import profile_weights  # single-learner reference; the mesh-aware form is in sharded
+from .practice import profile_weights, validate_auxiliary_records  # mesh-aware weights are in sharded
 from . import sharded
 from .update_diagnostics import update_coverage, post_update
+
+
+def aggregate_auxiliary_diagnostics(diagnostics, mesh):
+    """Aggregate rank-local evidence counts, without counting shared rows twice."""
+    if diagnostics is None:
+        return None
+    keys = ('roots', 'accepted_roots', 'weighted_roots', 'rejected_roots',
+            'exploration_samples', 'distinct_particle_action_pairs')
+    totals = sharded.reduce_sum(mesh, {**{key: diagnostics[key] for key in keys},
+        'weight_sum': diagnostics['mean_weight'] * diagnostics['accepted_roots']})
+    return {**diagnostics, **{key: int(totals[key]) for key in keys},
+        'mean_weight': totals['weight_sum']/max(1, totals['accepted_roots']),
+        'rejected_reasons': sharded.reduce_nested(mesh, diagnostics['rejected_reasons'])}
 
 
 def update(model, optimizer, records, config, device, progress=None, mesh=None):
@@ -25,15 +38,22 @@ def update(model, optimizer, records, config, device, progress=None, mesh=None):
     if any(r.get('loss_kind') not in ('ppo', 'search') for r in records):
         raise ValueError('Every joint record must declare its actual action mechanism')
     assert_current_policy(records,config.get('_policy_version'))
+    validate_auxiliary_records(records, config)
     signed_settings=config.get('signed_exam_credit')
     if signed_settings:
         from .signed_credit import prepare
         prepare(records,signed_settings)
+    auxiliary_diagnostics = None
+    if config.get('search', {}).get('execution_mode', 'act') == 'auxiliary':
+        from .search_supervision import prepare_auxiliary
+        auxiliary_diagnostics = prepare_auxiliary(records, config['search'])
     efficiency=config.get('sample_efficiency',{})
     advantage_mode=efficiency.get('advantage_mode','mc')
     raw_advantages,raw_targets=estimate(records,advantage_mode,efficiency.get('gae_lambda',0.98))
     meaningful = torch.tensor([len(r['encoded'].submissions)>1 and r['loss_kind']=='ppo' for r in records])
     searched = torch.tensor([r['loss_kind']=='search' for r in records])
+    auxiliary = torch.tensor(['search_aux_target' in r for r in records])
+    labelled = searched | auxiliary
     advantages = torch.tensor(raw_advantages)
     critic_targets = torch.tensor(raw_targets)
     # Per-profile mean/std/RMS, the profile set and the record count are properties of
@@ -43,15 +63,17 @@ def update(model, optimizer, records, config, device, progress=None, mesh=None):
         advantages, records, meaningful, local_mesh)
     search_weight = torch.zeros(n)
     learning_diagnostics=[]
-    search_total = sharded.search_totals(local_mesh, records, searched, profiles)
+    search_total = sharded.search_totals(local_mesh, records, labelled, profiles)
     for profile in profiles:
-        indices = [i for i, r in enumerate(records) if r['profile']==profile and searched[i]]
+        indices = [i for i, r in enumerate(records) if r['profile']==profile and labelled[i]]
         total = search_total[profile]
         for i in indices:
             search_weight[i] = records[i].get('loss_weight', 1.)*n_global/(len(profiles)*total)
-            if config['search'].get('learning_target'):
-                detail=records[i]['search'].get('learning_target')
-                if (not detail or detail.get('mode')!='prior_advantage'
+            if auxiliary[i] or config['search'].get('learning_target'):
+                payload = records[i]['search_aux_target'] if auxiliary[i] else records[i]['search']
+                detail=payload.get('learning_target')
+                expected_mode = 'peer_marginal' if auxiliary[i] else 'prior_advantage'
+                if (not detail or detail.get('mode')!=expected_mode
                         or not 0<=detail.get('weight',-1)<=1):
                     raise ValueError('Missing separated search learning evidence')
                 search_weight[i] *= detail['weight']
@@ -122,9 +144,9 @@ def update(model, optimizer, records, config, device, progress=None, mesh=None):
                 sw = search_weight[indices].to(device)
                 target = torch.zeros_like(logits)
                 for position, row in enumerate(rows):
-                    if row['loss_kind'] != 'search':
+                    if row['loss_kind'] != 'search' and 'search_aux_target' not in row:
                         continue
-                    search = row['search']
+                    search = row['search'] if row['loss_kind']=='search' else row['search_aux_target']
                     if (row['encoded'].phase != 0 or not search['target_budget_eligible']
                             or search['root_action_coverage'] != 1.
                             or search['actions'] != row['encoded'].submissions):
@@ -204,7 +226,8 @@ def update(model, optimizer, records, config, device, progress=None, mesh=None):
         'weighted':sum(d['weight']>0 for d in learning_diagnostics),
         'weight':sum(d['weight'] for d in learning_diagnostics),
         **{key:sum(d[key] for d in learning_diagnostics) for key in _ld_keys}})
-    _counts=sharded.reduce_sum(local_mesh, {'search':int(searched.sum()), 'ppo':int((~searched).sum())})
+    _counts=sharded.reduce_sum(local_mesh, {'search':int(searched.sum()), 'ppo':int((~searched).sum()),
+        'auxiliary_labels':int(auxiliary.sum()), 'auxiliary_roots':sum('search_aux' in r for r in records)})
     _task_records=sharded.reduce_nested(local_mesh, dict(Counter(r['profile'] for r in records)))
     # Batch-wide record statistics for metrics.jsonl (phase counts, exploration
     # entropies, practice diagnostics). The runner used to iterate the gathered record
@@ -230,8 +253,10 @@ def update(model, optimizer, records, config, device, progress=None, mesh=None):
             if 'behavior_max_probability' in r:
                 _g['bmp_sum']+=float(r['behavior_max_probability']); _g['bmp_count']+=1
     _record_stats=sharded.reduce_nested(local_mesh,_stats)
+    auxiliary_diagnostics = aggregate_auxiliary_diagnostics(auxiliary_diagnostics, local_mesh)
     return {k:sum(r[k] for r in logs)/len(logs) for k in logs[0]} | {
         'signed_credit':signed_result,
+        'auxiliary_search':auxiliary_diagnostics,
         'search_learning': {'roots':int(_ld['roots']),
             'weighted_roots':int(_ld['weighted']),
             'mean_weight':_ld['weight']/max(1,_ld['roots']),
@@ -241,6 +266,8 @@ def update(model, optimizer, records, config, device, progress=None, mesh=None):
         'advantage_mode':advantage_mode,
         'optimizer_steps':len(logs),'effective_minibatch':effective,'microbatch':config['minibatch'],
         'search_records':int(_counts['search']), 'ppo_records':int(_counts['ppo']),
+        'auxiliary_search_records':int(_counts['auxiliary_labels']),
+        'auxiliary_search_roots':int(_counts['auxiliary_roots']),
         'task_records':{k:int(v) for k,v in _task_records.items()},'kl_early_stop':stop,
         'stopping_block':stopping_block,
         'update_coverage':sharded.reduce_coverage(local_mesh, update_coverage(records,accepted_indices,attempted_indices)),

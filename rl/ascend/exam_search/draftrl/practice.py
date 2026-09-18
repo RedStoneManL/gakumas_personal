@@ -7,6 +7,31 @@ import statistics
 PHASES = ('exam', 'drink', 'draft', 'guidance', 'memory')
 
 
+def auxiliary_controller(config):
+    """Actual behavior contract; whether a shadow root ran is not behavior."""
+    mode = config.get('search', {}).get('execution_mode', 'act')
+    if mode not in ('act', 'auxiliary'):
+        raise ValueError('Unknown search execution mode')
+    if mode == 'auxiliary':
+        return {'schema': 'arena-policy-controller/1', 'behavior': 'frozen_policy',
+                'search_execution_mode': 'auxiliary'}
+    return None
+
+
+def validate_auxiliary_records(records, config):
+    expected = auxiliary_controller(config)
+    if expected is None:
+        if any('search_aux' in row or 'search_aux_target' in row for row in records):
+            raise ValueError('Auxiliary labels require the auxiliary behavior contract')
+        return
+    import math
+    for row in records:
+        if (row.get('controller_contract') != expected or row.get('loss_kind') != 'ppo'
+                or row.get('old_logp') is None or not math.isfinite(row['old_logp'])
+                or 'search' in row):
+            raise ValueError('Auxiliary training requires unchanged real policy actions and likelihoods')
+
+
 def mode_for(config, local_index, training=True):
     cfg = config.get('practice', {}).get('routing', {})
     if not training or not cfg.get('enabled', False):
@@ -68,6 +93,7 @@ def make_fork_tasks(summaries, config, next_seed):
     if type(replicas) is not int or not 2 <= replicas <= 4 or type(every) is not int or every < 1:
         raise ValueError('Invalid fork replication settings')
     tasks = []
+    expected_controller = auxiliary_controller(config)
     for s in summaries:
         if s.get('sampling_source') != 'joint':
             raise ValueError('Only current joint prefixes may be replicated')
@@ -76,6 +102,8 @@ def make_fork_tasks(summaries, config, next_seed):
             continue
         if s.get('policy_version') != config['_policy_version']:
             raise ValueError('Stale prefix cannot receive a new return')
+        if expected_controller is not None and s.get('controller_contract') != expected_controller:
+            raise ValueError('Auxiliary fork parent has a different behavior controller')
         for branch in range(1, replicas):
             meta = retained_metadata(s)
             if not config.get('search', {}).get('fork_episodes', True):
@@ -109,6 +137,11 @@ def apply_fork_returns(records, original, fork_records, results, expected_tasks=
     # Validate all groups before mutating any return or extending the buffer.
     for prefix, branches in by_prefix.items():
         parent = lookup[prefix]
+        controllers = [s.get('controller_contract') for s in [parent, *branches]]
+        if any(c is not None for c in controllers):
+            expected = auxiliary_controller({'search': {'execution_mode': 'auxiliary'}})
+            if any(c != expected for c in controllers):
+                raise ValueError('Repeated exams must use the same auxiliary policy controller')
         replicas = branches[0]['fork_replicas']
         if len(branches) != replicas - 1 or {b['branch_id'] for b in branches} != set(range(1, replicas)):
             raise ValueError('Incomplete or duplicate fork outcomes')

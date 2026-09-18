@@ -10,7 +10,7 @@ from .choice import ChoiceState
 from .async_decisions import AsyncDecisions
 from .encoding import encode_exam
 from . import stage_progress
-from .practice import routed_parameters
+from .practice import routed_parameters, auxiliary_controller
 from . import keycard_focus
 from .duplicate_limits import limit as copy_limit, validate as validate_copy_limit, overrides as copy_overrides
 
@@ -29,6 +29,7 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
     started_at=time.monotonic()
     last_log=started_at
     router = config.get('_search_router') if not greedy else None
+    controller = auxiliary_controller(config) if not greedy else None
     flow = AsyncDecisions(router) if router else None
     from . import distributed as _dist
     stage_progress.begin(source,len(tasks),'episodes',
@@ -39,6 +40,9 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
             if i in active:continue
             task=next(pending,None)
             if task is None:continue
+            if controller is not None and task['metadata'].get('fork_replicas') is not None:
+                if task['metadata'].get('controller_contract') != controller:
+                    raise ValueError('Auxiliary continuation has a different behavior controller')
             # Historical fixed-play evaluation remains an explicit unchanged
             # diagnostic. Every PPO-producing bank/fork entry must obey the cap.
             if not greedy and copy_limit(config) is not None:
@@ -96,6 +100,8 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
                 'prefix_id':meta.get('prefix_id'),'branch_id':meta.get('branch_id'),
                 'episode_id':f"{source}:{task['replay_seed']}",'policy_version':config['_policy_version'],
                 'terminal':False,**diagnostic,**extra})
+            if controller is not None:
+                row['records'][-1]['controller_contract'] = dict(controller)
             row['steps']+=1;meaningful+=len(e.submissions)>1
             if row['steps']>config['max_episode_decisions']:raise RuntimeError('bank decision guard exceeded')
             if row['choice'] is not None:
@@ -116,6 +122,13 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
             score=result['final_score']
             if score is None or not math.isfinite(score):raise RuntimeError('invalid bank terminal score')
             meta=copy.deepcopy(task['metadata']);normalized=score/meta['score_scale']
+            if controller is not None:
+                meta['controller_contract'] = dict(controller)
+            else:
+                # Retained loadout metadata describes an old controller. Do
+                # not label greedy evaluation or legacy acting-search as the
+                # auxiliary rollout that originally supplied this loadout.
+                meta.pop('controller_contract', None)
             for record in row['records']:record['return']=normalized
             row['records'][-1]['terminal']=True
             if not greedy:records.extend(row['records'])

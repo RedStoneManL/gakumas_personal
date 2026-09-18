@@ -1,0 +1,482 @@
+{
+  "passed": true,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "architecture": "AMD64",
+  "world_size": 1,
+  "scope": "native/MCTS/update/connectivity; no policy-quality claim",
+  "relational": true,
+  "auxiliary_search": true,
+  "semantics_path": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\checkouts\\gakumas_v6_search_credit\\rl\\ascend\\exam_search\\setup\\relational_semantics.json",
+  "hardware": {
+    "device": "cpu",
+    "torch": "2.9.1+cu128",
+    "cuda_runtime": "12.8"
+  },
+  "collective": "single",
+  "initial_checkpoint": "f482b54dccaddfd3d154e963b28142aad6d831baca93b9ac777e2c3a13954eb8",
+  "model_config": {
+    "width": 96,
+    "lexical": 16,
+    "depth": 4,
+    "quantiles": 32,
+    "relational": true,
+    "relational_depth": 2
+  },
+  "model_parameters": 4563708,
+  "arena": {
+    "golden_rules": "arena-gakumas-tools/6c3d00648c32ea72a05086a18c63ab62e0d0c7e5/1",
+    "public_schema": "arena-public-exam/1",
+    "effective_sha256": "929b0d99b3aef013c39f7ddf7b8b832300e526e2eda366c1a7ab1242f456b985",
+    "files_sha256": {
+      "_vendor/gakumas_tools/packages/gakumas-data/data/customizations.js": "d115d9ca818b39e90627d5e7eb8aeb5f0d17ac420eca620e5302728b2b6779f4",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/idols.js": "fa309d2bce312f4065b2e4bcb9c8e0dfa2ab6331afa909673c978ae25cfa8542",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/index.js": "a09a727f3c405a74f0f1631b597e879494aa6d02593d777962af4151f439299d",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/pDrinks.js": "064cb5c328b6040990b055f7d8b3b1054a8ec4415ebf9587cb52e1fec4d87e36",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/pIdols.js": "ebe39e305ae9c651bf13c9af2f76a297f70d1aace1bb210f71123dd7e8c52119",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/pItems.js": "b2969076d09bb6e9822e2df88b096bdf392de9f42ee60e1f4dc66575781201d5",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/skillCards.js": "35d06b5e218fe5ab8acba51feafd7ffcc23398b4008d9926bd6d6f864fdc6ead",
+      "_vendor/gakumas_tools/packages/gakumas-data/data/stages.js": "00ec516f0b81720b23b21c71215a7b20ed05476373edb5d74096981da1623dbc",
+      "_vendor/gakumas_tools/packages/gakumas-data/index.js": "9081ae97374785e1bb48bf2f4e5699e306832313c76ea0f317bdb38f23646826",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/contestPower.js": "aac16976f1ccc2dfec605cf0b6b1115450b393d730d94a3cf2a96e8b7e513c39",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/effects.js": "79a79ad319d3ef143b24bcc969c62502915375b18048bef8425fba24a821da3d",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/index.js": "51e354de77eed3287a5efba7155e2226db6697c91a729ba6e3f80bac027c9a31",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/parser.js": "0f6552a5858d9d1574e4ac6f732cd9f66c98fd8de151efb305d98a862d5e40b6",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokenizer.js": "45e6333e04eb4724aa2fe0091110b141e811157e56891e35f7c5fc2d85098baf",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/parser/tokens.js": "aac316b2b08c0d5a0d321b0bfc9bbfc50be6e8657ace52040555f36936caf810",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/stamina.js": "50ac351d524ed5bd22bce12f73883896e869581a3dcd6c2e80a66da42fe8690b",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/index.js": "293557fe442a7b077c912727c5b5bb1532faaebf4cc2d43eabec77f98636d974",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/serialize.js": "7cadeac21de2e544896e13cfc8ad016f0121560fe7e578231a8ea2be6cc4e75b",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/transformer/transform.js": "1ae5ad1e64c072379f535029c7b0bdece7140a77f1d20d8e45ea76f9abe01bd5",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/validator/index.js": "dfa165a3c6527e0150f9245b863a935e9b4c694a897bb8f7b84ebfae62b71760",
+      "_vendor/gakumas_tools/packages/gakumas-data/utils/validator/schema.js": "d74eec0970423b80a2980f2e94a1a8824a633b001e360da02380f5dcef3b3fa2",
+      "_vendor/gakumas_tools/packages/gakumas-engine/config/IdolConfig.js": "d5c5cd37e65c11797f47247a875bace44bd6d3281111d22651fa2b19e5c45a43",
+      "_vendor/gakumas_tools/packages/gakumas-engine/config/IdolStageConfig.js": "df2c80eb0dc0b1aee539f09f56b05d6631c9e6d6f8403ea3994a53ee65abd7d5",
+      "_vendor/gakumas_tools/packages/gakumas-engine/config/index.js": "e05f239e877f89d9659f4e0e2e7090e0403a4fc2438e7c2ff5d74471baf8e671",
+      "_vendor/gakumas_tools/packages/gakumas-engine/config/StageConfig.js": "451f17f52b1463efa4cadc2e8b852f7aaf2c335441288f931e2b94e8cf0bb3a0",
+      "_vendor/gakumas_tools/packages/gakumas-engine/constants.js": "a1d7ab266912f736e8119ebf0bef902db205e19c5c48a4c597ba429dae0741e5",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/BuffManager.js": "ecbc37d65d9af340c8205314396ab51a35e5bd629a01986542cc0767828447c7",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/index.js": "b26446071e0479dc94044321a7f6a21977f38af78e4fe8a977e0f46e0dd384cd",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/CardManager/targeting.js": "7966126b53fdd5818577b81b74ee61e2bc019d0c5ef5822777f709dfc86eda79",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/EffectManager.js": "9afebd49a5a0c0b9a73385e9ef2ec733815a437a770c4f9d235d3744bd03a5b0",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/EngineComponent.js": "838783b0401f35b8d5f38e16cf149aacf8d7397d89b5382a14b37a2a227f71a6",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/Evaluator.js": "4c76b83dc8e4617be8d2ecd581c252e2ff6684ef32c0ae4f54840ac8ea20f7f1",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/index.js": "7feb2e1d52cab213ba2d6fa91f0f96d72c8b1c522f7ec0597924ac5a715e2154",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/Executor/resolvers.js": "8ef7b15de7b791e9bd90d0f8b767ceb15d6cbc9e6804ee60332e2d2fa7f964cf",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/index.js": "c754e977d45a627986edc35a8e4dd042ffd9cf0ae923b302b842a3823ba76648",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/StageEngine.js": "a6fc6dff4a2b6b644931a0d537a1d0136141c1a715e4dd306d39db7dda770e93",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/StageLogger.js": "1555d56ee386386ea5c0c5bf421d94fec9ec682aa6b2c2c7bda05ff2ed7ec839",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/StagePlayer.js": "e591e1c7f763174e34d41583ab3978ee289262671e1ebd8a0ac92060f370ac2c",
+      "_vendor/gakumas_tools/packages/gakumas-engine/engine/TurnManager.js": "ad4accefb14e57938ea4f59764aa3e6dd59ee64fe0aac84113323c516de9ca5a",
+      "_vendor/gakumas_tools/packages/gakumas-engine/index.js": "c4f52ac2ca574268d702b1b8cd9b96a0b02439fb3cd0e362acf67c78017d6f00",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/BaseStrategy.js": "cdb0ad4dbc786afad30bc865a9c45db06d0330a31d1f26dbf085cc666980f86f",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/HeuristicStrategy.js": "730597b140722b6d4e7e0f01d09356f57ae57eb728b805bb559d1dfbc13ead35",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/index.js": "960bb4a0cfaa7f8d3238c3044f3f31b09fc9c59204dbf497d3c33ebd6b4b5ccc",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/ManualStrategy.js": "225f97c2c267bff265fe186ea88a2dbde2605db029a95bc25152bc04c5be60d7",
+      "_vendor/gakumas_tools/packages/gakumas-engine/strategies/PlayerStrategy.js": "08cbe58ff1c757481b8baa93bf6b5baa7a54de9eb0bdafb6f27620d0d88018c7",
+      "_vendor/gakumas_tools/packages/gakumas-engine/typeMultipliers.js": "3e6f9b56d78c4f9a9563731047e02adceb12f825d71760fbb7d4fca8b6d59ade",
+      "_vendor/gakumas_tools/packages/gakumas-engine/utils.js": "ab6649ce7d9278e2ae0563710e0160883048d5352196cfc8a7253c01af1b9505",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/customizations.json": "54deb7d19eb305b18d5e7e7f359afa922aa8ecc8b2e595e280f43dffb381ee60",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/idols.json": "c14ce8e4310e366a3bf751a4f11b857ad4be775c689fd40db3deb3a77285b26e",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/p_drinks.json": "2cf514aee1d5bf563c4536f631d41d3b657215aea3290ade26b5832664490410",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/p_idols.json": "a2985e47c76cf2f7094a0805ea8d65eba5e3fd068e0289466328becf469ed60f",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/p_items.json": "61c4fb67eddbbadf4d4c839535a356edc2b7693532529d02587fec5e3b2b3be1",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/skill_cards.json": "17b334a11c52aae1c6f14fea9a83a08279727973f9c2647066c4f3e3bac4ab54",
+      "_vendor/gakumas_tools/packages/gakumas-data/json/stages.json": "4e38f475ffcc33693fa341e73950898546383192c2d4ce90c28120491150ca5a",
+      "_vendor/gakumas_tools/packages/gakumas-data/package.json": "3e855763dee9bbf2da3c7f9dd53f5234d6419cf69d3d38c2d89f99b1af79f4ee",
+      "_vendor/gakumas_tools/packages/gakumas-engine/package.json": "b817509081232d30fbe5ab599507fea69e92539113f2200bdb1e3bdce49a3bef",
+      "_vendor/gakumas_tools/scripts/extensionless-loader.mjs": "368e9c2ad66aa2ccb1150520e5a3c48193b0095d38f09b37433a2b1cc7b46584",
+      "engine/training.py": "8abd6cfc4a9a9c1912cbc96faf71d0cf0e793f2ada94b28213d813eb3b4be573",
+      "engine/training_worker.mjs": "bae9ff10b7eeb2fce4fd453c43288c74bc1bcc9f9aa0856d08b36af8cfd02bd4",
+      "engine/training_config.mjs": "9f2089a6aba21bafd761c418249dd316bb329451872f5a7b3cd5e4f26b21740f",
+      "engine/training_basic_pool.mjs": "a3adf49d611ffe077def3e4c849c6f66bd0597b663f7a0f458396dd0bf64a4b6",
+      "engine/training_support.mjs": "26957c250937a5e3e8545b6ce32b56175416c68729dbad711fa271bf12595ffe",
+      "engine/training_catalogue.mjs": "f49ee2c448fb510703bfe9b12cbc7f5f5a72611c3221e7480ac13629bd1dd499",
+      "engine/catalogue_overrides.py": "ea074214e3df37cecb7c069356582f3fb969c8e513b4bcff0da866f589792023",
+      "content/native_catalogue_overrides.json": "4f342e717242503eb1247922c0d03e8866359753444313f8726aaf029e20f907",
+      "engine/__init__.py": "1b4a4beaffb1defb9e03ba9fed400d340e8bca4188b739fc8d1f205d39fa6bea",
+      "__init__.py": "6d4832f8b1d1bbb013b816380c8bd8ae674819ec44cdcf330d7f6b23b514d346"
+    }
+  },
+  "valid_search_roots": 2,
+  "search_stats": {
+    "roots_submitted": 2,
+    "assembly_seconds": 0.031000000002677552,
+    "forward_seconds": 0.760999999998603,
+    "inference_batches": 33,
+    "inference_examples": 50,
+    "inference_requests_served": 50,
+    "inference_seconds": 0.7920000000012806,
+    "batch_size_2": 17,
+    "batch_size_1": 16,
+    "roots": 2,
+    "eligible_targets": 2,
+    "search_many_seconds": 2.4689999999973224
+  },
+  "native_scores": [
+    19.0,
+    19.0,
+    8.0,
+    19.0
+  ],
+  "real_behavior": "four independent policy games; search never replaces an action",
+  "search_evidence": [
+    {
+      "root_attempts": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "root_terminal_counts": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "root_distinct_particles": [
+        7,
+        7,
+        7,
+        5
+      ],
+      "root_distinct_paths": [
+        11,
+        10,
+        11,
+        9
+      ],
+      "continuation_contract": {
+        "policy": "policy_temperature",
+        "temperature": 1.0,
+        "rng_stream": "separate_seeded_rollout",
+        "terminal_only_samples": true,
+        "scope": "Current-policy continuation, not optimal play; particle/path repetition is not independent evidence."
+      }
+    },
+    {
+      "root_attempts": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "root_terminal_counts": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "root_distinct_particles": [
+        7,
+        6,
+        7,
+        5
+      ],
+      "root_distinct_paths": [
+        11,
+        9,
+        9,
+        10
+      ],
+      "continuation_contract": {
+        "policy": "policy_temperature",
+        "temperature": 1.0,
+        "rng_stream": "separate_seeded_rollout",
+        "terminal_only_samples": true,
+        "scope": "Current-policy continuation, not optimal play; particle/path repetition is not independent evidence."
+      }
+    }
+  ],
+  "optimizer_schedule": {
+    "rates": {
+      "exam": 2.5e-06,
+      "drink": 2.5e-06,
+      "draft": 2.5e-06,
+      "guidance": 2.5e-06,
+      "memory": 2.5e-06,
+      "actor_relational": 1e-05,
+      "critic_relational": 1e-05
+    },
+    "elapsed_since_reset_minutes": 0.0,
+    "decay_fraction": 0.0,
+    "stage": "constant",
+    "base_rates": {
+      "exam": 1e-05,
+      "drink": 1e-05,
+      "draft": 1e-05,
+      "guidance": 1e-05,
+      "memory": 1e-05
+    },
+    "relational_adaptation": {
+      "basis": "completed_batches",
+      "completed_batches": 0,
+      "duration_batches": 8,
+      "elapsed_minutes": 0.0,
+      "fraction": 0.0,
+      "inherited_ratio": 0.25,
+      "new_ratio": 1.0,
+      "stage": "adapting"
+    }
+  },
+  "optimizer_groups": [
+    "exam",
+    "drink",
+    "draft",
+    "guidance",
+    "memory",
+    "actor_relational",
+    "critic_relational"
+  ],
+  "update": {
+    "loss": 1.0241562128067017,
+    "policy_loss": 0.9996610954403877,
+    "search_loss": 0.0,
+    "value_loss": 0.001171455965959467,
+    "distribution_loss": 0.023909432347863913,
+    "entropy_bonus": 0.0,
+    "kl": 0.0,
+    "grad_norm": 1.9232938289642334,
+    "clip_fraction": 0.0,
+    "signed_credit": {
+      "mode": "best_of_k_state_contribution",
+      "groups": {
+        "all_exam": {
+          "records": 8,
+          "negative": 8,
+          "ppo_meaningful": 8,
+          "ppo_negative": 8,
+          "accepted_ppo_negative": 8
+        },
+        "profile:preflight": {
+          "records": 8,
+          "negative": 8,
+          "ppo_meaningful": 8,
+          "ppo_negative": 8,
+          "accepted_ppo_negative": 8
+        },
+        "loss:ppo": {
+          "records": 8,
+          "negative": 8,
+          "ppo_meaningful": 8,
+          "ppo_negative": 8,
+          "accepted_ppo_negative": 8
+        }
+      },
+      "records_sha256": "8fc26f1ba899edfedfd3dce614c54ba0340e6b6e6ac5940586cedc1d573cd7c0",
+      "frozen_pre_action_baselines": true,
+      "own_terminal_targets_preserved": true,
+      "samples": [
+        {
+          "profile": "preflight",
+          "sign": "negative",
+          "record_index": 0,
+          "peer_max": 0.00012666666666666666,
+          "own_return": 0.00012666666666666666,
+          "actual_contribution": 0.0,
+          "baseline": 0.04924345589580635,
+          "advantage": -0.1969738235832254
+        },
+        {
+          "profile": "preflight",
+          "sign": "negative",
+          "record_index": 1,
+          "peer_max": 0.00012666666666666666,
+          "own_return": 0.00012666666666666666,
+          "actual_contribution": 0.0,
+          "baseline": 0.04794458407315115,
+          "advantage": -0.1917783362926046
+        }
+      ],
+      "unit": "normalized score; raw signed credit before profile RMS scaling",
+      "accepted_counts_available": true
+    },
+    "auxiliary_search": {
+      "enabled": true,
+      "schema": "arena-peer-marginal-search/1",
+      "mode": "peer_marginal",
+      "roots": 1,
+      "accepted_roots": 1,
+      "weighted_roots": 0,
+      "rejected_roots": 0,
+      "rejected_reasons": {},
+      "mean_weight": 0.0,
+      "exploration_samples": 48,
+      "distinct_particle_action_pairs": 26,
+      "independent_heldout_validation": false,
+      "own_returns_actions_likelihoods_and_values_preserved": true
+    },
+    "search_learning": {
+      "roots": 1,
+      "weighted_roots": 0,
+      "mean_weight": 0.0,
+      "mean_target_entropy": 0.9839187860595351,
+      "mean_prior_entropy": 0.9839187860595351,
+      "mean_behavior_entropy": 0.9999999996805231,
+      "mean_estimated_gain": 0.0
+    },
+    "intentional_pause_seconds": 0.0,
+    "update_duty_cycle": 1.0,
+    "epochs_attempted": 1,
+    "epochs_max": 1,
+    "ppo_stop_reason": "epoch_limit",
+    "advantage_mode": "mc",
+    "optimizer_steps": 1,
+    "effective_minibatch": 32,
+    "microbatch": 1,
+    "search_records": 0,
+    "ppo_records": 8,
+    "auxiliary_search_records": 1,
+    "auxiliary_search_roots": 1,
+    "task_records": {
+      "preflight": 8
+    },
+    "kl_early_stop": false,
+    "stopping_block": null,
+    "update_coverage": {
+      "record_count": 8,
+      "accepted_unique": 8,
+      "attempted_unique": 8,
+      "accepted_fraction": 1.0,
+      "groups": {
+        "phase:exam": {
+          "records": 8,
+          "accepted_unique": 8,
+          "attempted_unique": 8,
+          "accepted_fraction": 1.0
+        },
+        "profile:preflight": {
+          "records": 8,
+          "accepted_unique": 8,
+          "attempted_unique": 8,
+          "accepted_fraction": 1.0
+        },
+        "loss:ppo": {
+          "records": 8,
+          "accepted_unique": 8,
+          "attempted_unique": 8,
+          "accepted_fraction": 1.0
+        },
+        "route:normal": {
+          "records": 8,
+          "accepted_unique": 8,
+          "attempted_unique": 8,
+          "accepted_fraction": 1.0
+        }
+      },
+      "note": "Unique records used by accepted optimizer steps; diagnostics and rejected gradients are excluded."
+    },
+    "critic_completion": {
+      "enabled": true,
+      "completed_records": 0,
+      "optimizer_steps": 0,
+      "loss": 0.0,
+      "value_loss": 0.0,
+      "distribution_loss": 0.0,
+      "grad_norm": 0.0,
+      "actor_unchanged": true,
+      "actor_sha256_before": "516347be6ddfec49ceb0b0de0ea92f26096d9dca3505fac39d9d273090c1e910",
+      "actor_sha256_after": "516347be6ddfec49ceb0b0de0ea92f26096d9dca3505fac39d9d273090c1e910",
+      "coverage": {
+        "record_count": 8,
+        "accepted_unique": 8,
+        "attempted_unique": 8,
+        "accepted_fraction": 1.0,
+        "groups": {
+          "phase:exam": {
+            "records": 8,
+            "accepted_unique": 8,
+            "attempted_unique": 8,
+            "accepted_fraction": 1.0
+          },
+          "profile:preflight": {
+            "records": 8,
+            "accepted_unique": 8,
+            "attempted_unique": 8,
+            "accepted_fraction": 1.0
+          },
+          "loss:ppo": {
+            "records": 8,
+            "accepted_unique": 8,
+            "attempted_unique": 8,
+            "accepted_fraction": 1.0
+          },
+          "route:normal": {
+            "records": 8,
+            "accepted_unique": 8,
+            "attempted_unique": 8,
+            "accepted_fraction": 1.0
+          }
+        },
+        "note": "Unique records used by accepted optimizer steps; diagnostics and rejected gradients are excluded."
+      },
+      "target_semantics": "Current batch actual returns: construction Best4 and own-exam terminal distribution.",
+      "policy_replay": false
+    },
+    "critic_update_coverage": {
+      "record_count": 8,
+      "accepted_unique": 8,
+      "attempted_unique": 8,
+      "accepted_fraction": 1.0,
+      "groups": {
+        "phase:exam": {
+          "records": 8,
+          "accepted_unique": 8,
+          "attempted_unique": 8,
+          "accepted_fraction": 1.0
+        },
+        "profile:preflight": {
+          "records": 8,
+          "accepted_unique": 8,
+          "attempted_unique": 8,
+          "accepted_fraction": 1.0
+        },
+        "loss:ppo": {
+          "records": 8,
+          "accepted_unique": 8,
+          "attempted_unique": 8,
+          "accepted_fraction": 1.0
+        },
+        "route:normal": {
+          "records": 8,
+          "accepted_unique": 8,
+          "attempted_unique": 8,
+          "accepted_fraction": 1.0
+        }
+      },
+      "note": "Unique records used by accepted optimizer steps; diagnostics and rejected gradients are excluded."
+    },
+    "record_stats": {
+      "phase_decisions": {
+        "0": 8
+      },
+      "exploration": {
+        "exam": {
+          "count": 8,
+          "behavior_entropy_fraction": 7.871397912502289,
+          "base_entropy_fraction": 7.871397435665131,
+          "behavior_max_probability": 2.246496021747589,
+          "base_max_probability": 2.2464959621429443
+        }
+      },
+      "practice": {
+        "preflight/exam/normal": {
+          "decisions": 8,
+          "meaningful": 8,
+          "value_mae": 0.38519036792914074,
+          "bmp_sum": 2.246496021747589,
+          "bmp_count": 8
+        }
+      }
+    },
+    "learner_world_size": 1,
+    "post_update_kl": null
+  },
+  "changed_parameters": 122,
+  "changed_relational_parameters": {
+    "actor": 2,
+    "critic": 4
+  },
+  "native_final_score": 19,
+  "decisions": 8,
+  "rng_roundtrip": true
+}

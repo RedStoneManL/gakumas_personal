@@ -23,6 +23,8 @@ def main():
     parser.add_argument('--initial', type=Path, default=ROOT/'checkpoints/latest.pt')
     parser.add_argument('--relational', action='store_true',
                         help='Warm-start and exercise the complete opt-in relational architecture')
+    parser.add_argument('--auxiliary', action='store_true',
+                        help='Keep all four games policy-controlled and train side-search contribution labels')
     parser.add_argument('--semantics-path', type=Path, default=EXAM/'setup/relational_semantics.json',
                         help='Offline native semantics catalogue, required with --relational')
     args = parser.parse_args()
@@ -47,6 +49,7 @@ def main():
         # learner service. Spawned search processes inherit the opt-in path.
         semantic_path = configure(relational_config, EXAM/'setup')
         report['relational'] = bool(args.relational)
+        report['auxiliary_search'] = bool(args.auxiliary)
         report['semantics_path'] = str(semantic_path) if semantic_path else None
         mesh = LearnerGroup(args.device)
         total = mesh.sum_values({'rank_sum': mesh.rank+1})['rank_sum']
@@ -83,6 +86,10 @@ def main():
                       'max_depth': 8, 'rollout_steps': 8, 'objective_k': 4,
                       'root_selection': 'soft_budget', 'soft_floor': .25, 'soft_temperature': .8,
                       'soft_min_visits': 2, 'learning_target': SEARCH} for i in range(2)]
+            if args.auxiliary:
+                for task in tasks:
+                    task.update(simulations=48, particles=8, require_terminal=True,
+                                soft_min_visits=4, rollout_temperature=1.0, learning_target=None)
             with SearchService(model, str(mesh.device), parallel_roots=2, inference_batch=4) as service:
                 roots = service.search_many(tasks)
                 report['valid_search_roots'] = sum(bool(r['valid_training_target']) for r in roots)
@@ -103,12 +110,19 @@ def main():
                     row = {'encoded': encoded, 'action': action[0], 'old_logp': logp[0],
                            'old_value': values[0], 'profile': 'preflight', 'loss_kind': 'ppo',
                            'exploration': settings[0], 'policy_version': 'preflight:0', **diagnostics[0]}
+                    if args.auxiliary:
+                        from draftrl.practice import auxiliary_controller
+                        row['controller_contract'] = auxiliary_controller(
+                            {'search': {'execution_mode': 'auxiliary'}})
                     if not game and replica == 0:
                         search = roots[0]['search']
                         if search['actions'] != encoded.submissions:
                             raise ValueError('Preflight search/action alignment differs')
-                        row.update(action=encoded.submissions.index(search['selected_action']),
-                                   old_logp=None, loss_kind='search', search=search)
+                        if args.auxiliary:
+                            row['search_aux'] = search
+                        else:
+                            row.update(action=encoded.submissions.index(search['selected_action']),
+                                       old_logp=None, loss_kind='search', search=search)
                     game.append(row)
                     command = encoded.submissions[row['action']]
                     observation = (exam.choose(command['indices'], decision_version=command['decision_version'])
@@ -132,6 +146,14 @@ def main():
                'search': {'loss_coefficient': .1, 'learning_target': SEARCH},
                'signed_exam_credit': SIGNED, 'critic_completion': COMPLETION, 'practice': {}, 'epochs': 1, 'effective_minibatch': 32,
                'minibatch': 1, 'clip': .2, 'target_kl': .05, 'value_coefficient': .5, 'max_grad': .5}
+        if args.auxiliary:
+            from draftrl.search_supervision import DEFAULT_AUXILIARY_CREDIT
+            cfg['search'].update(execution_mode='auxiliary', require_terminal=True,
+                                 auxiliary_credit=dict(DEFAULT_AUXILIARY_CREDIT), learning_target=None)
+            report['real_behavior'] = 'four independent policy games; search never replaces an action'
+            report['search_evidence'] = [{key: root['search'].get(key) for key in (
+                'root_attempts', 'root_terminal_counts', 'root_distinct_particles',
+                'root_distinct_paths', 'continuation_contract')} for root in roots]
         cfg.update({key: 1e-5 for key in learning_rates.PHASE_KEYS.values()})
         cfg.update(relational_config)
         groups = parameter_groups(model, dict.fromkeys(learning_rates.PHASE_KEYS, 1e-5))

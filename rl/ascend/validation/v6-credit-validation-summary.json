@@ -1,0 +1,47 @@
+{
+  "schema": "arena-v6-search-credit-validation/1",
+  "date": "2026-09-19",
+  "base_commit": "f5e64df",
+  "source_regression": {
+    "unittest_total": 214,
+    "passed": 211,
+    "skipped": 3,
+    "failed": 0,
+    "sharded_script": "passed",
+    "log": "v6-credit-regression.log"
+  },
+  "source_incremental": {
+    "consumer_new_tests": 6,
+    "bundle_rechecks": 5,
+    "passed": 11,
+    "failed": 0,
+    "clean_pythonpath": true
+  },
+  "source_unique_unittests": {
+    "total": 220,
+    "passed": 217,
+    "skipped": 3
+  },
+  "deployment_regression": {
+    "total": 48,
+    "passed": 45,
+    "skipped": 3,
+    "failed": 0,
+    "skip_reason": "Source packager intentionally absent from deployment bundle",
+    "log": "v6-credit-deployment-tests.log"
+  },
+  "cli_conflicts_rejected": 3,
+  "native_preflight": "v6-credit-native-cpu.json",
+  "new_core_tests": {
+    "evidence": 12,
+    "auxiliary": 10,
+    "supervision": 15,
+    "reporting": 6
+  },
+  "limits": [
+    "No Ascend or HCCL hardware acceptance",
+    "No long production training",
+    "No policy-quality improvement claim",
+    "Auxiliary labels are not independently held-out verified"
+  ]
+}

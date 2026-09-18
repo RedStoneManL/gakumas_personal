@@ -33,7 +33,7 @@ from .resource_modes import RuntimeResources
 from .sample_bank import SampleBank
 from .bank_rollout import rollout_bank
 from .async_decisions import AsyncDecisions
-from .practice import mode_for, routed_parameters, make_fork_tasks, apply_fork_returns, practice_diagnostics, fork_coverage
+from .practice import mode_for, routed_parameters, make_fork_tasks, apply_fork_returns, practice_diagnostics, fork_coverage, auxiliary_controller
 from .best_of import summarize_groups
 from .coverage import Coverage
 from .play_evaluation import prepare_suite, evaluate_play
@@ -210,6 +210,8 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                        'choice_state':None, 'choice_steps':[],
                        'exploration_mode':mode_for(config,local_index,training)}
                 row['search_enabled'] = bool(router and router.select_episode(local_index))
+                if training and auxiliary_controller(config) is not None:
+                    row['controller_contract'] = auxiliary_controller(config)
                 # seed_stride > 1 lets sharded learners walk disjoint interleaved seed
                 # streams (rank r starts at start_seed + r and steps by the rank count),
                 # so no two ranks can ever simulate the same episode.
@@ -271,7 +273,9 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                                    'exploration_mode':row['exploration_mode'],
                                    'course_id':row['course_id'], 'drink_capacity':row['drink_capacity'],
                                    'memory_mode':row['memory_mode'], 'memory_capacity':row['memory_capacity'],
-                                   'condition_cell':row['condition_cell'], **diagnostic, **extra})
+                                    'condition_cell':row['condition_cell'], **diagnostic, **extra})
+            if 'controller_contract' in row:
+                row['records'][-1]['controller_contract'] = dict(row['controller_contract'])
             row['steps'] += 1
             meaningful += len(e.submissions) > 1
             if row['phase'] == 'draft':
@@ -335,6 +339,8 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                     benchmark_cell=row['benchmark_cell'], score_scale=row['score_scale'],
                     normalized_score=score / row['score_scale'])
                 summary['guidance_choices'] = row['guidance'].history
+                if 'controller_contract' in row:
+                    summary['controller_contract'] = dict(row['controller_contract'])
                 summary['keycard_focus'] = bool(row['spec'].get('required_initial_guidance'))
                 summary['keycard_usage'] = keycard_focus.finish(row['keycard_tracking'])
                 summary['choice_steps'] = row['choice_steps']
@@ -487,6 +493,8 @@ def validation_index(result, baseline, offset=0.25):
 
 
 def train(root, setup, config, initial, output, *, resume=False, continuation=None):
+    from .search_supervision import validate_training_config
+    validate_training_config(config)
     from .relational_runtime import configure
     from .relational_training import parameter_groups, migrate_optimizer
     semantic_path = configure(config, setup)

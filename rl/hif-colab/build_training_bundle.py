@@ -57,6 +57,18 @@ RELATIONAL_REQUIRED = frozenset({
     'exam-search/tests/test_relational_runtime.py',
     'exam-search/tests/test_relational_training.py',
 })
+SEARCH_CREDIT_REQUIRED = frozenset({
+    'V6_SEARCH_CREDIT_TRAINING.md',
+    'V6_SEARCH_CREDIT_ACCEPTANCE.md',
+    'ascend/configs/prod/search-v6-credit.json',
+    'ascend/configs/search_v6_credit_smoke.json',
+    'exam-search/draftrl/search_supervision.py',
+    'exam-search/tests/test_search_evidence.py',
+    'exam-search/tests/test_search_auxiliary.py',
+    'exam-search/tests/test_search_supervision.py',
+    'exam-search/tests/test_auxiliary_reporting.py',
+    'ops/batch_report.py',
+})
 
 
 def validator(workspace):
@@ -82,11 +94,14 @@ def bundle_rules(target='colab'):
             base.IncludeRule('rl/ascend/checkpoints/provenance.json', 'checkpoints/provenance.json'),
             base.IncludeRule('rl/ascend/checkpoints/latest.pt', 'checkpoints/latest.pt'),
             base.IncludeRule('rl/ascend/dashboard', 'dashboard', ('.py', '.js', '.html', '.css', '.json', '.md', '.zip')),
+            base.IncludeRule('rl/ascend/ops/batch_report.py', 'ops/batch_report.py'),
             base.IncludeRule('rl/ascend/exam_search', 'exam-search', base.TEXT_SOURCE_SUFFIXES + ('',)),
             base.IncludeRule('rl/ascend/ACCEPTANCE.md', 'ACCEPTANCE.md'),
             base.IncludeRule('rl/ascend/PORTING.md', 'PORTING.md'),
             base.IncludeRule('rl/ascend/RELATIONAL_V6_TRAINING.md', 'RELATIONAL_V6_TRAINING.md'),
             base.IncludeRule('rl/ascend/RELATIONAL_V6_ACCEPTANCE.md', 'RELATIONAL_V6_ACCEPTANCE.md'),
+            base.IncludeRule('rl/ascend/V6_SEARCH_CREDIT_TRAINING.md', 'V6_SEARCH_CREDIT_TRAINING.md'),
+            base.IncludeRule('rl/ascend/V6_SEARCH_CREDIT_ACCEPTANCE.md', 'V6_SEARCH_CREDIT_ACCEPTANCE.md'),
             base.IncludeRule('rl/ascend/validation', 'validation', ('.json',)),
             base.IncludeRule('rl/ascend/tests', 'ascend/tests', ('.py',)),
             base.IncludeRule('rl/training/tests', 'training/tests', ('.py',)),
@@ -113,7 +128,7 @@ def build(workspace: Path, output: Path, *, target='colab'):
                 'configs/full_produce_setup_mixed.json', 'configs/full_produce_select.json',
                 'configs/research_inventory.json'}
     if target == 'ascend':
-        required |= RELATIONAL_REQUIRED
+        required |= RELATIONAL_REQUIRED | SEARCH_CREDIT_REQUIRED
     if missing := required - set(sources):
         raise base.BundleError(f'Missing training entry points: {sorted(missing)}')
     output = output.resolve()

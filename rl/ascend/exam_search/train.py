@@ -16,12 +16,15 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--config', type=Path, required=True)
-    p.add_argument('--initial', type=Path, help='Optional compatible weights/Adam checkpoint for a NEW run')
-    p.add_argument('--resume', action='store_true', help='Continue an audited complete checkpoint with its optimizer, RNG and original baseline')
-    p.add_argument('--continue-from', type=Path, dest='continue_from',
+    start = p.add_mutually_exclusive_group()
+    start.add_argument('--initial', type=Path, help='Optional compatible weights/Adam checkpoint for a NEW run')
+    start.add_argument('--resume', action='store_true', help='Continue an audited complete checkpoint with its optimizer, RNG and original baseline')
+    start.add_argument('--continue-from', type=Path, dest='continue_from',
                    help='Versioned continuation from a COMPLETED run directory into a new --output: weights, Adam, RNG, sample bank, coverage and history carry over; the source code may differ')
     args = p.parse_args(argv)
     config = json.loads(args.config.read_text(encoding='utf-8-sig'))
+    from draftrl.search_supervision import validate_training_config
+    validate_training_config(config)
     from draftrl.relational_runtime import configure
     configure(config, HERE/'setup')
     from draftrl import distributed

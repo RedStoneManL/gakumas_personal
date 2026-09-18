@@ -53,6 +53,7 @@ class RelationalSourceBundleTests(unittest.TestCase):
         packager = load_packager()
         sources = packager.collect_training_sources(PROJECT, packager.bundle_rules('ascend'))
         self.assertFalse(packager.RELATIONAL_REQUIRED - set(sources))
+        self.assertFalse(packager.SEARCH_CREDIT_REQUIRED - set(sources))
         self.assertNotIn(packager.RELATIONAL_CACHE, sources)
 
     def test_generated_semantics_cache_is_excluded_even_when_present(self):

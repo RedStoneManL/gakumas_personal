@@ -33,8 +33,12 @@ def validate_entry(entry, spec, catalog, drinks):
     assert entry['context']['plan']==spec['plan']
     for c in entry['cards']:
         d=defs[c['definition_id']]
-        assert str(d['id']) in rules and rules[str(d['id'])]['required_level']<=76
-        assert d['id'] not in (775,776) and d['plan'] in (spec['plan'],'free')
+        # The producer level is the scene's, not a constant: a setup prepared at a
+        # higher level legitimately drafts cards that a lower one could not reach.
+        assert str(d['id']) in rules and rules[str(d['id'])]['required_level']<=spec['producer_level']
+        # Card bans live in spec['banned_card_ids'] and are enforced by
+        # validate_construction_sources above; no card id is hard-coded here.
+        assert d['plan'] in (spec['plan'],'free')
         assert not d.get('pIdolId') or d['pIdolId']==entry['context']['idol_id']
         assert not d['unique'] or ids[d['id']]==1
         assert sum(c['customizations'].values())<=rules[str(d['id'])]['max_guidance']

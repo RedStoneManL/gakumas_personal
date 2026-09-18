@@ -176,11 +176,16 @@ def encode(obs):
         nodes[index] = clean({"entity_type": "card", "zone": memberships[c["instance_id"]],
                               "bindings": bindings.get(c['instance_id'], []),
                               "definition_metadata": definition, **payload}, index)
+    relation_groups, scope_names = {}, {}
     for order, effect in enumerate(effects):
         effect = dict(effect)   # top-level pop only; `clean` below does not mutate.
         eid = effect.pop("effectInstanceId", None)
         count = counters.get(str(eid)) if isinstance(counters, dict) else (counters[eid] if isinstance(eid, int) and 0 <= eid < len(counters) else None)
         index = len(nodes)
+        if eid is not None:
+            # Opaque joins for the optional RL relation view, never scalar input.
+            scope_names.setdefault(str(eid), 'scope:' + str(len(scope_names)))
+            relation_groups[str(index)] = scope_names[str(eid)]
         nodes.append(clean({"entity_type": "effect", "resolution_order": order,
                             "counter": count, "is_current": eid is not None and eid == current_effect,
                             "effect": effect}, index))
@@ -216,7 +221,9 @@ def encode(obs):
              for path, kind, text, num in flatten(node)]
     if len(atoms) > MAX_ATOMS:
         raise ValueError(f"{len(atoms)} atoms exceed pilot capacity {MAX_ATOMS}")
-    return Encoded(atoms, edges, len(nodes), action_entities, submissions)
+    encoded = Encoded(atoms, edges, len(nodes), action_entities, submissions)
+    encoded.relation_context = {'effect_groups': relation_groups}
+    return encoded
 
 
 def collate(examples, device="cpu"):

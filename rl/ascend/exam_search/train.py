@@ -22,6 +22,8 @@ def main(argv=None):
                    help='Versioned continuation from a COMPLETED run directory into a new --output: weights, Adam, RNG, sample bank, coverage and history carry over; the source code may differ')
     args = p.parse_args(argv)
     config = json.loads(args.config.read_text(encoding='utf-8-sig'))
+    from draftrl.relational_runtime import configure
+    configure(config, HERE/'setup')
     from draftrl import distributed
     mesh = distributed.LearnerGroup(config['device'],
         torch_threads=config.get('parallelism', {}).get('torch_threads', config.get('torch_threads', 2)))

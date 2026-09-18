@@ -116,7 +116,8 @@ class SplitEncoder(nn.Module):
 
 
 class DraftPolicy(LegacyPolicy):
-    def __init__(self, width=96, lexical=16, depth=4, original=None, quantiles=0):
+    def __init__(self, width=96, lexical=16, depth=4, original=None, quantiles=0,
+                 relational=False, relational_depth=2):
         if original is None:
             original = LegacyPolicy(width=width, lexical=lexical)
         super().__init__(width=width, lexical=lexical)
@@ -128,6 +129,13 @@ class DraftPolicy(LegacyPolicy):
         self.config = {'width': width, 'lexical': lexical, 'depth': depth}
         if quantiles:
             self.enable_quantiles(quantiles)
+        if relational:
+            if type(relational_depth) is not int or relational_depth < 1:
+                raise ValueError('Relational depth must be a positive integer')
+            from .relational_model import RelationalActor, RelationalCritic
+            self.actor_relational = RelationalActor(width, lexical, relational_depth)
+            self.critic_relational = RelationalCritic(width, lexical, relational_depth, quantiles)
+            self.config.update(relational=True, relational_depth=relational_depth)
 
     def enable_quantiles(self, count=32, optimizer=None):
         if hasattr(self, 'exam_quantile_head'):
@@ -147,8 +155,26 @@ class DraftPolicy(LegacyPolicy):
         self.exam_quantile_head = head
         self.config['quantiles'] = count
         if optimizer is not None:
-            optimizer.param_groups[0]['params'].extend(head.parameters())
+            inherited_group = next((g for g in optimizer.param_groups if g.get('name') == 'exam'),
+                                   optimizer.param_groups[0])
+            inherited_group['params'].extend(head.parameters())
+        if hasattr(self, 'critic_relational') and self.critic_relational.enable_quantiles(count):
+            if optimizer is not None:
+                relation_group = next((g for g in optimizer.param_groups
+                                       if g.get('name') == 'critic_relational'), optimizer.param_groups[0])
+                relation_group['params'].extend(self.critic_relational.quantile_head.parameters())
         return True
+
+    @staticmethod
+    def _relational_batch(b):
+        side = b.get('relational')
+        if side is None:
+            raise ValueError('Relational model requires a versioned relational side view')
+        if side['mask'].shape != b['mask'].shape or not torch.equal(side['mask'], b['mask']):
+            raise ValueError('Relational candidate mask/order must align with the legacy actions')
+        if side['batch_size'] != b['batch_size'] or not torch.equal(side['phase'], b['phase']):
+            raise ValueError('Relational phases must align with the legacy batch')
+        return side
 
     def value_outputs(self, b):
         _, state = self.critic(b)
@@ -161,6 +187,13 @@ class DraftPolicy(LegacyPolicy):
             for i,name in enumerate(heads[1:],1):
                 values = torch.where(b['phase']==i,getattr(self,name)(state).squeeze(-1),values)
         atoms = self.exam_quantile_head(state) if hasattr(self,'exam_quantile_head') else None
+        if hasattr(self, 'critic_relational'):
+            residual, residual_atoms = self.critic_relational(self._relational_batch(b))
+            values = values + residual
+            if atoms is not None:
+                if residual_atoms is None:
+                    raise ValueError('Relational quantile head is missing')
+                atoms = atoms + residual_atoms
         return values, atoms
 
     def search_forward(self, b):
@@ -174,13 +207,17 @@ class DraftPolicy(LegacyPolicy):
     def policy(self, b):
         phase = b.get('uniform_phase')
         if phase is None or torch.is_grad_enabled():
-            return super().policy(b)
-        nodes, state = self.actor(b)
-        selected = nodes[b['action_index']]
-        features = torch.cat([selected, state[:, None].expand(-1, selected.shape[1], -1)], -1)
-        name = ('policy_head', 'drink_policy_head', 'draft_policy_head',
-                'guidance_policy_head', 'memory_policy_head')[phase]
-        return getattr(self, name)(features).squeeze(-1).masked_fill(~b['mask'], -torch.inf)
+            logits = super().policy(b)
+        else:
+            nodes, state = self.actor(b)
+            selected = nodes[b['action_index']]
+            features = torch.cat([selected, state[:, None].expand(-1, selected.shape[1], -1)], -1)
+            name = ('policy_head', 'drink_policy_head', 'draft_policy_head',
+                    'guidance_policy_head', 'memory_policy_head')[phase]
+            logits = getattr(self, name)(features).squeeze(-1).masked_fill(~b['mask'], -torch.inf)
+        if hasattr(self, 'actor_relational'):
+            logits = logits + self.actor_relational(self._relational_batch(b))
+        return logits.masked_fill(~b['mask'], -torch.inf)
 
     def forward(self, b):
         logits, values, _ = self.learning_forward(b)

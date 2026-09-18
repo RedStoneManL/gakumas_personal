@@ -18,7 +18,9 @@ def state_digest(model, predicate):
 
 
 def value_parameter(name):
-    return name.startswith(('critic.towers.exam.', 'value_head.', 'exam_quantile_head.'))
+    return name.startswith(('critic.towers.exam.', 'value_head.', 'exam_quantile_head.',
+                            'critic_relational.encoder.towers.exam.',
+                            'critic_relational.value_heads.exam.', 'critic_relational.quantile_head.'))
 
 
 def thin_records(records, max_states=8):
@@ -137,7 +139,7 @@ def calibrate(pool,model,optimizer,config,device,source,output,choose,publish):
         directory.rename(archive)
     directory.mkdir(exist_ok=True)
     before=state_digest(model,lambda n:not value_parameter(n))
-    frozen_actor=state_digest(model,lambda n:n.startswith('actor.') or 'policy_head' in n)
+    frozen_actor=state_digest(model,lambda n:n.startswith(('actor.', 'actor_relational.')) or 'policy_head' in n)
     original_flags={n:p.requires_grad for n,p in model.named_parameters()}
     rates=[g['lr'] for g in optimizer.param_groups]
     rng_state=random.getstate()
@@ -203,7 +205,7 @@ def calibrate(pool,model,optimizer,config,device,source,output,choose,publish):
             report={'status':'passed' if passed else 'failed','selected_epoch':best['epoch'],
                     'before':baseline,'after':selected,'unseen_before':unseen_before,'unseen_after':unseen_after,
                     'games':{k:len(v) for k,v in outcomes.items()},'value_states':{k:len(v) for k,v in data.items()},
-                    'actor_sha256':frozen_actor,'actor_unchanged':frozen_actor==state_digest(model,lambda n:n.startswith('actor.') or 'policy_head' in n),
+                    'actor_sha256':frozen_actor,'actor_unchanged':frozen_actor==state_digest(model,lambda n:n.startswith(('actor.', 'actor_relational.')) or 'policy_head' in n),
                     'non_exam_value_parameters_unchanged':before==state_digest(model,lambda n:not value_parameter(n)),
                     'wall_seconds':time.monotonic()-start,'policy_version':config['_policy_version'],
                     'value_target':'Own real terminal score distribution; Best-of-4 integrated once. No sibling-state max labels, no theoretical ceiling claim.',

@@ -14,7 +14,7 @@ HEADS = {'value_head', 'drink_value_head', 'draft_value_head',
 
 
 def value_parameter(name):
-    return name.startswith('critic.') or name.split('.')[0] in HEADS
+    return name.startswith(('critic.', 'critic_relational.')) or name.split('.')[0] in HEADS
 
 
 def complete_values(model, optimizer, records, targets, weights, accepted,

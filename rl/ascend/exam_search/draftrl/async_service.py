@@ -36,7 +36,8 @@ class SearchService:
         # seeds, effect merging, or hash-only identity. Preserve signed zeros.
         return pickle.dumps((encoded.atoms, encoded.edges, encoded.entity_count,
                              encoded.action_entities, encoded.phase,
-                             len(encoded.submissions)), protocol=5)
+                             len(encoded.submissions),
+                             getattr(encoded, 'relation_context', None)), protocol=5)
 
     def _get_cached(self, key):
         if key is None:

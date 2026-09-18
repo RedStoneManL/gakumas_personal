@@ -7,7 +7,7 @@ from .contracts import support_card_count, validate_construction_sources
 from .duplicate_limits import family_ids, validate as validate_copy_limit, validate_overrides, family_limit, within_limits
 from round2rl.encoding import Encoded, flatten, collate as base_collate, MAX_ATOMS, MAX_ENTITIES
 
-ENCODING = 'arena-generalist-build-exam/3'
+ENCODING = 'arena-generalist-build-exam/4'
 
 
 class DraftEncoder:

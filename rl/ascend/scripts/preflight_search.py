@@ -21,6 +21,10 @@ def main():
     parser.add_argument('--device', choices=('cpu', 'npu', 'cuda'), default='npu')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--initial', type=Path, default=ROOT/'checkpoints/latest.pt')
+    parser.add_argument('--relational', action='store_true',
+                        help='Warm-start and exercise the complete opt-in relational architecture')
+    parser.add_argument('--semantics-path', type=Path, default=EXAM/'setup/relational_semantics.json',
+                        help='Offline native semantics catalogue, required with --relational')
     args = parser.parse_args()
     mesh = None
     rank = int(os.environ.get('RANK', '0'))
@@ -31,6 +35,19 @@ def main():
         import torch
         from draftrl.distributed import LearnerGroup
         from gakumas_training.device import device_report, seed_device, capture_retry_rng, restore_retry_rng
+        from draftrl.relational_runtime import configure
+        from draftrl.relational_training import SCHEMA as RELATIONAL_SCHEMA, parameter_groups
+        from draftrl import learning_rates
+        relational_config = {'relational': {
+            'enabled': True, 'schema': RELATIONAL_SCHEMA,
+            'semantics_path': str(args.semantics_path.resolve()),
+            'legacy_lr_ratio': .25, 'adaptation_batches': 8, 'new_lr_multiplier': 1.,
+        }} if args.relational else {}
+        # Every torchrun rank validates the same catalogue BEFORE entering the
+        # learner service. Spawned search processes inherit the opt-in path.
+        semantic_path = configure(relational_config, EXAM/'setup')
+        report['relational'] = bool(args.relational)
+        report['semantics_path'] = str(semantic_path) if semantic_path else None
         mesh = LearnerGroup(args.device)
         total = mesh.sum_values({'rank_sum': mesh.rank+1})['rank_sum']
         if total != mesh.size*(mesh.size+1)/2:
@@ -51,8 +68,10 @@ def main():
         from draftrl.checkpoint import transfer
         from draftrl.learning_settings import SIGNED, SEARCH
         from draftrl.critic_completion import SETTINGS as COMPLETION
-        model, reference = transfer(args.initial, '', mesh.device)
+        model, reference = transfer(args.initial, '', mesh.device, relational=args.relational)
         report['initial_checkpoint'] = reference['sha256']
+        report['model_config'] = model.config
+        report['model_parameters'] = sum(p.numel() for p in model.parameters())
         entry = make_training_entry([647]*8, turn_types=['vocal']*2)
         report['arena'] = content_version()
         with SearchClient(max_worlds=2) as recorder:
@@ -109,14 +128,24 @@ def main():
                                   max(scores[:i]+scores[i+1:]))
                 rows.extend(game)
             report['native_scores'] = [value*150000. for value in scores]
-        optimizer = torch.optim.Adam(model.parameters(), lr=1e-5, eps=1e-5, **optimizer_options(model))
         cfg = {'_policy_version': 'preflight:0', 'sample_efficiency': {'advantage_mode': 'mc', 'ppo_epochs_max': 1},
                'search': {'loss_coefficient': .1, 'learning_target': SEARCH},
                'signed_exam_credit': SIGNED, 'critic_completion': COMPLETION, 'practice': {}, 'epochs': 1, 'effective_minibatch': 32,
                'minibatch': 1, 'clip': .2, 'target_kl': .05, 'value_coefficient': .5, 'max_grad': .5}
+        cfg.update({key: 1e-5 for key in learning_rates.PHASE_KEYS.values()})
+        cfg.update(relational_config)
+        groups = parameter_groups(model, dict.fromkeys(learning_rates.PHASE_KEYS, 1e-5))
+        optimizer = torch.optim.Adam(groups, eps=1e-5, **optimizer_options(model))
+        report['optimizer_schedule'] = learning_rates.apply(optimizer, cfg, 0., completed_batches=0)
+        report['optimizer_groups'] = [group['name'] for group in optimizer.param_groups]
         before = {n: p.detach().cpu().clone() for n, p in model.named_parameters()}
         report['update'] = mesh.update(model, optimizer, rows, cfg)
         report['changed_parameters'] = sum(not torch.equal(before[n], p.detach().cpu()) for n, p in model.named_parameters())
+        if args.relational:
+            report['changed_relational_parameters'] = {
+                role: sum(not torch.equal(before[n], p.detach().cpu())
+                          for n, p in model.named_parameters() if n.startswith(role + '_relational.'))
+                for role in ('actor', 'critic')}
         if not report['changed_parameters']:
             raise ValueError('Preflight produced no parameter update')
         state = capture_retry_rng()

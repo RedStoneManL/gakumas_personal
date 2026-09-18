@@ -487,6 +487,10 @@ def validation_index(result, baseline, offset=0.25):
 
 
 def train(root, setup, config, initial, output, *, resume=False, continuation=None):
+    from .relational_runtime import configure
+    from .relational_training import parameter_groups, migrate_optimizer
+    semantic_path = configure(config, setup)
+    relational = semantic_path is not None
     if not config.get('search',{}).get('enabled'):
         raise ValueError('The joint-search trainer requires its explicit search configuration')
     if resume and continuation is not None:raise ValueError('Choose one continuation mechanism')
@@ -512,6 +516,13 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         raise RuntimeError('Frozen Arena differs from prepared inputs')
     source_hash = source_version()
     setup_hashes = {n:digest(setup/n) for n in ('profiles.json','catalog.json','provenance.json','config.json')}
+    if semantic_path is not None:
+        # setup hashes use relative filenames to remain portable across hosts.
+        try:
+            semantic_name = semantic_path.relative_to(Path(setup).resolve()).as_posix()
+        except ValueError as exc:
+            raise ValueError('Semantic artifact must be inside setup for portable checkpoint verification') from exc
+        setup_hashes[semantic_name] = digest(semantic_path)
     # '_setup' travels in the broadcast config so a worker rank can rebuild the
     # catalog, profiles and Arena pool for its shard without a second channel.
     run_config = {**config, '_profiles':profiles, '_setup':str(setup)}
@@ -525,34 +536,36 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
             model,resumed,recovery=prepare(output,setup,config,arena_hash,device)
         reference=resumed['transfer']
     elif initial is not None:
-        model, reference = transfer(initial,arena_hash,device)
+        model, reference = transfer(initial,arena_hash,device,relational=relational)
     else:
         from .model import DraftPolicy
-        model = DraftPolicy(quantiles=32).to(device)
+        model = DraftPolicy(quantiles=32,relational=relational).to(device)
         reference = {'initialization': 'random', 'optimizer_reset': True,
                      'restore_continuation': False, 'optimizer_migration_pending': False}
     for parameter in model.parameters():
         parameter.requires_grad_(True)
-    groups = []
-    for phase in ('exam','drink','draft','guidance','memory'):
-        params = [p for n,p in model.named_parameters() if
-            (not n.startswith(('drink_','draft_','guidance_','memory_')) if phase=='exam' else n.startswith(phase+'_'))]
-        groups.append({'params':params,'lr':config['learning_rate' if phase=='exam' else phase+'_learning_rate']})
+    if bool(model.config.get('relational')) != relational:
+        raise ValueError('Architecture change requires a NEW output and --initial, not --resume/--continue-from')
+    if relational and config.get('value_calibration') and not hasattr(model, 'exam_quantile_head') and not resumed:
+        model.enable_quantiles(config['value_calibration']['quantiles'])
+    rates = {phase:config['learning_rate' if phase=='exam' else phase+'_learning_rate']
+             for phase in ('exam','drink','draft','guidance','memory')}
+    groups = parameter_groups(model, rates)
     optimizer = torch.optim.Adam(groups,eps=config['adam_eps'], **optimizer_options(model))
     if resumed:load_optimizer_state(optimizer, resumed['optimizer_state'], device)
     elif initial is not None:
         from .migration import migrate_adam
         old = torch.load(initial, map_location='cpu', weights_only=True)
-        if old['model_schema'] == 'hif-memory-draft-drink-exam-policy/1':
+        if relational:
+            reference['optimizer_migration'] = migrate_optimizer(old, model, optimizer, device)
+        elif old['model_schema'] == 'hif-memory-draft-drink-exam-policy/1':
             reference['optimizer_migration'] = migrate_adam(old, model, optimizer)
         else:
             load_optimizer_state(optimizer, old['optimizer_state'], device)
             reference['optimizer_migration'] = {'same_schema_restored': True}
         reference['optimizer_migration_pending'] = False
         del old
-    if config.get('value_calibration') and not hasattr(model, 'exam_quantile_head') and not resumed:
-        # A new run learns its distribution from fresh returns. The historical
-        # calibration procedure requires an audited old run and is not invented.
+    if not relational and config.get('value_calibration') and not hasattr(model, 'exam_quantile_head') and not resumed:
         model.enable_quantiles(config['value_calibration']['quantiles'], optimizer)
     efficiency=config.get('sample_efficiency',{})
     practice=config.get('practice',{})
@@ -578,6 +591,8 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         'pool':profiles[2]['spec'], 'provenance':provenance,'arena_path':str(arena),
         'arena_sha256':arena_hash,'setup_sha256':setup_hashes,'rl_source_sha256':source_hash,
         'transfer':reference,'hardware':device_report(device),
+        'model_config':model.config,'model_parameters':sum(p.numel() for p in model.parameters()),
+        'relational_semantics_sha256':digest(semantic_path) if semantic_path is not None else None,
         'schema':RUNNER_SCHEMA,
         'construction_sources':'Own-plan/free ordinary and support + cards; at most three physical support cards within 18-25 total cards; all registered Prima Stella cards forbidden. Native unique and Switch constraints retained. Guidance uses existing native prices and budget.',
         'objective':'Authoritative terminal score / (profile score scale * exogenous multiplier normalizer), shared by all five trained phases; profile-balanced PPO.',
@@ -607,11 +622,12 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         batches,decisions,episode_index,best=(resumed['batches'],resumed['decisions'],
             resumed['next_episode_index'],resumed['best_validation_index'])
     restored_rates = learning_rates.current(optimizer)
-    state['optimizer_schedule'] = learning_rates.apply(optimizer, config, (time.monotonic()-started)/60)
+    state['optimizer_schedule'] = learning_rates.apply(optimizer, config, (time.monotonic()-started)/60,
+                                                       completed_batches=batches)
     json_write(output/'optimizer-change.json', {'restored_rates':restored_rates,
         'applied':state['optimizer_schedule'], 'schedule':config.get('learning_rate_schedule'),
-        'checkpoint_batch':batches, 'adam_moments_preserved':bool(resumed),
-        'source_checkpoint_sha256':(recovery or {}).get('audit',{}).get('source_checkpoint_sha256')})
+        'checkpoint_batch':batches, 'adam_moments_preserved':bool(resumed) or bool(reference.get('optimizer_migration')),
+        'source_checkpoint_sha256':(recovery or {}).get('audit',{}).get('source_checkpoint_sha256') or reference.get('sha256')})
     if os.name=='nt' and not ctypes.windll.kernel32.SetThreadExecutionState(0x80000001):
         raise OSError('Cannot keep machine awake during training')
 
@@ -992,7 +1008,8 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                 probe=inspect_gradients(model,[r for r in records if r['loss_kind']=='ppo'],run_config,device)
                 append(output/'gradient-diagnostics.jsonl',{'batch':batches+1,**probe})
             unchanged(); before=time.monotonic()
-            state['optimizer_schedule'] = learning_rates.apply(optimizer,config,(before-started)/60)
+            state['optimizer_schedule'] = learning_rates.apply(optimizer,config,(before-started)/60,
+                                                               completed_batches=batches)
             _epoch_cap=run_config.get('sample_efficiency',{}).get('ppo_epochs_max',run_config['epochs'])
             _ranks=_distributed.ACTIVE.size if _distributed.ACTIVE is not None else 1
             stage_progress.begin('ppo_update',len(records)*max(1,_epoch_cap),'records',shards=_ranks)

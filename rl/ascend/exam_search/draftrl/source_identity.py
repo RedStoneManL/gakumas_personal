@@ -14,6 +14,7 @@ def digest(path):
 def source_version():
     root=Path(__file__).resolve().parents[1]
     files=sorted((root/'draftrl').glob('*.py'))+[root/'train.py']
+    files+=sorted((root/'draftrl').glob('*.mjs'))
     files+=sorted((root/'runtime/shared').rglob('*.py'))
     hashes = {p.relative_to(root).as_posix(): digest(p) for p in files}
     for candidate in (root.parents[1]/'training', root.parent/'training'):

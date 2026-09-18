@@ -19,7 +19,7 @@ import os, sys, math, random, threading, importlib.util, types
 from pathlib import Path
 import torch
 
-ROOT = Path(os.environ.get('GK_EXAM', '/mnt/local/gakumas/deploy/exam-search'))
+ROOT = Path(os.environ.get('GK_EXAM', str(Path(__file__).resolve().parents[1])))
 sys.path[:0] = [str(ROOT), str(ROOT / 'runtime/shared'), str(ROOT / 'runtime/arena')]
 pkg = types.ModuleType('draftrl'); pkg.__path__ = [str(ROOT / 'draftrl')]; sys.modules['draftrl'] = pkg
 

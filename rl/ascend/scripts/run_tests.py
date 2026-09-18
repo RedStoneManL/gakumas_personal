@@ -35,5 +35,13 @@ if __name__ == '__main__':
                        ['test_scaling', 'test_portable_gru', 'test_distributed', 'test_best_of',
                         'test_best_of_search', 'test_search_budgets', 'test_search_bootstrap',
                         'test_soft_value', 'test_view_ownership', 'test_async_collectors',
-                        'test_critic_completion', 'test_signed_learning'])
-    raise SystemExit(bool(core or search))
+                        'test_critic_completion', 'test_signed_learning', 'test_joint_search',
+                        'test_native_semantics', 'test_prepare_relational',
+                        'test_relational_encoding', 'test_relational_model',
+                        'test_relational_runtime', 'test_relational_training',
+                        'test_relational_bundle'])
+    # This predecessor test is an executable script with process-global setup
+    # and sys.exit. Keep it isolated from unittest's imported modules.
+    print('=== sharded learner script ===', flush=True)
+    sharded = subprocess.run([sys.executable, '-B', str(EXAM/'tests/test_sharded.py')], check=False).returncode
+    raise SystemExit(bool(core or search or sharded))

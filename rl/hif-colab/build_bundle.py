@@ -31,7 +31,7 @@ FIXED_ZIP_TIME = (1980, 1, 1, 0, 0, 0)
 FIXED_TIMESTAMP = "1980-01-01T00:00:00Z"
 EXCLUDED_DIRECTORIES = frozenset({
     ".git", ".venv", "venv", "__pycache__", "node_modules", "build", "runs",
-    "logs", "log", ".cache", ".pytest_cache", ".ruff_cache", ".mypy_cache",
+    "logs", "log", ".cache", ".gakumas_rl_cache", ".pytest_cache", ".ruff_cache", ".mypy_cache",
     "maa", "maagakumas", "image_cache", "live",
 })
 EXCLUDED_SUFFIXES = frozenset({".pyc", ".pyo", ".log", ".bak", ".tmp"})

@@ -162,7 +162,7 @@ class RecoveryTests(unittest.TestCase):
         from draftrl import recovery
         from draftrl.checkpoint import source_version, digest
         from gakumas_arena.engine.search import search_content_version
-        with tempfile.TemporaryDirectory(dir=ROOT/'rl/generalist-search/runs') as folder:
+        with tempfile.TemporaryDirectory(prefix='arena-recovery-test-') as folder:
             root=Path(folder); setup=root/'setup'; setup.mkdir()
             (setup/'profiles.json').write_text('{}',encoding='utf8')
             cfg={'absolute_deadline':'2026-10-01T00:00:00+00:00'}

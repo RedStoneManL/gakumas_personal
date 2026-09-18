@@ -36,6 +36,28 @@ TRAINING_RULES = base.DEFAULT_RULES[:10] + (
         'research-inventory.json', 'support-mapping-audit.json', 'policy-topology-optimization.json')),
 )
 
+# Native semantic caches are generated after extraction against that deployed
+# source snapshot. They are never carried over as unverified build-machine state.
+RELATIONAL_CACHE = 'exam-search/setup/relational_semantics.json'
+RELATIONAL_REQUIRED = frozenset({
+    'RELATIONAL_V6_TRAINING.md',
+    'ascend/configs/prod/search-v6-relational.json',
+    'ascend/configs/search_v6_smoke.json',
+    'exam-search/prepare_relational.py',
+    'exam-search/draftrl/native_semantics.py',
+    'exam-search/draftrl/native_semantics.mjs',
+    'exam-search/draftrl/relational_encoding.py',
+    'exam-search/draftrl/relational_model.py',
+    'exam-search/draftrl/relational_runtime.py',
+    'exam-search/draftrl/relational_training.py',
+    'exam-search/tests/test_native_semantics.py',
+    'exam-search/tests/test_prepare_relational.py',
+    'exam-search/tests/test_relational_encoding.py',
+    'exam-search/tests/test_relational_model.py',
+    'exam-search/tests/test_relational_runtime.py',
+    'exam-search/tests/test_relational_training.py',
+})
+
 
 def validator(workspace):
     path = workspace / 'rl/training/colab/bootstrap.py'
@@ -46,7 +68,7 @@ def validator(workspace):
     return module.validate_zip_archive
 
 
-def build(workspace: Path, output: Path, *, target='colab'):
+def bundle_rules(target='colab'):
     rules = TRAINING_RULES
     if target == 'ascend':
         rules = tuple(r for r in rules if r.destination != 'README.md' and not r.destination.startswith('arena/')) + (
@@ -63,13 +85,26 @@ def build(workspace: Path, output: Path, *, target='colab'):
             base.IncludeRule('rl/ascend/exam_search', 'exam-search', base.TEXT_SOURCE_SUFFIXES + ('',)),
             base.IncludeRule('rl/ascend/ACCEPTANCE.md', 'ACCEPTANCE.md'),
             base.IncludeRule('rl/ascend/PORTING.md', 'PORTING.md'),
+            base.IncludeRule('rl/ascend/RELATIONAL_V6_TRAINING.md', 'RELATIONAL_V6_TRAINING.md'),
+            base.IncludeRule('rl/ascend/RELATIONAL_V6_ACCEPTANCE.md', 'RELATIONAL_V6_ACCEPTANCE.md'),
             base.IncludeRule('rl/ascend/validation', 'validation', ('.json',)),
             base.IncludeRule('rl/ascend/tests', 'ascend/tests', ('.py',)),
             base.IncludeRule('rl/training/tests', 'training/tests', ('.py',)),
         )
     elif target != 'colab':
         raise ValueError('Unknown bundle target')
+    return rules
+
+
+def collect_training_sources(workspace, rules):
     sources = base.collect_sources(workspace, rules)
+    sources.pop(RELATIONAL_CACHE, None)
+    return sources
+
+
+def build(workspace: Path, output: Path, *, target='colab'):
+    rules = bundle_rules(target)
+    sources = collect_training_sources(workspace, rules)
     if sum(source.size for source in sources.values()) > base.MAX_UNCOMPRESSED_BYTES:
         raise base.BundleError('Bundle exceeds uncompressed size limit')
     required = {'colab/HIF_Training.ipynb', 'colab/run_training.py',
@@ -77,6 +112,8 @@ def build(workspace: Path, output: Path, *, target='colab'):
                 'configs/full_produce_mixed.json', 'configs/exam_score.json',
                 'configs/full_produce_setup_mixed.json', 'configs/full_produce_select.json',
                 'configs/research_inventory.json'}
+    if target == 'ascend':
+        required |= RELATIONAL_REQUIRED
     if missing := required - set(sources):
         raise base.BundleError(f'Missing training entry points: {sorted(missing)}')
     output = output.resolve()
@@ -99,13 +136,14 @@ def build(workspace: Path, output: Path, *, target='colab'):
                 'default_session_hours': 8,
                 'checkpoint_included': target == 'ascend',
                 'checkpoint_usage': 'Search weights and Adam for a new run; not full-produce initialization' if target == 'ascend' else None,
+                'relational_semantics': 'Prepare on deployment with exam-search/prepare_relational.py; source-bound generated cache excluded' if target == 'ascend' else None,
                 'files': [{key: row[key] for key in ('path', 'size', 'sha256')} for row in records],
             }
             archive.writestr(base._zip_info('manifest.json'), base.canonical_json(manifest))
         with zipfile.ZipFile(temporary) as archive:
             validator(workspace)(archive)
         # A changing source tree is never silently presented as one snapshot.
-        current = base.collect_sources(workspace, rules)
+        current = collect_training_sources(workspace, rules)
         if list(current) != list(sources):
             raise base.BundleError('Source inventory changed during packaging')
         for source in sources.values():

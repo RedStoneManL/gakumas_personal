@@ -11,7 +11,7 @@ from round2rl.encoding import MAX_DEPTH, MAX_TEXT_BYTES
 # every search worker process and must not pull torch into 1500+ processes.
 
 
-def collate(examples, device='cpu'):
+def _collate_base(examples, device='cpu'):
     import torch
     lexemes, lookup = [''], {'': 0}
 
@@ -108,6 +108,49 @@ def collate(examples, device='cpu'):
             'lexemes': tuple(lexemes)}
 
 
+def _sideviews(examples):
+    from .relational_runtime import view
+    sides = [view(e) for e in examples]
+    if any(s is not None for s in sides) and any(s is None for s in sides):
+        raise ValueError('Cannot mix legacy-only and relational examples in a batch')
+    return sides if all(s is not None for s in sides) else None
+
+
+def collate(examples, device='cpu'):
+    batch = _collate_base(examples, device)
+    sides = _sideviews(examples)
+    if sides is not None:
+        import torch
+        side = _collate_base(sides, device)
+        side['node_types'] = torch.tensor([t for e in sides for t in e.node_types],
+                                          dtype=torch.long, device=device)
+        batch['relational'] = side
+    return batch
+
+
+def precollate(e):
+    batch = _precollate_base(e)
+    sides = _sideviews([e])
+    if sides is not None:
+        batch['relational'] = _precollate_base(sides[0])
+        batch['relational']['node_types'] = np.asarray(sides[0].node_types, dtype=np.int64)
+    return batch
+
+
+def merge(pres, device='cpu'):
+    batch = _merge_base(pres, device)
+    flags = ['relational' in p for p in pres]
+    if any(flags) and not all(flags):
+        raise ValueError('Search worker relational configuration mismatch')
+    if all(flags):
+        import torch
+        side = _merge_base([p['relational'] for p in pres], device)
+        side['node_types'] = torch.from_numpy(np.concatenate(
+            [p['relational']['node_types'] for p in pres])).to(device)
+        batch['relational'] = side
+    return batch
+
+
 # ---------------------------------------------------------------------------
 # Worker-side pre-collation.
 #
@@ -126,7 +169,7 @@ def collate(examples, device='cpu'):
 # Python loop, not part of the output.
 # ---------------------------------------------------------------------------
 
-def precollate(e):
+def _precollate_base(e):
     """One example -> numpy arrays with example-local lexeme ids. Runs in the worker."""
     lexemes, lookup = [''], {'': 0}
 
@@ -173,7 +216,7 @@ def precollate(e):
             'n_submissions': len(e.submissions)}
 
 
-def merge(pres, device='cpu'):
+def _merge_base(pres, device='cpu'):
     """Pre-collated examples -> the same batch dict collate() builds. Runs on the collector."""
     import torch
     lexemes, lookup = [''], {'': 0}

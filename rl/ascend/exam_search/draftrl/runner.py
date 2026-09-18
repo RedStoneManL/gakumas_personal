@@ -486,6 +486,28 @@ def validation_index(result, baseline, offset=0.25):
         for k, v in result['benchmark_cells'].items()))
 
 
+def _batch_search(router, before, distributed):
+    """This batch's search counters across every rank, not just the coordinator's.
+
+    Each worker builds a fresh SearchRouter per collect, so its counters are already that
+    rank's delta; the coordinator keeps one router for the whole run and reports a delta
+    against `before`. Only `counts` is summed. Without this the per-profile rows
+    (`profile:<id>`, `accepted_profile:<id>`, `fallback_profile:<id>`) covered only the
+    profiles the coordinator itself drew, which with 8 ranks and 6 profiles is 3 of them:
+    rollout picks the profile by `index % len(profiles)` and rank r walks
+    index r, r+size, r+2*size, so gcd(size, len(profiles)) classes are unreachable.
+    `inference` stays the coordinator's own; it is a service statistic, not a total.
+    """
+    batch = router.delta(before)
+    shares = list(getattr(distributed.ACTIVE, 'collect_search_counts', None) or [])
+    counts = Counter(batch.get('counts', {}))
+    for share in shares:
+        counts.update(share)
+    batch['counts'] = dict(counts)
+    batch['counts']['ranks_reporting'] = len(shares) + 1
+    return batch
+
+
 def train(root, setup, config, initial, output, *, resume=False, continuation=None):
     if not config.get('search',{}).get('enabled'):
         raise ValueError('The joint-search trainer requires its explicit search configuration')
@@ -1030,7 +1052,7 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                 'construction_objective':practice.get('forks',{}).get('objective','mean'),
                 'construction_replicas':practice.get('forks',{}).get('replicas',2),
                 'search_diagnostics': search_router.diagnostics(),
-                'search_batch': search_router.delta(search_before),
+                'search_batch': _batch_search(search_router, search_before, _distributed),
                 'keycard_practice':keycard_focus.summarize(episodes),
                 'sampling_source_counts':dict(Counter(r['sampling_source'] for r in episodes)),
                 'joint_episode_count':joint_episode_count,'bank_episode_count':sum(r['sampling_source']=='bank_exam' for r in episodes),

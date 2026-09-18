@@ -26,8 +26,9 @@ class PrepareRelationalTests(unittest.TestCase):
         cls.bridge = NativeSemantics()
         cls.bridge.prepare(cards=cls.requests, programs=cls.programs)
 
-    def test_all_five_profiles_fixed_candidate_and_declaration_inputs_are_cached(self):
-        self.assertEqual(len(self.profiles), 5)
+    def test_all_profiles_fixed_candidate_and_declaration_inputs_are_cached(self):
+        # Six prepared profiles since sena-campus joined; the count is not the contract.
+        self.assertGreaterEqual(len(self.profiles), 5)
         with patch("draftrl.native_semantics.subprocess.run", side_effect=AssertionError("inference launched Node")):
             for profile in self.profiles:
                 for card in profile["entry"]["cards"] + profile["spec"]["fixed_cards"]:

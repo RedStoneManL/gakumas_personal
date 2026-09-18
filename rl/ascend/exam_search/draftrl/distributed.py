@@ -340,9 +340,11 @@ class LearnerGroup(CollectiveGroup):
                     row['origin_rank'] = self.rank
                 gathered_episodes = self.gather_lists(summaries)
                 gathered_bank = self.gather_lists(bank.rows)
+                # The coordinator's own search counters are a delta the runner takes
+                # afterwards, so it contributes None here and adds its share there.
                 counts = self.gather_lists([
                     {'rank': self.rank, 'started': (next_seed - start) // self.size,
-                     'meaningful': meaningful}])
+                     'meaningful': meaningful, 'search': None}])
         if self.size == 1:
             return records, summaries, meaningful, next_seed, bank.rows
         merge_shard_logs(log_path, self.size)
@@ -352,6 +354,12 @@ class LearnerGroup(CollectiveGroup):
         # let a later batch replay an episode some rank already produced.
         widest = max(row['started'] for row in counts) if counts else 0
         total_meaningful = sum(row['meaningful'] for row in counts)
+        # Each worker builds a fresh SearchRouter per collect, so its counters already are
+        # that rank's batch delta. Without this the per-profile search numbers only ever
+        # covered the coordinator's own profiles: rollout picks a profile by
+        # `index % len(profiles)` and rank r walks index r, r+size, r+2*size, so with 8
+        # ranks and 6 profiles each rank only ever draws gcd(8,6)=2 apart, i.e. 3 of them.
+        self.collect_search_counts = [row['search'] for row in counts if row.get('search')]
         # Bank order must not depend on which rank happened to report first.
         gathered_bank.sort(key=lambda row: row['seed'])
         self.local_summaries = summaries
@@ -401,7 +409,8 @@ class LearnerGroup(CollectiveGroup):
             self.gather_lists(summaries)
             self.gather_lists(bank.rows)
             self.gather_lists([{'rank': self.rank, 'started': started,
-                                'meaningful': meaningful}])
+                                'meaningful': meaningful,
+                                'search': dict(router.counts) if router is not None else None}])
             if router is not None:
                 router.close()
         del model

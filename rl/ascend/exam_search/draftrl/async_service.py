@@ -24,7 +24,9 @@ class SearchService:
         self.clients, self.lock = [], threading.Lock()
         self.stats, self.pending = Counter(), set()
         self.closed, self.policy_version = False, None
-        self.lexical_caches = ({}, {})
+        from .lexical_cache import search_encoders
+        self.lexical_encoders = search_encoders(model)
+        self.lexical_caches = tuple({} for _ in self.lexical_encoders)
         self.cache, self.cache_lock = OrderedDict(), threading.Lock()
         self.cache_limit, self.cache_bytes = inference_cache_bytes, 0
         self.busy_started = None
@@ -169,7 +171,7 @@ class SearchService:
                 else:
                     batch = collate([job['encoded'] for job in unique], self.device)
                 assembled = time.monotonic()
-                encoders = (self.model.actor, self.model.critic)
+                encoders = self.lexical_encoders
                 try:
                     for encoder, cache in zip(encoders, self.lexical_caches):
                         encoder._search_lex_cache = cache

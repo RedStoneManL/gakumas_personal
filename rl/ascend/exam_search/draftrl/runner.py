@@ -241,6 +241,8 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                         e = encode_exam(row['obs'])
             examples.append(e)
         if ids:
+            if hasattr(pool, 'prepare_encoded'):
+                examples = pool.prepare_encoded(ids, examples)
             actions, logps, values, settings, diagnostics = choose(model, examples, device, greedy, driver,
                 [active[i]['rng'] for i in ids], exploration,
                 settings_override=routed_parameters(examples,[active[i]['exploration_mode'] for i in ids],exploration,config))

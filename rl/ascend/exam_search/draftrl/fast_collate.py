@@ -98,9 +98,9 @@ def _collate_base(examples, device='cpu'):
             'paths': gathered(paths, unique_paths, np.int64),
             'kinds': flat(kinds), 'values': flat(values),
             'numbers': gathered(numbers, unique_numbers, np.float32),
-            'entities': flat(entities),
+            'entities': _group_tensor(np.asarray(entities, dtype=np.int64), offset, device),
             'edge_src': flat(edge_src), 'edge_dst': flat(edge_dst),
-            'edge_word': flat(edge_word), 'batches': flat(batches),
+            'edge_word': flat(edge_word), 'batches': _group_tensor(np.asarray(batches, dtype=np.int64), len(examples), device),
             'action_index': tensor(action_np), 'mask': tensor(mask_np, np.bool_),
             'entity_count': offset, 'batch_size': len(examples),
             'phase': phase, 'drink_phase': phase == 1,
@@ -117,13 +117,17 @@ def _sideviews(examples):
 
 
 def collate(examples, device='cpu'):
+    import os
+    path = os.environ.get('GAKUMAS_RELATIONAL_SEMANTICS')
+    prepared = [getattr(e, '_prepared_input', None) for e in examples]
+    if prepared and all(p is not None and p[0] == path for p in prepared):
+        return merge([p[1] for p in prepared], device)
     batch = _collate_base(examples, device)
     sides = _sideviews(examples)
     if sides is not None:
         import torch
         side = _collate_base(sides, device)
-        side['node_types'] = torch.tensor([t for e in sides for t in e.node_types],
-                                          dtype=torch.long, device=device)
+        _typed_metadata(side, np.asarray([t for e in sides for t in e.node_types], dtype=np.int64), device)
         batch['relational'] = side
     return batch
 
@@ -145,8 +149,7 @@ def merge(pres, device='cpu'):
     if all(flags):
         import torch
         side = _merge_base([p['relational'] for p in pres], device)
-        side['node_types'] = torch.from_numpy(np.concatenate(
-            [p['relational']['node_types'] for p in pres])).to(device)
+        _typed_metadata(side, np.concatenate([p['relational']['node_types'] for p in pres]), device)
         batch['relational'] = side
     return batch
 
@@ -273,11 +276,52 @@ def _merge_base(pres, device='cpu'):
             'paths': cat(paths, np.int64, width=MAX_DEPTH),
             'kinds': cat(kinds, np.int64), 'values': cat(values, np.int64),
             'numbers': cat(numbers, np.float32, width=4),
-            'entities': cat(entities, np.int64),
+            'entities': _group_tensor(np.concatenate(entities), offset, device),
             'edge_src': cat(edge_src, np.int64), 'edge_dst': cat(edge_dst, np.int64),
-            'edge_word': cat(edge_word, np.int64), 'batches': cat(batches, np.int64),
+            'edge_word': cat(edge_word, np.int64), 'batches': _group_tensor(np.concatenate(batches), len(pres), device),
             'action_index': tensor(action_np), 'mask': tensor(mask_np, np.bool_),
             'entity_count': offset, 'batch_size': len(pres),
             'phase': phase, 'drink_phase': phase == 1,
             'uniform_phase': phase_values[0] if len(set(phase_values)) == 1 else None,
             'lexemes': tuple(lexemes)}
+
+
+def _typed_metadata(side, types, device):
+    """Compute structural indices before transfer, avoiding NPU nonzero syncs."""
+    import torch
+    from .relational_model import NODE_TYPES
+    if types.shape != (side['entity_count'],) or np.any((types < 0) | (types >= len(NODE_TYPES))):
+        raise ValueError('Unknown or misaligned relational node type')
+    side['node_types'] = torch.from_numpy(types).to(device)
+    if str(device).startswith('npu'):
+        side['type_indices'] = tuple(torch.from_numpy(np.flatnonzero(types == i)).to(device)
+                                     for i in range(len(NODE_TYPES)))
+        scopes = {'program_encoder': (1, 2, 3, 4, 5), 'state_encoder': (0, 6),
+                  'event_encoder': (7, 12), 'time_encoder': (8,),
+                  'zone_encoder': (9,), 'constraint_encoder': (10,)}
+        side['scope_indices'] = {name: torch.from_numpy(np.flatnonzero(np.isin(types, ids))).to(device)
+                                 for name, ids in scopes.items()}
+
+
+
+def _group_tensor(values, size, device):
+    import torch
+    result = torch.from_numpy(values).to(device)
+    if str(device).startswith('npu'):
+        from round2rl.model import prepare_segment_plan
+        result._arena_segment_plan = prepare_segment_plan(values, size, device)
+    return result
+
+
+
+def prepare_encoded(encoded):
+    """Pure CPU immutable input preparation, reusable by rollout and PPO."""
+    import os
+    path = os.environ.get('GAKUMAS_RELATIONAL_SEMANTICS')
+    cached = getattr(encoded, '_prepared_input', None)
+    if cached is None or cached[0] != path:
+        encoded._prepared_input = (path, precollate(encoded))
+        # The compact arrays carry the complete side input; do not also ship its
+        # large Python atom graph over the Arena pipe or keep two copies in PPO.
+        encoded.__dict__.pop('_relational_cached', None)
+    return encoded

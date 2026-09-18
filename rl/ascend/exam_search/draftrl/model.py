@@ -62,20 +62,8 @@ class SplitEncoder(nn.Module):
         return self.text(packed)[1][0]
 
     def lexical(self, b):
-        cache = getattr(self, '_search_lex_cache', None)
-        if cache is None or torch.is_grad_enabled():
-            return self.word_vectors(b['bytes'], b['lengths'])
-        words = b['lexemes']
-        missing = [i for i, word in enumerate(words) if word not in cache]
-        if len(cache)+len(missing)>16384:
-            cache.clear()
-            missing=list(range(len(words)))
-        if missing:
-            indices=torch.tensor(missing,device=b['bytes'].device)
-            lengths=b['lengths'][missing]
-            vectors=self.word_vectors(b['bytes'][indices,:int(lengths.max())],lengths)
-            for row,index in enumerate(missing):cache[words[index]]=vectors[row].detach()
-        return torch.stack([cache[word] for word in words])
+        from .lexical_cache import lexical
+        return lexical(self, b)
 
     def forward(self, b):
         uniform = b.get('uniform_phase')

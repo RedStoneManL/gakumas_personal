@@ -184,7 +184,7 @@ def _precollate_base(e):
             lexemes.append(text)
         return lookup[text]
 
-    if e.entity_count > np.iinfo(np.int32).max or len(e.atoms) * MAX_DEPTH > np.iinfo(np.int32).max:
+    if e.entity_count > np.iinfo(np.int32).max or len(e.atoms) * (MAX_DEPTH + 1) + len(e.edges) + 1 > np.iinfo(np.int32).max:
         raise ValueError('Encoded input exceeds compact index capacity')
     n = len(e.atoms)
     path_rows = np.zeros((n, MAX_DEPTH), dtype=np.int32)

@@ -268,6 +268,10 @@ def build(builder, identity, template, level, banned):
         mutual_exclusions=mutual, switch_relations=switch,
         exclusions={'card_ids': list(banned), 'removed': removed},
         banned_card_ids=list(banned), producer_level=level,
+        # Free slots follow this profile's own fixed cards, not the template's: a one-card
+        # idol inheriting hiro-hif's two-card bounds would be allowed to finish at 17.
+        min_free_slots=spec['min_cards'] - len(fixed_cards),
+        max_free_slots=spec['max_cards'] - len(fixed_cards),
         candidate_scope=re.sub(r'PLv <= \d+', 'PLv <= %d' % level, spec['candidate_scope']),
         profile_id=identity['id'], plan=identity['plan'],
         strategy=identity['strategy'], recommended_effect=identity['recommended_effect'])

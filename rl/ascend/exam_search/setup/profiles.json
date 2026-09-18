@@ -75766,8 +75766,8 @@
           "bindings": []
         }
       ],
-      "min_free_slots": 16,
-      "max_free_slots": 23,
+      "min_free_slots": 17,
+      "max_free_slots": 24,
       "size_policy": "after 20, 21, or 22 cards, choose finish or continue then select the next card; automatically finish at 23",
       "mutual_exclusions": [
         {

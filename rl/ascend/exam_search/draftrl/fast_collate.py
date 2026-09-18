@@ -184,11 +184,13 @@ def _precollate_base(e):
             lexemes.append(text)
         return lookup[text]
 
+    if e.entity_count > np.iinfo(np.int32).max or len(e.atoms) * MAX_DEPTH > np.iinfo(np.int32).max:
+        raise ValueError('Encoded input exceeds compact index capacity')
     n = len(e.atoms)
-    path_rows = np.zeros((n, MAX_DEPTH), dtype=np.int64)
-    kinds = np.empty(n, dtype=np.int64)
-    values = np.empty(n, dtype=np.int64)
-    entities = np.empty(n, dtype=np.int64)
+    path_rows = np.zeros((n, MAX_DEPTH), dtype=np.int32)
+    kinds = np.empty(n, dtype=np.int32)
+    values = np.empty(n, dtype=np.int32)
+    entities = np.empty(n, dtype=np.int32)
     number_rows = []
     for i, (ent, path, kind, text, number) in enumerate(e.atoms):
         # Same interning order as collate: path components, then the value text.
@@ -203,9 +205,9 @@ def _precollate_base(e):
                             number / (1 + abs(number)), number / 10000,
                             float(number != 0)])
     m = len(e.edges)
-    edge_src = np.empty(m, dtype=np.int64)
-    edge_dst = np.empty(m, dtype=np.int64)
-    edge_word = np.empty(m, dtype=np.int64)
+    edge_src = np.empty(m, dtype=np.int32)
+    edge_dst = np.empty(m, dtype=np.int32)
+    edge_word = np.empty(m, dtype=np.int32)
     for j, (src, dst, text) in enumerate(e.edges):
         edge_src[j], edge_dst[j], edge_word[j] = src, dst, word(text)
     phase = e.phase
@@ -241,9 +243,9 @@ def _merge_base(pres, device='cpu'):
         kinds.append(p['kinds'])
         values.append(remap[p['values']])
         numbers.append(p['numbers'])
-        entities.append(p['entities'] + offset)
-        edge_src.append(p['edge_src'] + offset)
-        edge_dst.append(p['edge_dst'] + offset)
+        entities.append(np.add(p['entities'], offset, dtype=np.int64))
+        edge_src.append(np.add(p['edge_src'], offset, dtype=np.int64))
+        edge_dst.append(np.add(p['edge_dst'], offset, dtype=np.int64))
         edge_word.append(remap[p['edge_word']])
         batches.append(np.full(p['entity_count'], batch, dtype=np.int64))
         actions.append([offset + i for i in p['action_entities']])

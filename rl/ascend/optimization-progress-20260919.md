@@ -43,3 +43,15 @@ The user subsequently requested carrying this work onto the latest remote framew
 ## Next steps
 
 Fetch/identify the updated framework branch, preserve this commit, compare changed module contracts, port only compatible optimizations into a fresh branch, rerun CPU equivalence and actual NPU/pipeline tests. Keep the full production job stopped while profiling as the user requested.
+
+
+## Latest framework and full-pipeline profiling (2026-09-19)
+- Preserved old optimization at edba11b; latest remote framework cff87da merged at 04f168e on codex/npu-utilization-v6-credit.
+- Original production remains stopped. User now authorizes starting a NEW production run after optimization validation, using the preserved production checkpoint, never short-course perf weights.
+- Reused lexical caches, static type indices, bucket pooling, six-profile operational fixes. Added worker input preparation, bounded asynchronous auxiliary labels and a fresh bank replay controller fix.
+- Full regression r2: 53 core + 177 search tests, distributed sharded script passed. Additional bank/perf precheck: 22 tests passed.
+- 8-NPU full-pipeline perf r2 completed one update: collect 2.8m, forks 1.3m, bank 0.7m, PPO 3.6m; total run 9.55m. Launcher hit its 10-minute timeout during cleanup (exit124); completed checkpoint/result preserved.
+- Actual NPU AICore mean was only ~0.2% collection and 1.1% PPO; 80% target NOT met. CPU mean ~19.6% collection /7.6% PPO. py-spy identifies IPC/serialization plus portable GRU, with steady sample dominated by unrolled GRU.
+- Native NPU fused FP32 GRU is unsupported by DynamicGRUV2. Separate CPU-packed GRU bridge probe preserves outputs within 2.1e-7 and input gradients within 2.4e-7. Parameter gradients differ up to 1.4e-5 (FP32 backend reduction order); larger case failed the original 2e-6 absolute tolerance, so explicit cross-device tolerance validation is pending.
+- LOCAL changes not yet deployed/fully verified: compact int32 worker arrays, return prepared arrays instead of duplicate Encoded objects, scoped normal-rollout lexical cache, CPU packed GRU with differentiable copies, bounded phase/profile-balanced perf update and perf scene coverage for drinks/HIF memory.
+- Evidence: /mnt/local/gakumas/evidence/v7-opt; isolated code /mnt/local/gakumas/deploy-v6-credit-opt. Preserve all evidence; do not overwrite baseline deployments or production checkpoints.

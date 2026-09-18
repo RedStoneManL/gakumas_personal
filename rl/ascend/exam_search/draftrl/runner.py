@@ -89,6 +89,10 @@ def choose(model, examples, device, greedy=False, driver='policy', rngs=None, ex
     return selected.tolist(), logp.tolist(), (values.tolist() if values is not None else [None]*len(examples)), settings, diagnostics
 
 
+from .lexical_cache import cached_rollout
+
+
+@cached_rollout
 def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=None,
             target_decisions=None, greedy=False, fixed_drinks=None, spec=None, driver='policy', log_path=None, exploration=None, scenario_bank=None,keep_entries=False,
             index_offset=0, seed_stride=1):
@@ -177,11 +181,16 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                 profile = config['_profiles'][index % len(config['_profiles'])]
                 local_index = index // len(config['_profiles'])
                 scene_index = local_index // len(profile['spec']['scenarios'])
+                if config.get('performance_probe'):
+                    # A tiny wave still exercises drinks and HIF memory phases.
+                    scene_index = local_index
                 mode_entry, mode_spec, memory_mode = prepare_memory_mode(profile['entry'], profile['spec'], scene_index)
                 scenario_entry, scenario_spec, scenario = assign(mode_entry, mode_spec, local_index,
                     coverage=target_decisions is not None and config.get('coverage_enabled', False))
                 scenario_entry, scenario_spec, general = augment(scenario_entry, scenario_spec,
                     scene_index, next_seed, training=training)
+                from .performance_probe import shorten_course
+                scenario_entry, scenario_spec, general = shorten_course(scenario_entry, scenario_spec, general, config)
                 scenario_entry, scenario_spec = keycard_focus.prepare(scenario_entry, scenario_spec,
                     config, profile['id'], training=training)
                 scenario_spec = duplicate_limits.prepare_spec(scenario_spec, config)
@@ -276,6 +285,8 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                                    'course_id':row['course_id'], 'drink_capacity':row['drink_capacity'],
                                    'memory_mode':row['memory_mode'], 'memory_capacity':row['memory_capacity'],
                                     'condition_cell':row['condition_cell'], **diagnostic, **extra})
+            if flow is not None:
+                flow.bind(row['records'][-1], extra)
             if 'controller_contract' in row:
                 row['records'][-1]['controller_contract'] = dict(row['controller_contract'])
             row['steps'] += 1
@@ -409,7 +420,7 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
             stage_progress.update(_done, len(active))
             last_log = time.monotonic()
     stage_progress.end()
-    if flow: flow.assert_drained()
+    if flow: flow.drain()
     print(json.dumps({'event': 'rollout_ready', 'schema': RUNNER_SCHEMA,
         'episodes': len(summaries), 'meaningful_decisions': meaningful, 'next_seed': next_seed,
         'elapsed_minutes': round((time.monotonic() - rollout_started) / 60, 1),
@@ -519,6 +530,11 @@ def _batch_search(router, before, distributed):
 def train(root, setup, config, initial, output, *, resume=False, continuation=None):
     from .search_supervision import validate_training_config
     validate_training_config(config)
+    probe = config.get('performance_probe', False)
+    if type(probe) is not bool:
+        raise ValueError('performance_probe must be a boolean')
+    if probe and (resume or continuation is not None or config.get('max_batches') != 1):
+        raise ValueError('A performance probe requires a new isolated single-batch run')
     from .relational_runtime import configure
     from .relational_training import parameter_groups, migrate_optimizer
     semantic_path = configure(config, setup)
@@ -886,6 +902,13 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                        f"validation-{recovery['history'][-1]['batch']:04d}.json")
                 last_eval=(output/label).stat().st_mtime-began.timestamp()
             else:last_eval=0
+        elif probe:
+            checkpoint('initial.pt');checkpoint('latest.pt')
+            baseline = None
+            profile_bests, scenario_bests = {}, {}
+            last_eval = 0
+            publish('performance_probe', evaluation_skipped=True,
+                    note='Throughput diagnostic; no model-quality or checkpoint-selection claim')
         else:
             checkpoint('initial.pt');checkpoint('latest.pt')
             baseline=evaluate('validation-initial')
@@ -915,7 +938,7 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         run_config['_completed_batches'] = batches
         run_config['_policy_version'] = f'{source_hash}:{batches}'
         keycard_check(pool,model,run_config,catalog,device,output,batches,rollout,choose,checkpoint,publish)
-        if practice.get('forks',{}).get('objective')=='best_of_k' and not (output/'best4-reference.json').exists():
+        if not probe and practice.get('forks',{}).get('objective')=='best_of_k' and not (output/'best4-reference.json').exists():
             best4_check(evaluate('validation-best4-boundary'),'validation-best4-boundary')
             if resumed:restore_random(resumed)
             checkpoint('latest.pt')
@@ -1019,7 +1042,7 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                 if practice.get('forks',{}).get('objective')=='best_of_k':
                     from .best_of import repeat_bank_tasks,apply_bank_returns
                     extra_tasks,fork_next_seed=repeat_bank_tasks(
-                        keycard_focus.filter_bank_tasks(bank.sample(extra_count),run_config),fork_next_seed)
+                        keycard_focus.filter_bank_tasks(bank.sample(extra_count),run_config),fork_next_seed,config=run_config)
                 if extra_tasks is not None and _distributed.ACTIVE is not None and _distributed.ACTIVE.size>1:
                     # Replica groups are whole on one rank and credited there; the replays
                     # run with bank=None everywhere, so the bank is fed here from summaries.
@@ -1118,7 +1141,7 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
             del records
             run_config['_policy_version'] = f'{source_hash}:{batches}'
             keycard_check(pool,model,run_config,catalog,device,output,batches,rollout,choose,checkpoint,publish)
-            if time.monotonic()-started-last_eval >= 60*config.get('evaluation_interval_minutes', 60):
+            if not probe and time.monotonic()-started-last_eval >= 60*config.get('evaluation_interval_minutes', 60):
                 evaluation=evaluate(f'validation-{batches:04d}')
                 best4_check(evaluation,f'validation-{batches:04d}')
                 metric=index(evaluation,baseline)
@@ -1144,6 +1167,13 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                     capacities=evaluation['capacities'],courses=evaluation['courses'])
                 last_eval=time.monotonic()-started
                 if play_suite is not None:play_check(f'play-validation-{batches:04d}')
+        if probe:
+            report = {'performance_probe': True, 'batches': batches, 'decisions': decisions,
+                      'elapsed_seconds': time.monotonic()-started,
+                      'evaluation_skipped': True, 'quality_validated': False}
+            json_write(output/'result.json', report)
+            publish('complete', status='complete', performance_probe=report)
+            return
         latest=evaluate('validation-final')
         best4_check(latest,'validation-final')
         metric=index(latest,baseline)

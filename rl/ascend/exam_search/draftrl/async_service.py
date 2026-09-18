@@ -172,6 +172,7 @@ class SearchService:
                     batch = collate([job['encoded'] for job in unique], self.device)
                 assembled = time.monotonic()
                 encoders = self.lexical_encoders
+                previous_caches = [getattr(encoder, '_search_lex_cache', None) for encoder in encoders]
                 try:
                     for encoder, cache in zip(encoders, self.lexical_caches):
                         encoder._search_lex_cache = cache
@@ -181,8 +182,8 @@ class SearchService:
                         predictions = values.cpu().tolist()
                         distributions = atoms.cpu().tolist() if atoms is not None else None
                 finally:
-                    for encoder in encoders:
-                        encoder._search_lex_cache = None
+                    for encoder, previous in zip(encoders, previous_caches):
+                        encoder._search_lex_cache = previous
                 self.stats['assembly_seconds'] += assembled-tick
                 self.stats['forward_seconds'] += time.monotonic()-assembled
                 def _width(job):

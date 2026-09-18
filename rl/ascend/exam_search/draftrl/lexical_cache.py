@@ -19,9 +19,30 @@ def lexical(encoder, batch):
     return torch.stack([cache[word] for word in words])
 
 def search_encoders(model):
-    encoders = [model.actor, model.critic]
+    if model is None:  # Pool-capacity probes do not construct a policy.
+        return ()
+    encoders = [getattr(model, role) for role in ('actor', 'critic')
+                if getattr(model, role, None) is not None]
     for role in ('actor_relational', 'critic_relational'):
         branch = getattr(model, role, None)
         if branch is not None:
             encoders.append(branch.encoder.stem)
     return tuple(encoders)
+
+
+def cached_rollout(function):
+    """Reuse lexical vectors only inside one frozen-policy collection stage."""
+    from functools import wraps
+    @wraps(function)
+    def wrapped(pool, model, *args, **kwargs):
+        encoders = search_encoders(model)
+        previous = [getattr(encoder, '_search_lex_cache', None) for encoder in encoders]
+        try:
+            for encoder in encoders:
+                encoder._search_lex_cache = {}
+            return function(pool, model, *args, **kwargs)
+        finally:
+            # PPO runs outside the scope; no embedding from an earlier policy survives.
+            for encoder, cache in zip(encoders, previous):
+                encoder._search_lex_cache = cache
+    return wrapped

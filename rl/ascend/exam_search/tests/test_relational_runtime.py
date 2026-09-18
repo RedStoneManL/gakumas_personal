@@ -157,6 +157,66 @@ class RelationalRuntimeTests(unittest.TestCase):
             prepared = pool.map_async(spawned_precollate, examples).get(timeout=45)
         self.assert_batch_equal(fast_collate.collate(examples), fast_collate.merge(prepared))
 
+
+    def test_arena_worker_prepares_every_profile_phase_and_reuses_ppo_inputs(self):
+        from r1rl.environment import Workers
+        from gakumas_arena.engine.training import content_version
+        pool = Workers(2, HERE / 'runtime/arena', content_version()['effective_sha256'])
+        try:
+            examples = [copy.deepcopy(e) for rows in self.examples.values() for e in rows]
+            for start in range(0, len(examples), 2):
+                rows = examples[start:start + 2]
+                expected = fast_collate.collate(rows)
+                prepared = pool.prepare_encoded(range(len(rows)), rows)
+                self.assertEqual([e.submissions for e in rows], [e.submissions for e in prepared])
+                self.assertTrue(all('_relational_cached' not in e.__dict__ for e in prepared))
+                with patch('draftrl.fast_collate._sideviews', side_effect=AssertionError('PPO rebuilt graph')):
+                    self.assert_batch_equal(expected, fast_collate.collate(prepared))
+                with patch.object(pool, 'send', side_effect=AssertionError('prepared input sent twice')):
+                    reused = pool.prepare_encoded(range(len(rows)), prepared)
+                self.assertTrue(all(a is b for a, b in zip(prepared, reused)))
+        finally:
+            pool.close()
+
+    def test_arena_reset_step_and_choice_preparation_preserve_public_history(self):
+        from r1rl.environment import Workers
+        from gakumas_arena.engine.training import content_version
+        pool = Workers(1, HERE / 'runtime/arena', content_version()['effective_sha256'])
+        try:
+            pool.send(0, 'reset', (self.entries['saki-hif'], 81931))
+            answer = pool.receive(0)
+            for _ in range(2):
+                observation = answer['observation']
+                self.assertFalse(observation.get('choice'))
+                expected = public_encoding(observation)
+                self.assertEqual(expected.submissions, answer['encoded'].submissions)
+                self.assert_batch_equal(fast_collate.collate([expected]), fast_collate.collate([answer['encoded']]))
+                command = next(a for a in observation['actions'] if a['type'] == 'end_turn')
+                pool.send(0, 'step', {'method': 'act', 'action': command})
+                answer = pool.receive(0)
+            entry = copy.deepcopy(self.entries['ume-campus'])
+            entry['persistent_effects'].append({'id': 'choice-probe', 'effects': self.choice_program, 'counters': {}})
+            pool.send(0, 'reset', (entry, 81932))
+            answer = pool.receive(0)
+            self.assertIsNotNone(answer['observation']['choice'])
+            encoded = public_encoding(answer['observation'])
+            history = pool.public_history(0)
+            prepared = pool.prepare_encoded([0], [encoded])
+            self.assertEqual(pool.public_history(0), history)
+            self.assert_batch_equal(fast_collate.collate([encoded]), fast_collate.collate(prepared))
+        finally:
+            pool.close()
+
+    def test_prepared_input_invalidates_when_semantics_configuration_changes(self):
+        encoded = copy.deepcopy(self.examples['saki-hif'][-1])
+        fast_collate.prepare_encoded(encoded)
+        self.assertIn('relational', fast_collate.collate([encoded]))
+        with patch.dict(os.environ, {}, clear=True):
+            fast_collate.prepare_encoded(encoded)
+            self.assertNotIn('relational', fast_collate.collate([encoded]))
+        fast_collate.prepare_encoded(encoded)
+        self.assertIn('relational', fast_collate.collate([encoded]))
+
     def test_real_heterogeneous_phases_forward_backward_one_cpu_step(self):
         torch.manual_seed(918)
         batch = fast_collate.collate(self.examples["saki-hif"])

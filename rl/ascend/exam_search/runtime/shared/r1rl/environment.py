@@ -46,7 +46,8 @@ def worker(connection, arena, expected_hash):
                 answer = {"observation": submit(exam, payload)}
             elif command == 'encode':
                 from draftrl.fast_collate import prepare_encoded
-                connection.send((True, {'encoded': prepare_encoded(payload)}))
+                prepared = prepare_encoded(payload)._prepared_input
+                connection.send((True, {'prepared': prepared}))
                 continue
             elif command == 'history':
                 if exam is None:
@@ -113,7 +114,9 @@ class Workers:
                 self.send(index, 'encode', encoded)
                 pending.append((position, index))
         for position, index in pending:
-            result[position] = self.receive(index)['encoded']
+            encoded = result[position]
+            encoded._prepared_input = self.receive(index)['prepared']
+            encoded.__dict__.pop('_relational_cached', None)
         return result
 
     def public_history(self, index):

@@ -39,6 +39,7 @@ if __name__ == '__main__':
                         'test_native_semantics', 'test_prepare_relational',
                         'test_relational_encoding', 'test_relational_model',
                         'test_relational_runtime', 'test_relational_training',
+                        'test_npu_inference_optimizations', 'test_auxiliary_overlap', 'test_performance_probe',
                         'test_relational_bundle', 'test_search_evidence',
                         'test_search_auxiliary', 'test_search_supervision',
                         'test_auxiliary_reporting'])

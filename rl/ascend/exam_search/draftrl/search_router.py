@@ -37,7 +37,7 @@ class SearchRouter:
         # route, sleep, or HIF scene cycles; identical forks inherit this flag.
         return (local_index % every + local_index // every) % every == 0
 
-    def prepare(self, pool, items, policy_version):
+    def prepare(self, pool, items, policy_version, *, capacity=None):
         extras = [{'loss_kind': 'ppo'} for _ in items]
         tasks, positions = [], []
         for position, item in enumerate(items):
@@ -63,6 +63,10 @@ class SearchRouter:
                 continue
             maximum = self.config.get('max_roots_per_episode')
             if maximum is not None and self.episode_roots[item['episode_id']] >= maximum:
+                continue
+            if capacity is not None and len(tasks) >= capacity:
+                extras[position]['search_skipped_reason'] = 'auxiliary_backpressure'
+                self.counts['auxiliary_backpressure_skips'] += 1
                 continue
             history = pool.public_history(item['worker'])
             observed = history['steps'][-1]['observation'] if history['steps'] else history['initial']['observation']

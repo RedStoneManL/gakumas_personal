@@ -25,6 +25,8 @@ def aggregate_auxiliary_diagnostics(diagnostics, mesh):
 
 
 def update(model, optimizer, records, config, device, progress=None, mesh=None):
+    from .performance_probe import select_update_records
+    records = select_update_records(records, config)
     if not records:
         raise ValueError('empty on-policy rollout')
     n = len(records)

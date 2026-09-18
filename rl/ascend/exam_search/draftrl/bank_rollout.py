@@ -15,6 +15,10 @@ from . import keycard_focus
 from .duplicate_limits import limit as copy_limit, validate as validate_copy_limit, overrides as copy_overrides
 
 
+from .lexical_cache import cached_rollout
+
+
+@cached_rollout
 def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path=None,
                  *,tasks=None,greedy=False,source='bank_exam',keep_value_records=False):
     if keep_value_records and (not greedy or bank is not None):
@@ -104,6 +108,8 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
                 'terminal':False,**diagnostic,**extra})
             if controller is not None:
                 row['records'][-1]['controller_contract'] = dict(controller)
+            if flow is not None:
+                flow.bind(row['records'][-1], extra)
             row['steps']+=1;meaningful+=len(e.submissions)>1
             if row['steps']>config['max_episode_decisions']:raise RuntimeError('bank decision guard exceeded')
             if row['choice'] is not None:
@@ -174,7 +180,7 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
                 'eta_minutes':round((len(tasks)-_done)/_rate/60,1) if _rate else None}),flush=True)
             stage_progress.update(_done,len(active))
             last_log=time.monotonic()
-    if flow: flow.assert_drained()
+    if flow: flow.drain()
     stage_progress.end()
     print(json.dumps({'event':'bank_rollout_ready','episodes':len(summaries),'meaningful_decisions':meaningful,
                       'total':len(tasks),'source':source,

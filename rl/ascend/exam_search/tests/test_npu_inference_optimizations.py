@@ -40,6 +40,35 @@ class InferenceOptimizationTests(unittest.TestCase):
             stem._search_lex_cache.clear()
             torch.testing.assert_close(lexical(stem,batch),stem.word_vectors(batch['bytes'],batch['lengths']))
 
+
+    def test_rollout_lexical_scope_restores_cache_and_rebuilds_after_weight_change(self):
+        from types import SimpleNamespace
+        from draftrl.lexical_cache import cached_rollout
+        model = SimpleNamespace(actor=RelationalStem(width=16, lexical=4),
+                                critic=RelationalStem(width=16, lexical=4))
+        batch = side_batch()
+        @cached_rollout
+        def probe(pool, model, fail=False):
+            with torch.no_grad(), patch.object(model.actor, 'word_vectors', wraps=model.actor.word_vectors) as call:
+                first = lexical(model.actor, batch)
+                second = lexical(model.actor, batch)
+                self.assertEqual(call.call_count, 1)
+                torch.testing.assert_close(first, second, atol=0, rtol=0)
+                if fail:
+                    raise RuntimeError('scope exit')
+                return first
+        first = probe(None, model)
+        self.assertIsNone(model.actor._search_lex_cache)
+        with torch.no_grad():
+            model.actor.byte.weight.add_(.2)
+        second = probe(None, model)
+        self.assertFalse(torch.equal(first, second))
+        previous = {}
+        model.actor._search_lex_cache = previous
+        with self.assertRaisesRegex(RuntimeError, 'scope exit'):
+            probe(None, model, fail=True)
+        self.assertIs(model.actor._search_lex_cache, previous)
+
     def test_precomputed_type_indices_preserve_forward_and_backward(self):
         stem=RelationalStem(width=16,lexical=4)
         other=copy.deepcopy(stem)

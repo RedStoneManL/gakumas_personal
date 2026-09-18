@@ -57,7 +57,7 @@ def summarize_groups(groups):
             'normalized_macro_best':statistics.mean(p['normalized_best_of_k'] for p in profiles.values())}
 
 
-def repeat_bank_tasks(tasks, next_seed, replicas=4):
+def repeat_bank_tasks(tasks, next_seed, replicas=4, *, config=None):
     expanded=[]
     for task in tasks:
         prefix='bank:'+str(task['replay_seed'])
@@ -67,6 +67,15 @@ def repeat_bank_tasks(tasks, next_seed, replicas=4):
                 current['replay_seed']=next_seed
                 next_seed+=1
             current['metadata'].update(prefix_id=prefix,branch_id=branch,fork_replicas=replicas)
+            if config is not None:
+                # Every bank branch is a fresh real rollout of the current policy.
+                # The reservoir retains loadouts, not their old action controller.
+                from .practice import auxiliary_controller
+                controller = auxiliary_controller(config)
+                if controller is None:
+                    current['metadata'].pop('controller_contract', None)
+                else:
+                    current['metadata']['controller_contract'] = controller
             expanded.append(current)
     return expanded,next_seed
 
@@ -83,7 +92,7 @@ def apply_bank_returns(records, results, tasks):
         replicas=outcomes[0]['fork_replicas']
         if [s['branch_id'] for s in outcomes]!=list(range(replicas)):
             raise ValueError('Bank branch identities changed')
-        for key in ('policy_version','entry_sha256','score_scale','resolved_turn_types','exploration_mode'):
+        for key in ('policy_version','entry_sha256','score_scale','resolved_turn_types','exploration_mode','controller_contract'):
             if any(s.get(key)!=outcomes[0].get(key) for s in outcomes):
                 raise ValueError('Bank repeat changed '+key)
         if len({s['seed'] for s in outcomes})!=replicas or len({s['action_rng_seed'] for s in outcomes})!=replicas:

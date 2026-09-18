@@ -91,7 +91,7 @@
     "end": "2026-09-11T02:40:00+08:00",
     "note": "Keep the existing overnight cutoff; do not restart an eight-hour window."
   },
-  "sampling": "Equal episode counts per fifteen profile/scenario cells; five idols x free/sleep1/sleep2. Effective gradient batch64; epsilon-mixture exact PPO likelihood.",
+  "sampling": "Equal episode counts per eighteen profile/scenario cells; six idols x free/sleep1/sleep2. Effective gradient batch64; epsilon-mixture exact PPO likelihood.",
   "old_run": {
     "launcher_pid": 27980,
     "output": "C:\\Users\\Liu\\Documents\\ChatGPT\\gakumas\\rl\\generalist\\runs\\memory-optional-20260910-234138",
@@ -112,7 +112,7 @@
     ],
     "url": "http://127.0.0.1:8900/"
   },
-  "exclusion_policy": "own-plan/free ordinary + cards and sleep plus support + cards, PLv <= 76; support cards <= 3 in total; no Prima Stella",
+  "exclusion_policy": "own-plan/free ordinary + cards and sleep plus support + cards, PLv <= 80; support cards <= 3 in total; no Prima Stella",
   "prima_stella_registry": {
     "schema": "prima-stella-deck-slot-exemptions/1",
     "source_chain": "IdolCardPrimaStellaProduceSkill -> ProduceSkill(id,level) -> ProduceEffect.produceRewards -> ProduceCard -> native catalog",
@@ -426,5 +426,42 @@
     },
     "posterior_model": "draw-conditioned-sequential-importance/1"
   },
-  "migration_scope": "Two verified customization option corrections; inherited run/window/warmstart fields are historical, not a launch configuration"
+  "migration_scope": "Two verified customization option corrections; inherited run/window/warmstart fields are historical, not a launch configuration",
+  "profile_revision": {
+    "date": "2026-09-18",
+    "generator": "scripts/build_profiles.py (--selftest reproduces the previous five profiles field for field)",
+    "producer_level": {
+      "old": 76,
+      "new": 80,
+      "unlocked": {
+        "sense": [
+          776
+        ],
+        "logic": [
+          778
+        ],
+        "anomaly": [
+          774,
+          780
+        ]
+      }
+    },
+    "hand_picked_bans_dropped": [
+      775,
+      776
+    ],
+    "prima_stella": "still excluded: those cards are idol-unique deck-slot exemptions that none of these six idol cards has unlocked",
+    "added_profile": {
+      "id": "sena-campus",
+      "idol": "十王星南 / JUO SENA (character jsna, idolId 11)",
+      "card": "i_card-jsna-3-002 Campus mode!! (p_idol 70)",
+      "plan": "sense",
+      "effect": "goodConditionTurns via ProduceExamEffectType_ExamParameterBuff",
+      "unique_card": 479,
+      "p_item": 205,
+      "stamina": "31 + 13 = 44",
+      "turn_allocation": "p_exam_battle_config-vivo-03: visual 354 > vocal 292 > dance 239, final exam 12 turns"
+    },
+    "note": "Adding a profile changes setup_sha256, so this setup cannot continue an existing run; start a new run seeded with --initial."
+  }
 }

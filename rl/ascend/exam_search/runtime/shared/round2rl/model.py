@@ -27,6 +27,18 @@ def _segment_amax(x, group, size, counts):
     budget we use index_reduce_ instead -- still CPU-fallback, but measured 3.1x faster
     than the original because it does not materialise an expanded index.
     Both paths were verified bit-identical to the original on three group distributions."""
+    plan = getattr(group, '_arena_segment_plan', None)
+    if plan is not None:
+        maximum = x.new_full((size, x.shape[-1]), -torch.inf)
+        for ids, positions, valid in plan:
+            # Count buckets bound padding to <2x the actual elements instead of
+            # size * global_widest. Group membership is fixed input metadata.
+            rows = max(1, _SEGMENT_AMAX_BUDGET // (positions.shape[1] * x.shape[-1]))
+            for start in range(0, len(ids), rows):
+                gathered = x[positions[start:start+rows]]
+                reduced = gathered.masked_fill(~valid[start:start+rows, :, None], -torch.inf).amax(1)
+                maximum = maximum.index_copy(0, ids[start:start+rows], reduced)
+        return maximum
     widest = int(counts.max()) if counts.numel() else 0
     if widest and size * widest * x.shape[-1] <= _SEGMENT_AMAX_BUDGET:
         order = torch.argsort(group)
@@ -109,3 +121,30 @@ class PolicyValue(nn.Module):
         selected = nodes[b["action_index"]]
         logits = self.policy_head(torch.cat([selected, state[:, None].expand(-1, selected.shape[1], -1)], -1)).squeeze(-1)
         return logits.masked_fill(~b["mask"], -torch.inf)
+
+
+
+def prepare_segment_plan(groups, size, device):
+    """Create exact grouped-max gather plans from CPU input structure."""
+    import numpy as np
+    groups = np.asarray(groups, dtype=np.int64)
+    if np.any((groups < 0) | (groups >= size)):
+        raise ValueError('Segment group index out of bounds')
+    counts = np.bincount(groups, minlength=size)
+    starts = np.cumsum(counts) - counts
+    order = (np.arange(len(groups)) if np.all(groups[:-1] <= groups[1:])
+             else np.argsort(groups, kind='stable'))
+    plan = []
+    width = 1
+    widest = int(counts.max()) if len(counts) else 0
+    while width < 2 * widest:
+        ids = np.flatnonzero((counts > (width // 2 if width > 1 else 0)) & (counts <= width))
+        if len(ids):
+            slots = np.arange(width)[None, :]
+            valid = slots < counts[ids, None]
+            offsets = np.where(valid, starts[ids, None] + slots, 0)
+            positions = order[offsets]
+            plan.append(tuple(torch.from_numpy(value).to(device)
+                              for value in (ids, positions, valid)))
+        width *= 2
+    return tuple(plan)

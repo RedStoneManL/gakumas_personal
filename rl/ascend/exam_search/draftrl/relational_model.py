@@ -50,7 +50,8 @@ class RelationalStem(nn.Module):
         return self.text(packed)[1][0]
 
     def forward(self, b):
-        lex = self.word_vectors(b['bytes'], b['lengths'])
+        from .lexical_cache import lexical
+        lex = lexical(self, b)
         lex = lex * (torch.arange(len(lex), device=lex.device) != 0)[:, None]
         atoms = self.atom(torch.cat([
             nn.functional.embedding(b['paths'], lex, padding_idx=0).flatten(1),
@@ -60,11 +61,12 @@ class RelationalStem(nn.Module):
         types = b['node_types']
         if types.shape != (b['entity_count'],):
             raise ValueError('Relational node_types must align with every side entity')
-        if bool(((types < 0) | (types >= len(NODE_TYPES))).any()):
+        prepared = b.get('type_indices')
+        if prepared is None and bool(((types < 0) | (types >= len(NODE_TYPES))).any()):
             raise ValueError('Unknown relational node type')
         adapted = torch.zeros_like(nodes)
         for index, name in enumerate(NODE_TYPES):
-            selected = (types == index).nonzero(as_tuple=True)[0]
+            selected = prepared[index] if prepared is not None else (types == index).nonzero(as_tuple=True)[0]
             if selected.numel():
                 adapted = adapted.index_copy(
                     0, selected, nodes[selected] + self.type_adapters[name](nodes[selected]))
@@ -76,10 +78,13 @@ class RelationalStem(nn.Module):
         }
         result = adapted
         for module, type_ids in scopes.items():
-            mask = torch.zeros_like(types, dtype=torch.bool)
-            for type_id in type_ids:
-                mask = mask | (types == type_id)
-            selected = mask.nonzero(as_tuple=True)[0]
+            if 'scope_indices' in b:
+                selected = b['scope_indices'][module]
+            else:
+                mask = torch.zeros_like(types, dtype=torch.bool)
+                for type_id in type_ids:
+                    mask = mask | (types == type_id)
+                selected = mask.nonzero(as_tuple=True)[0]
             if selected.numel():
                 result = result.index_copy(
                     0, selected, adapted[selected] + getattr(self, module)(adapted[selected]))

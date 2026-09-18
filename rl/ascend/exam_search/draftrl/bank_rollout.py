@@ -71,6 +71,8 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
         modes=[active[i]['task']['metadata'].get('exploration_mode','normal') for i in ids]
         overrides=routed_parameters(examples,modes,exploration,config)
         if ids:
+            if hasattr(pool, 'prepare_encoded'):
+                examples = pool.prepare_encoded(ids, examples)
             actions,logps,values,settings,diagnostics=choose(model,examples,device,greedy,'policy',
                 [active[i]['rng'] for i in ids],exploration,settings_override=overrides)
         else:

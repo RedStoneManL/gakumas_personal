@@ -3,7 +3,7 @@ import random
 import time
 from collections import Counter
 import torch
-from .encoding import collate
+from .batch_pipeline import BatchStream
 from .distribution import distributions
 from .advantages import estimate, assert_current_policy
 from .practice import profile_weights, validate_auxiliary_records  # mesh-aware weights are in sharded
@@ -103,107 +103,111 @@ def update(model, optimizer, records, config, device, progress=None, mesh=None):
         bounds = [(i*effective, min((i+1)*effective, n)) for i in range(num_blocks)]
     else:
         bounds, num_blocks, n_global = sharded.block_plan(local_mesh, n, effective)
+    input_stats = Counter()
+    input_prefetch = False
     for epoch in range(maximum_epochs):
         if shared:
             mesh.shuffle(order)
         else:
             random.shuffle(order)
         epoch_kl = []
-        for block_index in range(num_blocks):
-            start, end = bounds[block_index]
-            block = order[start:end]
-            # The divisor is the block's size across ALL ranks: gradients are summed,
-            # never averaged again, so this keeps the single-learner objective exactly.
-            block_size = len(block) if shared else sharded.block_length(local_mesh, len(block))
-            attempted_indices.update(block)
-            optimizer.zero_grad(set_to_none=True)
-            totals = Counter()
-            shard = block[mesh.rank::mesh.size] if shared else block
-            for offset in range(0,len(shard),config['minibatch']):
-                indices = shard[offset:offset+config['minibatch']]
-                rows = [records[i] for i in indices]
-                batch = collate([r['encoded'] for r in rows],device)
-                logits, values, quantiles = model.learning_forward(batch)
-                dist, base = distributions(logits,batch['mask'],[r['exploration'] for r in rows])
-                selected = meaningful[indices].to(device)
-                actions = torch.tensor([r['action'] for r in rows],device=device)
-                targets = critic_targets[indices].to(device)
-                is_search = searched[indices].to(device)
-                ppo_indices = (~is_search).nonzero(as_tuple=True)[0]
-                log_ratio = logits.new_zeros(len(rows))
-                if len(ppo_indices):
-                    old = logits.new_tensor([r['old_logp'] for r in rows if r['loss_kind']=='ppo'])
-                    if not torch.isfinite(old).all():
-                        raise ValueError('Invalid true PPO behavior likelihood')
-                    # Search-selected actions have no PPO ratio at all.
-                    log_ratio = log_ratio.index_copy(0, ppo_indices,
-                        dist.log_prob(actions)[ppo_indices]-old)
-                ratio = log_ratio.exp()
-                adv = advantages[indices].to(device)
-                pw, vw = policy_weight[indices].to(device), value_weight[indices].to(device)
-                surrogate = torch.minimum(ratio*adv, ratio.clamp(1-config['clip'],1+config['clip'])*adv)
-                policy = -(surrogate*pw).sum()/block_size
-                sw = search_weight[indices].to(device)
-                target = torch.zeros_like(logits)
-                for position, row in enumerate(rows):
-                    if row['loss_kind'] != 'search' and 'search_aux_target' not in row:
-                        continue
-                    search = row['search'] if row['loss_kind']=='search' else row['search_aux_target']
-                    if (row['encoded'].phase != 0 or not search['target_budget_eligible']
-                            or search['root_action_coverage'] != 1.
-                            or search['actions'] != row['encoded'].submissions):
-                        raise ValueError('Invalid search policy target admission/alignment')
-                    probability = logits.new_tensor(search['target_policy'])
-                    if (len(probability) != len(row['encoded'].submissions)
-                            or not torch.isfinite(probability).all() or (probability < 0).any()
-                            or not torch.isclose(probability.sum(), logits.new_tensor(1.))):
-                        raise ValueError('Malformed detached search distribution')
-                    target[position,:len(probability)] = probability.detach()
-                log_policy = logits.log_softmax(-1).masked_fill(~batch['mask'], 0.)
-                search_loss = (-(target*log_policy).sum(-1)*sw).sum()/block_size
-                value = (torch.nn.functional.smooth_l1_loss(values,targets,reduction='none')*vw).sum()/block_size
-                distribution_loss = logits.new_zeros(())
-                if quantiles is not None:
-                    from .value_distribution import quantile_loss
-                    exam_mask = (batch['phase']==0).to(vw.dtype)
-                    distribution_loss = (quantile_loss(quantiles,targets)*vw*exam_mask).sum()/block_size
-                norm_entropy = base.entropy()/batch['mask'].sum(-1).float().log().clamp_min(1)
-                coeff = logits.new_tensor([r['exploration']['entropy_coefficient'] for r in rows])
-                bonus = (coeff*norm_entropy*torch.where(is_search,sw,pw)).sum()/block_size
-                loss = (policy + config['search']['loss_coefficient']*search_loss
-                        + config['value_coefficient']*value
-                        + config.get('value_calibration',{}).get('distribution_coefficient',1.)*distribution_loss - bonus)
-                if not torch.isfinite(loss):
-                    raise FloatingPointError('nonfinite mixed-plan PPO')
-                loss.backward()
-                kl_values = ((ratio-1)-log_ratio)[selected]
-                totals.update(loss=float(loss.detach()), policy_loss=float(policy.detach()),
-                    value_loss=float(value.detach()), distribution_loss=float(distribution_loss.detach()), search_loss=float(search_loss.detach()), entropy_bonus=float(bonus.detach()),
-                    kl_sum=float(kl_values.detach().sum()), kl_count=len(kl_values),
-                    clip_count=int(((ratio-1).abs()>config['clip'])[selected].sum()))
-            if mesh is not None:
-                totals = mesh.totals(totals)
-            kl = totals['kl_sum']/max(1,totals['kl_count'])
-            epoch_kl.append((kl,totals['kl_count']))
-            # No optimizer step is taken for a block already outside trust region.
-            if kl > config['target_kl']*2:
-                stopping_block = {'kl': kl, 'threshold': config['target_kl']*2,
-                                  'epoch': epoch+1, 'start_record': start, 'records': block_size}
-                optimizer.zero_grad(set_to_none=True); stop=True; stop_reason='block_kl'; break
-            if mesh is not None:
-                mesh.gradients(model)
-            from gakumas_training.device import optimizer_options
-            grad = torch.nn.utils.clip_grad_norm_(model.parameters(),config['max_grad'],
-                error_if_nonfinite=True, **optimizer_options(model))
-            optimizer.step()
-            accepted_indices.update(block)
-            logs.append({k:totals[k] for k in ('loss','policy_loss','search_loss','value_loss','distribution_loss','entropy_bonus')} | {
-                'kl':kl,'grad_norm':float(grad),'clip_fraction':totals['clip_count']/max(1,totals['kl_count'])})
-            if progress is not None and time.monotonic()-last_progress >= 30:
-                progress(epoch=epoch+1, epochs_max=maximum_epochs,
-                    records_seen=end, records_total=n,
-                    optimizer_steps=len(logs), microbatch=config['minibatch'], kl=kl)
-                last_progress = time.monotonic()
+        shards = [order[start:end][mesh.rank::mesh.size] if shared else order[start:end]
+                  for start, end in bounds]
+        with BatchStream(records, shards, config['minibatch'], device) as batches:
+            for block_index in range(num_blocks):
+                start, end = bounds[block_index]
+                block = order[start:end]
+                # The divisor is the block's size across ALL ranks: gradients are summed,
+                # never averaged again, so this keeps the single-learner objective exactly.
+                block_size = len(block) if shared else sharded.block_length(local_mesh, len(block))
+                attempted_indices.update(block)
+                optimizer.zero_grad(set_to_none=True)
+                totals = Counter()
+                for indices, batch in batches.block(block_index):
+                    rows = [records[i] for i in indices]
+                    logits, values, quantiles = model.learning_forward(batch)
+                    dist, base = distributions(logits,batch['mask'],[r['exploration'] for r in rows])
+                    selected = meaningful[indices].to(device)
+                    actions = torch.tensor([r['action'] for r in rows],device=device)
+                    targets = critic_targets[indices].to(device)
+                    is_search = searched[indices].to(device)
+                    ppo_indices = (~is_search).nonzero(as_tuple=True)[0]
+                    log_ratio = logits.new_zeros(len(rows))
+                    if len(ppo_indices):
+                        old = logits.new_tensor([r['old_logp'] for r in rows if r['loss_kind']=='ppo'])
+                        if not torch.isfinite(old).all():
+                            raise ValueError('Invalid true PPO behavior likelihood')
+                        # Search-selected actions have no PPO ratio at all.
+                        log_ratio = log_ratio.index_copy(0, ppo_indices,
+                            dist.log_prob(actions)[ppo_indices]-old)
+                    ratio = log_ratio.exp()
+                    adv = advantages[indices].to(device)
+                    pw, vw = policy_weight[indices].to(device), value_weight[indices].to(device)
+                    surrogate = torch.minimum(ratio*adv, ratio.clamp(1-config['clip'],1+config['clip'])*adv)
+                    policy = -(surrogate*pw).sum()/block_size
+                    sw = search_weight[indices].to(device)
+                    target = torch.zeros_like(logits)
+                    for position, row in enumerate(rows):
+                        if row['loss_kind'] != 'search' and 'search_aux_target' not in row:
+                            continue
+                        search = row['search'] if row['loss_kind']=='search' else row['search_aux_target']
+                        if (row['encoded'].phase != 0 or not search['target_budget_eligible']
+                                or search['root_action_coverage'] != 1.
+                                or search['actions'] != row['encoded'].submissions):
+                            raise ValueError('Invalid search policy target admission/alignment')
+                        probability = logits.new_tensor(search['target_policy'])
+                        if (len(probability) != len(row['encoded'].submissions)
+                                or not torch.isfinite(probability).all() or (probability < 0).any()
+                                or not torch.isclose(probability.sum(), logits.new_tensor(1.))):
+                            raise ValueError('Malformed detached search distribution')
+                        target[position,:len(probability)] = probability.detach()
+                    log_policy = logits.log_softmax(-1).masked_fill(~batch['mask'], 0.)
+                    search_loss = (-(target*log_policy).sum(-1)*sw).sum()/block_size
+                    value = (torch.nn.functional.smooth_l1_loss(values,targets,reduction='none')*vw).sum()/block_size
+                    distribution_loss = logits.new_zeros(())
+                    if quantiles is not None:
+                        from .value_distribution import quantile_loss
+                        exam_mask = (batch['phase']==0).to(vw.dtype)
+                        distribution_loss = (quantile_loss(quantiles,targets)*vw*exam_mask).sum()/block_size
+                    norm_entropy = base.entropy()/batch['mask'].sum(-1).float().log().clamp_min(1)
+                    coeff = logits.new_tensor([r['exploration']['entropy_coefficient'] for r in rows])
+                    bonus = (coeff*norm_entropy*torch.where(is_search,sw,pw)).sum()/block_size
+                    loss = (policy + config['search']['loss_coefficient']*search_loss
+                            + config['value_coefficient']*value
+                            + config.get('value_calibration',{}).get('distribution_coefficient',1.)*distribution_loss - bonus)
+                    if not torch.isfinite(loss):
+                        raise FloatingPointError('nonfinite mixed-plan PPO')
+                    loss.backward()
+                    kl_values = ((ratio-1)-log_ratio)[selected]
+                    totals.update(loss=float(loss.detach()), policy_loss=float(policy.detach()),
+                        value_loss=float(value.detach()), distribution_loss=float(distribution_loss.detach()), search_loss=float(search_loss.detach()), entropy_bonus=float(bonus.detach()),
+                        kl_sum=float(kl_values.detach().sum()), kl_count=len(kl_values),
+                        clip_count=int(((ratio-1).abs()>config['clip'])[selected].sum()))
+                if mesh is not None:
+                    totals = mesh.totals(totals)
+                kl = totals['kl_sum']/max(1,totals['kl_count'])
+                epoch_kl.append((kl,totals['kl_count']))
+                # No optimizer step is taken for a block already outside trust region.
+                if kl > config['target_kl']*2:
+                    stopping_block = {'kl': kl, 'threshold': config['target_kl']*2,
+                                      'epoch': epoch+1, 'start_record': start, 'records': block_size}
+                    optimizer.zero_grad(set_to_none=True); stop=True; stop_reason='block_kl'; break
+                if mesh is not None:
+                    mesh.gradients(model)
+                from gakumas_training.device import optimizer_options
+                grad = torch.nn.utils.clip_grad_norm_(model.parameters(),config['max_grad'],
+                    error_if_nonfinite=True, **optimizer_options(model))
+                optimizer.step()
+                accepted_indices.update(block)
+                logs.append({k:totals[k] for k in ('loss','policy_loss','search_loss','value_loss','distribution_loss','entropy_bonus')} | {
+                    'kl':kl,'grad_norm':float(grad),'clip_fraction':totals['clip_count']/max(1,totals['kl_count'])})
+                if progress is not None and time.monotonic()-last_progress >= 30:
+                    progress(epoch=epoch+1, epochs_max=maximum_epochs,
+                        records_seen=end, records_total=n,
+                        optimizer_steps=len(logs), microbatch=config['minibatch'], kl=kl)
+                    last_progress = time.monotonic()
+        input_stats.update({k: v for k, v in batches.stats.items() if k != 'enabled'})
+        input_prefetch = input_prefetch or batches.enabled
         mean_kl = sum(k*c for k,c in epoch_kl)/max(1,sum(c for _,c in epoch_kl))
         if stop or mean_kl>config['target_kl']:
             if not stop:stop=True;stop_reason='epoch_kl'
@@ -263,6 +267,7 @@ def update(model, optimizer, records, config, device, progress=None, mesh=None):
             'weighted_roots':int(_ld['weighted']),
             'mean_weight':_ld['weight']/max(1,_ld['roots']),
             **{'mean_'+key:_ld[key]/max(1,_ld['roots']) for key in _ld_keys}},
+        'input_pipeline': dict(input_stats, enabled=input_prefetch, scope='rank_local'),
         'intentional_pause_seconds':intentional_pause,'update_duty_cycle':duty,
         'epochs_attempted':epoch+1,'epochs_max':maximum_epochs,'ppo_stop_reason':stop_reason,
         'advantage_mode':advantage_mode,

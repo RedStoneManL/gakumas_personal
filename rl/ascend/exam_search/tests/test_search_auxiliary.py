@@ -136,13 +136,9 @@ class AuxiliaryTests(unittest.TestCase):
             with self.assertRaises(ValueError), patch('draftrl.search_router.SearchService'):
                 SearchRouter(None, 'cpu', {**cfg, 'soft_min_visits': bad})
 
-    def test_action_order_mismatch_and_mixed_behavior_rejected(self):
-        e = example(0)
-        with patch('draftrl.search_router.SearchService'):
-            router = SearchRouter(None, 'cpu', router_config())
-        payload = result_for(e); payload['search']['actions'].reverse()
-        with self.assertRaises(ValueError):
-            router.finish(item_for(e), payload, 0, -.75)
+    def test_mixed_behavior_rejected(self):
+        # The dedicated mismatch tests above cover rejection of the auxiliary
+        # label and the separate fail-closed acting-search contract.
         cfg = {'search': {'execution_mode': 'auxiliary'}}
         row = {'loss_kind': 'ppo', 'old_logp': -.5, 'controller_contract': auxiliary_controller(cfg)}
         validate_auxiliary_records([row], cfg)

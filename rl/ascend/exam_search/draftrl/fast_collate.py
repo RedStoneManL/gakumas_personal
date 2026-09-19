@@ -294,22 +294,22 @@ def _merge_base(pres, device='cpu'):
     return result
 
 
-def _tower_metadata(batch, groups, phases, src, dst, words, device):
+def _tower_metadata(batch, groups, phases, src, dst, words, device, *, prepare_npu=False):
     import os
-    if (str(device).startswith('npu') and batch['uniform_phase'] is None
+    if ((prepare_npu or str(device).startswith('npu')) and batch['uniform_phase'] is None
             and os.environ.get('GAKUMAS_PREPARED_TOWERS', '1') == '1'):
         from .tower_inputs import prepare_tower_inputs
         batch['tower_inputs'] = prepare_tower_inputs(groups, phases, src, dst, words, device)
 
 
-def _typed_metadata(side, types, device):
+def _typed_metadata(side, types, device, *, prepare_npu=False):
     """Compute structural indices before transfer, avoiding NPU nonzero syncs."""
     import torch
     from .relational_model import NODE_TYPES
     if types.shape != (side['entity_count'],) or np.any((types < 0) | (types >= len(NODE_TYPES))):
         raise ValueError('Unknown or misaligned relational node type')
     side['node_types'] = torch.from_numpy(types).to(device)
-    if str(device).startswith('npu'):
+    if prepare_npu or str(device).startswith('npu'):
         side['type_indices'] = tuple(torch.from_numpy(np.flatnonzero(types == i)).to(device)
                                      for i in range(len(NODE_TYPES)))
         scopes = {'program_encoder': (1, 2, 3, 4, 5), 'state_encoder': (0, 6),

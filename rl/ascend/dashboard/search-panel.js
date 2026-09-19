@@ -8,8 +8,9 @@ window.renderSearch = function(s) {
   const loss=v=>v==null?'—':Number(v).toLocaleString('zh-CN',{maximumSignificantDigits:5});
   const c=d.latest?.counts||{}, inf=d.latest?.inference||{}, cfg=d.config||{};
   const supervision=d.supervision||{}, auxiliary=(supervision.execution_mode||cfg.execution_mode)==='auxiliary';
-  const pending=s.progress?.event==='search_progress'&&d.current_progress;
-  const progress=pending?` · 当前搜索组已完成 ${n(pending.completed_roots)} / ${n(pending.roots)} 个点`:'';
+  const pending=s.status==='running'&&s.progress?.event==='search_progress'&&d.current_progress;
+  const progress=pending?` · 当前主 rank：${n(pending.roots)} 个搜索在途/待回收；累计判定 ${n(pending.attempted)} 个，预算准入 ${n(pending.accepted)} 个（不含其他 rank）`:'';
+  const scope=c.ranks_reporting>1?`全局 ${n(c.ranks_reporting)} 个 rank 汇总`:'主采样器局部';
   const work=d.current_rollout||{};
   const workload=work.kind==='exam_group'&&work.completed!=null?` · 本组考试 ${n(work.completed)}${work.total_games==null?'':` / ${n(work.total_games)}`} 局完成，${n(work.active)} 局进行中`:work.kind==='joint'&&work.completed!=null?` · 联合采样 ${n(work.completed)} 局完成，${n(work.meaningful_decisions)} / ${n(work.target_decisions)} 个有效决策`:'';
   set('search-batch',(d.batch==null?'等待第一批完整更新':`第 ${d.batch} 批 · 已提交统计`)+workload+progress);
@@ -21,7 +22,7 @@ window.renderSearch = function(s) {
   const liveAdmitted=live.budget_admitted_roots??live.valid_targets;
   if(liveNode)liveNode.textContent=live.points?`当前采集窗口：最近 ${n(live.points)} 个搜索点（最多 ${n(live.max_points)} 个），${n(liveAdmitted)} 个通过预算准入、${n(live.points-liveAdmitted)} 个未准入。${auxiliary?'最终 CE 标签还需结合真实四局结果及证据门槛判定。':''}尚未提交更新；下方仍显示完整批次统计。`:'当前没有新的未提交搜索记录。';
   const terminals=c.terminal_simulations||0, boot=c.bootstrap_simulations||0;
-  const cards=[['搜索预算准入',`${n(c.accepted_targets)} / ${n(c.attempted_roots)}`,'主采样器局部计数；不等于全局 CE 标签数，不按设备数外推'],
+  const cards=[['搜索预算准入',`${n(c.accepted_targets)} / ${n(c.attempted_roots)}`,`${scope}已提交计数；分母是已判定 roots，不包括在途搜索，也不等于最终 CE 标签数`],
     ['模拟到真实终局',n(terminals),auxiliary?`${n(boot)} 次遇到截断估值；此类结果不作为辅助 CE 证据`:`${n(boot)} 次在截断处使用模型估值`],
     ['真实动作记录',`${n(supervision.actor_search_records??d.search_records)} / ${n(supervision.real_ppo_records??d.ppo_records)}`,'全局：搜索接管动作 / 策略 PPO 动作；辅助标签不改变动作来源'],
     ['实测推理批量',inf.inference_batches?n(inf.inference_examples/inf.inference_batches):'—','平均同时处理的搜索状态数']];
@@ -31,12 +32,12 @@ window.renderSearch = function(s) {
   if(upside)cards.unshift(['四局冲分验证',d.best4_validation?n(d.best4_validation.index):'待验证','每套构筑四局取最高，再按各偶像自身基线比较；与均分曲线分开']);
   const box=document.getElementById('search-metrics');box.replaceChildren();
   for(const [label,value,note] of cards){const item=document.createElement('div');item.className='metric';for(const [tag,cls,text] of [['span','label',label],['strong','value',value],['p','',note]]){const el=document.createElement(tag);el.className=cls;el.textContent=text;item.appendChild(el);}box.appendChild(item);}
-  const body=document.getElementById('search-profiles');body.replaceChildren();body.title='按偶像列出的成功数是主采样器预算准入，不是最终辅助 CE 标签数';
+  const body=document.getElementById('search-profiles');body.replaceChildren();body.title=`按偶像列出的成功数是${scope}预算准入，不是最终辅助 CE 标签数`;
   for(const p of s.profiles||[]){const row=document.createElement('tr');for(const text of [p.name||p.id,n(c['profile:'+p.id]||0),n(c['accepted_profile:'+p.id]||0),n(c['fallback_profile:'+p.id]||0)]){const cell=document.createElement('td');cell.textContent=text;row.appendChild(cell);}body.appendChild(row);}
   const throughput=d.collection_seconds?n(d.batch_decisions_actual/d.collection_seconds):'—';
   set('search-cost',`采集 ${n(d.collection_seconds)} 秒 · 参数更新 ${n(d.update_seconds)} 秒 · 实际 ${throughput} 决策/秒 · 搜索墙钟 ${n(inf.search_many_seconds)} 秒 · 搜索监督损失 ${loss(d.loss)}`);
   const failures=Object.entries(c).filter(([k,v])=>k.startsWith('status:')&&!['status:ok','status:ok_truncated'].includes(k)&&v>0).map(([k,v])=>`${k.slice(7)} × ${v}`);
   const rejected=Object.entries(supervision.auxiliary_rejected_reasons||{}).filter(([,v])=>v>0).map(([k,v])=>`${k} × ${v}`);
-  const reasons=failures.length?'主采样器未准入原因：'+failures.join('；'):d.batch==null?'完整批次的统计尚未提交。':'主采样器该批暂无未准入记录。';
+  const reasons=failures.length?`${scope}未准入原因：`+failures.join('；'):d.batch==null?'完整批次的统计尚未提交。':`${scope}该批暂无未准入记录。`;
   set('search-fallbacks',reasons+(auxiliary?` 全局辅助质量门拒绝 ${n(supervision.auxiliary_rejected_roots)} 个 root${rejected.length?'：'+rejected.join('；'):''}；真实 PPO 样本保留。`:''));
 };

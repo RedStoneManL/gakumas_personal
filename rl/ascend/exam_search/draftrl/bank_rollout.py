@@ -20,7 +20,7 @@ from .lexical_cache import cached_rollout
 
 @cached_rollout
 def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path=None,
-                 *,tasks=None,greedy=False,source='bank_exam',keep_value_records=False):
+                 *,tasks=None,greedy=False,source='bank_exam',keep_value_records=False,background=None):
     if keep_value_records and (not greedy or bank is not None):
         raise ValueError('Value calibration must use explicit frozen-policy tasks')
     tasks=bank.sample(count) if tasks is None else tasks
@@ -40,6 +40,8 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
         shards=_dist.ACTIVE.size if _dist.ACTIVE is not None else 1)
     print(json.dumps({'event':'bank_rollout_begin','count':len(tasks),'policy_version':config['_policy_version']}),flush=True)
     while True:
+        if background is not None:
+            background()
         for i in range(min(config['workers'],len(tasks))):
             if i in active:continue
             task=next(pending,None)
@@ -55,6 +57,8 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
             # There is no restore of a historical hand/deck order or engine RNG.
             pool.send(i,'reset',(task['entry'],task['replay_seed']))
             _answer=pool.receive(i)
+            if background is not None and i % 4 == 0:
+                background()
             obs=_answer['observation']
             if obs['result']['terminated'] or obs['result']['truncated']:
                 raise ValueError('bank opening is not a live exam')
@@ -123,6 +127,8 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
             row['submissions'].append(command);pool.send(i,'step',command);awaiting.append(i)
         for i in awaiting:
             row=active[i];task=row['task'];_answer=pool.receive(i)
+            if background is not None and i % 4 == 0:
+                background()
             row['obs']=_answer['observation'];row['pre_encoded']=_answer.get('encoded')
             result=row['obs']['result']
             if result['truncated']:raise RuntimeError('truncated bank game cannot be a PPO target')

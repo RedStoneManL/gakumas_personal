@@ -290,7 +290,7 @@ class LearnerGroup(CollectiveGroup):
 
     def collect_rollout(self, pool, model, setup, catalog, config, episode_index,
                         target_decisions, exploration, *, log_path=None, keep_entries=False,
-                        search_log=None, search_seed_base=0):
+                        search_log=None, search_seed_base=0, fork_seed_base=None):
         """PPO collection spread over every rank.
 
         Rank r walks the seed stream episode_index + r, +size, +2*size ... so no two ranks
@@ -308,6 +308,15 @@ class LearnerGroup(CollectiveGroup):
         """
         from .runner import rollout
         from . import sharded
+        from .fork_overlap import ForkOverlap, enabled
+        if getattr(self, 'overlap_forks', None) is not None:
+            raise RuntimeError('Previous overlapped forks were not consumed')
+        overlap = None
+        if self.size > 1 and enabled(config, fork_seed_base):
+            if not keep_entries:
+                raise ValueError('Fork overlap requires current public loadout entries')
+            overlap = ForkOverlap(self, pool, model, config, exploration, fork_seed_base,
+                                  shard_log(log_path, self.rank), config.get('_search_router'))
         offset, share = shard(target_decisions, self.size, self.rank)
         if self.size > 1:
             payload = {'command': 'collect', 'model_config': model.config,
@@ -315,6 +324,7 @@ class LearnerGroup(CollectiveGroup):
                        'catalog': catalog, 'episode_index': episode_index,
                        'target_decisions': target_decisions, 'exploration': exploration,
                        'keep_entries': keep_entries, 'search_seed_base': search_seed_base,
+                       'fork_seed_base': fork_seed_base if overlap is not None else None,
                        'log_path': None if log_path is None else str(log_path),
                        'search_log': None if search_log is None else str(search_log),
                        'config': {k: v for k, v in config.items()
@@ -328,8 +338,13 @@ class LearnerGroup(CollectiveGroup):
                 pool, model, None, catalog, config, self.device, start,
                 target_decisions=max(1, share), seed_stride=self.size, exploration=exploration,
                 scenario_bank=bank, keep_entries=keep_entries,
-                log_path=shard_log(log_path, self.rank) if self.size > 1 else log_path)
+                log_path=shard_log(log_path, self.rank) if self.size > 1 else log_path,
+                before_search_drain=overlap.before_drain if overlap is not None else None)
+            if overlap is not None:
+                overlap.credit(records, summaries)
         finally:
+            if overlap is not None:
+                overlap.ensure_handshake()
             # The other coordinators guard their work the same way. Without this, a raise
             # here (decision guard, Arena failure, search error) would skip all four gathers
             # while seven ranks are already blocked inside serve_collect's matching ones.
@@ -345,6 +360,9 @@ class LearnerGroup(CollectiveGroup):
                 counts = self.gather_lists([
                     {'rank': self.rank, 'started': (next_seed - start) // self.size,
                      'meaningful': meaningful, 'search': None}])
+                if overlap is not None:
+                    result = overlap.gather()
+                    self.overlap_forks = result if result['signatures'] else None
         if self.size == 1:
             return records, summaries, meaningful, next_seed, bank.rows
         merge_shard_logs(log_path, self.size)
@@ -381,6 +399,7 @@ class LearnerGroup(CollectiveGroup):
         offset, share = shard(payload['target_decisions'], self.size, self.rank)
         seed_rank(config, self.device, self.rank, 'collect')
         router = None
+        overlap = None
         records, summaries, bank = [], [], _BankRows()
         started, meaningful = 0, 0
         try:
@@ -392,27 +411,45 @@ class LearnerGroup(CollectiveGroup):
                                   seed_counter=payload['search_seed_base'] + self.rank * _SEARCH_SEED_BLOCK,
                                   log_path=shard_log(payload['search_log'], self.rank))
             config = {**config, 'workers': workers, '_search_router': router}
+            if payload.get('fork_seed_base') is not None:
+                from .fork_overlap import ForkOverlap
+                overlap = ForkOverlap(self, pool, model, config, payload['exploration'],
+                    payload['fork_seed_base'], shard_log(payload['log_path'], self.rank), router)
             start = payload['episode_index'] + self.rank
             records, summaries, meaningful, next_seed = rollout(
                 pool, model, None, payload['catalog'], config, self.device, start,
                 target_decisions=max(1, share), seed_stride=self.size,
                 exploration=payload['exploration'], scenario_bank=bank,
                 keep_entries=payload['keep_entries'],
-                log_path=shard_log(payload['log_path'], self.rank))
+                log_path=shard_log(payload['log_path'], self.rank),
+                before_search_drain=overlap.before_drain if overlap is not None else None)
             started = (next_seed - start) // self.size
+            if overlap is not None:
+                overlap.credit(records, summaries)
         finally:
-            # Every gather must be reached in the same order as the coordinator, or the
-            # whole job blocks until the 72h Gloo timeout instead of failing here.
-            for row in summaries:
-                row['origin_rank'] = self.rank
-            self.local_records, self.local_summaries = records, summaries
-            self.gather_lists(summaries)
-            self.gather_lists(bank.rows)
-            self.gather_lists([{'rank': self.rank, 'started': started,
-                                'meaningful': meaningful,
-                                'search': dict(router.counts) if router is not None else None}])
-            if router is not None:
-                router.close()
+            # If collection failed before constructing the callback, peers must
+            # still receive this rank's failed count-rendezvous flag.
+            try:
+                if payload.get('fork_seed_base') is not None and overlap is None:
+                    from .fork_overlap import ForkOverlap
+                    overlap = ForkOverlap(self, None, model, config, payload['exploration'],
+                        payload['fork_seed_base'], None, router)
+                if overlap is not None:
+                    overlap.ensure_handshake()
+                # Every gather must match the coordinator, including failed collectors.
+                for row in summaries:
+                    row['origin_rank'] = self.rank
+                self.local_records, self.local_summaries = records, summaries
+                self.gather_lists(summaries)
+                self.gather_lists(bank.rows)
+                self.gather_lists([{'rank': self.rank, 'started': started,
+                                    'meaningful': meaningful,
+                                    'search': dict(router.counts) if router is not None else None}])
+                if overlap is not None:
+                    overlap.gather()
+            finally:
+                if router is not None:
+                    router.close()
         del model
 
     # ---- sharded fork / continuation rollout ----------------------------------------
@@ -433,6 +470,16 @@ class LearnerGroup(CollectiveGroup):
         from .runner import choose
         from .practice import apply_fork_returns
         from . import sharded
+        prefetched = getattr(self, 'overlap_forks', None)
+        if prefetched is not None:
+            from .fork_overlap import signatures
+            if (source != 'fork_exam' or prefetched['objective'] != objective
+                    or prefetched['policy_version'] != config['_policy_version']
+                    or prefetched['signatures'] != signatures(tasks)):
+                raise RuntimeError('Overlapped forks differ from the authoritative global task plan')
+            self.overlap_forks = None
+            return (prefetched['records'], prefetched['summaries'],
+                    prefetched['meaningful'], prefetched['stats'])
         if self.size == 1 or not tasks:
             fork_records, fork_summaries, meaningful = rollout_bank(
                 pool, model, None, config, self.device, len(tasks),

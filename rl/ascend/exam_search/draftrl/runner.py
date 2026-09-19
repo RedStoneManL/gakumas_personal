@@ -95,7 +95,7 @@ from .lexical_cache import cached_rollout
 @cached_rollout
 def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=None,
             target_decisions=None, greedy=False, fixed_drinks=None, spec=None, driver='policy', log_path=None, exploration=None, scenario_bank=None,keep_entries=False,
-            index_offset=0, seed_stride=1):
+            index_offset=0, seed_stride=1, before_search_drain=None):
     """One frozen current policy across construction, resources, memories and exam."""
     assert (count is None) != (target_decisions is None)
     training = target_decisions is not None
@@ -420,6 +420,8 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
             stage_progress.update(_done, len(active))
             last_log = time.monotonic()
     stage_progress.end()
+    if before_search_drain is not None:
+        before_search_drain(records, summaries, flow)
     if flow: flow.drain()
     print(json.dumps({'event': 'rollout_ready', 'schema': RUNNER_SCHEMA,
         'episodes': len(summaries), 'meaningful_decisions': meaningful, 'next_seed': next_seed,
@@ -698,11 +700,11 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         if 'search_progress' in details:
             q=details['search_progress']
             # `roots` is only what is in flight right now; attempted/accepted are
-            # cumulative for the run and are what says whether search is producing.
+            # cumulative for this rank's router, not the distributed job.
             _att,_acc=q.get('attempted',0),q.get('accepted',0)
-            line+=f" | MCTS {q.get('roots')} in flight"
+            line+=f" | MCTS rank0 {q.get('roots')} in flight/pending harvest"
             if _att:
-                line+=f", {_acc}/{_att} roots accepted ({100.*_acc/_att:.0f}%)"
+                line+=f", {_acc}/{_att} roots budget-admitted ({100.*_acc/_att:.0f}%, local judged roots)"
             else:
                 line+=", no root has finished yet"
         for k in ('train_mean','train_normalized_mean','validation_mean','validation_normalized_mean','best_validation_index'):
@@ -1001,7 +1003,8 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                     exploration,log_path=output/'train-episodes.jsonl',
                     keep_entries=practice.get('forks',{}).get('enabled',False),
                     search_log=output/'search-roots.jsonl',
-                    search_seed_base=search_router.counter if search_router is not None else 0)
+                    search_seed_base=search_router.counter if search_router is not None else 0,
+                    fork_seed_base=fork_next_seed)
                 if bank is not None:
                     for _row in _bank_rows:
                         if not _row.get('keycard_focus'):bank.add(_row)

@@ -5,6 +5,7 @@ window.renderSearch = function(s) {
   if(!d.enabled)return;
   const set=(id,text)=>document.getElementById(id).textContent=text;
   const n=v=>v==null?'—':Number(v).toLocaleString('zh-CN',{maximumFractionDigits:1});
+  const loss=v=>v==null?'—':Number(v).toLocaleString('zh-CN',{maximumSignificantDigits:5});
   const c=d.latest?.counts||{}, inf=d.latest?.inference||{}, cfg=d.config||{};
   const supervision=d.supervision||{}, auxiliary=(supervision.execution_mode||cfg.execution_mode)==='auxiliary';
   const pending=s.progress?.event==='search_progress'&&d.current_progress;
@@ -33,7 +34,7 @@ window.renderSearch = function(s) {
   const body=document.getElementById('search-profiles');body.replaceChildren();body.title='按偶像列出的成功数是主采样器预算准入，不是最终辅助 CE 标签数';
   for(const p of s.profiles||[]){const row=document.createElement('tr');for(const text of [p.name||p.id,n(c['profile:'+p.id]||0),n(c['accepted_profile:'+p.id]||0),n(c['fallback_profile:'+p.id]||0)]){const cell=document.createElement('td');cell.textContent=text;row.appendChild(cell);}body.appendChild(row);}
   const throughput=d.collection_seconds?n(d.batch_decisions_actual/d.collection_seconds):'—';
-  set('search-cost',`采集 ${n(d.collection_seconds)} 秒 · 参数更新 ${n(d.update_seconds)} 秒 · 实际 ${throughput} 决策/秒 · 搜索墙钟 ${n(inf.search_many_seconds)} 秒 · 搜索监督损失 ${n(d.loss)}`);
+  set('search-cost',`采集 ${n(d.collection_seconds)} 秒 · 参数更新 ${n(d.update_seconds)} 秒 · 实际 ${throughput} 决策/秒 · 搜索墙钟 ${n(inf.search_many_seconds)} 秒 · 搜索监督损失 ${loss(d.loss)}`);
   const failures=Object.entries(c).filter(([k,v])=>k.startsWith('status:')&&!['status:ok','status:ok_truncated'].includes(k)&&v>0).map(([k,v])=>`${k.slice(7)} × ${v}`);
   const rejected=Object.entries(supervision.auxiliary_rejected_reasons||{}).filter(([,v])=>v>0).map(([k,v])=>`${k} × ${v}`);
   const reasons=failures.length?'主采样器未准入原因：'+failures.join('；'):d.batch==null?'完整批次的统计尚未提交。':'主采样器该批暂无未准入记录。';

@@ -4,7 +4,7 @@ from torch.nn import functional as F
 
 
 def cpu_packed_hidden(gru, padded, lengths):
-    """Fused CPU GRU with differentiable copies to/from the owning accelerator."""
+    """Native CPU GRU with differentiable copies to/from the owning accelerator."""
     packed = torch.nn.utils.rnn.pack_padded_sequence(
         padded.to('cpu'), lengths.to('cpu'), batch_first=True, enforce_sorted=False)
     parameters = {name: parameter.to('cpu') for name, parameter in gru.named_parameters()}
@@ -17,9 +17,14 @@ def final_hidden(gru, padded, lengths):
         raise ValueError('Portable lexical GRU requires one unidirectional layer without dropout')
     if padded.device.type == 'npu':
         import os
-        backend = os.environ.get('GAKUMAS_LEXICAL_GRU_BACKEND', 'cpu')
-        if backend not in ('cpu', 'portable'):
+        backend = os.environ.get('GAKUMAS_LEXICAL_GRU_BACKEND', 'cpu-buffered')
+        if backend not in ('cpu', 'cpu-buffered', 'portable'):
             raise ValueError('Unknown lexical GRU backend')
+        if backend == 'cpu-buffered':
+            if torch.is_grad_enabled():
+                from .buffered_gru import cpu_buffered_hidden
+                return cpu_buffered_hidden(gru, padded, lengths)
+            return cpu_packed_hidden(gru, padded, lengths)
         if backend == 'cpu':
             return cpu_packed_hidden(gru, padded, lengths)
     hidden = padded.new_zeros((len(padded), gru.hidden_size))

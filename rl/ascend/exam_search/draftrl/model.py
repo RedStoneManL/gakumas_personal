@@ -55,7 +55,7 @@ class SplitEncoder(nn.Module):
     def word_vectors(self, tokens, lengths):
         if tokens.device.type == 'npu':
             from .portable_gru import final_hidden
-            # Keep inherited GRU parameters and full autograd; no CPU fallback.
+            # Keep inherited parameter leaves through the differentiable CPU bridge.
             return final_hidden(self.text, self.byte(tokens), lengths)
         packed = nn.utils.rnn.pack_padded_sequence(
             self.byte(tokens), lengths, batch_first=True, enforce_sorted=False)

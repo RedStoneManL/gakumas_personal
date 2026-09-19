@@ -5,6 +5,47 @@ Production prod-v7 was stopped by explicit user request before its first update.
 Its latest.pt, logs, and unfinished-rollout evidence remain intact.
 The user subsequently requested carrying this work onto the latest remote framework.
 
+## Latest: buffered CPU GRU backward (2026-09-19 13:03 CST)
+
+This section supersedes the historical status and approval notes below. Production
+is running at 8ad87e6, not stopped. Existing SSH credential use is authorized.
+
+- Live Python sampling attributed about 60.6% of PPO time to backward, with CPU
+  packed GRU forward another 10.6%. Native stacks show composite CPU GRU and
+  slice_backward zero-fill/gradient accumulation. Native sampling lagged and
+  perturbed one PPO block; its percentages are not unbiased. Do not repeat it.
+- Added an analytical first-order packed GRU backward. It writes each time step's
+  gate gradients into one allocated buffer and reduces weight gradients in batched
+  matrix multiplies, eliminating repeated full packed-tensor slice gradients.
+  Parameter leaves, FP32, ragged packing, model architecture and objective stay intact.
+  Higher-order derivatives are explicitly unsupported. Native CPU inference remains
+  unchanged; `GAKUMAS_LEXICAL_GRU_BACKEND=cpu` selects the prior training backend.
+- CPU finite-difference, ragged lengths, padding, bias/no-bias, input and parameter
+  gradients, leaf identity, and one Adam update passed. Real 30-example six-profile,
+  five-phase vocabularies took 18.1 seconds to check with one CPU thread: total GRU
+  forward/backward speedups 2.39x (1149 words) and 3.11x (2287 words), max byte length234.
+  Forward outputs were bit-identical; parameter gradient max error4.66e-10 for the
+  normalized diagnostic loss. Evidence: buffered-gru-real-cpu.json.
+- Full production-checkpoint NPU gate passed in19.1s, six profiles/five phases,
+  662 gradient-bearing tensors/4563708 parameters. Output max error5.72e-6 (passes
+  combined abs/relative limit), gradient max3.81e-6, relativeL2 2.89e-7, one Adam
+  parameter max1.26e-6. One full forward/backward pair: cpu3.475s -> buffered2.350s,
+  a32.4% reduction. This is a bounded numerical/timing gate, not an end-to-end claim.
+  Evidence: /mnt/local/gakumas/evidence/v7-opt/gru-buffered-full-model.json.
+- At13:02:47 production batch0 remained in PPO epoch3/4, step317,36201/61188 record
+  passes (59.2%). It must finish and commit before switching source. All eight
+  learners were live. Cumulative decisions0 remains expected until commit;
+  global collection target is32768,4096 per rank.
+- Aggregate root result was379/391 accepted (96.9%), all379 ok_truncated. Include
+  merged search-roots.jsonl as well as rank files and deduplicate policy/seed;
+  do not confuse truncated accepted roots with completion of96 simulations.
+- Candidate contains the previously validated compact IPC transport. Initial
+  best-of-four reference reuse affects fresh starts only; actual initial/boundary
+  scores differ and the reason is unresolved. Do not claim score equivalence.
+- Safe adoption uses the existing audited paused/complete continuation boundary,
+  preserving weights, Adam, RNG, bank, coverage and history. No hot-patching or
+  discarding this first batch. The80% utilization goal is still unmet.
+
 ## Implemented and measured
 
 - Independent frozen-policy lexical caches for relational actor/critic, cleared with the existing policy-version boundary; gradient-enabled forward bypasses the cache.

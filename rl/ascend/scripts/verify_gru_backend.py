@@ -38,6 +38,8 @@ def main(argv=None):
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--device", default="npu:0")
     parser.add_argument("--torch-threads", type=int, default=4)
+    parser.add_argument("--reference", choices=("portable", "cpu", "cpu-buffered"), default="portable")
+    parser.add_argument("--candidate", choices=("portable", "cpu", "cpu-buffered"), default="cpu")
     args = parser.parse_args(argv)
     if not args.device.startswith("npu:"):
         parser.error("The cross-device bridge gate requires an NPU, for example npu:0")
@@ -80,10 +82,12 @@ def main(argv=None):
     report = {
         "schema": "arena-lexical-backend-verification/1",
         "device": args.device,
+        "reference_backend": args.reference,
+        "candidate_backend": args.candidate,
         "checkpoint": str(args.initial.resolve()),
         "source_files": {
             name: hashlib.sha256((exam / "draftrl" / name).read_bytes()).hexdigest()
-            for name in ("portable_gru.py", "fast_collate.py", "model.py",
+            for name in ("portable_gru.py", "buffered_gru.py", "fast_collate.py", "model.py",
                          "relational_model.py", "lexical_cache.py")
         },
         "limits": {
@@ -162,7 +166,7 @@ def main(argv=None):
             del optimizer, model, parameters
             return result
 
-        reference, candidate = run("portable"), run("cpu")
+        reference, candidate = run(args.reference), run(args.candidate)
         if reference["grad_names"] != candidate["grad_names"]:
             raise AssertionError("Backend changed which parameters receive gradients")
         output_errors = [float((left-right).abs().max())
@@ -178,7 +182,7 @@ def main(argv=None):
                       parameters_with_gradient=len(candidate["grad_names"]),
                       gradient_elements=candidate["gradients"].numel(),
                       forward_backward_seconds={name: result["forward_backward_seconds"]
-                                                for name, result in (("portable", reference), ("cpu", candidate))})
+                                                for name, result in ((args.reference, reference), (args.candidate, candidate))})
         for left, right in zip(reference["outputs"], candidate["outputs"]):
             torch.testing.assert_close(left, right, atol=5e-6, rtol=2e-5)
         if gradient_max > 2e-5 or gradient_relative > 1e-4:

@@ -14,14 +14,14 @@ from .encoding import collate
 def prepare_cpu(examples, *, npu=False):
     batch = collate(examples, 'cpu')
     if npu:
-        from round2rl.model import prepare_segment_plan
+        from round2rl.model import attach_pool_metadata
         from .fast_collate import _tower_metadata, _typed_metadata
 
         def metadata(part):
             for key, size in (('entities', part['entity_count']),
                               ('batches', part['batch_size'])):
                 groups = part[key]
-                groups._arena_segment_plan = prepare_segment_plan(groups.numpy(), size, 'cpu')
+                attach_pool_metadata(groups, groups.numpy(), size, 'cpu')
             _tower_metadata(part, part['batches'].numpy(), part['phase'].numpy(),
                             part['edge_src'].numpy(), part['edge_dst'].numpy(),
                             part['edge_word'].numpy(), 'cpu', prepare_npu=True)
@@ -44,6 +44,9 @@ def transfer(batch, device):
             plan = getattr(value, '_arena_segment_plan', None)
             if plan is not None:
                 result._arena_segment_plan = move(plan)
+            counts = getattr(value, '_arena_segment_counts', None)
+            if counts is not None:
+                result._arena_segment_counts = move(counts)
             return result
         if isinstance(value, dict):
             return {k: move(v, k) for k, v in value.items()}

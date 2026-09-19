@@ -1,6 +1,7 @@
 """Small entity networks with independent policy/value parameters."""
 from __future__ import annotations
 
+import os
 import torch
 from torch import nn
 from .encoding import MAX_DEPTH
@@ -56,8 +57,23 @@ def _segment_amax(x, group, size, counts):
 
 def pool(x, group, size):
     total = x.new_zeros(size, x.shape[-1]).index_add_(0, group, x)
-    count = x.new_zeros(size).index_add_(0, group, x.new_ones(len(group)))
-    maximum = _segment_amax(x, group, size, torch.bincount(group, minlength=size))
+    counts = (getattr(group, '_arena_segment_counts', None)
+              if os.environ.get('GAKUMAS_PREPARED_POOL_COUNTS', '1') == '1' else None)
+    if x.dtype not in (torch.float32, torch.float64) or len(group) > 2**24:
+        # Preserve the original accumulation rounding outside the FP32 training
+        # contract; cached integer counts need not equal repeated FP16 additions.
+        counts = None
+    if counts is None:
+        count = x.new_zeros(size).index_add_(0, group, x.new_ones(len(group)))
+        counts = torch.bincount(group, minlength=size)
+    else:
+        # Counts are immutable graph structure, shared by actor/critic/layers.
+        # Avoid repeated device bincount (dynamic output/synchronization) and
+        # index_add of ones. Feature sums and maxima retain their original ops.
+        if counts.shape != (size,) or counts.device != group.device:
+            raise ValueError('Prepared pool counts belong to a different graph')
+        count = counts.to(dtype=x.dtype)
+    maximum = _segment_amax(x, group, size, counts)
     maximum = torch.where(torch.isfinite(maximum), maximum, torch.zeros_like(maximum))
     return torch.cat([total / count[:, None].clamp_min(1), maximum, count.log1p()[:, None]], -1)
 
@@ -148,3 +164,12 @@ def prepare_segment_plan(groups, size, device):
                               for value in (ids, positions, valid)))
         width *= 2
     return tuple(plan)
+
+
+def attach_pool_metadata(tensor, groups, size, device):
+    """Attach fixed segment structure while group ids are still on the CPU."""
+    import numpy as np
+    groups = np.asarray(groups, dtype=np.int64)
+    tensor._arena_segment_plan = prepare_segment_plan(groups, size, device)
+    tensor._arena_segment_counts = torch.from_numpy(np.bincount(groups, minlength=size)).to(device)
+    return tensor

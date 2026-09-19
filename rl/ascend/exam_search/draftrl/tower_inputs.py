@@ -1,7 +1,7 @@
 """Prepare immutable task subgraphs once, preserving accelerator pooling plans."""
 import numpy as np
 import torch
-from round2rl.model import prepare_segment_plan
+from round2rl.model import attach_pool_metadata
 
 
 def prepare_tower_inputs(groups, phases, src, dst, words, device):
@@ -19,7 +19,7 @@ def prepare_tower_inputs(groups, phases, src, dst, words, device):
         edges = entity_mask[src] & entity_mask[dst]
         subset = groups[indices]
         batches = torch.from_numpy(subset).to(device)
-        batches._arena_segment_plan = prepare_segment_plan(subset, len(phases), device)
+        attach_pool_metadata(batches, subset, len(phases), device)
         tensors = dict(indices=indices, samples=np.flatnonzero(samples),
                        edge_src=lookup[src[edges]], edge_dst=lookup[dst[edges]],
                        edge_word=words[edges])

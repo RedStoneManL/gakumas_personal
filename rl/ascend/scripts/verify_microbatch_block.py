@@ -22,7 +22,7 @@ def main():
     p.add_argument('--report', type=Path, required=True)
     p.add_argument('--device', default='npu:7')
     p.add_argument('--memory-fraction', type=float, default=.6)
-    p.add_argument('--mode', choices=['microbatch','tower-inputs','prefetch'], default='microbatch')
+    p.add_argument('--mode', choices=['microbatch','tower-inputs','prefetch','pool-counts'], default='microbatch')
     args = p.parse_args()
     if args.report.exists():
         p.error('Use a new report path to preserve evidence')
@@ -33,6 +33,8 @@ def main():
                    str(exam/'runtime/arena'), str(args.root/'training')]
     os.environ['GAKUMAS_LEXICAL_GRU_BACKEND'] = 'cpu-buffered'
     os.environ['GAKUMAS_PARALLEL_LEXICAL'] = '1'
+    if args.mode == 'pool-counts':
+        os.environ['GAKUMAS_NPU_FOREACH'] = '1'
     import torch
     import torch_npu  # noqa: F401
     from draftrl.model import DraftPolicy
@@ -47,6 +49,10 @@ def main():
     torch.npu.set_per_process_memory_fraction(args.memory_fraction, args.device)
     started = time.monotonic()
     runs = [(64,'0'),(128,'0')] if args.mode=='microbatch' else [(128,'0'),(128,'1')]
+    if args.mode == 'pool-counts':
+        # Thirty public fixtures cover all profiles/phases; 32 rows bound the
+        # diagnostic footprint while exercising every model branch once.
+        runs = [(32,'0'),(32,'1')]
     report = dict(schema='arena-ppo-microbatch-verification/1', device=args.device,mode=args.mode,
                   checkpoint=str(args.checkpoint), checkpoint_sha256=hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
                   scope=('Two local PPO blocks' if args.mode=='prefetch' else 'One local PPO block') + ', real public inputs with diagnostic rewards/search labels; no production trajectories',
@@ -55,6 +61,12 @@ def main():
                   source_files={name: hashlib.sha256((exam/'draftrl'/name).read_bytes()).hexdigest()
                                 for name in ['ppo.py','model.py','relational_model.py','buffered_gru.py','parallel_lexical.py','fast_collate.py',
                                              *([name for name in ('tower_inputs.py','batch_pipeline.py','critic_completion.py') if (exam/'draftrl'/name).exists()])]})
+    if args.mode == 'pool-counts':
+        report['pool_metadata_source_files'] = {
+            name: hashlib.sha256((exam/name).read_bytes()).hexdigest()
+            for name in ('runtime/shared/round2rl/model.py', 'draftrl/fast_collate.py',
+                         'draftrl/tower_inputs.py', 'draftrl/batch_pipeline.py')}
+        report['script_sha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     ready = False
     try:
         info = torch.load(args.checkpoint, map_location='cpu', weights_only=True)
@@ -62,11 +74,11 @@ def main():
         torch.set_num_threads(4)
         examples = [(profile,prepare_encoded(copy.deepcopy(e)))
                     for profile in sorted(Fixtures.examples) for e in Fixtures.examples[profile]]
-        row_count = 256 if args.mode == 'prefetch' else 128
+        row_count = 32 if args.mode == 'pool-counts' else 256 if args.mode == 'prefetch' else 128
         inputs = [examples[i % len(examples)] for i in range(row_count)]
         settings = dict(temperature=1.2, uniform_mix=.1, entropy_coefficient=.01)
 
-        if args.mode == 'prefetch':
+        if args.mode in ('prefetch', 'pool-counts'):
             from draftrl.batch_pipeline import prepare_cpu, transfer
             direct = collate([e for _,e in inputs[:128]], args.device)
             staged = transfer(prepare_cpu([e for _,e in inputs[:128]], npu=True), args.device)
@@ -80,6 +92,9 @@ def main():
                     ap, bp = getattr(a, '_arena_segment_plan', None), getattr(b, '_arena_segment_plan', None)
                     if ap is not None or bp is not None:
                         equal(ap, bp)
+                    ac, bc = getattr(a, '_arena_segment_counts', None), getattr(b, '_arena_segment_counts', None)
+                    if ac is not None or bc is not None:
+                        equal(ac, bc)
                 elif isinstance(a, dict):
                     assert a.keys() == b.keys()
                     for key in a: equal(a[key], b[key])
@@ -130,7 +145,11 @@ def main():
                       records=len(rows),search_records=sum(r['loss_kind']=='search' for r in rows))
         results=[]
         for micro,prepared_towers in runs:
-            if args.mode == 'prefetch':
+            if args.mode == 'pool-counts':
+                os.environ['GAKUMAS_PREPARED_TOWERS']='1'
+                os.environ['GAKUMAS_PPO_PREFETCH']='1'
+                os.environ['GAKUMAS_PREPARED_POOL_COUNTS']=prepared_towers
+            elif args.mode == 'prefetch':
                 os.environ['GAKUMAS_PREPARED_TOWERS']='1'
                 os.environ['GAKUMAS_PPO_PREFETCH']=prepared_towers
             else:
@@ -142,12 +161,18 @@ def main():
                 groups.append({**{k:v for k,v in saved.items() if k!='params'},'params':[named[n] for n in names]})
             optimizer=torch.optim.Adam(groups,foreach=False)
             optimizer.load_state_dict(copy.deepcopy(info['optimizer_state']))
-            for group in optimizer.param_groups: group['foreach']=False
+            for group in optimizer.param_groups: group['foreach']=(args.mode == 'pool-counts')
             cfg=dict(_policy_version='microbatch-gate:0',sample_efficiency={'advantage_mode':'mc','ppo_epochs_max':1},
-                     search={'loss_coefficient':.1},practice={},epochs=1,effective_minibatch=128,
+                     search={'loss_coefficient':.1},practice={},epochs=1,
+                     effective_minibatch=32 if args.mode == 'pool-counts' else 128,
                      minibatch=micro,clip=.2,target_kl=.05,value_coefficient=.5,max_grad=.5,
                      value_calibration=info['training_config'].get('value_calibration',{}))
-            random.seed(19613);torch.manual_seed(19613);torch.npu.manual_seed_all(19613)
+            random.seed(19613)
+            if args.mode == 'pool-counts':
+                torch.random.default_generator.manual_seed(19613)
+                torch.npu.manual_seed(19613)
+            else:
+                torch.manual_seed(19613);torch.npu.manual_seed_all(19613)
             torch.npu.synchronize();torch.npu.reset_peak_memory_stats()
             tick=time.monotonic()
             metrics=update(model,optimizer,rows,cfg,args.device)
@@ -160,6 +185,8 @@ def main():
                         input_pipeline=metrics.get('input_pipeline'))
             if args.mode == 'prefetch':
                 result.update(prepared_towers='1', prefetch=prepared_towers)
+            elif args.mode == 'pool-counts':
+                result.update(prepared_towers='1', prefetch='1', foreach=True, pool_counts=prepared_towers)
             results.append((result,grads,weights))
             report['results'].append(result)
             print(json.dumps(result),flush=True)
@@ -174,7 +201,7 @@ def main():
                       adam_parameter_max=max(float((lw[n]-rw[n]).abs().max()) for n in lw))
         assert torch.isfinite(a).all() and torch.isfinite(b).all()
         assert all(torch.isfinite(v).all() for v in rw.values())
-        assert left['optimizer_steps']==right['optimizer_steps']==row_count//128
+        assert left['optimizer_steps']==right['optimizer_steps']==(1 if args.mode == 'pool-counts' else row_count//128)
         for key,limit in report['limits'].items():
             assert report[key]<=limit,(key,report[key],limit)
         report['passed']=True

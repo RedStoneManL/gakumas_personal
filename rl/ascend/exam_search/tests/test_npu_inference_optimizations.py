@@ -84,6 +84,32 @@ class InferenceOptimizationTests(unittest.TestCase):
             if p.grad is not None:torch.testing.assert_close(p.grad,q.grad,rtol=0,atol=0,msg=name)
 
 class SegmentedPoolingTests(unittest.TestCase):
+    def test_prepared_counts_preserve_pool_and_tied_gradients_without_recounting(self):
+        from round2rl.model import pool, attach_pool_metadata
+        from draftrl.batch_pipeline import transfer
+        from unittest.mock import patch
+        import numpy as np
+        torch.set_num_threads(1)
+        for sizes in ([0,1,3,2,17], [1000,1,1,0], [0,0], [4,4,4]):
+            groups = np.repeat(np.arange(len(sizes)), sizes)
+            groups = groups[np.random.default_rng(88).permutation(len(groups))]
+            plain = torch.from_numpy(groups.copy())
+            prepared = attach_pool_metadata(plain.clone(), groups, len(sizes), 'cpu')
+            moved = transfer({'groups': prepared}, 'cpu')['groups']
+            torch.testing.assert_close(moved._arena_segment_counts, torch.tensor(sizes), rtol=0, atol=0)
+            x = torch.randint(-2, 3, (len(groups), 7)).float().requires_grad_()
+            y = x.detach().clone().requires_grad_()
+            with patch.dict('os.environ', {'GAKUMAS_PREPARED_POOL_COUNTS': '0'}):
+                reference = pool(x, prepared, len(sizes))
+            with patch.dict('os.environ', {'GAKUMAS_PREPARED_POOL_COUNTS': '1'}), patch.object(
+                    torch, 'bincount', side_effect=AssertionError('Prepared pool recounted graph')):
+                actual = pool(y, moved, len(sizes))
+            torch.testing.assert_close(reference, actual, rtol=0, atol=0)
+            if len(groups):
+                weights = torch.arange(reference.numel()).view_as(reference).float()/17
+                (reference*weights).sum().backward(); (actual*weights).sum().backward()
+                torch.testing.assert_close(x.grad, y.grad, rtol=0, atol=0)
+
     def test_bucketed_max_matches_reference_and_tied_gradients(self):
         from round2rl.model import _segment_amax, prepare_segment_plan
         import numpy as np

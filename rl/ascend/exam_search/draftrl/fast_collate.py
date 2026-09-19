@@ -324,8 +324,8 @@ def _group_tensor(values, size, device):
     import torch
     result = torch.from_numpy(values).to(device)
     if str(device).startswith('npu'):
-        from round2rl.model import prepare_segment_plan
-        result._arena_segment_plan = prepare_segment_plan(values, size, device)
+        from round2rl.model import attach_pool_metadata
+        attach_pool_metadata(result, values, size, device)
     return result
 
 

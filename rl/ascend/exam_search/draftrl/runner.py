@@ -912,6 +912,9 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         else:
             checkpoint('initial.pt');checkpoint('latest.pt')
             baseline=evaluate('validation-initial')
+            # The same frozen initial policy and fixed seed groups already ran best-of-4.
+            # Seal that reference now instead of replaying the whole suite at the boundary.
+            best4_check(baseline,'validation-initial')
             checkpoint('best.pt')
             profile_bests={k:v['normalized_mean'] for k,v in baseline['profiles'].items()}
             scenario_bests={k:v['normalized_mean'] for k,v in baseline['scenarios'].items()}

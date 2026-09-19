@@ -63,7 +63,8 @@ def worker(connection, arena, expected_hash):
                     and not obs['result']['terminated'] and not obs['result']['truncated']):
                 from draftrl.encoding import encode_exam
                 from draftrl.fast_collate import prepare_encoded
-                answer['encoded'] = prepare_encoded(encode_exam(obs))
+                from draftrl.compact_input import compact_prepared
+                answer['encoded'] = compact_prepared(prepare_encoded(encode_exam(obs)))
             connection.send((True, answer))
     except EOFError:
         pass

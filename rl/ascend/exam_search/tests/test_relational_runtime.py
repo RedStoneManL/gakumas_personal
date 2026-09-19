@@ -141,6 +141,29 @@ class RelationalRuntimeTests(unittest.TestCase):
             else:
                 self.assertEqual(value, other, name)
 
+    def test_compact_worker_inputs_preserve_all_phases_and_lazy_fallback(self):
+        import pickle
+        from draftrl.compact_input import compact_prepared, CompactEncoded
+        alternate = self.cache.with_name('semantics-copy.json')
+        alternate.write_bytes(self.cache.read_bytes())
+        for profile, examples in self.examples.items():
+            for encoded in examples:
+                with self.subTest(profile=profile, phase=encoded.phase):
+                    expected = fast_collate.collate([encoded])
+                    candidate = compact_prepared(fast_collate.prepare_encoded(copy.deepcopy(encoded)))
+                    transported = pickle.loads(pickle.dumps(candidate, protocol=5))
+                    self.assertIsInstance(transported, CompactEncoded)
+                    self.assertNotIn('atoms', vars(transported))
+                    self.assertEqual(transported.submissions, encoded.submissions)
+                    with patch('draftrl.compact_input.pickle.loads', side_effect=AssertionError('raw graph decoded on prepared path')):
+                        self.assert_batch_equal(expected, fast_collate.collate([transported]))
+                    self.assertNotIn('atoms', vars(transported))
+                    # A different semantics file must still rebuild from exact raw inputs.
+                    with patch.dict(os.environ, {relational_runtime.ENV: str(alternate)}):
+                        self.assert_batch_equal(expected, fast_collate.collate([transported]))
+                    self.assertEqual(transported.atoms, encoded.atoms)
+                    self.assertEqual(transported.edges, encoded.edges)
+
     def test_nested_worker_precollate_merge_matches_direct_heterogeneous_collate(self):
         examples = self.examples["saki-hif"]
         direct = fast_collate.collate(examples)

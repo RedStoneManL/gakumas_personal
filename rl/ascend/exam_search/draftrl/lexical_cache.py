@@ -2,6 +2,11 @@
 import torch
 
 def lexical(encoder, batch):
+    training = getattr(encoder, '_training_lexical', None)
+    if training is not None and torch.is_grad_enabled():
+        if training[0] is not batch:
+            raise ValueError('Differentiable lexical vectors belong to another forward batch')
+        return training[1]
     cache = getattr(encoder, '_search_lex_cache', None)
     if cache is None or torch.is_grad_enabled():
         return encoder.word_vectors(batch['bytes'], batch['lengths'])

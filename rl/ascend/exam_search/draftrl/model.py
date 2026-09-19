@@ -189,8 +189,10 @@ class DraftPolicy(LegacyPolicy):
         return self.policy(b), values, atoms.sort(-1).values if atoms is not None else None
 
     def learning_forward(self, b):
-        values, atoms = self.value_outputs(b)
-        return self.policy(b), values, atoms
+        from .parallel_lexical import training_lexical
+        with training_lexical(self, b):
+            values, atoms = self.value_outputs(b)
+            return self.policy(b), values, atoms
 
     def policy(self, b):
         phase = b.get('uniform_phase')

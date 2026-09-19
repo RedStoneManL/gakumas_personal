@@ -14,8 +14,10 @@ class ManualService:
     def __init__(self, *args, **kwargs):
         self.pending, self.stats = set(), Counter()
         self.futures = []
+        self.tasks = []
 
     def submit(self, tasks):
+        self.tasks.extend(tasks)
         futures = [Future() for task in tasks]
         self.pending.update(futures)
         self.futures.extend(futures)
@@ -103,6 +105,23 @@ class AuxiliaryOverlapTests(unittest.TestCase):
         self.assertEqual(first['search_fallback_reason'], 'deadline')
         self.assertEqual(first['old_logp'], -.75)
         self.assertEqual(router.counts['auxiliary_backpressure_skips'], 1)
+
+    def test_delayed_task_serialization_keeps_pre_action_choice_snapshot(self):
+        router, flow, pool, decision = self.setup_flow()
+        item, proposal = decision(0, 'multi-choice')
+        live_selection = item['partial_selection']
+        live_selection.append(2)
+        record = self.bind_ready(flow, flow.submit(pool, [item], [proposal], 'weights:1'))[0]
+        # The actor advances immediately, before an executor feeder serializes
+        # the task. The search must still see the root BEFORE this next choice.
+        live_selection.append(11)
+        self.assertEqual(router.service.tasks[0]['partial_selection'], [2])
+        self.assertEqual(item['partial_selection'], [2])
+        self.assertIsNot(item['partial_selection'], router.service.tasks[0]['partial_selection'])
+        router.service.futures[0].set_result(self.result(item, 1))
+        flow.drain()
+        self.assertEqual((record['action'], record['old_logp']), (1, -.75))
+        self.assertIn('search_aux', record)
 
     def test_unbound_record_and_wrong_record_are_rejected(self):
         router, flow, pool, decision = self.setup_flow()

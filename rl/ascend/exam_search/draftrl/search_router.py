@@ -72,6 +72,10 @@ class SearchRouter:
             observed = history['steps'][-1]['observation'] if history['steps'] else history['initial']['observation']
             if observed != item['observation']:
                 raise ValueError('Recorder and collector public state differ')
+            # ProcessPoolExecutor serializes later, after the real actor may
+            # append its next choice. Freeze the pre-action selection for both
+            # the search task and the retained diagnostic attachment.
+            item['partial_selection'] = list(item['partial_selection'])
             self.counter += 1
             if maximum is not None:
                 self.episode_roots[item['episode_id']] += 1
@@ -82,7 +86,7 @@ class SearchRouter:
                 'root_selection':self.config.get('root_selection','gumbel_halving'),
                 **{k:self.config[k] for k in ('soft_floor','soft_temperature','soft_min_visits','learning_target','require_terminal','rollout_temperature') if k in self.config},
                 'score_scale': item['score_scale'], 'policy_version': policy_version,
-                'search_seed': search_seed, 'partial_selection': item['partial_selection'],
+                'search_seed': search_seed, 'partial_selection': list(item['partial_selection']),
                 **{k: self.config[k] for k in ('simulations', 'particles', 'seconds',
                      'sampling_ms', 'max_depth', 'rollout_steps')}})
             positions.append(position)

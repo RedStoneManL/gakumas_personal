@@ -45,6 +45,47 @@ def process_alive(pid):
     finally:kernel.CloseHandle(handle)
 
 
+def same_signed_contract(source, target):
+    """Recognize unchanged legacy or auxiliary contracts without re-migrating."""
+    from .learning_settings import SIGNED, SEARCH
+    if source.get('signed_exam_credit') != SIGNED or target.get('signed_exam_credit') != SIGNED:
+        return False
+    old_search, new_search = source.get('search', {}), target.get('search', {})
+    if old_search.get('learning_target') == SEARCH and new_search.get('learning_target') == SEARCH:
+        return True
+    # v6 auxiliary labels replaced the legacy acting-search learning_target.
+    # This path permits code-only continuation, not a search-contract migration.
+    if (old_search != new_search or new_search.get('execution_mode') != 'auxiliary'
+            or new_search.get('learning_target') is not None):
+        return False
+    from .search_supervision import validate_training_config
+    validate_training_config(source)
+    validate_training_config(target)
+    return True
+
+
+def split_training_log(data, info):
+    """Use the sealed byte boundary; expanded bank seeds exceed its seed counter."""
+    offset = info.get('committed_log_offsets', {}).get('train-episodes.jsonl')
+    if offset is not None:
+        if (type(offset) is not int or not 0 <= offset <= len(data)
+                or (offset and data[offset-1:offset] != b'\n')):
+            raise ValueError('Training log does not contain the committed checkpoint boundary')
+        return data[:offset].splitlines(keepends=True), data[offset:].splitlines(keepends=True)
+    # Older checkpoints do not contain transactional log offsets.
+    retained, discarded = [], []
+    bank_limit=1_500_000_000+(info.get('sample_bank') or {}).get('replay_counter',0)
+    for line in data.splitlines(keepends=True):
+        try:
+            row=json.loads(line)
+            source_kind=row.get('sampling_source')
+            limit=(bank_limit if source_kind=='bank_exam' else info.get('fork_next_seed',1_600_000_000)
+                   if source_kind=='fork_exam' else info['next_episode_index'])
+            (retained if row['seed']<limit else discarded).append(line)
+        except (ValueError,KeyError):discarded.append(line)
+    return retained, discarded
+
+
 def stage(source,output,setup,config,arena_hash):
     source,output,setup=Path(source).resolve(),Path(output).resolve(),Path(setup).resolve()
     if output.exists():raise FileExistsError('Continuation output must be a new directory')
@@ -64,11 +105,7 @@ def stage(source,output,setup,config,arena_hash):
     if info['arena_sha256']!=arena_hash:raise ValueError('Arena changed; not an equivalent continuation')
     if any(digest(setup/n)!=h for n,h in info['setup_sha256'].items()):
         raise ValueError('Original prepared scenario files differ from checkpoint')
-    from .learning_settings import SIGNED, SEARCH
-    already_signed = (config.get('signed_exam_credit') == SIGNED
-                      and info['training_config'].get('signed_exam_credit') == SIGNED
-                      and config.get('search', {}).get('learning_target') == SEARCH
-                      and info['training_config'].get('search', {}).get('learning_target') == SEARCH)
+    already_signed = same_signed_contract(info['training_config'], config)
     if already_signed:
         # Same audited learning settings on both sides: no feature migration to
         # validate. The permitted-key diff below audits the rest, except the keys the
@@ -178,15 +215,7 @@ def stage(source,output,setup,config,arena_hash):
     # or display it as committed continuation data.
     discarded=[];retained=[];training_log=output/'train-episodes.jsonl'
     if paused and training_log.exists():
-        bank_limit=1_500_000_000+(info.get('sample_bank') or {}).get('replay_counter',0)
-        for line in training_log.read_bytes().splitlines(keepends=True):
-            try:
-                row=json.loads(line)
-                source_kind=row.get('sampling_source')
-                limit=(bank_limit if source_kind=='bank_exam' else info.get('fork_next_seed',1_600_000_000)
-                       if source_kind=='fork_exam' else info['next_episode_index'])
-                (retained if row['seed']<limit else discarded).append(line)
-            except (ValueError,KeyError):discarded.append(line)
+        retained,discarded=split_training_log(training_log.read_bytes(),info)
         if discarded:
             (output/'continuation-uncommitted-tail.jsonl').write_bytes(b''.join(discarded))
             training_log.write_bytes(b''.join(retained))

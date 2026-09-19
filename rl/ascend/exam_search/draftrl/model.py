@@ -67,7 +67,7 @@ class SplitEncoder(nn.Module):
 
     def forward(self, b):
         uniform = b.get('uniform_phase')
-        if uniform is None and not torch.all((b["phase"] >= 0) & (b["phase"] <= 4)):
+        if uniform is None and 'tower_inputs' not in b and not torch.all((b["phase"] >= 0) & (b["phase"] <= 4)):
             raise ValueError("Unknown phase must not silently route to build")
         lex = self.lexical(b)
         lex = lex * (torch.arange(len(lex), device=lex.device) != 0)[:, None]
@@ -82,6 +82,9 @@ class SplitEncoder(nn.Module):
             return self.towers['exam' if uniform == 0 else 'build'](
                 nodes, b['batches'], b['batch_size'], lex,
                 b['edge_src'], b['edge_dst'], b['edge_word'])
+        if 'tower_inputs' in b:
+            from .tower_inputs import forward_towers
+            return forward_towers(self.towers, nodes, b, lex)
         output_nodes = torch.zeros_like(nodes)
         output_states = nodes.new_zeros(b["batch_size"], nodes.shape[-1])
         for name, tower in self.towers.items():

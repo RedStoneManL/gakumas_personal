@@ -94,7 +94,7 @@ def _collate_base(examples, device='cpu'):
     if any(p not in range(5) for p in phase_values):
         raise ValueError('Unknown phase')
     phase = tensor(phase_values)
-    return {'bytes': tensor(byte_np), 'lengths': torch.from_numpy(lengths_np),
+    result = {'bytes': tensor(byte_np), 'lengths': torch.from_numpy(lengths_np),
             'paths': gathered(paths, unique_paths, np.int64),
             'kinds': flat(kinds), 'values': flat(values),
             'numbers': gathered(numbers, unique_numbers, np.float32),
@@ -106,6 +106,8 @@ def _collate_base(examples, device='cpu'):
             'phase': phase, 'drink_phase': phase == 1,
             'uniform_phase': phase_values[0] if len(set(phase_values)) == 1 else None,
             'lexemes': tuple(lexemes)}
+    _tower_metadata(result, batches, phase_values, edge_src, edge_dst, edge_word, device)
+    return result
 
 
 def _sideviews(examples):
@@ -274,7 +276,7 @@ def _merge_base(pres, device='cpu'):
         return torch.from_numpy(np.asarray(value, dtype=dtype)).to(device)
 
     phase = tensor(phase_values)
-    return {'bytes': tensor(byte_np), 'lengths': torch.from_numpy(lengths_np),
+    result = {'bytes': tensor(byte_np), 'lengths': torch.from_numpy(lengths_np),
             'paths': cat(paths, np.int64, width=MAX_DEPTH),
             'kinds': cat(kinds, np.int64), 'values': cat(values, np.int64),
             'numbers': cat(numbers, np.float32, width=4),
@@ -286,6 +288,18 @@ def _merge_base(pres, device='cpu'):
             'phase': phase, 'drink_phase': phase == 1,
             'uniform_phase': phase_values[0] if len(set(phase_values)) == 1 else None,
             'lexemes': tuple(lexemes)}
+    _tower_metadata(result, np.concatenate(batches), phase_values,
+                    np.concatenate(edge_src), np.concatenate(edge_dst),
+                    np.concatenate(edge_word), device)
+    return result
+
+
+def _tower_metadata(batch, groups, phases, src, dst, words, device):
+    import os
+    if (str(device).startswith('npu') and batch['uniform_phase'] is None
+            and os.environ.get('GAKUMAS_PREPARED_TOWERS', '1') == '1'):
+        from .tower_inputs import prepare_tower_inputs
+        batch['tower_inputs'] = prepare_tower_inputs(groups, phases, src, dst, words, device)
 
 
 def _typed_metadata(side, types, device):

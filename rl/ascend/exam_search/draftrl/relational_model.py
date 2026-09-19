@@ -140,6 +140,9 @@ class RelationalEncoder(nn.Module):
             return self.towers['exam' if uniform == 0 else 'build'](
                 nodes, b['batches'], b['batch_size'], lex,
                 b['edge_src'], b['edge_dst'], b['edge_word'])
+        if 'tower_inputs' in b:
+            from .tower_inputs import forward_towers
+            return forward_towers(self.towers, nodes, b, lex)
         phase = b['phase']
         if bool(((phase < 0) | (phase >= len(PHASE_NAMES))).any()):
             raise ValueError('Unknown relational phase')

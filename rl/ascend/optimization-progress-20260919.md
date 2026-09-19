@@ -5,6 +5,25 @@ Production prod-v7 was stopped by explicit user request before its first update.
 Its latest.pt, logs, and unfinished-rollout evidence remain intact.
 The user subsequently requested carrying this work onto the latest remote framework.
 
+## Fixed-play evaluation sharding (2026-09-19)
+
+- Production batch1 committed124878 meaningful decisions at13:30:53. Actual
+  collection/fork/bank wall time34.07m and PPO69.60m. Ordinary fixed-play evaluation
+  then took5.5m on rank0 while the other7 learners waited in their serving loop.
+- Route the unchanged fixed-loadout/seed task list through the existing distributed
+  greedy bank-rollout path already used by construction Best-of-4 evaluation.
+  Gather all ranks before Best-of-4 grouping; reject missing/duplicate seeds,
+  including a lost whole four-seed group, and reject generated training records.
+- Both focused sharding tests passed: serial/eight-shard summary identity even
+  when groups cross ranks and completion order changes; missing/duplicate tasks
+  and training records rejected. All5 existing Best-of-4 tests also passed.
+  Two existing distributed math tests passed; a third signed-credit math test
+  did not finish within the45s bound. That broader suite is NOT claimed passed;
+  no distributed optimizer math was changed. No extra production/perf run.
+- The fixed-play speedup has not yet been measured in production. The GRU model,
+  gradient and Adam gates below remain applicable; this routing change does not
+  alter model computation, tasks, seeds, replicas or reduction grouping.
+
 ## Latest: buffered CPU GRU backward (2026-09-19 13:03 CST)
 
 This section supersedes the historical status and approval notes below. Production

@@ -32,7 +32,7 @@ if __name__ == '__main__':
     search = run_group('search algorithms and distributed learner math',
                        [TRAINING, TESTS, EXAM, EXAM/'tests',
                         EXAM/'runtime/shared', EXAM/'runtime/arena'],
-                       ['test_scaling', 'test_portable_gru', 'test_distributed', 'test_best_of',
+                       ['test_scaling', 'test_portable_gru', 'test_buffered_gru', 'test_play_sharding', 'test_distributed', 'test_best_of',
                         'test_best_of_search', 'test_search_budgets', 'test_search_bootstrap',
                         'test_soft_value', 'test_view_ownership', 'test_async_collectors',
                         'test_critic_completion', 'test_signed_learning', 'test_joint_search',

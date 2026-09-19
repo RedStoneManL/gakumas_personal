@@ -4,7 +4,7 @@ import hashlib
 import json
 import random
 import statistics
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from .checkpoint import json_write
@@ -116,9 +116,22 @@ def paired_comparison(result, baseline, bootstrap_reps=1000):
 
 
 def evaluate_play(pool,model,config,device,suite,choose,output,label,describe):
-    records,rows,_=rollout_bank(pool,model,None,config,device,len(suite['tasks']),None,choose,
-        log_path=Path(output)/(label+'-episodes.jsonl'),tasks=suite['tasks'],greedy=True,source='validation_fixed')
+    from . import distributed as _distributed
+    tasks=suite['tasks']
+    log_path=Path(output)/(label+'-episodes.jsonl')
+    if _distributed.ACTIVE is not None:
+        records,rows=_distributed.ACTIVE.bank_rollout(pool,model,config['_setup'],config,tasks,
+            log_path=log_path,source='validation_fixed')
+    else:
+        records,rows,_=rollout_bank(pool,model,None,config,device,len(tasks),None,choose,
+            log_path=log_path,tasks=tasks,greedy=True,source='validation_fixed')
     if records:raise ValueError('Evaluation generated training records')
+    # Gather every prescribed seed before computing best-of-four groups. A lost
+    # whole four-seed group would otherwise still satisfy the grouping modulus.
+    expected=Counter((t['metadata']['play_loadout_id'],t['replay_seed']) for t in tasks)
+    actual=Counter((r['play_loadout_id'],r['seed']) for r in rows)
+    if len(expected)!=len(tasks) or actual!=expected:
+        raise ValueError('Fixed-play evaluation tasks are incomplete or duplicated')
     result=describe(rows)
     if suite['replicas']%4==0:
         from .best_of import fixed_play_summary

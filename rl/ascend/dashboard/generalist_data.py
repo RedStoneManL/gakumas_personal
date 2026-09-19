@@ -40,7 +40,7 @@ def search_supervision_summary(metric, config):
             'independent_heldout_validation':auxiliary.get('independent_heldout_validation')}
 
 
-def replay_runtime(root, candidate):
+def replay_runtime(root, candidate, *, arena_sha256=None):
     """Only explicitly supported, workspace-local frozen revisions are executable."""
     root = Path(root).resolve()
     path = Path(candidate).resolve()
@@ -48,6 +48,15 @@ def replay_runtime(root, candidate):
                for revision in REPLAY_REVISIONS}
     allowed.update({root/'exam_search/runtime/arena', root/'exam-search/runtime/arena'})
     if path not in allowed:
+        # Continuation manifests retain the original deployment's absolute path.
+        # Execute only this dashboard's bundled copy; replay_main still checks
+        # its content hash against the recording before creating an exam.
+        if (isinstance(arena_sha256, str) and len(arena_sha256) == 64
+                and all(c in '0123456789abcdef' for c in arena_sha256)):
+            for name in ('exam-search', 'exam_search'):
+                bundled = (root/name/'runtime/arena').resolve()
+                if bundled in allowed and bundled.is_dir():
+                    return bundled
         raise ValueError('Replay runtime is not an allowed frozen generalist revision')
     return path
 
@@ -567,7 +576,8 @@ class GeneralistData:
                       policy_turn_visibility=row.get('policy_turn_visibility'))
         if not replay:
             return result
-        frozen = replay_runtime(self.root, manifest.get('arena_path') or self.base / 'runtime/arena')
+        frozen = replay_runtime(self.root, manifest.get('arena_path') or self.base / 'runtime/arena',
+                                arena_sha256=manifest.get('arena_sha256'))
         key = hashlib.sha256(json.dumps([row, str(frozen), manifest.get('arena_sha256')], sort_keys=True).encode()).hexdigest()
         with self.replay_lock:
             if key in self.cache:

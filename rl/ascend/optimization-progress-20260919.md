@@ -1,3 +1,17 @@
+## Authoritative live state: parallel lexical production running (2026-09-19 16:07 CST)
+
+This section supersedes all pending-launch instructions below. The handoff is DONE. Do not rerun the launcher/controller/pause helper. Preserve the active batch.
+
+- LIVE run `/mnt/local/gakumas/runs/prod-v6-credit-parallel`, log `/mnt/local/gakumas/logs/prod-v6-credit-parallel.log`; LIVE frozen source `/mnt/local/gakumas/deploy-v6-credit-parallel-next`, core commit73199c7, fingerprint3a6c301e93ada34b442bb119cd7bd0b7b96746f2db5addb977ad8bc816f0262f. All93 files matched local. Do not edit this deployment.
+- Torchrun952857 and learners952882..952889 all verified alive with cpu-buffered and GAKUMAS_PARALLEL_LEXICAL=1. New collection is advancing after two committed batches, cumulative254366 meaningful decisions. Controller952208 completed handoff at16:01:59 and is no longer needed.
+- Old buffered run is paused after batch2 and ordinary evaluations. Its latest.pt SHA256 feb43ef067628f1dde3b20e0108d114876ec65a011f13b5686ce9773bd94e61c is the continuation source. Neither the earlier throughput/batch1 checkpoint nor any perf checkpoint may replace it.
+- `parallel-continuation-audit.json` PASSED all20 checks: exact model/config, original optimizer parameter names, Adam moments/steps, optimizer groups except scheduled LR, Python/Torch/CUDA/NPU RNG, bank, coverage, seeds/counters, committed train-log prefix; no config changes or discarded training rows. LR differs according to the existing schedule; do not claim LR equality.
+- Batch2 actual:129488 new meaningful decisions,132990 PPO records,552 optimizer steps,4 epochs,1957.0558s global collection/fork/bank,3503.9684s PPO (58.4min). Batch1:124878 decisions,128486 records,2044.3126s collection,4175.8050s PPO (69.6min). Record-normalized PPO throughput approximately+23%; different samples prevent a controlled speedup claim. These production gains belong to the preceding buffered revision, not the newly launched parallel lexical revision.
+- Batch2 search:385 finished roots,375 budget-admitted (374 truncated/1 completed);341 auxiliary labels,51 positive-weight,34 rejected for insufficient_distinct_root_particles,290 zero-weight. search_loss0.0196036472. Budget admissions alone are not effective supervision. New policy root logs must be separated from inherited history.
+- Distributed fixed-play evaluation actually ran all192 tasks as8 shards of24; shard durations0.6..1.1minutes versus earlier rank0-only5.5minutes. Full scheduling/barrier time is not included in the per-shard figures.
+- Monitor heartbeat8 now targets this new run definitively and remains quiet unless a meaningful/actionable change occurs. Dashboard API was verified already following the parallel run at PID953896. The retarget helper exited with already_following and did not create parallel-dashboard-verified.json; do not restart the dashboard or assume that report exists.
+- Goal remains active. 80% whole-pipeline resource utilization has NOT been achieved/verified. Next major items remain search-drain/fork overlap and larger physical PPO microbatches with the same global optimizer block; neither is implemented in this revision. Avoid additional perf runs for already-passed GRU checks.
+
 ## Parallel lexical candidate verified; automatic handoff armed (2026-09-19)
 
 This section supersedes earlier pending-adoption notes. Goal remains active; 80% resource utilization is not demonstrated. No additional perf run is needed for this candidate.

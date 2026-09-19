@@ -2,6 +2,9 @@
 import copy
 import math
 import random
+import json
+import tempfile
+from pathlib import Path
 import unittest
 from collections import Counter
 from concurrent.futures import Future
@@ -90,6 +93,37 @@ class AuxiliaryTests(unittest.TestCase):
         action, logp, extra = router.finish(item_for(example(0)), result, 0, -.75)
         self.assertEqual((action, logp), (0, -.75))
         self.assertEqual(extra, {'loss_kind': 'ppo', 'search_fallback_reason': 'deadline'})
+
+    def test_misaligned_auxiliary_label_is_rejected_and_logged_without_losing_ppo(self):
+        e = example(0)
+        payload = result_for(e)
+        payload['search']['actions'].reverse()
+        before = copy.deepcopy(payload)
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'roots.jsonl'
+            with patch('draftrl.search_router.SearchService'):
+                router = SearchRouter(None, 'cpu', router_config(), log_path=path)
+            action, logp, extra = router.finish(item_for(e), payload, 0, -.75)
+            self.assertEqual((action, logp), (0, -.75))
+            self.assertEqual(extra, {'loss_kind': 'ppo',
+                                    'search_fallback_reason': 'collector_action_mismatch'})
+            self.assertEqual(router.counts['accepted_targets'], 0)
+            self.assertEqual(router.counts['ppo_fallbacks'], 1)
+            row = json.loads(path.read_text(encoding='utf-8'))
+            self.assertFalse(row['valid_training_target'])
+            self.assertEqual(row['collector_actions'], e.submissions)
+            self.assertEqual(row['search'], before['search'])
+            self.assertEqual(row['original_search_status'], 'ok')
+        self.assertEqual(payload, before)
+
+    def test_misaligned_acting_search_still_fails_closed(self):
+        e = example(0)
+        payload = result_for(e)
+        payload['search']['actions'].reverse()
+        with patch('draftrl.search_router.SearchService'):
+            router = SearchRouter(None, 'cpu', router_config('act'))
+        with self.assertRaisesRegex(ValueError, 'action order mismatch'):
+            router.finish(item_for(e), payload, 0, -.75)
 
     def test_minimum_visits_budget_is_checked_before_opening_a_root(self):
         cfg = router_config(); cfg.update(soft_min_visits=4, simulations=7)

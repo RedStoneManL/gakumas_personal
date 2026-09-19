@@ -90,13 +90,22 @@ class SearchRouter:
 
     def finish(self, item, result, action, logp):
         extra = {'loss_kind': 'ppo'}
+        if (result['valid_training_target']
+                and result['search']['actions'] != item['encoded'].submissions):
+            if self.execution_mode != 'auxiliary':
+                raise ValueError('Collector/MCTS action order mismatch')
+            # An auxiliary root must never attach a target with different action
+            # ownership. Reject this label, retaining the real on-policy record
+            # and diagnostic evidence, instead of losing every rank's rollout.
+            result = {**result, 'status': 'collector_action_mismatch',
+                      'valid_training_target': False,
+                      'original_search_status': result['status'],
+                      'collector_actions': item['encoded'].submissions}
         self.counts['attempted_roots'] += 1
         self.counts['status:'+result['status']] += 1
         self.counts['profile:'+item['profile']] += 1
         if result['valid_training_target']:
             search = result['search']
-            if search['actions'] != item['encoded'].submissions:
-                raise ValueError('Collector/MCTS action order mismatch')
             if self.execution_mode == 'auxiliary':
                 # Search is supervision from an isolated public snapshot. Its
                 # suggested action must not change the real on-policy rollout.

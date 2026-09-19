@@ -26,6 +26,11 @@ def _initialize(requests, responses, counter):
         counter.value += 1
     _worker_requests, _worker_responses = requests, responses[_worker_slot]
     _worker_sequence = 0
+    # Results travel through the executor's separate result pipe. A timed-out
+    # prediction can leave a large request here after the parent drained all
+    # futures. Do not wait for that orphan to flush when this worker exits:
+    # the parent has already stopped consuming and is joining this process.
+    requests.cancel_join_thread()
     from .source_stamp import install
     install()
     Finalize(None, _close_worker, exitpriority=10)

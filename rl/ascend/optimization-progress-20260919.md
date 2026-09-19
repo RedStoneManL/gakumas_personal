@@ -1,3 +1,11 @@
+## First combined production overlap observed on all8ranks (2026-09-20 00:35 CST)
+
+LIVE remains prod-v6-credit-pipeline/source1060f1..., torchrun1090212,7committed/903526decisions; batch8 now PPO. Controller1105661 and observer1082825 were reverified live00:30 and must not be duplicated. All state, frozen-candidate and future foreach handoff details in the next section remain authoritative.
+
+- `evidence/v7-opt/pipeline-first-overlap-observation.json` records8 real-production fork_search_overlap events: all8ranks started with48roots pending (384global), all finished with0remaining.2235fork tasks total; per-rank overlap elapsed825.864..958.949s. This is the first actual full-course concurrent-root mechanics observation, not a diagnostic run.
+- Current policy1060f1...:7 raw roots:386 unique judged,362 budget-admitted (93.78%);362ok_truncated,21insufficient_search_budget,1inference_deadline,2deadline;0action mismatch. These are NOT final auxiliary-label/positive-weight counts; batch8 has not committed yet.
+- At00:35:02 rank0 reported batch31.5min/PPO4.4min, so PPO began about27.1min into this batch versus prior global collection33.48min; treat as provisional, sample-dependent timing until committed global collection_seconds is available. Rank0 finished collect9.1min/overlapped fork14.6min/bank0.6min; other-rank tails also matter. PPO epoch1,70optimizer steps,12.9% of four-epoch local record work. Do not claim the full80% goal achieved or bypass the controller's first-production positive-supervision check.
+
 ## Combined pipeline LIVE; native foreach Adam validated and boundary adoption armed (2026-09-20 00:07 CST)
 
 This is the authoritative latest state. This goal turn made progress: measured the first real prefetch batch, confirmed combined pipeline adoption with27 checks, identified a substantial optimizer dispatch bottleneck, implemented and validated native foreach, and armed its next safe boundary adoption. Whole-pipeline80% utilization is still far from demonstrated; keep the goal active. User prefers no subagents unless requested, minimal diagnostics and no repeated full perf. No live or armed deployment may be edited; never restart on VPN or observation timeout.

@@ -27,6 +27,7 @@ def search_supervision_summary(metric, config):
     """Budget-approved raw roots are not yet evidence-gated CE labels."""
     auxiliary=metric.get('auxiliary_search') or {}
     learning=metric.get('search_learning') or {}
+    ranks=(metric.get('search_batch') or {}).get('counts',{}).get('ranks_reporting')
     return {'execution_mode':config.get('search',{}).get('execution_mode','act'),
             'actor_search_records':metric.get('search_records'),
             'real_ppo_records':metric.get('ppo_records'),
@@ -36,7 +37,9 @@ def search_supervision_summary(metric, config):
             'auxiliary_rejected_roots':auxiliary.get('rejected_roots',0),
             'auxiliary_rejected_reasons':auxiliary.get('rejected_reasons',{}),
             'all_weighted_labels':learning.get('weighted_roots'),
-            'router_counter_scope':'main_router', 'learning_counter_scope':'learner_global',
+            'router_counter_scope':'learner_global' if ranks else 'main_router',
+            'ranks_reporting':ranks, 'inference_counter_scope':'main_router',
+            'learning_counter_scope':'learner_global',
             'independent_heldout_validation':auxiliary.get('independent_heldout_validation')}
 
 
@@ -145,6 +148,12 @@ def alive(pid):
     if not isinstance(pid, int) or pid <= 0:
         return None
     if os.name != 'nt':
+        try:
+            state=(Path('/proc')/str(pid)/'stat').read_text().rsplit(')',1)[-1].split()[0]
+            if state in ('Z','X'):
+                return False
+        except (OSError, IndexError):
+            pass
         try:
             os.kill(pid, 0)
             return True
@@ -364,6 +373,18 @@ class GeneralistData:
         if status == 'running' and process_alive is False:
             status = 'stopped'
         config = manifest.get('config', {})
+        boundary=(manifest.get('continuations') or [{}])[-1].get('checkpoint_batch')
+        performance=[]
+        for row in metrics:
+            collect, update=row.get('collection_seconds'), row.get('update_seconds')
+            seconds=(collect+update if isinstance(collect,(int,float))
+                     and isinstance(update,(int,float)) else None)
+            decisions=row.get('batch_decisions_actual')
+            performance.append({'batch':row.get('batch'), 'decisions':decisions,
+                'ppo_records':row.get('ppo_records'), 'optimizer_steps':row.get('optimizer_steps'),
+                'collection_seconds':collect, 'update_seconds':update, 'training_seconds':seconds,
+                'decisions_per_second':decisions/seconds if seconds and decisions is not None else None,
+                'from_current_revision':boundary is None or row.get('batch',0)>boundary})
         pool = pool_rules(manifest)
         profile_meta = {p['id']: p for p in manifest.get('profiles', [])}
         profiles = []
@@ -402,6 +423,7 @@ class GeneralistData:
                     'best4_training':last.get('build_best_of_k'),
                     'best4_validation':best4_history[-1] if best4_history else None,
                     'config':config.get('search',{}), 'batch':last.get('batch'),
+                    'resource_settings':progress.get('resource_settings') or {},
                     'latest':last.get('search_batch',{}),
                     'current_progress':progress.get('search_progress'),
                     'current_rollout':self.current_rollout(job, progress),
@@ -438,6 +460,8 @@ class GeneralistData:
                  'source_sha256': manifest.get('rl_source_sha256'), 'arena_sha256': manifest.get('arena_sha256')},
             status=status, trainer_alive=process_alive, trainer_pid=progress.get('trainer_pid'),
             stale_seconds=max(0, round(time.time() - modified)), updated_at=progress.get('updated_at'),
+            last_activity_at=datetime.fromtimestamp(modified, timezone.utc).isoformat(),
+            performance={'batches':performance, 'scope':'collection_and_update_excluding_evaluation'},
             progress={k: (config.get(k, progress.get(k)) if k == 'batch_decisions'
                           else progress.get(k, config.get(k))) for k in
                       ('batches', 'decisions', 'event', 'elapsed_minutes', 'batch_decisions',

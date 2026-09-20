@@ -1,3 +1,7 @@
+# 2026-09-19 至 20 日优化历史记录
+
+本文件保留排查和切换时的原始记录，包含当时的失败、未完成事项、固定 PID 和本地路径；这些不是当前操作指令。最终结果见 [优化台账](optimization-results.md)，提交范围和使用说明见 [发布整理说明](OPTIMIZATION_20260920.md)。原始远端文件只作来源索引；仓库提供 [证据摘要](evidence/optimization-20260920.json)。
+
 ## Pool-counts LIVE and audited; dashboard replay verified (2026-09-20 06:45 CST)
 
 This goal turn made progress: verified actual clean-boundary adoption and31 state-preservation checks, confirmed the UI follows the new run and real replay still works. Preserve current first pool production batch. Updated user criterion remains advisory80% per bottleneck resource; close after worthwhile optimization benefit/cost review, not an all-resource utilization quota.

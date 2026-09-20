@@ -1,5 +1,7 @@
 # Gakumas 训练引擎与 Arena
 
+2026-09-20：[V6 训练优化、回放修复和实测整理](rl/ascend/OPTIMIZATION_20260920.md)，包含生产收益、验证边界及当前配置说明。
+
 独立的训练源码仓库，包含最新纯打牌搜索模型、完整育成 PPO、各自绑定的 Arena，前台观测台、最新完整 checkpoint，以及 Linux ARM64 / 昇腾 NPU 部署入口。
 
 ## 从这里开始
@@ -47,7 +49,7 @@ python ascend/configure.py --output-dir ../gakumas-configs/run1 \
   --minibatch-size 512 --microbatch-size 2 --torch-threads 2
 ```
 
-实际规模受硬件、内存和操作系统约束。微批不能超过全局批量；当前是单机多卡同步更新，采样期的策略推理集中在 rank 0。具体启动命令、参数含义、运行中调参和续训规则见上面的完整 README。
+实际规模受硬件、内存和操作系统约束。微批不能超过全局批量；当前 V6 为单机多卡同步更新，各 rank 并行采样与搜索推理。具体启动命令、参数含义、运行中调参和续训规则见上面的完整 README。
 
 ## 代码与来源
 

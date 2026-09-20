@@ -1,5 +1,7 @@
 # 训练优化与实测收益
 
+[发布整理说明](OPTIMIZATION_20260920.md) · [可移植证据摘要](evidence/optimization-20260920.json)
+
 完整批次证据截止：2026-09-20T07:32:35.413910+08:00。生产源：`/mnt/local/gakumas/runs/prod-v6-credit-pool/metrics.jsonl`。已提交 14 批；当前继续训练。后续运行状态与该历史表的统计截止分别标注。
 
 所有正式批次都保留真实轨迹、模型、Adam 状态、随机状态和既有监督质量门。表中的相邻批次样本构成不同，收益是生产观察值，不能视为严格受控的单项因果实验。局部测试不代表整条管道收益。
@@ -63,7 +65,7 @@ PPO 吞吐 = PPO 记录数 / PPO 秒数；相对增幅按这一口径计算。�
 
 池化候选冻结部署：`/mnt/local/gakumas/deploy-v6-credit-pool-next`，96 文件 SHA256 `73ca2159b74ebf84982e0aa9e4e9b77dc3cc53ce7c9a9011a08a011ef2819029`。单次验证在既有生产采集窗口执行，未暂停生产；验证区间 `pool-counts-gate-interval.json` 必须从干净的资源比较中排除。06:25 已从第13批最新封存检查点安全接入生产，06:26 的31项续训审计全通过。首个池化批次14及常规评估已完成，实际整批收益与资源观察见文末收尾结论。
 
-完整数据：[optimization-metrics-pool-outcome.json](D:/gakumas/diagnostics/optimization-metrics-pool-outcome.json)；过程及证据文件索引：[optimization-progress-20260919.md](optimization-progress-20260919.md)。远端证据均位于 `/mnt/local/gakumas/evidence/v7-opt/`。
+完整数据：[仓库内证据摘要](evidence/optimization-20260920.json)；过程及证据文件索引：[optimization-progress-20260919.md](optimization-progress-20260919.md)。远端证据均位于 `/mnt/local/gakumas/evidence/v7-opt/`。
 foreach 后续观察器仅覆盖第 9 批 PPO 后半段及评估，PPO 有 115 个完整设备样本，AICore 平均 1.878%，主机 CPU 7.405%，HBM 新峰值 62260 MiB/卡（60.80 GiB）。与上一版全阶段样本窗口不同，不能据此直接给出利用率因果增幅。
 
 
@@ -81,7 +83,7 @@ foreach 后续观察器仅覆盖第 9 批 PPO 后半段及评估，PPO 有 115 �
 
 CPU 口径补充：容器可用 192 个逻辑 CPU，affinity/cpuset 均覆盖全部 192，cpu.max 没有配额。因此旧采样的 CPU 44.30% 不是容器只分到一半 CPU 的统计错觉。池化首个正式批次由独立低频观察器自动覆盖各阶段，不另跑性能试验。
 
-06:41 更新：已下载完整13批历史及池化接入审计至 [optimization-metrics-pool-adoption.json](D:/gakumas/diagnostics/optimization-metrics-pool-adoption.json)。面板已跟随池化版本，重新验证 liliya-xmas 实局 seed1600031206：28 帧、分数85159，回放完全一致；本次检查没有重启面板或训练。
+06:41 历史更新：当时已保存完整 13 批历史及池化接入审计；最终 14 批数据现汇总于 [仓库内证据摘要](evidence/optimization-20260920.json)。面板已跟随池化版本，重新验证 liliya-xmas 实局 seed1600031206：28 帧、分数85159，回放完全一致；本次检查没有重启面板或训练。
 
 ## 本轮收尾：保留优化并持续训练
 
@@ -126,4 +128,4 @@ PPO 期间另读取两次现有进程 CPU 计数器，间隔 641.7 秒：8 个 l
 
 回放修复已通过旧 run 与当前 run 的真实轨迹验证。当前面板健康检查绑定 pool；liliya-xmas 实局 28 帧、85159 分逐步重放一致，内容哈希仍强制校验。此次收尾没有重启面板或训练。
 
-最终数据与续训/回放/资源证据：[optimization-metrics-pool-outcome.json](D:/gakumas/diagnostics/optimization-metrics-pool-outcome.json)。远端计数器证据：`evidence/v7-opt/pool-ppo-cpu-counters-comparison.json`；原始资源采样：`production-pool-counts-resources.jsonl`。
+最终数据与续训/回放/资源证据：[仓库内证据摘要](evidence/optimization-20260920.json)。远端计数器证据：`evidence/v7-opt/pool-ppo-cpu-counters-comparison.json`；原始资源采样：`production-pool-counts-resources.jsonl`。

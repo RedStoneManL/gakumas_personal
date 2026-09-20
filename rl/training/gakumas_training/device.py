@@ -6,6 +6,7 @@ Arena workers remain CPU processes; only the learner owns an accelerator.
 from __future__ import annotations
 
 import importlib
+import os
 import random
 import re
 from contextlib import contextmanager
@@ -131,17 +132,26 @@ def model_device(model):
     return next(model.parameters()).device
 
 
+def npu_foreach_enabled():
+    # Explicit opt-in: validated against the installed torch_npu kernels, not
+    # inferred from CUDA checkpoint flags. Keep native Adam and per-tensor state.
+    value = os.environ.get('GAKUMAS_NPU_FOREACH', '0')
+    if value not in ('0', '1'):
+        raise ValueError('GAKUMAS_NPU_FOREACH must be 0 or 1')
+    return value == '1'
+
+
 def optimizer_options(model):
-    # Avoid CUDA-oriented foreach/fused implementations on PrivateUse1 devices.
-    return {"foreach": False} if model_device(model).type == "npu" else {}
+    return {"foreach": npu_foreach_enabled()} if model_device(model).type == "npu" else {}
 
 
 def load_optimizer_state(optimizer, state, device):
     # load_state_dict replaces constructor options with checkpoint options.
-    # A CUDA checkpoint must not re-enable foreach/fused/capture on the NPU.
+    # Only the current explicit NPU setting may enable foreach. Never inherit
+    # CUDA foreach/fused/capture settings or overwrite Adam moments/step counts.
     if device_kind(device) == 'npu':
         state = {**state, 'param_groups': [
-            {**group, 'foreach': False, 'fused': False, 'capturable': False}
+            {**group, 'foreach': npu_foreach_enabled(), 'fused': False, 'capturable': False}
             for group in state['param_groups']]}
     optimizer.load_state_dict(state)
 

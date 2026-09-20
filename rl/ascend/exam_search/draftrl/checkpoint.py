@@ -17,11 +17,14 @@ def source_version():
     return fingerprint()
 
 
-def transfer(path, arena_hash, device):
+def transfer(path, arena_hash, device, *, relational=False):
+    from .relational_training import SCHEMA as RELATIONAL_SCHEMA
     info = torch.load(path, map_location='cpu', weights_only=True)
-    if info.get('model_schema') not in (MODEL_SCHEMA, 'hif-memory-draft-drink-exam-policy/1') or info.get('encoding') not in (ENCODING,'arena-generalist-build-exam/2','arena-generalist-build-exam/1','arena-fixed-entry-drink-supply/1','arena-mixed-plan-sequential-choice/3','arena-mixed-plan-sequential-choice/2','arena-mixed-plan-sequential-choice/1','arena-memory-scenario-deck-guidance-drink-exam/1'):
+    if info.get('model_schema') not in (MODEL_SCHEMA, RELATIONAL_SCHEMA, 'hif-memory-draft-drink-exam-policy/1') or info.get('encoding') not in (ENCODING,'arena-generalist-build-exam/3','arena-generalist-build-exam/2','arena-generalist-build-exam/1','arena-fixed-entry-drink-supply/1','arena-mixed-plan-sequential-choice/3','arena-mixed-plan-sequential-choice/2','arena-mixed-plan-sequential-choice/1','arena-memory-scenario-deck-guidance-drink-exam/1'):
         raise ValueError('incompatible shared five-phase architecture')
-    if info['model_schema'] == MODEL_SCHEMA:
+    if info['model_schema'] in (MODEL_SCHEMA, RELATIONAL_SCHEMA):
+        if (info['model_schema'] == RELATIONAL_SCHEMA) != bool(info['model_config'].get('relational')):
+            raise ValueError('Checkpoint relational schema and model configuration disagree')
         model = DraftPolicy(**info['model_config'])
         model.load_state_dict(info['model_state'], strict=True)
     else:
@@ -31,16 +34,34 @@ def transfer(path, arena_hash, device):
             old_name = model.legacy_parameter_name(name)
             if old_name is not None and not torch.equal(value.cpu(), info['model_state'][old_name].cpu()):
                 raise ValueError('Function-preserving split migration changed an inherited tensor')
-    return model.to(device), {'path':str(Path(path).resolve()),'sha256':digest(path),
+    if bool(model.config.get('relational')) and not relational:
+        raise ValueError('A relational checkpoint requires the relational training configuration')
+    if relational and not model.config.get('relational'):
+        old_state = model.state_dict()
+        config = {**model.config, 'relational': True}
+        expanded = DraftPolicy(**config)
+        target = expanded.state_dict()
+        for name, value in old_state.items():
+            if name not in target or target[name].shape != value.shape:
+                raise ValueError('Relational warm start cannot map inherited parameter: ' + name)
+            target[name] = value
+        expanded.load_state_dict(target, strict=True)
+        model = expanded
+    model = model.to(device)
+    return model, {'path':str(Path(path).resolve()),'sha256':digest(path),
         'source_arena_sha256':info['arena_sha256'],'current_arena_sha256':arena_hash,
         'source_decisions':info['decisions'],'source_batches':info['batches'],
         'optimizer_reset':False,'optimizer_migration_pending':True,'restore_continuation':False,'all_old_weights_preserved':True,
         'source_encoding':info['encoding'], 'current_encoding':ENCODING,
-        'change':'Joint public-history MCTS. Split build/exam into four-block towers with initially identical outputs; inherited Adam moments copied explicitly, new identity blocks fresh. New Arena/catalogue version and new on-policy collection; no old rollout labels reused.'}
+        'relational': bool(model.config.get('relational')),
+        'change':'Explicit warm start with inherited tensors preserved. Optional zero-output relational branches use an independent input view. Named Adam migration and fresh on-policy collection; no old rollout labels reused.'}
 
 
 def save(path, model, optimizer, **metadata):
-    value = {'model_schema': MODEL_SCHEMA, 'encoding': ENCODING, 'model_config': model.config,
+    from .relational_training import SCHEMA as RELATIONAL_SCHEMA, named_groups
+    value = {'model_schema': RELATIONAL_SCHEMA if model.config.get('relational') else MODEL_SCHEMA,
+        'encoding': ENCODING, 'model_config': model.config,
+        'optimizer_parameter_names': named_groups(model, optimizer),
         'model_state': model.state_dict(), 'optimizer_state': optimizer.state_dict(),
         'torch_rng': torch.get_rng_state(), 'python_rng': random.getstate(),
         'cuda_rng': accelerator_rng()['cuda'], 'npu_rng': accelerator_rng()['npu'],
@@ -52,9 +73,12 @@ def save(path, model, optimizer, **metadata):
 
 
 def load(path, device):
+    from .relational_training import SCHEMA as RELATIONAL_SCHEMA
     value = torch.load(path, map_location='cpu', weights_only=True)
-    if value.get('model_schema') != MODEL_SCHEMA or value.get('encoding') != ENCODING:
+    if value.get('model_schema') not in (MODEL_SCHEMA, RELATIONAL_SCHEMA) or value.get('encoding') != ENCODING:
         raise ValueError('joint checkpoint schema mismatch')
+    if (value['model_schema'] == RELATIONAL_SCHEMA) != bool(value['model_config'].get('relational')):
+        raise ValueError('Checkpoint relational schema and model configuration disagree')
     with torch.random.fork_rng(devices=[]):
         model = DraftPolicy(**value['model_config'])
         model.load_state_dict(value['model_state'], strict=True)

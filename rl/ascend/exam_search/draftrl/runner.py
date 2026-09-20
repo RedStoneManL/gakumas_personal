@@ -33,7 +33,7 @@ from .resource_modes import RuntimeResources
 from .sample_bank import SampleBank
 from .bank_rollout import rollout_bank
 from .async_decisions import AsyncDecisions
-from .practice import mode_for, routed_parameters, make_fork_tasks, apply_fork_returns, practice_diagnostics, fork_coverage
+from .practice import mode_for, routed_parameters, make_fork_tasks, apply_fork_returns, practice_diagnostics, fork_coverage, auxiliary_controller
 from .best_of import summarize_groups
 from .coverage import Coverage
 from .play_evaluation import prepare_suite, evaluate_play
@@ -89,9 +89,13 @@ def choose(model, examples, device, greedy=False, driver='policy', rngs=None, ex
     return selected.tolist(), logp.tolist(), (values.tolist() if values is not None else [None]*len(examples)), settings, diagnostics
 
 
+from .lexical_cache import cached_rollout
+
+
+@cached_rollout
 def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=None,
             target_decisions=None, greedy=False, fixed_drinks=None, spec=None, driver='policy', log_path=None, exploration=None, scenario_bank=None,keep_entries=False,
-            index_offset=0, seed_stride=1):
+            index_offset=0, seed_stride=1, before_search_drain=None):
     """One frozen current policy across construction, resources, memories and exam."""
     assert (count is None) != (target_decisions is None)
     training = target_decisions is not None
@@ -177,11 +181,16 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                 profile = config['_profiles'][index % len(config['_profiles'])]
                 local_index = index // len(config['_profiles'])
                 scene_index = local_index // len(profile['spec']['scenarios'])
+                if config.get('performance_probe'):
+                    # A tiny wave still exercises drinks and HIF memory phases.
+                    scene_index = local_index
                 mode_entry, mode_spec, memory_mode = prepare_memory_mode(profile['entry'], profile['spec'], scene_index)
                 scenario_entry, scenario_spec, scenario = assign(mode_entry, mode_spec, local_index,
                     coverage=target_decisions is not None and config.get('coverage_enabled', False))
                 scenario_entry, scenario_spec, general = augment(scenario_entry, scenario_spec,
                     scene_index, next_seed, training=training)
+                from .performance_probe import shorten_course
+                scenario_entry, scenario_spec, general = shorten_course(scenario_entry, scenario_spec, general, config)
                 scenario_entry, scenario_spec = keycard_focus.prepare(scenario_entry, scenario_spec,
                     config, profile['id'], training=training)
                 scenario_spec = duplicate_limits.prepare_spec(scenario_spec, config)
@@ -210,6 +219,8 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                        'choice_state':None, 'choice_steps':[],
                        'exploration_mode':mode_for(config,local_index,training)}
                 row['search_enabled'] = bool(router and router.select_episode(local_index))
+                if training and auxiliary_controller(config) is not None:
+                    row['controller_contract'] = auxiliary_controller(config)
                 # seed_stride > 1 lets sharded learners walk disjoint interleaved seed
                 # streams (rank r starts at start_seed + r and steps by the rank count),
                 # so no two ranks can ever simulate the same episode.
@@ -241,6 +252,8 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                         e = encode_exam(row['obs'])
             examples.append(e)
         if ids:
+            if hasattr(pool, 'prepare_encoded'):
+                examples = pool.prepare_encoded(ids, examples)
             actions, logps, values, settings, diagnostics = choose(model, examples, device, greedy, driver,
                 [active[i]['rng'] for i in ids], exploration,
                 settings_override=routed_parameters(examples,[active[i]['exploration_mode'] for i in ids],exploration,config))
@@ -271,7 +284,11 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                                    'exploration_mode':row['exploration_mode'],
                                    'course_id':row['course_id'], 'drink_capacity':row['drink_capacity'],
                                    'memory_mode':row['memory_mode'], 'memory_capacity':row['memory_capacity'],
-                                   'condition_cell':row['condition_cell'], **diagnostic, **extra})
+                                    'condition_cell':row['condition_cell'], **diagnostic, **extra})
+            if flow is not None:
+                flow.bind(row['records'][-1], extra)
+            if 'controller_contract' in row:
+                row['records'][-1]['controller_contract'] = dict(row['controller_contract'])
             row['steps'] += 1
             meaningful += len(e.submissions) > 1
             if row['phase'] == 'draft':
@@ -335,6 +352,8 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
                     benchmark_cell=row['benchmark_cell'], score_scale=row['score_scale'],
                     normalized_score=score / row['score_scale'])
                 summary['guidance_choices'] = row['guidance'].history
+                if 'controller_contract' in row:
+                    summary['controller_contract'] = dict(row['controller_contract'])
                 summary['keycard_focus'] = bool(row['spec'].get('required_initial_guidance'))
                 summary['keycard_usage'] = keycard_focus.finish(row['keycard_tracking'])
                 summary['choice_steps'] = row['choice_steps']
@@ -401,7 +420,9 @@ def rollout(pool, model, entry, catalog, config, device, start_seed, *, count=No
             stage_progress.update(_done, len(active))
             last_log = time.monotonic()
     stage_progress.end()
-    if flow: flow.assert_drained()
+    if before_search_drain is not None:
+        before_search_drain(records, summaries, flow)
+    if flow: flow.drain()
     print(json.dumps({'event': 'rollout_ready', 'schema': RUNNER_SCHEMA,
         'episodes': len(summaries), 'meaningful_decisions': meaningful, 'next_seed': next_seed,
         'elapsed_minutes': round((time.monotonic() - rollout_started) / 60, 1),
@@ -486,7 +507,40 @@ def validation_index(result, baseline, offset=0.25):
         for k, v in result['benchmark_cells'].items()))
 
 
+def _batch_search(router, before, distributed):
+    """This batch's search counters across every rank, not just the coordinator's.
+
+    Each worker builds a fresh SearchRouter per collect, so its counters are already that
+    rank's delta; the coordinator keeps one router for the whole run and reports a delta
+    against `before`. Only `counts` is summed. Without this the per-profile rows
+    (`profile:<id>`, `accepted_profile:<id>`, `fallback_profile:<id>`) covered only the
+    profiles the coordinator itself drew, which with 8 ranks and 6 profiles is 3 of them:
+    rollout picks the profile by `index % len(profiles)` and rank r walks
+    index r, r+size, r+2*size, so gcd(size, len(profiles)) classes are unreachable.
+    `inference` stays the coordinator's own; it is a service statistic, not a total.
+    """
+    batch = router.delta(before)
+    shares = list(getattr(distributed.ACTIVE, 'collect_search_counts', None) or [])
+    counts = Counter(batch.get('counts', {}))
+    for share in shares:
+        counts.update(share)
+    batch['counts'] = dict(counts)
+    batch['counts']['ranks_reporting'] = len(shares) + 1
+    return batch
+
+
 def train(root, setup, config, initial, output, *, resume=False, continuation=None):
+    from .search_supervision import validate_training_config
+    validate_training_config(config)
+    probe = config.get('performance_probe', False)
+    if type(probe) is not bool:
+        raise ValueError('performance_probe must be a boolean')
+    if probe and (resume or continuation is not None or config.get('max_batches') != 1):
+        raise ValueError('A performance probe requires a new isolated single-batch run')
+    from .relational_runtime import configure
+    from .relational_training import parameter_groups, migrate_optimizer
+    semantic_path = configure(config, setup)
+    relational = semantic_path is not None
     if not config.get('search',{}).get('enabled'):
         raise ValueError('The joint-search trainer requires its explicit search configuration')
     if resume and continuation is not None:raise ValueError('Choose one continuation mechanism')
@@ -512,6 +566,13 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         raise RuntimeError('Frozen Arena differs from prepared inputs')
     source_hash = source_version()
     setup_hashes = {n:digest(setup/n) for n in ('profiles.json','catalog.json','provenance.json','config.json')}
+    if semantic_path is not None:
+        # setup hashes use relative filenames to remain portable across hosts.
+        try:
+            semantic_name = semantic_path.relative_to(Path(setup).resolve()).as_posix()
+        except ValueError as exc:
+            raise ValueError('Semantic artifact must be inside setup for portable checkpoint verification') from exc
+        setup_hashes[semantic_name] = digest(semantic_path)
     # '_setup' travels in the broadcast config so a worker rank can rebuild the
     # catalog, profiles and Arena pool for its shard without a second channel.
     run_config = {**config, '_profiles':profiles, '_setup':str(setup)}
@@ -525,34 +586,36 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
             model,resumed,recovery=prepare(output,setup,config,arena_hash,device)
         reference=resumed['transfer']
     elif initial is not None:
-        model, reference = transfer(initial,arena_hash,device)
+        model, reference = transfer(initial,arena_hash,device,relational=relational)
     else:
         from .model import DraftPolicy
-        model = DraftPolicy(quantiles=32).to(device)
+        model = DraftPolicy(quantiles=32,relational=relational).to(device)
         reference = {'initialization': 'random', 'optimizer_reset': True,
                      'restore_continuation': False, 'optimizer_migration_pending': False}
     for parameter in model.parameters():
         parameter.requires_grad_(True)
-    groups = []
-    for phase in ('exam','drink','draft','guidance','memory'):
-        params = [p for n,p in model.named_parameters() if
-            (not n.startswith(('drink_','draft_','guidance_','memory_')) if phase=='exam' else n.startswith(phase+'_'))]
-        groups.append({'params':params,'lr':config['learning_rate' if phase=='exam' else phase+'_learning_rate']})
+    if bool(model.config.get('relational')) != relational:
+        raise ValueError('Architecture change requires a NEW output and --initial, not --resume/--continue-from')
+    if relational and config.get('value_calibration') and not hasattr(model, 'exam_quantile_head') and not resumed:
+        model.enable_quantiles(config['value_calibration']['quantiles'])
+    rates = {phase:config['learning_rate' if phase=='exam' else phase+'_learning_rate']
+             for phase in ('exam','drink','draft','guidance','memory')}
+    groups = parameter_groups(model, rates)
     optimizer = torch.optim.Adam(groups,eps=config['adam_eps'], **optimizer_options(model))
     if resumed:load_optimizer_state(optimizer, resumed['optimizer_state'], device)
     elif initial is not None:
         from .migration import migrate_adam
         old = torch.load(initial, map_location='cpu', weights_only=True)
-        if old['model_schema'] == 'hif-memory-draft-drink-exam-policy/1':
+        if relational:
+            reference['optimizer_migration'] = migrate_optimizer(old, model, optimizer, device)
+        elif old['model_schema'] == 'hif-memory-draft-drink-exam-policy/1':
             reference['optimizer_migration'] = migrate_adam(old, model, optimizer)
         else:
             load_optimizer_state(optimizer, old['optimizer_state'], device)
             reference['optimizer_migration'] = {'same_schema_restored': True}
         reference['optimizer_migration_pending'] = False
         del old
-    if config.get('value_calibration') and not hasattr(model, 'exam_quantile_head') and not resumed:
-        # A new run learns its distribution from fresh returns. The historical
-        # calibration procedure requires an audited old run and is not invented.
+    if not relational and config.get('value_calibration') and not hasattr(model, 'exam_quantile_head') and not resumed:
         model.enable_quantiles(config['value_calibration']['quantiles'], optimizer)
     efficiency=config.get('sample_efficiency',{})
     practice=config.get('practice',{})
@@ -578,6 +641,8 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         'pool':profiles[2]['spec'], 'provenance':provenance,'arena_path':str(arena),
         'arena_sha256':arena_hash,'setup_sha256':setup_hashes,'rl_source_sha256':source_hash,
         'transfer':reference,'hardware':device_report(device),
+        'model_config':model.config,'model_parameters':sum(p.numel() for p in model.parameters()),
+        'relational_semantics_sha256':digest(semantic_path) if semantic_path is not None else None,
         'schema':RUNNER_SCHEMA,
         'construction_sources':'Own-plan/free ordinary and support + cards; at most three physical support cards within 18-25 total cards; all registered Prima Stella cards forbidden. Native unique and Switch constraints retained. Guidance uses existing native prices and budget.',
         'objective':'Authoritative terminal score / (profile score scale * exogenous multiplier normalizer), shared by all five trained phases; profile-balanced PPO.',
@@ -607,11 +672,12 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         batches,decisions,episode_index,best=(resumed['batches'],resumed['decisions'],
             resumed['next_episode_index'],resumed['best_validation_index'])
     restored_rates = learning_rates.current(optimizer)
-    state['optimizer_schedule'] = learning_rates.apply(optimizer, config, (time.monotonic()-started)/60)
+    state['optimizer_schedule'] = learning_rates.apply(optimizer, config, (time.monotonic()-started)/60,
+                                                       completed_batches=batches)
     json_write(output/'optimizer-change.json', {'restored_rates':restored_rates,
         'applied':state['optimizer_schedule'], 'schedule':config.get('learning_rate_schedule'),
-        'checkpoint_batch':batches, 'adam_moments_preserved':bool(resumed),
-        'source_checkpoint_sha256':(recovery or {}).get('audit',{}).get('source_checkpoint_sha256')})
+        'checkpoint_batch':batches, 'adam_moments_preserved':bool(resumed) or bool(reference.get('optimizer_migration')),
+        'source_checkpoint_sha256':(recovery or {}).get('audit',{}).get('source_checkpoint_sha256') or reference.get('sha256')})
     if os.name=='nt' and not ctypes.windll.kernel32.SetThreadExecutionState(0x80000001):
         raise OSError('Cannot keep machine awake during training')
 
@@ -634,11 +700,11 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         if 'search_progress' in details:
             q=details['search_progress']
             # `roots` is only what is in flight right now; attempted/accepted are
-            # cumulative for the run and are what says whether search is producing.
+            # cumulative for this rank's router, not the distributed job.
             _att,_acc=q.get('attempted',0),q.get('accepted',0)
-            line+=f" | MCTS {q.get('roots')} in flight"
+            line+=f" | MCTS rank0 {q.get('roots')} in flight/pending harvest"
             if _att:
-                line+=f", {_acc}/{_att} roots accepted ({100.*_acc/_att:.0f}%)"
+                line+=f", {_acc}/{_att} roots budget-admitted ({100.*_acc/_att:.0f}%, local judged roots)"
             else:
                 line+=", no root has finished yet"
         for k in ('train_mean','train_normalized_mean','validation_mean','validation_normalized_mean','best_validation_index'):
@@ -838,9 +904,19 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                        f"validation-{recovery['history'][-1]['batch']:04d}.json")
                 last_eval=(output/label).stat().st_mtime-began.timestamp()
             else:last_eval=0
+        elif probe:
+            checkpoint('initial.pt');checkpoint('latest.pt')
+            baseline = None
+            profile_bests, scenario_bests = {}, {}
+            last_eval = 0
+            publish('performance_probe', evaluation_skipped=True,
+                    note='Throughput diagnostic; no model-quality or checkpoint-selection claim')
         else:
             checkpoint('initial.pt');checkpoint('latest.pt')
             baseline=evaluate('validation-initial')
+            # The same frozen initial policy and fixed seed groups already ran best-of-4.
+            # Seal that reference now instead of replaying the whole suite at the boundary.
+            best4_check(baseline,'validation-initial')
             checkpoint('best.pt')
             profile_bests={k:v['normalized_mean'] for k,v in baseline['profiles'].items()}
             scenario_bests={k:v['normalized_mean'] for k,v in baseline['scenarios'].items()}
@@ -867,7 +943,7 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
         run_config['_completed_batches'] = batches
         run_config['_policy_version'] = f'{source_hash}:{batches}'
         keycard_check(pool,model,run_config,catalog,device,output,batches,rollout,choose,checkpoint,publish)
-        if practice.get('forks',{}).get('objective')=='best_of_k' and not (output/'best4-reference.json').exists():
+        if not probe and practice.get('forks',{}).get('objective')=='best_of_k' and not (output/'best4-reference.json').exists():
             best4_check(evaluate('validation-best4-boundary'),'validation-best4-boundary')
             if resumed:restore_random(resumed)
             checkpoint('latest.pt')
@@ -927,7 +1003,8 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                     exploration,log_path=output/'train-episodes.jsonl',
                     keep_entries=practice.get('forks',{}).get('enabled',False),
                     search_log=output/'search-roots.jsonl',
-                    search_seed_base=search_router.counter if search_router is not None else 0)
+                    search_seed_base=search_router.counter if search_router is not None else 0,
+                    fork_seed_base=fork_next_seed)
                 if bank is not None:
                     for _row in _bank_rows:
                         if not _row.get('keycard_focus'):bank.add(_row)
@@ -971,7 +1048,7 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                 if practice.get('forks',{}).get('objective')=='best_of_k':
                     from .best_of import repeat_bank_tasks,apply_bank_returns
                     extra_tasks,fork_next_seed=repeat_bank_tasks(
-                        keycard_focus.filter_bank_tasks(bank.sample(extra_count),run_config),fork_next_seed)
+                        keycard_focus.filter_bank_tasks(bank.sample(extra_count),run_config),fork_next_seed,config=run_config)
                 if extra_tasks is not None and _distributed.ACTIVE is not None and _distributed.ACTIVE.size>1:
                     # Replica groups are whole on one rank and credited there; the replays
                     # run with bank=None everywhere, so the bank is fed here from summaries.
@@ -992,7 +1069,8 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                 probe=inspect_gradients(model,[r for r in records if r['loss_kind']=='ppo'],run_config,device)
                 append(output/'gradient-diagnostics.jsonl',{'batch':batches+1,**probe})
             unchanged(); before=time.monotonic()
-            state['optimizer_schedule'] = learning_rates.apply(optimizer,config,(before-started)/60)
+            state['optimizer_schedule'] = learning_rates.apply(optimizer,config,(before-started)/60,
+                                                               completed_batches=batches)
             _epoch_cap=run_config.get('sample_efficiency',{}).get('ppo_epochs_max',run_config['epochs'])
             _ranks=_distributed.ACTIVE.size if _distributed.ACTIVE is not None else 1
             stage_progress.begin('ppo_update',len(records)*max(1,_epoch_cap),'records',shards=_ranks)
@@ -1030,7 +1108,7 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                 'construction_objective':practice.get('forks',{}).get('objective','mean'),
                 'construction_replicas':practice.get('forks',{}).get('replicas',2),
                 'search_diagnostics': search_router.diagnostics(),
-                'search_batch': search_router.delta(search_before),
+                'search_batch': _batch_search(search_router, search_before, _distributed),
                 'keycard_practice':keycard_focus.summarize(episodes),
                 'sampling_source_counts':dict(Counter(r['sampling_source'] for r in episodes)),
                 'joint_episode_count':joint_episode_count,'bank_episode_count':sum(r['sampling_source']=='bank_exam' for r in episodes),
@@ -1069,7 +1147,7 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
             del records
             run_config['_policy_version'] = f'{source_hash}:{batches}'
             keycard_check(pool,model,run_config,catalog,device,output,batches,rollout,choose,checkpoint,publish)
-            if time.monotonic()-started-last_eval >= 60*config.get('evaluation_interval_minutes', 60):
+            if not probe and time.monotonic()-started-last_eval >= 60*config.get('evaluation_interval_minutes', 60):
                 evaluation=evaluate(f'validation-{batches:04d}')
                 best4_check(evaluation,f'validation-{batches:04d}')
                 metric=index(evaluation,baseline)
@@ -1095,6 +1173,13 @@ def train(root, setup, config, initial, output, *, resume=False, continuation=No
                     capacities=evaluation['capacities'],courses=evaluation['courses'])
                 last_eval=time.monotonic()-started
                 if play_suite is not None:play_check(f'play-validation-{batches:04d}')
+        if probe:
+            report = {'performance_probe': True, 'batches': batches, 'decisions': decisions,
+                      'elapsed_seconds': time.monotonic()-started,
+                      'evaluation_skipped': True, 'quality_validated': False}
+            json_write(output/'result.json', report)
+            publish('complete', status='complete', performance_probe=report)
+            return
         latest=evaluate('validation-final')
         best4_check(latest,'validation-final')
         metric=index(latest,baseline)

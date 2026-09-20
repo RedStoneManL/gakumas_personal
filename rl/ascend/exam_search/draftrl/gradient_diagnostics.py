@@ -12,6 +12,8 @@ def inspect_gradients(model,records,config,device):
     cfg=config.get('practice',{}).get('gradient_diagnostics',{})
     count=cfg.get('examples_per_profile',2)
     params=list(model.actor.parameters());vectors={}
+    if hasattr(model, 'actor_relational'):
+        params += list(model.actor_relational.parameters())
     for profile in sorted({r['profile'] for r in records}):
         rows=[r for r in records if r['profile']==profile and r['encoded'].phase==0
               and len(r['encoded'].submissions)>1][:count]

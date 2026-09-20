@@ -2,5 +2,7 @@
 **/runs/
 **/.venv/
 **/__pycache__/
+**/.gakumas_rl_cache/
 *.pyc
 *.pt
+rl/ascend/exam_search/setup/relational_semantics.json

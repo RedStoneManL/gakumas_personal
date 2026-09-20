@@ -10,13 +10,17 @@ from .choice import ChoiceState
 from .async_decisions import AsyncDecisions
 from .encoding import encode_exam
 from . import stage_progress
-from .practice import routed_parameters
+from .practice import routed_parameters, auxiliary_controller
 from . import keycard_focus
 from .duplicate_limits import limit as copy_limit, validate as validate_copy_limit, overrides as copy_overrides
 
 
+from .lexical_cache import cached_rollout
+
+
+@cached_rollout
 def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path=None,
-                 *,tasks=None,greedy=False,source='bank_exam',keep_value_records=False):
+                 *,tasks=None,greedy=False,source='bank_exam',keep_value_records=False,background=None):
     if keep_value_records and (not greedy or bank is not None):
         raise ValueError('Value calibration must use explicit frozen-policy tasks')
     tasks=bank.sample(count) if tasks is None else tasks
@@ -29,16 +33,22 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
     started_at=time.monotonic()
     last_log=started_at
     router = config.get('_search_router') if not greedy else None
+    controller = auxiliary_controller(config) if not greedy else None
     flow = AsyncDecisions(router) if router else None
     from . import distributed as _dist
     stage_progress.begin(source,len(tasks),'episodes',
         shards=_dist.ACTIVE.size if _dist.ACTIVE is not None else 1)
     print(json.dumps({'event':'bank_rollout_begin','count':len(tasks),'policy_version':config['_policy_version']}),flush=True)
     while True:
+        if background is not None:
+            background()
         for i in range(min(config['workers'],len(tasks))):
             if i in active:continue
             task=next(pending,None)
             if task is None:continue
+            if controller is not None and task['metadata'].get('fork_replicas') is not None:
+                if task['metadata'].get('controller_contract') != controller:
+                    raise ValueError('Auxiliary continuation has a different behavior controller')
             # Historical fixed-play evaluation remains an explicit unchanged
             # diagnostic. Every PPO-producing bank/fork entry must obey the cap.
             if not greedy and copy_limit(config) is not None:
@@ -47,6 +57,8 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
             # There is no restore of a historical hand/deck order or engine RNG.
             pool.send(i,'reset',(task['entry'],task['replay_seed']))
             _answer=pool.receive(i)
+            if background is not None and i % 4 == 0:
+                background()
             obs=_answer['observation']
             if obs['result']['terminated'] or obs['result']['truncated']:
                 raise ValueError('bank opening is not a live exam')
@@ -67,6 +79,8 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
         modes=[active[i]['task']['metadata'].get('exploration_mode','normal') for i in ids]
         overrides=routed_parameters(examples,modes,exploration,config)
         if ids:
+            if hasattr(pool, 'prepare_encoded'):
+                examples = pool.prepare_encoded(ids, examples)
             actions,logps,values,settings,diagnostics=choose(model,examples,device,greedy,'policy',
                 [active[i]['rng'] for i in ids],exploration,settings_override=overrides)
         else:
@@ -96,6 +110,10 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
                 'prefix_id':meta.get('prefix_id'),'branch_id':meta.get('branch_id'),
                 'episode_id':f"{source}:{task['replay_seed']}",'policy_version':config['_policy_version'],
                 'terminal':False,**diagnostic,**extra})
+            if controller is not None:
+                row['records'][-1]['controller_contract'] = dict(controller)
+            if flow is not None:
+                flow.bind(row['records'][-1], extra)
             row['steps']+=1;meaningful+=len(e.submissions)>1
             if row['steps']>config['max_episode_decisions']:raise RuntimeError('bank decision guard exceeded')
             if row['choice'] is not None:
@@ -109,6 +127,8 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
             row['submissions'].append(command);pool.send(i,'step',command);awaiting.append(i)
         for i in awaiting:
             row=active[i];task=row['task'];_answer=pool.receive(i)
+            if background is not None and i % 4 == 0:
+                background()
             row['obs']=_answer['observation'];row['pre_encoded']=_answer.get('encoded')
             result=row['obs']['result']
             if result['truncated']:raise RuntimeError('truncated bank game cannot be a PPO target')
@@ -116,6 +136,13 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
             score=result['final_score']
             if score is None or not math.isfinite(score):raise RuntimeError('invalid bank terminal score')
             meta=copy.deepcopy(task['metadata']);normalized=score/meta['score_scale']
+            if controller is not None:
+                meta['controller_contract'] = dict(controller)
+            else:
+                # Retained loadout metadata describes an old controller. Do
+                # not label greedy evaluation or legacy acting-search as the
+                # auxiliary rollout that originally supplied this loadout.
+                meta.pop('controller_contract', None)
             for record in row['records']:record['return']=normalized
             row['records'][-1]['terminal']=True
             if not greedy:records.extend(row['records'])
@@ -159,7 +186,7 @@ def rollout_bank(pool,model,bank,config,device,count,exploration,choose,log_path
                 'eta_minutes':round((len(tasks)-_done)/_rate/60,1) if _rate else None}),flush=True)
             stage_progress.update(_done,len(active))
             last_log=time.monotonic()
-    if flow: flow.assert_drained()
+    if flow: flow.drain()
     stage_progress.end()
     print(json.dumps({'event':'bank_rollout_ready','episodes':len(summaries),'meaningful_decisions':meaningful,
                       'total':len(tasks),'source':source,

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import multiprocessing as mp
+import os
 import sys
 import traceback
 from pathlib import Path
@@ -43,6 +44,11 @@ def worker(connection, arena, expected_hash):
                 if exam is None:
                     raise RuntimeError("step without reset")
                 answer = {"observation": submit(exam, payload)}
+            elif command == 'encode':
+                from draftrl.fast_collate import prepare_encoded
+                prepared = prepare_encoded(payload)._prepared_input
+                connection.send((True, {'prepared': prepared}))
+                continue
             elif command == 'history':
                 if exam is None:
                     raise RuntimeError('history requested before reset')
@@ -53,6 +59,12 @@ def worker(connection, arena, expected_hash):
             obs = answer["observation"]
             if obs["version"]["effective_sha256"] != expected_hash:
                 raise ValueError("Arena effective version changed mid-run")
+            if (os.environ.get('GAKUMAS_RELATIONAL_SEMANTICS') and not obs.get('choice')
+                    and not obs['result']['terminated'] and not obs['result']['truncated']):
+                from draftrl.encoding import encode_exam
+                from draftrl.fast_collate import prepare_encoded
+                from draftrl.compact_input import compact_prepared
+                answer['encoded'] = compact_prepared(prepare_encoded(encode_exam(obs)))
             connection.send((True, answer))
     except EOFError:
         pass
@@ -90,6 +102,23 @@ class Workers:
         if not ok:
             raise RuntimeError(value)
         return value
+
+    def prepare_encoded(self, indices, examples):
+        path = os.environ.get('GAKUMAS_RELATIONAL_SEMANTICS')
+        if not path:
+            return examples
+        result = list(examples)
+        pending = []
+        for position, (index, encoded) in enumerate(zip(indices, examples)):
+            cached = getattr(encoded, '_prepared_input', None)
+            if cached is None or cached[0] != path:
+                self.send(index, 'encode', encoded)
+                pending.append((position, index))
+        for position, index in pending:
+            encoded = result[position]
+            encoded._prepared_input = self.receive(index)['prepared']
+            encoded.__dict__.pop('_relational_cached', None)
+        return result
 
     def public_history(self, index):
         self.send(index, 'history', None)

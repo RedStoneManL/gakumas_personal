@@ -10,6 +10,30 @@ from gakumas_training.runtime.checkpoint import capture_rng, restore_rng
 
 
 class DeviceTests(unittest.TestCase):
+    def test_npu_foreach_requires_current_explicit_opt_in(self):
+        model = Mock()
+        for value, expected in [('0', False), ('1', True)]:
+            with patch.dict(os.environ, {'GAKUMAS_NPU_FOREACH': value}), patch.object(
+                    backend, 'model_device', return_value=SimpleNamespace(type='npu')):
+                self.assertEqual(backend.optimizer_options(model), {'foreach': expected})
+                state = {'state': {0: {'step': torch.tensor(9.), 'exp_avg': torch.tensor([.3])}},
+                         'param_groups': [{'params': [0], 'lr': .004, 'name': 'actor',
+                                           'foreach': not expected, 'fused': True, 'capturable': True}]}
+                optimizer = Mock()
+                backend.load_optimizer_state(optimizer, state, 'npu:7')
+                restored = optimizer.load_state_dict.call_args.args[0]
+                self.assertIs(restored['state'], state['state'])
+                self.assertEqual(restored['param_groups'][0],
+                                 dict(params=[0], lr=.004, name='actor', foreach=expected,
+                                      fused=False, capturable=False))
+                self.assertEqual(state['param_groups'][0]['foreach'], not expected)
+        with patch.dict(os.environ, {'GAKUMAS_NPU_FOREACH': 'invalid'}):
+            with self.assertRaisesRegex(ValueError, 'must be 0 or 1'):
+                backend.npu_foreach_enabled()
+            with patch.object(backend, 'model_device', return_value=SimpleNamespace(type='cpu')):
+                self.assertEqual(backend.optimizer_options(model), {})
+
+    @patch.dict(os.environ, {'GAKUMAS_NPU_FOREACH': '0'})
     def test_restored_optimizer_cannot_reenable_cuda_execution_options_on_npu(self):
         state = {'state': {0: {'step': torch.tensor(3.), 'exp_avg': torch.tensor([.2])}},
                  'param_groups': [{'params': [0], 'lr': .003, 'foreach': True,

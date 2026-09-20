@@ -67,7 +67,7 @@ def root_search(model, entry, history, *, score_scale, policy_version,
                 seconds=8., sampling_ms=2000, max_depth=8, rollout_steps=4,
                 predictor=None, shared_client=None, objective_k=1, native_action_budget=20000,
                 root_selection='gumbel_halving', soft_floor=.25, soft_temperature=.8, soft_min_visits=2,
-                learning_target=None, require_terminal=False):
+                learning_target=None, require_terminal=False, rollout_temperature=0.):
     if score_scale <= 0 or not math.isfinite(score_scale):
         raise ValueError('Positive exogenous score scale required')
     if type(native_action_budget) is not int or native_action_budget not in (20000, 60000):
@@ -79,7 +79,8 @@ def root_search(model, entry, history, *, score_scale, policy_version,
               'valid_training_target': False, 'search': None, 'objective_k':objective_k,
               'budgets': {'root_seconds':seconds, 'sampling_ms':sampling_ms,
                           'native_action_budget':native_action_budget,
-                          'require_terminal':require_terminal}}
+                          'require_terminal':require_terminal,
+                          'rollout_temperature':rollout_temperature}}
     roots, branches = [], []
     # A separate client owns only hypothetical worlds; hard cancellation can
     # never invalidate the actual recorder owned by the collector.
@@ -100,8 +101,11 @@ def root_search(model, entry, history, *, score_scale, policy_version,
             return SearchBudget(milliseconds=min(60000, remaining_ms, request_ms or 60000), **limits)
 
         class World:
-            def __init__(self, world, view):
+            def __init__(self, world, view, particle_index):
                 self.world, self.view = world, view
+                # Local sampler slot only. Neither this identity nor native
+                # hidden state is inserted into a public view or NN input.
+                self.particle_index = particle_index
             def observe(self):
                 # This private wrapper belongs to public_mcts only. Each
                 # native response is a fresh JSON tree; step replaces it.
@@ -172,9 +176,10 @@ def root_search(model, entry, history, *, score_scale, policy_version,
             def sample_world():
                 # Sampling proportional to posterior weights makes backed-up
                 # arithmetic means estimate the weighted chance expectation.
-                parent = rng.choices(roots, weights=weights, k=1)[0]
+                particle_index = rng.choices(range(len(roots)), weights=weights, k=1)[0]
+                parent = roots[particle_index]
                 native = parent.clone(budget=budget())
-                wrapped = World(native, None)
+                wrapped = World(native, None, particle_index)
                 branches.append(wrapped)
                 wrapped.view = native.observe(budget=budget())
                 return wrapped
@@ -192,7 +197,13 @@ def root_search(model, entry, history, *, score_scale, policy_version,
                             objective_k=objective_k, root_selection=root_selection,
                             recoverable=spent_budget, require_terminal=require_terminal,
                             soft_floor=soft_floor,soft_temperature=soft_temperature,soft_min_visits=soft_min_visits,
-                            learning_target=learning_target)
+                            learning_target=learning_target, rollout_temperature=rollout_temperature)
+            result['root_particle_population'] = {
+                'requested': particles,
+                'distinct': sampled.get('distinct_particles'),
+                'duplicate': sampled.get('duplicate_particles'),
+                'ess': sampled['effective_sample_size'],
+            }
             # Only re-check the budget for a root that finished inside it. A truncated
             # root is over budget by definition; calling budget() here would raise and
             # throw away the very simulations this path exists to keep.

@@ -192,3 +192,8 @@ class DistributedTests(unittest.TestCase):
     @unittest.skipIf(os.name == 'nt', 'Local Windows PyTorch wheel cannot initialize Gloo; run on Linux')
     def test_native_gloo_two_ranks(self):
         self.run_comparison()
+
+    @unittest.skipIf(os.name == 'nt', 'Native Gloo acceptance runs on Linux')
+    def test_prefetch_native_gloo_signed_credit_and_critic_stop(self):
+        with patch.dict(os.environ, {'GAKUMAS_PPO_PREFETCH': '1'}):
+            self.run_comparison(latest=True)

@@ -1,0 +1,317 @@
+=== training backend and PPO ===
+test_cpu_does_not_import_optional_npu (test_device.DeviceTests.test_cpu_does_not_import_optional_npu) ... ok
+test_legacy_cpu_checkpoint_rng (test_device.DeviceTests.test_legacy_cpu_checkpoint_rng) ... ok
+test_missing_npu_fails_before_device_parsing (test_device.DeviceTests.test_missing_npu_fails_before_device_parsing) ... ok
+test_npu_rng_tracks_only_owned_device_and_rejects_topology_change (test_device.DeviceTests.test_npu_rng_tracks_only_owned_device_and_rejects_topology_change) ... ok
+test_registration_before_parsing_and_index_validation (test_device.DeviceTests.test_registration_before_parsing_and_index_validation) ... ok
+test_restored_optimizer_cannot_reenable_cuda_execution_options_on_npu (test_device.DeviceTests.test_restored_optimizer_cannot_reenable_cuda_execution_options_on_npu) ... ok
+test_retry_only_allocator_oom (test_device.DeviceTests.test_retry_only_allocator_oom) ... ok
+test_single_learner_preserves_explicit_device_index (test_device.DeviceTests.test_single_learner_preserves_explicit_device_index) ... ok
+test_threads_have_no_application_cap_and_invalid_topology_fails_early (test_device.DeviceTests.test_threads_have_no_application_cap_and_invalid_topology_fails_early) ... ok
+test_torchrun_assigns_owned_card_and_rejects_multiple_hosts (test_device.DeviceTests.test_torchrun_assigns_owned_card_and_rejects_multiple_hosts) ... ok
+test_behavior_probability_mismatch_rejected (test_ppo.PPOTests.test_behavior_probability_mismatch_rejected) ... ok
+test_microbatch_accumulation_matches_full_minibatch (test_ppo.PPOTests.test_microbatch_accumulation_matches_full_minibatch) ... ok
+test_mixed_task_and_stale_version_rejected_before_mutation (test_ppo.PPOTests.test_mixed_task_and_stale_version_rejected_before_mutation) ... ok
+test_no_setup_updates_are_bitwise_equal_for_different_setup_coefficients (test_ppo.PPOTests.test_no_setup_updates_are_bitwise_equal_for_different_setup_coefficients) ... ok
+test_nonfinite_scores_are_not_converted_to_zero (test_ppo.PPOTests.test_nonfinite_scores_are_not_converted_to_zero) ... ok
+test_policy_and_value_update_on_failed_episode_with_raw_score_target (test_ppo.PPOTests.test_policy_and_value_update_on_failed_episode_with_raw_score_target) ... ok
+test_setup_behavior_mismatch_and_invalid_entropy_coefficient_rejected (test_ppo.PPOTests.test_setup_behavior_mismatch_and_invalid_entropy_coefficient_rejected) ... ok
+test_setup_entropy_bonus_moves_policy_toward_uniform_without_random_actions (test_ppo.PPOTests.test_setup_entropy_bonus_moves_policy_toward_uniform_without_random_actions) ... ok
+test_cache_weak_ownership_and_byte_budget (test_policy_batch.BatchPolicyTests.test_cache_weak_ownership_and_byte_budget) ... ok
+test_cached_collate_is_exact_and_batch_mutations_do_not_poison_cache (test_policy_batch.BatchPolicyTests.test_cached_collate_is_exact_and_batch_mutations_do_not_poison_cache) ... ok
+test_order_deterministic_single_batch_and_mask (test_policy_batch.BatchPolicyTests.test_order_deterministic_single_batch_and_mask) ... ok
+test_precomputed_topology_matches_dynamic_groups_and_gradients (test_policy_batch.BatchPolicyTests.test_precomputed_topology_matches_dynamic_groups_and_gradients) ... ok
+test_real_setup_and_exam_batch_four_matches_ppo_microbatch_two (test_policy_batch.BatchPolicyTests.test_real_setup_and_exam_batch_four_matches_ppo_microbatch_two) ... ok
+test_sampled_log_probs_are_actual_masked_distribution_and_backward (test_policy_batch.BatchPolicyTests.test_sampled_log_probs_are_actual_masked_distribution_and_backward) ... ok
+test_single_act_retains_rng_behavior (test_policy_batch.BatchPolicyTests.test_single_act_retains_rng_behavior) ... ok
+test_backward_oom_discards_partial_parameter_gradients (test_cuda_oom_recovery.OOMRecoveryTests.test_backward_oom_discards_partial_parameter_gradients) ... ok
+test_failure_after_one_successful_inference_chunk_does_not_sample_early (test_cuda_oom_recovery.OOMRecoveryTests.test_failure_after_one_successful_inference_chunk_does_not_sample_early) ... ok
+test_forward_oom_after_prior_optimizer_step_retries_only_current_minibatch (test_cuda_oom_recovery.OOMRecoveryTests.test_forward_oom_after_prior_optimizer_step_retries_only_current_minibatch) ... ok
+test_inference_oom_splits_forward_but_samples_full_wave_once_and_remembers_cap (test_cuda_oom_recovery.OOMRecoveryTests.test_inference_oom_splits_forward_but_samples_full_wave_once_and_remembers_cap) ... ok
+test_inference_single_graph_and_non_oom_errors_propagate (test_cuda_oom_recovery.OOMRecoveryTests.test_inference_single_graph_and_non_oom_errors_propagate) ... ok
+test_micro_one_non_oom_and_optimizer_errors_are_not_silently_retried (test_cuda_oom_recovery.OOMRecoveryTests.test_micro_one_non_oom_and_optimizer_errors_are_not_silently_retried) ... ok
+test_parity_oom_shrinks_without_double_count_or_rng_change (test_cuda_oom_recovery.OOMRecoveryTests.test_parity_oom_shrinks_without_double_count_or_rng_change) ... ok
+test_bounds_atomic_validation_pending_and_optimizer_identity (test_runtime_execution.ExecutionControlTests.test_bounds_atomic_validation_pending_and_optimizer_identity) ... ok
+test_evaluation_hook_keeps_fixed_seeds_rng_and_vocabulary (test_runtime_execution.ExecutionControlTests.test_evaluation_hook_keeps_fixed_seeds_rng_and_vocabulary) ... ok
+test_failed_or_unchanged_evaluation_never_replaces_safe_checkpoint (test_runtime_execution.ExecutionControlTests.test_failed_or_unchanged_evaluation_never_replaces_safe_checkpoint) ... ok
+test_hot_episode_counts_resume_exact_seed_stream_and_pending (test_runtime_execution.ExecutionControlTests.test_hot_episode_counts_resume_exact_seed_stream_and_pending) ... ok
+test_legacy_checkpoint_defaults_and_cursor_validation (test_runtime_execution.ExecutionControlTests.test_legacy_checkpoint_defaults_and_cursor_validation) ... ok
+test_microbatch_change_preserves_accumulated_gradient_and_oom_setting (test_runtime_execution.ExecutionControlTests.test_microbatch_change_preserves_accumulated_gradient_and_oom_setting) ... ok
+test_successful_initial_evaluation_persists_controls_and_resume_can_train (test_runtime_execution.ExecutionControlTests.test_successful_initial_evaluation_persists_controls_and_resume_can_train) ... ok
+test_environment_failure_and_parent_interrupt_reap_workers_and_owned_helpers (test_runtime_parallel.ParallelRuntimeTests.test_environment_failure_and_parent_interrupt_reap_workers_and_owned_helpers) ... ok
+test_same_configuration_resume_repeats_next_update_and_evaluation_preserves_rng (test_runtime_parallel.ParallelRuntimeTests.test_same_configuration_resume_repeats_next_update_and_evaluation_preserves_rng) ... ok
+test_spawned_waves_order_mixed_coverage_behavior_parity_and_parent_encoding (test_runtime_parallel.ParallelRuntimeTests.test_spawned_waves_order_mixed_coverage_behavior_parity_and_parent_encoding) ... ok
+test_worker_count_validation_and_owned_posix_group_target (test_runtime_parallel.ParallelRuntimeTests.test_worker_count_validation_and_owned_posix_group_target) ... ok
+test_worker_transaction_discard_does_not_train_on_aborted_callbacks (test_runtime_parallel.ParallelRuntimeTests.test_worker_transaction_discard_does_not_train_on_aborted_callbacks) ... ok
+test_controls_are_atomic_and_do_not_create_target_before_initialization (test_colab_notebook_session.NotebookSessionTests.test_controls_are_atomic_and_do_not_create_target_before_initialization) ... ok
+test_nonblocking_live_tail_full_log_duplicate_start_and_safe_stop (test_colab_notebook_session.NotebookSessionTests.test_nonblocking_live_tail_full_log_duplicate_start_and_safe_stop) ... ok
+test_status_exposes_desired_effective_pending_and_invalid_control_error (test_colab_notebook_session.NotebookSessionTests.test_status_exposes_desired_effective_pending_and_invalid_control_error) ... ok
+test_unowned_live_lease_is_rejected_and_emergency_stops_only_owned_handle (test_colab_notebook_session.NotebookSessionTests.test_unowned_live_lease_is_rejected_and_emergency_stops_only_owned_handle) ... ok
+test_corrupt_source_cannot_initialize_target (test_colab_migration.MigrationTests.test_corrupt_source_cannot_initialize_target) ... ok
+test_initial_checkpoint_is_migratable_and_resumable_without_resetting_budget (test_colab_migration.MigrationTests.test_initial_checkpoint_is_migratable_and_resumable_without_resetting_budget) ... ok
+test_partial_publication_is_never_treated_as_a_fresh_run (test_colab_migration.MigrationTests.test_partial_publication_is_never_treated_as_a_fresh_run) ... ok
+test_preserves_complete_state_logs_elapsed_and_source_bytes (test_colab_migration.MigrationTests.test_preserves_complete_state_logs_elapsed_and_source_bytes) ... ok
+test_semantic_or_schema_changes_and_existing_unmarked_targets_fail_closed (test_colab_migration.MigrationTests.test_semantic_or_schema_changes_and_existing_unmarked_targets_fail_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 53 tests in 68.843s
+
+OK
+=== search algorithms and distributed learner math ===
+test_cli_generates_both_configs_above_previous_limits_without_overwrite (test_scaling.ScalingTests.test_cli_generates_both_configs_above_previous_limits_without_overwrite) ... ok
+test_cluster_overrides_reach_pool_and_training_config (test_scaling.ScalingTests.test_cluster_overrides_reach_pool_and_training_config) ... ok
+test_dashboard_scale_request_rebuilds_same_mode_pool_at_batch_boundary (test_scaling.ScalingTests.test_dashboard_scale_request_rebuilds_same_mode_pool_at_batch_boundary) ... ok
+test_generator_preserves_algorithm_and_rejects_invalid_scale_before_writing (test_scaling.ScalingTests.test_generator_preserves_algorithm_and_rejects_invalid_scale_before_writing) ... ok
+test_invalid_search_service_values_fail_before_allocating_executors (test_scaling.ScalingTests.test_invalid_search_service_values_fail_before_allocating_executors) ... ok
+test_search_service_no_longer_rejects_cluster_defaults_or_large_overrides (test_scaling.ScalingTests.test_search_service_no_longer_rejects_cluster_defaults_or_large_overrides) ... ok
+test_variable_length_outputs_and_all_parameter_gradients (test_portable_gru.PortableGRUTests.test_variable_length_outputs_and_all_parameter_gradients) ... ok
+{
+  "directory": "C:\\Users\\Liu\\AppData\\Local\\Temp\\tmpltq2w0_o",
+  "learners": 32,
+  "effective_inference_batch": 512,
+  "advisories": [
+    "inference_batch=1024 is capped at parallel_roots=512. Each search process submits one inference request and then blocks on its own reply, so at most 512 requests are ever in flight and no batch can exceed 512. Raise --search-workers to make larger inference batches reachable."
+  ],
+  "configs": [
+    "search.json",
+    "full_produce.json"
+  ]
+}
+FP32 reduction comparison: [(7.275957614183426e-12, 'node.1.bias'), (0.0, 'value_head.2.weight'), (0.0, 'value_head.2.bias'), (0.0, 'value_head.0.weight'), (0.0, 'value_head.0.bias')]
+test_full_produce_two_process_update_math (test_distributed.DistributedTests.test_full_produce_two_process_update_math) ... ok
+test_native_gloo_two_ranks (test_distributed.DistributedTests.test_native_gloo_two_ranks) ... skipped 'Local Windows PyTorch wheel cannot initialize Gloo; run on Linux'
+{"event": "records_broadcast", "records": 33, "seconds": 0.1, "ranks": 2}
+FP32 reduction comparison: [(8.940696716308594e-08, 'critic.node.0.weight'), (4.470348358154297e-08, 'critic.towers.exam.global_head.0.weight'), (4.470348358154297e-08, 'critic.towers.exam.edge.2.weight'), (2.9802322387695312e-08, 'exam_quantile_head.weight'), (2.9802322387695312e-08, 'critic.towers.exam.update.1.2.weight')]
+test_signed_credit_and_critic_completion_two_process_adam_parity (test_distributed.DistributedTests.test_signed_credit_and_critic_completion_two_process_adam_parity) ... ok
+{"event": "records_broadcast", "records": 5, "seconds": 0.0, "ranks": 2}
+{"event": "records_broadcast", "records": 5, "seconds": 0.0, "ranks": 2}
+FP32 reduction comparison: [(2.9802322387695312e-08, 'critic.text.weight_ih_l0'), (1.4901161193847656e-08, 'exam_quantile_head.weight'), (1.4901161193847656e-08, 'draft_policy_head.0.weight'), (1.4901161193847656e-08, 'critic.towers.exam.update.1.2.weight'), (1.4901161193847656e-08, 'critic.towers.exam.update.1.0.weight')]
+test_two_process_update_math_with_pipe_test_transport (test_distributed.DistributedTests.test_two_process_update_math_with_pipe_test_transport) ... ok
+test_fixed_validation_uses_two_groups_of_four_not_max_of_eight (test_best_of.BestOfTests.test_fixed_validation_uses_two_groups_of_four_not_max_of_eight) ... ok
+test_leave_one_out_score_gradient_matches_exact_best4_derivative (test_best_of.BestOfTests.test_leave_one_out_score_gradient_matches_exact_best4_derivative) ... ok
+test_missing_fourth_result_rejected_without_mutation (test_best_of.BestOfTests.test_missing_fourth_result_rejected_without_mutation) ... ok
+test_risky_deck_preferred_and_original_outcomes_retained (test_best_of.BestOfTests.test_risky_deck_preferred_and_original_outcomes_retained) ... ok
+test_search_utility_is_best4_not_mean_or_unlimited_max (test_best_of.BestOfTests.test_search_utility_is_best4_not_mean_or_unlimited_max) ... ok
+test_real_arena_roots_keep_best4_objective_and_recorder_isolation (test_best_of_search.BestOfSearchTests.test_real_arena_roots_keep_best4_objective_and_recorder_isolation) ... ok
+test_tail_objective_can_prefer_risky_action_over_higher_mean (test_best_of_search.BestOfSearchTests.test_tail_objective_can_prefer_risky_action_over_higher_mean) ... ok
+test_only_time_and_work_budget_can_change (test_search_budgets.SearchBudgetTests.test_only_time_and_work_budget_can_change) ... ok
+test_supervisor_preserves_all_other_parameters (test_search_budgets.SearchBudgetTests.test_supervisor_preserves_all_other_parameters) ... skipped 'Historical Windows supervisor; Ascend uses its own new-run/resume entry'
+test_fresh_worker_import_and_initializer_do_not_load_torch (test_search_bootstrap.SearchBootstrapTests.test_fresh_worker_import_and_initializer_do_not_load_torch) ... ok
+test_add_head_preserves_policy_mean_and_adam_mapping (test_soft_value.SoftValueTests.test_add_head_preserves_policy_mean_and_adam_mapping) ... ok
+test_bootstrap_distribution_not_best4_twice (test_soft_value.SoftValueTests.test_bootstrap_distribution_not_best4_twice) ... ok
+test_each_simulation_equal_mass_despite_atom_count (test_soft_value.SoftValueTests.test_each_simulation_equal_mass_despite_atom_count) ... ok
+test_low_value_keeps_budget_high_value_receives_more (test_soft_value.SoftValueTests.test_low_value_keeps_budget_high_value_receives_more) ... ok
+test_migration_rejects_unrelated_change (test_soft_value.SoftValueTests.test_migration_rejects_unrelated_change) ... ok
+test_online_quantile_loss_uses_own_terminal_return (test_soft_value.SoftValueTests.test_online_quantile_loss_uses_own_terminal_return) ... ok
+test_quantile_supervision_can_learn_rare_high_outcomes (test_soft_value.SoftValueTests.test_quantile_supervision_can_learn_rare_high_outcomes) ... ok
+test_real_process_inference_transports_quantiles_and_soft_budget (test_soft_value.SoftValueTests.test_real_process_inference_transports_quantiles_and_soft_budget) ... ok
+test_supervisor_requires_identical_precalibration_boundary (test_soft_value.SoftValueTests.test_supervisor_requires_identical_precalibration_boundary) ... skipped 'Historical Windows supervisor; Ascend does not claim this migration path'
+test_encoder_cannot_modify_borrowed_native_views (test_view_ownership.ViewOwnershipTest.test_encoder_cannot_modify_borrowed_native_views) ... ok
+test_cache_is_bounded_and_return_values_not_aliased (test_async_collectors.AsyncTests.test_cache_is_bounded_and_return_values_not_aliased) ... ok
+test_cache_matches_forward_and_invalidates_on_policy_change (test_async_collectors.AsyncTests.test_cache_matches_forward_and_invalidates_on_policy_change) ... ok
+test_cache_preserves_effect_order_phase_actions_and_signed_zero (test_async_collectors.AsyncTests.test_cache_preserves_effect_order_phase_actions_and_signed_zero) ... ok
+test_fast_world_keeps_advancing_while_search_waits (test_async_collectors.AsyncTests.test_fast_world_keeps_advancing_while_search_waits) ... ok
+test_auditor_requires_real_full_value_coverage_and_preserves_old_failure (test_critic_completion.CriticCompletionTests.test_auditor_requires_real_full_value_coverage_and_preserves_old_failure) ... ok
+test_completion_restores_flags_on_bad_target_without_actor_update (test_critic_completion.CriticCompletionTests.test_completion_restores_flags_on_bad_target_without_actor_update) ... ok
+test_early_stop_completes_values_without_changing_actor_or_actor_adam (test_critic_completion.CriticCompletionTests.test_early_stop_completes_values_without_changing_actor_or_actor_adam) ... ok
+test_migration_only_doubles_kl_and_enables_completion (test_critic_completion.CriticCompletionTests.test_migration_only_doubles_kl_and_enables_completion) ... ok
+test_new_supervisor_preserves_the_existing_quantile_model_boundary (test_critic_completion.CriticCompletionTests.test_new_supervisor_preserves_the_existing_quantile_model_boundary) ... ok
+test_no_extra_pass_when_joint_update_already_covers_all_records (test_critic_completion.CriticCompletionTests.test_no_extra_pass_when_joint_update_already_covers_all_records) ... ok
+test_only_unaccepted_records_are_used_and_targets_remain_real (test_critic_completion.CriticCompletionTests.test_only_unaccepted_records_are_used_and_targets_remain_real) ... ok
+test_auditor_rejects_missing_credit_and_mismatched_search_directions (test_signed_learning.SignedLearningTests.test_auditor_rejects_missing_credit_and_mismatched_search_directions) ... ok
+test_baseline_uses_pre_action_prediction_not_observed_own_return (test_signed_learning.SignedLearningTests.test_baseline_uses_pre_action_prediction_not_observed_own_return) ... ok
+test_equal_or_tiny_search_evidence_preserves_nonuniform_prior (test_signed_learning.SignedLearningTests.test_equal_or_tiny_search_evidence_preserves_nonuniform_prior) ... ok
+test_exact_best4_score_gradient_preserved_by_contribution_baseline (test_signed_learning.SignedLearningTests.test_exact_best4_score_gradient_preserved_by_contribution_baseline) ... ok
+test_gradient_diagnostic_uses_new_signed_credit_without_parameter_updates (test_signed_learning.SignedLearningTests.test_gradient_diagnostic_uses_new_signed_credit_without_parameter_updates) ... ok
+test_migration_allows_only_the_two_learning_changes_and_pending_kl (test_signed_learning.SignedLearningTests.test_migration_allows_only_the_two_learning_changes_and_pending_kl) ... ok
+test_missing_frozen_prediction_fails_before_mutating_any_credit (test_signed_learning.SignedLearningTests.test_missing_frozen_prediction_fails_before_mutating_any_credit) ... ok
+test_real_update_preserves_signed_signs_and_completes_critic (test_signed_learning.SignedLearningTests.test_real_update_preserves_signed_signs_and_completes_critic) ... ok
+test_repeatable_large_advantage_can_overcome_lower_prior (test_signed_learning.SignedLearningTests.test_repeatable_large_advantage_can_overcome_lower_prior) ... ok
+test_search_keeps_broad_behavior_and_distinct_learning_target (test_signed_learning.SignedLearningTests.test_search_keeps_broad_behavior_and_distinct_learning_target) ... ok
+test_signed_boundary_preserves_model_adam_rng_and_rejects_weight_change (test_signed_learning.SignedLearningTests.test_signed_boundary_preserves_model_adam_rng_and_rejects_weight_change) ... ok
+test_signed_contributions_and_own_targets (test_signed_learning.SignedLearningTests.test_signed_contributions_and_own_targets) ... ok
+test_simulation_mean_and_best4_do_not_get_nested_max (test_signed_learning.SignedLearningTests.test_simulation_mean_and_best4_do_not_get_nested_max) ... ok
+test_small_noisy_search_is_not_mislabeled_certain (test_signed_learning.SignedLearningTests.test_small_noisy_search_is_not_mislabeled_certain) ... ok
+test_function_and_adam_migrate_without_aliasing (test_joint_search.JointSearchTests.test_function_and_adam_migrate_without_aliasing) ... ok
+test_joint_update_uses_search_distribution_without_fake_logp (test_joint_search.JointSearchTests.test_joint_update_uses_search_distribution_without_fake_logp) ... ok
+test_parallel_search_reaches_real_terminal_and_preserves_recorder (test_joint_search.JointSearchTests.test_parallel_search_reaches_real_terminal_and_preserves_recorder) ... ok
+test_save_restore_next_update_matches (test_joint_search.JointSearchTests.test_save_restore_next_update_matches) ... ok
+test_lexical_cache_matches_fresh_inference_and_bypasses_gradients (test_joint_search.RecoveryTests.test_lexical_cache_matches_fresh_inference_and_bypasses_gradients) ... ok
+test_uncommitted_tail_is_archived_and_seed_position_restored (test_joint_search.RecoveryTests.test_uncommitted_tail_is_archived_and_seed_position_restored) ... ok
+test_batch_rng_and_cache_only_growth_overlay (test_native_semantics.NativeSemanticTests.test_batch_rng_and_cache_only_growth_overlay) ... ok
+test_initial_hand_uses_native_trait_composition (test_native_semantics.NativeSemanticTests.test_initial_hand_uses_native_trait_composition) ... ok
+test_input_objects_are_not_mutated (test_native_semantics.NativeSemanticTests.test_input_objects_are_not_mutated) ... ok
+test_invalid_native_customization_and_unknown_growth_are_rejected (test_native_semantics.NativeSemanticTests.test_invalid_native_customization_and_unknown_growth_are_rejected) ... ok
+test_missing_hot_path_entries_fail_without_node (test_native_semantics.NativeSemanticTests.test_missing_hot_path_entries_fail_without_node) ... ok
+test_offline_cache_is_source_bound_and_usable_without_node (test_native_semantics.NativeSemanticTests.test_offline_cache_is_source_bound_and_usable_without_node) ... ok
+test_order_and_typed_binding_scope_are_not_flattened_or_executed (test_native_semantics.NativeSemanticTests.test_order_and_typed_binding_scope_are_not_flattened_or_executed) ... ok
+test_remove_once_customization_is_visible_outside_program_ast (test_native_semantics.NativeSemanticTests.test_remove_once_customization_is_visible_outside_program_ast) ... ok
+test_assignment_operator_and_fixed_resource_semantics_stay_distinct (test_native_semantics.OperatorSemanticTests.test_assignment_operator_and_fixed_resource_semantics_stay_distinct) ... ok
+test_all_five_profiles_fixed_candidate_and_declaration_inputs_are_cached (test_prepare_relational.PrepareRelationalTests.test_all_five_profiles_fixed_candidate_and_declaration_inputs_are_cached) ... ok
+test_every_legal_next_guidance_preview_is_prepared (test_prepare_relational.PrepareRelationalTests.test_every_legal_next_guidance_preview_is_prepared) ... ok
+test_incremental_prepare_and_extra_public_binding (test_prepare_relational.PrepareRelationalTests.test_incremental_prepare_and_extra_public_binding) ... ok
+test_runtime_forced_saki_card_and_its_successors_are_cached (test_prepare_relational.PrepareRelationalTests.test_runtime_forced_saki_card_and_its_successors_are_cached) ... ok
+test_descriptions_identifiers_and_migration_metadata_are_not_dsl (test_prepare_relational.ProgramCollectionTests.test_descriptions_identifiers_and_migration_metadata_are_not_dsl) ... ok
+test_bound_runtime_index_is_a_scoped_join (test_relational_encoding.RelationalEncodingTests.test_bound_runtime_index_is_a_scoped_join) ... ok
+test_concrete_profiles_have_bounded_nonempty_sideviews (test_relational_encoding.RelationalEncodingTests.test_concrete_profiles_have_bounded_nonempty_sideviews) ... ok
+test_dynamic_roots_merge_without_losing_static_program (test_relational_encoding.RelationalEncodingTests.test_dynamic_roots_merge_without_losing_static_program) ... ok
+test_explicit_capacity_and_private_guards (test_relational_encoding.RelationalEncodingTests.test_explicit_capacity_and_private_guards) ... ok
+test_fixed_coverage_and_candidate_do_not_double_count (test_relational_encoding.RelationalEncodingTests.test_fixed_coverage_and_candidate_do_not_double_count) ... ok
+test_guidance_limit_trait_is_visible_when_ast_does_not_change (test_relational_encoding.RelationalEncodingTests.test_guidance_limit_trait_is_visible_when_ast_does_not_change) ... ok
+test_legacy_is_unchanged_and_actions_stay_aligned (test_relational_encoding.RelationalEncodingTests.test_legacy_is_unchanged_and_actions_stay_aligned) ... ok
+test_native_implicit_dependencies_respect_assignment_operator (test_relational_encoding.RelationalEncodingTests.test_native_implicit_dependencies_respect_assignment_operator) ... ok
+test_nested_allocator_names_do_not_enter_sideview (test_relational_encoding.RelationalEncodingTests.test_nested_allocator_names_do_not_enter_sideview) ... ok
+test_opaque_memory_is_unresolved_unless_native_ast_supplied (test_relational_encoding.RelationalEncodingTests.test_opaque_memory_is_unresolved_unless_native_ast_supplied) ... ok
+test_program_boundaries_and_read_write_scope_are_preserved (test_relational_encoding.RelationalEncodingTests.test_program_boundaries_and_read_write_scope_are_preserved) ... ok
+test_public_schedule_and_phase_order (test_relational_encoding.RelationalEncodingTests.test_public_schedule_and_phase_order) ... ok
+test_runtime_effective_overlay_wins_over_cached_static_program (test_relational_encoding.RelationalEncodingTests.test_runtime_effective_overlay_wins_over_cached_static_program) ... ok
+test_selected_global_memory_is_not_duplicated_as_another_ability (test_relational_encoding.RelationalEncodingTests.test_selected_global_memory_is_not_duplicated_as_another_ability) ... ok
+test_shared_counter_join_ignores_allocator_names (test_relational_encoding.RelationalEncodingTests.test_shared_counter_join_ignores_allocator_names) ... ok
+test_candidate_mask_phase_and_type_checks (test_relational_model.RelationalModelTests.test_candidate_mask_phase_and_type_checks) ... ok
+test_every_semantic_module_receives_gradient_after_output_warmup (test_relational_model.RelationalModelTests.test_every_semantic_module_receives_gradient_after_output_warmup) ... ok
+test_forward_paths_call_each_residual_branch_once (test_relational_model.RelationalModelTests.test_forward_paths_call_each_residual_branch_once) ... ok
+test_late_quantiles_keep_shape_and_zero_residual (test_relational_model.RelationalModelTests.test_late_quantiles_keep_shape_and_zero_residual) ... ok
+test_parameters_are_independent_and_missing_sideview_fails (test_relational_model.RelationalModelTests.test_parameters_are_independent_and_missing_sideview_fails) ... ok
+test_unordered_side_entity_permutation_preserves_output (test_relational_model.RelationalModelTests.test_unordered_side_entity_permutation_preserves_output) ... ok
+test_zero_residual_preserves_all_phases_and_legacy_tensors (test_relational_model.RelationalModelTests.test_zero_residual_preserves_all_phases_and_legacy_tensors) ... ok
+test_all_five_native_short_exams_finish_through_public_only_actions (test_relational_runtime.RelationalRuntimeTests.test_all_five_native_short_exams_finish_through_public_only_actions) ... ok
+test_every_actual_profile_and_phase_has_cache_only_relational_view (test_relational_runtime.RelationalRuntimeTests.test_every_actual_profile_and_phase_has_cache_only_relational_view) ... ok
+test_joint_update_accepts_real_views_and_nonzero_detached_search_ce (test_relational_runtime.RelationalRuntimeTests.test_joint_update_accepts_real_views_and_nonzero_detached_search_ce) ... ok
+test_native_pending_choice_preserves_shared_counter_joins_under_renaming (test_relational_runtime.RelationalRuntimeTests.test_native_pending_choice_preserves_shared_counter_joins_under_renaming) ... ok
+test_nested_worker_precollate_merge_matches_direct_heterogeneous_collate (test_relational_runtime.RelationalRuntimeTests.test_nested_worker_precollate_merge_matches_direct_heterogeneous_collate) ... ok
+test_program_string_collection_ignores_display_labels_and_targets (test_relational_runtime.RelationalRuntimeTests.test_program_string_collection_ignores_display_labels_and_targets) ... ok
+test_real_heterogeneous_phases_forward_backward_one_cpu_step (test_relational_runtime.RelationalRuntimeTests.test_real_heterogeneous_phases_forward_backward_one_cpu_step) ... ok
+test_spawned_worker_inherits_offline_semantics_and_matches_local_batch (test_relational_runtime.RelationalRuntimeTests.test_spawned_worker_inherits_offline_semantics_and_matches_local_batch) ... ok
+test_adam_by_name_copies_moments_and_leaves_new_groups_fresh (test_relational_training.RelationalTrainingTests.test_adam_by_name_copies_moments_and_leaves_new_groups_fresh) ... ok
+test_adaptation_zero_duration_and_new_multiplier (test_relational_training.RelationalTrainingTests.test_adaptation_zero_duration_and_new_multiplier) ... ok
+test_batch_adaptation_does_not_elapse_during_long_initial_validation (test_relational_training.RelationalTrainingTests.test_batch_adaptation_does_not_elapse_during_long_initial_validation) ... ok
+test_checkpoint_schema_mismatch_is_rejected (test_relational_training.RelationalTrainingTests.test_checkpoint_schema_mismatch_is_rejected) ... ok
+test_checkpoint_warm_start_keeps_all_phase_outputs_and_inherited_tensors (test_relational_training.RelationalTrainingTests.test_checkpoint_warm_start_keeps_all_phase_outputs_and_inherited_tensors) ... ok
+test_critic_completion_freezes_old_and_new_actor_and_its_adam_state (test_relational_training.RelationalTrainingTests.test_critic_completion_freezes_old_and_new_actor_and_its_adam_state) ... ok
+test_group_identity_and_configuration_fail_closed (test_relational_training.RelationalTrainingTests.test_group_identity_and_configuration_fail_closed) ... ok
+test_historical_unnamed_checkpoint_reconstructs_parameter_names (test_relational_training.RelationalTrainingTests.test_historical_unnamed_checkpoint_reconstructs_parameter_names) ... ok
+test_late_quantile_parameters_go_to_their_own_groups (test_relational_training.RelationalTrainingTests.test_late_quantile_parameters_go_to_their_own_groups) ... ok
+test_old_five_positional_groups_keep_original_schedule (test_relational_training.RelationalTrainingTests.test_old_five_positional_groups_keep_original_schedule) ... ok
+test_relational_enable_requires_an_explicit_boolean (test_relational_training.RelationalTrainingTests.test_relational_enable_requires_an_explicit_boolean) ... ok
+test_seven_named_groups_adapt_without_resetting_base_schedule (test_relational_training.RelationalTrainingTests.test_seven_named_groups_adapt_without_resetting_base_schedule) ... ok
+test_warmed_v6_checkpoint_next_update_is_bit_identical_after_resume (test_relational_training.RelationalTrainingTests.test_warmed_v6_checkpoint_next_update_is_bit_identical_after_resume) ... ok
+test_precompiler_resolves_both_repository_and_archive_names (test_relational_bundle.RelationalDeploymentLayoutTests.test_precompiler_resolves_both_repository_and_archive_names) ... ok
+test_search_entrypoints_are_present (test_relational_bundle.RelationalDeploymentLayoutTests.test_search_entrypoints_are_present) ... ok
+test_generated_semantics_cache_is_excluded_even_when_present (test_relational_bundle.RelationalSourceBundleTests.test_generated_semantics_cache_is_excluded_even_when_present) ... ok
+test_reviewed_rules_include_all_relational_files (test_relational_bundle.RelationalSourceBundleTests.test_reviewed_rules_include_all_relational_files) ... ok
+test_unknown_bundle_target_fails_closed (test_relational_bundle.RelationalSourceBundleTests.test_unknown_bundle_target_fails_closed) ... ok
+test_sampler_global_diversity_and_slot_provenance_are_separate (test_search_evidence.AdapterParticleEvidenceTests.test_sampler_global_diversity_and_slot_provenance_are_separate) ... ok
+test_all_success_default_matches_frozen_v6_schedule (test_search_evidence.SearchEvidenceTests.test_all_success_default_matches_frozen_v6_schedule) ... ok
+test_auxiliary_evidence_does_not_require_legacy_learning_target (test_search_evidence.SearchEvidenceTests.test_auxiliary_evidence_does_not_require_legacy_learning_target) ... ok
+test_bootstrapped_atoms_are_preserved_but_never_marked_terminal (test_search_evidence.SearchEvidenceTests.test_bootstrapped_atoms_are_preserved_but_never_marked_terminal) ... ok
+test_mixed_return_metadata_remains_aligned (test_search_evidence.SearchEvidenceTests.test_mixed_return_metadata_remains_aligned) ... ok
+test_new_settings_reject_invalid_values_and_allow_bounded_warmup (test_search_evidence.SearchEvidenceTests.test_new_settings_reject_invalid_values_and_allow_bounded_warmup) ... ok
+test_particle_group_stays_outside_public_evaluation_and_path_key (test_search_evidence.SearchEvidenceTests.test_particle_group_stays_outside_public_evaluation_and_path_key) ... ok
+test_salvage_keeps_attempt_but_not_failed_return (test_search_evidence.SearchEvidenceTests.test_salvage_keeps_attempt_but_not_failed_return) ... ok
+test_temperature_sampling_is_seeded_and_can_discover_greedy_blind_spot (test_search_evidence.SearchEvidenceTests.test_temperature_sampling_is_seeded_and_can_discover_greedy_blind_spot) ... ok
+test_trajectory_identity_does_not_depend_on_tree_rollout_boundary (test_search_evidence.SearchEvidenceTests.test_trajectory_identity_does_not_depend_on_tree_rollout_boundary) ... ok
+test_unknown_identity_never_becomes_fabricated_independent_groups (test_search_evidence.SearchEvidenceTests.test_unknown_identity_never_becomes_fabricated_independent_groups) ... ok
+test_unterminated_action_cannot_starve_other_warmup_actions (test_search_evidence.SearchEvidenceTests.test_unterminated_action_cannot_starve_other_warmup_actions) ... ok
+test_action_order_mismatch_and_mixed_behavior_rejected (test_search_auxiliary.AuxiliaryTests.test_action_order_mismatch_and_mixed_behavior_rejected) ... ok
+test_auxiliary_diagnostics_use_global_counts_and_weighted_mean (test_search_auxiliary.AuxiliaryTests.test_auxiliary_diagnostics_use_global_counts_and_weighted_mean) ... ok
+test_auxiliary_label_keeps_its_real_ppo_credit_and_changes_actor (test_search_auxiliary.AuxiliaryTests.test_auxiliary_label_keeps_its_real_ppo_credit_and_changes_actor) ... ok
+test_auxiliary_zero_coefficient_preserves_exact_ppo_and_single_critic_update (test_search_auxiliary.AuxiliaryTests.test_auxiliary_zero_coefficient_preserves_exact_ppo_and_single_critic_update) ... ok
+{"event": "bank_rollout_begin", "count": 1, "policy_version": "x:1"}
+{"event": "bank_rollout_ready", "episodes": 1, "meaningful_decisions": 3, "total": 1, "source": "bank_exam", "elapsed_minutes": 0.0, "profiles": {"test": 1}}
+{"event": "bank_rollout_begin", "count": 1, "policy_version": "x:1"}
+{"event": "bank_rollout_ready", "episodes": 1, "meaningful_decisions": 3, "total": 1, "source": "bank_exam", "elapsed_minutes": 0.0, "profiles": {"test": 1}}
+test_bank_real_trace_is_identical_with_shadow_search_on_or_off (test_search_auxiliary.AuxiliaryTests.test_bank_real_trace_is_identical_with_shadow_search_on_or_off) ... ok
+test_failed_auxiliary_search_remains_real_policy_only (test_search_auxiliary.AuxiliaryTests.test_failed_auxiliary_search_remains_real_policy_only) ... ok
+test_four_branches_share_controller_even_when_only_parent_has_shadow_search (test_search_auxiliary.AuxiliaryTests.test_four_branches_share_controller_even_when_only_parent_has_shadow_search) ... ok
+test_legacy_default_still_takes_search_action_without_fake_probability (test_search_auxiliary.AuxiliaryTests.test_legacy_default_still_takes_search_action_without_fake_probability) ... ok
+test_minimum_visits_budget_is_checked_before_opening_a_root (test_search_auxiliary.AuxiliaryTests.test_minimum_visits_budget_is_checked_before_opening_a_root) ... ok
+test_success_preserves_policy_action_probability_and_record_kind (test_search_auxiliary.AuxiliaryTests.test_success_preserves_policy_action_probability_and_record_kind) ... ok
+test_bad_settings_fail_before_mutation (test_search_supervision.SearchSupervisionTests.test_bad_settings_fail_before_mutation) ... ok
+test_bootstrap_unknown_identity_or_contract_missing_reject_entire_root (test_search_supervision.SearchSupervisionTests.test_bootstrap_unknown_identity_or_contract_missing_reject_entire_root) ... ok
+test_config_validation_is_opt_in_and_legacy_unchanged (test_search_supervision.SearchSupervisionTests.test_config_validation_is_opt_in_and_legacy_unchanged) ... ok
+test_hundreds_of_clones_of_one_particle_are_not_independent_evidence (test_search_supervision.SearchSupervisionTests.test_hundreds_of_clones_of_one_particle_are_not_independent_evidence) ... ok
+test_inconsistent_real_four_game_credit_rejected (test_search_supervision.SearchSupervisionTests.test_inconsistent_real_four_game_credit_rejected) ... ok
+test_missing_or_invalid_samples_reject_not_zero_fill (test_search_supervision.SearchSupervisionTests.test_missing_or_invalid_samples_reject_not_zero_fill) ... ok
+test_noisy_small_gap_keeps_prior_and_zero_weight (test_search_supervision.SearchSupervisionTests.test_noisy_small_gap_keeps_prior_and_zero_weight) ... ok
+test_population_missing_duplicates_or_insufficient_ess_fail_closed (test_search_supervision.SearchSupervisionTests.test_population_missing_duplicates_or_insufficient_ess_fail_closed) ... ok
+test_positive_excess_mean_not_per_action_best_four (test_search_supervision.SearchSupervisionTests.test_positive_excess_mean_not_per_action_best_four) ... ok
+test_raw_priors_allowed_conflicts_and_zero_support_checked (test_search_supervision.SearchSupervisionTests.test_raw_priors_allowed_conflicts_and_zero_support_checked) ... ok
+test_real_targets_likelihoods_actions_and_raw_evidence_unchanged (test_search_supervision.SearchSupervisionTests.test_real_targets_likelihoods_actions_and_raw_evidence_unchanged) ... ok
+test_repeating_all_clones_cannot_shrink_uncertainty (test_search_supervision.SearchSupervisionTests.test_repeating_all_clones_cannot_shrink_uncertainty) ... ok
+test_shared_particles_preserve_paired_noise_cancellation (test_search_supervision.SearchSupervisionTests.test_shared_particles_preserve_paired_noise_cancellation) ... ok
+test_stale_target_removed_when_evidence_no_longer_valid (test_search_supervision.SearchSupervisionTests.test_stale_target_removed_when_evidence_no_longer_valid) ... ok
+test_terminal_mean_retains_posterior_sampling_frequency (test_search_supervision.SearchSupervisionTests.test_terminal_mean_retains_posterior_sampling_frequency) ... ok
+
+----------------------------------------------------------------------
+Ran 161 tests in 33.391s
+
+OK (skipped=3)
+=== sharded learner script ===
+=== T1: mesh=None is bit-identical to practice.profile_weights ===
+  advantages identical                                       ok
+  policy weights identical                                   ok
+  value weights identical                                    ok
+  profiles/n                                                 ok
+
+=== T2: K-way sharded == single-rank reference on the concatenation ===
+  K=2 sizes=[400, 200] advantages                            ok
+  K=2 policy weights                                         ok
+  K=2 value weights                                          ok
+  K=2 every rank agrees on profiles and n                    ok
+  K=2 collective calls per rank identical                    ok (10 total)
+  K=8 sizes=[70, 90, 110, '...'] advantages                  ok
+  K=8 policy weights                                         ok
+  K=8 value weights                                          ok
+  K=8 every rank agrees on profiles and n                    ok
+  K=8 collective calls per rank identical                    ok (40 total)
+  K=8 sizes=[125, 125, 125, '...'] advantages                ok
+  K=8 policy weights                                         ok
+  K=8 value weights                                          ok
+  K=8 every rank agrees on profiles and n                    ok
+  K=8 collective calls per rank identical                    ok (40 total)
+
+=== T3: block plan lockstep and coverage ===
+  K=8 num_blocks == max ceil(n_r/128) = 6                    ok
+  K=8 num_blocks identical on all ranks (6)                  ok
+  K=8 n_global == sum(sizes)                                 ok
+  K=8 each rank covers its own records exactly once          ok
+  K=8 block lengths identical on all ranks                   ok
+  K=8 sum of global block lengths == n_global                ok
+  K=8 no rank chunk exceeds per_rank=128                     ok
+  K=8 chunks near-equal on every rank (max-min <= 1)         ok
+  K=8 every rank with >= num_blocks records is in every block ok
+  K=8 global blocks near-equal (max-min <= K)                ok
+  K=2 num_blocks == max ceil(n_r/4) = 3                      ok
+  K=2 num_blocks identical on all ranks (3)                  ok
+  K=2 n_global == sum(sizes)                                 ok
+  K=2 each rank covers its own records exactly once          ok
+  K=2 block lengths identical on all ranks                   ok
+  K=2 sum of global block lengths == n_global                ok
+  K=2 no rank chunk exceeds per_rank=4                       ok
+  K=2 chunks near-equal on every rank (max-min <= 1)         ok
+  K=2 every rank with >= num_blocks records is in every block ok
+  K=2 global blocks near-equal (max-min <= K)                ok
+  K=4 num_blocks == max ceil(n_r/16) = 4                     ok
+  K=4 num_blocks identical on all ranks (4)                  ok
+  K=4 n_global == sum(sizes)                                 ok
+  K=4 each rank covers its own records exactly once          ok
+  K=4 block lengths identical on all ranks                   ok
+  K=4 sum of global block lengths == n_global                ok
+  K=4 no rank chunk exceeds per_rank=16                      ok
+  K=4 chunks near-equal on every rank (max-min <= 1)         ok
+  K=4 every rank with >= num_blocks records is in every block ok
+  K=4 global blocks near-equal (max-min <= K)                ok
+  mesh=None keeps range(0,n,effective) (16 blocks, tail 40)  ok
+  mesh=None with no records -> no blocks                     ok
+
+=== T4: search_totals / reduce_nested across disjoint keys ===
+  search_totals identical on all ranks                       ok
+  search_totals sums 0.25 per searched record                ok {'hiro-hif': 0.5, 'liliya-xmas': 0.25, 'saki-hif': 0.5, 'saki-wild': 0.5, 'ume-campus': 0.5}
+  reduce_nested unions keys and sums leaves                  ok
+
+=== T5: reduce_coverage ===
+  coverage totals summed                                     ok
+  coverage fraction recomputed                               ok
+  coverage group union + sums                                ok
+
+ALL PASSED

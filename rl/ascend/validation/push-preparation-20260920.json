@@ -1,0 +1,52 @@
+{
+  "schema": "gakumas-push-preparation/1",
+  "checked_at": "2026-09-20T10:03:55.780937+08:00",
+  "base_ref": "origin/codex/v6-search-credit",
+  "branch": "codex/npu-utilization-v6-credit",
+  "dashboard": {
+    "command": "python -m unittest discover -s rl/ascend/dashboard -p 'test_*.py' -v",
+    "run": 27,
+    "passed": 26,
+    "skipped": 1,
+    "skip_reason": "Windows symbolic-link privilege unavailable"
+  },
+  "javascript_syntax": {
+    "passed": true,
+    "files": [
+      "dashboard/generalist.js",
+      "dashboard/search-panel.js"
+    ]
+  },
+  "native_profile_smoke": {
+    "command": "python rl/ascend/ops/verify_profiles.py",
+    "profiles": 6,
+    "failed_checks": 0,
+    "uses_model": false
+  },
+  "static_and_document_checks": {
+    "passed": true,
+    "python_ast": 55,
+    "json_parse": 5,
+    "changed_files": 69,
+    "bundle_document_paths": [
+      "OPTIMIZATION_20260920.md",
+      "evidence/optimization-20260920.json",
+      "optimization-progress-20260919.md",
+      "optimization-results.md"
+    ],
+    "document_links_valid": true,
+    "evidence_checks": 31,
+    "resource_samples": 259,
+    "dashboard_performance_and_scope_smoke": true,
+    "history_blobs_scanned": 131,
+    "credential_pattern_findings": [],
+    "history_blobs_over_50MiB": [],
+    "scope": "Static parsing, document-only bundle inventory/archive, reporting fixture and heuristic credential patterns. No model execution or training restart."
+  },
+  "learner_math_suite": {
+    "rerun": false,
+    "reason": "Local Python 3.11 and 3.13 have no PyTorch; historical CPU/NPU parity and production continuation evidence retained separately"
+  },
+  "scope": "Local push preparation only. No remote perf, deployment, training restart or git push performed.",
+  "base_commit": "cff87dabfa205edde015b8ad8b6525e07abcd17b"
+}

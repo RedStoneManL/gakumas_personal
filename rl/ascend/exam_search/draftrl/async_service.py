@@ -24,7 +24,9 @@ class SearchService:
         self.clients, self.lock = [], threading.Lock()
         self.stats, self.pending = Counter(), set()
         self.closed, self.policy_version = False, None
-        self.lexical_caches = ({}, {})
+        from .lexical_cache import search_encoders
+        self.lexical_encoders = search_encoders(model)
+        self.lexical_caches = tuple({} for _ in self.lexical_encoders)
         self.cache, self.cache_lock = OrderedDict(), threading.Lock()
         self.cache_limit, self.cache_bytes = inference_cache_bytes, 0
         self.busy_started = None
@@ -36,7 +38,8 @@ class SearchService:
         # seeds, effect merging, or hash-only identity. Preserve signed zeros.
         return pickle.dumps((encoded.atoms, encoded.edges, encoded.entity_count,
                              encoded.action_entities, encoded.phase,
-                             len(encoded.submissions)), protocol=5)
+                             len(encoded.submissions),
+                             getattr(encoded, 'relation_context', None)), protocol=5)
 
     def _get_cached(self, key):
         if key is None:
@@ -168,7 +171,8 @@ class SearchService:
                 else:
                     batch = collate([job['encoded'] for job in unique], self.device)
                 assembled = time.monotonic()
-                encoders = (self.model.actor, self.model.critic)
+                encoders = self.lexical_encoders
+                previous_caches = [getattr(encoder, '_search_lex_cache', None) for encoder in encoders]
                 try:
                     for encoder, cache in zip(encoders, self.lexical_caches):
                         encoder._search_lex_cache = cache
@@ -178,8 +182,8 @@ class SearchService:
                         predictions = values.cpu().tolist()
                         distributions = atoms.cpu().tolist() if atoms is not None else None
                 finally:
-                    for encoder in encoders:
-                        encoder._search_lex_cache = None
+                    for encoder, previous in zip(encoders, previous_caches):
+                        encoder._search_lex_cache = previous
                 self.stats['assembly_seconds'] += assembled-tick
                 self.stats['forward_seconds'] += time.monotonic()-assembled
                 def _width(job):

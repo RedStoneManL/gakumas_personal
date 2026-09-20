@@ -23,7 +23,27 @@ SCHEMA = 'arena-generalist-dashboard/1'
 REPLAY_REVISIONS = ('generalist', 'generalist-memory', 'generalist-support', 'generalist-explore', 'generalist-explore2', 'generalist-extra', 'generalist-keycard', 'generalist-keycard-long', 'generalist-duplicate4', 'generalist-duplicate3', 'generalist-lr0005', 'generalist-repeats', 'generalist-batch512', 'generalist-search', 'generalist-search-faststamp', 'generalist-search-viewref', 'generalist-search-best4', 'generalist-search-async', 'generalist-search-decisions', 'generalist-search-ultra', 'generalist-search-ultra-scale', 'generalist-search-soft-value', 'generalist-search-kl-value','generalist-search-signed-credit')
 
 
-def replay_runtime(root, candidate):
+def search_supervision_summary(metric, config):
+    """Budget-approved raw roots are not yet evidence-gated CE labels."""
+    auxiliary=metric.get('auxiliary_search') or {}
+    learning=metric.get('search_learning') or {}
+    ranks=(metric.get('search_batch') or {}).get('counts',{}).get('ranks_reporting')
+    return {'execution_mode':config.get('search',{}).get('execution_mode','act'),
+            'actor_search_records':metric.get('search_records'),
+            'real_ppo_records':metric.get('ppo_records'),
+            'auxiliary_raw_roots':metric.get('auxiliary_search_roots',0),
+            'auxiliary_labels':metric.get('auxiliary_search_records',0),
+            'auxiliary_weighted_labels':auxiliary.get('weighted_roots',0),
+            'auxiliary_rejected_roots':auxiliary.get('rejected_roots',0),
+            'auxiliary_rejected_reasons':auxiliary.get('rejected_reasons',{}),
+            'all_weighted_labels':learning.get('weighted_roots'),
+            'router_counter_scope':'learner_global' if ranks else 'main_router',
+            'ranks_reporting':ranks, 'inference_counter_scope':'main_router',
+            'learning_counter_scope':'learner_global',
+            'independent_heldout_validation':auxiliary.get('independent_heldout_validation')}
+
+
+def replay_runtime(root, candidate, *, arena_sha256=None):
     """Only explicitly supported, workspace-local frozen revisions are executable."""
     root = Path(root).resolve()
     path = Path(candidate).resolve()
@@ -31,6 +51,15 @@ def replay_runtime(root, candidate):
                for revision in REPLAY_REVISIONS}
     allowed.update({root/'exam_search/runtime/arena', root/'exam-search/runtime/arena'})
     if path not in allowed:
+        # Continuation manifests retain the original deployment's absolute path.
+        # Execute only this dashboard's bundled copy; replay_main still checks
+        # its content hash against the recording before creating an exam.
+        if (isinstance(arena_sha256, str) and len(arena_sha256) == 64
+                and all(c in '0123456789abcdef' for c in arena_sha256)):
+            for name in ('exam-search', 'exam_search'):
+                bundled = (root/name/'runtime/arena').resolve()
+                if bundled in allowed and bundled.is_dir():
+                    return bundled
         raise ValueError('Replay runtime is not an allowed frozen generalist revision')
     return path
 
@@ -119,6 +148,12 @@ def alive(pid):
     if not isinstance(pid, int) or pid <= 0:
         return None
     if os.name != 'nt':
+        try:
+            state=(Path('/proc')/str(pid)/'stat').read_text().rsplit(')',1)[-1].split()[0]
+            if state in ('Z','X'):
+                return False
+        except (OSError, IndexError):
+            pass
         try:
             os.kill(pid, 0)
             return True
@@ -209,6 +244,8 @@ class GeneralistData:
                     if r.get('policy_version') == version]
             result = {'policy_version': version, 'points': len(rows),
                       'valid_targets': sum(bool(r.get('valid_training_target')) for r in rows),
+                      'budget_admitted_roots': sum(bool(r.get('valid_training_target')) for r in rows),
+                      'quality_labels_available': False,
                       'statuses': dict(Counter(r.get('status') for r in rows)),
                       'max_points': 256, 'committed': False,
                       'modified_at': datetime.fromtimestamp(info.st_mtime, timezone.utc).isoformat()}
@@ -336,6 +373,18 @@ class GeneralistData:
         if status == 'running' and process_alive is False:
             status = 'stopped'
         config = manifest.get('config', {})
+        boundary=(manifest.get('continuations') or [{}])[-1].get('checkpoint_batch')
+        performance=[]
+        for row in metrics:
+            collect, update=row.get('collection_seconds'), row.get('update_seconds')
+            seconds=(collect+update if isinstance(collect,(int,float))
+                     and isinstance(update,(int,float)) else None)
+            decisions=row.get('batch_decisions_actual')
+            performance.append({'batch':row.get('batch'), 'decisions':decisions,
+                'ppo_records':row.get('ppo_records'), 'optimizer_steps':row.get('optimizer_steps'),
+                'collection_seconds':collect, 'update_seconds':update, 'training_seconds':seconds,
+                'decisions_per_second':decisions/seconds if seconds and decisions is not None else None,
+                'from_current_revision':boundary is None or row.get('batch',0)>boundary})
         pool = pool_rules(manifest)
         profile_meta = {p['id']: p for p in manifest.get('profiles', [])}
         profiles = []
@@ -374,6 +423,7 @@ class GeneralistData:
                     'best4_training':last.get('build_best_of_k'),
                     'best4_validation':best4_history[-1] if best4_history else None,
                     'config':config.get('search',{}), 'batch':last.get('batch'),
+                    'resource_settings':progress.get('resource_settings') or {},
                     'latest':last.get('search_batch',{}),
                     'current_progress':progress.get('search_progress'),
                     'current_rollout':self.current_rollout(job, progress),
@@ -385,6 +435,7 @@ class GeneralistData:
                     'batch_decisions_actual':last.get('batch_decisions_actual'),
                     'loss':last.get('search_loss'), 'search_records':last.get('search_records'),
                     'ppo_records':last.get('ppo_records'),
+                    'supervision':search_supervision_summary(last,config),
                     'version':manifest.get('search_version')},
             practice={'enabled':bool(config.get('practice')), 'config':config.get('practice',{}),
                       'committed_objective':last.get('construction_objective','mean'),
@@ -409,6 +460,8 @@ class GeneralistData:
                  'source_sha256': manifest.get('rl_source_sha256'), 'arena_sha256': manifest.get('arena_sha256')},
             status=status, trainer_alive=process_alive, trainer_pid=progress.get('trainer_pid'),
             stale_seconds=max(0, round(time.time() - modified)), updated_at=progress.get('updated_at'),
+            last_activity_at=datetime.fromtimestamp(modified, timezone.utc).isoformat(),
+            performance={'batches':performance, 'scope':'collection_and_update_excluding_evaluation'},
             progress={k: (config.get(k, progress.get(k)) if k == 'batch_decisions'
                           else progress.get(k, config.get(k))) for k in
                       ('batches', 'decisions', 'event', 'elapsed_minutes', 'batch_decisions',
@@ -547,7 +600,8 @@ class GeneralistData:
                       policy_turn_visibility=row.get('policy_turn_visibility'))
         if not replay:
             return result
-        frozen = replay_runtime(self.root, manifest.get('arena_path') or self.base / 'runtime/arena')
+        frozen = replay_runtime(self.root, manifest.get('arena_path') or self.base / 'runtime/arena',
+                                arena_sha256=manifest.get('arena_sha256'))
         key = hashlib.sha256(json.dumps([row, str(frozen), manifest.get('arena_sha256')], sort_keys=True).encode()).hexdigest()
         with self.replay_lock:
             if key in self.cache:

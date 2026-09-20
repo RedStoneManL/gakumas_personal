@@ -87,10 +87,13 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
            rollout_steps=64, c_puct=1.5, search_seed=9171,
            root_selection='gumbel_halving', objective_k=1, recoverable=None,
            require_terminal=False,
-           soft_floor=.25, soft_temperature=.8, soft_min_visits=2, learning_target=None):
+           soft_floor=.25, soft_temperature=.8, soft_min_visits=2, learning_target=None,
+           rollout_temperature=0.):
     """sample_world() returns a fresh compatible hypothetical world.
 
-    A world exposes only observe() and step(public_command) to this algorithm.
+    A world exposes observe() and step(public_command), and may expose an opaque
+    particle_index for diagnostics only. This identity never reaches the public
+    tree keys or evaluator. Missing identities remain unknown, not independent.
     evaluate(view) returns Evaluation; terminal_return is the full normalized
     terminal score. Intermediate cumulative scores are not added again.
     max_depth counts policy decisions, including pending choice substeps.
@@ -101,31 +104,43 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
         raise ValueError('Invalid search budget')
     if root_selection not in ('puct', 'gumbel_halving', 'soft_budget'):
         raise ValueError('Unknown root selection')
-    if not 0 < soft_floor < 1 or soft_temperature <= 0 or soft_min_visits != 2:
+    if (not 0 < soft_floor < 1 or soft_temperature <= 0 or
+            type(soft_min_visits) is not int or not 2 <= soft_min_visits <= 8):
         raise ValueError('Invalid soft allocation settings')
     if type(objective_k) is not int or objective_k not in (1,4):
         raise ValueError('Supported search objectives are mean or empirical Best-of-4')
+    if (isinstance(rollout_temperature, bool) or
+            not isinstance(rollout_temperature, (int, float)) or
+            not math.isfinite(rollout_temperature) or rollout_temperature < 0):
+        raise ValueError('Rollout temperature must be finite and nonnegative')
     rng = random.Random(search_seed)
+    # An opt-in continuation experiment must not consume the tree allocator's
+    # random stream. Zero temperature is the exact historical greedy policy.
+    rollout_rng = random.Random(search_seed ^ 0x6C656166)
     counters = {'worlds': 0, 'policy_evaluations': 0, 'world_steps': 0,
                 'terminal_evaluations': 0, 'bootstrap_evaluations': 0,
                 'discarded_unterminated': 0}
     root_signature = key(root_view)
     cache = {}
 
-    def assess(view):
+    def assess(view, *, with_signature=False):
         signature = key(view)
         if signature not in cache:
             value = evaluate(copy.deepcopy(view))
             value.validate()
             cache[signature] = value
             counters['policy_evaluations'] += 1
-        return cache[signature]
+        return (cache[signature], signature) if with_signature else cache[signature]
 
     first = assess(root_view)
     if first.terminal_return is not None:
         raise ValueError('Search root is already terminal')
     tree = {root_signature: Node(first,objective_k)}
     root = tree[root_signature]
+    root_attempts = [0] * len(first.actions)
+    root_sample_groups = [[] for _ in first.actions]
+    root_sample_grounded = [[] for _ in first.actions]
+    root_sample_path_ids = [[] for _ in first.actions]
     prior_logits = [math.log(max(p, 1e-12)) for p in first.priors]
     gumbels = [-math.log(-math.log(max(1e-12, rng.random()))) for _ in first.actions]
     contenders = sorted(range(len(first.actions)),
@@ -155,20 +170,31 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
     def root_ranking(i):
         return gumbels[i] + prior_logits[i] + transformed_q()[i]
 
-    def leaf(world, view):
-        # Returns (value, grounded); grounded is True only for a real terminal score.
+    def leaf(world, view, trace):
+        # Trace describes the complete public trajectory, regardless of where
+        # this search split it between explicit tree decisions and the rollout.
+        previous_action = None
         for step in range(rollout_steps + 1):
-            current = assess(view)
+            current, signature = assess(view, with_signature=True)
+            if step > 0:
+                trace = key([trace, previous_action, signature])
             if current.terminal_return is not None:
                 counters['terminal_evaluations'] += 1
-                return current.terminal_return, True
+                return current.terminal_return, True, trace
             if step == rollout_steps:
                 counters['bootstrap_evaluations'] += 1
-                return (tuple(current.return_atoms) if current.return_atoms else current.value), False
-            # Greedy public-policy rollout. Deeper tree decisions progressively
-            # replace this weak continuation; it is not a handcrafted teacher.
-            action = current.actions[max(range(len(current.actions)),
-                                         key=lambda i: current.priors[i])]
+                return (tuple(current.return_atoms) if current.return_atoms else current.value), False, trace
+            if rollout_temperature == 0:
+                action_index = max(range(len(current.actions)), key=lambda i: current.priors[i])
+            else:
+                # Retain zero policy probabilities and stabilize very small
+                # temperatures by subtracting the maximum before division.
+                log_priors = [math.log(p) if p > 0 else -math.inf for p in current.priors]
+                largest = max(log_priors)
+                weights = [math.exp((v-largest)/rollout_temperature) for v in log_priors]
+                action_index = rollout_rng.choices(range(len(weights)), weights=weights, k=1)[0]
+            action = current.actions[action_index]
+            previous_action = action
             view = world.step(copy.deepcopy(action))
             counters['world_steps'] += 1
 
@@ -188,8 +214,11 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
         forced_root = None
         if root_selection == 'soft_budget':
             if min(root.visits) < soft_min_visits:
-                minimum = min(root.visits)
-                forced_root = next(i for i in contenders if root.visits[i]==minimum)
+                # Successful visits are the evidence threshold, but attempts
+                # allocate work. A long unterminated action must not repeatedly
+                # win warmup while preventing other actions from being tried.
+                missing = [i for i in contenders if root.visits[i] < soft_min_visits]
+                forced_root = min(missing, key=lambda i: root_attempts[i])
             else:
                 probabilities = soft_probabilities()
                 for i,p in enumerate(probabilities): debt[i] += p
@@ -212,7 +241,11 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
             view = world.observe()
             if key(view) != root_signature:
                 raise ValueError('Sampled world contradicts the public root')
+            particle_index = getattr(world, 'particle_index', None)
+            if particle_index is not None and type(particle_index) not in (int, str):
+                raise ValueError('Particle identity must be an opaque integer/string or None')
             history = root_signature
+            trace = root_signature
             path = []
             value = None
             grounded = False
@@ -221,12 +254,15 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
                 action_index = forced_root if depth == 0 and forced_root is not None else node.select(rng, c_puct)
                 action = node.evaluation.actions[action_index]
                 path.append((node, action_index))
+                if depth == 0:
+                    root_attempts[action_index] += 1
                 view = world.step(copy.deepcopy(action))
                 counters['world_steps'] += 1
                 # No true-world ID in a node key. Identical public histories share
                 # decisions even when their hypothetical hidden decks differ.
                 history = key([history, action, view])
-                current = assess(view)
+                current, signature = assess(view, with_signature=True)
+                trace = key([trace, action, signature])
                 if current.terminal_return is not None:
                     value = current.terminal_return
                     grounded = True
@@ -234,10 +270,10 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
                     break
                 if history not in tree:
                     tree[history] = Node(current,objective_k)
-                    value, grounded = leaf(world, view)
+                    value, grounded, trace = leaf(world, view, trace)
                     break
                 if depth + 1 == max_depth:
-                    value, grounded = leaf(world, view)
+                    value, grounded, trace = leaf(world, view, trace)
             if value is None or not math.isfinite(sample_mean(value)):
                 raise ValueError('Incomplete simulation is not a zero-score sample')
             if require_terminal and not grounded:
@@ -249,6 +285,10 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
                     node.visits[index] += 1
                     node.totals[index] += sample_mean(value)
                     node.samples[index].append(value)
+                root_index = path[0][1]
+                root_sample_groups[root_index].append(particle_index)
+                root_sample_grounded[root_index].append(grounded)
+                root_sample_path_ids[root_index].append(trace)
             # Resident Arena branches must be released before the next simulation.
             # On exceptions their owning adapter retains cleanup responsibility.
             release = getattr(world, 'release', None)
@@ -264,6 +304,12 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
             break
 
     total = sum(root.visits)
+    # Public consumers may pair or cluster these samples. Fail loudly if any
+    # provenance field becomes detached from its backed-up return.
+    for i, count in enumerate(root.visits):
+        assert (count == len(root.samples[i]) == len(root_sample_groups[i])
+                == len(root_sample_grounded[i]) == len(root_sample_path_ids[i]))
+    root_terminal_counts = [sum(flags) for flags in root_sample_grounded]
     # improve() forms a delete-one jackknife and so needs two samples for every action.
     # With require_terminal a root can finish under that bar, and the ValueError it
     # raises here would escape root_search's budget handlers and kill the search worker.
@@ -297,8 +343,22 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
     return {'schema': 'arena-public-history-mcts/0', 'root_selection': root_selection,
             'selected_action': copy.deepcopy(first.actions[selected]),
             'actions': copy.deepcopy(first.actions), 'target_policy': policy,
+            'root_priors': first.priors[:],
             'behavior_policy':behavior, 'learning_target':learning,
             'root_visits': root.visits,
+            'root_attempts': root_attempts,
+            'root_return_samples': [[list(v) if isinstance(v, tuple) else v for v in samples]
+                                    for samples in root.samples],
+            'root_sample_groups': root_sample_groups,
+            'root_sample_grounded': root_sample_grounded,
+            'root_sample_path_ids': root_sample_path_ids,
+            'root_terminal_counts': root_terminal_counts,
+            'root_distinct_particles': [len(set(g for g in groups if g is not None))
+                                        for groups in root_sample_groups],
+            'root_unknown_particle_samples': [sum(g is None for g in groups)
+                                              for groups in root_sample_groups],
+            'root_distinct_paths': [len(set(paths)) for paths in root_sample_path_ids],
+            'particle_identity_semantics': 'Opaque root-sampler slot, not an independent world guarantee; duplicate slots may represent the same hidden state. Unknown identities stay null.',
             'root_value_mean': first.value,
             'root_value_best4': mixture_best_of([first.return_atoms],4) if first.return_atoms else None,
             'value_semantics': '32-quantile behavioral distribution; Best4 once' if first.return_atoms else 'legacy scalar',
@@ -310,10 +370,15 @@ def search(root_view, sample_world, evaluate, *, simulations=64, max_depth=8,
             'soft_allocation': {'floor':soft_floor,'temperature':soft_temperature,
                 'minimum_visits':soft_min_visits,'permanently_eliminated_actions':0} if root_selection=='soft_budget' else None,
             'root_action_coverage': sum(n > 0 for n in root.visits)/len(root.visits),
+            'root_attempted_action_coverage': sum(n > 0 for n in root_attempts)/len(root_attempts),
             'tree_decision_nodes': len(tree), 'cost': counters,
             'simulations_requested': simulations, 'simulations_completed': completed,
             'require_terminal': require_terminal,
-            'terminal_grounded_simulations': total,
+            'terminal_grounded_simulations': sum(root_terminal_counts),
+            'continuation_contract': {'policy': 'greedy' if rollout_temperature == 0 else 'policy_temperature',
+                'temperature': rollout_temperature, 'rng_stream': 'separate_seeded_rollout',
+                'terminal_only_samples': require_terminal,
+                'scope': 'Current-policy continuation, not optimal play; particle/path repetition is not independent evidence.'},
             'truncated_reason': None if truncated is None else str(truncated),
             'teacher_qualified': False,
             'target_budget_eligible': (all(n > 0 for n in root.visits)

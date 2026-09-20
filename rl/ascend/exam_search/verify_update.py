@@ -66,12 +66,56 @@ def learning_problems(metric, config):
         check(math.isclose(row['actual_contribution'],max(row['own_return']-row['peer_max'],0.),abs_tol=1e-6),
               'Signed credit altered the Best4 contribution')
     learning=metric.get('search_learning') or {}
-    check(learning.get('roots')==metric.get('search_records') and 0<=learning.get('weighted_roots',-1)<=learning.get('roots',0),
+    label_count=(metric.get('search_records') or 0)+(metric.get('auxiliary_search_records') or 0)
+    check(learning.get('roots')==label_count and 0<=learning.get('weighted_roots',-1)<=learning.get('roots',0),
           'Search learning direction counts differ')
     for key in ('mean_weight','mean_target_entropy','mean_prior_entropy','mean_behavior_entropy'):
         value=learning.get(key)
         check(isinstance(value,(int,float)) and math.isfinite(value) and 0<=value<=1.00001,
               'Missing or invalid search learning '+key)
+    return problems
+
+
+def search_record_problems(metric, config):
+    """Separate action ownership, budget admission, evidence gates and CE weight."""
+    problems=[]
+    def check(ok, message):
+        if not ok: problems.append(message)
+    counts=(metric.get('search_batch') or {}).get('counts',{})
+    actor=metric.get('search_records',0)
+    raw=metric.get('auxiliary_search_roots',0)
+    labels=metric.get('auxiliary_search_records',0)
+    ppo=metric.get('ppo_records',0)
+    if any(type(n) is not int or n<0 for n in (actor,raw,labels,ppo)):
+        return ['Invalid search/PPO record counters']
+    budget=counts.get('accepted_targets',0)
+    check(type(budget) is int and budget>=0,'Invalid search budget-admission count')
+    if type(budget) is not int or budget<0:
+        return problems
+    distributed=(metric.get('learner_world_size',config.get('learner_world_size',1)) or 1)>1
+    if config.get('search',{}).get('execution_mode','act')=='auxiliary':
+        auxiliary=metric.get('auxiliary_search') or {}
+        check(actor==0,'Auxiliary search replaced real policy actions')
+        check(0<=labels<=raw<=ppo,'Auxiliary roots/labels must be subsets of real PPO records')
+        check(auxiliary.get('mode')=='peer_marginal' and auxiliary.get('roots')==raw
+              and auxiliary.get('accepted_roots')==labels,'Auxiliary evidence-gate counts differ')
+        rejected,weighted=auxiliary.get('rejected_roots'),auxiliary.get('weighted_roots')
+        check(type(rejected) is int and rejected>=0 and rejected+labels==raw,
+              'Auxiliary accepted/rejected evidence does not account for all roots')
+        check(type(weighted) is int and 0<=weighted<=labels,'Auxiliary weighted-label count differs')
+        learning=metric.get('search_learning') or {}
+        check(learning.get('roots')==labels and learning.get('weighted_roots')==weighted,
+              'Auxiliary CE direction counts differ')
+        check(auxiliary.get('independent_heldout_validation') is False,
+              'Auxiliary search evidence must not claim independent held-out validation')
+        # search_batch is the main router's local counter; PPO statistics above
+        # are reduced over learner ranks. Never multiply local counts by ranks.
+        check(budget<=raw if distributed else budget==raw,
+              'Auxiliary raw roots differ from comparable budget-admission counts')
+    else:
+        check(raw==0 and labels==0,'Legacy acting-search batch unexpectedly contains auxiliary labels')
+        check(budget<=actor if distributed else budget==actor,
+              'Search action records differ from comparable budget-admission counts')
     return problems
 
 
@@ -103,7 +147,6 @@ def audit(folder):
     for key in ('loss','policy_loss','search_loss','value_loss','kl','grad_norm'):
         check(isinstance(last.get(key),(float,int)) and math.isfinite(last[key]),'Missing/nonfinite '+key)
     counts = last.get('search_batch',{}).get('counts',{})
-    check(last.get('search_records')==counts.get('accepted_targets',0),'Search record/accepted target counts differ')
     check(last.get('fork_coverage',{}).get('coverage')==1,'Not every new deck received its repeat')
     check(last.get('optimizer_steps',0)>0,'No accepted optimizer update')
     current_revision = last.get('source_sha256') == info['rl_source_sha256']
@@ -111,6 +154,7 @@ def audit(folder):
     if not inherited_completion:
         problems.extend(coverage_problems(last, info['training_config']))
         problems.extend(learning_problems(last, info['training_config']))
+        problems.extend(search_record_problems(last, info['training_config']))
     expected_profiles = {p['id'] for p in manifest['profiles']}
     check(set(last.get('profiles',{}))==expected_profiles,'Not all configured idols represented')
     best = info.get('committed_best')
@@ -156,6 +200,12 @@ def audit(folder):
         'joint_games':last.get('joint_episode_count'),'fork_games':last.get('fork_episode_count'),
         'fork_coverage':last.get('fork_coverage',{}).get('coverage'),
         'search_records':last.get('search_records'),'ppo_records':last.get('ppo_records'),
+        'actor_search_records':last.get('search_records'),
+        'auxiliary_search_roots':last.get('auxiliary_search_roots',0),
+        'auxiliary_search_records':last.get('auxiliary_search_records',0),
+        'auxiliary_weighted_labels':(last.get('auxiliary_search') or {}).get('weighted_roots',0),
+        'auxiliary_search':last.get('auxiliary_search'),
+        'search_counter_scope':'main-router budget counts; learner-global PPO and CE counts',
         'configured_objective':objective,'committed_objective':last.get('construction_objective','mean'),
         'search_activity':'roots_attempted' if counts.get('attempted_roots',0)>0 else 'no_roots_in_this_batch',
         'committed_best4':best4,
